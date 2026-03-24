@@ -1,180 +1,180 @@
 {
   "jsonAssets": [
     {
-      "name": "SpotAccount",
-      "filename": "spot-account-light.json"
+      "name": "AnimatedSpotAccount",
+      "filename": "animated-spot-account-light.json"
     },
     {
-      "name": "SpotBilling",
-      "filename": "spot-billing-light.json"
+      "name": "AnimatedSpotBilling",
+      "filename": "animated-spot-billing-light.json"
     },
     {
-      "name": "SpotBoiler",
-      "filename": "spot-boiler-light.json"
+      "name": "AnimatedSpotBoiler",
+      "filename": "animated-spot-boiler-light.json"
     },
     {
-      "name": "SpotBookAppointments",
-      "filename": "spot-book-appointments-light.json"
+      "name": "AnimatedSpotBookAppointments",
+      "filename": "animated-spot-book-appointments-light.json"
     },
     {
-      "name": "SpotBroadbandSymbol",
-      "filename": "spot-broadband-symbol-light.json"
+      "name": "AnimatedSpotBroadbandSymbol",
+      "filename": "animated-spot-broadband-symbol-light.json"
     },
     {
-      "name": "SpotBundle1",
-      "filename": "spot-bundle-1-light.json"
+      "name": "AnimatedSpotBundle1",
+      "filename": "animated-spot-bundle-1-light.json"
     },
     {
-      "name": "SpotBundle2",
-      "filename": "spot-bundle-2-light.json"
+      "name": "AnimatedSpotBundle2",
+      "filename": "animated-spot-bundle-2-light.json"
     },
     {
-      "name": "SpotCalendar",
-      "filename": "spot-calendar-light.json"
+      "name": "AnimatedSpotCalendar",
+      "filename": "animated-spot-calendar-light.json"
     },
     {
-      "name": "SpotCelebratory",
-      "filename": "spot-celebratory-light.json"
+      "name": "AnimatedSpotCelebratory",
+      "filename": "animated-spot-celebratory-light.json"
     },
     {
-      "name": "SpotConfetti",
-      "filename": "spot-confetti-light.json"
+      "name": "AnimatedSpotConfetti",
+      "filename": "animated-spot-confetti-light.json"
     },
     {
-      "name": "SpotDarkMode",
-      "filename": "spot-dark-mode-light.json"
+      "name": "AnimatedSpotDarkMode",
+      "filename": "animated-spot-dark-mode-light.json"
     },
     {
-      "name": "SpotEarnings",
-      "filename": "spot-earnings-light.json"
+      "name": "AnimatedSpotEarnings",
+      "filename": "animated-spot-earnings-light.json"
     },
     {
-      "name": "SpotEmptyState1",
-      "filename": "spot-empty-state-1-light.json"
+      "name": "AnimatedSpotEmptyState1",
+      "filename": "animated-spot-empty-state-1-light.json"
     },
     {
-      "name": "SpotEmptyState2",
-      "filename": "spot-empty-state-2-light.json"
+      "name": "AnimatedSpotEmptyState2",
+      "filename": "animated-spot-empty-state-2-light.json"
     },
     {
-      "name": "SpotError",
-      "filename": "spot-error-light.json"
+      "name": "AnimatedSpotError",
+      "filename": "animated-spot-error-light.json"
     },
     {
-      "name": "SpotEV",
-      "filename": "spot-ev-light.json"
+      "name": "AnimatedSpotEV",
+      "filename": "animated-spot-ev-light.json"
     },
     {
-      "name": "SpotHeart",
-      "filename": "spot-heart-light.json"
+      "name": "AnimatedSpotHeart",
+      "filename": "animated-spot-heart-light.json"
     },
     {
-      "name": "SpotHelp",
-      "filename": "spot-help-light.json"
+      "name": "AnimatedSpotHelp",
+      "filename": "animated-spot-help-light.json"
     },
     {
-      "name": "SpotHowToVideos",
-      "filename": "spot-how-to-videos-light.json"
+      "name": "AnimatedSpotHowToVideos",
+      "filename": "animated-spot-how-to-videos-light.json"
     },
     {
-      "name": "SpotInnovation",
-      "filename": "spot-innovation-light.json"
+      "name": "AnimatedSpotInnovation",
+      "filename": "animated-spot-innovation-light.json"
     },
     {
-      "name": "SpotKeepTrack",
-      "filename": "spot-keep-track-light.json"
+      "name": "AnimatedSpotKeepTrack",
+      "filename": "animated-spot-keep-track-light.json"
     },
     {
-      "name": "SpotLeads",
-      "filename": "spot-leads-light.json"
+      "name": "AnimatedSpotLeads",
+      "filename": "animated-spot-leads-light.json"
     },
     {
-      "name": "SpotMovingHouse",
-      "filename": "spot-moving-house-light.json"
+      "name": "AnimatedSpotMovingHouse",
+      "filename": "animated-spot-moving-house-light.json"
     },
     {
-      "name": "SpotNeighbours",
-      "filename": "spot-neighbours-light.json"
+      "name": "AnimatedSpotNeighbours",
+      "filename": "animated-spot-neighbours-light.json"
     },
     {
-      "name": "SpotNewLook",
-      "filename": "spot-new-look-light.json"
+      "name": "AnimatedSpotNewLook",
+      "filename": "animated-spot-new-look-light.json"
     },
     {
-      "name": "SpotNoBroadband",
-      "filename": "spot-no-broadband-light.json"
+      "name": "AnimatedSpotNoBroadband",
+      "filename": "animated-spot-no-broadband-light.json"
     },
     {
-      "name": "SpotNotification",
-      "filename": "spot-notification-light.json"
+      "name": "AnimatedSpotNotification",
+      "filename": "animated-spot-notification-light.json"
     },
     {
-      "name": "SpotPests",
-      "filename": "spot-pests-light.json"
+      "name": "AnimatedSpotPests",
+      "filename": "animated-spot-pests-light.json"
     },
     {
-      "name": "SpotProcessCompleteFunctional",
-      "filename": "spot-process-complete-functional-light.json"
+      "name": "AnimatedSpotProcessCompleteFunctional",
+      "filename": "animated-spot-process-complete-functional-light.json"
     },
     {
-      "name": "SpotQuoteSales",
-      "filename": "spot-quote-sales-light.json"
+      "name": "AnimatedSpotQuoteSales",
+      "filename": "animated-spot-quote-sales-light.json"
     },
     {
-      "name": "SpotRecognition",
-      "filename": "spot-recognition-light.json"
+      "name": "AnimatedSpotRecognition",
+      "filename": "animated-spot-recognition-light.json"
     },
     {
-      "name": "SpotSavings2",
-      "filename": "spot-savings-2-light.json"
+      "name": "AnimatedSpotSavings2",
+      "filename": "animated-spot-savings-2-light.json"
     },
     {
-      "name": "SpotSecurity",
-      "filename": "spot-security-light.json"
+      "name": "AnimatedSpotSecurity",
+      "filename": "animated-spot-security-light.json"
     },
     {
-      "name": "SpotSecurityCode",
-      "filename": "spot-security-code-light.json"
+      "name": "AnimatedSpotSecurityCode",
+      "filename": "animated-spot-security-code-light.json"
     },
     {
-      "name": "SpotSmartMeter",
-      "filename": "spot-smart-meter-light.json"
+      "name": "AnimatedSpotSmartMeter",
+      "filename": "animated-spot-smart-meter-light.json"
     },
     {
-      "name": "SpotSuccess",
-      "filename": "spot-success-light.json"
+      "name": "AnimatedSpotSuccess",
+      "filename": "animated-spot-success-light.json"
     },
     {
-      "name": "SpotSwitch",
-      "filename": "spot-switch-light.json"
+      "name": "AnimatedSpotSwitch",
+      "filename": "animated-spot-switch-light.json"
     },
     {
-      "name": "SpotWelcome",
-      "filename": "spot-welcome-light.json"
+      "name": "AnimatedSpotWelcome",
+      "filename": "animated-spot-welcome-light.json"
     },
     {
-      "name": "UWLogoExtendedOffWhite",
-      "filename": "uw-logo-extended-off-white-light.json"
+      "name": "AnimatedUWLogoExtendedOffWhite",
+      "filename": "animated-uw-logo-extended-off-white-light.json"
     },
     {
-      "name": "UWLogoExtendedPurple",
-      "filename": "uw-logo-extended-purple-light.json"
+      "name": "AnimatedUWLogoExtendedPurple",
+      "filename": "animated-uw-logo-extended-purple-light.json"
     },
     {
-      "name": "UWLogoStandardOffWhite",
-      "filename": "uw-logo-standard-off-white-light.json"
+      "name": "AnimatedUWLogoStandardOffWhite",
+      "filename": "animated-uw-logo-standard-off-white-light.json"
     },
     {
-      "name": "UWLogoStandardPurple",
-      "filename": "uw-logo-standard-purple-light.json"
+      "name": "AnimatedUWLogoStandardPurple",
+      "filename": "animated-uw-logo-standard-purple-light.json"
     },
     {
-      "name": "UWMonoOffWhite",
-      "filename": "uw-mono-off-white-light.json"
+      "name": "AnimatedUWMonoOffWhite",
+      "filename": "animated-uw-mono-off-white-light.json"
     },
     {
-      "name": "UWMonoPurple",
-      "filename": "uw-mono-purple-light.json"
+      "name": "AnimatedUWMonoPurple",
+      "filename": "animated-uw-mono-purple-light.json"
     }
   ]
 }
