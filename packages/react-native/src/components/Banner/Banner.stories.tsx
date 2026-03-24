@@ -96,11 +96,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   render: (args: any) => {
-    return (
-      <View style={{ width: 400 }}>
-        <Banner {...args} icon={ElectricityMediumIcon} />
-      </View>
-    );
+    return <Banner {...args} icon={ElectricityMediumIcon} />;
   },
 };
 
@@ -138,7 +134,7 @@ export const WithIcon: Story = {
 export const WithIllustration: Story = {
   render: () => {
     return (
-      <View style={{ width: 400 }}>
+      <View>
         <Flex spacing="lg" direction="column">
           <Banner
             illustration={
