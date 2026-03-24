@@ -49,7 +49,7 @@ jobs:
 
       - name: create env file
         run: |
-          cat <<EOF > ./packages/svg-assets/.env
+          cat <<EOF > ./packages/json-assets/.env
           BRANDFOLDER_API_KEY=${{ secrets.BRANDFOLDER_API_KEY }}
           BRANDFOLDER_COLLECTION_ID=${{ secrets.BRANDFOLDER_COLLECTION_ID }}
           EOF
