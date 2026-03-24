@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "clean": "rm -rf node_modules storybook-static .turbo",
     "build:storybook": "storybook build",
-    "build:storybook:docs": "storybook build --docs"
+    "build:storybook:docs": "storybook build"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-css-reset": "workspace:*",

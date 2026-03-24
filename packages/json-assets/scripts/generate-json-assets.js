@@ -23,7 +23,7 @@ const brandfolderConfig = {
 
 const transformers = {
   normalizeFilename(fileName) {
-    return fileName.split('.')[0].toLowerCase().replace(/_/g, '-') + '-light.json';
+    return `animated-${fileName.split('.')[0].toLowerCase().replace(/_/g, '-')}-light.json`;
   },
   toJsxName(filePath) {
     const withoutExt = filePath.replace(/\.[^.]+$/, '');
@@ -31,7 +31,7 @@ const transformers = {
       .split(/[\\/]/)
       .flatMap(part => part.split(/[^a-zA-Z0-9]+/))
       .filter(Boolean);
-    return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+    return `Animated${parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('')}`;
   },
 };
 
