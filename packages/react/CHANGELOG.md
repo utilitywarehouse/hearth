@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.1
+
+### Patch Changes
+
+- [#1032](https://github.com/utilitywarehouse/hearth/pull/1032) [`c7e9c9c`](https://github.com/utilitywarehouse/hearth/commit/c7e9c9cd34778f3c5fc0e1ae03fb6a68247e6a3d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `data-current-color` casing on `Spinner`
+
 ## 0.27.0
 
 ### Minor Changes
