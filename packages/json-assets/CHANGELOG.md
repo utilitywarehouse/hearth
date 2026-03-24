@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.2.0
+
+### Minor Changes
+
+- [#1043](https://github.com/utilitywarehouse/hearth/pull/1043) [`11f0782`](https://github.com/utilitywarehouse/hearth/commit/11f078258f19546f72bed5c452cb302b63835967) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Prefix files & imports with `animated` for clarity
+
 ## 0.1.0
 
 ### Minor Changes
