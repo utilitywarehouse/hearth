@@ -34,7 +34,9 @@ Icons are often used to enhance the usability and accessibility of digital produ
 You can either use the React Native components directy from our `@utilitywarehouse/hearth-react-native-icons` package or use the `Icon`
 component from our `@utilitywarehouse/hearth-react-native` package to render the icons with utility props such as `color`.
 
-The following example shows how to use the icons directly from the `@utilitywarehouse/hearth-react-native-icons` package.
+We reccomend that you use the `Icon` component to ensure that the icons are styled correctly and consistently across your application.
+The `Icon` component also provides additional functionality such as handling different color modes and sizes as well as automatically applying
+light and dark mode colors from the theme.
 
 <UsageWrap>
   <Center>
@@ -60,16 +62,16 @@ const MyComponent = () => {
   const { color } = useTheme();
   return (
     <Flex spacing="lg" direction="row" alignItems="center">
-      <ElectricityMediumIcon color={color.energyBlue['700']} />
-      <MobileMediumIcon color={color.mobileRose['700']} />
-      <BroadbandMediumIcon color={color.broadbandGreen['700']} />
-      <InsuranceMediumIcon color={color.insuranceOrange['700']} />
+      <Icon as={ElectricityMediumIcon} color={color.energyBlue['700']} />
+      <Icon as={MobileMediumIcon} color={color.mobileRose['700']} />
+      <Icon as={BroadbandMediumIcon} color={color.broadbandGreen['700']} />
+      <Icon as={InsuranceMediumIcon} color={color.insuranceOrange['700']} />
     </Flex>
   );
 };
 ```
 
-Or you can use the `Icon` component to render the icons.
+Or you can use the icons directly from the `@utilitywarehouse/hearth-react-native-icons` package. Make sure you handle the color prop correctly, including light and dark modes.
 
 ```jsx
 import { Flex, Icon, color } from '@utilitywarehouse/hearth-react-native';
@@ -81,12 +83,13 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {
+  const { color } = useTheme();
   return (
     <Flex spacing="lg" direction="row" alignItems="center">
-      <Icon as={ElectricityMediumIcon} color="energyBlue700" />
-      <Icon as={MobileMediumIcon} color="mobileRose700" />
-      <Icon as={BroadbandMediumIcon} color="broadbandGreen700" />
-      <Icon as={InsuranceMediumIcon} color="insuranceOrange700" />
+      <ElectricityMediumIcon color={color.energyBlue['700']} />
+      <MobileMediumIcon color={color.mobileRose['700']} />
+      <BroadbandMediumIcon color={color.broadbandGreen['700']} />
+      <InsuranceMediumIcon color={color.insuranceOrange['700']} />
     </Flex>
   );
 };
