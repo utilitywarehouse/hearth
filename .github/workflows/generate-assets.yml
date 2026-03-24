@@ -1,11 +1,11 @@
-name: Generate Assets
+name: Generate SVG Assets
 on:
   workflow_dispatch:
     inputs:
       branchName:
         description: 'Branch name'
         required: true
-        default: 'assets-release'
+        default: 'svg-assets-release'
         type: string
       type:
         description: |
@@ -26,7 +26,7 @@ permissions:
 
 jobs:
   generate:
-    name: Generate assets packages
+    name: Generate SVG assets packages
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)

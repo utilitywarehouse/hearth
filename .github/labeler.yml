@@ -1,21 +1,24 @@
 hearth-react:
-- changed-files:
-  - any-glob-to-any-file: packages/react/**
+  - changed-files:
+      - any-glob-to-any-file: packages/react/**
 hearth-react-native:
-- changed-files:
-  - any-glob-to-any-file: packages/react-native/**
+  - changed-files:
+      - any-glob-to-any-file: packages/react-native/**
 hearth-icons:
-- changed-files:
-  - any-glob-to-any-file:
-    - 'packages/react-icons/**'
-    - 'packages/react-native-icons/**'
-    - 'packages/svg-icons/**'
+  - changed-files:
+      - any-glob-to-any-file:
+          - 'packages/react-icons/**'
+          - 'packages/react-native-icons/**'
+          - 'packages/svg-icons/**'
 hearth-fonts:
-- changed-files:
-  - any-glob-to-any-file: packages/fonts/**
-hearth-assets:
-- changed-files:
-  - any-glob-to-any-file: packages/svg-assets/**
+  - changed-files:
+      - any-glob-to-any-file: packages/fonts/**
+hearth-svg-assets:
+  - changed-files:
+      - any-glob-to-any-file: packages/svg-assets/**
+hearth-json-assets:
+  - changed-files:
+      - any-glob-to-any-file: packages/json-assets/**
 hearth-css-reset:
-- changed-files:
-  - any-glob-to-any-file: packages/css-reset/**
+  - changed-files:
+      - any-glob-to-any-file: packages/css-reset/**

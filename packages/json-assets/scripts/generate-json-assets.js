@@ -1,89 +1,130 @@
 const path = require('path');
 const fs = require('fs-extra');
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const fetch = require('node-fetch');
+const _ = require('lodash');
 
-const RAW_DIR = path.resolve(__dirname, '..', 'raw');
+require('dotenv').config();
+
+if (!process.env.BRANDFOLDER_API_KEY) {
+  throw new Error("❌ BRANDFOLDER_API_KEY is missing! Make sure it's set.");
+}
+
+const brandfolderConfig = {
+  /** The base Brandfolder API url */
+  baseUrl: 'https://brandfolder.com/api/v4',
+  /** The UW Brandfolder collection ID for JSON assets (Lottie animations) */
+  collectionId: process.env.BRANDFOLDER_COLLECTION_ID, // new-brand
+  /** The headers for authenticating with the Brandfolder API. */
+  headers: {
+    Authorization: `Bearer ${process.env.BRANDFOLDER_API_KEY}`,
+    'Content-Type': 'application/json',
+  },
+};
+
+const transformers = {
+  normalizeFilename(fileName) {
+    return fileName.split('.')[0].toLowerCase().replace(/_/g, '-') + '-light.json';
+  },
+  toJsxName(filePath) {
+    const withoutExt = filePath.replace(/\.[^.]+$/, '');
+    const parts = withoutExt
+      .split(/[\\/]/)
+      .flatMap(part => part.split(/[^a-zA-Z0-9]+/))
+      .filter(Boolean);
+    return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  },
+};
+
 const LIB_DIR = path.resolve(__dirname, '..', 'lib');
 const MANIFEST_PATH = path.resolve(__dirname, '..', 'manifest.json');
 
 function normalizeFilename(fileName) {
-  return fileName.toLowerCase().replace(/_/g, '-');
+  return fileName.split('.')[0].toLowerCase().replace(/_/g, '-') + '-light.json';
 }
 
-function toJsxName(filePath) {
-  const withoutExt = filePath.replace(/\.[^.]+$/, '');
-  const parts = withoutExt
-    .split(/[\\/]/)
-    .flatMap(part => part.split(/[^a-zA-Z0-9]+/))
-    .filter(Boolean);
+/**
+ * Fetch all assets from the Brandfolder collection, following pagination.
+ * Includes attachments so we can get the download URLs.
+ */
+async function fetchBrandfolderAnimatedAssets() {
+  const assets = [];
+  let page = 1;
+  const perPage = 100;
 
-  return parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('');
+  while (true) {
+    const url = `${brandfolderConfig.baseUrl}/collections/${brandfolderConfig.collectionId}/assets?search=extension:json&include=attachments&page=${page}&per=${perPage}`;
+    const resp = await fetch(url, { headers: brandfolderConfig.headers });
+
+    if (!resp.ok) {
+      const errorText = await resp.text();
+      throw new Error(
+        `Failed to fetch assets from Brandfolder (status ${resp.status}):\n${errorText}`
+      );
+    }
+
+    const { included } = await resp.json();
+
+    if (!included || included.length === 0) {
+      break;
+    }
+
+    included
+      .filter(asset => asset.attributes?.extension === 'json')
+      .forEach(asset => {
+        assets.push({
+          id: asset.id,
+          name: transformers.toJsxName(asset.attributes?.filename),
+          filename: transformers.normalizeFilename(asset.attributes?.filename),
+          url: asset.attributes?.url,
+        });
+      });
+
+    // Stop if we received fewer results than requested (last page)
+    if (included.length < perPage) {
+      break;
+    }
+
+    page++;
+  }
+
+  return assets;
 }
 
-async function walkFiles(dir) {
-  const entries = await fs.readdir(dir, { withFileTypes: true });
-  const nested = await Promise.all(
-    entries.map(async entry => {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        return walkFiles(fullPath);
-      }
-      return [fullPath];
-    })
-  );
-
-  return nested.flat();
+/** Process items in batches to limit concurrency. */
+async function processInBatches(items, batchSize, fn) {
+  for (let i = 0; i < items.length; i += batchSize) {
+    const batch = items.slice(i, i + batchSize);
+    await Promise.all(batch.map(fn));
+  }
 }
 
-async function copyRawFilesToLib() {
+/** Download JSON files and write them to the lib directory. */
+async function downloadJsonToFs(assets) {
   await fs.ensureDir(LIB_DIR);
 
-  if (!(await fs.pathExists(RAW_DIR))) {
-    return [];
-  }
+  await processInBatches(assets, 5, async asset => {
+    const resp = await fetch(asset.url);
+    if (!resp.ok) {
+      throw new Error(`Failed to download ${asset.filename}: ${resp.status}`);
+    }
 
-  const rawFiles = await walkFiles(RAW_DIR);
-
-  await Promise.all(
-    rawFiles.map(async sourcePath => {
-      const relativeFromRaw = path.relative(RAW_DIR, sourcePath);
-      const parsed = path.parse(relativeFromRaw);
-      const normalizedBase = normalizeFilename(parsed.base);
-      const destinationPath = path.join(LIB_DIR, parsed.dir, normalizedBase);
-
-      await fs.ensureDir(path.dirname(destinationPath));
-      await fs.copy(sourcePath, destinationPath, { overwrite: true });
-    })
-  );
-
-  return rawFiles;
-}
-
-async function generateManifestFromLib() {
-  if (!(await fs.pathExists(LIB_DIR))) {
-    await fs.outputFile(MANIFEST_PATH, JSON.stringify({ jsonAssets: [] }, null, 2), {
+    const jsonData = await resp.text();
+    await fs.outputFile(path.resolve(LIB_DIR, asset.filename), jsonData, {
       encoding: 'utf8',
     });
-    return [];
-  }
+  });
+}
 
-  const libFiles = await walkFiles(LIB_DIR);
-
-  const manifestMap = libFiles.reduce((map, fullPath) => {
-    const relativePath = path.relative(LIB_DIR, fullPath).split(path.sep).join('/');
-    const name = toJsxName(relativePath);
-    map.set(name, { name, path: relativePath });
-    return map;
-  }, new Map());
-
-  const jsonAssets = Array.from(manifestMap.values()).sort((a, b) =>
-    a.name.localeCompare(b.name, 'en')
-  );
+/** Generates a manifest.json file for use by storybook to generate docs. */
+async function generateManifest(assets) {
+  const jsonAssets = assets
+    .map(({ name, filename }) => ({ name, filename }))
+    .sort((a, b) => a.name.localeCompare(b.name, 'en'));
 
   await fs.outputFile(MANIFEST_PATH, JSON.stringify({ jsonAssets }, null, 2), {
     encoding: 'utf8',
   });
-
-  return jsonAssets;
 }
 
 /** Get a list of JSON asset names from the manifest file. */
@@ -98,7 +139,14 @@ function getAssetsList() {
   }
 }
 
-/** Create a temporary list of added and removed assets for release notes. */
+/**
+ * Create a temporary list of added and removed assets. This will be deleted
+ * after it has been outputted to the console when running the generate
+ * script.
+ * Currently this won't list any assets that have changed. So we'll have to
+ * check this manually to see if the change warrants inclusion in the
+ * changeset.
+ */
 async function createTempListOfAddedAndRemovedAssets(previous, updated) {
   const addedAssets = updated.reduce((added, asset) => {
     if (!previous.includes(asset)) {
@@ -119,11 +167,11 @@ async function createTempListOfAddedAndRemovedAssets(previous, updated) {
     removedAssets.length > 0 ? `- ${removedAssets.join('\n- ')}` : 'No removed assets.';
 
   const content = `
-## NEW ASSETS
+## NEW ANIMATED ASSETS
 
 ${added}
 
-## REMOVED ASSETS
+## REMOVED ANIMATED ASSETS
 
 ${removed}
 
@@ -134,15 +182,27 @@ ${removed}
 }
 
 async function main() {
-  const currentAssetsList = await getAssetsList();
+  // First get a list of the currently available assets.
+  const currentAssetsList = getAssetsList();
 
-  await copyRawFilesToLib();
-  const assets = await generateManifestFromLib();
+  // Fetch assets from Brandfolder
+  console.log('fetching assets from Brandfolder');
+  const assets = await fetchBrandfolderAnimatedAssets();
+  console.log(`Found ${assets.length} JSON asset(s).`);
 
-  const updatedAssetsList = await getAssetsList();
+  // Download JSON files to lib directory
+  console.log(`downloading ${assets.length} JSON asset(s)`);
+  await downloadJsonToFs(assets);
+
+  // Generate the manifest for the storybook docs
+  await generateManifest(assets);
+
+  // Let's see what assets we have now, and what has been added and removed, so
+  // we can add it to the release changeset.
+  const updatedAssetsList = getAssetsList();
   await createTempListOfAddedAndRemovedAssets(currentAssetsList, updatedAssetsList);
 
-  console.log(`Generated manifest with ${assets.length} json asset(s).`);
+  console.log(`Generated asset manifest.`);
 }
 
 main()

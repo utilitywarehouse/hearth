@@ -1,8 +1,180 @@
 {
   "jsonAssets": [
     {
+      "name": "SpotAccount",
+      "filename": "spot-account-light.json"
+    },
+    {
+      "name": "SpotBilling",
+      "filename": "spot-billing-light.json"
+    },
+    {
+      "name": "SpotBoiler",
+      "filename": "spot-boiler-light.json"
+    },
+    {
+      "name": "SpotBookAppointments",
+      "filename": "spot-book-appointments-light.json"
+    },
+    {
+      "name": "SpotBroadbandSymbol",
+      "filename": "spot-broadband-symbol-light.json"
+    },
+    {
+      "name": "SpotBundle1",
+      "filename": "spot-bundle-1-light.json"
+    },
+    {
+      "name": "SpotBundle2",
+      "filename": "spot-bundle-2-light.json"
+    },
+    {
+      "name": "SpotCalendar",
+      "filename": "spot-calendar-light.json"
+    },
+    {
+      "name": "SpotCelebratory",
+      "filename": "spot-celebratory-light.json"
+    },
+    {
+      "name": "SpotConfetti",
+      "filename": "spot-confetti-light.json"
+    },
+    {
+      "name": "SpotDarkMode",
+      "filename": "spot-dark-mode-light.json"
+    },
+    {
+      "name": "SpotEarnings",
+      "filename": "spot-earnings-light.json"
+    },
+    {
+      "name": "SpotEmptyState1",
+      "filename": "spot-empty-state-1-light.json"
+    },
+    {
+      "name": "SpotEmptyState2",
+      "filename": "spot-empty-state-2-light.json"
+    },
+    {
+      "name": "SpotError",
+      "filename": "spot-error-light.json"
+    },
+    {
+      "name": "SpotEV",
+      "filename": "spot-ev-light.json"
+    },
+    {
+      "name": "SpotHeart",
+      "filename": "spot-heart-light.json"
+    },
+    {
+      "name": "SpotHelp",
+      "filename": "spot-help-light.json"
+    },
+    {
+      "name": "SpotHowToVideos",
+      "filename": "spot-how-to-videos-light.json"
+    },
+    {
+      "name": "SpotInnovation",
+      "filename": "spot-innovation-light.json"
+    },
+    {
+      "name": "SpotKeepTrack",
+      "filename": "spot-keep-track-light.json"
+    },
+    {
+      "name": "SpotLeads",
+      "filename": "spot-leads-light.json"
+    },
+    {
+      "name": "SpotMovingHouse",
+      "filename": "spot-moving-house-light.json"
+    },
+    {
+      "name": "SpotNeighbours",
+      "filename": "spot-neighbours-light.json"
+    },
+    {
+      "name": "SpotNewLook",
+      "filename": "spot-new-look-light.json"
+    },
+    {
+      "name": "SpotNoBroadband",
+      "filename": "spot-no-broadband-light.json"
+    },
+    {
+      "name": "SpotNotification",
+      "filename": "spot-notification-light.json"
+    },
+    {
+      "name": "SpotPests",
+      "filename": "spot-pests-light.json"
+    },
+    {
       "name": "SpotProcessCompleteFunctional",
-      "path": "spot-process-complete-functional.json"
+      "filename": "spot-process-complete-functional-light.json"
+    },
+    {
+      "name": "SpotQuoteSales",
+      "filename": "spot-quote-sales-light.json"
+    },
+    {
+      "name": "SpotRecognition",
+      "filename": "spot-recognition-light.json"
+    },
+    {
+      "name": "SpotSavings2",
+      "filename": "spot-savings-2-light.json"
+    },
+    {
+      "name": "SpotSecurity",
+      "filename": "spot-security-light.json"
+    },
+    {
+      "name": "SpotSecurityCode",
+      "filename": "spot-security-code-light.json"
+    },
+    {
+      "name": "SpotSmartMeter",
+      "filename": "spot-smart-meter-light.json"
+    },
+    {
+      "name": "SpotSuccess",
+      "filename": "spot-success-light.json"
+    },
+    {
+      "name": "SpotSwitch",
+      "filename": "spot-switch-light.json"
+    },
+    {
+      "name": "SpotWelcome",
+      "filename": "spot-welcome-light.json"
+    },
+    {
+      "name": "UWLogoExtendedOffWhite",
+      "filename": "uw-logo-extended-off-white-light.json"
+    },
+    {
+      "name": "UWLogoExtendedPurple",
+      "filename": "uw-logo-extended-purple-light.json"
+    },
+    {
+      "name": "UWLogoStandardOffWhite",
+      "filename": "uw-logo-standard-off-white-light.json"
+    },
+    {
+      "name": "UWLogoStandardPurple",
+      "filename": "uw-logo-standard-purple-light.json"
+    },
+    {
+      "name": "UWMonoOffWhite",
+      "filename": "uw-mono-off-white-light.json"
+    },
+    {
+      "name": "UWMonoPurple",
+      "filename": "uw-mono-purple-light.json"
     }
   ]
 }
