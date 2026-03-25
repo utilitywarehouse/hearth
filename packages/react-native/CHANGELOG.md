@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.28.6
+
+### Patch Changes
+
+- [#1050](https://github.com/utilitywarehouse/hearth/pull/1050) [`13d2cca`](https://github.com/utilitywarehouse/hearth/commit/13d2ccab3abda60a35202847e3895017496c4dcf) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Expand react peer dependency to allow any React 19.x version for compatibility with all React 19 releases.
+
 ## 0.28.5
 
 ### Patch Changes
