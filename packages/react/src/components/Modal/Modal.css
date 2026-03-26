@@ -123,7 +123,9 @@
     text-align: center;
 
     @media (--h-tablet) {
-      text-align: left;
+      &:not([data-contains-image] &) {
+        text-align: left;
+      }
     }
 
     &:not([data-contains-image] &, [data-hide-close-button] &) :where(.h-Heading) {
