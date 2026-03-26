@@ -591,14 +591,14 @@ export const ListItemContentWithTransaction: Story = {
             heading="Boots"
             helperText="5:30pm"
             trailingContent={
-              <>
+              <Flex direction="column" alignItems="end">
                 <BodyText size="md" as="span">
                   -£100.00
                 </BodyText>
-                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                <BodyText size="md" as="span" color="brand">
                   +£1.00 CB
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
@@ -607,11 +607,11 @@ export const ListItemContentWithTransaction: Story = {
             heading="Top-up"
             helperText="4:00pm"
             trailingContent={
-              <>
-                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+              <Flex alignSelf="start">
+                <BodyText size="md" as="span" color="affirmative">
                   +£10.00
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
