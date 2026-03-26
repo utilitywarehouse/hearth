@@ -24,7 +24,6 @@ import {
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
-import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -596,7 +595,7 @@ export const ListItemContentWithTransaction: Story = {
                 <BodyText size="md" as="span">
                   -£100.00
                 </BodyText>
-                <BodyText size="md" as="span" color={semantic.text.brand}>
+                <BodyText size="md" as="span" color="brand">
                   +£1.00 CB
                 </BodyText>
               </Flex>
@@ -609,7 +608,7 @@ export const ListItemContentWithTransaction: Story = {
             helperText="4:00pm"
             trailingContent={
               <Flex asChild alignSelf="start">
-                <BodyText size="md" as="span" color={semantic.text.affirmative}>
+                <BodyText size="md" as="span" color="affirmative">
                   +£10.00
                 </BodyText>
               </Flex>
