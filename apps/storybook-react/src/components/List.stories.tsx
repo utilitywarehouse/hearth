@@ -607,7 +607,7 @@ export const ListItemContentWithTransaction: Story = {
             heading="Top-up"
             helperText="4:00pm"
             trailingContent={
-              <Flex asChild alignSelf="start">
+              <Flex alignSelf="start">
                 <BodyText size="md" as="span" color="affirmative">
                   +£10.00
                 </BodyText>
