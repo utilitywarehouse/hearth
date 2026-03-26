@@ -124,10 +124,6 @@
       transition: stroke-dashoffset 0.3s ease-in-out;
       stroke-dasharray: var(--h-circumference);
 
-      @media (prefers-reduced-motion: reduce) {
-        stroke-dasharray: none;
-      }
-
       &:where([data-colorscheme='success'] &) {
         stroke: var(--h-progress-bar-progress-success-color);
       }
