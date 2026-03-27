@@ -313,7 +313,10 @@ export const Loading: Story = {
     heading: 'Loading modal',
     description: 'This is a loading modal, and the heading and description should not show.',
     loading: true,
-    loadingText: 'Matching your details. This may take a minute...',
+    loadingText: 'Loading Text (Deprecated prop, please use loadingHeading instead)',
+    loadingHeading: 'Matching your details.',
+    loadingDescription:
+      "We're checking your details for the best deal. This may take a minute or two.",
     hideCloseButton: true,
   },
   render: (args, context) => (
