@@ -1,7 +1,7 @@
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-interface BaseModalProps
+export interface BaseModalProps
   extends
     ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>,
     Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
