@@ -19,6 +19,7 @@ const meta: Meta<typeof Combobox> = {
     label: 'Combobox',
     helperText: 'Helper text',
     validationText: 'Validation text',
+    placeholder: 'Select an option',
     disabled: false,
     required: false,
     triggerOnlyOnType: false,
