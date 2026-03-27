@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.2
+
+### Patch Changes
+
+- [#1052](https://github.com/utilitywarehouse/hearth/pull/1052) [`9d203e3`](https://github.com/utilitywarehouse/hearth/commit/9d203e3f9beddcd931bfe13a354f9b39e0fe547c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Remove inconsistent animation override
+
+- [#1054](https://github.com/utilitywarehouse/hearth/pull/1054) [`ffa4f3b`](https://github.com/utilitywarehouse/hearth/commit/ffa4f3b401a83e965bad5799226f9b68badde70d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal heading alignment
+
 ## 0.27.1
 
 ### Patch Changes
