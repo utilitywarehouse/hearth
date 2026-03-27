@@ -7,7 +7,7 @@ export interface ComboboxProps<Value, Multiple extends boolean | undefined = fal
   extends
     Omit<ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>, 'openOnInputClick'>,
     Pick<ComboboxPrimitive.Trigger.Props, 'disabled'>,
-    Omit<FormFieldProps, 'hideLabel'>,
+    FormFieldProps,
     MarginProps {
   triggerOnlyOnType?: boolean;
   noOptionsFoundText?: string;
