@@ -33,6 +33,8 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       fullScreen,
       loading,
       loadingText,
+      loadingHeading,
+      loadingDescription,
       children,
       ...props
     },
@@ -98,13 +100,22 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                       width="100%"
                     >
                       <Spinner size="lg" />
-                      {loadingText ? (
-                        <DialogPrimitive.Title asChild>
-                          <Heading size="lg" textAlign="center" wrap="wrap">
-                            {loadingText}
-                          </Heading>
-                        </DialogPrimitive.Title>
-                      ) : null}
+                      <div className={`${componentClassName}LoadingHeader`}>
+                        <Box asChild>
+                          <DialogPrimitive.Title asChild>
+                            <Heading size="lg" textAlign="center" wrap="wrap">
+                              {loadingHeading || loadingText || 'Loading'}
+                            </Heading>
+                          </DialogPrimitive.Title>
+                        </Box>
+                        {(loadingText || loadingHeading) && loadingDescription ? (
+                          <DialogPrimitive.Description asChild>
+                            <BodyText size="md" as="span" textAlign="center">
+                              {loadingDescription}
+                            </BodyText>
+                          </DialogPrimitive.Description>
+                        ) : null}
+                      </div>
                     </Flex>
                   ) : (
                     children

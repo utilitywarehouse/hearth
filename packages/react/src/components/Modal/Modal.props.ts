@@ -1,31 +1,22 @@
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 'react';
 
-// Props that are ALWAYS available regardless of loading state
-type BaseModalProps = ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
-  Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'> &
-  ComponentPropsWithRef<'div'> & {
-    description?: string;
-    hideCloseButton?: boolean;
-    fullScreen?: boolean;
-    image?: ReactNode;
-  };
-
-// The "Content" state (Loading is false or undefined)
-type ContentState = {
-  loading?: false;
-  heading: string; // Required
+export interface ModalProps
+  extends
+    ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>,
+    Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
+    ComponentPropsWithRef<'div'> {
+  heading: string;
+  description?: string;
+  hideCloseButton?: boolean;
+  fullScreen?: boolean;
+  image?: ReactNode;
+  loading?: boolean;
+  // @deprecated Please use loadingHeading and loadingDescription instead
   loadingText?: string;
-};
-
-// The "Loading" state (Loading is true)
-type LoadingState = {
-  loading: true;
-  loadingText: string; // Required when loading is true
-  heading?: string; // Heading becomes optional
-};
-
-export type ModalProps = BaseModalProps & (ContentState | LoadingState);
+  loadingHeading?: string;
+  loadingDescription?: string;
+}
 
 export type ModalCloseProps = Omit<
   ComponentPropsWithRef<typeof DialogPrimitive.DialogClose>,
