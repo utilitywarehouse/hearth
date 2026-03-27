@@ -42,6 +42,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     noOptionsFoundText,
     statusText,
     loading,
+    hideLabel,
     ...comboboxProps
   } = extractProps(props, marginPropDefs);
 
@@ -63,6 +64,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     validationText: showValidation ? validationText : undefined,
     validationStatus: showValidation ? validationStatus : undefined,
     required,
+    hideLabel,
   };
 
   return (
