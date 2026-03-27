@@ -1,5 +1,30 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.3
+
+### Patch Changes
+
+- [#1057](https://github.com/utilitywarehouse/hearth/pull/1057) [`1daead3`](https://github.com/utilitywarehouse/hearth/commit/1daead3dd6ce9931a8c12e87e901441fa48db3cd) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `placeholder prop to `Combobox`
+
+- [#1058](https://github.com/utilitywarehouse/hearth/pull/1058) [`532fd5f`](https://github.com/utilitywarehouse/hearth/commit/532fd5fad11b82af516085efe18ff6af8195bc30) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `loadingHeading` & `loadingDescription` to `Modal`.
+
+  This change adds two new props, `loadingHeading` and `loadingDescription`, to
+  the `Modal` component. These props allow developers to specify custom loading
+  text that will be displayed when the modal is in a loading state.
+
+  This change also deprecates the `loadingText` prop, which was previously used to
+  display loading text in the modal. The new props provide more flexibility and
+  allow for a clearer separation of the heading and description in the loading
+  state.
+
+  Consumers should update their code to use the new `loadingHeading` and
+  `loadingDescription` props instead of the deprecated `loadingText` prop.
+
+  ```diff
+  - <Modal loadingText="Loading...">
+  + <Modal loadingHeading="Loading..." loadingDescription="Please wait while we fetch the data.">
+  ```
+
 ## 0.27.2
 
 ### Patch Changes
