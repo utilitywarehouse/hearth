@@ -245,13 +245,18 @@ const NavModal = ({
     </>
   );
 
+  const { style: safeAreaViewStyle, ...restSafeAreaViewProps } = safeAreaViewProps ?? {};
+
   return (
     <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'secondary'],
-      }}
-      {...safeAreaViewProps}
+      style={[
+        {
+          flex: 1,
+          backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'secondary'],
+        },
+        safeAreaViewStyle,
+      ]}
+      {...restSafeAreaViewProps}
     >
       {Platform.OS === 'android' && usesSheetPresentation ? (
         <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
