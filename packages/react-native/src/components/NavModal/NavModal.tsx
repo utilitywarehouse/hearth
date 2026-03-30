@@ -336,7 +336,9 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     variants: {
       background: {
-        primary: {},
+        primary: {
+          backgroundColor: theme.color.surface.neutral.strong,
+        },
         brand: {
           backgroundColor: theme.color.background.brand,
         },
@@ -345,11 +347,9 @@ const styles = StyleSheet.create((theme, rt) => ({
         modal: {
           borderTopLeftRadius: theme.components.modal.borderRadius,
           borderTopRightRadius: theme.components.modal.borderRadius,
-          backgroundColor: theme.color.surface.neutral.strong,
           padding: theme.components.bottomSheet.padding,
         },
         fullScreen: {
-          backgroundColor: theme.color.surface.neutral.strong,
           padding: theme.components.bottomSheet.padding,
         },
       },
