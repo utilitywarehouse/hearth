@@ -1,6 +1,7 @@
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import React, { useCallback, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import {
@@ -16,7 +17,6 @@ import { Input } from '../Input';
 import { SelectContext } from './Select.context';
 import SelectProps, { SelectOptionItemProps } from './Select.props';
 import SelectOption from './SelectOption';
-import { SafeAreaView } from '../SafeAreaView';
 
 const Select = ({
   options = [],

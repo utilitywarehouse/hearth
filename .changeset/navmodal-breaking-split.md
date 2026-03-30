@@ -8,9 +8,12 @@
 
 `NavModal` also adds a `presentation` prop so the component can match the React Navigation screen presentation style for sheet-style and full-screen modal routes.
 
+The package-owned `SafeAreaView` component has also been removed in favour of the `react-native-safe-area-context` `SafeAreaView`. Hearth now re-exports that implementation from the package root.
+
 **Components affected**:
 - `Modal`
 - `NavModal`
+- `SafeAreaView`
 
 **Developer changes**:
 
@@ -31,3 +34,10 @@ Update navigation modal screens to use `NavModal` instead of `Modal`:
 ```
 
 If you are using the bottom-sheet modal API, no changes are required.
+
+If you were importing the old component from the component path, update it to use the package root re-export or import directly from `react-native-safe-area-context`:
+
+```diff
+- import { SafeAreaView } from '@utilitywarehouse/hearth-react-native';
++ import { SafeAreaView } from 'react-native-safe-area-context';
+```
