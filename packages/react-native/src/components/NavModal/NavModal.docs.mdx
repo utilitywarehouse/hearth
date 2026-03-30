@@ -1,0 +1,178 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import modalAndroidVideo from '../../../docs/assets/modal-android.mp4';
+import modaliOSVideo from '../../../docs/assets/modal-ios.mp4';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './NavModal.stories';
+
+<Meta title="Components / NavModal" />
+
+<ViewFigmaButton url="https://www.figma.com/design/dLI9bmyMr42LV7dtFeW27J/Hearth-Patterns---Guides?node-id=6314-9103&t=oq3NaPLaAu3di6Db-4" />
+
+<BackToTopButton />
+
+# NavModal
+
+The `NavModal` component is the screen-based modal layout for navigation flows. Use it when a screen is already being presented by React Navigation with `presentation: 'modal'` or `presentation: 'fullScreenModal'` and you want Hearth's modal structure, actions, and Android close animation support.
+
+If you need a bottom-sheet modal that you present with a ref, use <StorybookLink to="components-modal">`Modal`</StorybookLink> instead.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Features](#features)
+- [Accessibility](#accessibility)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+```tsx
+import { useNavigation } from '@react-navigation/native';
+import type { NavigationAction } from '@react-navigation/native';
+import { useCallback, useEffect, useRef } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+
+import {
+  BodyText,
+  Heading,
+  InlineLink,
+  NavModal,
+  type NavModalRef,
+} from '@utilitywarehouse/hearth-react-native';
+
+export default function ModalScreen({ onClose }: { onClose?: () => void }) {
+  const modalRef = useRef<NavModalRef>(null);
+  const navigation = useNavigation();
+  const isClosingRef = useRef(false);
+
+  const handleClose = useCallback(
+    (action?: NavigationAction) => {
+      if (Platform.OS === 'ios') {
+        if (onClose) {
+          onClose();
+        } else {
+          navigation.goBack();
+        }
+
+        return;
+      }
+
+      if (isClosingRef.current) {
+        return;
+      }
+
+      isClosingRef.current = true;
+      modalRef.current?.triggerCloseAnimation?.();
+
+      setTimeout(() => {
+        if (onClose) {
+          onClose();
+        } else if (action) {
+          navigation.dispatch(action);
+        } else {
+          navigation.goBack();
+        }
+      }, 100);
+    },
+    [navigation, onClose]
+  );
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      const unsubscribe = navigation.addListener('beforeRemove', e => {
+        if (!isClosingRef.current) {
+          e.preventDefault();
+          handleClose(e.data.action);
+        }
+      });
+
+      return unsubscribe;
+    }
+  }, [handleClose, navigation]);
+
+  return (
+    <NavModal
+      ref={modalRef}
+      onPressCloseButton={handleClose}
+      primaryButtonText="Action"
+      onPressPrimaryButton={handleClose}
+      secondaryButtonText="Cancel"
+      onPressSecondaryButton={handleClose}
+    >
+      <View style={styles.container}>
+        <Heading size="xl">This is a modal</Heading>
+        <BodyText>
+          <InlineLink onPress={handleClose} style={styles.link}>
+            Go to home screen
+          </InlineLink>
+        </BodyText>
+      </View>
+    </NavModal>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  link: {
+    marginTop: 15,
+    paddingVertical: 15,
+  },
+});
+```
+
+## Props
+
+`NavModal` supports Hearth's modal content props plus the navigation-specific `background`, `scrollable`, and `presentation` options. Set `presentation` to the same value you pass to React Navigation so `NavModal` can match the route's sheet-style or full-screen layout. It does not take bottom-sheet props such as `snapPoints`, and it does not manage its own dismissal. Your screen or navigator owns closing behavior.
+
+| Property                 | Type                                                                                                             | Description                                                                                                                                   | Default        |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `heading`                | `string`                                                                                                         | Heading text shown at the top of the modal when no `image` is provided.                                                                       | -              |
+| `description`            | `string`                                                                                                         | Supporting text shown below the heading when no `image` is provided.                                                                          | -              |
+| `showCloseButton`        | `boolean`                                                                                                        | Whether to render the close button in the top-right corner.                                                                                   | `true`         |
+| `primaryButtonText`      | `string`                                                                                                         | Label for the primary action button.                                                                                                          | -              |
+| `secondaryButtonText`    | `string`                                                                                                         | Label for the secondary action button.                                                                                                        | -              |
+| `onPressPrimaryButton`   | `() => void`                                                                                                     | Called when the primary action button is pressed.                                                                                             | -              |
+| `onPressSecondaryButton` | `() => void`                                                                                                     | Called when the secondary action button is pressed.                                                                                           | -              |
+| `onPressCloseButton`     | `() => void`                                                                                                     | Called when the close button is pressed.                                                                                                      | -              |
+| `primaryButtonProps`     | `Omit<ButtonWithoutChildrenProps, 'children'>`                                                                   | Extra props forwarded to the primary button.                                                                                                  | -              |
+| `secondaryButtonProps`   | `Omit<ButtonWithoutChildrenProps, 'children'>`                                                                   | Extra props forwarded to the secondary button.                                                                                                | -              |
+| `closeButtonProps`       | `Omit<UnstyledIconButtonProps, 'children'>`                                                                      | Extra props forwarded to the close button.                                                                                                    | -              |
+| `loading`                | `boolean`                                                                                                        | Replaces the content with a loading state and spinner.                                                                                        | `false`        |
+| `loadingHeading`         | `string`                                                                                                         | Heading text shown while `loading` is true.                                                                                                   | `'Loading...'` |
+| `image`                  | `ReactNode`                                                                                                      | Optional image or illustration shown above the text content.                                                                                  | -              |
+| `children`               | `ReactNode`                                                                                                      | Content rendered inside the modal body.                                                                                                       | -              |
+| `stickyFooter`           | `boolean`                                                                                                        | Keeps action buttons pinned to the bottom instead of flowing with the content.                                                                | `true`         |
+| `background`             | `'default' /\| 'brand'`                                                                                          | Switches between the default surface background and the brand background treatment.                                                           | `'default'`    |
+| `scrollable`             | `boolean`                                                                                                        | Wraps the content area in a `ScrollView`. Set this to `false` for custom layouts that should not scroll.                                      | `true`         |
+| `presentation`           | `'modal' \| 'fullScreenModal' \| 'transparentModal' `<br />` \| 'containedModal' \| 'containedTransparentModal'` | Matches the React Navigation screen presentation. `fullScreenModal` uses the full-screen layout; the other values use the sheet-style layout. | `'modal'`      |
+| `safeAreaViewProps`      | `SafeAreaViewProps`                                                                                              | Extra props forwarded to the `SafeAreaView` wrapping the modal content.                                                                       | -              |
+| `scrollViewProps`        | `ScrollViewProps`                                                                                                | Extra props forwarded to the `ScrollView` wrapping the modal content when `scrollable` is true.                                               | -              |
+
+## Accessibility
+
+`NavModal` keeps the same heading, description, button labeling, and loading-state support as `Modal`, but it does not force accessibility focus on mount. Because this component is used on a navigation-presented screen, React Navigation and the platform own the initial screen focus behavior.
+
+## Examples
+
+| ios                                                                            | android                                                                            |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| <video src={modaliOSVideo} width={300} height="auto" controls loop autoPlay /> | <video src={modalAndroidVideo} width={300} height="auto" controls loop autoPlay /> |
+
+### Brand Background
+
+<Canvas of={Stories.BrandBackground} />
+
+### Full-Screen Presentation
+
+<Canvas of={Stories.FullScreenPresentation} />

@@ -2,10 +2,16 @@ import { useNavigation } from 'expo-router';
 import { useCallback, useEffect, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 
-import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
+import {
+  BodyText,
+  Heading,
+  InlineLink,
+  NavModal,
+  type NavModalRef,
+} from '@utilitywarehouse/hearth-react-native';
 
 export default function ModalScreen() {
-  const modalRef = useRef<Modal>(null);
+  const modalRef = useRef<NavModalRef>(null);
   const navigation = useNavigation();
   const isClosingRef = useRef(false);
 
@@ -41,9 +47,8 @@ export default function ModalScreen() {
   }, [navigation, handleClose]);
 
   return (
-    <Modal
+    <NavModal
       ref={modalRef}
-      inNavModal
       onPressCloseButton={handleClose}
       primaryButtonText="Action"
       onPressPrimaryButton={handleClose}
@@ -58,7 +63,7 @@ export default function ModalScreen() {
           </InlineLink>
         </BodyText>
       </View>
-    </Modal>
+    </NavModal>
   );
 }
 

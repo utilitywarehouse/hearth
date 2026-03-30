@@ -1,6 +1,7 @@
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GestureResponderEvent, Pressable, TextInput, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
@@ -9,7 +10,6 @@ import { DetailText } from '../DetailText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
 import { Input } from '../Input';
-import { SafeAreaView } from '../SafeAreaView';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { ComboboxContext, ComboboxSelection } from './Combobox.context';

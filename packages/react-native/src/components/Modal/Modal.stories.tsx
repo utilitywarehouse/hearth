@@ -66,7 +66,6 @@ const meta = {
     onPressCloseButton: () => null,
     onPressPrimaryButton: () => null,
     onPressSecondaryButton: () => null,
-    background: 'brand',
   },
 } satisfies Meta<typeof Modal>;
 

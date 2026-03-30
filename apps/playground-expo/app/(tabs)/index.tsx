@@ -24,6 +24,7 @@ export default function HomeScreen() {
         <HelloWave />
       </ThemedView>
       <Button onPress={() => router.push('/modal')}>Hello</Button>
+      <Button onPress={() => router.push('/modal-full')}>Hello Full</Button>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>

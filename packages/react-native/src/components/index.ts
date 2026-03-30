@@ -41,13 +41,13 @@ export * from './Link';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
+export * from './NavModal';
 export * from './Pagination';
 export * from './PillGroup';
 export * from './ProgressBar';
 export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
-export * from './SafeAreaView';
 export * from './SectionHeader';
 export * from './SegmentedControl';
 export * from './Select';
@@ -68,5 +68,7 @@ export * from './VerificationInput';
 export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
 
 export { Pressable } from 'react-native';
+
+export { SafeAreaView } from 'react-native-safe-area-context';
 
 export { createIcon } from '@gluestack-ui/icon';
