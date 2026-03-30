@@ -41,6 +41,7 @@ export * from './Link';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
+export * from './NavModal';
 export * from './Pagination';
 export * from './PillGroup';
 export * from './ProgressBar';

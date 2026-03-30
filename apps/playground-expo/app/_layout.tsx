@@ -43,6 +43,14 @@ export default function RootLayout() {
               animation: 'slide_from_bottom',
             }}
           />
+          <Stack.Screen
+            name="modal-full"
+            options={{
+              presentation: 'fullScreenModal',
+              headerShown: false,
+              animation: 'slide_from_bottom',
+            }}
+          />
         </Stack>
       </GestureHandlerRootView>
       <StatusBar style="auto" />

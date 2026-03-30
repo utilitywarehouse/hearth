@@ -1,8 +1,9 @@
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import '@utilitywarehouse/hearth-tokens/index.css';
 import { useEffect } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import '../../../shared/storybook/styles/diff-highlighting.css';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
@@ -159,9 +160,11 @@ const preview = {
       }, [isDarkMode, args.darkMode, args.surface, args.inverted]);
 
       return (
-        <BottomSheetModalProvider>
-          <Story args={{ ...args, darkMode: isDarkMode }} />
-        </BottomSheetModalProvider>
+        <SafeAreaProvider>
+          <BottomSheetModalProvider>
+            <Story args={{ ...args, darkMode: isDarkMode }} />
+          </BottomSheetModalProvider>
+        </SafeAreaProvider>
       );
     },
   ],

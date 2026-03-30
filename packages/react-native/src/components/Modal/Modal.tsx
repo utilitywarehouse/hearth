@@ -6,23 +6,13 @@ import {
 } from '@gorhom/bottom-sheet';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
-import { AccessibilityInfo, Platform, ScrollView, View, findNodeHandle } from 'react-native';
-import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useSharedValue,
-  withDelay,
-  withTiming,
-} from 'react-native-reanimated';
+import { useCallback, useImperativeHandle, useMemo, useRef } from 'react';
+import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
-import { hexWithOpacity } from '../../utils';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
-import { SafeAreaView } from '../SafeAreaView';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import ModalProps from './Modal.props';
@@ -49,74 +39,15 @@ const Modal = ({
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
-  inNavModal = false,
   stickyFooter = true,
-  background = 'default',
-  scrollable = true,
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const viewRef = useRef<View>(null);
   const scrollViewRef = useRef<BottomSheetScrollViewMethods>(null);
-  const theme = useTheme();
-  const backgroundOpacity = useSharedValue(0);
-  const pretendContentTranslateY = useSharedValue(20);
-  const isBrandBackground = background === 'brand';
-
-  const triggerCloseAnimation = useCallback(() => {
-    if (Platform.OS === 'android' && inNavModal) {
-      pretendContentTranslateY.value = withTiming(20, {
-        duration: 50,
-        easing: Easing.in(Easing.quad),
-      });
-      backgroundOpacity.value = withTiming(0, {
-        duration: 100,
-        easing: Easing.in(Easing.quad),
-      });
-    }
-  }, [inNavModal, pretendContentTranslateY, backgroundOpacity]);
 
   useImperativeHandle(ref, () => ({
     ...(bottomSheetModalRef.current as BottomSheetModal),
-    triggerCloseAnimation,
-  }));
-
-  // Trigger animations on render for inNavModal Android modal
-  useEffect(() => {
-    if (Platform.OS === 'android' && inNavModal) {
-      backgroundOpacity.value = withDelay(
-        300,
-        withTiming(1, {
-          duration: 200,
-          easing: Easing.out(Easing.quad),
-        })
-      );
-      pretendContentTranslateY.value = withDelay(
-        500,
-        withTiming(0, {
-          duration: 300,
-          easing: Easing.out(Easing.quad),
-        })
-      );
-    }
-  }, [inNavModal, backgroundOpacity, pretendContentTranslateY]);
-
-  const animatedBackgroundStyle = useAnimatedStyle(() => ({
-    backgroundColor: hexWithOpacity(
-      theme.components.overlay.backgroundColor,
-      backgroundOpacity.value * (theme.components.overlay.opacity / 100)
-    ),
-  }));
-
-  const animatedInNavModalStyle = useAnimatedStyle(() => ({
-    backgroundColor: hexWithOpacity(
-      theme.components.overlay.backgroundColor,
-      backgroundOpacity.value * (theme.components.overlay.opacity / 100)
-    ),
-  }));
-
-  const animatedPretendContentStyle = useAnimatedStyle(() => ({
-    transform: [{ translateY: pretendContentTranslateY.value }],
   }));
 
   const handleChange = (index: number, position: number, type: SNAP_POINT_TYPE) => {
@@ -174,7 +105,6 @@ const Modal = ({
     noButtons,
     stickyFooter,
     showHandle: props.showHandle,
-    background: isBrandBackground ? 'brand' : 'primary',
   });
 
   const footer = useMemo(
@@ -184,7 +114,6 @@ const Modal = ({
           <Button
             onPress={handlePrimaryButtonPress}
             text={primaryButtonText}
-            inverted={isBrandBackground && inNavModal}
             {...primaryButtonProps}
             variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
             colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
@@ -194,7 +123,6 @@ const Modal = ({
           <Button
             onPress={handleSecondaryButtonPress}
             text={secondaryButtonText}
-            inverted={isBrandBackground && inNavModal}
             {...secondaryButtonProps}
             variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
             colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
@@ -205,8 +133,6 @@ const Modal = ({
     [
       handlePrimaryButtonPress,
       handleSecondaryButtonPress,
-      inNavModal,
-      isBrandBackground,
       onPressPrimaryButton,
       onPressSecondaryButton,
       primaryButtonProps,
@@ -215,8 +141,6 @@ const Modal = ({
       secondaryButtonText,
     ]
   );
-
-  const InNavModalContainer = scrollable ? ScrollView : View;
 
   const content = (
     <>
@@ -228,11 +152,8 @@ const Modal = ({
           screenReaderFocusable
           ref={viewRef}
         >
-          <Spinner
-            size="lg"
-            color={isBrandBackground && inNavModal ? theme.color.icon.inverted : undefined}
-          />
-          <Heading size="lg" textAlign="center" inverted={isBrandBackground && inNavModal}>
+          <Spinner size="lg" />
+          <Heading size="lg" textAlign="center">
             {loadingHeading}
           </Heading>
         </View>
@@ -247,22 +168,17 @@ const Modal = ({
           <View style={styles.header}>
             <View style={styles.headerTextContent}>
               {heading && !image ? (
-                <Heading size="lg" accessible inverted={isBrandBackground && inNavModal}>
+                <Heading size="lg" accessible>
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? (
-                <BodyText accessible inverted={isBrandBackground && inNavModal}>
-                  {description}
-                </BodyText>
-              ) : null}
+              {description && !image ? <BodyText accessible>{description}</BodyText> : null}
             </View>
             {showCloseButton ? (
               <UnstyledIconButton
                 icon={CloseMediumIcon}
                 onPress={handleCloseButtonPress}
                 accessibilityLabel="Close modal"
-                inverted={isBrandBackground && inNavModal}
                 {...closeButtonProps}
               />
             ) : null}
@@ -272,45 +188,20 @@ const Modal = ({
               {image}
               <View style={styles.textContent}>
                 {heading ? (
-                  <Heading
-                    size="lg"
-                    textAlign="center"
-                    accessible
-                    inverted={isBrandBackground && inNavModal}
-                  >
+                  <Heading size="lg" textAlign="center" accessible>
                     {heading}
                   </Heading>
                 ) : null}
                 {description ? (
-                  <BodyText
-                    textAlign="center"
-                    accessible
-                    inverted={isBrandBackground && inNavModal}
-                  >
+                  <BodyText textAlign="center" accessible>
                     {description}
                   </BodyText>
                 ) : null}
               </View>
             </View>
           ) : null}
-          {inNavModal && (
-            <InNavModalContainer
-              style={{
-                flex: stickyFooter ? 1 : 0,
-                ...(scrollable ? { marginHorizontal: -1 } : {}),
-              }}
-              {...(scrollable ? { contentContainerStyle: { paddingHorizontal: 1 } } : {})}
-            >
-              {children}
-              {!stickyFooter ? (
-                <View style={styles.inNavModalFooterContainer}>{footer}</View>
-              ) : null}
-            </InNavModalContainer>
-          )}
-          {!inNavModal && children}
-          {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons
-            ? footer
-            : null}
+          {children}
+          {!stickyFooter && !noButtons ? footer : null}
         </View>
       )}
     </>
@@ -325,27 +216,7 @@ const Modal = ({
     [footer]
   );
 
-  return inNavModal ? (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'primary'],
-      }}
-    >
-      {Platform.OS === 'android' ? (
-        <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
-          <Animated.View style={[styles.pretendContent, animatedPretendContentStyle]} />
-        </Animated.View>
-      ) : null}
-      <Animated.View
-        style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
-      >
-        <SafeAreaView edges={['top', 'bottom']} style={styles.inNavModalContent}>
-          {content}
-        </SafeAreaView>
-      </Animated.View>
-    </View>
-  ) : (
+  return (
     <BottomSheetModal
       ref={bottomSheetModalRef}
       enableDynamicSizing={true}
@@ -463,40 +334,6 @@ const styles = StyleSheet.create((theme, rt) => ({
     backgroundColor: theme.color.surface.neutral.strong,
     paddingHorizontal: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
-  },
-  inNavModalContainer: {
-    flex: 1,
-    ...(Platform.OS === 'ios' ? { backgroundColor: theme.components.overlay.backgroundColor } : {}),
-  },
-  inNavModalContent: {
-    flex: 1,
-    borderTopLeftRadius: theme.components.modal.borderRadius,
-    borderTopRightRadius: theme.components.modal.borderRadius,
-    backgroundColor: theme.color.surface.neutral.strong,
-    padding: theme.components.bottomSheet.padding,
-    variants: {
-      background: {
-        primary: {},
-        brand: {
-          backgroundColor: theme.color.background.brand,
-        },
-      },
-    },
-  },
-  inNavModalFooterContainer: {
-    paddingTop: theme.components.bottomSheet.padding,
-  },
-  androidContainer: {
-    height: rt.insets.top + 18,
-    paddingLeft: theme.components.bottomSheet.padding,
-    paddingRight: theme.components.bottomSheet.padding,
-    justifyContent: 'flex-end',
-  },
-  pretendContent: {
-    borderTopLeftRadius: theme.components.modal.borderRadius,
-    borderTopRightRadius: theme.components.modal.borderRadius,
-    height: 12,
-    backgroundColor: theme.components.parts.modalStack.backgroundColorCardTop,
   },
 }));
 

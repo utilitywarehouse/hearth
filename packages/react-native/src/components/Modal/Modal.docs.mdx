@@ -1,8 +1,6 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { BodyText, BottomSheetModal, Box, Button, Center, Heading, Modal } from '../../';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
-import modalAndroidVideo from '../../../docs/assets/modal-android.mp4';
-import modaliOSVideo from '../../../docs/assets/modal-ios.mp4';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Modal.stories';
 
@@ -18,6 +16,8 @@ The `Modal` component provides a versatile dialog interface that slides up from 
 
 The Modal component is ideal for displaying important information, collecting user input, or presenting choices that require user attention without navigating away from the current screen.
 
+If you need a modal layout inside a React Navigation modal screen, use <StorybookLink to="components-navmodal">`NavModal`</StorybookLink> instead.
+
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
@@ -31,7 +31,6 @@ The Modal component is ideal for displaying important information, collecting us
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
   - [Single Action Modal](#single-action-modal)
-  - [Modal in Navigation Modal](#modal-in-navigation-modal)
 - [Integration Notes](#integration-notes)
 - [External Resources](#external-resources)
 
@@ -108,10 +107,7 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')      | -              |
 | `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline') | -              |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                  | -              |
-| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height. Only applies when `inNavModal` is `false`            | `false`        |
-| `inNavModal`                  | `boolean`                                                          | Renders the modal correctly when used inside a navigation modal                                               | `false`        |
-| `background`                  | `'default' \| 'brand'`                                             | Sets the modal background. Only applies when `inNavModal` is `true`                                           | `'default'`    |
-| `scrollable`                  | `boolean`                                                          | Whether the modal's content should be placed in a `ScrollView`. Only applies when `inNavModal` is `true`      | `true`         |
+| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                       | `false`        |
 
 \* use this to detect if the modal has been opened or closed, index 0 indicates open state and -1 indicates closed state
 
@@ -462,122 +458,9 @@ const AlertModal = () => {
 };
 ```
 
-### Modal In Navigation Modal
+### Navigation Modals
 
-When wanting to use the Modal component in a navigation context using [React Navigation](https://reactnavigation.org/docs/modal), you can set `inNavModal` to `true` to make it behave like a standard modal screen.
-
-Within React Navigation, you can set `presentation: 'modal'` in the screen's settings to have the Modal look and behave like a standard modal/bottom sheet, or you can set `presentation: 'fullScreenModal'` to have the Modal fill the entire screen.
-
-When using `inNavModal`, by default the content will be rendered inside a `ScrollView` to ensure it is scrollable, especially on smaller devices or smaller modals. You can disable this by setting `scrollable={false}` if, for example, you need to center your content or add some custom content.
-
-Here's an example of how to implement this with custom close animations for Android:
-
-```tsx
-import { useNavigation } from '@react-navigation/native';
-import { useCallback, useEffect, useRef } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
-
-import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
-import type { NavigationAction } from '@react-navigation/native';
-
-export default function ModalScreen({ onClose }: { onClose?: () => void }) {
-  const modalRef = useRef<Modal>(null);
-  const navigation = useNavigation();
-  const isClosingRef = useRef(false);
-
-  const handleClose = useCallback(
-    (action?: NavigationAction) => {
-      if (Platform.OS === 'ios') {
-        if (onClose) {
-          onClose();
-        } else {
-          navigation.goBack();
-        }
-
-        return;
-      }
-
-      if (isClosingRef.current) {
-        return;
-      }
-
-      isClosingRef.current = true;
-      // Trigger our custom animation first
-      modalRef.current?.triggerCloseAnimation?.();
-
-      // Delay the actual navigation to allow our animation to play
-      setTimeout(() => {
-        if (onClose) {
-          onClose();
-        } else if (action) {
-          // Dispatch the original action (e.g. popToTop, replace, reset)
-          // so we don't override the caller's intended navigation behaviour
-          navigation.dispatch(action);
-        } else {
-          navigation.goBack();
-        }
-      }, 100); // Match Modal animation duration
-    },
-    [navigation, onClose]
-  );
-
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      const unsubscribe = navigation.addListener('beforeRemove', e => {
-        if (!isClosingRef.current) {
-          // Prevent default behavior of the navigation action so we can
-          // play the close animation before letting navigation proceed
-          e.preventDefault();
-          handleClose(e.data.action);
-        }
-      });
-
-      return unsubscribe;
-    }
-  }, [navigation, handleClose]);
-
-  return (
-    <Modal
-      ref={modalRef}
-      inNavModal
-      onPressCloseButton={handleClose}
-      primaryButtonText="Action"
-      onPressPrimaryButton={handleClose}
-      secondaryButtonText="Cancel"
-      onPressSecondaryButton={handleClose}
-    >
-      <View style={styles.container}>
-        <Heading size="xl">This is a modal</Heading>
-        <BodyText>
-          <InlineLink onPress={handleClose} style={styles.link}>
-            Go to home screen
-          </InlineLink>
-        </BodyText>
-      </View>
-    </Modal>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-});
-```
-
-The above example demonstrates how to create a fullscreen modal that integrates with navigation.
-It includes custom close animations for Android to enhance the user experience. See the videos below for platform-specific behavior:
-
-| ios                                                                            | android                                                                            |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| <video src={modaliOSVideo} width={300} height="auto" controls loop autoPlay /> | <video src={modalAndroidVideo} width={300} height="auto" controls loop autoPlay /> |
+For React Navigation modal screens, use <StorybookLink to="components-navmodal">`NavModal`</StorybookLink>. It contains the extracted screen-based modal layout, background variants, scrollable content handling, and the Android `triggerCloseAnimation()` ref used during navigation dismissal.
 
 ## Integration Notes
 
