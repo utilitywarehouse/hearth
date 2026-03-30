@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.29.1
+
+### Patch Changes
+
+- [#1062](https://github.com/utilitywarehouse/hearth/pull/1062) [`0da3ffe`](https://github.com/utilitywarehouse/hearth/commit/0da3ffe12691a4287694ae9fcb2290d459e3c041) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Respect the selected `NavModal` background style
+
+  Fixed an issue where `NavModal` always rendered its inner content with the default surface background, which prevented the `background="brand"` treatment from being applied correctly.
+
+  **Components affected**:
+  - `NavModal`
+
+  **Developer changes**:
+
+  No changes are required.
+
 ## 0.29.0
 
 ### Minor Changes
