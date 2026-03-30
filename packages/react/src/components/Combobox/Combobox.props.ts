@@ -2,12 +2,14 @@ import { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { FormFieldProps } from '../FormField/FormField.props';
 import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
+import { InputBaseProps } from '../InputBase/InputBase.props';
 
 export interface ComboboxProps<Value, Multiple extends boolean | undefined = false>
   extends
     Omit<ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>, 'openOnInputClick'>,
     Pick<ComboboxPrimitive.Trigger.Props, 'disabled'>,
-    Omit<FormFieldProps, 'hideLabel'>,
+    FormFieldProps,
+    Pick<InputBaseProps, 'placeholder'>,
     MarginProps {
   triggerOnlyOnType?: boolean;
   noOptionsFoundText?: string;

@@ -42,6 +42,8 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     noOptionsFoundText,
     statusText,
     loading,
+    hideLabel,
+    placeholder,
     ...comboboxProps
   } = extractProps(props, marginPropDefs);
 
@@ -63,6 +65,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     validationText: showValidation ? validationText : undefined,
     validationStatus: showValidation ? validationStatus : undefined,
     required,
+    hideLabel,
   };
 
   return (
@@ -74,7 +77,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
       <ComboboxPrimitive.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
         <ComboboxPrimitive.Input
           render={
-            <InputBase id={id} disabled={disabled}>
+            <InputBase id={id} disabled={disabled} placeholder={placeholder}>
               <ComboboxPrimitive.Trigger
                 disabled={disabled}
                 render={
