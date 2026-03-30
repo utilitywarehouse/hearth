@@ -226,19 +226,32 @@ const NavModal = ({
               </View>
             </View>
           ) : null}
-          <ScrollableContainer
-            style={{
-              flex: stickyFooter ? 1 : 0,
-              ...(scrollable ? { marginHorizontal: -4 } : {}),
-            }}
-            {...(scrollable ? { contentContainerStyle: { paddingHorizontal: 4 } } : {})}
-            {...scrollViewProps}
-          >
-            {children}
-            {!stickyFooter && !noButtons ? (
-              <View style={styles.inNavModalFooterContainer}>{footer}</View>
-            ) : null}
-          </ScrollableContainer>
+          {scrollable ? (
+            <ScrollView
+              style={{
+                flex: stickyFooter ? 1 : 0,
+                marginHorizontal: -4,
+              }}
+              contentContainerStyle={{ paddingHorizontal: 4 }}
+              {...scrollViewProps}
+            >
+              {children}
+              {!stickyFooter && !noButtons ? (
+                <View style={styles.inNavModalFooterContainer}>{footer}</View>
+              ) : null}
+            </ScrollView>
+          ) : (
+            <View
+              style={{
+                flex: stickyFooter ? 1 : 0,
+              }}
+            >
+              {children}
+              {!stickyFooter && !noButtons ? (
+                <View style={styles.inNavModalFooterContainer}>{footer}</View>
+              ) : null}
+            </View>
+          )}
           {stickyFooter && !noButtons ? footer : null}
         </View>
       )}
