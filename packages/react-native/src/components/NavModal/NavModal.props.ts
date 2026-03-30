@@ -16,7 +16,7 @@ interface NavModalProps extends ModalCommonProps {
     | 'transparentModal'
     | 'containedModal'
     | 'containedTransparentModal';
-  safeAreaViewProps?: SafeAreaViewProps;
+  safeAreaViewProps?: Omit<SafeAreaViewProps, 'children'>;
   scrollViewProps?: Omit<SafeAreaViewProps, 'children'>;
 }
 

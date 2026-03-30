@@ -1,5 +1,5 @@
 import figma from '@figma/code-connect';
-import { NavModal } from '../';
+import { NavModal } from '..';
 
 figma.connect(
   NavModal,

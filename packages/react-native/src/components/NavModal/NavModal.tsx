@@ -94,13 +94,6 @@ const NavModal = ({
     ),
   }));
 
-  const animatedInNavModalStyle = useAnimatedStyle(() => ({
-    backgroundColor: hexWithOpacity(
-      theme.components.overlay.backgroundColor,
-      backgroundOpacity.value * (theme.components.overlay.opacity / 100)
-    ),
-  }));
-
   const animatedPretendContentStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: pretendContentTranslateY.value }],
   }));
@@ -162,8 +155,6 @@ const NavModal = ({
       secondaryButtonText,
     ]
   );
-
-  const ScrollableContainer = scrollable ? ScrollView : View;
 
   const content = (
     <>
@@ -279,7 +270,7 @@ const NavModal = ({
       <Animated.View
         style={[
           styles.inNavModalContainer,
-          Platform.OS === 'android' && usesSheetPresentation && animatedInNavModalStyle,
+          Platform.OS === 'android' && usesSheetPresentation && animatedBackgroundStyle,
         ]}
         {...props}
       >
