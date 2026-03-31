@@ -109,7 +109,7 @@ const ListItemRoot = ({
         testID={testID}
         style={[styles.container, props.style as ViewStyle]}
         disabled={isDisabled}
-        accessibilityRole={onPress ? 'button' : undefined}
+        accessibilityRole={props.accessibilityRole ?? (onPress ? 'button' : undefined)}
       >
         {children ? (
           children
