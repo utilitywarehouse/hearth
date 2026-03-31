@@ -1,4 +1,5 @@
 const path = require('path');
+const crypto = require('crypto');
 const fs = require('fs-extra');
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const fetch = require('node-fetch');
@@ -105,6 +106,8 @@ async function downloadJsonToFs(assets) {
     }
 
     const jsonData = await resp.text();
+    asset.hash = crypto.createHash('sha256').update(jsonData, 'utf8').digest('hex');
+
     await fs.outputFile(path.resolve(LIB_DIR, asset.filename), jsonData, {
       encoding: 'utf8',
     });
@@ -114,7 +117,7 @@ async function downloadJsonToFs(assets) {
 /** Generates a manifest.json file for use by storybook to generate docs. */
 async function generateManifest(assets) {
   const jsonAssets = assets
-    .map(({ name, filename }) => ({ name, filename }))
+    .map(({ name, filename, hash }) => ({ name, filename, hash }))
     .sort((a, b) => a.name.localeCompare(b.name, 'en'));
 
   await fs.outputFile(MANIFEST_PATH, JSON.stringify({ jsonAssets }, null, 2), {
@@ -122,12 +125,12 @@ async function generateManifest(assets) {
   });
 }
 
-/** Get a list of JSON asset names from the manifest file. */
-function getAssetsList() {
+/** Get the current JSON asset metadata from the manifest file. */
+function getManifestAssets() {
   try {
     const raw = fs.readFileSync(MANIFEST_PATH, { encoding: 'utf8' });
     const { jsonAssets } = JSON.parse(raw);
-    return (jsonAssets || []).map(item => item.name);
+    return jsonAssets || [];
   } catch (e) {
     // If manifest doesn't exist yet, treat as no existing assets.
     return [];
@@ -135,36 +138,58 @@ function getAssetsList() {
 }
 
 /**
- * Create a temporary list of added and removed assets. This will be deleted
- * after it has been outputted to the console when running the generate
- * script.
- * Currently this won't list any assets that have changed. So we'll have to
- * check this manually to see if the change warrants inclusion in the
- * changeset.
+ * Create a temporary list of added, changed and removed assets. This will be
+ * deleted after it has been outputted to the console when running the
+ * generate script.
  */
-async function createTempListOfAddedAndRemovedAssets(previous, updated) {
+async function createTempListOfAssetChanges(previous, updated) {
+  const previousByName = new Map(previous.map(asset => [asset.name, asset]));
+  const updatedByName = new Map(updated.map(asset => [asset.name, asset]));
+
   const addedAssets = updated.reduce((added, asset) => {
-    if (!previous.includes(asset)) {
-      added.push(asset);
+    if (!previousByName.has(asset.name)) {
+      added.push(asset.name);
     }
     return added;
   }, []);
 
   const removedAssets = previous.reduce((removed, asset) => {
-    if (!updated.includes(asset)) {
-      removed.push(asset);
+    if (!updatedByName.has(asset.name)) {
+      removed.push(asset.name);
     }
     return removed;
+  }, []);
+
+  const changedAssets = updated.reduce((changed, asset) => {
+    const previousAsset = previousByName.get(asset.name);
+
+    if (!previousAsset) {
+      return changed;
+    }
+
+    // Older manifests do not have hashes, so skip changed detection until
+    // both sides have a stored fingerprint.
+    if (previousAsset.hash && asset.hash && previousAsset.hash !== asset.hash) {
+      changed.push(asset.name);
+    }
+
+    return changed;
   }, []);
 
   const added = addedAssets.length > 0 ? `- ${addedAssets.join('\n- ')}` : 'No new assets.';
   const removed =
     removedAssets.length > 0 ? `- ${removedAssets.join('\n- ')}` : 'No removed assets.';
+  const changed =
+    changedAssets.length > 0 ? `- ${changedAssets.join('\n- ')}` : 'No changed assets.';
 
   const content = `
 ## NEW ANIMATED ASSETS
 
 ${added}
+
+## CHANGED ANIMATED ASSETS
+
+${changed}
 
 ## REMOVED ANIMATED ASSETS
 
@@ -173,12 +198,12 @@ ${removed}
 `;
 
   await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-json-assets.md'), content);
-  return { added, removed };
+  return { added, changed, removed };
 }
 
 async function main() {
   // First get a list of the currently available assets.
-  const currentAssetsList = getAssetsList();
+  const currentAssetsList = getManifestAssets();
 
   // Fetch assets from Brandfolder
   console.log('fetching assets from Brandfolder');
@@ -192,10 +217,10 @@ async function main() {
   // Generate the manifest for the storybook docs
   await generateManifest(assets);
 
-  // Let's see what assets we have now, and what has been added and removed, so
-  // we can add it to the release changeset.
-  const updatedAssetsList = getAssetsList();
-  await createTempListOfAddedAndRemovedAssets(currentAssetsList, updatedAssetsList);
+  // Let's see what assets we have now, and what has been added, changed and
+  // removed, so we can add it to the release changeset.
+  const updatedAssetsList = getManifestAssets();
+  await createTempListOfAssetChanges(currentAssetsList, updatedAssetsList);
 
   console.log(`Generated asset manifest.`);
 }
