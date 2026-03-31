@@ -152,7 +152,10 @@ const Modal = ({
         <View
           style={styles.loadingContainer}
           accessible={Platform.OS === 'android' ? true : undefined}
-          accessibilityLabel={Platform.OS === 'android' ? 'Loading' : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? (loadingHeading ?? 'Loading') : undefined}
+          accessibilityHint={
+            Platform.OS === 'android' && loadingDescription ? loadingDescription : undefined
+          }
           screenReaderFocusable
           ref={viewRef}
         >
