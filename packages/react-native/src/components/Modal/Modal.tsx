@@ -34,7 +34,7 @@ const Modal = ({
   closeOnPrimaryButtonPress = true,
   closeOnSecondaryButtonPress = true,
   loading,
-  loadingHeading,
+  loadingHeading = 'Loading...',
   loadingDescription,
   fullscreen = false,
   image,
@@ -157,11 +157,9 @@ const Modal = ({
           ref={viewRef}
         >
           <Spinner size="lg" />
-          {loadingHeading ? (
-            <Heading size="lg" textAlign="center">
-              {loadingHeading || 'Loading...'}
-            </Heading>
-          ) : null}
+          <Heading size="lg" textAlign="center">
+            {loadingHeading}
+          </Heading>
           {loadingDescription ? <BodyText textAlign="center">{loadingDescription}</BodyText> : null}
         </View>
       ) : (
