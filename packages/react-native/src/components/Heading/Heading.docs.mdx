@@ -64,7 +64,8 @@ The `Heading` component has different sizes to style the text.
 
 ## Accessibility
 
-`Heading` automatically sets `accessibilityRole="header"`, so VoiceOver and TalkBack can announce it as a heading without any extra configuration.
+`Heading` sets `accessibilityRole="header"` by default, so VoiceOver and TalkBack can announce it as a heading without any extra configuration.
+If you need to override this behavior, pass an explicit `accessibilityRole` prop (for example, `accessibilityRole="text"`) to opt out of heading semantics.
 
 - Use `Heading` for actual screen or section titles so assistive technologies can expose the right document structure.
-- If you need styled text without heading semantics, use one of the text components instead.
+- If you need styled text without heading semantics, either override the `accessibilityRole` on `Heading` or use one of the other text components instead.
