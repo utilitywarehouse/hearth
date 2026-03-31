@@ -2,759 +2,948 @@
   "svgIcons": [
     {
       "name": "AddSmallIcon",
-      "path": "add-small-icon.svg"
+      "path": "add-small-icon.svg",
+      "hash": "0da543b5a33bb32a5669ea8cd777e2264f854b02690c231e44d845de327781a5"
     },
     {
       "name": "AttachSmallIcon",
-      "path": "attach-small-icon.svg"
+      "path": "attach-small-icon.svg",
+      "hash": "66351a458536c7d8579dcb922088cec43bb861cccc1c9116b0b129dd6fd90269"
     },
     {
       "name": "BasketSmallIcon",
-      "path": "basket-small-icon.svg"
+      "path": "basket-small-icon.svg",
+      "hash": "ff83adea2b107b825bb8a05d08fc5c7b298373c2519556fb3fd44d2dc8cfa6fb"
     },
     {
       "name": "BellSmallIcon",
-      "path": "bell-small-icon.svg"
+      "path": "bell-small-icon.svg",
+      "hash": "cc932559f3912d7a30a8922e69e906ea07340fdeb83fdd17f7ce53a24080846f"
     },
     {
       "name": "BillSmallIcon",
-      "path": "bill-small-icon.svg"
+      "path": "bill-small-icon.svg",
+      "hash": "0661e20dde1a95856ac93a4e0f73a88d04da745cec2898fa50b2ec609baca11d"
     },
     {
       "name": "BroadbandSmallIcon",
-      "path": "broadband-small-icon.svg"
+      "path": "broadband-small-icon.svg",
+      "hash": "4b5cee729ed3448facde3594594f81d009156bb3c3e06b247b4bcbefbf0c72f4"
     },
     {
       "name": "CalendarSmallIcon",
-      "path": "calendar-small-icon.svg"
+      "path": "calendar-small-icon.svg",
+      "hash": "943d66748e1168e8993ee4047ebaee6e37c7b966b7fe6b8a9052b22233358ade"
     },
     {
       "name": "CalendarAddSmallIcon",
-      "path": "calendar-add-small-icon.svg"
+      "path": "calendar-add-small-icon.svg",
+      "hash": "45c96cd35a78737e3e43e1028042a9073ee901545b79716b85485d152e42e91b"
     },
     {
       "name": "CashbackCardSmallIcon",
-      "path": "cashback-card-small-icon.svg"
+      "path": "cashback-card-small-icon.svg",
+      "hash": "806104673bedbb966d260926a2286da85bed819ea9a4c299938a0ae88b0e6293"
     },
     {
       "name": "CelebrationSmallIcon",
-      "path": "celebration-small-icon.svg"
+      "path": "celebration-small-icon.svg",
+      "hash": "6bd4f91cc9f7c0bb04792cd020016d5a0d6e916b2b74212b96c710835fe51b9e"
     },
     {
       "name": "ChevronDownSmallIcon",
-      "path": "chevron-down-small-icon.svg"
+      "path": "chevron-down-small-icon.svg",
+      "hash": "93118b945415206c8f9735df536b19ebcaba7e678dc687a2a1112305ec45e4d3"
     },
     {
       "name": "ChevronLeftSmallIcon",
-      "path": "chevron-left-small-icon.svg"
+      "path": "chevron-left-small-icon.svg",
+      "hash": "5dfc7f4a901eeacda1d90740673392824f8228b3b3006e0693fe25cd3488d892"
     },
     {
       "name": "ChevronRightSmallIcon",
-      "path": "chevron-right-small-icon.svg"
+      "path": "chevron-right-small-icon.svg",
+      "hash": "40c83ae2d5072ba9bc1c301fb428914353b54fa920f9896f1b1390f05c1a2729"
     },
     {
       "name": "ChevronUpSmallIcon",
-      "path": "chevron-up-small-icon.svg"
+      "path": "chevron-up-small-icon.svg",
+      "hash": "c3b3ce47acdfbb2d1a6996637730e6a45210a8a5469c0cf617c26bc4bcd8b42e"
     },
     {
       "name": "CloseSmallIcon",
-      "path": "close-small-icon.svg"
+      "path": "close-small-icon.svg",
+      "hash": "f33fd4c1ec21a23811d38d28ac420f30b50c4bde4b4b0726f4e09a6bd2c418d0"
     },
     {
       "name": "CopySmallIcon",
-      "path": "copy-small-icon.svg"
+      "path": "copy-small-icon.svg",
+      "hash": "5f786df60b046663283e3cbb2e5c48fb5eb9c2b14df05ca7ed3e168e4dcc1b58"
     },
     {
       "name": "CreditSmallIcon",
-      "path": "credit-small-icon.svg"
+      "path": "credit-small-icon.svg",
+      "hash": "7fc37451c6866538ae5a68d2cc17acd50e735c58f80da98a3fcabc223ee2782c"
     },
     {
       "name": "CreditReversalSmallIcon",
-      "path": "credit-reversal-small-icon.svg"
+      "path": "credit-reversal-small-icon.svg",
+      "hash": "9a2b9419287521c1978e44fb81886c72e09870b9841f1c0cc82c6407c0acb17e"
     },
     {
       "name": "DecreaseSmallIcon",
-      "path": "decrease-small-icon.svg"
+      "path": "decrease-small-icon.svg",
+      "hash": "35f24dbbd639cc4d66e0f717a1788a7f97f23b6841408536fd31821771dddcf5"
     },
     {
       "name": "DownloadSmallIcon",
-      "path": "download-small-icon.svg"
+      "path": "download-small-icon.svg",
+      "hash": "1c0645e49604af0746e76cc227a0f9cd41d11e6fbdfbf68777ce5bc7f00b0277"
     },
     {
       "name": "ExpandSmallIcon",
-      "path": "expand-small-icon.svg"
+      "path": "expand-small-icon.svg",
+      "hash": "b16fdf8d60b4d1b479f54ef1af9c082529448f6166f82f4c1ed9f6eaf783b7d2"
     },
     {
       "name": "EditSmallIcon",
-      "path": "edit-small-icon.svg"
+      "path": "edit-small-icon.svg",
+      "hash": "6452d012aae003da7a7ca359133514ca31121a3f123c0d5dbb8fc55bfd6b0bc4"
     },
     {
       "name": "ElectricitySmallIcon",
-      "path": "electricity-small-icon.svg"
+      "path": "electricity-small-icon.svg",
+      "hash": "bf304659d47ecdab89be16987f9c5015f0fa3ec5f4c41a940b45bc08a199b974"
     },
     {
       "name": "EmailSmallIcon",
-      "path": "email-small-icon.svg"
+      "path": "email-small-icon.svg",
+      "hash": "980628da3201db2694335f5dcfca0cbf65c640b6139b2640e25c279c5c96f859"
     },
     {
       "name": "ErrorCircleSmallIcon",
-      "path": "error-circle-small-icon.svg"
+      "path": "error-circle-small-icon.svg",
+      "hash": "a553c9604256b267e3a15e367cf6a1e1c1bd844c3c1491be98fcbfce0ace8a20"
     },
     {
       "name": "EyeSmallIcon",
-      "path": "eye-small-icon.svg"
+      "path": "eye-small-icon.svg",
+      "hash": "0b2913c675572da2ac80d61d06647e46e2e11d099caf02b1a4290b956111fd60"
     },
     {
       "name": "EyeOffSmallIcon",
-      "path": "eye-off-small-icon.svg"
+      "path": "eye-off-small-icon.svg",
+      "hash": "b791dd66726a289b2fa073c8eafa9e35dcf4fa7ca8c236b9296389a747bed370"
     },
     {
       "name": "FilterSmallIcon",
-      "path": "filter-small-icon.svg"
+      "path": "filter-small-icon.svg",
+      "hash": "e38ce10b86db2080ffd9e0581cb4ff14b2c57eb628aeec26f5cde55c275ef1fa"
     },
     {
       "name": "FullscreenSmallIcon",
-      "path": "fullscreen-small-icon.svg"
+      "path": "fullscreen-small-icon.svg",
+      "hash": "ac8cac3c501134e7832badeec77bd4a2803d6d357c3bc205de75a93f8f0cb2d2"
     },
     {
       "name": "GasSmallIcon",
-      "path": "gas-small-icon.svg"
+      "path": "gas-small-icon.svg",
+      "hash": "9a37b92f86871a603346288d775c849024fb173562c3a159d1abf45e1a5d1dc3"
     },
     {
       "name": "HeartSmallIcon",
-      "path": "heart-small-icon.svg"
+      "path": "heart-small-icon.svg",
+      "hash": "ec39fcd11f7f1f930d9dc308495c8c14052f5b4c039a205ba146b7a3cf7780fc"
     },
     {
       "name": "HomeAndBoilerSmallIcon",
-      "path": "home-and-boiler-small-icon.svg"
+      "path": "home-and-boiler-small-icon.svg",
+      "hash": "08f26a1aca1161e714c84a4ba2a43e93484e1644f3d5b4a3aaab4654d1ac57d6"
     },
     {
       "name": "HomeInsuranceSmallIcon",
-      "path": "home-insurance-small-icon.svg"
+      "path": "home-insurance-small-icon.svg",
+      "hash": "5038d0d409ae686df0d4ac1ee587bb8b3d4bb3d0d4632f8f473ffd1295c9ac11"
     },
     {
       "name": "IncomeProtectSmallIcon",
-      "path": "income-protect-small-icon.svg"
+      "path": "income-protect-small-icon.svg",
+      "hash": "63ef05751213d03d8415870a249355f03ef37f04bd5230265f0b88062d2f287b"
     },
     {
       "name": "IncreaseSmallIcon",
-      "path": "increase-small-icon.svg"
+      "path": "increase-small-icon.svg",
+      "hash": "8624e5b42508597c9cb069d50be3e5b5ce161860fa6e75e5a9c2c906329a1264"
     },
     {
       "name": "InsightsSmallIcon",
-      "path": "insights-small-icon.svg"
+      "path": "insights-small-icon.svg",
+      "hash": "b2926672b1a7a52a7b9ab9d7428421f11454002381fb7362df1968d754e15f9d"
     },
     {
       "name": "InfoSmallIcon",
-      "path": "info-small-icon.svg"
+      "path": "info-small-icon.svg",
+      "hash": "839efa4b32cd1a05030b7136160e49644ae2532470ad335ebbf9fbf53996563d"
     },
     {
       "name": "InsuranceSmallIcon",
-      "path": "insurance-small-icon.svg"
+      "path": "insurance-small-icon.svg",
+      "hash": "f013c62ae406ba9761f34bb1beeb756974f96f6f26e5d9989557207ebc971f0e"
     },
     {
       "name": "LandlineSmallIcon",
-      "path": "landline-small-icon.svg"
+      "path": "landline-small-icon.svg",
+      "hash": "37e5b530687f5cbe39e4bc88ba25083658ed3f34835face638ce5e1ab9bf2cd0"
     },
     {
       "name": "LaunchSmallIcon",
-      "path": "launch-small-icon.svg"
+      "path": "launch-small-icon.svg",
+      "hash": "a950d81ec0b256d606370066d949a251eacea659d7871c2b57913415646dc737"
     },
     {
       "name": "ListSmallIcon",
-      "path": "list-small-icon.svg"
+      "path": "list-small-icon.svg",
+      "hash": "2de462bd511274bad5683abb6c85ebea7064a5215775edfdacbc4c66d10c9ee0"
     },
     {
       "name": "LogoutSmallIcon",
-      "path": "logout-small-icon.svg"
+      "path": "logout-small-icon.svg",
+      "hash": "2e6620c225ff9f5e60c1fb302302d82d691660f3b68cea3dbf013a1c419cd496"
     },
     {
       "name": "LocateSmallIcon",
-      "path": "locate-small-icon.svg"
+      "path": "locate-small-icon.svg",
+      "hash": "b4ad7526bad064b5a740b11b0429b77e7f4dbc5af4f435b788a3798a7af2af6b"
     },
     {
       "name": "LocationSmallIcon",
-      "path": "location-small-icon.svg"
+      "path": "location-small-icon.svg",
+      "hash": "9791d1d4e980914a09ab63dc83ceeb15c6c01255022a3cd743ee79de8bcf1363"
     },
     {
       "name": "LockSmallIcon",
-      "path": "lock-small-icon.svg"
+      "path": "lock-small-icon.svg",
+      "hash": "55fbcc498f0b3b52fb736bd6fdb7b48e77bec77d5d2f8b384f7b920bc048e415"
     },
     {
       "name": "LinkSmallIcon",
-      "path": "link-small-icon.svg"
+      "path": "link-small-icon.svg",
+      "hash": "642233c1fe9fee2e7e2d8389b566bafe3b5cb9eb6909dfb4e821cbcfed93b74a"
     },
     {
       "name": "LoginSmallIcon",
-      "path": "login-small-icon.svg"
+      "path": "login-small-icon.svg",
+      "hash": "6dcf210260950cd2c496372d4ab597a2c8bb2733f4a4418b7bbe89234fc31378"
     },
     {
       "name": "MeterSmallIcon",
-      "path": "meter-small-icon.svg"
+      "path": "meter-small-icon.svg",
+      "hash": "6efc649dd606be5aada7a4cb1e3ec7d5ddd8c8ea9fd8b759fb8297e8ee43ec94"
     },
     {
       "name": "MinusSmallIcon",
-      "path": "minus-small-icon.svg"
+      "path": "minus-small-icon.svg",
+      "hash": "8d2b46dcc05ff426c717f37880c17a87ce6e0b3de6a4e81b21182f88cc33ccf0"
     },
     {
       "name": "MobileSmallIcon",
-      "path": "mobile-small-icon.svg"
+      "path": "mobile-small-icon.svg",
+      "hash": "a02a91f79132a8441b23f9eeda32fc1d2580646b937536be2e5f2768ceedb58d"
     },
     {
       "name": "MoreSmallIcon",
-      "path": "more-small-icon.svg"
+      "path": "more-small-icon.svg",
+      "hash": "702a230d7e8a3c11b22cb6003569fdb5effc8821e7abbaf67c750d42a54b0cd2"
     },
     {
       "name": "OpenSmallIcon",
-      "path": "open-small-icon.svg"
+      "path": "open-small-icon.svg",
+      "hash": "a9eb4b43dd4ac4c8e25342bcec21b25b207bc49368c675a1c374e8fdb3f7f8a9"
     },
     {
       "name": "PhoneSmallIcon",
-      "path": "phone-small-icon.svg"
+      "path": "phone-small-icon.svg",
+      "hash": "ef575046126138934d10b11a767c62d0eb4203a484b6618eb7601a8b4a9c55d2"
     },
     {
       "name": "PlaceholderSmallIcon",
-      "path": "placeholder-small-icon.svg"
+      "path": "placeholder-small-icon.svg",
+      "hash": "9dc941c5b85f6860f61ddd7ed9b829313af913702f83f5da027ccdff4c5e4ee8"
     },
     {
       "name": "PlaySmallIcon",
-      "path": "play-small-icon.svg"
+      "path": "play-small-icon.svg",
+      "hash": "50d770ec664010071eff42a908002f6d41655de961a667d29db8e4cd9c3afce1"
     },
     {
       "name": "QuestionMarkSmallIcon",
-      "path": "question-mark-small-icon.svg"
+      "path": "question-mark-small-icon.svg",
+      "hash": "e01bd0a8613c4df73f104be69578767de6d604f85f021829eb1a2152dd2c10d7"
     },
     {
       "name": "RefundSmallIcon",
-      "path": "refund-small-icon.svg"
+      "path": "refund-small-icon.svg",
+      "hash": "0ef098411f8c1710d13c89660d120c8b5b674f54341b2a28d99c4a26d84b7608"
     },
     {
       "name": "SearchSmallIcon",
-      "path": "search-small-icon.svg"
+      "path": "search-small-icon.svg",
+      "hash": "d7fc683d5c78d81f4007474926fa715249b0bb7cf0cb486acb176510ac16f43b"
     },
     {
       "name": "SendSmallIcon",
-      "path": "send-small-icon.svg"
+      "path": "send-small-icon.svg",
+      "hash": "595accc066bdb31002164f77397f4cfb198e3094ca903095479cb17a47ef9e26"
     },
     {
       "name": "SettingsSmallIcon",
-      "path": "settings-small-icon.svg"
+      "path": "settings-small-icon.svg",
+      "hash": "5b3f03acd7a8d11b899f855d8be904661bf687062a83786564b02b6e6209c87e"
     },
     {
       "name": "ShareSmallIcon",
-      "path": "share-small-icon.svg"
+      "path": "share-small-icon.svg",
+      "hash": "43a61905372d190a62ba65639c2fe71b14cffde8299734b709c2134465635600"
     },
     {
       "name": "ShoppingSmallIcon",
-      "path": "shopping-small-icon.svg"
+      "path": "shopping-small-icon.svg",
+      "hash": "4990871c03ca074c2bcfc11aec0347942d601b03b6b77c780f16cc6393fd7d69"
     },
     {
       "name": "SimSmallIcon",
-      "path": "sim-small-icon.svg"
+      "path": "sim-small-icon.svg",
+      "hash": "df2cb10a6292ca9d193eaf3b1aabd3302f8b0b8431064e2f87932249a6caea55"
     },
     {
       "name": "SkipLastSmallIcon",
-      "path": "skip-last-small-icon.svg"
+      "path": "skip-last-small-icon.svg",
+      "hash": "0234644d459b2a482b5ff3ca7e3f1fb5b2389308d642e0ef0cd74d48da8ca3c3"
     },
     {
       "name": "SkipFirstSmallIcon",
-      "path": "skip-first-small-icon.svg"
+      "path": "skip-first-small-icon.svg",
+      "hash": "ff84538cb41d33dd939994cb488f126b0e4533864cb3f81efe4b363884015a76"
     },
     {
       "name": "SnowflakeSmallIcon",
-      "path": "snowflake-small-icon.svg"
+      "path": "snowflake-small-icon.svg",
+      "hash": "d38b6c8d266a8f0d7d29584e00233d7664d09d4ef9318626957398a269b14b85"
     },
     {
       "name": "TickSmallIcon",
-      "path": "tick-small-icon.svg"
+      "path": "tick-small-icon.svg",
+      "hash": "762bb7727b4c72725fc77a20f85632783475e10df06ffef9371b60f7e126d38e"
     },
     {
       "name": "TickCircleSmallIcon",
-      "path": "tick-circle-small-icon.svg"
+      "path": "tick-circle-small-icon.svg",
+      "hash": "7d50b1bb1c3da80caaf78c5cb6db222b55c7b843d1fddbe2725bc993d45c8185"
     },
     {
       "name": "ThumbsUpSmallIcon",
-      "path": "thumbs-up-small-icon.svg"
+      "path": "thumbs-up-small-icon.svg",
+      "hash": "2c540bced459cba34ac59e114843c582a3105275d711e809fbf5d779678e9039"
     },
     {
       "name": "ThumbsDownSmallIcon",
-      "path": "thumbs-down-small-icon.svg"
+      "path": "thumbs-down-small-icon.svg",
+      "hash": "1a53e7fd32501dedd2530f2eae14f8a3aba78ddd50d6960a54f464848cda0b30"
     },
     {
       "name": "TimeSmallIcon",
-      "path": "time-small-icon.svg"
+      "path": "time-small-icon.svg",
+      "hash": "067d14a63384d9aab88e8f7ddcedd6f83be6311c37ade8edb1ad8c956ad03502"
     },
     {
       "name": "TopUpSmallIcon",
-      "path": "top-up-small-icon.svg"
+      "path": "top-up-small-icon.svg",
+      "hash": "52fd2c56f19eb506fd486ccff5acb9d974b23d8f49a23b7a990b7d2cfcb9b81a"
     },
     {
       "name": "TrashSmallIcon",
-      "path": "trash-small-icon.svg"
+      "path": "trash-small-icon.svg",
+      "hash": "9ecf5532bfdd2622bf7cb0c096d1beebf18721229c04cda4523e057dc0789349"
     },
     {
       "name": "UnlockSmallIcon",
-      "path": "unlock-small-icon.svg"
+      "path": "unlock-small-icon.svg",
+      "hash": "d4a4227aa55cf91870e459204665893eecadd5e789d1cd8a6cd48e2d135d9084"
     },
     {
       "name": "UploadSmallIcon",
-      "path": "upload-small-icon.svg"
+      "path": "upload-small-icon.svg",
+      "hash": "adbe6d0fcd6fa36a59a0a405cb94f50a389493fe5a7433a6b3eaaea35aba619c"
     },
     {
       "name": "UserSmallIcon",
-      "path": "user-small-icon.svg"
+      "path": "user-small-icon.svg",
+      "hash": "2a99b30729aaea883c528a0783058bbf4bbbbb824666bdd75109848c0f2a7379"
     },
     {
       "name": "WarningSmallIcon",
-      "path": "warning-small-icon.svg"
+      "path": "warning-small-icon.svg",
+      "hash": "336e826e2b7745d50cfe43fbabe8bf98433e0504fda21812d732ef5396fc512b"
     },
     {
       "name": "WhatsAppSmallIcon",
-      "path": "whats-app-small-icon.svg"
+      "path": "whats-app-small-icon.svg",
+      "hash": "943e8e53e3aa60b6ec678e5d9edbdee22e8c621185f9600e808cea143bb96375"
     },
     {
       "name": "WithdrawSmallIcon",
-      "path": "withdraw-small-icon.svg"
+      "path": "withdraw-small-icon.svg",
+      "hash": "216c319a78839f9280322262367a1587639cec6c6eb1947971ea065397e0b233"
     },
     {
       "name": "AddMediumIcon",
-      "path": "add-medium-icon.svg"
+      "path": "add-medium-icon.svg",
+      "hash": "6640e98c63d7a0639b44c69473e3f49ac527fa569349f5e0cd54c49cacd281f5"
     },
     {
       "name": "AttachMediumIcon",
-      "path": "attach-medium-icon.svg"
+      "path": "attach-medium-icon.svg",
+      "hash": "5ea0b31fcf2eeee218820444cf0514c804db2bc8c6379be4003f3509cf887a27"
     },
     {
       "name": "BankMediumIcon",
-      "path": "bank-medium-icon.svg"
+      "path": "bank-medium-icon.svg",
+      "hash": "c651f6c024a1ce6a01dfd544dd726ccc28aa4fc90c2b446d22cf1e6f7869b485"
     },
     {
       "name": "BasketMediumIcon",
-      "path": "basket-medium-icon.svg"
+      "path": "basket-medium-icon.svg",
+      "hash": "6dbdf152af117b813b2af37a38d12adaac0c5365f4297192dbe7f07a573646c0"
     },
     {
       "name": "BellMediumIcon",
-      "path": "bell-medium-icon.svg"
+      "path": "bell-medium-icon.svg",
+      "hash": "f90f5be07d40f10759bebe3756aa43abe02131000738cf562376ec8ad64f410e"
     },
     {
       "name": "BillMediumIcon",
-      "path": "bill-medium-icon.svg"
+      "path": "bill-medium-icon.svg",
+      "hash": "906e3eac7021ecc9d1c3f18a755e7466baf135c8edecf6abe98421423ba58df6"
     },
     {
       "name": "BoilerMediumIcon",
-      "path": "boiler-medium-icon.svg"
+      "path": "boiler-medium-icon.svg",
+      "hash": "cb6b18b322dfa5bdba1aff7ca1456859e67214e2111118bb80f9f484413cef4c"
     },
     {
       "name": "BookmarkMediumIcon",
-      "path": "bookmark-medium-icon.svg"
+      "path": "bookmark-medium-icon.svg",
+      "hash": "20f595cbb67706b0436193269983df71f75f61e68a13af5a06e72011742a2943"
     },
     {
       "name": "BookOpenMediumIcon",
-      "path": "book-open-medium-icon.svg"
+      "path": "book-open-medium-icon.svg",
+      "hash": "f445a597671ea8f52348b21c89198b8acda17999f93309e37b5baa00782455d5"
     },
     {
       "name": "BroadbandMediumIcon",
-      "path": "broadband-medium-icon.svg"
+      "path": "broadband-medium-icon.svg",
+      "hash": "d505329febddba9cef8e3aeed8e265b491d2ab63ffd2d9e304b079b7bc50914d"
     },
     {
       "name": "BulbMediumIcon",
-      "path": "bulb-medium-icon.svg"
+      "path": "bulb-medium-icon.svg",
+      "hash": "1891d05f8b4f108c8e3faa81d6aa50d35313da8bebeb212536b98f30ede3c7a0"
     },
     {
       "name": "ChevronDownMediumIcon",
-      "path": "chevron-down-medium-icon.svg"
+      "path": "chevron-down-medium-icon.svg",
+      "hash": "43cfd90ae94243476e8c642aca9dca2bbb629426e1c6a2358bf1d3820880cc9c"
     },
     {
       "name": "ChevronLeftMediumIcon",
-      "path": "chevron-left-medium-icon.svg"
+      "path": "chevron-left-medium-icon.svg",
+      "hash": "00495fd76ada91b6f73c0d24540a316590145be7e641ddcbf84d5aca2279bc15"
     },
     {
       "name": "ChevronRightMediumIcon",
-      "path": "chevron-right-medium-icon.svg"
+      "path": "chevron-right-medium-icon.svg",
+      "hash": "0d9b7324eb7f818a86635b0854cb4fb4c9e9beff05155ebb8ba3ba94ea6936ae"
     },
     {
       "name": "ChevronUpMediumIcon",
-      "path": "chevron-up-medium-icon.svg"
+      "path": "chevron-up-medium-icon.svg",
+      "hash": "1af6ce90c99298f2b8a388a337965cb46f88739abe2e2956d91616ee14f6ad97"
     },
     {
       "name": "PhoneMediumIcon",
-      "path": "phone-medium-icon.svg"
+      "path": "phone-medium-icon.svg",
+      "hash": "0c2659e7cc8d4d44315c25081a22e8a77c82c6dac6c1b59019fe900ee7fb0427"
     },
     {
       "name": "CalendarMediumIcon",
-      "path": "calendar-medium-icon.svg"
+      "path": "calendar-medium-icon.svg",
+      "hash": "f71b67ca95e4c999eab1d54d7e40af2f4de1439b27100f373b3880e3a336ba27"
     },
     {
       "name": "CalendarAddMediumIcon",
-      "path": "calendar-add-medium-icon.svg"
+      "path": "calendar-add-medium-icon.svg",
+      "hash": "905a75e4e5ba733f711a15689c1484d9516c21f50c868710d76d5f10334963ad"
     },
     {
       "name": "CameraMediumIcon",
-      "path": "camera-medium-icon.svg"
+      "path": "camera-medium-icon.svg",
+      "hash": "3952c164ce4c4619c41d5af0d0fcc7564b85abec6fbf20fed97a0daf90514362"
     },
     {
       "name": "CashbackCardMediumIcon",
-      "path": "cashback-card-medium-icon.svg"
+      "path": "cashback-card-medium-icon.svg",
+      "hash": "842a760d8766542f2a8951ef2a7fbad8ae13bd00609e33d0b36786e9efd90f17"
     },
     {
       "name": "CelebrationMediumIcon",
-      "path": "celebration-medium-icon.svg"
+      "path": "celebration-medium-icon.svg",
+      "hash": "5ebdfc5addfb323c32f5771464a3a9fbd8e6382ba48a5c8daf63aa73985ba1ab"
     },
     {
       "name": "CloseMediumIcon",
-      "path": "close-medium-icon.svg"
+      "path": "close-medium-icon.svg",
+      "hash": "ef820be07e63bbdaef608235a7eeb7185d2d60ccd6faa877534960d1b4e3cfeb"
     },
     {
       "name": "ContactlessMediumIcon",
-      "path": "contactless-medium-icon.svg"
+      "path": "contactless-medium-icon.svg",
+      "hash": "6ba9b0a0e4442b8597d5e3ca3fefefa935a2a59131f9e49899055eb9156e1051"
     },
     {
       "name": "CopyMediumIcon",
-      "path": "copy-medium-icon.svg"
+      "path": "copy-medium-icon.svg",
+      "hash": "8f5e059f2a23112731f9a89b92faab587e67430b881de5428e3a9008e65d7447"
     },
     {
       "name": "CreditMediumIcon",
-      "path": "credit-medium-icon.svg"
+      "path": "credit-medium-icon.svg",
+      "hash": "55e910e860319e82161193ad3310176080092776b37b97bd51f92d6757028b16"
     },
     {
       "name": "CreditsAndDebitsMediumIcon",
-      "path": "credits-and-debits-medium-icon.svg"
+      "path": "credits-and-debits-medium-icon.svg",
+      "hash": "4ab6160ed45a8243b78cbc16ca4598a2f3cbcbc4ad4a5062e4e279f7bf7026d1"
     },
     {
       "name": "CreditReversalMediumIcon",
-      "path": "credit-reversal-medium-icon.svg"
+      "path": "credit-reversal-medium-icon.svg",
+      "hash": "e57d859377e47d8da4a83f2da1622211f58810853bd5ebbc3efb922898b3f360"
     },
     {
       "name": "DecreaseMediumIcon",
-      "path": "decrease-medium-icon.svg"
+      "path": "decrease-medium-icon.svg",
+      "hash": "d82a84d0160fbc723c3bc68e19579de570b0ed14cb2085bc212ae295494104ce"
     },
     {
       "name": "DocumentMediumIcon",
-      "path": "document-medium-icon.svg"
+      "path": "document-medium-icon.svg",
+      "hash": "ae8438dc2ed20a4012b6999af46b5145853f4c4e2e47be65e2540e3044177808"
     },
     {
       "name": "DownloadMediumIcon",
-      "path": "download-medium-icon.svg"
+      "path": "download-medium-icon.svg",
+      "hash": "b60f3550f95abf6b8c3112d16ebc851e3458e65b56d747c4e608c9d9b7046166"
     },
     {
       "name": "EditMediumIcon",
-      "path": "edit-medium-icon.svg"
+      "path": "edit-medium-icon.svg",
+      "hash": "6ad2773067fdb851093f80dccabe3fed89a87a14f3ca1e4112f6f6f8157298ee"
     },
     {
       "name": "ElectricityMediumIcon",
-      "path": "electricity-medium-icon.svg"
+      "path": "electricity-medium-icon.svg",
+      "hash": "3403f87567861f2a15148ba07034335e8f0f3630b189d5adcc2438c69e32e843"
     },
     {
       "name": "EmailMediumIcon",
-      "path": "email-medium-icon.svg"
+      "path": "email-medium-icon.svg",
+      "hash": "69a3eb0a557ef4432bc70c04a4223b2971d71934481b15f933fee3ad500d1bab"
     },
     {
       "name": "EnvironmentMediumIcon",
-      "path": "environment-medium-icon.svg"
+      "path": "environment-medium-icon.svg",
+      "hash": "ec373dccb391e2e0c06ba436d682455f33122eec24883b42caa47eb3b5e6e6da"
     },
     {
       "name": "ExtraHelpMediumIcon",
-      "path": "extra-help-medium-icon.svg"
+      "path": "extra-help-medium-icon.svg",
+      "hash": "656cfaeb1595adcc8ec8800ef95859cf3097df88aedd21ec0d4891f86704b74e"
     },
     {
       "name": "ExpandMediumIcon",
-      "path": "expand-medium-icon.svg"
+      "path": "expand-medium-icon.svg",
+      "hash": "fa2538520d808ec115865280b207fcfc8b02bb865e8b4c961cc47299fd5aebaf"
     },
     {
       "name": "EyeMediumIcon",
-      "path": "eye-medium-icon.svg"
+      "path": "eye-medium-icon.svg",
+      "hash": "3623a84470c5abd8a7e2a3053fde90ed5bd9e07417c85a72290bac1e88b94db3"
     },
     {
       "name": "EyeOffMediumIcon",
-      "path": "eye-off-medium-icon.svg"
+      "path": "eye-off-medium-icon.svg",
+      "hash": "251257d87e9fe76e170b4ee7276061092baffb89fe69c02ef331560df1700d97"
     },
     {
       "name": "FacebookMediumIcon",
-      "path": "facebook-medium-icon.svg"
+      "path": "facebook-medium-icon.svg",
+      "hash": "659eed68835d386c8bb12a87b3538212e6def2b17876164b942792669a34a07a"
     },
     {
       "name": "FilterMediumIcon",
-      "path": "filter-medium-icon.svg"
+      "path": "filter-medium-icon.svg",
+      "hash": "a6ea80769cf84f3309f43d1948b3e95abc7585fc4bf94a48fc5eea8afd7b243b"
     },
     {
       "name": "FingerprintMediumIcon",
-      "path": "fingerprint-medium-icon.svg"
+      "path": "fingerprint-medium-icon.svg",
+      "hash": "44ac53ccd6004a28f3d2d144c6db0469eedd61a82a160099f2bcce1f076127cd"
     },
     {
       "name": "FitEnergyMediumIcon",
-      "path": "fit-energy-medium-icon.svg"
+      "path": "fit-energy-medium-icon.svg",
+      "hash": "0b80720bd11d13b78316a0f448a05daf8c0eea3e8a808f1cab5c73b0aa335f11"
     },
     {
       "name": "FullscreenMediumIcon",
-      "path": "fullscreen-medium-icon.svg"
+      "path": "fullscreen-medium-icon.svg",
+      "hash": "b48d2e30eb926e52938b5685e4b941f4014a04c6a279d71e1bea15c2a5cde5bd"
     },
     {
       "name": "GasMediumIcon",
-      "path": "gas-medium-icon.svg"
+      "path": "gas-medium-icon.svg",
+      "hash": "ed8e655d9efde1906a3557223113b286c920cf03f2b895ecaf6b0ac276bb77c2"
     },
     {
       "name": "GreenDealElectricityMediumIcon",
-      "path": "green-deal-electricity-medium-icon.svg"
+      "path": "green-deal-electricity-medium-icon.svg",
+      "hash": "ae73ada79ee6b0ec3c7cd496544fe179e842980057cf9d3a9aa0ecf3351328cf"
     },
     {
       "name": "HeartMediumIcon",
-      "path": "heart-medium-icon.svg"
+      "path": "heart-medium-icon.svg",
+      "hash": "c533ff4840e516f0727210929b74abae7d49ba233516f67a036bf25de2fb6821"
     },
     {
       "name": "HeartOutlineMediumIcon",
-      "path": "heart-outline-medium-icon.svg"
+      "path": "heart-outline-medium-icon.svg",
+      "hash": "8bc05089eccc53cb694e3034e7cd56d2eaa4b94028b4e3c541b1c8c1cdefcef7"
     },
     {
       "name": "HistoryMediumIcon",
-      "path": "history-medium-icon.svg"
+      "path": "history-medium-icon.svg",
+      "hash": "4f5ef646404650e1467521931b84e6cfc9ae10941b0ab93c03234e278d57c7e7"
     },
     {
       "name": "HomeMediumIcon",
-      "path": "home-medium-icon.svg"
+      "path": "home-medium-icon.svg",
+      "hash": "9d45d0acded8d52c35c7e04bd2936ec6576cdb35d3aef3231601c69b135720b7"
     },
     {
       "name": "HomeAndBoilerMediumIcon",
-      "path": "home-and-boiler-medium-icon.svg"
+      "path": "home-and-boiler-medium-icon.svg",
+      "hash": "c284027f1aa1584cab207722c82bee0f8b95c821b8c132b4983834ac9abd3620"
     },
     {
       "name": "HomeInsuranceMediumIcon",
-      "path": "home-insurance-medium-icon.svg"
+      "path": "home-insurance-medium-icon.svg",
+      "hash": "54cb21547bb52ab4b0e874f06d9e7a1cdcf0087f050d4331ea765e24da067607"
     },
     {
       "name": "IncreaseMediumIcon",
-      "path": "increase-medium-icon.svg"
+      "path": "increase-medium-icon.svg",
+      "hash": "23e178a099523d882cbb2f3f7cba8f6fefa3784389573b0ce9de069320ef9cde"
     },
     {
       "name": "IncomeProtectMediumIcon",
-      "path": "income-protect-medium-icon.svg"
+      "path": "income-protect-medium-icon.svg",
+      "hash": "3d6bca25462cdbd1c043114cf15341050657742c40e06ba709c4de24658304f3"
     },
     {
       "name": "InfoMediumIcon",
-      "path": "info-medium-icon.svg"
+      "path": "info-medium-icon.svg",
+      "hash": "1773097c3a4c88ac093748b352b8fab6670528b442809c0676876aada3380307"
     },
     {
       "name": "InsightsMediumIcon",
-      "path": "insights-medium-icon.svg"
+      "path": "insights-medium-icon.svg",
+      "hash": "9f2cb5bbbe270f8becd756ba40f131fd442416c07e9cb3ed90acceb9fdaea685"
     },
     {
       "name": "InstagramMediumIcon",
-      "path": "instagram-medium-icon.svg"
+      "path": "instagram-medium-icon.svg",
+      "hash": "a42d897154b64b6d61028109c5c7e5138e1997b1e3eefc2a3c233b57a9a2f9c7"
     },
     {
       "name": "InsuranceMediumIcon",
-      "path": "insurance-medium-icon.svg"
+      "path": "insurance-medium-icon.svg",
+      "hash": "c0093ed1fa44ad55ce5b3d01589edfe06c273f3fd6517e2dff9d19017e8f89a8"
     },
     {
       "name": "LandlineMediumIcon",
-      "path": "landline-medium-icon.svg"
+      "path": "landline-medium-icon.svg",
+      "hash": "6b1efb0c04fe60e6b146087ee94a477f6c00c6e62398084050c227ee3db69d73"
     },
     {
       "name": "LaunchMediumIcon",
-      "path": "launch-medium-icon.svg"
+      "path": "launch-medium-icon.svg",
+      "hash": "ce1efe62e60a1329f5621369c4d7b9967b18bd28912f015771b107fcf5c95d66"
     },
     {
       "name": "LinkMediumIcon",
-      "path": "link-medium-icon.svg"
+      "path": "link-medium-icon.svg",
+      "hash": "88e35e193a5c5320da7860e4698f84a3756dc14eed6de29247f6c77b033072d4"
     },
     {
       "name": "LinkedInMediumIcon",
-      "path": "linked-in-medium-icon.svg"
+      "path": "linked-in-medium-icon.svg",
+      "hash": "e1752c9e06ff7c4336499c9be29c1e25fe82811e693d694946c29f8f8b7e62c6"
     },
     {
       "name": "LocationMediumIcon",
-      "path": "location-medium-icon.svg"
+      "path": "location-medium-icon.svg",
+      "hash": "dbb08963bfff83cd2d811c7e2285f8a56386ea74efe9be3db5c17721433322d4"
     },
     {
       "name": "LockMediumIcon",
-      "path": "lock-medium-icon.svg"
+      "path": "lock-medium-icon.svg",
+      "hash": "50de53368a617de623e7b3d5983100f3b1435dcb3a6ebcf5bcd97af3294ab0ba"
     },
     {
       "name": "LoginMediumIcon",
-      "path": "login-medium-icon.svg"
+      "path": "login-medium-icon.svg",
+      "hash": "bfdc69f46351767a02d99439cbd27e19657599ccb0ab505e34e7eb8179987754"
     },
     {
       "name": "LogoutMediumIcon",
-      "path": "logout-medium-icon.svg"
+      "path": "logout-medium-icon.svg",
+      "hash": "9d97fc74ac088705fb060dccc9f30e99c9d126ca2b01bd0f58f33244ed0588d4"
     },
     {
       "name": "MaintenanceMediumIcon",
-      "path": "maintenance-medium-icon.svg"
+      "path": "maintenance-medium-icon.svg",
+      "hash": "2f5a1c189301358e146b6a5043d8b7117e9b9d7b949e0b46f66e59a403ad941a"
     },
     {
       "name": "MinusMediumIcon",
-      "path": "minus-medium-icon.svg"
+      "path": "minus-medium-icon.svg",
+      "hash": "ea12d099587c0229fd0dc9435ce4ae1728faa7be65d49661df9f59079519e96b"
     },
     {
       "name": "MoneyMediumIcon",
-      "path": "money-medium-icon.svg"
+      "path": "money-medium-icon.svg",
+      "hash": "78c81b4e823dac42d3dcd4559b117381497f694bdef0b6a52cf07301857479d7"
     },
     {
       "name": "MeterMediumIcon",
-      "path": "meter-medium-icon.svg"
+      "path": "meter-medium-icon.svg",
+      "hash": "aa087b2031cbbf100d16d474b5eabff06b5ff8de62d6a2a15fd14f0c5af59929"
     },
     {
       "name": "MenuMediumIcon",
-      "path": "menu-medium-icon.svg"
+      "path": "menu-medium-icon.svg",
+      "hash": "16edf9206623dddad8efebb540eb819998fb1341694e1b75f2547bf2aa6c8b7a"
     },
     {
       "name": "MobileMediumIcon",
-      "path": "mobile-medium-icon.svg"
+      "path": "mobile-medium-icon.svg",
+      "hash": "7bada62ed52caf956118b2cc17567eafa49bcd3787f72a67cf079ae95c1f9716"
     },
     {
       "name": "MoonMediumIcon",
-      "path": "moon-medium-icon.svg"
+      "path": "moon-medium-icon.svg",
+      "hash": "6aa57fa80b83c847536952959ebc9454ad90f23e5c0f1a741e71d53c35dc72c7"
     },
     {
       "name": "MoreMediumIcon",
-      "path": "more-medium-icon.svg"
+      "path": "more-medium-icon.svg",
+      "hash": "de45196520e9f46c4622d9545c5d5a88c9679f7655bf8c1510c3366fce575ce4"
     },
     {
       "name": "OpenMediumIcon",
-      "path": "open-medium-icon.svg"
+      "path": "open-medium-icon.svg",
+      "hash": "a8627ee603a83c6fa19ab61c2d01ccce2ef6da6abea0e61978f0652bd0c64b12"
     },
     {
       "name": "PaymentMediumIcon",
-      "path": "payment-medium-icon.svg"
+      "path": "payment-medium-icon.svg",
+      "hash": "a00c0a6fec37a96e468e41536f4123b33840daac0711437850020e72fc1558dc"
     },
     {
       "name": "PlaceholderMediumIcon",
-      "path": "placeholder-medium-icon.svg"
+      "path": "placeholder-medium-icon.svg",
+      "hash": "42b0131bc80999e273618001f8d835158c2cf560427bdb978f01ca1e1facaef7"
     },
     {
       "name": "PlayMediumIcon",
-      "path": "play-medium-icon.svg"
+      "path": "play-medium-icon.svg",
+      "hash": "11ab7fa2582e877b1cdf4788bb7f75f556db2f2bc8fa4ed1a94580b6a4e6ce4c"
     },
     {
       "name": "QuestionMarkMediumIcon",
-      "path": "question-mark-medium-icon.svg"
+      "path": "question-mark-medium-icon.svg",
+      "hash": "59659782433685ff16ee85e3e401ce6c03a3f0ff7e872f0ab66ff89b81062ea5"
     },
     {
       "name": "RefundMediumIcon",
-      "path": "refund-medium-icon.svg"
+      "path": "refund-medium-icon.svg",
+      "hash": "6c6c157b3a76ea6fd9837907064427f984405c902eb5b16d7d07f589d70e6cc0"
     },
     {
       "name": "RestartMediumIcon",
-      "path": "restart-medium-icon.svg"
+      "path": "restart-medium-icon.svg",
+      "hash": "96ce75b0f23725cfc1846a963ca3d2b4540ac7a519ea3ebd7fcce58ed73ac8ed"
     },
     {
       "name": "SearchMediumIcon",
-      "path": "search-medium-icon.svg"
+      "path": "search-medium-icon.svg",
+      "hash": "48145dcc7d7378128d4699c5dd90cf857de392511f393fc02736922f085ac74e"
     },
     {
       "name": "SendMediumIcon",
-      "path": "send-medium-icon.svg"
+      "path": "send-medium-icon.svg",
+      "hash": "bdcfe4172124190aff5d04a4a16d5767bdaea607c174cda16a9b364cc536888a"
     },
     {
       "name": "SettingsMediumIcon",
-      "path": "settings-medium-icon.svg"
+      "path": "settings-medium-icon.svg",
+      "hash": "b48b281f233ac4337081ce3c8d569ae2f55e467d19ac897a5a3e899c814e5b6f"
     },
     {
       "name": "ShareMediumIcon",
-      "path": "share-medium-icon.svg"
+      "path": "share-medium-icon.svg",
+      "hash": "f6a47a841501e72d0d94b6e13f81ee400d4f5316e22c406a9ff0cd32691993b4"
     },
     {
       "name": "ShoppingMediumIcon",
-      "path": "shopping-medium-icon.svg"
+      "path": "shopping-medium-icon.svg",
+      "hash": "08c60d7b399ea140fd723f50fc80383c406c18f7b0d03f414d267d331991fce5"
     },
     {
       "name": "SimMediumIcon",
-      "path": "sim-medium-icon.svg"
+      "path": "sim-medium-icon.svg",
+      "hash": "d9ec6a3118bdf6dca517ff1ecbb87e85bf58364ad5af63878013b830ceb14c44"
     },
     {
       "name": "SnowflakeMediumIcon",
-      "path": "snowflake-medium-icon.svg"
+      "path": "snowflake-medium-icon.svg",
+      "hash": "2be698e5fc652ab7e388ff81499084931e860d1f74e28665321d82a600089cc8"
     },
     {
       "name": "SunMediumIcon",
-      "path": "sun-medium-icon.svg"
+      "path": "sun-medium-icon.svg",
+      "hash": "6d4cfe94478561a5abdf37edc42c2939b4da86cfe3c8bb54704691b3f0cc0473"
     },
     {
       "name": "TeamMediumIcon",
-      "path": "team-medium-icon.svg"
+      "path": "team-medium-icon.svg",
+      "hash": "25b9d3e1bbf0ad2ea17c397b48e885a05308ff70a3bd01296a7cf50200e6639c"
     },
     {
       "name": "TickCircleMediumIcon",
-      "path": "tick-circle-medium-icon.svg"
+      "path": "tick-circle-medium-icon.svg",
+      "hash": "cb97c381e837eaf77bd2023c5e16a339bea6eb5b5efc5dcbd49712f96e4ad083"
     },
     {
       "name": "TickMediumIcon",
-      "path": "tick-medium-icon.svg"
+      "path": "tick-medium-icon.svg",
+      "hash": "e1dfa0ae1bfa64877a9a31d20d95b31d3977bfb622c4d421bb909ea6cdab95ce"
     },
     {
       "name": "TikTokMediumIcon",
-      "path": "tik-tok-medium-icon.svg"
+      "path": "tik-tok-medium-icon.svg",
+      "hash": "d218deed43ea37223d1117279df8a56b8627d620414bea45dd3438a7ba6b3b7b"
     },
     {
       "name": "TimeMediumIcon",
-      "path": "time-medium-icon.svg"
+      "path": "time-medium-icon.svg",
+      "hash": "71d4f6e1c3b5947dae7eccc96bedecb5035a5de14395837d55fbce80c1f40c42"
     },
     {
       "name": "TopUpMediumIcon",
-      "path": "top-up-medium-icon.svg"
+      "path": "top-up-medium-icon.svg",
+      "hash": "7135a6fdc89f838640bd78c8e5bee38fd46fd68f968ae3e247dbab6bac3a7381"
     },
     {
       "name": "TorchOffMediumIcon",
-      "path": "torch-off-medium-icon.svg"
+      "path": "torch-off-medium-icon.svg",
+      "hash": "83c821118bfa1c60faa7e3fc3d0d708831f12015232bea54a1304808aba11ed3"
     },
     {
       "name": "TorchOnMediumIcon",
-      "path": "torch-on-medium-icon.svg"
+      "path": "torch-on-medium-icon.svg",
+      "hash": "d32de9762ecd8f06c4c2cebc6d33a97ff2a9792506fe5ad7429967d407b3990f"
     },
     {
       "name": "TransferMediumIcon",
-      "path": "transfer-medium-icon.svg"
+      "path": "transfer-medium-icon.svg",
+      "hash": "2ec28b7d0b539ff93d5542f3e549ace613402656815452e1e2ea5499a601ede2"
     },
     {
       "name": "TrashMediumIcon",
-      "path": "trash-medium-icon.svg"
+      "path": "trash-medium-icon.svg",
+      "hash": "0055646a1c3d2b5720dcb4ba8814b22f822d880d7ee1dd3720607e502ee7cd57"
     },
     {
       "name": "TwitterMediumIcon",
-      "path": "twitter-medium-icon.svg"
+      "path": "twitter-medium-icon.svg",
+      "hash": "b9fa9037a8a818a6b9fc3773498fbe1df8aef415100603802bc7b94e700d6e8a"
     },
     {
       "name": "UnlockMediumIcon",
-      "path": "unlock-medium-icon.svg"
+      "path": "unlock-medium-icon.svg",
+      "hash": "553cff3fa8c821f2a4b5623cf3bb5ec492432144263f88a54df39a3843291d33"
     },
     {
       "name": "UploadMediumIcon",
-      "path": "upload-medium-icon.svg"
+      "path": "upload-medium-icon.svg",
+      "hash": "06de4ae2acab8607cd0c2e118c52b57250d4a81e249c4a7b5c67ee01da7aa474"
     },
     {
       "name": "UserMediumIcon",
-      "path": "user-medium-icon.svg"
+      "path": "user-medium-icon.svg",
+      "hash": "a0f771e9df89e959a1c146978f02f5c76e1680c2030c7c1c456d092a3f94885e"
     },
     {
       "name": "WarningMediumIcon",
-      "path": "warning-medium-icon.svg"
+      "path": "warning-medium-icon.svg",
+      "hash": "5a96e14d63076a67b382c4aa0b9a20bac105cf2727413867bd4e12ce6a5b3d2c"
     },
     {
       "name": "WhatsAppMediumIcon",
-      "path": "whats-app-medium-icon.svg"
+      "path": "whats-app-medium-icon.svg",
+      "hash": "08e8cf88423e05bc5d7b0feece9b3f3b3ee63bb7fd12b92b3536a8b9f19a86ae"
     },
     {
       "name": "WithdrawMediumIcon",
-      "path": "withdraw-medium-icon.svg"
+      "path": "withdraw-medium-icon.svg",
+      "hash": "7756dd7cfb69b0376cc9ba7327a1af6cda72522ad6ebd7e193a935a3063ed9e0"
     },
     {
       "name": "YoutubeMediumIcon",
-      "path": "youtube-medium-icon.svg"
+      "path": "youtube-medium-icon.svg",
+      "hash": "f33ab4b7c46223291a2c1d0b67a5f357f7ea41cdaf5f2cfc94032162ce01b646"
     },
     {
       "name": "BookOpenLargeIcon",
-      "path": "book-open-large-icon.svg"
+      "path": "book-open-large-icon.svg",
+      "hash": "5334c9ce233a6b50855f760a7f1f7bfb63da75a4c5c24a2c14f0340c248c392c"
     },
     {
       "name": "MoonLargeIcon",
-      "path": "moon-large-icon.svg"
+      "path": "moon-large-icon.svg",
+      "hash": "bea8f075384d60213e05bfcb52a6b44826441f0aeda578f25b3a4d23e010b1b4"
     },
     {
       "name": "PlaceholderLargeIcon",
-      "path": "placeholder-large-icon.svg"
+      "path": "placeholder-large-icon.svg",
+      "hash": "caccf0f00fb77e98ff916206709f1499f8ab2ea01377f0f6db9ee1ba67a0bb17"
     },
     {
       "name": "SunLargeIcon",
-      "path": "sun-large-icon.svg"
+      "path": "sun-large-icon.svg",
+      "hash": "aef584c6e1a7b16aa0c03226bf13cb340787a388f50cf261a49c0f5b34474106"
     }
   ]
 }

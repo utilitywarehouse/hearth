@@ -2,723 +2,903 @@
   "svgAssets": [
     {
       "name": "LogoFullPurple",
-      "path": "logo-full-purple.svg"
+      "path": "logo-full-purple.svg",
+      "hash": "ce8917d335c9a14da0b4f486ebb3d04149225246f306d7f0817815200d6a2302"
     },
     {
       "name": "LogoFullWarmWhite",
-      "path": "logo-full-warm-white.svg"
+      "path": "logo-full-warm-white.svg",
+      "hash": "13a3385bb11aa6451503106da2cd1117614aa13512537f935610bbce8d3e60e5"
     },
     {
       "name": "LogoCondensedPurple",
-      "path": "logo-condensed-purple.svg"
+      "path": "logo-condensed-purple.svg",
+      "hash": "a5a4307c82aea122ecd13fcf16639a2481440ef9fd82005870dd1e0c4ffdb2c5"
     },
     {
       "name": "LogoCondensedWarmWhite",
-      "path": "logo-condensed-warm-white.svg"
+      "path": "logo-condensed-warm-white.svg",
+      "hash": "b89820dfc9931013f44b48b669ffdc08cc1fe71f8f55d2c92b6a21455010742f"
     },
     {
       "name": "SpotNeighboursLight",
-      "path": "spot-neighbours-light.svg"
+      "path": "spot-neighbours-light.svg",
+      "hash": "13d748bad37864fd8c46173832ebdcebe44bb2d7cfb36d9c2f548abea4f85bc4"
     },
     {
       "name": "SpotNeighboursDark",
-      "path": "spot-neighbours-dark.svg"
+      "path": "spot-neighbours-dark.svg",
+      "hash": "d5db73f43c8ecece4bfb96da1c4d872404fa8dee6c6b72af122dd6f704715fa8"
     },
     {
       "name": "SpotNotificationLight",
-      "path": "spot-notification-light.svg"
+      "path": "spot-notification-light.svg",
+      "hash": "147d92ba3a47a1bd377ed5b380da52eb00f1b93ffba9384e6e7eda346ce7c6c9"
     },
     {
       "name": "SpotNotificationDark",
-      "path": "spot-notification-dark.svg"
+      "path": "spot-notification-dark.svg",
+      "hash": "6184a877b1c440ad4f712c653a34230f7bbe499b831208896cb33616e413097a"
     },
     {
       "name": "SpotMovingHouseLight",
-      "path": "spot-moving-house-light.svg"
+      "path": "spot-moving-house-light.svg",
+      "hash": "91a26918d6cb940e6217e786bd2e6e88e2df6370596e48dcf51c695713dae92b"
     },
     {
       "name": "SpotMovingHouseDark",
-      "path": "spot-moving-house-dark.svg"
+      "path": "spot-moving-house-dark.svg",
+      "hash": "ea2c96397bbb43b8c636263bee2e08b849036d67a0a562119cf588c5fe65d515"
     },
     {
       "name": "SpotInnovationLight",
-      "path": "spot-innovation-light.svg"
+      "path": "spot-innovation-light.svg",
+      "hash": "b41c903f542c1807cd22e965c29de06e89dc66e6242b68a7ceb72c51cf60fd91"
     },
     {
       "name": "SpotInnovationDark",
-      "path": "spot-innovation-dark.svg"
+      "path": "spot-innovation-dark.svg",
+      "hash": "817a8112d6a251b92432f6d69c2c43eac00029d41f3342b82ed0a721d96f62b9"
     },
     {
       "name": "SpotHelpLight",
-      "path": "spot-help-light.svg"
+      "path": "spot-help-light.svg",
+      "hash": "6c73f2c562149249e396b66ddc822a5cdc2f4fe549388e914fbe294e9b0848b3"
     },
     {
       "name": "SpotHelpDark",
-      "path": "spot-help-dark.svg"
+      "path": "spot-help-dark.svg",
+      "hash": "98e489e791cbf7a12516311b4675c939af176e208740ee70cd1ae4fb14ea2ba1"
     },
     {
       "name": "SpotOnlineAccountLight",
-      "path": "spot-online-account-light.svg"
+      "path": "spot-online-account-light.svg",
+      "hash": "b7578d4ceaef99eb2726635f3393220669067c01ff8f2ec83b7cc14682ab7bea"
     },
     {
       "name": "SpotOnlineAccountDark",
-      "path": "spot-online-account-dark.svg"
+      "path": "spot-online-account-dark.svg",
+      "hash": "336cfc10ebdb7ec64027aad6dee14901de06f83d724b56ad25cf130f63f2e358"
     },
     {
       "name": "SpotSuccessLight",
-      "path": "spot-success-light.svg"
+      "path": "spot-success-light.svg",
+      "hash": "d09ea351f1115fc53e5eac68d458c480d915d6ca3fc5887a03b103e0b3e1a909"
     },
     {
       "name": "SpotSuccessDark",
-      "path": "spot-success-dark.svg"
+      "path": "spot-success-dark.svg",
+      "hash": "b214c684eca79b154c42c13e3e9c6794f5ac1bf555dc6dfb2a9fc21a17791d86"
     },
     {
       "name": "SpotSmartMeterLight",
-      "path": "spot-smart-meter-light.svg"
+      "path": "spot-smart-meter-light.svg",
+      "hash": "d4715952023243e26044050f5b5fbcb33522e2cebd4d6e40f2d274bd7e35909f"
     },
     {
       "name": "SpotSmartMeterDark",
-      "path": "spot-smart-meter-dark.svg"
+      "path": "spot-smart-meter-dark.svg",
+      "hash": "d34fb93ac15b16830d1e256d4e31d7e9c81e7c0b25d8216e80957af84adb9adf"
     },
     {
       "name": "SpotSecurityLight",
-      "path": "spot-security-light.svg"
+      "path": "spot-security-light.svg",
+      "hash": "2899abd0d15bf0fb6aeac014d36d9d5d787f81b01d26c47aca5ba033dcb0d0f5"
     },
     {
       "name": "SpotSecurityDark",
-      "path": "spot-security-dark.svg"
+      "path": "spot-security-dark.svg",
+      "hash": "0411695a656965e8f817aac6e1aba78268f4d37041193d1e026f9907bf534197"
     },
     {
       "name": "SpotErrorLight",
-      "path": "spot-error-light.svg"
+      "path": "spot-error-light.svg",
+      "hash": "6f110b98fe1fdb34f73f3c03750173c95911ef1a736b91fbf45862940ec96f84"
     },
     {
       "name": "SpotErrorDark",
-      "path": "spot-error-dark.svg"
+      "path": "spot-error-dark.svg",
+      "hash": "ebe6e4b275a7339e949f5ed7e6956c3c60dbc75c058c00afadeabfcdf235e21a"
     },
     {
       "name": "SpotPiggyBankLight",
-      "path": "spot-piggy-bank-light.svg"
+      "path": "spot-piggy-bank-light.svg",
+      "hash": "bf9ba4bd470f6eefa1d75c16a2bc2f43ad09e676bb070326b35ba323f1ac2d5d"
     },
     {
       "name": "SpotPiggyBankDark",
-      "path": "spot-piggy-bank-dark.svg"
+      "path": "spot-piggy-bank-dark.svg",
+      "hash": "05fb87ee44f61a768580da2d81dc96e0116324608de9ed96c2c7482ca46557ce"
     },
     {
       "name": "SpotBillingLight",
-      "path": "spot-billing-light.svg"
+      "path": "spot-billing-light.svg",
+      "hash": "2a937251a5f8d848c213452d56a67e0b6058c10dc40cd39bb9ac17b1f0dd24a0"
     },
     {
       "name": "SpotBillingDark",
-      "path": "spot-billing-dark.svg"
+      "path": "spot-billing-dark.svg",
+      "hash": "4fcc1cc4fc219d7b2a415b05297106ef1cb48c59c379a168c3604353ef793f82"
     },
     {
       "name": "SpotCelebratoryLight",
-      "path": "spot-celebratory-light.svg"
+      "path": "spot-celebratory-light.svg",
+      "hash": "c8a4a69f20a3e840463c99f23be4ac9730057021225a42d2b52a978f4c69b0a4"
     },
     {
       "name": "SpotCelebratoryDark",
-      "path": "spot-celebratory-dark.svg"
+      "path": "spot-celebratory-dark.svg",
+      "hash": "42c8e657746fa17e0a8c056ef7a815276d0f3f735d7397b0525ca1172fb6545d"
     },
     {
       "name": "SpotRecognitionLight",
-      "path": "spot-recognition-light.svg"
+      "path": "spot-recognition-light.svg",
+      "hash": "736f5f02bd8c57d58c1caae6bdcc688dc58c19fda0c4708d1bc7ca15b8f45bec"
     },
     {
       "name": "SpotRecognitionDark",
-      "path": "spot-recognition-dark.svg"
+      "path": "spot-recognition-dark.svg",
+      "hash": "286bcb907a45772ed7aff329df104f97900c39189d556db45693c7cb5004373e"
     },
     {
       "name": "SpotEvLight",
-      "path": "spot-ev-light.svg"
+      "path": "spot-ev-light.svg",
+      "hash": "c50314507b3607d15e1e01c695a85295a0d02846edef12ed5c088edd57bc37c6"
     },
     {
       "name": "SpotEvDark",
-      "path": "spot-ev-dark.svg"
+      "path": "spot-ev-dark.svg",
+      "hash": "eee86c7594bf60c068f568f6735556c32c79b5399dfc91c5e23656a8446636b6"
     },
     {
       "name": "SpotTickLight",
-      "path": "spot-tick-light.svg"
+      "path": "spot-tick-light.svg",
+      "hash": "dbe0d6265f15f4081ea8bcb1ef10190b642c1e946d2b36891e387f35890b8b87"
     },
     {
       "name": "SpotTickDark",
-      "path": "spot-tick-dark.svg"
+      "path": "spot-tick-dark.svg",
+      "hash": "9c85983b89462fcefb694b20069a27c49e88dd12d4c656bc511042ebe9ea6569"
     },
     {
       "name": "SpotSecurityCodeLight",
-      "path": "spot-security-code-light.svg"
+      "path": "spot-security-code-light.svg",
+      "hash": "0012f02b83133620098591e576b0379e772d0194ba855e3e67a01bc10bcdec5f"
     },
     {
       "name": "SpotSecurityCodeDark",
-      "path": "spot-security-code-dark.svg"
+      "path": "spot-security-code-dark.svg",
+      "hash": "d1a70ecaed92fda31c2b7e55a09983371f1137cca9ddb6a02304986e8165a351"
     },
     {
       "name": "SpotNoBroadbandLight",
-      "path": "spot-no-broadband-light.svg"
+      "path": "spot-no-broadband-light.svg",
+      "hash": "848bd183445babcd6e158c76ad743e174336c580ed6229497b6b7be7cd379d6b"
     },
     {
       "name": "SpotNoBroadbandDark",
-      "path": "spot-no-broadband-dark.svg"
+      "path": "spot-no-broadband-dark.svg",
+      "hash": "73ef38ffe42ac452e929e3721bf88222815b47099f7e3b777c97e0adb2e62663"
     },
     {
       "name": "SpotHeartLight",
-      "path": "spot-heart-light.svg"
+      "path": "spot-heart-light.svg",
+      "hash": "5ba2d3f0cfb553dced35fcf980e7903bfb18ac76c82f696cbb6b9ccbf12cb247"
     },
     {
       "name": "SpotHeartDark",
-      "path": "spot-heart-dark.svg"
+      "path": "spot-heart-dark.svg",
+      "hash": "d35640c3f4524fb22a599c6c35077ca6bb3d7e8876d3a8c74e521db406ded9ca"
     },
     {
       "name": "SpotEmptyLight",
-      "path": "spot-empty-light.svg"
+      "path": "spot-empty-light.svg",
+      "hash": "8739d0b1aa0964367fa75889ccc0c0208123d665fc53005317391a2d4a5a2eba"
     },
     {
       "name": "SpotEmptyDark",
-      "path": "spot-empty-dark.svg"
+      "path": "spot-empty-dark.svg",
+      "hash": "a02d3f7bbf2c34baf49b0ddb48289d4283c49492f12640c8ea87a8f31fb43aac"
     },
     {
       "name": "SpotConfettiLight",
-      "path": "spot-confetti-light.svg"
+      "path": "spot-confetti-light.svg",
+      "hash": "70d64399886b4cf1bcbaf99cb8d439b98f5045a7b47488400b822342693af1e5"
     },
     {
       "name": "SpotConfettiDark",
-      "path": "spot-confetti-dark.svg"
+      "path": "spot-confetti-dark.svg",
+      "hash": "3ed218f85e8b738bc1a326af0e3088ece8de30775a47bd479133f810d836ebe3"
     },
     {
       "name": "SpotBundleCompleteLight",
-      "path": "spot-bundle-complete-light.svg"
+      "path": "spot-bundle-complete-light.svg",
+      "hash": "94bfd4c2c5ec08b9e497729a0e4b42598ec632364b39fb1b4924401a1f317ab5"
     },
     {
       "name": "SpotBundleCompleteDark",
-      "path": "spot-bundle-complete-dark.svg"
+      "path": "spot-bundle-complete-dark.svg",
+      "hash": "ac92a7db9b22c84d8211a9334296d8372221ac23c4a394c5e0458dfeeaf07e88"
     },
     {
       "name": "SpotBundleIncompleteLight",
-      "path": "spot-bundle-incomplete-light.svg"
+      "path": "spot-bundle-incomplete-light.svg",
+      "hash": "b2056472df3cf45b9f603a84314aea7a674590806db33c806d754707c2681185"
     },
     {
       "name": "SpotBundleIncompleteDark",
-      "path": "spot-bundle-incomplete-dark.svg"
+      "path": "spot-bundle-incomplete-dark.svg",
+      "hash": "28067035f763992e48aa67c722e2be1b1036baad8e0dca4094a2de953ee54595"
     },
     {
       "name": "SpotBoilerLight",
-      "path": "spot-boiler-light.svg"
+      "path": "spot-boiler-light.svg",
+      "hash": "6d8effed69641759d2b4eacea48cdf8cdd2a24b9e73f109c6332f2d3a6186688"
     },
     {
       "name": "SpotBoilerDark",
-      "path": "spot-boiler-dark.svg"
+      "path": "spot-boiler-dark.svg",
+      "hash": "84352bfa21d5d73a72e9c826696dd9af96be5caeff6fee0b2b34cce282e27429"
     },
     {
       "name": "SpotSwitchLight",
-      "path": "spot-switch-light.svg"
+      "path": "spot-switch-light.svg",
+      "hash": "4fad99bd33d3a72d746f31009d1ddc3de698394dc49f6da978ce273778cffcac"
     },
     {
       "name": "SpotSwitchDark",
-      "path": "spot-switch-dark.svg"
+      "path": "spot-switch-dark.svg",
+      "hash": "115873693786a9f4d5f36141f95cae3b082c7fe935bc48768eff5eca54a3bae6"
     },
     {
       "name": "SpotSavingsLight",
-      "path": "spot-savings-light.svg"
+      "path": "spot-savings-light.svg",
+      "hash": "b466ac76e574986265c5806cc98151ec557210d82484c7032f8e2d87d61965a9"
     },
     {
       "name": "SpotSavingsDark",
-      "path": "spot-savings-dark.svg"
+      "path": "spot-savings-dark.svg",
+      "hash": "22afbf490c137c3d9a9cf51754e883fd9ba1f5ce0e43b4426303018e912b21cd"
     },
     {
       "name": "SpotNewLookLight",
-      "path": "spot-new-look-light.svg"
+      "path": "spot-new-look-light.svg",
+      "hash": "2dd8cdd8b086b701f3a08fe18dbb28e268426cc622a4297e45c09d7151a7ee22"
     },
     {
       "name": "SpotNewLookDark",
-      "path": "spot-new-look-dark.svg"
+      "path": "spot-new-look-dark.svg",
+      "hash": "a21b48c4a7349a7ea30b699bce870cdb6eda18cb003d592c4ca2deeb3eadf167"
     },
     {
       "name": "SpotUnavailableLight",
-      "path": "spot-unavailable-light.svg"
+      "path": "spot-unavailable-light.svg",
+      "hash": "06bcb5711ef9bd0cbc8acd850be0c568104725aa72e341b46457eec7f3c31c16"
     },
     {
       "name": "SpotUnavailableDark",
-      "path": "spot-unavailable-dark.svg"
+      "path": "spot-unavailable-dark.svg",
+      "hash": "0f2a66a31feba5f05f2569ee1bee8c170590ff64e17ed87f68ae6ae18c57b175"
     },
     {
       "name": "SpotDarkModeLight",
-      "path": "spot-dark-mode-light.svg"
+      "path": "spot-dark-mode-light.svg",
+      "hash": "6397b37b416ade5cc0e2748cc807aa478a5a67d743b68d1b84e6b9f8f60c980a"
     },
     {
       "name": "SpotDarkModeDark",
-      "path": "spot-dark-mode-dark.svg"
+      "path": "spot-dark-mode-dark.svg",
+      "hash": "0544b93eb7dc3012257930c3997ed50696fc666909306405eba1eecb3ea7b78e"
     },
     {
       "name": "SpotBroadbandLight",
-      "path": "spot-broadband-light.svg"
+      "path": "spot-broadband-light.svg",
+      "hash": "1ef8b7ff1c4d537d5f220b150c10eaa3f4c1016bfc60e494927ab81cf1f4d4d7"
     },
     {
       "name": "SpotBroadbandDark",
-      "path": "spot-broadband-dark.svg"
+      "path": "spot-broadband-dark.svg",
+      "hash": "e2b9447e490dde00deb1c81bf849b0550a7dbd6a3e7a0ad7a730dc9c64ffc287"
     },
     {
       "name": "SpotWelcomeLight",
-      "path": "spot-welcome-light.svg"
+      "path": "spot-welcome-light.svg",
+      "hash": "56a2bbb8eb47a810c80bffe75b7fb000e707fdf36b0a3e3fc8a04f8eae341407"
     },
     {
       "name": "SpotWelcomeDark",
-      "path": "spot-welcome-dark.svg"
+      "path": "spot-welcome-dark.svg",
+      "hash": "8e783f37d2b762e938186dad84321b5fd13982d749dbf49aedb5edbc30ae6712"
     },
     {
       "name": "SpotQuoteLight",
-      "path": "spot-quote-light.svg"
+      "path": "spot-quote-light.svg",
+      "hash": "6a7350b5005b6e63689cf6de91791ee77783b0efb8261299c2268006ff3b381d"
     },
     {
       "name": "SpotQuoteDark",
-      "path": "spot-quote-dark.svg"
+      "path": "spot-quote-dark.svg",
+      "hash": "64b7f7bb095187cd081faeffae8f2395a9c65eed40b83cbb30888a32e3a529a3"
     },
     {
       "name": "SpotLeadsLight",
-      "path": "spot-leads-light.svg"
+      "path": "spot-leads-light.svg",
+      "hash": "53835901e73b052633535c16486c3a6ff90c0009980ab80187c9199511c67492"
     },
     {
       "name": "SpotLeadsDark",
-      "path": "spot-leads-dark.svg"
+      "path": "spot-leads-dark.svg",
+      "hash": "f46394c2d1a28cd9a39f49d5c54bf200627e20c83b7879a8025dd83c70300e15"
     },
     {
       "name": "SpotKeepTrackLight",
-      "path": "spot-keep-track-light.svg"
+      "path": "spot-keep-track-light.svg",
+      "hash": "ddc4ff3538be977176fad93d97fcfcd5431e5763f848a908911307fd5c04f32f"
     },
     {
       "name": "SpotKeepTrackDark",
-      "path": "spot-keep-track-dark.svg"
+      "path": "spot-keep-track-dark.svg",
+      "hash": "7982377ef593542fa375c764a1a12fd7d446add58f593d9dc4b48132de5c2662"
     },
     {
       "name": "SpotHowToVideoLight",
-      "path": "spot-how-to-video-light.svg"
+      "path": "spot-how-to-video-light.svg",
+      "hash": "ab9fe0762dfc44b1f0fdcf97e74754613d3f9f70f0604bf13f379ab6b1581881"
     },
     {
       "name": "SpotHowToVideoDark",
-      "path": "spot-how-to-video-dark.svg"
+      "path": "spot-how-to-video-dark.svg",
+      "hash": "a8af1e0da19e34d1cf1ca2c5c7462147b31a2e93035ddd5aec6831e0f04d5c24"
     },
     {
       "name": "SpotEarningsLight",
-      "path": "spot-earnings-light.svg"
+      "path": "spot-earnings-light.svg",
+      "hash": "38601c78f953e6872a4422df4f684c2e580974a7fe536003bd8276849dd04d77"
     },
     {
       "name": "SpotEarningsDark",
-      "path": "spot-earnings-dark.svg"
+      "path": "spot-earnings-dark.svg",
+      "hash": "3bf9cd4b24570b1e9281f4e246ef71514d20e1039f29b6a5a9974cc7a0aaa524"
     },
     {
       "name": "SpotCalendarLight",
-      "path": "spot-calendar-light.svg"
+      "path": "spot-calendar-light.svg",
+      "hash": "37678c259682d8f67962b0d9567045bee5ccbc542c9df2df953499fe3e40711e"
     },
     {
       "name": "SpotCalendarDark",
-      "path": "spot-calendar-dark.svg"
+      "path": "spot-calendar-dark.svg",
+      "hash": "f6762e4214946f062109d3217253884202e3d6b5b82831c4764aaa3754835e42"
     },
     {
       "name": "SpotBookAppointmentLight",
-      "path": "spot-book-appointment-light.svg"
+      "path": "spot-book-appointment-light.svg",
+      "hash": "c2527829180c1f8a69046b2b733673db64c7bb1590fe2e330daf78b53beb484d"
     },
     {
       "name": "SpotBookAppointmentDark",
-      "path": "spot-book-appointment-dark.svg"
+      "path": "spot-book-appointment-dark.svg",
+      "hash": "a06e49e1082eaa1c9fcacda54779f677119242ac370beede6db1b7f5fb3ccfb9"
     },
     {
       "name": "SceneEnergyLight",
-      "path": "scene-energy-light.svg"
+      "path": "scene-energy-light.svg",
+      "hash": "1018f37bde4040c3dc52e08b647ed76644dd36f4d8b2a940a7927fa6f7ac56cb"
     },
     {
       "name": "SceneEnergyDark",
-      "path": "scene-energy-dark.svg"
+      "path": "scene-energy-dark.svg",
+      "hash": "776749c149a0864d310d719e712fcd20db4b9c38c7a4963d0af1022ac1c5cd30"
     },
     {
       "name": "SceneMobileLight",
-      "path": "scene-mobile-light.svg"
+      "path": "scene-mobile-light.svg",
+      "hash": "bcc38be8008d3e1b8f2abdf3713cb127c3d5a10160a904d1af79773c18797ee8"
     },
     {
       "name": "SceneMobileDark",
-      "path": "scene-mobile-dark.svg"
+      "path": "scene-mobile-dark.svg",
+      "hash": "80d783772d6650bad87c1ffe9c22ea2e79862830d654c4a1658c64d9e64be633"
     },
     {
       "name": "SceneBroadbandLight",
-      "path": "scene-broadband-light.svg"
+      "path": "scene-broadband-light.svg",
+      "hash": "807daba2d532ecb09519f4326232d0af865565d199c986db60244ecccc27d798"
     },
     {
       "name": "SceneBroadbandDark",
-      "path": "scene-broadband-dark.svg"
+      "path": "scene-broadband-dark.svg",
+      "hash": "adef51015de0f8bc6444c82543d252d1d11abd3dcb96be96c72a29d1efe30d56"
     },
     {
       "name": "SceneInsuranceLight",
-      "path": "scene-insurance-light.svg"
+      "path": "scene-insurance-light.svg",
+      "hash": "e68930ea4c47acf7245e026c8b880cef208c5d48b0fa75c4be83f93895d6a640"
     },
     {
       "name": "SceneInsuranceDark",
-      "path": "scene-insurance-dark.svg"
+      "path": "scene-insurance-dark.svg",
+      "hash": "9a09be2422c97f1d75573b1a2cb9c799d9835108a5acb5374d346a6f9d121744"
     },
     {
       "name": "SceneCashbackLight",
-      "path": "scene-cashback-light.svg"
+      "path": "scene-cashback-light.svg",
+      "hash": "6707f45d49aaef7284c080b8acb48208a4bfe15583d5765c1e466be0008ad5f1"
     },
     {
       "name": "SceneCashbackDark",
-      "path": "scene-cashback-dark.svg"
+      "path": "scene-cashback-dark.svg",
+      "hash": "02b5c406fdd71e5fdc4548d25c7d954a0c9f70686ba467adc7352b43e8336ffa"
     },
     {
       "name": "SceneBundleLight",
-      "path": "scene-bundle-light.svg"
+      "path": "scene-bundle-light.svg",
+      "hash": "5e449711fc6167c1ae1ad2127930f0e3eb7ace9b0fb99c28821730f68ab1359a"
     },
     {
       "name": "SceneBundleDark",
-      "path": "scene-bundle-dark.svg"
+      "path": "scene-bundle-dark.svg",
+      "hash": "8a6aa8e37251d35b1a41aa344354733e836605b0ab2789a6481018f31b48fe12"
     },
     {
       "name": "MascotEnergyLight",
-      "path": "mascot-energy-light.svg"
+      "path": "mascot-energy-light.svg",
+      "hash": "19f45cafa4620a7f47c658f9324005bd05789698c2776a832adab39644de7427"
     },
     {
       "name": "MascotEnergyDark",
-      "path": "mascot-energy-dark.svg"
+      "path": "mascot-energy-dark.svg",
+      "hash": "30b22a0a6fd7b6a97f2b80446b4c5ed1d844b5ea1917703de0dcae66c6bce438"
     },
     {
       "name": "MascotBroadbandLight",
-      "path": "mascot-broadband-light.svg"
+      "path": "mascot-broadband-light.svg",
+      "hash": "f56e9878cd8cbb757ce0943d28f6efda0be7626bdb92b46ee07892fee5c4488e"
     },
     {
       "name": "MascotBroadbandDark",
-      "path": "mascot-broadband-dark.svg"
+      "path": "mascot-broadband-dark.svg",
+      "hash": "dc51a7691d52052baa53d2b366f8f882fc3fdcec34687273d00a118243187187"
     },
     {
       "name": "MascotMobileLight",
-      "path": "mascot-mobile-light.svg"
+      "path": "mascot-mobile-light.svg",
+      "hash": "5f55cd787b3ddece6f209a8926db39d8685c240846dc26c0ad5b91ba24026a93"
     },
     {
       "name": "MascotMobileDark",
-      "path": "mascot-mobile-dark.svg"
+      "path": "mascot-mobile-dark.svg",
+      "hash": "f1ab9d5ad7b94cc047d8e33aa4de8b386d169e42b8e48d5828c6ab88146cc3d9"
     },
     {
       "name": "MascotInsuranceLight",
-      "path": "mascot-insurance-light.svg"
+      "path": "mascot-insurance-light.svg",
+      "hash": "b7ff3cf633583f88a515ec3aef1728184ad55c190a040d2c3cc4eab1379874ea"
     },
     {
       "name": "MascotInsuranceDark",
-      "path": "mascot-insurance-dark.svg"
+      "path": "mascot-insurance-dark.svg",
+      "hash": "c5449f247f9c1a6a4c9219ca275c0ec7b876fcedf2ea25aca3f6f38377ef6a63"
     },
     {
       "name": "MascotCashbackLight",
-      "path": "mascot-cashback-light.svg"
+      "path": "mascot-cashback-light.svg",
+      "hash": "e13c4a973a43885a3fc52aa1d707925c6a7b8fbb6ea52875a9ce41549ced9a63"
     },
     {
       "name": "MascotCashbackDark",
-      "path": "mascot-cashback-dark.svg"
+      "path": "mascot-cashback-dark.svg",
+      "hash": "0f7c30d4445fbef4e56c0f570b00307f9c629eda529e2cdf3612ae3b376f052d"
     },
     {
       "name": "TechnicalRouterWithPowerLight",
-      "path": "technical-router-with-power-light.svg"
+      "path": "technical-router-with-power-light.svg",
+      "hash": "21de753ce7104f4cd7afd6def685b4b4b4ece7e5a86dbf420ec40f2338567563"
     },
     {
       "name": "TechnicalRouterWithPowerDark",
-      "path": "technical-router-with-power-dark.svg"
+      "path": "technical-router-with-power-dark.svg",
+      "hash": "ed3eb00844200e7136c433a6490a54d174805c27ef9d3fa4e350f1b35bc51b77"
     },
     {
       "name": "TechnicalStandardDslConnxFullLabelledLight",
-      "path": "technical-standard-dsl-connx-full-labelled-light.svg"
+      "path": "technical-standard-dsl-connx-full-labelled-light.svg",
+      "hash": "f1db4bb90ba785a7f836c4142b9606f556a42a3863152b700ec914428bb2ea1d"
     },
     {
       "name": "TechnicalStandardDslConnxFullLabelledDark",
-      "path": "technical-standard-dsl-connx-full-labelled-dark.svg"
+      "path": "technical-standard-dsl-connx-full-labelled-dark.svg",
+      "hash": "0d1eca3c319d467f51e761da3ef33919de21f8cae9567d1f95c54ee01e621955"
     },
     {
       "name": "TechnicalStandardDslConnxPartLight",
-      "path": "technical-standard-dsl-connx-part-light.svg"
+      "path": "technical-standard-dsl-connx-part-light.svg",
+      "hash": "a7e908d47b7fe29173b2ff7313659e4fc8a3c26705920333c81e4baff3ab2585"
     },
     {
       "name": "TechnicalStandardDslConnxPartDark",
-      "path": "technical-standard-dsl-connx-part-dark.svg"
+      "path": "technical-standard-dsl-connx-part-dark.svg",
+      "hash": "e2623d44906cef9d1f0f0ccafeda6b799ce5c582a774019723eaafe871b49a21"
     },
     {
       "name": "TechnicalStandardDslConnxFullLight",
-      "path": "technical-standard-dsl-connx-full-light.svg"
+      "path": "technical-standard-dsl-connx-full-light.svg",
+      "hash": "35ac7fc9bc9de06191628f82a5bd64758a3bfbebdb8c2471ba52e77f5f439bb2"
     },
     {
       "name": "TechnicalStandardDslConnxFullDark",
-      "path": "technical-standard-dsl-connx-full-dark.svg"
+      "path": "technical-standard-dsl-connx-full-dark.svg",
+      "hash": "de085587a7f5167efe820d34ed3a0eb37376699ca63e578e6e89cd92446bcf76"
     },
     {
       "name": "TechnicalPowerSupply01BRgbLight",
-      "path": "technical-power-supply-01-b-rgb-light.svg"
+      "path": "technical-power-supply-01-b-rgb-light.svg",
+      "hash": "bcfed2c1e7616c82862e44e349f9e95597b9c6fbe511a3374419ca640f04ee67"
     },
     {
       "name": "TechnicalPowerSupply01BRgbDark",
-      "path": "technical-power-supply-01-b-rgb-dark.svg"
+      "path": "technical-power-supply-01-b-rgb-dark.svg",
+      "hash": "7bfd31fb781bb9d2883f6bd5cbc05d684994682bb05b2201e9dc70ae3e76efc3"
     },
     {
       "name": "TechnicalPrefilteredConnxFullLabelledLight",
-      "path": "technical-prefiltered-connx-full-labelled-light.svg"
+      "path": "technical-prefiltered-connx-full-labelled-light.svg",
+      "hash": "a708997b9a802211606ffde0975c161e594c43f715a5ca89ce1fa5ef09fcb664"
     },
     {
       "name": "TechnicalPrefilteredConnxFullLabelledDark",
-      "path": "technical-prefiltered-connx-full-labelled-dark.svg"
+      "path": "technical-prefiltered-connx-full-labelled-dark.svg",
+      "hash": "33867565618511bb103c9670c277d4fa243a10236a7bb8dc7f28757adba4e5a9"
     },
     {
       "name": "TechnicalPrefilteredConnxFullLight",
-      "path": "technical-prefiltered-connx-full-light.svg"
+      "path": "technical-prefiltered-connx-full-light.svg",
+      "hash": "169a911008b4f173e3859d857e6b9ac676a2d055f9b9216d1cc74cd39601079c"
     },
     {
       "name": "TechnicalPrefilteredConnxFullDark",
-      "path": "technical-prefiltered-connx-full-dark.svg"
+      "path": "technical-prefiltered-connx-full-dark.svg",
+      "hash": "afd12f9f26d830fbcc8f9978970dc93bb01871c33a4546930c5551d727320f6d"
     },
     {
       "name": "TechnicalPrefilteredConnxPartLight",
-      "path": "technical-prefiltered-connx-part-light.svg"
+      "path": "technical-prefiltered-connx-part-light.svg",
+      "hash": "6fc4005574d96153b6d424bb61019db3b4e58b7aee9d9c6d7326a13b01615836"
     },
     {
       "name": "TechnicalPrefilteredConnxPartDark",
-      "path": "technical-prefiltered-connx-part-dark.svg"
+      "path": "technical-prefiltered-connx-part-dark.svg",
+      "hash": "e7edc796e8d81b549a1a8392f26cb7b7bcca93005f0f2772c015f4fed462e17c"
     },
     {
       "name": "TechnicalPrefilteredMasterSocketsLight",
-      "path": "technical-prefiltered-master-sockets-light.svg"
+      "path": "technical-prefiltered-master-sockets-light.svg",
+      "hash": "90e64df58f658a6af20537f95c0d1734d1b42d18a20e4a2c4789d68501612bbc"
     },
     {
       "name": "TechnicalPrefilteredMasterSocketsDark",
-      "path": "technical-prefiltered-master-sockets-dark.svg"
+      "path": "technical-prefiltered-master-sockets-dark.svg",
+      "hash": "dcee7972c400187143d889c5c3581b64ac277a83568c75eb67f5db8732eedcfc"
     },
     {
       "name": "TechnicalRimAutomaticDeadlockLight",
-      "path": "technical-rim-automatic-deadlock-light.svg"
+      "path": "technical-rim-automatic-deadlock-light.svg",
+      "hash": "67e0a138786b7380704947c15b618c06493c87f52cf9578a4d885c830217fa39"
     },
     {
       "name": "TechnicalRimAutomaticDeadlockDark",
-      "path": "technical-rim-automatic-deadlock-dark.svg"
+      "path": "technical-rim-automatic-deadlock-dark.svg",
+      "hash": "12d92b073b7093e55ec846da5f81911c24fbd532d5fdc39614394bc6963ad259"
     },
     {
       "name": "TechnicalRouter01Light",
-      "path": "technical-router-01-light.svg"
+      "path": "technical-router-01-light.svg",
+      "hash": "8f0af02287a44b3c471d508d1b7d15ba75768e9428289e03a3fc9ec3d3684006"
     },
     {
       "name": "TechnicalRouter01Dark",
-      "path": "technical-router-01-dark.svg"
+      "path": "technical-router-01-dark.svg",
+      "hash": "a7cbc0b6dcf8a5d34b8ad7eb10994d6627ad25059bc3833860ff5b5c25bfa4cb"
     },
     {
       "name": "TechnicalRouter02FrontLight",
-      "path": "technical-router-02-front-light.svg"
+      "path": "technical-router-02-front-light.svg",
+      "hash": "853ed744589d9eb1e2086bc224478600e74d0bd9342813c510b20a629416de8c"
     },
     {
       "name": "TechnicalRouter02FrontDark",
-      "path": "technical-router-02-front-dark.svg"
+      "path": "technical-router-02-front-dark.svg",
+      "hash": "e819c578b3b22e1d963503b32c0070d5d72bf653e2843596c98dfda69db507f4"
     },
     {
       "name": "TechnicalRouter03RearLight",
-      "path": "technical-router-03-rear-light.svg"
+      "path": "technical-router-03-rear-light.svg",
+      "hash": "fdc9acacfa526d256630940fa425d906000f105d34728468a466e19a0aecdf80"
     },
     {
       "name": "TechnicalRouter03RearDark",
-      "path": "technical-router-03-rear-dark.svg"
+      "path": "technical-router-03-rear-dark.svg",
+      "hash": "ddb23b0229c74d6638e07ebd5254597a141cabd35fcb71d47f4805874c53a1ac"
     },
     {
       "name": "TechnicalMeter01LabelledLight",
-      "path": "technical-meter-01-labelled-light.svg"
+      "path": "technical-meter-01-labelled-light.svg",
+      "hash": "6d0388f3c356600d66d3141bd03dc4057493ea9dc83830253e8c077ae0cb80b8"
     },
     {
       "name": "TechnicalMeter01LabelledDark",
-      "path": "technical-meter-01-labelled-dark.svg"
+      "path": "technical-meter-01-labelled-dark.svg",
+      "hash": "90da7913ad0cfe89dbd0d652f82ed4c37559a1305ee31f2c279e3c33bb98078c"
     },
     {
       "name": "TechnicalMeter02LabelledLight",
-      "path": "technical-meter-02-labelled-light.svg"
+      "path": "technical-meter-02-labelled-light.svg",
+      "hash": "1c7c4f96948273c79cc221497b35ace482358dd462b0596010eaa75ca9d059bc"
     },
     {
       "name": "TechnicalMeter02LabelledDark",
-      "path": "technical-meter-02-labelled-dark.svg"
+      "path": "technical-meter-02-labelled-dark.svg",
+      "hash": "89a61de3a3b33ed407e7ed29f4afb6eb376a03147a5fdc36374fa9a064cbb6eb"
     },
     {
       "name": "TechnicalMeter02Light",
-      "path": "technical-meter-02-light.svg"
+      "path": "technical-meter-02-light.svg",
+      "hash": "084e000c2833349b160362d0b7cd124ddecd0a0d7bb0dbcc75e8638ff17d9fd0"
     },
     {
       "name": "TechnicalMeter02Dark",
-      "path": "technical-meter-02-dark.svg"
+      "path": "technical-meter-02-dark.svg",
+      "hash": "438af3d794aa06365e31e02c3186bb42479ec9cff88acdf4cf2dab9026db3249"
     },
     {
       "name": "TechnicalMicrofilter01Light",
-      "path": "technical-microfilter-01-light.svg"
+      "path": "technical-microfilter-01-light.svg",
+      "hash": "0c3fb41bf99f6bddc1cdfff1cf71c8de4bf48e25cc99aa2956a45c2dc7c00fc1"
     },
     {
       "name": "TechnicalMicrofilter01Dark",
-      "path": "technical-microfilter-01-dark.svg"
+      "path": "technical-microfilter-01-dark.svg",
+      "hash": "6f71b3705b1496758e16eb12b471d4a49708eebd40ff13c5f08eae3eac1eeec6"
     },
     {
       "name": "TechnicalMorticeDeadlock5LeversLight",
-      "path": "technical-mortice-deadlock-5-levers-light.svg"
+      "path": "technical-mortice-deadlock-5-levers-light.svg",
+      "hash": "33d2e0e3796da4998409a79c345e93aa36f48f33b3a1aaf44399a1d67242965b"
     },
     {
       "name": "TechnicalMorticeDeadlock5LeversDark",
-      "path": "technical-mortice-deadlock-5-levers-dark.svg"
+      "path": "technical-mortice-deadlock-5-levers-dark.svg",
+      "hash": "2a449c459be806f635e80711ee7742492e17713b57154f2935335675f7ece7ad"
     },
     {
       "name": "TechnicalMicrofilter02Light",
-      "path": "technical-microfilter-02-light.svg"
+      "path": "technical-microfilter-02-light.svg",
+      "hash": "e1cff5b5ceae3cae4111c387aed3cebd075cc3ba47ca49a3b48c0975425969f9"
     },
     {
       "name": "TechnicalMicrofilter02Dark",
-      "path": "technical-microfilter-02-dark.svg"
+      "path": "technical-microfilter-02-dark.svg",
+      "hash": "11d713fb9e22e1389e02eb38c60c62ac28c5caa2ff39275ef8a2e4e658593bc9"
     },
     {
       "name": "TechnicalMultipointSystem3BoltsLight",
-      "path": "technical-multipoint-system-3-bolts-light.svg"
+      "path": "technical-multipoint-system-3-bolts-light.svg",
+      "hash": "0b52ed22af6a4fc262f12053addd42a1a7509e797ad90da7604bf6f802d3147a"
     },
     {
       "name": "TechnicalMultipointSystem3BoltsDark",
-      "path": "technical-multipoint-system-3-bolts-dark.svg"
+      "path": "technical-multipoint-system-3-bolts-dark.svg",
+      "hash": "849157e4475a2109ca584bc55626ca856787a05945101132c0176672ec28a181"
     },
     {
       "name": "TechnicalOntRouterConnxLight",
-      "path": "technical-ont-router-connx-light.svg"
+      "path": "technical-ont-router-connx-light.svg",
+      "hash": "bc7766369c6d82c4c78e27dcacdc2193c6b31cdfeb52e76e55aa2bb30cc1a4f8"
     },
     {
       "name": "TechnicalOntRouterConnxDark",
-      "path": "technical-ont-router-connx-dark.svg"
+      "path": "technical-ont-router-connx-dark.svg",
+      "hash": "ec404d5eb2483d39c4f8b3199e0b0c14655cd904e6896b09736751d4ea71fce3"
     },
     {
       "name": "TechnicalOtherBuildingLight",
-      "path": "technical-other-building-light.svg"
+      "path": "technical-other-building-light.svg",
+      "hash": "2d3b50ee7b8568ba345692cac34f81b1c610e9bd60f48bbdd486875663682031"
     },
     {
       "name": "TechnicalOtherBuildingDark",
-      "path": "technical-other-building-dark.svg"
+      "path": "technical-other-building-dark.svg",
+      "hash": "45e7446f92446373d553e6669b27a4c70bf7ee2e28df9618d729a155430e7b9e"
     },
     {
       "name": "TechnicalOtherLockLight",
-      "path": "technical-other-lock-light.svg"
+      "path": "technical-other-lock-light.svg",
+      "hash": "ce7161932d9cf9093aab77f776e6309ce00f8444b59f0b2ac64d7cbcf766a483"
     },
     {
       "name": "TechnicalOtherLockDark",
-      "path": "technical-other-lock-dark.svg"
+      "path": "technical-other-lock-dark.svg",
+      "hash": "aa936ea893d0374df894d64135aa0f808313afe7f3f832fabd3dc4336bc77434"
     },
     {
       "name": "TechnicalEeroLight",
-      "path": "technical-eero-light.svg"
+      "path": "technical-eero-light.svg",
+      "hash": "4ef3176e0f3286016472136161ab770d65c1bd5a970eefef8e9a28a7a0ac7b71"
     },
     {
       "name": "TechnicalEeroDark",
-      "path": "technical-eero-dark.svg"
+      "path": "technical-eero-dark.svg",
+      "hash": "6d0f54a438991bb3a5597d1dffac6c1b7b036faf0a3e178531b7b78e51f5ca80"
     },
     {
       "name": "TechnicalEthernetCableLight",
-      "path": "technical-ethernet-cable-light.svg"
+      "path": "technical-ethernet-cable-light.svg",
+      "hash": "8aa1941818be56cbc7eb6c9b5364487d763ae260d25c1adb431492b0e4bf1f57"
     },
     {
       "name": "TechnicalEthernetCableDark",
-      "path": "technical-ethernet-cable-dark.svg"
+      "path": "technical-ethernet-cable-dark.svg",
+      "hash": "af1e776251c763f8eb0f8746043fea937f1b7600088e12da112ea188720b8de5"
     },
     {
       "name": "TechnicalFlatLight",
-      "path": "technical-flat-light.svg"
+      "path": "technical-flat-light.svg",
+      "hash": "191de3848a077caa13533cf4f8bd8c481a3555db4960ca765b2f8321e1a68fb6"
     },
     {
       "name": "TechnicalFlatDark",
-      "path": "technical-flat-dark.svg"
+      "path": "technical-flat-dark.svg",
+      "hash": "a744038e4295035b59b34499729ae40f44e8ab3dbe20b841f4ed106e7ea4e124"
     },
     {
       "name": "TechnicalFullFibreSocketLight",
-      "path": "technical-full-fibre-socket-light.svg"
+      "path": "technical-full-fibre-socket-light.svg",
+      "hash": "a054bec8f969ac4b89f7dda8485cdfcd84f04210535cc6c5b9b5692b756d0d5b"
     },
     {
       "name": "TechnicalFullFibreSocketDark",
-      "path": "technical-full-fibre-socket-dark.svg"
+      "path": "technical-full-fibre-socket-dark.svg",
+      "hash": "be675488cc1e192c17a92de22f2036ef0c1e77e21aa21a2ea3b2aaa78aa4a511"
     },
     {
       "name": "TechnicalFullfibre916MobileLight",
-      "path": "technical-fullfibre-9-16-mobile-light.svg"
+      "path": "technical-fullfibre-9-16-mobile-light.svg",
+      "hash": "2c01392bbbb8d7b0bc5f1de21cc6e62e74d581843af5d4c2a213daef606da65f"
     },
     {
       "name": "TechnicalFullfibre916MobileDark",
-      "path": "technical-fullfibre-9-16-mobile-dark.svg"
+      "path": "technical-fullfibre-9-16-mobile-dark.svg",
+      "hash": "1983861a7d08d6f804ce0b55bf25b2fbbeb7b0da94d40c8f737216082f755ce7"
     },
     {
       "name": "TechnicalFullfibre916DesktopLight",
-      "path": "technical-fullfibre-9-16-desktop-light.svg"
+      "path": "technical-fullfibre-9-16-desktop-light.svg",
+      "hash": "d8ab59e89848228e34c76bd4bf7ee1d5c571bc5b8f2f345879aa4ce453d6e43a"
     },
     {
       "name": "TechnicalFullfibre916DesktopDark",
-      "path": "technical-fullfibre-9-16-desktop-dark.svg"
+      "path": "technical-fullfibre-9-16-desktop-dark.svg",
+      "hash": "1bb0654e723dc79f059c5d74f0ae64a10503c7420b3cbe37854aa742b1a2e931"
     },
     {
       "name": "TechnicalHouseLight",
-      "path": "technical-house-light.svg"
+      "path": "technical-house-light.svg",
+      "hash": "28c7b992a792e4416108eacdf0fe33b4b0f83b122afc35d26424aec98d9e433d"
     },
     {
       "name": "TechnicalHouseDark",
-      "path": "technical-house-dark.svg"
+      "path": "technical-house-dark.svg",
+      "hash": "575aaa0de992faf769b1466badfce6a2df81d701ba35ca5c3969323ebaff106e"
     },
     {
       "name": "TechnicalMainTelephoneSocketLight",
-      "path": "technical-main-telephone-socket-light.svg"
+      "path": "technical-main-telephone-socket-light.svg",
+      "hash": "4a525d841e6506f424c7614460a776bb78e65ce266a0401554bdbfe36582350b"
     },
     {
       "name": "TechnicalMainTelephoneSocketDark",
-      "path": "technical-main-telephone-socket-dark.svg"
+      "path": "technical-main-telephone-socket-dark.svg",
+      "hash": "d690169c0117e85e29643ec299c8f5f5a0b0ba9834c0854a44645fe231075173"
     },
     {
       "name": "TechnicalMeterLight",
-      "path": "technical-meter-light.svg"
+      "path": "technical-meter-light.svg",
+      "hash": "914c471dc30099cb642aa4d3baa2dc73eef01c205b7f72fe5c7d242333735356"
     },
     {
       "name": "TechnicalMeterDark",
-      "path": "technical-meter-dark.svg"
+      "path": "technical-meter-dark.svg",
+      "hash": "60313d95847aac5b36913213e988d18d1f57991a2863300e7b7ac9c2dc91a637"
     },
     {
       "name": "TechnicalBuildingsAndContentsLight",
-      "path": "technical-buildings-and-contents-light.svg"
+      "path": "technical-buildings-and-contents-light.svg",
+      "hash": "92f49869a69dea24e4cdb1219ce920f9ea4b5238fa215c154ed79cf5d9d9398c"
     },
     {
       "name": "TechnicalBuildingsAndContentsDark",
-      "path": "technical-buildings-and-contents-dark.svg"
+      "path": "technical-buildings-and-contents-dark.svg",
+      "hash": "bc5ad5d6ee6bd60e2b244214d5bfe84e9e3e95c6a9ac0279a1332822ed432404"
     },
     {
       "name": "TechnicalBuildingsLight",
-      "path": "technical-buildings-light.svg"
+      "path": "technical-buildings-light.svg",
+      "hash": "4caf22bc165097e1b6929d82915f7624298c4844c4f585f106484fa1006c5c31"
     },
     {
       "name": "TechnicalBuildingsDark",
-      "path": "technical-buildings-dark.svg"
+      "path": "technical-buildings-dark.svg",
+      "hash": "f0e2910fc39b78e165c607c034da890cfc980aa567737b7451b5b1b206c2aee4"
     },
     {
       "name": "TechnicalBungalowLight",
-      "path": "technical-bungalow-light.svg"
+      "path": "technical-bungalow-light.svg",
+      "hash": "c8ee88d3ca3b9236acf48bc9fc879c636545ab7709bb12af92e48793812fd4d1"
     },
     {
       "name": "TechnicalBungalowDark",
-      "path": "technical-bungalow-dark.svg"
+      "path": "technical-bungalow-dark.svg",
+      "hash": "510e685fe331140fa87d8d0fff04f104b5a6532001a264885b648a0aeb13edfc"
     },
     {
       "name": "TechnicalContentsLight",
-      "path": "technical-contents-light.svg"
+      "path": "technical-contents-light.svg",
+      "hash": "4682912a724b410276f489c9353114554e51b0749de6fe77d57f92d36469db96"
     },
     {
       "name": "TechnicalContentsDark",
-      "path": "technical-contents-dark.svg"
+      "path": "technical-contents-dark.svg",
+      "hash": "5ab7069327b87aa477005327c07c3b08b0bca8f55288363a81eb37fd15ac6814"
     },
     {
       "name": "TechnicalDslCableLight",
-      "path": "technical-dsl-cable-light.svg"
+      "path": "technical-dsl-cable-light.svg",
+      "hash": "a77515b301ad3a38d763185025fa1423a651c99738291f52a4bb701f8712a406"
     },
     {
       "name": "TechnicalDslCableDark",
-      "path": "technical-dsl-cable-dark.svg"
+      "path": "technical-dsl-cable-dark.svg",
+      "hash": "7daae958d0c73a07964bef1cfda3bbdf3e3d2bd0d5e7ce55e3642f38c695cb31"
     },
     {
       "name": "TechnicalDslPowerMicrofilterLight",
-      "path": "technical-dsl-power-microfilter-light.svg"
+      "path": "technical-dsl-power-microfilter-light.svg",
+      "hash": "5e18c73bd8298d1ae83bb5c229ec8f9d6feaf37ddc1d29db084820e67370249b"
     },
     {
       "name": "TechnicalDslPowerMicrofilterDark",
-      "path": "technical-dsl-power-microfilter-dark.svg"
+      "path": "technical-dsl-power-microfilter-dark.svg",
+      "hash": "048596e5922b11e21bcac40be10dad9f7fd689118ddab98bfe11864c957b6a14"
     },
     {
       "name": "TechnicalOpticalNetworkTerminalLight",
-      "path": "technical-optical-network-terminal-light.svg"
+      "path": "technical-optical-network-terminal-light.svg",
+      "hash": "cffcb6b039791e416239ac22309d42dddd87d926452b1d7c46a7503c45a87449"
     },
     {
       "name": "TechnicalOpticalNetworkTerminalDark",
-      "path": "technical-optical-network-terminal-dark.svg"
+      "path": "technical-optical-network-terminal-dark.svg",
+      "hash": "310329739c9c38277a22a78feea2e93a5501f6f257414e91a360596eeb68eaee"
     }
   ]
 }
