@@ -9,6 +9,7 @@ export interface ModalCommonProps {
   showCloseButton?: boolean;
   heading?: string;
   loadingHeading?: string;
+  loadingDescription?: string;
   description?: string;
   stickyFooter?: boolean;
   children?: ViewProps['children'];

@@ -31,7 +31,8 @@ const NavModal = ({
   onPressCloseButton,
   onPressSecondaryButton,
   loading,
-  loadingHeading = 'Loading...',
+  loadingHeading,
+  loadingDescription,
   image,
   primaryButtonProps,
   secondaryButtonProps,
@@ -166,9 +167,16 @@ const NavModal = ({
           screenReaderFocusable
         >
           <Spinner size="lg" color={isBrandBackground ? theme.color.icon.inverted : undefined} />
-          <Heading size="lg" textAlign="center" inverted={isBrandBackground}>
-            {loadingHeading}
-          </Heading>
+          {loadingHeading ? (
+            <Heading size="lg" textAlign="center" inverted={isBrandBackground}>
+              {loadingHeading || 'Loading...'}
+            </Heading>
+          ) : null}
+          {loadingDescription ? (
+            <BodyText size="md" textAlign="center" inverted={isBrandBackground}>
+              {loadingDescription}
+            </BodyText>
+          ) : null}
         </View>
       ) : (
         <View
