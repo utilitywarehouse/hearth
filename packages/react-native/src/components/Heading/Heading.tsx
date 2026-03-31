@@ -33,6 +33,7 @@ const Heading = ({
 
   return (
     <Text
+      accessibilityRole="header"
       {...remainingProps}
       {...(truncated
         ? {
