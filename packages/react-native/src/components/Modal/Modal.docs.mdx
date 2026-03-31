@@ -476,6 +476,20 @@ const App = () => {
 };
 ```
 
+If your app already handles safe-area padding around modal content, you can disable Hearth's bottom-sheet safe-area spacing:
+
+```tsx
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
+
+const App = () => {
+  return (
+    <BottomSheetModalProvider useSafeAreaInsets={false}>
+      {/* Your app content */}
+    </BottomSheetModalProvider>
+  );
+};
+```
+
 ### Ref Usage
 
 The Modal component forwards its ref to the underlying `BottomSheetModal`, giving you access to methods like:

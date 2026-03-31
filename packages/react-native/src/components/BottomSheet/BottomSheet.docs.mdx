@@ -129,6 +129,20 @@ const App = () => {
 };
 ```
 
+`BottomSheetModalProvider` adds Hearth's bottom-sheet safe-area spacing by default. If your app already handles safe-area padding, you can opt out and avoid double spacing:
+
+```tsx
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
+
+const App = () => {
+  return (
+    <BottomSheetModalProvider useSafeAreaInsets={false}>
+      {/* Your app content */}
+    </BottomSheetModalProvider>
+  );
+};
+```
+
 ### `BottomSheetScrollView`
 
 For scrollable content within a bottom sheet, use the `BottomSheetScrollView` component instead of the standard ScrollView:
@@ -168,6 +182,12 @@ const App = () => {
   return <BottomSheetModalProvider>{/* Your app content */}</BottomSheetModalProvider>;
 };
 ```
+
+Use the `useSafeAreaInsets` prop to control whether Hearth applies bottom-sheet safe-area spacing for modal content, list wrappers, and the top `SafeAreaView` used by components such as `Select` and `Combobox`.
+
+| Property            | Type      | Description                                                                                                                                         | Default |
+| ------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `useSafeAreaInsets` | `boolean` | Applies Hearth's safe-area insets inside bottom sheets. Set to `false` when your app already manages safe-area padding around bottom-sheet content. | `true`  |
 
 ### `Input` in Bottom Sheets
 
