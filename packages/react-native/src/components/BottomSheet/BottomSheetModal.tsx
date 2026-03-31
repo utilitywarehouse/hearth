@@ -20,6 +20,7 @@ const BottomSheetModal = ({
   ...rest
 }: BottomSheetProps) => {
   const bottomSheetRef = React.useRef<BottomSheetModalMethods<any>>(null);
+  const parentContext = React.useContext(BottomSheetContext);
 
   const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheetModal>({
     // @ts-expect-error - ref
@@ -30,7 +31,13 @@ const BottomSheetModal = ({
     handleStyle,
   });
 
-  const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
+  const value = useMemo(
+    () => ({
+      ...parentContext,
+      handle: showHandle,
+    }),
+    [parentContext, showHandle]
+  );
 
   return (
     <StyledBottomSheetModalCore

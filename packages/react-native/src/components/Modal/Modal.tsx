@@ -11,6 +11,7 @@ import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
+import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Spinner } from '../Spinner';
@@ -45,6 +46,7 @@ const Modal = ({
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const viewRef = useRef<View>(null);
   const scrollViewRef = useRef<BottomSheetScrollViewMethods>(null);
+  const { useSafeAreaInsets } = useBottomSheetContext();
 
   useImperativeHandle(ref, () => ({
     ...(bottomSheetModalRef.current as BottomSheetModal),
@@ -105,6 +107,7 @@ const Modal = ({
     noButtons,
     stickyFooter,
     showHandle: props.showHandle,
+    useSafeAreaInsets,
   });
 
   const footer = useMemo(
@@ -256,13 +259,44 @@ const styles = StyleSheet.create((theme, rt) => ({
     variants: {
       bothButtons: {
         true: {
+          paddingBottom: 166,
+        },
+        false: {
+          paddingBottom: 102,
+        },
+      },
+      noButtons: {
+        true: {
+          paddingBottom: theme.components.modal.padding,
+        },
+      },
+      stickyFooter: {
+        true: {},
+        false: {
+          paddingBottom: theme.components.modal.padding + theme.components.bottomSheet.padding,
+        },
+      },
+      useSafeAreaInsets: {
+        true: {},
+        false: {},
+      },
+    },
+    compoundVariants: [
+      {
+        bothButtons: true,
+        useSafeAreaInsets: true,
+        styles: {
           paddingBottom:
             166 +
             rt.insets.bottom -
             theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
-        false: {
+      },
+      {
+        bothButtons: false,
+        useSafeAreaInsets: true,
+        styles: {
           paddingBottom:
             102 +
             rt.insets.bottom -
@@ -270,24 +304,27 @@ const styles = StyleSheet.create((theme, rt) => ({
             theme.components.bottomSheet.padding,
         },
       },
-      noButtons: {
-        true: {
+      {
+        noButtons: true,
+        useSafeAreaInsets: true,
+        styles: {
           paddingBottom:
             rt.insets.bottom +
             theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
       },
-      stickyFooter: {
-        true: {},
-        false: {
+      {
+        useSafeAreaInsets: true,
+        stickyFooter: false,
+        styles: {
           paddingBottom:
             rt.insets.bottom +
             theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
       },
-    },
+    ],
   },
   header: {
     flexDirection: 'row',
@@ -333,7 +370,16 @@ const styles = StyleSheet.create((theme, rt) => ({
   footerWrap: {
     backgroundColor: theme.color.surface.neutral.strong,
     paddingHorizontal: theme.components.bottomSheet.padding,
-    paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
+    variants: {
+      useSafeAreaInsets: {
+        true: {
+          paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
+        },
+        false: {
+          paddingBottom: theme.components.bottomSheet.padding,
+        },
+      },
+    },
   },
 }));
 

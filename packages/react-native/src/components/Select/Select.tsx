@@ -10,6 +10,7 @@ import {
   BottomSheetScrollView,
   BottomSheetView,
 } from '../BottomSheet';
+import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { DetailText } from '../DetailText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
@@ -49,6 +50,7 @@ const Select = ({
   const isRequired = formFieldContext?.required ?? required;
   const isDisabled = formFieldContext?.disabled ?? disabled;
   const isReadonly = formFieldContext?.readonly ?? readonly;
+  const { useSafeAreaInsets } = useBottomSheetContext();
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const [search, setSearch] = useState('');
@@ -183,7 +185,7 @@ const Select = ({
             close: closeBottomSheet,
           }}
         >
-          <SafeAreaView edges={['top']} style={{ flex: 1 }}>
+          <SafeAreaView edges={useSafeAreaInsets ? ['top'] : []} style={{ flex: 1 }}>
             {menuHeading && (
               <View style={styles.headingContainer}>
                 <DetailText size="lg">{menuHeading}</DetailText>

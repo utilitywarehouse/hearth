@@ -6,6 +6,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { BottomSheetFlatList, BottomSheetModal, BottomSheetView } from '../BottomSheet';
+import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { DetailText } from '../DetailText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
@@ -55,6 +56,7 @@ const Combobox = ({
   const isDisabled = formFieldContext?.disabled ?? disabled;
   const isReadonly = formFieldContext?.readonly ?? readonly;
   const { color } = useTheme();
+  const { useSafeAreaInsets } = useBottomSheetContext();
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const searchInputRef = useRef<TextInput>(null);
@@ -325,7 +327,7 @@ const Combobox = ({
             setSearch,
           }}
         >
-          <SafeAreaView edges={['top']}>
+          <SafeAreaView edges={useSafeAreaInsets ? ['top'] : []}>
             {menuHeading && (
               <View style={styles.headingContainer}>
                 <DetailText size="lg">{menuHeading}</DetailText>

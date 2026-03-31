@@ -1,7 +1,6 @@
 export {
   BottomSheetFlashList,
   BottomSheetFooter,
-  BottomSheetModalProvider,
   BottomSheetSectionList,
   BottomSheetVirtualizedList,
   useBottomSheet,
@@ -15,5 +14,7 @@ export { default as BottomSheet } from './BottomSheet';
 export type { default as BottomSheetProps } from './BottomSheet.props';
 export { default as BottomSheetFlatList } from './BottomSheetFlatList';
 export { default as BottomSheetModal } from './BottomSheetModal';
+export { default as BottomSheetModalProvider } from './BottomSheetModalProvider';
+export type { BottomSheetModalProviderProps } from './BottomSheetModalProvider';
 export { default as BottomSheetScrollView } from './BottomSheetScrollView';
 export { default as BottomSheetView } from './BottomSheetView';

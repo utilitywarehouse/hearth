@@ -11,10 +11,11 @@ const BottomSheetFlatList = ({
   isModal = true,
   ...props
 }: BottomSheetFlatListProps<any> & { isModal?: boolean }) => {
-  const { handle } = useBottomSheetContext();
+  const { handle, useSafeAreaInsets } = useBottomSheetContext();
   styles.useVariants({
     isModal,
     handle,
+    useSafeAreaInsets,
   });
 
   return (
@@ -34,7 +35,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     variants: {
       isModal: {
         true: {
-          paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
+          paddingBottom: theme.components.bottomSheet.padding,
         },
       },
       handle: {
@@ -42,7 +43,20 @@ const styles = StyleSheet.create((theme, rt) => ({
           paddingTop: theme.components.bottomSheet.padding,
         },
       },
+      useSafeAreaInsets: {
+        true: {},
+        false: {},
+      },
     },
+    compoundVariants: [
+      {
+        isModal: true,
+        useSafeAreaInsets: true,
+        styles: {
+          paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
+        },
+      },
+    ],
   },
 }));
 
