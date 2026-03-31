@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
-import { DetailText } from '../DetailText';
 import Helper from '../Helper/Helper';
 import { useDescriptionListContext } from './DescriptionList.context';
 import type DescriptionListItemProps from './DescriptionListItem.props';
@@ -55,7 +54,7 @@ const DescriptionListItem = ({
         </View>
         {numericValue ? (
           <View style={styles.descriptionWrapper}>
-            <DetailText size="lg">{numericValue}</DetailText>
+            <BodyText weight="semibold">{numericValue}</BodyText>
           </View>
         ) : null}
       </View>

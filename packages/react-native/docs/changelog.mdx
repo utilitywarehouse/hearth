@@ -9,6 +9,92 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.29.2
+
+### Patch Changes
+
+- [#1067](https://github.com/utilitywarehouse/hearth/pull/1067) [`893cbfd`](https://github.com/utilitywarehouse/hearth/commit/893cbfd1bf090b8b75df6f58f2babaf8ba1e0033) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add a `useSafeAreaInsets` prop to `BottomSheetModalProvider` to control Hearth's bottom-sheet safe-area spacing.
+
+  Bottom-sheet wrappers such as `BottomSheetView`, `BottomSheetScrollView`, `BottomSheetFlatList`, and components that render `SafeAreaView` inside a bottom sheet now respect `BottomSheetModalProvider` configuration.
+
+  **Components affected**:
+  - `BottomSheetModalProvider`
+  - `BottomSheetView`
+  - `BottomSheetScrollView`
+  - `BottomSheetFlatList`
+  - `Modal`
+  - `Select`
+  - `Combobox`
+
+  **Developer changes**:
+
+  No changes are required if you want the current behaviour. If your app already applies its own safe-area padding around bottom-sheet content, opt out like this:
+
+  ```tsx
+  <BottomSheetModalProvider useSafeAreaInsets={false}>
+    {/* Your app content */}
+  </BottomSheetModalProvider>
+  ```
+
+## 0.29.1
+
+### Patch Changes
+
+- [#1062](https://github.com/utilitywarehouse/hearth/pull/1062) [`0da3ffe`](https://github.com/utilitywarehouse/hearth/commit/0da3ffe12691a4287694ae9fcb2290d459e3c041) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Respect the selected `NavModal` background style
+
+  Fixed an issue where `NavModal` always rendered its inner content with the default surface background, which prevented the `background="brand"` treatment from being applied correctly.
+
+  **Components affected**:
+  - `NavModal`
+
+  **Developer changes**:
+
+  No changes are required.
+
+## 0.29.0
+
+### Minor Changes
+
+- [#1060](https://github.com/utilitywarehouse/hearth/pull/1060) [`05d38f9`](https://github.com/utilitywarehouse/hearth/commit/05d38f9414fec6d6b4a0733829b4d290d96fccae) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: Extract navigation-presented modal behaviour into `NavModal`
+
+  `Modal` now only supports the bottom-sheet modal behaviour. The React Navigation screen-based API that was previously exposed through `inNavModal`, `background`, and `scrollable` has moved to the new `NavModal` component.
+
+  `NavModal` also adds a `presentation` prop so the component can match the React Navigation screen presentation style for sheet-style and full-screen modal routes.
+
+  The package-owned `SafeAreaView` component has also been removed in favour of the `react-native-safe-area-context` `SafeAreaView`. Hearth now re-exports that implementation from the package root.
+
+  **Components affected**:
+  - `Modal`
+  - `NavModal`
+  - `SafeAreaView`
+
+  **Developer changes**:
+
+  Update navigation modal screens to use `NavModal` instead of `Modal`:
+
+  ```diff
+  - import { Modal } from '@utilitywarehouse/hearth-react-native';
+  + import { NavModal, type NavModalRef } from '@utilitywarehouse/hearth-react-native';
+
+  - const modalRef = useRef<Modal>(null);
+  + const modalRef = useRef<NavModalRef>(null);
+
+  - <Modal inNavModal background="brand" scrollable={false}>
+  + <NavModal background="brand" scrollable={false} presentation="modal">
+      {/* content */}
+  - </Modal>
+  + </NavModal>
+  ```
+
+  If you are using the bottom-sheet modal API, no changes are required.
+
+  If you were importing the old component from the component path, update it to use the package root re-export or import directly from `react-native-safe-area-context`:
+
+  ```diff
+  - import { SafeAreaView } from '@utilitywarehouse/hearth-react-native';
+  + import { SafeAreaView } from 'react-native-safe-area-context';
+  ```
+
 ## 0.28.6
 
 ### Patch Changes

@@ -4,7 +4,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
 import ExpandableCardContent from './ExpandableCardContent';
 import ExpandableCardHelperText from './ExpandableCardHelperText';
 import ExpandableCardIcon from './ExpandableCardIcon';
@@ -62,10 +62,10 @@ const ExpandableCardTriggerRoot = ({
         {helperText && <ExpandableCardHelperText>{helperText}</ExpandableCardHelperText>}
         {badgePosition === 'bottom' ? badge : null}
       </ExpandableCardContent>
-      {numericValue && (
-        <DetailText size="lg" style={styles.numericValue}>
+      {!!numericValue && (
+        <BodyText weight="semibold" style={styles.numericValue}>
           {numericValue}
-        </DetailText>
+        </BodyText>
       )}
       <ExpandableCardTrailingContent style={styles.chevron}>
         <ExpandableCardTrailingIcon as={isExpanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
