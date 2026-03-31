@@ -1,6 +1,7 @@
 // This is all copied and updated to our needs from
 // https://github.com/radix-ui/icons/tree/master/packages/generate-icon-lib
 const path = require('path');
+const crypto = require('crypto');
 const fs = require('fs-extra');
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _ = require('lodash');
@@ -197,6 +198,8 @@ async function downloadSvgsToFs(urls, icons) {
         .then(async svgRaw => transformers.passSVGO(svgRaw, fileName, svgoConfig))
         .then(svgRaw => transformers.injectCurrentColor(svgRaw));
 
+      icon.hash = crypto.createHash('sha256').update(processedSvg, 'utf8').digest('hex');
+
       await fs.outputFile(path.resolve(__dirname, '..', 'lib', fileName), processedSvg, {
         encoding: 'utf8',
       });
@@ -207,8 +210,8 @@ async function downloadSvgsToFs(urls, icons) {
 /** Generates a manifest.json file for use by storybook to generate docs. */
 async function generateManifest(icons) {
   const svgIcons = Object.values(icons).reduce((manifest, icon) => {
-    const { svgName, jsxName } = icon;
-    return [...manifest, { name: jsxName, path: `${svgName}.svg` }];
+    const { svgName, jsxName, hash } = icon;
+    return [...manifest, { name: jsxName, path: `${svgName}.svg`, hash }];
   }, []);
   await fs.outputFile(
     path.resolve(__dirname, '../manifest.json'),
@@ -217,44 +220,70 @@ async function generateManifest(icons) {
   );
 }
 
-/** Get a list of icons from the manifest file */
-async function getIconsList() {
-  const raw = await fs.readFileSync(path.resolve(__dirname, '..', 'manifest.json'), {
-    encoding: 'utf8',
-  });
-  const { svgIcons } = JSON.parse(raw);
-  return svgIcons.map(i => i.name);
+/** Get the current SVG icon metadata from the manifest file. */
+async function getManifestIcons() {
+  try {
+    const raw = await fs.readFileSync(path.resolve(__dirname, '..', 'manifest.json'), {
+      encoding: 'utf8',
+    });
+    const { svgIcons } = JSON.parse(raw);
+    return svgIcons || [];
+  } catch (e) {
+    // If manifest doesn't exist yet, treat as no existing icons.
+    return [];
+  }
 }
 
 /**
- * Create a temporary list of added and removed icons. This will be deleted
- * after it has been ourputted to the console when running the generate
- * script.
- * Currently this won't list any icons taht have changed. So we'll have to
- * check this manually to see if the change warrants inclusion in the
- * changeset.
+ * Create a temporary list of added, changed and removed icons. This will be
+ * deleted after it has been outputted to the console when running the
+ * generate script.
  */
-async function createTempListOfAddedAndRemovedIcons(previous, updated) {
+async function createTempListOfIconChanges(previous, updated) {
+  const previousByName = new Map(previous.map(icon => [icon.name, icon]));
+  const updatedByName = new Map(updated.map(icon => [icon.name, icon]));
+
   const addedIcons = updated.reduce((added, icon) => {
-    if (!previous.includes(icon)) {
-      added.push(icon);
+    if (!previousByName.has(icon.name)) {
+      added.push(icon.name);
     }
     return added;
   }, []);
 
   const removedIcons = previous.reduce((removed, icon) => {
-    if (!updated.includes(icon)) {
-      removed.push(icon);
+    if (!updatedByName.has(icon.name)) {
+      removed.push(icon.name);
     }
     return removed;
   }, []);
 
+  const changedIcons = updated.reduce((changed, icon) => {
+    const previousIcon = previousByName.get(icon.name);
+
+    if (!previousIcon) {
+      return changed;
+    }
+
+    // Older manifests do not have hashes, so skip changed detection until
+    // both sides have a stored fingerprint.
+    if (previousIcon.hash && icon.hash && previousIcon.hash !== icon.hash) {
+      changed.push(icon.name);
+    }
+
+    return changed;
+  }, []);
+
   const added = addedIcons.length > 0 ? `- ${addedIcons.join('\n- ')}` : 'No new icons.';
   const removed = removedIcons.length > 0 ? `- ${removedIcons.join('\n- ')}` : 'No removed icons.';
+  const changed = changedIcons.length > 0 ? `- ${changedIcons.join('\n- ')}` : 'No changed icons.';
   const content = `
 ## NEW ICONS
 
 ${added}
+
+## CHANGED ICONS
+
+${changed}
 
 ## REMOVED ICONS
 
@@ -262,12 +291,12 @@ ${removed}
 
 `;
   await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-icons.md'), content);
-  return { added, removed };
+  return { added, changed, removed };
 }
 
 async function main() {
   // First get a list of the currently available icons.
-  const currentIconsList = await getIconsList();
+  const currentIconsList = await getManifestIcons();
 
   // Get the document from Figma
   console.log('getting figma document');
@@ -289,10 +318,10 @@ async function main() {
   // generate the manifest for the storybook docs
   await generateManifest(icons);
 
-  // Let's see what icons we have now, and what has been added and removed, so
-  // we can add it to the release changeset.
-  const updatedIconsList = await getIconsList();
-  await createTempListOfAddedAndRemovedIcons(currentIconsList, updatedIconsList);
+  // Let's see what icons we have now, and what has been added, changed and
+  // removed, so we can add it to the release changeset.
+  const updatedIconsList = await getManifestIcons();
+  await createTempListOfIconChanges(currentIconsList, updatedIconsList);
 }
 
 main()
