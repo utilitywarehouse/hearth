@@ -35,6 +35,7 @@ const Modal = ({
   closeOnSecondaryButtonPress = true,
   loading,
   loadingHeading = 'Loading...',
+  loadingDescription,
   fullscreen = false,
   image,
   primaryButtonProps,
@@ -151,7 +152,10 @@ const Modal = ({
         <View
           style={styles.loadingContainer}
           accessible={Platform.OS === 'android' ? true : undefined}
-          accessibilityLabel={Platform.OS === 'android' ? 'Loading' : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? (loadingHeading ?? 'Loading') : undefined}
+          accessibilityHint={
+            Platform.OS === 'android' && loadingDescription ? loadingDescription : undefined
+          }
           screenReaderFocusable
           ref={viewRef}
         >
@@ -159,6 +163,7 @@ const Modal = ({
           <Heading size="lg" textAlign="center">
             {loadingHeading}
           </Heading>
+          {loadingDescription ? <BodyText textAlign="center">{loadingDescription}</BodyText> : null}
         </View>
       ) : (
         <View

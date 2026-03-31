@@ -32,6 +32,7 @@ const NavModal = ({
   onPressSecondaryButton,
   loading,
   loadingHeading = 'Loading...',
+  loadingDescription,
   image,
   primaryButtonProps,
   secondaryButtonProps,
@@ -162,13 +163,21 @@ const NavModal = ({
         <View
           style={styles.loadingContainer}
           accessible={Platform.OS === 'android' ? true : undefined}
-          accessibilityLabel={Platform.OS === 'android' ? 'Loading' : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? (loadingHeading ?? 'Loading') : undefined}
+          accessibilityHint={
+            Platform.OS === 'android' && loadingDescription ? loadingDescription : undefined
+          }
           screenReaderFocusable
         >
           <Spinner size="lg" color={isBrandBackground ? theme.color.icon.inverted : undefined} />
           <Heading size="lg" textAlign="center" inverted={isBrandBackground}>
             {loadingHeading}
           </Heading>
+          {loadingDescription ? (
+            <BodyText size="md" textAlign="center" inverted={isBrandBackground}>
+              {loadingDescription}
+            </BodyText>
+          ) : null}
         </View>
       ) : (
         <View
