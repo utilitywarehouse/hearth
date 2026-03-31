@@ -1,5 +1,32 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.29.2
+
+### Patch Changes
+
+- [#1067](https://github.com/utilitywarehouse/hearth/pull/1067) [`893cbfd`](https://github.com/utilitywarehouse/hearth/commit/893cbfd1bf090b8b75df6f58f2babaf8ba1e0033) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add a `useSafeAreaInsets` prop to `BottomSheetModalProvider` to control Hearth's bottom-sheet safe-area spacing.
+
+  Bottom-sheet wrappers such as `BottomSheetView`, `BottomSheetScrollView`, `BottomSheetFlatList`, and components that render `SafeAreaView` inside a bottom sheet now respect `BottomSheetModalProvider` configuration.
+
+  **Components affected**:
+  - `BottomSheetModalProvider`
+  - `BottomSheetView`
+  - `BottomSheetScrollView`
+  - `BottomSheetFlatList`
+  - `Modal`
+  - `Select`
+  - `Combobox`
+
+  **Developer changes**:
+
+  No changes are required if you want the current behaviour. If your app already applies its own safe-area padding around bottom-sheet content, opt out like this:
+
+  ```tsx
+  <BottomSheetModalProvider useSafeAreaInsets={false}>
+    {/* Your app content */}
+  </BottomSheetModalProvider>
+  ```
+
 ## 0.29.1
 
 ### Patch Changes
