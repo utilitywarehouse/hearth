@@ -14,7 +14,15 @@ const List = ({
   invalidText,
   ...props
 }: ListProps) => {
-  const { loading, disabled, container = 'none', testID, style, ...rest } = props;
+  const {
+    loading,
+    disabled,
+    container = 'none',
+    testID,
+    style,
+    accessibilityRole,
+    ...rest
+  } = props;
 
   const orderRef = useRef<string[]>([]);
   const [firstItemId, setFirstItemId] = useState<string | undefined>(undefined);
@@ -52,7 +60,11 @@ const List = ({
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>
-      <View {...rest} style={[styles.container, style]}>
+      <View
+        {...rest}
+        accessibilityRole={accessibilityRole ?? 'list'}
+        style={[styles.container, style]}
+      >
         {heading ? (
           <SectionHeader
             heading={heading}
@@ -62,18 +74,10 @@ const List = ({
           />
         ) : null}
         {container === 'none' ? (
-          <View testID={testID} accessibilityRole={rest.accessibilityRole ?? 'list'}>
-            {children}
-          </View>
+          <View testID={testID}>{children}</View>
         ) : (
           React.Children.count(children) > 0 && (
-            <Card
-              {...containerToCard}
-              noPadding
-              style={styles.card}
-              testID={testID}
-              accessibilityRole={rest.accessibilityRole ?? 'list'}
-            >
+            <Card {...containerToCard} noPadding style={styles.card} testID={testID}>
               <>{children}</>
             </Card>
           )

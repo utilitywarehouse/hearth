@@ -4,7 +4,7 @@
 
 🐛 [FIX]: Improve accessibility roles for `List`, `ListItem`, and `ListAction`
 
-`List` now defaults to `accessibilityRole="list"`, `ListAction` is always announced as a button, and `ListItem` respects an explicitly provided `accessibilityRole` instead of always forcing button semantics when `onPress` is set.
+`List` now defaults to `accessibilityRole="list"`, `ListAction` now defaults to `accessibilityRole="button"`, and `ListItem` respects an explicitly provided `accessibilityRole` instead of always forcing button semantics when `onPress` is set.
 
 **Components affected**:
 - `List`
