@@ -1,7 +1,7 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
+import { Box, Center, Heading, Pressable } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Heading.stories';
-import { Center, Pressable, Heading, Box } from '../../';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 
 <Meta title="Typography / Heading" />
 
@@ -17,6 +17,7 @@ The `Heading` component gives you the ability to create headings for your screen
 - [Usage](#usage)
 - [Props](#props)
 - [Sizes](#sizes)
+- [Accessibility](#accessibility)
 
 ## Playground
 
@@ -60,3 +61,11 @@ const MyComponent = () => <Heading>Welcome to Utility Warehouse</Heading>;
 The `Heading` component has different sizes to style the text.
 
 <Canvas of={Stories.KitchenSink} />
+
+## Accessibility
+
+`Heading` sets `accessibilityRole="header"` by default, so VoiceOver and TalkBack can announce it as a heading without any extra configuration.
+If you need to override this behavior, pass an explicit `accessibilityRole` prop (for example, `accessibilityRole="text"`) to opt out of heading semantics.
+
+- Use `Heading` for actual screen or section titles so assistive technologies can expose the right document structure.
+- If you need styled text without heading semantics, either override the `accessibilityRole` on `Heading` or use one of the other text components instead.
