@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import {
   BillMediumIcon,
   ChevronRightSmallIcon,
@@ -60,7 +60,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: ({ container, ...args }) => {
+  render: ({ container, ...args }: StoryObj<typeof meta.args>) => {
     return (
       <List {...args} container={container}>
         {Array.from({ length: 4 }).map((_, index) => (
@@ -75,7 +75,7 @@ export const WithAction: Story = {
   args: {
     container: 'subtleWhite',
   },
-  render: ({ container, ...args }) => (
+  render: ({ container, ...args }: StoryObj<typeof meta.args>) => (
     <List {...args} container={container}>
       {Array.from({ length: 4 }).map((_, index) => (
         <ListItem key={index} heading="List item text" helperText="Supporting text" />
@@ -292,6 +292,7 @@ export const WithListAction: Story = {
         heading="Manage payment methods"
         helperText="Update your credit or debit cards"
         onPress={() => console.log('Manage pressed')}
+        accessibilityRole="link"
       />
       <ListAction heading="Contact support" onPress={() => console.log('Contact pressed')} />
     </List>
@@ -310,7 +311,7 @@ export const WithTransactions: Story = {
         trailingContent={
           <>
             <BodyText>-£100.00</BodyText>
-            <BodyText color="textBrand">+£1.00 CB</BodyText>
+            <BodyText color="brand">+£1.00 CB</BodyText>
           </>
         }
         onPress={() => console.log('Transaction pressed')}
@@ -320,7 +321,7 @@ export const WithTransactions: Story = {
         helperText="Apr 4, 2024"
         trailingContent={
           <>
-            <BodyText color="textAffirmative">+£100.00</BodyText>
+            <BodyText color="affirmative">+£100.00</BodyText>
           </>
         }
         onPress={() => console.log('Transaction pressed')}

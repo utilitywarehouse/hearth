@@ -61,6 +61,7 @@ const ListActionRoot = ({
 
   return (
     <Pressable
+      accessibilityRole="button"
       {...props}
       testID={testID}
       style={[styles.container, props.style as ViewStyle]}

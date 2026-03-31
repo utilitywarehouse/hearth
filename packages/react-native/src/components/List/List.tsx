@@ -62,10 +62,18 @@ const List = ({
           />
         ) : null}
         {container === 'none' ? (
-          <View testID={testID}>{children}</View>
+          <View testID={testID} accessibilityRole={rest.accessibilityRole ?? 'list'}>
+            {children}
+          </View>
         ) : (
           React.Children.count(children) > 0 && (
-            <Card {...containerToCard} noPadding style={styles.card} testID={testID}>
+            <Card
+              {...containerToCard}
+              noPadding
+              style={styles.card}
+              testID={testID}
+              accessibilityRole={rest.accessibilityRole ?? 'list'}
+            >
               <>{children}</>
             </Card>
           )
