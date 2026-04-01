@@ -8,7 +8,6 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { hexWithOpacity } from '../../utils';
@@ -42,7 +41,7 @@ const NavModal = ({
   scrollable = true,
   presentation = 'modal',
   scrollViewProps,
-  safeAreaViewProps,
+  useSafeAreaInsets = true,
   ...props
 }: NavModalProps) => {
   const theme = useTheme();
@@ -117,6 +116,9 @@ const NavModal = ({
     loading,
     background: isBrandBackground ? 'brand' : 'primary',
     presentation: isFullScreenPresentation ? 'fullScreen' : 'modal',
+    useSafeAreaInsets,
+    usesSheetPresentation,
+    stickyFooter,
   });
 
   const footer = useMemo(
@@ -258,19 +260,8 @@ const NavModal = ({
     </>
   );
 
-  const { style: safeAreaViewStyle, ...restSafeAreaViewProps } = safeAreaViewProps ?? {};
-
   return (
-    <SafeAreaView
-      style={[
-        {
-          flex: 1,
-          backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'secondary'],
-        },
-        safeAreaViewStyle,
-      ]}
-      {...restSafeAreaViewProps}
-    >
+    <View style={styles.root}>
       {Platform.OS === 'android' && usesSheetPresentation ? (
         <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
           <Animated.View style={[styles.pretendContent, animatedPretendContentStyle]} />
@@ -285,11 +276,56 @@ const NavModal = ({
       >
         <View style={styles.inNavModalContent}>{content}</View>
       </Animated.View>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create((theme, rt) => ({
+  root: {
+    flex: 1,
+    variants: {
+      background: {
+        brand: {
+          backgroundColor: theme.color.background.brand,
+        },
+        primary: {
+          backgroundColor: theme.color.background.secondary,
+        },
+      },
+      usesSheetPresentation: {
+        true: {},
+        false: {},
+      },
+      useSafeAreaInsets: {
+        true: {},
+        false: {},
+      },
+      stickyFooter: {
+        true: {},
+        false: {},
+      },
+    },
+    compoundVariants: [
+      {
+        usesSheetPresentation: false,
+        useSafeAreaInsets: true,
+        styles: {
+          paddingTop: rt.insets.top,
+          paddingBottom: Platform.OS === 'ios' ? rt.insets.bottom : 0,
+          paddingLeft: rt.insets.left,
+          paddingRight: rt.insets.right,
+        },
+      },
+      {
+        usesSheetPresentation: true,
+        useSafeAreaInsets: true,
+        stickyFooter: true,
+        styles: {
+          paddingBottom: Platform.OS === 'ios' ? rt.insets.bottom : 0,
+        },
+      },
+    ],
+  },
   container: {
     flex: 1,
     gap: theme.components.modal.gap,
