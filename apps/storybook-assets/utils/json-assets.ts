@@ -4,12 +4,12 @@ import AnimatedSpotAccount from '@utilitywarehouse/hearth-json-assets/lib/animat
 import AnimatedSpotBilling from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-light.json'
 import AnimatedSpotBoiler from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-light.json'
 import AnimatedSpotBookAppointments from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json'
+import AnimatedSpotBookAppointments from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json'
 import AnimatedSpotBroadbandSymbol from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-light.json'
 import AnimatedSpotBundle1 from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-light.json'
 import AnimatedSpotBundle2 from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-light.json'
 import AnimatedSpotCalendar from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-light.json'
 import AnimatedSpotCelebratory from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-light.json'
-import AnimatedSpotConfetti from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-confetti-light.json'
 import AnimatedSpotDarkMode from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-light.json'
 import AnimatedSpotEarnings from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-light.json'
 import AnimatedSpotEmptyState1 from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-light.json'
@@ -28,6 +28,7 @@ import AnimatedSpotNewLook from '@utilitywarehouse/hearth-json-assets/lib/animat
 import AnimatedSpotNoBroadband from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-light.json'
 import AnimatedSpotNotification from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-light.json'
 import AnimatedSpotPests from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-light.json'
+import AnimatedSpotProcessCompleteCelebratory from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-light.json'
 import AnimatedSpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-light.json'
 import AnimatedSpotQuoteSales from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-light.json'
 import AnimatedSpotRecognition from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-light.json'
@@ -50,12 +51,12 @@ export const jsonAssets = [
   { name: 'AnimatedSpotBilling', src: AnimatedSpotBilling, path: 'animated-spot-billing-light.json' },
   { name: 'AnimatedSpotBoiler', src: AnimatedSpotBoiler, path: 'animated-spot-boiler-light.json' },
   { name: 'AnimatedSpotBookAppointments', src: AnimatedSpotBookAppointments, path: 'animated-spot-book-appointments-light.json' },
+  { name: 'AnimatedSpotBookAppointments', src: AnimatedSpotBookAppointments, path: 'animated-spot-book-appointments-light.json' },
   { name: 'AnimatedSpotBroadbandSymbol', src: AnimatedSpotBroadbandSymbol, path: 'animated-spot-broadband-symbol-light.json' },
   { name: 'AnimatedSpotBundle1', src: AnimatedSpotBundle1, path: 'animated-spot-bundle-1-light.json' },
   { name: 'AnimatedSpotBundle2', src: AnimatedSpotBundle2, path: 'animated-spot-bundle-2-light.json' },
   { name: 'AnimatedSpotCalendar', src: AnimatedSpotCalendar, path: 'animated-spot-calendar-light.json' },
   { name: 'AnimatedSpotCelebratory', src: AnimatedSpotCelebratory, path: 'animated-spot-celebratory-light.json' },
-  { name: 'AnimatedSpotConfetti', src: AnimatedSpotConfetti, path: 'animated-spot-confetti-light.json' },
   { name: 'AnimatedSpotDarkMode', src: AnimatedSpotDarkMode, path: 'animated-spot-dark-mode-light.json' },
   { name: 'AnimatedSpotEarnings', src: AnimatedSpotEarnings, path: 'animated-spot-earnings-light.json' },
   { name: 'AnimatedSpotEmptyState1', src: AnimatedSpotEmptyState1, path: 'animated-spot-empty-state-1-light.json' },
@@ -74,6 +75,7 @@ export const jsonAssets = [
   { name: 'AnimatedSpotNoBroadband', src: AnimatedSpotNoBroadband, path: 'animated-spot-no-broadband-light.json' },
   { name: 'AnimatedSpotNotification', src: AnimatedSpotNotification, path: 'animated-spot-notification-light.json' },
   { name: 'AnimatedSpotPests', src: AnimatedSpotPests, path: 'animated-spot-pests-light.json' },
+  { name: 'AnimatedSpotProcessCompleteCelebratory', src: AnimatedSpotProcessCompleteCelebratory, path: 'animated-spot-process-complete-celebratory-light.json' },
   { name: 'AnimatedSpotProcessCompleteFunctional', src: AnimatedSpotProcessCompleteFunctional, path: 'animated-spot-process-complete-functional-light.json' },
   { name: 'AnimatedSpotQuoteSales', src: AnimatedSpotQuoteSales, path: 'animated-spot-quote-sales-light.json' },
   { name: 'AnimatedSpotRecognition', src: AnimatedSpotRecognition, path: 'animated-spot-recognition-light.json' },

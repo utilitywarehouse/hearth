@@ -2,24 +2,56 @@ const { render } = require('ejs');
 const fs = require('fs-extra');
 const path = require('path');
 
-async function getAssets() {
-  const svgAssetsRaw = fs.readFileSync(
-    path.resolve(__dirname, '../../../packages/svg-assets', 'manifest.json'),
-    { encoding: 'utf8' }
+const SVG_ASSETS_DIR = path.resolve(__dirname, '../../../packages/svg-assets');
+const JSON_ASSETS_DIR = path.resolve(__dirname, '../../../packages/json-assets');
+
+function readManifestAssets(manifestPath, assetKey) {
+  const manifestRaw = fs.readFileSync(manifestPath, { encoding: 'utf8' });
+  const parsed = JSON.parse(manifestRaw);
+
+  return parsed[assetKey] || [];
+}
+
+function assertManifestAssetsExist({ assets, assetsDir, assetType, pathKey }) {
+  const libDir = path.resolve(assetsDir, 'lib');
+  const missingAssets = assets.filter(
+    asset => !fs.existsSync(path.resolve(libDir, asset[pathKey]))
   );
-  const { svgAssets } = JSON.parse(svgAssetsRaw);
+
+  if (missingAssets.length === 0) {
+    return;
+  }
+
+  const missingAssetsList = missingAssets
+    .map(asset => `- ${asset.name} (${asset[pathKey]})`)
+    .join('\n');
+
+  throw new Error(
+    `Found removed ${assetType} asset(s) still referenced by manifest.json:\n${missingAssetsList}\nRegenerate the ${assetType} assets package manifest or restore the missing files.`
+  );
+}
+
+async function getAssets() {
+  const svgAssetsManifestPath = path.resolve(SVG_ASSETS_DIR, 'manifest.json');
+  const svgAssets = readManifestAssets(svgAssetsManifestPath, 'svgAssets');
+  assertManifestAssetsExist({
+    assets: svgAssets,
+    assetsDir: SVG_ASSETS_DIR,
+    assetType: 'SVG',
+    pathKey: 'path',
+  });
 
   let jsonAssets = [];
-  const jsonAssetsManifestPath = path.resolve(
-    __dirname,
-    '../../../packages/json-assets',
-    'manifest.json'
-  );
+  const jsonAssetsManifestPath = path.resolve(JSON_ASSETS_DIR, 'manifest.json');
 
   if (fs.existsSync(jsonAssetsManifestPath)) {
-    const jsonAssetsRaw = fs.readFileSync(jsonAssetsManifestPath, { encoding: 'utf8' });
-    const parsed = JSON.parse(jsonAssetsRaw);
-    jsonAssets = parsed.jsonAssets || [];
+    jsonAssets = readManifestAssets(jsonAssetsManifestPath, 'jsonAssets');
+    assertManifestAssetsExist({
+      assets: jsonAssets,
+      assetsDir: JSON_ASSETS_DIR,
+      assetType: 'JSON',
+      pathKey: 'filename',
+    });
   }
 
   return { svgAssets, jsonAssets };
