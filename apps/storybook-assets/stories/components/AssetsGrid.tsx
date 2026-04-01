@@ -1,6 +1,6 @@
 import { BodyText, Button, Card, Flex, Grid } from '@utilitywarehouse/hearth-react';
-import { useCallback, useState } from 'react';
 import Lottie from 'lottie-react';
+import { useCallback, useState } from 'react';
 
 type Asset = { name: string; src: any; path: string };
 
@@ -56,7 +56,7 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
                 ) : asset.path.includes('.json') ? (
                   <Lottie animationData={asset.src} loop={true} />
                 ) : null}
-                <BodyText as="span">
+                <BodyText as="span" style={{ wordBreak: 'break-all' }}>
                   {copied === asset.name ? 'Copied Import...' : asset.name}
                 </BodyText>
               </Flex>
