@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.30.1
+
+### Patch Changes
+
+- [#1081](https://github.com/utilitywarehouse/hearth/pull/1081) [`5db8538`](https://github.com/utilitywarehouse/hearth/commit/5db8538b69115a23289f0038f681fc8b87a310c4) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Correct `NavModal` safe area handling across sheet and full-screen presentations.
+
+  `NavModal` now applies safe area insets directly within the component layout, which fixes padding in full-screen presentations and keeps sheet-style presentations aligned with the modal footer behaviour.
+
+  **Developer changes**:
+
+  If you need to disable the inset padding, use the `useSafeAreaInsets` prop. The old `safeAreaViewProps` escape hatch is no longer available.
+
 ## 0.30.0
 
 ### Minor Changes
