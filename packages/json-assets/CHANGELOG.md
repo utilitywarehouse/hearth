@@ -1,5 +1,46 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.3.0
+
+### Minor Changes
+
+- [#1085](https://github.com/utilitywarehouse/hearth/pull/1085) [`b49a23c`](https://github.com/utilitywarehouse/hearth/commit/b49a23c5d841179ecfd53c63f576559efb1de534) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ANIMATED ASSETS
+  - AnimatedSpotProcessCompleteCelebratory
+
+  ## CHANGED ANIMATED ASSETS
+  - AnimatedSpotAccount
+  - AnimatedSpotBilling
+  - AnimatedSpotBoiler
+  - AnimatedSpotBroadbandSymbol
+  - AnimatedSpotBundle1
+  - AnimatedSpotBundle2
+  - AnimatedSpotCelebratory
+  - AnimatedSpotDarkMode
+  - AnimatedSpotEmptyState1
+  - AnimatedSpotEmptyState2
+  - AnimatedSpotError
+  - AnimatedSpotEV
+  - AnimatedSpotHeart
+  - AnimatedSpotHelp
+  - AnimatedSpotInnovation
+  - AnimatedSpotMovingHouse
+  - AnimatedSpotNeighbours
+  - AnimatedSpotNewLook
+  - AnimatedSpotNoBroadband
+  - AnimatedSpotNotification
+  - AnimatedSpotPests
+  - AnimatedSpotProcessCompleteFunctional
+  - AnimatedSpotRecognition
+  - AnimatedSpotSavings2
+  - AnimatedSpotSecurity
+  - AnimatedSpotSecurityCode
+  - AnimatedSpotSmartMeter
+  - AnimatedSpotSuccess
+  - AnimatedSpotSwitch
+
+  ## REMOVED ANIMATED ASSETS
+  - AnimatedSpotConfetti
+
 ## 0.2.0
 
 ### Minor Changes
