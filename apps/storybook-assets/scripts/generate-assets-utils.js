@@ -12,6 +12,27 @@ function readManifestAssets(manifestPath, assetKey) {
   return parsed[assetKey] || [];
 }
 
+function dedupeManifestAssets({ assets, assetType, pathKey }) {
+  const assetsByName = new Map();
+
+  assets.forEach(asset => {
+    const existingAsset = assetsByName.get(asset.name);
+
+    if (!existingAsset) {
+      assetsByName.set(asset.name, asset);
+      return;
+    }
+
+    if (existingAsset[pathKey] !== asset[pathKey]) {
+      throw new Error(
+        `${assetType} manifest contains conflicting entries for ${asset.name}: ${existingAsset[pathKey]} and ${asset[pathKey]}.`
+      );
+    }
+  });
+
+  return Array.from(assetsByName.values());
+}
+
 function assertManifestAssetsExist({ assets, assetsDir, assetType, pathKey }) {
   const libDir = path.resolve(assetsDir, 'lib');
   const missingAssets = assets.filter(
@@ -33,7 +54,11 @@ function assertManifestAssetsExist({ assets, assetsDir, assetType, pathKey }) {
 
 async function getAssets() {
   const svgAssetsManifestPath = path.resolve(SVG_ASSETS_DIR, 'manifest.json');
-  const svgAssets = readManifestAssets(svgAssetsManifestPath, 'svgAssets');
+  const svgAssets = dedupeManifestAssets({
+    assets: readManifestAssets(svgAssetsManifestPath, 'svgAssets'),
+    assetType: 'SVG',
+    pathKey: 'path',
+  });
   assertManifestAssetsExist({
     assets: svgAssets,
     assetsDir: SVG_ASSETS_DIR,
@@ -45,7 +70,11 @@ async function getAssets() {
   const jsonAssetsManifestPath = path.resolve(JSON_ASSETS_DIR, 'manifest.json');
 
   if (fs.existsSync(jsonAssetsManifestPath)) {
-    jsonAssets = readManifestAssets(jsonAssetsManifestPath, 'jsonAssets');
+    jsonAssets = dedupeManifestAssets({
+      assets: readManifestAssets(jsonAssetsManifestPath, 'jsonAssets'),
+      assetType: 'JSON',
+      pathKey: 'filename',
+    });
     assertManifestAssetsExist({
       assets: jsonAssets,
       assetsDir: JSON_ASSETS_DIR,

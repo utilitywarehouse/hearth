@@ -4,7 +4,6 @@ import AnimatedSpotAccount from '@utilitywarehouse/hearth-json-assets/lib/animat
 import AnimatedSpotBilling from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-light.json'
 import AnimatedSpotBoiler from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-light.json'
 import AnimatedSpotBookAppointments from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json'
-import AnimatedSpotBookAppointments from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json'
 import AnimatedSpotBroadbandSymbol from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-light.json'
 import AnimatedSpotBundle1 from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-light.json'
 import AnimatedSpotBundle2 from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-light.json'
@@ -50,7 +49,6 @@ export const jsonAssets = [
   { name: 'AnimatedSpotAccount', src: AnimatedSpotAccount, path: 'animated-spot-account-light.json' },
   { name: 'AnimatedSpotBilling', src: AnimatedSpotBilling, path: 'animated-spot-billing-light.json' },
   { name: 'AnimatedSpotBoiler', src: AnimatedSpotBoiler, path: 'animated-spot-boiler-light.json' },
-  { name: 'AnimatedSpotBookAppointments', src: AnimatedSpotBookAppointments, path: 'animated-spot-book-appointments-light.json' },
   { name: 'AnimatedSpotBookAppointments', src: AnimatedSpotBookAppointments, path: 'animated-spot-book-appointments-light.json' },
   { name: 'AnimatedSpotBroadbandSymbol', src: AnimatedSpotBroadbandSymbol, path: 'animated-spot-broadband-symbol-light.json' },
   { name: 'AnimatedSpotBundle1', src: AnimatedSpotBundle1, path: 'animated-spot-bundle-1-light.json' },
