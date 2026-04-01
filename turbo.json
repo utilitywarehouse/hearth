@@ -102,6 +102,9 @@
     "generate:storybook": {
       "cache": false
     },
+    "generate:storybook:assets": {
+      "cache": false
+    },
     "copy-tokens-index": {
       "cache": false
     },
