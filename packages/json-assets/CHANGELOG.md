@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.4.0
+
+### Minor Changes
+
+- [#1088](https://github.com/utilitywarehouse/hearth/pull/1088) [`42a14d9`](https://github.com/utilitywarehouse/hearth/commit/42a14d9d5de46a4e0ca62d8fbd4730bbc2072e02) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ANIMATED ASSETS
+
+  No new assets.
+
+  ## CHANGED ANIMATED ASSETS
+  - AnimatedSpotBookAppointments
+  - AnimatedSpotCalendar
+  - AnimatedSpotEarnings
+  - AnimatedSpotHowToVideos
+  - AnimatedSpotKeepTrack
+  - AnimatedSpotLeads
+  - AnimatedSpotQuoteSales
+  - AnimatedSpotWelcome
+
+  ## REMOVED ANIMATED ASSETS
+
+  No removed assets.
+
 ## 0.3.0
 
 ### Minor Changes
