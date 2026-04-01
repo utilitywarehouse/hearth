@@ -1,5 +1,60 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.30.0
+
+### Minor Changes
+
+- [#1072](https://github.com/utilitywarehouse/hearth/pull/1072) [`55f0095`](https://github.com/utilitywarehouse/hearth/commit/55f009576ba55081de358bccc21691861ddd7c33) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `loadingDescription` support to `Modal` and `NavModal`
+
+  `Modal` and `NavModal` now accept a `loadingDescription` prop to render supporting text beneath the spinner while `loading` is true. This makes it easier to give users more context during loading states without building custom loading content.
+
+  **Components affected**:
+  - `Modal`
+  - `NavModal`
+
+  **Developer changes**:
+
+  No changes are required for existing usage. To show supporting text in a loading state, pass `loadingDescription` alongside `loading` and, if needed, `loadingHeading`.
+
+### Patch Changes
+
+- [#1070](https://github.com/utilitywarehouse/hearth/pull/1070) [`93c042c`](https://github.com/utilitywarehouse/hearth/commit/93c042c7772ab298e2ea4888a9777e8176453098) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Standardise numeric value typography across list-based components.
+
+  Numeric values in `DescriptionListItem`, `ExpandableCard`, and `ListItem` now render with semibold `BodyText` instead of `DetailText`, aligning them with the updated content hierarchy used elsewhere in the library.
+
+  **Components affected**:
+  - `DescriptionListItem`
+  - `ExpandableCard`
+  - `ListItem`
+
+  **Developer changes**:
+
+  No changes are required.
+
+- [#1073](https://github.com/utilitywarehouse/hearth/pull/1073) [`9759622`](https://github.com/utilitywarehouse/hearth/commit/975962229137dd196e5f72a04037a8f181907818) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Announce `Heading` as a header for assistive technologies.
+
+  `Heading` now sets `accessibilityRole="header"` automatically so VoiceOver and TalkBack can identify headings as part of the screen structure.
+
+  **Components affected**:
+  - `Heading`
+
+  **Developer changes**:
+
+  No changes are required.
+
+- [#1074](https://github.com/utilitywarehouse/hearth/pull/1074) [`95fe19e`](https://github.com/utilitywarehouse/hearth/commit/95fe19e6328bf652ff3ac1b2c723e1389fc59936) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Improve accessibility roles for `List`, `ListItem`, and `ListAction`
+
+  `List` now defaults to `accessibilityRole="list"`, `ListAction` now defaults to `accessibilityRole="button"`, and `ListItem` respects an explicitly provided `accessibilityRole` instead of always forcing button semantics when `onPress` is set.
+
+  **Components affected**:
+  - `List`
+  - `ListItem`
+  - `ListAction`
+
+  **Developer changes**:
+
+  No changes are required unless you want a tappable `ListItem` to be announced as something other than a button. In that case, pass `accessibilityRole` explicitly.
+
 ## 0.29.2
 
 ### Patch Changes
