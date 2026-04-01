@@ -55,7 +55,7 @@ jobs:
           EOF
 
       - name: Generate JSON assets
-        run: pnpm generate:json-assets
+        run: pnpm generate:json-assets:ci
 
       - name: Format files
         run: pnpm format
