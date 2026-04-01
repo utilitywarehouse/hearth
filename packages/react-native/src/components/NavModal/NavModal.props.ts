@@ -1,5 +1,5 @@
 import { Ref } from 'react';
-import { SafeAreaViewProps } from 'react-native-safe-area-context';
+import { ScrollViewProps } from 'react-native';
 import { ModalCommonProps } from '../Modal/Modal.shared.types';
 
 export interface NavModalRef {
@@ -17,7 +17,7 @@ interface NavModalProps extends ModalCommonProps {
     | 'containedModal'
     | 'containedTransparentModal';
   useSafeAreaInsets?: boolean;
-  scrollViewProps?: Omit<SafeAreaViewProps, 'children'>;
+  scrollViewProps?: Omit<ScrollViewProps, 'children'>;
 }
 
 export default NavModalProps;
