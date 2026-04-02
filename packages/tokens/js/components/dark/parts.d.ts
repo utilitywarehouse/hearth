@@ -26,8 +26,8 @@ declare const _default: {
   };
   readonly statusBar: {
     readonly foregroundColor: '#ffffff';
-    readonly foregroundColorInverted: '#000000';
-    readonly notch: '#000000';
+    readonly foregroundColorInverted: '#ffffff';
+    readonly notch: '#101010';
   };
 };
 export default _default;

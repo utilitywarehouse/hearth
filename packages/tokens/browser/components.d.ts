@@ -806,6 +806,8 @@ export declare const components: {
     };
     readonly headerCell: {
       readonly borderWidth: 'var(--h-table-header-cell-border-width)';
+      readonly foregoundColor: 'var(--h-table-header-cell-foregound-color)';
+      readonly foregoundColorInverted: 'var(--h-table-header-cell-foregound-color-inverted)';
       readonly gap: 'var(--h-table-header-cell-gap)';
       readonly height: 'var(--h-table-header-cell-height)';
       readonly paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)';
@@ -838,6 +840,7 @@ export declare const components: {
     };
   };
   readonly timePicker: {
+    readonly fade: 'var(--h-time-picker-fade)';
     readonly gap: 'var(--h-time-picker-gap)';
     readonly gapContainer: 'var(--h-time-picker-gap-container)';
     readonly minWidth: 'var(--h-time-picker-min-width)';

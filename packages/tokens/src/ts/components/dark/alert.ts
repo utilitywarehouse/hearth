@@ -10,15 +10,15 @@ export default {
   gap: 8,
   iconButton: {
     unstyled: {
-      foregroundColor: '#101010',
-      foregroundColorActive: '#3f3f3f',
-      foregroundColorHover: '#3a3837',
+      foregroundColor: '#ebebeb',
+      foregroundColorActive: '#b2afae',
+      foregroundColorHover: '#d3d3d3',
     },
   },
   link: {
-    color: '#101010',
-    colorActive: '#3f3f3f',
-    colorHover: '#3a3837',
+    color: '#ebebeb',
+    colorActive: '#b2afae',
+    colorHover: '#d3d3d3',
   },
   padding: 14,
 } as const;

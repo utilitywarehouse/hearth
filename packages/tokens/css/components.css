@@ -278,8 +278,8 @@
   --h-pagination-item-height: 40px;
   --h-pagination-item-radius: var(--h-border-radius-md);
   --h-pagination-item-width: 40px;
-  --h-parts-home-indicator-foreground-color: #000;
-  --h-parts-home-indicator-foreground-color-inverted: #fff;
+  --h-parts-home-indicator-foreground-color: var(--h-color-grey-1000);
+  --h-parts-home-indicator-foreground-color-inverted: var(--h-color-grey-0);
   --h-parts-modal-stack-background-color: var(--h-color-grey-1000);
   --h-parts-modal-stack-background-color-card-bottom: var(--h-color-grey-0);
   --h-parts-modal-stack-background-color-card-top: var(--h-color-grey-100);
@@ -288,9 +288,9 @@
   --h-parts-roundel-pending-border-width: var(--h-border-width-2);
   --h-parts-scroll-bar-background-color: var(--h-color-warm-white-300);
   --h-parts-scroll-bar-border-radius: var(--h-border-radius-full);
-  --h-parts-status-bar-foreground-color: #000;
-  --h-parts-status-bar-foreground-color-inverted: #fff;
-  --h-parts-status-bar-notch: #000;
+  --h-parts-status-bar-foreground-color: var(--h-color-grey-1000);
+  --h-parts-status-bar-foreground-color-inverted: var(--h-color-grey-0);
+  --h-parts-status-bar-notch: var(--h-color-grey-1000);
   --h-pill-border-radius: var(--h-border-radius-full);
   --h-pill-border-width: var(--h-border-width-1);
   --h-pill-gap: var(--h-space-75);
@@ -402,6 +402,8 @@
   --h-table-cell-padding: var(--h-space-150);
   --h-table-emphasis-border-width: var(--h-border-width-2);
   --h-table-header-cell-border-width: var(--h-border-width-2);
+  --h-table-header-cell-foregound-color: var(--h-color-grey-1000);
+  --h-table-header-cell-foregound-color-inverted: var(--h-color-grey-0);
   --h-table-header-cell-gap: var(--h-space-100);
   --h-table-header-cell-height: 56px;
   --h-table-header-cell-padding-horizontal: var(--h-space-150);
@@ -417,6 +419,7 @@
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800)px;
   --h-tabs-md-height: var(--h-space-700)px;
+  --h-time-picker-fade: #fff0;
   --h-time-picker-gap: var(--h-space-75);
   --h-time-picker-gap-container: var(--h-space-50);
   --h-time-picker-min-width: 288px;

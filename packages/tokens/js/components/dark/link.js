@@ -3,9 +3,9 @@
  */
 export default {
   link: {
-    color: '#101010',
-    colorActive: '#3f3f3f',
-    colorHover: '#3a3837',
+    color: '#ebebeb',
+    colorActive: '#b2afae',
+    colorHover: '#d3d3d3',
   },
   color: '#ebebeb',
   colorActive: '#b2afae',

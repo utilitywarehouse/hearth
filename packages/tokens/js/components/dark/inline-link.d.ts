@@ -3,7 +3,7 @@
  */
 declare const _default: {
   readonly color: '#6bb0ff';
-  readonly colorVisited: '#996cda';
+  readonly colorVisited: '#af90de';
   readonly inverted: {
     readonly color: '#fcfbf2';
     readonly colorActive: '#f1efe4';

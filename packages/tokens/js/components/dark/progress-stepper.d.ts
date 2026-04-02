@@ -4,7 +4,7 @@
 declare const _default: {
   readonly bar: {
     readonly complete: {
-      readonly backgroundColor: '#7a42c8';
+      readonly backgroundColor: '#996cda';
     };
     readonly height: 2;
   };

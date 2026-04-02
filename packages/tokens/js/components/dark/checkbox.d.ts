@@ -5,7 +5,7 @@ declare const _default: {
   readonly borderRadius: 4;
   readonly borderWidth: 2;
   readonly checked: {
-    readonly backgroundColor: '#ebebeb';
+    readonly backgroundColor: '#888888';
     readonly icon: {
       readonly color: '#101010';
     };

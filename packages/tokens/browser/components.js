@@ -807,6 +807,8 @@ export const components = {
     },
     headerCell: {
       borderWidth: 'var(--h-table-header-cell-border-width)',
+      foregoundColor: 'var(--h-table-header-cell-foregound-color)',
+      foregoundColorInverted: 'var(--h-table-header-cell-foregound-color-inverted)',
       gap: 'var(--h-table-header-cell-gap)',
       height: 'var(--h-table-header-cell-height)',
       paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)',
@@ -839,6 +841,7 @@ export const components = {
     },
   },
   timePicker: {
+    fade: 'var(--h-time-picker-fade)',
     gap: 'var(--h-time-picker-gap)',
     gapContainer: 'var(--h-time-picker-gap-container)',
     minWidth: 'var(--h-time-picker-min-width)',

@@ -3,9 +3,9 @@
  */
 declare const _default: {
   readonly link: {
-    readonly color: '#101010';
-    readonly colorActive: '#3f3f3f';
-    readonly colorHover: '#3a3837';
+    readonly color: '#ebebeb';
+    readonly colorActive: '#b2afae';
+    readonly colorHover: '#d3d3d3';
   };
   readonly color: '#ebebeb';
   readonly colorActive: '#b2afae';

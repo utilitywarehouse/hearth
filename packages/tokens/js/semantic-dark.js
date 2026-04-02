@@ -3,25 +3,25 @@
  */
 export default {
   background: {
-    brand: '#7a42c8',
+    brand: '#442484',
     loading: '#30302c',
     primary: '#191917',
-    secondary: '#232323',
+    secondary: '#2f2d2d',
   },
   border: {
-    strong: '#ebebeb',
-    subtle: '#4c473d',
+    strong: '#888888',
+    subtle: '#5b5b5b',
   },
   feedback: {
     danger: {
-      border: '#ff7964',
+      border: '#f4412a',
       foreground: {
-        default: '#101010',
+        default: '#ffffff',
         subtle: '#ff7964',
       },
       surface: {
-        default: '#ff634a',
-        subtle: '#ffa89d',
+        default: '#de2612',
+        subtle: '#6b1f1a',
       },
     },
     functional: {
@@ -36,36 +36,36 @@ export default {
       },
     },
     info: {
-      border: '#6bb0ff',
+      border: '#2786f1',
       foreground: {
-        default: '#101010',
+        default: '#ffffff',
         subtle: '#6bb0ff',
       },
       surface: {
-        default: '#6bb0ff',
-        subtle: '#bcddff',
+        default: '#1c6cd4',
+        subtle: '#0b3375',
       },
     },
     positive: {
-      border: '#58ca93',
+      border: '#19a660',
       foreground: {
-        default: '#101010',
+        default: '#ffffff',
         subtle: '#58ca93',
       },
       surface: {
-        default: '#36bf7d',
-        subtle: '#a2e2c3',
+        default: '#0f834a',
+        subtle: '#074b2a',
       },
     },
     warning: {
-      border: '#ff9639',
+      border: '#f56e00',
       foreground: {
-        default: '#101010',
+        default: '#ffffff',
         subtle: '#ff9639',
       },
       surface: {
-        default: '#ff8010',
-        subtle: '#ffcca8',
+        default: '#cf5d00',
+        subtle: '#893900',
       },
     },
   },
@@ -108,9 +108,9 @@ export default {
       },
       surface: {
         strong: {
-          active: '#c6b5e2',
-          default: '#996cda',
-          hover: '#af90de',
+          active: '#ddd5eb',
+          default: '#af90de',
+          hover: '#c6b5e2',
         },
       },
     },
@@ -196,52 +196,52 @@ export default {
     disabled: 50,
   },
   shadow: {
-    brand: '#7a42c8',
-    broadband: '#506c21',
-    cashback: '#8b2bc9',
-    default: '#f7f7f7',
-    energy: '#326e7a',
-    insurance: '#9b4c0e',
-    mobile: '#a7266d',
-    pig: '#8f358f',
+    brand: '#442484',
+    broadband: '#4f6b20',
+    cashback: '#7429b5',
+    default: '#3f3f3f',
+    energy: '#2c6370',
+    insurance: '#7f4518',
+    mobile: '#8a3260',
+    pig: '#7a1f7e',
   },
   surface: {
     brand: {
-      default: '#996cda',
+      default: '#af90de',
       strong: '#26164f',
       subtle: '#442484',
     },
     broadband: {
       default: '#506c21',
-      subtle: '#35421c',
+      subtle: '#4f6b20',
     },
     cashback: {
       default: '#8b2bc9',
-      subtle: '#522270',
+      subtle: '#7429b5',
     },
     energy: {
       default: '#326e7a',
-      subtle: '#254348',
+      subtle: '#2c6370',
     },
     highlight: {
       default: '#ffb921',
-      subtle: '#756230',
+      subtle: '#82692b',
     },
     insurance: {
       default: '#9b4c0e',
-      subtle: '#5a3213',
+      subtle: '#7f4518',
     },
     mobile: {
       default: '#a7266d',
-      subtle: '#601f42',
+      subtle: '#8a3260',
     },
     neutral: {
-      strong: '#232323',
+      strong: '#2f2d2d',
       subtle: '#191917',
     },
     pig: {
       default: '#8f358f',
-      subtle: '#5d2167',
+      subtle: '#7a1f7e',
     },
   },
   text: {

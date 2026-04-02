@@ -9,15 +9,15 @@ declare const _default: {
   readonly gap: 8;
   readonly iconButton: {
     readonly unstyled: {
-      readonly foregroundColor: '#101010';
-      readonly foregroundColorActive: '#3f3f3f';
-      readonly foregroundColorHover: '#3a3837';
+      readonly foregroundColor: '#ebebeb';
+      readonly foregroundColorActive: '#b2afae';
+      readonly foregroundColorHover: '#d3d3d3';
     };
   };
   readonly link: {
-    readonly color: '#101010';
-    readonly colorActive: '#3f3f3f';
-    readonly colorHover: '#3a3837';
+    readonly color: '#ebebeb';
+    readonly colorActive: '#b2afae';
+    readonly colorHover: '#d3d3d3';
   };
   readonly padding: 14;
 };

@@ -6,12 +6,12 @@ export default {
     borderRadiusNone: 0,
     borderRadiusRounded: 4,
   },
-  borderBottom: '#5c2ca9',
+  borderBottom: '#996cda',
   borderRadius: 6,
   desktop: {
     height: 88,
   },
-  dividerBorderColor: '#5c2ca9',
+  dividerBorderColor: '#996cda',
   gap: 4,
   mobile: {
     height: 64,

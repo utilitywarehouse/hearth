@@ -11,10 +11,10 @@ declare const _default: {
   readonly item: {
     readonly gap: 2;
     readonly icon: {
-      readonly colorActive: '#996cda';
+      readonly colorActive: '#af90de';
     };
     readonly label: {
-      readonly colorActive: '#996cda';
+      readonly colorActive: '#af90de';
     };
     readonly paddingBottom: 2;
     readonly paddingHorizontal: 0;

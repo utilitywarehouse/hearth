@@ -3,6 +3,7 @@
  */
 
 export default {
+  fade: '#ffffff00',
   gap: 6,
   gapContainer: 4,
   minWidth: 288,

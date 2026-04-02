@@ -11,10 +11,10 @@ export default {
   item: {
     gap: 2,
     icon: {
-      colorActive: '#996cda',
+      colorActive: '#af90de',
     },
     label: {
-      colorActive: '#996cda',
+      colorActive: '#af90de',
     },
     paddingBottom: 2,
     paddingHorizontal: 0,

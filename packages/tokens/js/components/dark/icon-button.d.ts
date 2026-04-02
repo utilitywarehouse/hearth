@@ -4,9 +4,9 @@
 declare const _default: {
   readonly iconButton: {
     readonly unstyled: {
-      readonly foregroundColor: '#101010';
-      readonly foregroundColorActive: '#3f3f3f';
-      readonly foregroundColorHover: '#3a3837';
+      readonly foregroundColor: '#ebebeb';
+      readonly foregroundColorActive: '#b2afae';
+      readonly foregroundColorHover: '#d3d3d3';
     };
   };
   readonly borderRadius: 8;

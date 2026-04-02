@@ -26,7 +26,7 @@ export default {
   },
   statusBar: {
     foregroundColor: '#ffffff',
-    foregroundColorInverted: '#000000',
-    notch: '#000000',
+    foregroundColorInverted: '#ffffff',
+    notch: '#101010',
   },
 };

@@ -33,9 +33,9 @@ declare const _default: {
     };
   };
   readonly progress: {
-    readonly dangerColor: '#ff634a';
-    readonly defaultColor: '#c6b5e2';
-    readonly successColor: '#36bf7d';
+    readonly dangerColor: '#f4412a';
+    readonly defaultColor: '#996cda';
+    readonly successColor: '#19a660';
   };
 };
 export default _default;
