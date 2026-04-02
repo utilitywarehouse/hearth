@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.30.3
+
+### Patch Changes
+
+- [#1094](https://github.com/utilitywarehouse/hearth/pull/1094) [`a9d8e66`](https://github.com/utilitywarehouse/hearth/commit/a9d8e660b7efa23c7a573af2658fc10ab6c043b9) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make horizontal pressable `Banner` content flex correctly on native and web.
+
+  This fixes horizontal pressable `Banner` layouts where the content area did not expand consistently, which could misplace the chevron and action content.
+
+  **Components affected**:
+  - `Banner`
+
+  **Developer changes**:
+
+  No changes are required.
+
 ## 0.30.2
 
 ### Patch Changes
