@@ -301,6 +301,22 @@ export const Pressable: Story = {
             description="Manage your account preferences."
             onPress={() => console.log('Banner pressed')}
           />
+          <Banner
+            direction="vertical"
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+              />
+            }
+            heading="Account Settings"
+            description="Manage your account preferences."
+            onPress={() => console.log('Banner pressed')}
+          />
         </Flex>
       </View>
     );

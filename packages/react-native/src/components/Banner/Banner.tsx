@@ -25,11 +25,17 @@ const Banner = ({
   onPress,
   onClose,
   variant = 'subtle',
+  alignChevron = 'center',
   style,
   ...props
 }: BannerProps) => {
   const hasIllustration = Boolean(illustration);
-  styles.useVariants({ direction, hasIllustration, isPressable: Boolean(onPress) });
+  styles.useVariants({
+    direction,
+    hasIllustration,
+    isPressable: Boolean(onPress),
+    alignChevron,
+  });
 
   const context = useMemo(
     () => ({
@@ -295,6 +301,25 @@ const styles = StyleSheet.create(theme => ({
   },
   chevron: {
     alignSelf: 'center',
+    variants: {
+      direction: {
+        horizontal: {},
+        vertical: {
+          display: 'none',
+        },
+      },
+      alignChevron: {
+        center: {
+          alignSelf: 'center',
+        },
+        start: {
+          alignSelf: 'flex-start',
+        },
+        end: {
+          alignSelf: 'flex-end',
+        },
+      },
+    },
   },
   closeButton: {
     alignSelf: 'flex-start',

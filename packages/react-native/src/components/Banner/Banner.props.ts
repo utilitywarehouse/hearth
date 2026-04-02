@@ -87,6 +87,11 @@ export interface BannerProps extends Omit<
    * @default 'subtle'
    */
   variant?: 'subtle' | 'emphasis';
+  /**
+   * Chevron alignment for horizontal layout
+   * @default 'center'
+   */
+  alignChevron?: 'center' | 'start' | 'end';
 }
 
 export default BannerProps;
