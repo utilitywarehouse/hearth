@@ -1,5 +1,77 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.0
+
+### Minor Changes
+
+- [#1092](https://github.com/utilitywarehouse/hearth/pull/1092) [`dd6236b`](https://github.com/utilitywarehouse/hearth/commit/dd6236b12abd789b21157598b801af797b70afef) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  No new assets.
+
+  ## CHANGED ASSETS
+  - SpotNeighboursDark
+  - SpotNotificationDark
+  - SpotMovingHouseLight
+  - SpotMovingHouseDark
+  - SpotInnovationDark
+  - SpotHelpLight
+  - SpotHelpDark
+  - SpotOnlineAccountLight
+  - SpotOnlineAccountDark
+  - SpotSuccessDark
+  - SpotSmartMeterDark
+  - SpotSecurityDark
+  - SpotErrorLight
+  - SpotErrorDark
+  - SpotPiggyBankLight
+  - SpotPiggyBankDark
+  - SpotBillingLight
+  - SpotBillingDark
+  - SpotCelebratoryLight
+  - SpotCelebratoryDark
+  - SpotRecognitionDark
+  - SpotEvLight
+  - SpotEvDark
+  - SpotTickDark
+  - SpotSecurityCodeDark
+  - SpotNoBroadbandDark
+  - SpotHeartDark
+  - SpotEmptyDark
+  - SpotConfettiDark
+  - SpotBundleCompleteDark
+  - SpotBundleIncompleteDark
+  - SpotBoilerDark
+  - SpotSwitchLight
+  - SpotSwitchDark
+  - SpotSavingsDark
+  - SpotNewLookDark
+  - SpotUnavailableDark
+  - SpotDarkModeDark
+  - SpotBroadbandDark
+  - SpotWelcomeDark
+  - SpotQuoteDark
+  - SpotLeadsDark
+  - SpotKeepTrackDark
+  - SpotHowToVideoDark
+  - SpotEarningsDark
+  - SpotCalendarDark
+  - SpotBookAppointmentDark
+  - SceneEnergyDark
+  - SceneMobileDark
+  - SceneBroadbandDark
+  - SceneInsuranceDark
+  - SceneCashbackDark
+  - SceneBundleDark
+  - MascotEnergyDark
+  - MascotBroadbandDark
+  - MascotMobileDark
+  - MascotInsuranceDark
+  - MascotCashbackDark
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.5.0
 
 ### Minor Changes
