@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly defaultFill: '#af90de';
+  readonly defaultFill: '#996cda';
   readonly lg: {
     readonly size: 40;
     readonly strokeWidth: 3;

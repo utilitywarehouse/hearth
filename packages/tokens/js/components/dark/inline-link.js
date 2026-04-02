@@ -3,7 +3,7 @@
  */
 export default {
   color: '#6bb0ff',
-  colorVisited: '#996cda',
+  colorVisited: '#af90de',
   inverted: {
     color: '#fcfbf2',
     colorActive: '#f1efe4',

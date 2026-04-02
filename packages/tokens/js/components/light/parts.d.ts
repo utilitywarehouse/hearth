@@ -3,7 +3,7 @@
  */
 declare const _default: {
   readonly homeIndicator: {
-    readonly foregroundColor: '#000000';
+    readonly foregroundColor: '#101010';
     readonly foregroundColorInverted: '#ffffff';
   };
   readonly modalStack: {
@@ -25,9 +25,9 @@ declare const _default: {
     readonly borderRadius: 9999;
   };
   readonly statusBar: {
-    readonly foregroundColor: '#000000';
+    readonly foregroundColor: '#101010';
     readonly foregroundColorInverted: '#ffffff';
-    readonly notch: '#000000';
+    readonly notch: '#101010';
   };
 };
 export default _default;

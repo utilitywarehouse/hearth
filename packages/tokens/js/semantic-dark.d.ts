@@ -3,25 +3,25 @@
  */
 declare const _default: {
   readonly background: {
-    readonly brand: '#7a42c8';
+    readonly brand: '#442484';
     readonly loading: '#30302c';
     readonly primary: '#191917';
-    readonly secondary: '#232323';
+    readonly secondary: '#2f2d2d';
   };
   readonly border: {
-    readonly strong: '#ebebeb';
-    readonly subtle: '#4c473d';
+    readonly strong: '#888888';
+    readonly subtle: '#5b5b5b';
   };
   readonly feedback: {
     readonly danger: {
-      readonly border: '#ff7964';
+      readonly border: '#f4412a';
       readonly foreground: {
-        readonly default: '#101010';
+        readonly default: '#ffffff';
         readonly subtle: '#ff7964';
       };
       readonly surface: {
-        readonly default: '#ff634a';
-        readonly subtle: '#ffa89d';
+        readonly default: '#de2612';
+        readonly subtle: '#6b1f1a';
       };
     };
     readonly functional: {
@@ -36,36 +36,36 @@ declare const _default: {
       };
     };
     readonly info: {
-      readonly border: '#6bb0ff';
+      readonly border: '#2786f1';
       readonly foreground: {
-        readonly default: '#101010';
+        readonly default: '#ffffff';
         readonly subtle: '#6bb0ff';
       };
       readonly surface: {
-        readonly default: '#6bb0ff';
-        readonly subtle: '#bcddff';
+        readonly default: '#1c6cd4';
+        readonly subtle: '#0b3375';
       };
     };
     readonly positive: {
-      readonly border: '#58ca93';
+      readonly border: '#19a660';
       readonly foreground: {
-        readonly default: '#101010';
+        readonly default: '#ffffff';
         readonly subtle: '#58ca93';
       };
       readonly surface: {
-        readonly default: '#36bf7d';
-        readonly subtle: '#a2e2c3';
+        readonly default: '#0f834a';
+        readonly subtle: '#074b2a';
       };
     };
     readonly warning: {
-      readonly border: '#ff9639';
+      readonly border: '#f56e00';
       readonly foreground: {
-        readonly default: '#101010';
+        readonly default: '#ffffff';
         readonly subtle: '#ff9639';
       };
       readonly surface: {
-        readonly default: '#ff8010';
-        readonly subtle: '#ffcca8';
+        readonly default: '#cf5d00';
+        readonly subtle: '#893900';
       };
     };
   };
@@ -108,9 +108,9 @@ declare const _default: {
       };
       readonly surface: {
         readonly strong: {
-          readonly active: '#c6b5e2';
-          readonly default: '#996cda';
-          readonly hover: '#af90de';
+          readonly active: '#ddd5eb';
+          readonly default: '#af90de';
+          readonly hover: '#c6b5e2';
         };
       };
     };
@@ -196,52 +196,52 @@ declare const _default: {
     readonly disabled: 50;
   };
   readonly shadow: {
-    readonly brand: '#7a42c8';
-    readonly broadband: '#506c21';
-    readonly cashback: '#8b2bc9';
-    readonly default: '#f7f7f7';
-    readonly energy: '#326e7a';
-    readonly insurance: '#9b4c0e';
-    readonly mobile: '#a7266d';
-    readonly pig: '#8f358f';
+    readonly brand: '#442484';
+    readonly broadband: '#4f6b20';
+    readonly cashback: '#7429b5';
+    readonly default: '#3f3f3f';
+    readonly energy: '#2c6370';
+    readonly insurance: '#7f4518';
+    readonly mobile: '#8a3260';
+    readonly pig: '#7a1f7e';
   };
   readonly surface: {
     readonly brand: {
-      readonly default: '#996cda';
+      readonly default: '#af90de';
       readonly strong: '#26164f';
       readonly subtle: '#442484';
     };
     readonly broadband: {
       readonly default: '#506c21';
-      readonly subtle: '#35421c';
+      readonly subtle: '#4f6b20';
     };
     readonly cashback: {
       readonly default: '#8b2bc9';
-      readonly subtle: '#522270';
+      readonly subtle: '#7429b5';
     };
     readonly energy: {
       readonly default: '#326e7a';
-      readonly subtle: '#254348';
+      readonly subtle: '#2c6370';
     };
     readonly highlight: {
       readonly default: '#ffb921';
-      readonly subtle: '#756230';
+      readonly subtle: '#82692b';
     };
     readonly insurance: {
       readonly default: '#9b4c0e';
-      readonly subtle: '#5a3213';
+      readonly subtle: '#7f4518';
     };
     readonly mobile: {
       readonly default: '#a7266d';
-      readonly subtle: '#601f42';
+      readonly subtle: '#8a3260';
     };
     readonly neutral: {
-      readonly strong: '#232323';
+      readonly strong: '#2f2d2d';
       readonly subtle: '#191917';
     };
     readonly pig: {
       readonly default: '#8f358f';
-      readonly subtle: '#5d2167';
+      readonly subtle: '#7a1f7e';
     };
   };
   readonly text: {

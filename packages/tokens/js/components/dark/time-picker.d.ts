@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly fade: '#2f2d2d00';
   readonly gap: 6;
   readonly gapContainer: 4;
   readonly minWidth: 288;

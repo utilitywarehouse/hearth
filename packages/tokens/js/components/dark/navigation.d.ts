@@ -6,12 +6,12 @@ declare const _default: {
     readonly borderRadiusNone: 0;
     readonly borderRadiusRounded: 4;
   };
-  readonly borderBottom: '#5c2ca9';
+  readonly borderBottom: '#996cda';
   readonly borderRadius: 6;
   readonly desktop: {
     readonly height: 88;
   };
-  readonly dividerBorderColor: '#5c2ca9';
+  readonly dividerBorderColor: '#996cda';
   readonly gap: 4;
   readonly mobile: {
     readonly height: 64;

@@ -86,6 +86,7 @@ export declare const color: {
     readonly '700': 'var(--h-color-grey-700)';
     readonly '800': 'var(--h-color-grey-800)';
     readonly '900': 'var(--h-color-grey-900)';
+    readonly '925': 'var(--h-color-grey-925)';
     readonly '950': 'var(--h-color-grey-950)';
     readonly '975': 'var(--h-color-grey-975)';
     readonly '1000': 'var(--h-color-grey-1000)';

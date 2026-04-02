@@ -86,6 +86,7 @@ export const color = {
     700: 'var(--h-color-grey-700)',
     800: 'var(--h-color-grey-800)',
     900: 'var(--h-color-grey-900)',
+    925: 'var(--h-color-grey-925)',
     950: 'var(--h-color-grey-950)',
     975: 'var(--h-color-grey-975)',
     1000: 'var(--h-color-grey-1000)',
