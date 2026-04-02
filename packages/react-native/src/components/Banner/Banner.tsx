@@ -244,9 +244,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       direction: {
         horizontal: {
-          _web: {
-            flex: 1,
-          },
+          flex: 1,
         },
         vertical: {},
       },

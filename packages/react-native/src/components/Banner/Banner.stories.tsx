@@ -280,6 +280,26 @@ export const Pressable: Story = {
       <View style={{ width: 400 }}>
         <Flex spacing="lg" direction="column">
           <Banner
+            variant="emphasis"
+            colorScheme="neutralStrong"
+            testID="next-best-action-card"
+            onPress={() => console.log('Banner pressed')}
+            heading="Add your appointment outcome"
+            description="Save the outcome of Don Instantino (Traditional Thai Cuisine)'s appointment"
+            alignChevron="start"
+            button={
+              <Button
+                variant="outline"
+                colorScheme="functional"
+                size="sm"
+                onPress={() => console.log('View to-do list pressed')}
+                testID="view-to-do-list"
+              >
+                View to-do list
+              </Button>
+            }
+          />
+          <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
             heading="Energy Dashboard"

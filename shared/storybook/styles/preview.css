@@ -82,34 +82,34 @@ button[aria-label='Reset controls'] {
   color: var(--h-text-inverted) !important;
 }
 
-h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-']),
-h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, [class^='h-']),
-h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, [class^='h-']),
-h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']),
-h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5),
-h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
+#storybook-docs h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-']),
+#storybook-docs h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, [class^='h-']),
+#storybook-docs h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, [class^='h-']),
+#storybook-docs h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']),
+#storybook-docs h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5),
+#storybook-docs h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   font-family: var(--h-font-family-heading), serif !important;
   font-weight: var(--h-font-weight-bold) !important;
   border-bottom: none;
   padding: 0 !important;
 }
 
-h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-'], #error-message) {
+#storybook-docs h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-'], #error-message) {
   font-size: var(--h-heading-xl-font-size-desktop);
   line-height: var(--h-heading-xl-line-height-desktop);
   margin-bottom: var(--h-space-400);
 }
-h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, [class^='h-']) {
+#storybook-docs h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, [class^='h-']) {
   font-size: var(--h-heading-lg-font-size-desktop);
   line-height: var(--h-heading-lg-line-height-desktop);
   margin-bottom: var(--h-space-300);
 }
-h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, [class^='h-']) {
+#storybook-docs h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, [class^='h-']) {
   font-size: var(--h-heading-md-font-size-desktop);
   line-height: var(--h-heading-md-line-height-desktop);
   margin-bottom: var(--h-space-200);
 }
-h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']) {
+#storybook-docs h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']) {
   font-size: var(--h-heading-sm-font-size-desktop);
   line-height: var(--h-heading-sm-line-height-desktop);
   margin-bottom: var(--h-space-100);
