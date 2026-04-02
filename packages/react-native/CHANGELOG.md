@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.30.2
+
+### Patch Changes
+
+- [#1090](https://github.com/utilitywarehouse/hearth/pull/1090) [`1420244`](https://github.com/utilitywarehouse/hearth/commit/1420244fbc23c8a755f9249f8b39cb094a865cea) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `alignChevron` to `Banner` for horizontal pressable layouts.
+
+  `Banner` now supports an `alignChevron` prop to control the chevron alignment when `onPress` is used in the horizontal layout. Use `'start'`, `'center'`, or `'end'` to match the chevron position to the content layout.
+
+  **Components affected**:
+  - `Banner`
+
+  **Developer changes**:
+
+  No changes are required unless you want to override the default centred chevron alignment.
+
 ## 0.30.1
 
 ### Patch Changes
