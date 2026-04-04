@@ -185,7 +185,11 @@ const Select = ({
             close: closeBottomSheet,
           }}
         >
-          <SafeAreaView edges={useSafeAreaInsets ? ['top'] : []} style={{ flex: 1 }}>
+          <SafeAreaView
+            edges={useSafeAreaInsets ? ['top'] : []}
+            style={{ flex: 1 }}
+            accessible={false}
+          >
             {menuHeading && (
               <View style={styles.headingContainer}>
                 <DetailText size="lg">{menuHeading}</DetailText>

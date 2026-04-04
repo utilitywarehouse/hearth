@@ -46,6 +46,7 @@ const BottomSheetModal = ({
       handleComponent={renderHandle}
       style={[styles.container, containerStyle]}
       backgroundStyle={styles.background}
+      accessible={false}
       {...rest}
     >
       <BottomSheetContext.Provider value={value}>{children}</BottomSheetContext.Provider>
