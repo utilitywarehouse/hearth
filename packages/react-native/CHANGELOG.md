@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.30.4
+
+### Patch Changes
+
+- [#1096](https://github.com/utilitywarehouse/hearth/pull/1096) [`6fd9021`](https://github.com/utilitywarehouse/hearth/commit/6fd9021a91ef38b56b78755965515a0807b34fa1) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: Restore visibility of bottom sheet content in iOS accessibility tree, enabling automated tests to interact with `Select` options
+
 ## 0.30.3
 
 ### Patch Changes
