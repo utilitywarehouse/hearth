@@ -22,7 +22,9 @@ const ExpandableCardTriggerRoot = ({
   badge,
   badgePosition = 'bottom',
   numericValue,
+  triggerContent,
   isExpanded,
+  showChevron = true,
   disabled,
   states,
   children,
@@ -53,6 +55,8 @@ const ExpandableCardTriggerRoot = ({
     return null;
   };
 
+  const defaultAccessibilityLabel = [heading, helperText].filter(Boolean).join(', ');
+
   const renderDefaultContent = () => (
     <>
       {renderLeadingContent()}
@@ -73,6 +77,36 @@ const ExpandableCardTriggerRoot = ({
     </>
   );
 
+  const renderChevron = () => (
+    <ExpandableCardTrailingContent style={styles.chevron}>
+      <ExpandableCardTrailingIcon as={isExpanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
+    </ExpandableCardTrailingContent>
+  );
+
+  const renderCustomTriggerContent = () => (
+    <>
+      {triggerContent}
+      {renderChevron()}
+    </>
+  );
+
+  const renderChildrenContent = () => (
+    <>
+      {children}
+      {showChevron ? renderChevron() : null}
+    </>
+  );
+
+  let triggerBody = renderDefaultContent();
+
+  if (triggerContent) {
+    triggerBody = renderCustomTriggerContent();
+  }
+
+  if (children) {
+    triggerBody = renderChildrenContent();
+  }
+
   return (
     <Pressable
       {...props}
@@ -81,9 +115,9 @@ const ExpandableCardTriggerRoot = ({
       disabled={disabled}
       accessibilityRole="button"
       accessibilityState={{ expanded: isExpanded, disabled }}
-      accessibilityLabel={`${heading}${helperText ? `, ${helperText}` : ''}`}
+      accessibilityLabel={props.accessibilityLabel || defaultAccessibilityLabel || undefined}
     >
-      {children || renderDefaultContent()}
+      {triggerBody}
     </Pressable>
   );
 };

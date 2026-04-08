@@ -7,11 +7,15 @@ import {
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import React from 'react';
+import { View } from 'react-native';
 import { Badge, BodyText, IconContainer, Link } from '../../components';
 import ExpandableCard from './ExpandableCard';
+import ExpandableCardContent from './ExpandableCardContent';
 import ExpandableCardExpandedContent from './ExpandableCardExpandedContent';
 import ExpandableCardGroup from './ExpandableCardGroup';
+import ExpandableCardHelperText from './ExpandableCardHelperText';
 import ExpandableCardIcon from './ExpandableCardIcon';
+import ExpandableCardText from './ExpandableCardText';
 import ExpandableCardTrigger from './ExpandableCardTrigger';
 
 const meta = {
@@ -161,6 +165,26 @@ export const WithNumericValue: Story = {
   ),
 };
 
+export const WithCustomTriggerContent: Story = {
+  render: () => (
+    <ExpandableCard
+      triggerContent={
+        <View style={{ flex: 1, gap: 4 }}>
+          <BodyText weight="semibold">March bill ready</BodyText>
+          <BodyText color="secondary">Due on 18 April 2026</BodyText>
+        </View>
+      }
+      expandedContent={
+        <>
+          <BodyText>Balance: £89.50</BodyText>
+          <BodyText>Payment method: Direct Debit</BodyText>
+        </>
+      }
+      style={{ width: 350 }}
+    />
+  ),
+};
+
 export const Disabled: Story = {
   render: () => (
     <ExpandableCard
@@ -300,27 +324,53 @@ export const ColorSchemes: Story = {
 
 export const AdvancedComposition: Story = {
   render: () => {
-    const [expanded, setExpanded] = React.useState(false);
+    const [triggerContentExpanded, setTriggerContentExpanded] = React.useState(false);
+    const [customChildrenExpanded, setCustomChildrenExpanded] = React.useState(false);
 
     return (
-      <ExpandableCard expanded={expanded} onExpandedChange={setExpanded}>
-        <ExpandableCardTrigger
-          onPress={() => setExpanded(!expanded)}
-          heading="Custom Account Details"
-          helperText="View your detailed account information"
-          leadingContent={
-            <IconContainer icon={BillMediumIcon} size="md" variant="emphasis" color="pig" />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
+        <ExpandableCard
+          expanded={triggerContentExpanded}
+          onExpandedChange={setTriggerContentExpanded}
+          expandedContent={
+            <>
+              <BodyText>Account Number: 1234567890</BodyText>
+              <BodyText>Sort Code: 12-34-56</BodyText>
+              <BodyText>Balance: £123.45</BodyText>
+            </>
           }
-          numericValue="£123.45"
-          isExpanded={expanded}
+          triggerContent={
+            <View style={{ flex: 1, gap: 4 }}>
+              <BodyText weight="semibold">Use `triggerContent`</BodyText>
+              <BodyText color="secondary">Replace the built-in trigger layout</BodyText>
+            </View>
+          }
         />
-        <ExpandableCardExpandedContent isExpanded={expanded}>
-          <BodyText>Account Number: 1234567890</BodyText>
-          <BodyText>Sort Code: 12-34-56</BodyText>
-          <BodyText>Balance: £123.45</BodyText>
-          <BodyText>Last Updated: 12/11/25</BodyText>
-        </ExpandableCardExpandedContent>
-      </ExpandableCard>
+
+        <ExpandableCard
+          expanded={customChildrenExpanded}
+          onExpandedChange={setCustomChildrenExpanded}
+        >
+          <ExpandableCardTrigger
+            onPress={() => setCustomChildrenExpanded(!customChildrenExpanded)}
+            isExpanded={customChildrenExpanded}
+            showChevron
+          >
+            <ExpandableCardContent>
+              <ExpandableCardText>Use `children` + `showChevron`</ExpandableCardText>
+              <ExpandableCardHelperText>
+                Build the trigger yourself and keep the chevron
+              </ExpandableCardHelperText>
+            </ExpandableCardContent>
+          </ExpandableCardTrigger>
+          <ExpandableCardExpandedContent isExpanded={customChildrenExpanded}>
+            <BodyText>Account Number: 1234567890</BodyText>
+            <BodyText>Sort Code: 12-34-56</BodyText>
+            <BodyText>Balance: £123.45</BodyText>
+            <BodyText>Last Updated: 12/11/25</BodyText>
+          </ExpandableCardExpandedContent>
+        </ExpandableCard>
+      </div>
     );
   },
 };

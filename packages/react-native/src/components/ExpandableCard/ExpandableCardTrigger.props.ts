@@ -1,7 +1,25 @@
 import type { ComponentType, ReactNode } from 'react';
 import type { PressableProps } from 'react-native';
 
-export interface ExpandableCardTriggerProps extends Omit<PressableProps, 'children'> {
+interface ExpandableCardTriggerSharedProps extends Omit<PressableProps, 'children'> {
+  /**
+   * Whether the expandable card is expanded
+   */
+  isExpanded: boolean;
+  /**
+   * Whether to show the chevron when providing custom children.
+   * @default true
+   */
+  showChevron?: boolean;
+  /**
+   * Whether the trigger is disabled
+   */
+  disabled?: boolean;
+  /* Optional children */
+  children?: ReactNode;
+}
+
+interface ExpandableCardTriggerDefaultContentProps {
   /**
    * The main heading text
    */
@@ -31,16 +49,28 @@ export interface ExpandableCardTriggerProps extends Omit<PressableProps, 'childr
    * Optional numeric value to display
    */
   numericValue?: string | number;
+
   /**
-   * Whether the expandable card is expanded
+   * Custom trigger content that replaces the default trigger layout.
    */
-  isExpanded: boolean;
-  /**
-   * Whether the trigger is disabled
-   */
-  disabled?: boolean;
-  /* Optional children */
-  children?: ReactNode;
+  triggerContent?: never;
 }
+
+interface ExpandableCardTriggerCustomContentProps {
+  /**
+   * Custom trigger content that replaces the default trigger layout.
+   */
+  triggerContent: ReactNode;
+  heading?: never;
+  helperText?: never;
+  leadingIcon?: never;
+  leadingContent?: never;
+  badge?: never;
+  badgePosition?: never;
+  numericValue?: never;
+}
+
+type ExpandableCardTriggerProps = ExpandableCardTriggerSharedProps &
+  (ExpandableCardTriggerDefaultContentProps | ExpandableCardTriggerCustomContentProps);
 
 export default ExpandableCardTriggerProps;
