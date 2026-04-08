@@ -7,7 +7,7 @@ import {
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
+import { AccessibilityInfo, LayoutChangeEvent, Platform, View, findNodeHandle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
@@ -105,16 +105,13 @@ const Modal = ({
     }
   }, [closeOnSecondaryButtonPress, onPressSecondaryButton]);
 
-  const handleStickyFooterLayout = useCallback(
-    (event: { nativeEvent: { layout: { height: number } } }) => {
-      const nextHeight = Math.ceil(event.nativeEvent.layout.height);
+  const handleStickyFooterLayout = useCallback((event: LayoutChangeEvent) => {
+    const nextHeight = Math.ceil(event.nativeEvent.layout.height);
 
-      setStickyFooterHeight(currentHeight =>
-        currentHeight === nextHeight ? currentHeight : nextHeight
-      );
-    },
-    []
-  );
+    setStickyFooterHeight(currentHeight =>
+      currentHeight === nextHeight ? currentHeight : nextHeight
+    );
+  }, []);
 
   const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
