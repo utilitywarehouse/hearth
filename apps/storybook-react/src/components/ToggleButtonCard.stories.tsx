@@ -35,12 +35,13 @@ export const Playground: Story = {
   render: args => {
     const [value, setValue] = React.useState<string>('fixed');
     return (
-      <Box width="750px">
+      <Box maxWidth="750px">
         <ToggleGroup
           {...args}
           gap="300"
           type="single"
           value={value}
+          direction={{ mobile: 'column', tablet: 'row' }}
           onValueChange={(value: string) => {
             if (value) setValue(value);
           }}

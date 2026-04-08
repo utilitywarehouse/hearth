@@ -34,10 +34,17 @@ export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
 export const Playground: Story = {
+  args: {
+    name: 'where-do-you-live',
+    label: 'Where do you live?',
+    helperText: undefined,
+    validationText: undefined,
+    contentWidth: 'fit-content',
+  },
   render: args => {
     return (
       <Flex direction="column" gap="400">
-        <Flex direction="row">
+        <Flex direction="row" gap="200">
           <RadioGroup {...args}>
             <RadioTile value="england" label="England" />
             <RadioTile value="wales" label="Wales" />
@@ -63,12 +70,6 @@ export const Playground: Story = {
       </Flex>
     );
   },
-  args: {
-    name: 'where-do-you-live',
-    label: 'Where do you live?',
-    helperText: undefined,
-    validationText: undefined,
-  },
 };
 
 export const RadioHelperText: Story = {
@@ -77,6 +78,7 @@ export const RadioHelperText: Story = {
     defaultValue: '3',
     helperText: undefined,
     name: 'helper-text',
+    contentWidth: 'fit-content',
   },
   render: args => {
     return (
@@ -103,7 +105,25 @@ export const ContentWidth: Story = {
   },
 };
 
+export const ResponsiveDirection: Story = {
+  args: { name: 'responsive-direction', direction: { mobile: 'column', tablet: 'row' } },
+  render: args => {
+    return (
+      <RadioGroup {...args} helperText="Setting the width of the children elements">
+        <RadioTile value="1" label="One" />
+        <RadioTile value="2" label="Two" />
+        <RadioTile value="3" label="Three" />
+      </RadioGroup>
+    );
+  },
+};
+
 export const Controlled: Story = {
+  args: {
+    label: 'What is your favourite animal?',
+    name: 'favourite-animal',
+    contentWidth: 'fit-content',
+  },
   render: args => {
     const options = ['Bear', 'Koala', 'Wolf', 'Horse'];
     const [selected, setSelected] = useState(options[0]);
@@ -120,14 +140,16 @@ export const Controlled: Story = {
       </RadioGroup>
     );
   },
-  args: {
-    label: 'What is your favourite animal?',
-    name: 'favourite-animal',
-  },
 };
 
 export const Validation: Story = {
-  name: 'Validation',
+  args: {
+    validationText: 'Please tell us what your favourite animal is.',
+    label: 'What is your favourite animal?',
+    name: 'favourite-animal',
+    helperText: 'These are the best animals.',
+    contentWidth: 'fit-content',
+  },
   render: args => {
     const [selected, setSelected] = useState('');
     return (
@@ -143,12 +165,6 @@ export const Validation: Story = {
         <RadioTile value="4" label="Horse" />
       </RadioGroup>
     );
-  },
-  args: {
-    validationText: 'Please tell us what your favourite animal is.',
-    label: 'What is your favourite animal?',
-    name: 'favourite-animal',
-    helperText: 'These are the best animals.',
   },
 };
 
@@ -175,21 +191,26 @@ export const Wrap: Story = {
 };
 
 export const CustomLabel: Story = {
+  args: {
+    label: undefined,
+    helperText: undefined,
+    validationText: undefined,
+    contentWidth: 'fit-content',
+  },
   render: args => {
     return (
       <Flex gap="600" direction="column">
-        <Flex width="fit-content">
-          <RadioGroup
-            {...args}
-            label={<Heading as="h2">Where do you live?</Heading>}
-            name="where-do-you-live"
-          >
-            <RadioTile value="england" label="England" />
-            <RadioTile value="wales" label="Wales" />
-            <RadioTile value="scotland" label="Scotland" />
-            <RadioTile value="northern-ireland" label="Northern Ireland" />
-          </RadioGroup>
-        </Flex>
+        <RadioGroup
+          {...args}
+          label={<Heading as="h2">Where do you live?</Heading>}
+          name="where-do-you-live"
+        >
+          <RadioTile value="england" label="England" />
+          <RadioTile value="wales" label="Wales" />
+          <RadioTile value="scotland" label="Scotland" />
+          <RadioTile value="northern-ireland" label="Northern Ireland" />
+        </RadioGroup>
+
         <Flex direction="column" gap="100">
           <Heading as="h2" id="where-do-you-live">
             Where do you live?
@@ -204,7 +225,6 @@ export const CustomLabel: Story = {
       </Flex>
     );
   },
-  args: { label: undefined, helperText: undefined, validationText: undefined },
 };
 
 export const WithGrid: Story = {
