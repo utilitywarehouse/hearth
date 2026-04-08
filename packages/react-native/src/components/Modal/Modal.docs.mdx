@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
-import { BodyText, BottomSheetModal, Box, Button, Center, Heading, Modal } from '../../';
+import { BodyText, BottomSheetModal, Box, Button, Center, Flex, Heading, Modal } from '../../';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Modal.stories';
@@ -28,6 +28,7 @@ If you need a modal layout inside a React Navigation modal screen, use <Storyboo
   - [Modal with Image](#modal-with-image)
   - [Fullscreen Modal](#fullscreen-modal)
   - [Modal with Custom Content](#modal-with-custom-content)
+  - [Sticky Custom Footer](#sticky-custom-footer)
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
   - [Single Action Modal](#single-action-modal)
@@ -107,8 +108,12 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `children`                    | `ReactNode`                                                        | Custom content to display in the modal body                                                                        | -              |
 | `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')           | -              |
 | `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline')      | -              |
+| `footer`                      | `ReactNode`                                                        | Custom footer content that replaces the built-in action buttons                                                    | -              |
+| `footerStyle`                 | `StyleProp<ViewStyle>`                                             | Styles applied to the footer container, useful for sticky footer shadows or custom spacing                         | -              |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                       | -              |
 | `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                            | `false`        |
+
+When `footer` is provided, the primary and secondary button props are not available. Build your footer actions directly inside the custom footer content instead.
 
 \* use this to detect if the modal has been opened or closed, index 0 indicates open state and -1 indicates closed state
 
@@ -364,6 +369,52 @@ const CustomContentModal = () => {
           <BodyText>Enable notifications</BodyText>
           <BodyText>Allow location access</BodyText>
           <BodyText>Share usage data</BodyText>
+        </Box>
+      </Modal>
+    </>
+  );
+};
+```
+
+### Sticky Custom Footer
+
+Replace the built-in buttons with a custom sticky footer when you need custom layouts or button arrangements:
+
+<Canvas of={Stories.StickyCustomFooter} />
+
+```tsx
+const StickyCustomFooterModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Custom Footer Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Update billing details"
+        description="Use a custom sticky footer when you need horizontal actions or extra decoration."
+        footer={
+          <Flex direction="row" spacing="md" pt="250">
+            <Button
+              variant="outline"
+              colorScheme="functional"
+              onPress={() => modalRef.current?.dismiss()}
+              style={{ flex: 1 }}
+            >
+              Cancel
+            </Button>
+            <Button onPress={() => modalRef.current?.dismiss()} style={{ flex: 1 }}>
+              Save changes
+            </Button>
+          </Flex>
+        }
+        footerStyle={{
+          boxShadow: '0px -6px 12px rgba(16, 24, 40, 0.12)',
+        }}
+      >
+        <Box gap="200">
+          <BodyText>Review the changes before saving.</BodyText>
         </Box>
       </Modal>
     </>

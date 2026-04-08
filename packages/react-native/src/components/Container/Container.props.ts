@@ -1,6 +1,8 @@
 import type { ViewProps } from 'react-native';
 import type {
   BackgroundColorProps,
+  DisplayProps,
+  FlexLayoutProps,
   GapProps,
   MarginProps,
   PaddingProps,
@@ -8,7 +10,14 @@ import type {
 } from '../../types';
 
 interface ContainerProps
-  extends ViewProps, MarginProps, PaddingProps, GapProps, BackgroundColorProps {
+  extends
+    ViewProps,
+    MarginProps,
+    PaddingProps,
+    GapProps,
+    BackgroundColorProps,
+    FlexLayoutProps,
+    DisplayProps {
   /**
    * The spacing between child elements (gap).
    */
