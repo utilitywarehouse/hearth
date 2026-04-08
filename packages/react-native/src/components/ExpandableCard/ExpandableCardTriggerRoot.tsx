@@ -86,7 +86,7 @@ const ExpandableCardTriggerRoot = ({
   const renderCustomTriggerContent = () => (
     <>
       {triggerContent}
-      {renderChevron()}
+      {showChevron ? renderChevron() : null}
     </>
   );
 
