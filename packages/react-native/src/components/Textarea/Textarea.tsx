@@ -3,7 +3,6 @@ import type TextareaProps from './Textarea.props';
 
 import { useEffect, useMemo, useRef } from 'react';
 import {
-  StyleSheet,
   View,
   type LayoutChangeEvent,
   type StyleProp,
@@ -13,6 +12,7 @@ import {
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { Path, Svg } from 'react-native-svg';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { FormField, useFormFieldContext } from '../FormField';
 import TextareaFieldComponent from './TextareaField';
@@ -169,11 +169,7 @@ const Textarea = ({
           <>{children}</>
         ) : (
           <>
-            <TextareaField
-              {...props}
-              onLayout={onLayout}
-              style={resizable ? [styles.resizableInput, inputStyle] : inputStyle}
-            />
+            <TextareaField {...props} onLayout={onLayout} style={[styles.textarea, inputStyle]} />
           </>
         )}
         {resizable && !textareaDisabled ? (
@@ -199,9 +195,14 @@ const Textarea = ({
 };
 
 const styles = StyleSheet.create({
-  resizableInput: {
-    paddingBottom: 20,
-    paddingRight: 20,
+  textarea: {
+    padding: 0,
+    _web: {
+      outlineStyle: 'none',
+      _focusVisible: {
+        outlineStyle: 'none',
+      },
+    },
   },
   resizeHandle: {
     position: 'absolute',
