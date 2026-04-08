@@ -1,7 +1,10 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { MarginProps } from '../../props/margin.props';
+import { FlexItemProps } from '../../props/flex-item.props';
+import { GridItemProps } from '../../props/grid-item.props';
 
-export interface AlertProps extends Omit<ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps {
+export interface AlertProps
+  extends Omit<ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps, FlexItemProps, GridItemProps {
   /**
    * Sets the colour scheme.
    * @default info
