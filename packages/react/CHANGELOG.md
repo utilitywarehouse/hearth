@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.4
+
+### Patch Changes
+
+- [#1098](https://github.com/utilitywarehouse/hearth/pull/1098) [`bf4a515`](https://github.com/utilitywarehouse/hearth/commit/bf4a515ee856c3bb9b1038c610de7b7ab0917c58) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Update tokens in Hearth React
+
+- [#1102](https://github.com/utilitywarehouse/hearth/pull/1102) [`55e82ad`](https://github.com/utilitywarehouse/hearth/commit/55e82ade4afaa85af7f146f4678e7926757fb96e) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add Grid & Flex item props to `Alert`
+
+- [#1101](https://github.com/utilitywarehouse/hearth/pull/1101) [`97db42d`](https://github.com/utilitywarehouse/hearth/commit/97db42d0282a8f336d9285e409bcb21418b90f6d) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Make `RadioGroup` direction responsive
+
 ## 0.27.3
 
 ### Patch Changes
