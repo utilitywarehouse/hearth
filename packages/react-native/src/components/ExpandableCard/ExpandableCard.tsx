@@ -14,6 +14,7 @@ const ExpandableCard = ({
   badge,
   badgePosition = 'bottom',
   numericValue,
+  triggerContent,
   expandedContent,
   duration = 200,
   animateOpacity = true,
@@ -39,18 +40,25 @@ const ExpandableCard = ({
     onExpandedChange?.(newExpanded);
   };
 
+  const triggerProps =
+    triggerContent !== undefined
+      ? { triggerContent }
+      : {
+          heading,
+          helperText,
+          leadingIcon,
+          leadingContent,
+          badge,
+          badgePosition,
+          numericValue,
+        };
+
   const renderDefaultContent = () => (
     <>
       <ExpandableCardTrigger
         onPress={handlePress}
         disabled={disabled}
-        heading={heading}
-        helperText={helperText}
-        leadingIcon={leadingIcon}
-        leadingContent={leadingContent}
-        badge={badge}
-        badgePosition={badgePosition}
-        numericValue={numericValue}
+        {...triggerProps}
         isExpanded={isExpanded}
         testID={`${testID}-trigger`}
       />

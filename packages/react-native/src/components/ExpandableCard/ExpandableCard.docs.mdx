@@ -22,6 +22,7 @@ The `ExpandableCard` component is an interactive card that expands to reveal add
   - [With Leading Icon](#with-leading-icon)
   - [With `Badge`](#with-badge)
   - [With Numeric Value](#with-numeric-value)
+  - [With Custom Trigger Content](#with-custom-trigger-content)
   - [`CardGroup`](#cardgroup)
 - [Advanced Usage](#advanced-usage)
 - [Accessibility](#accessibility)
@@ -58,24 +59,27 @@ const MyComponent = () => (
 
 ### `ExpandableCard`
 
-| Prop               | Type                          | Default             | Description                                      |
-| ------------------ | ----------------------------- | ------------------- | ------------------------------------------------ |
-| `heading`          | `string`                      | -                   | The heading text displayed in the trigger        |
-| `helperText`       | `string`                      | -                   | Optional helper text displayed below the heading |
-| `leadingIcon`      | `ComponentType`               | -                   | Leading icon component (automatically wrapped)   |
-| `leadingContent`   | `ReactNode`                   | -                   | Leading content (icon or custom element)         |
-| `badge`            | `ReactNode`                   | -                   | Badge to display                                 |
-| `badgePosition`    | `'top' \| 'bottom'`           | `'bottom'`          | Badge position                                   |
-| `numericValue`     | `string \| number`            | -                   | Numeric value to display on the right            |
-| `expandedContent`  | `ReactNode`                   | -                   | The content to show when expanded                |
-| `expanded`         | `boolean`                     | -                   | Whether the card is expanded (controlled)        |
-| `onExpandedChange` | `(expanded: boolean) => void` | -                   | Callback when expanded state changes             |
-| `duration`         | `number`                      | `200`               | Duration of expansion animation in milliseconds  |
-| `animateOpacity`   | `boolean`                     | `true`              | Whether to animate opacity during expansion      |
-| `disabled`         | `boolean`                     | `false`             | Whether the card is disabled                     |
-| `colorScheme`      | `CardColorScheme`             | -                   | Color scheme (inherits from Card component)      |
-| `variant`          | `CardVariant`                 | -                   | Variant (inherits from Card component)           |
-| `testID`           | `string`                      | `'expandable-card'` | Test ID for testing                              |
+| Prop               | Type                          | Default             | Description                                                    |
+| ------------------ | ----------------------------- | ------------------- | -------------------------------------------------------------- |
+| `heading`          | `string`                      | -                   | The heading text displayed in the trigger                      |
+| `helperText`       | `string`                      | -                   | Optional helper text displayed below the heading               |
+| `leadingIcon`      | `ComponentType`               | -                   | Leading icon component (automatically wrapped)                 |
+| `leadingContent`   | `ReactNode`                   | -                   | Leading content (icon or custom element)                       |
+| `badge`            | `ReactNode`                   | -                   | Badge to display                                               |
+| `badgePosition`    | `'top' \| 'bottom'`           | `'bottom'`          | Badge position                                                 |
+| `numericValue`     | `string \| number`            | -                   | Numeric value to display on the right                          |
+| `triggerContent`   | `ReactNode`                   | -                   | Replaces the default trigger content while keeping the chevron |
+| `expandedContent`  | `ReactNode`                   | -                   | The content to show when expanded                              |
+| `expanded`         | `boolean`                     | -                   | Whether the card is expanded (controlled)                      |
+| `onExpandedChange` | `(expanded: boolean) => void` | -                   | Callback when expanded state changes                           |
+| `duration`         | `number`                      | `200`               | Duration of expansion animation in milliseconds                |
+| `animateOpacity`   | `boolean`                     | `true`              | Whether to animate opacity during expansion                    |
+| `disabled`         | `boolean`                     | `false`             | Whether the card is disabled                                   |
+| `colorScheme`      | `CardColorScheme`             | -                   | Color scheme (inherits from Card component)                    |
+| `variant`          | `CardVariant`                 | -                   | Variant (inherits from Card component)                         |
+| `testID`           | `string`                      | `'expandable-card'` | Test ID for testing                                            |
+
+When `triggerContent` is provided, the default trigger props such as `heading`, `helperText`, `leadingIcon`, `leadingContent`, `badge`, `badgePosition`, and `numericValue` are not available.
 
 ### `ExpandableCardGroup`
 
@@ -175,6 +179,34 @@ const MyComponent = () => (
 />
 ```
 
+    ### With Custom Trigger Content
+
+    Use `triggerContent` when you need to replace the standard trigger layout entirely while keeping the expandable chevron.
+
+    <Canvas of={Stories.WithCustomTriggerContent} />
+
+    ```tsx
+    import { ExpandableCard, BodyText } from '@utilitywarehouse/hearth-react-native';
+    import { View } from 'react-native';
+
+    const MyComponent = () => (
+      <ExpandableCard
+        triggerContent={
+          <View style={{ flex: 1, gap: 4 }}>
+            <BodyText weight="semibold">March bill ready</BodyText>
+            <BodyText color="secondary">Due on 18 April 2026</BodyText>
+          </View>
+        }
+        expandedContent={
+          <>
+            <BodyText>Balance: £89.50</BodyText>
+            <BodyText>Payment method: Direct Debit</BodyText>
+          </>
+        }
+      />
+    );
+    ```
+
 ### `CardGroup`
 
 Use `ExpandableCardGroup` to group multiple expandable cards with an optional header.
@@ -239,34 +271,52 @@ import {
   ExpandableCardTrigger,
   ExpandableCardExpandedContent,
   ExpandableCardContent,
-  IconContainer,
+  ExpandableCardHelperText,
+  ExpandableCardText,
   BodyText,
 } from '@utilitywarehouse/hearth-react-native';
-import { BillMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { View } from 'react-native';
 
 const MyComponent = () => {
-  const [expanded, setExpanded] = useState(false);
+  const [triggerContentExpanded, setTriggerContentExpanded] = useState(false);
+  const [customChildrenExpanded, setCustomChildrenExpanded] = useState(false);
 
   return (
-    <ExpandableCard expanded={expanded} onExpandedChange={setExpanded}>
-      <ExpandableCardTrigger
-        onPress={() => setExpanded(!expanded)}
-        heading="Custom Account Details"
-        helperText="View your detailed account information"
-        leadingContent={
-          <IconContainer icon={BillMediumIcon} size="md" variant="emphasis" color="pig" />
+    <>
+      <ExpandableCard
+        expanded={triggerContentExpanded}
+        onExpandedChange={setTriggerContentExpanded}
+        expandedContent={<BodyText>Use `triggerContent` for a full replacement.</BodyText>}
+        triggerContent={
+          <View style={{ flex: 1, gap: 4 }}>
+            <BodyText weight="semibold">Use `triggerContent`</BodyText>
+            <BodyText color="secondary">Replace the built-in trigger layout</BodyText>
+          </View>
         }
-        numericValue="£123.45"
-        isExpanded={expanded}
       />
-      <ExpandableCardExpandedContent isExpanded={expanded}>
-        <BodyText>Account Number: 1234567890</BodyText>
-        <BodyText>Sort Code: 12-34-56</BodyText>
-        <BodyText>Balance: £123.45</BodyText>
-        <BodyText>Last Updated: 12/11/25</BodyText>
-      </ExpandableCardExpandedContent>
-    </ExpandableCard>
+
+      <ExpandableCard
+        expanded={customChildrenExpanded}
+        onExpandedChange={setCustomChildrenExpanded}
+      >
+        <ExpandableCardTrigger
+          onPress={() => setCustomChildrenExpanded(!customChildrenExpanded)}
+          isExpanded={customChildrenExpanded}
+          showChevron
+        >
+          <ExpandableCardContent>
+            <ExpandableCardText>Use `children` + `showChevron`</ExpandableCardText>
+            <ExpandableCardHelperText>
+              Build the trigger yourself and keep the chevron
+            </ExpandableCardHelperText>
+          </ExpandableCardContent>
+        </ExpandableCardTrigger>
+        <ExpandableCardExpandedContent isExpanded={customChildrenExpanded}>
+          <BodyText>Use `children` when you want full trigger composition control.</BodyText>
+        </ExpandableCardExpandedContent>
+      </ExpandableCard>
+    </>
   );
 };
 ```
@@ -284,6 +334,8 @@ When using advanced composition, you have access to these components:
 - **`ExpandableCardLeadingContent`**: Container for leading content (icons, images, etc.)
 - **`ExpandableCardTrailingContent`**: Container for trailing content
 - **`ExpandableCardTrailingIcon`**: Styled icon for trailing position
+
+Use `triggerContent` when you want a simpler one-prop replacement on `ExpandableCard`. Use `ExpandableCardTrigger` children when you want to compose the trigger structure yourself. The built-in chevron is shown by default, and you can set `showChevron={false}` if you want to hide it.
 
 ## Accessibility
 
