@@ -1,12 +1,16 @@
 import { Ref } from 'react';
 import { ScrollViewProps } from 'react-native';
-import { ModalCommonProps } from '../Modal/Modal.shared.types';
+import {
+  ModalButtonFooterProps,
+  ModalCommonBaseProps,
+  ModalCustomFooterProps,
+} from '../Modal/Modal.shared.types';
 
 export interface NavModalRef {
   triggerCloseAnimation?: () => void;
 }
 
-interface NavModalProps extends ModalCommonProps {
+type NavModalBaseProps = ModalCommonBaseProps & {
   ref?: Ref<NavModalRef>;
   background?: 'default' | 'brand';
   scrollable?: boolean;
@@ -18,6 +22,10 @@ interface NavModalProps extends ModalCommonProps {
     | 'containedTransparentModal';
   useSafeAreaInsets?: boolean;
   scrollViewProps?: Omit<ScrollViewProps, 'children'>;
-}
+};
+
+type NavModalProps =
+  | (NavModalBaseProps & ModalButtonFooterProps)
+  | (NavModalBaseProps & ModalCustomFooterProps);
 
 export default NavModalProps;

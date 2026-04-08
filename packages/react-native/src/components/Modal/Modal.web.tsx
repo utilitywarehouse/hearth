@@ -31,6 +31,8 @@ const Modal = ({
   loadingHeading = 'Loading...',
   fullscreen = false,
   image,
+  footer,
+  footerStyle,
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
@@ -91,7 +93,32 @@ const Modal = ({
     }
   };
 
-  const noButtons = !onPressPrimaryButton && !onPressSecondaryButton;
+  const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
+  const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
+  const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
+
+  const footerContent = footer ?? (
+    <View style={styles.footer}>
+      {hasPrimaryButton ? (
+        <Button
+          onPress={handlePrimaryButtonPress}
+          text={primaryButtonText}
+          {...primaryButtonProps}
+          variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+          colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+        />
+      ) : null}
+      {hasSecondaryButton ? (
+        <Button
+          onPress={handleSecondaryButtonPress}
+          text={secondaryButtonText}
+          {...secondaryButtonProps}
+          variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+          colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+        />
+      ) : null}
+    </View>
+  );
 
   const content = (
     <>
@@ -152,28 +179,7 @@ const Modal = ({
             </View>
           ) : null}
           {children}
-          {!noButtons ? (
-            <View style={styles.footer}>
-              {onPressPrimaryButton && primaryButtonText ? (
-                <Button
-                  onPress={handlePrimaryButtonPress}
-                  text={primaryButtonText}
-                  {...primaryButtonProps}
-                  variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
-                  colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
-                />
-              ) : null}
-              {onPressSecondaryButton && secondaryButtonText ? (
-                <Button
-                  onPress={handleSecondaryButtonPress}
-                  text={secondaryButtonText}
-                  {...secondaryButtonProps}
-                  variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
-                  colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
-                />
-              ) : null}
-            </View>
-          ) : null}
+          {hasFooter ? <View style={footerStyle}>{footerContent}</View> : null}
         </View>
       )}
     </>

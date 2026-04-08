@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { ViewProps } from 'react-native';
+import { StyleProp, ViewProps, ViewStyle } from 'react-native';
 import { ButtonWithoutChildrenProps } from '../Button/Button.props';
 import { UnstyledIconButtonProps } from '../UnstyledIconButton';
 
-export interface ModalCommonProps {
+export interface ModalCommonBaseProps {
   loading?: boolean;
   image?: ReactNode;
   showCloseButton?: boolean;
@@ -13,12 +13,31 @@ export interface ModalCommonProps {
   description?: string;
   stickyFooter?: boolean;
   children?: ViewProps['children'];
+  onPressCloseButton?: () => void;
+  closeButtonProps?: Omit<UnstyledIconButtonProps, 'children'>;
+}
+
+export interface ModalButtonFooterProps {
   onPressPrimaryButton?: () => void;
   primaryButtonText?: string;
   onPressSecondaryButton?: () => void;
   secondaryButtonText?: string;
-  onPressCloseButton?: () => void;
   primaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
   secondaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
-  closeButtonProps?: Omit<UnstyledIconButtonProps, 'children'>;
+  footer?: never;
+  footerStyle?: StyleProp<ViewStyle>;
 }
+
+export interface ModalCustomFooterProps {
+  footer: ReactNode;
+  footerStyle?: StyleProp<ViewStyle>;
+  onPressPrimaryButton?: never;
+  primaryButtonText?: never;
+  onPressSecondaryButton?: never;
+  secondaryButtonText?: never;
+  primaryButtonProps?: never;
+  secondaryButtonProps?: never;
+}
+
+export type ModalCommonProps = ModalCommonBaseProps &
+  (ModalButtonFooterProps | ModalCustomFooterProps);
