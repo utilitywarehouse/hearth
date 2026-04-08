@@ -90,3 +90,87 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 ```
+
+## CDN Usage
+
+You can also use the fonts via CDN.
+
+### Comic Hams
+
+Use the following URLs to include the Comic Hams font family in your project via CDN.
+
+| **Font Weight** | **CDN URL**                                                                              |
+| :-------------: | ---------------------------------------------------------------------------------------- |
+|       600       | https://cdn.bfldr.com/YUL5XOTG/at/tzjgvfvg2g4wtcjxrcwqg7ws/ComicHams-SemiBoldFlare.woff2 |
+|       700       | https://cdn.bfldr.com/YUL5XOTG/at/p8kzsqhnh98w6j6cxk64kc54/ComicHams-BoldFlare.woff2     |
+|       900       | https://cdn.bfldr.com/YUL5XOTG/at/8mvtv38b9nb4njbh8h6fm7m/ComicHams-HeavyFlare.woff2     |
+
+For instance, you can include the Comic Hams font family in your project by
+adding the following CSS `font-face` declarations to your stylesheet:
+
+```css
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/tzjgvfvg2g4wtcjxrcwqg7ws/ComicHams-SemiBoldFlare.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/p8kzsqhnh98w6j6cxk64kc54/ComicHams-BoldFlare.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/8mvtv38b9nb4njbh8h6fm7m/ComicHams-HeavyFlare.woff2')
+    format('woff2');
+}
+```
+
+### DM Sans & DM Mono
+
+Use the DM Sans and DM Mono font families via the Google Fonts CDN. We
+recommend using the combined DM Sans & DM Mono link to reduce the number of
+HTTP requests. However, you can also include the font families separately if
+you prefer.
+
+Combined DM Sans & DM Mono: https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,500;1,500&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,500;1,500&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+DM Sans only: https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+  rel="stylesheet"
+/>
+```
+
+DM Mono only: https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,500;1,500&display=swap
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,500;1,500&display=swap"
+  rel="stylesheet"
+/>
+```
