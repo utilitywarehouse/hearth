@@ -109,7 +109,7 @@ export const ResponsiveDirection: Story = {
   args: { name: 'responsive-direction', direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
     return (
-      <RadioGroup {...args} helperText="Setting the width of the children elements">
+      <RadioGroup {...args} helperText="Changing the direction of the children elements responsively">
         <RadioTile value="1" label="One" />
         <RadioTile value="2" label="Two" />
         <RadioTile value="3" label="Three" />
