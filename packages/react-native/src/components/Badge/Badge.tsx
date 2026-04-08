@@ -15,6 +15,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     size = 'sm',
     style,
     text,
+    numberOfLines,
     ...rest
   } = props;
 
@@ -31,7 +32,11 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     <BadgeContext.Provider value={value}>
       <View {...rest} style={[styles.container, style]}>
         {!!icon && <BadgeIcon as={icon} />}
-        {childIsText ? <BadgeText>{text ?? children}</BadgeText> : children}
+        {childIsText ? (
+          <BadgeText numberOfLines={numberOfLines}>{text ?? children}</BadgeText>
+        ) : (
+          children
+        )}
       </View>
     </BadgeContext.Provider>
   );
