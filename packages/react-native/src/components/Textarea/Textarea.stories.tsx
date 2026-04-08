@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import { Textarea } from '.';
 
 const meta = {
@@ -55,6 +55,11 @@ const meta = {
       control: 'boolean',
       description: 'Focus the Textarea component',
       defaultValue: false,
+    },
+    required: {
+      control: 'boolean',
+      description: 'Whether the Textarea component is required',
+      defaultValue: true,
     },
   },
   args: {
