@@ -2,6 +2,16 @@ import type { TextInputProps, ViewProps } from 'react-native';
 
 export interface TextareaBaseProps {
   /**
+   * If true, the textarea can be resized vertically using a drag handle.
+   *
+   * @type boolean
+   * @example
+   * ```tsx
+   * <Textarea resizable />
+   * ```
+   */
+  resizable?: boolean;
+  /**
    * If true, the textarea will be disabled.
    *
    * @type boolean
@@ -37,8 +47,7 @@ export interface TextareaBaseProps {
 export interface TextareaWithChildrenProps extends TextareaBaseProps, ViewProps {}
 
 export interface TextareaWithoutChildrenProps
-  extends TextareaBaseProps,
-    Omit<TextInputProps, 'children'> {
+  extends TextareaBaseProps, Omit<TextInputProps, 'children'> {
   children?: never;
 }
 
