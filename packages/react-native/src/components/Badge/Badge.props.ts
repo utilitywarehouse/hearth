@@ -20,6 +20,7 @@ interface BadgeProps extends ViewProps {
   icon?: ComponentType;
   flatBase?: boolean;
   text?: string | number;
+  numberOfLines?: number;
 }
 
 export default BadgeProps;
