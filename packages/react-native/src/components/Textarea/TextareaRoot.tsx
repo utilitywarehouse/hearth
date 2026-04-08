@@ -1,8 +1,11 @@
 import { useMemo } from 'react';
 import { View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { TextareaContext } from './Textarea.context';
 import InputProps from './Textarea.props';
+
+const AnimatedView = Animated.createAnimatedComponent(View);
 
 const TextareaRoot = ({
   children,
@@ -21,9 +24,9 @@ const TextareaRoot = ({
 
   return (
     <TextareaContext.Provider value={value}>
-      <View {...props} style={[styles.container, style]}>
+      <AnimatedView {...props} style={[styles.container, style]}>
         {children}
-      </View>
+      </AnimatedView>
     </TextareaContext.Provider>
   );
 };
@@ -35,6 +38,7 @@ const styles = StyleSheet.create(theme => ({
     borderColor: theme.color.border.strong,
     height: theme.components.input.textArea.height,
     borderRadius: theme.components.input.borderRadius,
+    position: 'relative',
     flexDirection: 'row',
     overflow: 'hidden',
     alignContent: 'center',

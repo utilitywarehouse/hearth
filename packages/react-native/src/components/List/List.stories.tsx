@@ -10,6 +10,7 @@ import {
   UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { FlatList } from 'react-native';
 import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Badge } from '../Badge';
@@ -396,6 +397,40 @@ export const Loading: Story = {
       />
     </List>
   ),
+};
+
+export const WithFlatList: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => {
+    const listData = Array.from({ length: 200 }).map((_, index) => ({
+      id: index.toString(),
+      heading: `List Item ${index + 1}`,
+      helperText: `Supporting Text ${index + 1}`,
+    }));
+
+    return (
+      <List
+        container="subtleWhite"
+        heading="FlatList Example"
+        helperText="This list is rendered using FlatList for performance"
+      >
+        <FlatList
+          data={listData}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <ListItem
+              heading={item.heading}
+              helperText={item.helperText}
+              leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
+              onPress={() => console.log(`${item.heading} pressed`)}
+            />
+          )}
+        />
+      </List>
+    );
+  },
 };
 
 export const KitchenSink: Story = {
