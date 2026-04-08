@@ -16,6 +16,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import type { ComponentRef } from 'react';
+import { flexItemPropDefs } from '../../props/flex-item.props';
+import { gridItemPropDefs } from '../../props/grid-item.props';
 
 const COMPONENT_NAME = 'Alert';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -37,7 +39,7 @@ export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
     text,
     title,
     ...alertProps
-  } = extractProps(props, marginPropDefs);
+  } = extractProps(props, marginPropDefs, flexItemPropDefs, gridItemPropDefs);
 
   const AlertIcon = icons[colorScheme];
 
