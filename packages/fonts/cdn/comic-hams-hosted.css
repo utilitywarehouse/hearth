@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/tzjgvfvg2g4wtcjxrcwqg7ws/ComicHams-SemiBoldFlare.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/p8kzsqhnh98w6j6cxk64kc54/ComicHams-BoldFlare.woff2')
+    format('woff2');
+}
+@font-face {
+  font-family: 'Comic Hams';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 900;
+  src: url('https://cdn.bfldr.com/YUL5XOTG/at/8mvtv38b9nb4njbh8h6fm7m/ComicHams-HeavyFlare.woff2')
+    format('woff2');
+}
