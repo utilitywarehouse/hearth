@@ -65,9 +65,8 @@ export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
           asChild
           className={cn(componentClassName, className)}
           {...radioGroupRootProps}
-          orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         >
-          <Flex width={contentWidth}>{children}</Flex>
+          <Flex>{children}</Flex>
         </RadioGroupPrimitive.Root>
       </FormGroupBase>
     );
