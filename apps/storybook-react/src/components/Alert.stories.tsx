@@ -4,6 +4,7 @@ import {
   AlertIconButton,
   AlertLink,
   Flex,
+  Grid,
   InlineLink,
   Strong,
 } from '@utilitywarehouse/hearth-react';
@@ -42,6 +43,40 @@ export const Playground: Story = {
     colorScheme: 'info',
     title: 'Alert Title',
     text: 'This is an example of alert text which can wrap',
+  },
+};
+
+export const GridChildren: Story = {
+  parameters: { controls: { hideNoControlsWarning: true } },
+  render: () => {
+    return (
+      <Grid defaultResponsiveColumns gap="200">
+        <Alert
+          colorScheme="info"
+          title="Information"
+          text="Learn more about our rates."
+          gridColumnSpan="4"
+        />
+        <Alert
+          colorScheme="positive"
+          title="Success"
+          text="Mobile number updated."
+          gridColumnSpan="4"
+        />
+        <Alert
+          colorScheme="danger"
+          title="Error"
+          text="Email address already exists."
+          gridColumnSpan="4"
+        />
+        <Alert
+          colorScheme="warning"
+          title="Warning"
+          text="Payment details needed."
+          gridColumnSpan="4"
+        />
+      </Grid>
+    );
   },
 };
 
