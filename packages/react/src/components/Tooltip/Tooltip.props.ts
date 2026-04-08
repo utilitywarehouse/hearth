@@ -1,11 +1,10 @@
 import { Tooltip as TooltipPrimitive } from 'radix-ui';
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 
-export interface TooltipProps
-  extends Omit<
-    ComponentPropsWithRef<typeof TooltipPrimitive.Content>,
-    'asChild' | 'content'
-  > {
+export interface TooltipProps extends Omit<
+  ComponentPropsWithRef<typeof TooltipPrimitive.Content>,
+  'asChild' | 'content'
+> {
   /** The content to display inside the tooltip. */
   content: ReactNode;
   /** The trigger element. */
