@@ -297,6 +297,9 @@ export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.pro
 
 export { Skeleton } from './components/Skeleton/Skeleton';
 export type { SkeletonProps } from './components/Skeleton/Skeleton.props';
+
+export { Tooltip } from './components/Tooltip/Tooltip';
+export type { TooltipProps } from './components/Tooltip/Tooltip.props';
 export { SkeletonBox } from './components/Skeleton/SkeletonBox';
 export type { SkeletonBoxProps } from './components/Skeleton/SkeletonBox.props';
 export { SkeletonBodyText } from './components/Skeleton/SkeletonBodyText';
