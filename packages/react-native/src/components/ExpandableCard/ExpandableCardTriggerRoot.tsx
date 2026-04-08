@@ -99,7 +99,7 @@ const ExpandableCardTriggerRoot = ({
 
   let triggerBody = renderDefaultContent();
 
-  if (triggerContent) {
+  if (triggerContent !== undefined) {
     triggerBody = renderCustomTriggerContent();
   }
 
