@@ -1,23 +1,46 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tooltip, Button, IconButton, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  Tooltip,
+  TooltipProvider,
+  Button,
+  IconButton,
+  Flex,
+  BodyText,
+  UnstyledIconButton,
+} from '@utilitywarehouse/hearth-react';
+import { AddSmallIcon, InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Stories / Tooltip',
   component: Tooltip,
+  decorators: [
+    Story => (
+      <TooltipProvider>
+        <Story />
+      </TooltipProvider>
+    ),
+  ],
   argTypes: {
     content: { control: { type: 'text' } },
-    side: { options: ['top', 'right', 'bottom', 'left'], control: { type: 'radio' } },
-    align: { options: ['start', 'center', 'end'], control: { type: 'radio' } },
-    sideOffset: { control: { type: 'number' } },
-    delayDuration: { control: { type: 'number' } },
+    alignment: {
+      control: {
+        type: 'radio',
+        options: [
+          'rightCenter',
+          'leftCenter',
+          'bottomLeft',
+          'bottomCenter',
+          'bottomRight',
+          'topLeft',
+          'topCenter',
+          'topRight',
+        ],
+      },
+    },
   },
   args: {
     content: 'Tooltip content',
-    side: 'top',
-    align: 'center',
-    sideOffset: 5,
-    delayDuration: 700,
+    alignment: 'topCenter',
   },
 };
 
@@ -46,32 +69,56 @@ export const WithIconButton: Story = {
   ),
 };
 
-export const Sides: Story = {
+export const Alignment: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => (
-    <Flex justifyContent="center" gap="400" padding="800">
-      <Tooltip content="Top" side="top">
-        <Button variant="outline">Top</Button>
-      </Tooltip>
-      <Tooltip content="Right" side="right">
-        <Button variant="outline">Right</Button>
-      </Tooltip>
-      <Tooltip content="Bottom" side="bottom">
-        <Button variant="outline">Bottom</Button>
-      </Tooltip>
-      <Tooltip content="Left" side="left">
-        <Button variant="outline">Left</Button>
-      </Tooltip>
-    </Flex>
-  ),
-};
-
-export const Instant: Story = {
-  render: () => (
-    <Flex justifyContent="center" padding="800">
-      <Tooltip content="No delay!" delayDuration={0}>
-        <Button>Hover me (instant)</Button>
-      </Tooltip>
+    <Flex direction="column" alignItems="center" gap="400" padding="800">
+      <Flex direction="row" gap="400" alignItems="center">
+        <Tooltip content="Left Center Alignment" alignment="leftCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Right Center Alignment" alignment="rightCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
+      <Flex direction="row" gap="400">
+        <Tooltip content="Bottom Left Alignment" alignment="bottomLeft">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Bottom Center Alignment" alignment="bottomCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Bottom Right Alignment" alignment="bottomRight">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
+      <Flex direction="row" gap="400">
+        <Tooltip content="Top Left Alignment" alignment="topLeft">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Top Center Alignment" alignment="topCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Top Right Alignment" alignment="topRight">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
     </Flex>
   ),
 };

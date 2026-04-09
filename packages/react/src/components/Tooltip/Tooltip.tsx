@@ -20,35 +20,49 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
       open,
       defaultOpen,
       onOpenChange,
-      delayDuration,
       className,
-      sideOffset = 5,
+      alignment = 'topCenter',
       ...props
     },
     ref
   ) => {
+    const rootProps = { open, defaultOpen, onOpenChange };
+
+    const alignmentTranslation: {
+      [key: string]: {
+        side: 'bottom' | 'top' | 'right' | 'left';
+        align: 'start' | 'end' | 'center';
+      };
+    } = {
+      rightCenter: { side: 'right', align: 'center' },
+      leftCenter: { side: 'left', align: 'center' },
+      topLeft: { side: 'top', align: 'end' },
+      topCenter: { side: 'top', align: 'center' },
+      topRight: { side: 'top', align: 'start' },
+      bottomLeft: { side: 'bottom', align: 'end' },
+      bottomCenter: { side: 'bottom', align: 'center' },
+      bottomRight: { side: 'bottom', align: 'start' },
+    };
+
     return (
-      <TooltipPrimitive.Provider>
-        <TooltipPrimitive.Root
-          open={open}
-          defaultOpen={defaultOpen}
-          onOpenChange={onOpenChange}
-          delayDuration={delayDuration}
-        >
-          <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
-          <TooltipPrimitive.Portal>
-            <TooltipPrimitive.Content
-              ref={ref}
-              className={cn(componentClassName, className)}
-              sideOffset={sideOffset}
-              {...props}
-            >
-              {content}
-              <TooltipPrimitive.Arrow className={`${componentClassName}-arrow`} />
-            </TooltipPrimitive.Content>
-          </TooltipPrimitive.Portal>
-        </TooltipPrimitive.Root>
-      </TooltipPrimitive.Provider>
+      <TooltipPrimitive.Root {...rootProps}>
+        <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Portal>
+          <TooltipPrimitive.Content
+            ref={ref}
+            className={cn(componentClassName, className)}
+            avoidCollisions={true}
+            sticky="partial"
+            {...alignmentTranslation[alignment]}
+            sideOffset={4}
+            // arrowPadding={-40}
+            {...props}
+          >
+            {content}
+            <TooltipPrimitive.Arrow className={`${componentClassName}-arrow`} />
+          </TooltipPrimitive.Content>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
     );
   }
 );

@@ -297,12 +297,14 @@ export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.pro
 
 export { Skeleton } from './components/Skeleton/Skeleton';
 export type { SkeletonProps } from './components/Skeleton/Skeleton.props';
-
-export { Tooltip } from './components/Tooltip/Tooltip';
-export type { TooltipProps } from './components/Tooltip/Tooltip.props';
 export { SkeletonBox } from './components/Skeleton/SkeletonBox';
 export type { SkeletonBoxProps } from './components/Skeleton/SkeletonBox.props';
 export { SkeletonBodyText } from './components/Skeleton/SkeletonBodyText';
 export type { SkeletonBodyTextProps } from './components/Skeleton/SkeletonBodyText.props';
 export { SkeletonHeading } from './components/Skeleton/SkeletonHeading';
 export type { SkeletonHeadingProps } from './components/Skeleton/SkeletonHeading.props';
+
+export { TooltipProvider } from './components/Tooltip/TooltipProvider';
+export type { TooltipProviderProps } from './components/Tooltip/TooltipProvider.props';
+export { Tooltip } from './components/Tooltip/Tooltip';
+export type { TooltipProps } from './components/Tooltip/Tooltip.props';
