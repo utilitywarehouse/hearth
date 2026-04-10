@@ -4,11 +4,13 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'packages/react/**'
+      - 'apps/storybook-react/**'
   push:
     branches:
       - main
     paths:
       - 'packages/react/**'
+      - 'apps/storybook-react/**'
 
 permissions:
   contents: read
@@ -36,5 +38,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build:react
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+      - run: pnpm build:storybook:react
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
