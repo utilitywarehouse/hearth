@@ -7,7 +7,6 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { TooltipProps } from './Tooltip.props';
 import { BodyText } from '../BodyText/BodyText';
-import { Heading } from '../Heading/Heading';
 
 const COMPONENT_NAME = 'Tooltip';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
