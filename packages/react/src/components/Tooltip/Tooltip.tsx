@@ -10,7 +10,7 @@ import type { TooltipProps } from './Tooltip.props';
 const COMPONENT_NAME = 'Tooltip';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TooltipContentElement = ComponentRef<typeof TooltipPrimitive.Content>;
+type TooltipContentElement = ComponentRef<'div'>;
 
 export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
   (
