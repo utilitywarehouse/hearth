@@ -23,5 +23,5 @@ export interface TooltipProps
     > {
   /** The content to display inside the tooltip. */
   content: ReactNode;
-  alignment?: 'rightCenter' | 'leftCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
+  align?: 'rightCenter' | 'leftCenter' | 'bottomLeft' | 'bottomCenter' | 'bottomRight' | 'topLeft' | 'topCenter' | 'topRight';
 }

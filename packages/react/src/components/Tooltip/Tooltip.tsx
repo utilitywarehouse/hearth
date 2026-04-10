@@ -21,7 +21,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
       defaultOpen,
       onOpenChange,
       className,
-      alignment = 'topCenter',
+      align = 'topCenter',
       ...props
     },
     ref
@@ -53,7 +53,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
             className={cn(componentClassName, className)}
             avoidCollisions={true}
             sticky="partial"
-            {...alignmentTranslation[alignment]}
+            {...alignmentTranslation[align]}
             sideOffset={4}
             // arrowPadding={-40}
             {...props}

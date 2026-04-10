@@ -22,7 +22,7 @@ const meta: Meta<typeof Tooltip> = {
   ],
   argTypes: {
     content: { control: { type: 'text' } },
-    alignment: {
+    align: {
       control: {
         type: 'radio',
         options: [
@@ -40,7 +40,7 @@ const meta: Meta<typeof Tooltip> = {
   },
   args: {
     content: 'Tooltip content',
-    alignment: 'topCenter',
+    align: 'topCenter',
   },
 };
 
@@ -69,51 +69,51 @@ export const WithIconButton: Story = {
   ),
 };
 
-export const Alignment: Story = {
+export const align: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => (
     <Flex direction="column" alignItems="center" gap="400" padding="800">
       <Flex direction="row" gap="400" alignItems="center">
-        <Tooltip content="Left Center Alignment" alignment="leftCenter">
+        <Tooltip content="Left Center align" align="leftCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Right Center Alignment" alignment="rightCenter">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-      </Flex>
-      <Flex direction="row" gap="400">
-        <Tooltip content="Bottom Left Alignment" alignment="bottomLeft">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-        <Tooltip content="Bottom Center Alignment" alignment="bottomCenter">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-        <Tooltip content="Bottom Right Alignment" alignment="bottomRight">
+        <Tooltip content="Right Center align" align="rightCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
       </Flex>
       <Flex direction="row" gap="400">
-        <Tooltip content="Top Left Alignment" alignment="topLeft">
+        <Tooltip content="Bottom Left align" align="bottomLeft">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Top Center Alignment" alignment="topCenter">
+        <Tooltip content="Bottom Center align" align="bottomCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Top Right Alignment" alignment="topRight">
+        <Tooltip content="Bottom Right align" align="bottomRight">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
+      <Flex direction="row" gap="400">
+        <Tooltip content="Top Left align" align="topLeft">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Top Center align" align="topCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip content="Top Right align" align="topRight">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
