@@ -21,8 +21,6 @@ export interface TooltipProps
       ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>,
       'delayDuration' | 'disableHoverableContent'
     > {
-  /** The content to display inside the tooltip. */
-  content: ReactNode;
   align?:
     | 'rightCenter'
     | 'leftCenter'
@@ -32,4 +30,6 @@ export interface TooltipProps
     | 'topLeft'
     | 'topCenter'
     | 'topRight';
+  heading?: ReactNode;
+  description: ReactNode;
 }

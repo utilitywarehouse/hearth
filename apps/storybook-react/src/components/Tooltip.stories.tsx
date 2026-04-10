@@ -3,12 +3,11 @@ import {
   Tooltip,
   TooltipProvider,
   Button,
-  IconButton,
   Flex,
   BodyText,
   UnstyledIconButton,
 } from '@utilitywarehouse/hearth-react';
-import { AddSmallIcon, InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Stories / Tooltip',
@@ -21,7 +20,8 @@ const meta: Meta<typeof Tooltip> = {
     ),
   ],
   argTypes: {
-    content: { control: { type: 'text' } },
+    heading: { control: { type: 'text' } },
+    description: { control: { type: 'text' } },
     align: {
       control: {
         type: 'radio',
@@ -39,7 +39,7 @@ const meta: Meta<typeof Tooltip> = {
     },
   },
   args: {
-    content: 'Tooltip content',
+    description: 'Tooltip description',
     align: 'topCenter',
   },
 };
@@ -51,69 +51,102 @@ export const Playground: Story = {
   render: args => (
     <Flex justifyContent="center" padding="800">
       <Tooltip {...args}>
-        <Button>Hover me</Button>
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
       </Tooltip>
     </Flex>
   ),
 };
 
-export const WithIconButton: Story = {
-  render: () => (
+export const WithHeading: Story = {
+  args: { heading: 'Tooltip heading' },
+  render: args => (
     <Flex justifyContent="center" padding="800">
-      <Tooltip content="Add to library">
-        <IconButton label="Add to library">
-          <AddSmallIcon />
-        </IconButton>
+      <Tooltip {...args}>
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
       </Tooltip>
     </Flex>
   ),
 };
 
-export const align: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+export const DefaultOpen: Story = {
+  args: { defaultOpen: true },
+  render: args => (
+    <Flex justifyContent="center" padding="800" gap="800" direction="column">
+
+      <Tooltip {...args}>
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
+      </Tooltip>
+      <Tooltip {...args} open align="bottomCenter">
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
+      </Tooltip>
+    </Flex>
+  ),
+};
+
+export const WithButton: Story = {
+  render: args => (
+    <Flex justifyContent="center" padding="800">
+      <Tooltip {...args}>
+        <Button variant="outline" colorScheme="functional" size="sm">
+          Tooltip
+        </Button>
+      </Tooltip>
+    </Flex>
+  ),
+};
+
+export const Alignment: Story = {
   render: () => (
     <Flex direction="column" alignItems="center" gap="400" padding="800">
       <Flex direction="row" gap="400" alignItems="center">
-        <Tooltip content="Left Center align" align="leftCenter">
+        <Tooltip description="Left Center align" align="leftCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Right Center align" align="rightCenter">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-      </Flex>
-      <Flex direction="row" gap="400">
-        <Tooltip content="Bottom Left align" align="bottomLeft">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-        <Tooltip content="Bottom Center align" align="bottomCenter">
-          <UnstyledIconButton label="further information">
-            <InfoSmallIcon />
-          </UnstyledIconButton>
-        </Tooltip>
-        <Tooltip content="Bottom Right align" align="bottomRight">
+        <Tooltip description="Right Center align" align="rightCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
       </Flex>
       <Flex direction="row" gap="400">
-        <Tooltip content="Top Left align" align="topLeft">
+        <Tooltip description="Bottom Left align" align="bottomLeft">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Top Center align" align="topCenter">
+        <Tooltip description="Bottom Center align" align="bottomCenter">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
         </Tooltip>
-        <Tooltip content="Top Right align" align="topRight">
+        <Tooltip description="Bottom Right align" align="bottomRight">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
+      <Flex direction="row" gap="400">
+        <Tooltip description="Top Left align" align="topLeft">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip description="Top Center align" align="topCenter">
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+        <Tooltip description="Top Right align" align="topRight">
           <UnstyledIconButton label="further information">
             <InfoSmallIcon />
           </UnstyledIconButton>
@@ -127,14 +160,31 @@ export const WithRichContent: Story = {
   render: () => (
     <Flex justifyContent="center" padding="800">
       <Tooltip
-        content={
+        description={
           <Flex direction="column" gap="100">
             <BodyText weight="bold">Bold heading</BodyText>
             <BodyText>Some descriptive text for the tooltip.</BodyText>
           </Flex>
         }
       >
-        <Button>Rich content</Button>
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
+      </Tooltip>
+    </Flex>
+  ),
+};
+
+export const WithLongDescription: Story = {
+  render: () => (
+    <Flex justifyContent="center" padding="800">
+      <Tooltip
+        description="Roaming enables your phone to connect to a foreign network when you're outside your home country's network coverage"
+        align="rightCenter"
+      >
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
       </Tooltip>
     </Flex>
   ),
