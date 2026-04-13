@@ -7,6 +7,7 @@ export default {
   borderRadius: 8,
   gapHorizontal: 8,
   gapVertical: 2,
+  maxWidth: 680,
   paddingHorizontal: 12,
   paddingVertical: 8,
 } as const;
