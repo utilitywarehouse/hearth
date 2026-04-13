@@ -59,24 +59,10 @@ export const Playground: Story = {
   ),
 };
 
-export const WithHeading: Story = {
-  args: { heading: 'Tooltip heading' },
-  render: args => (
-    <Flex justifyContent="center" padding="800">
-      <Tooltip {...args}>
-        <UnstyledIconButton label="further information">
-          <InfoSmallIcon />
-        </UnstyledIconButton>
-      </Tooltip>
-    </Flex>
-  ),
-};
-
 export const DefaultOpen: Story = {
   args: { defaultOpen: true },
   render: args => (
     <Flex justifyContent="center" padding="800" gap="800" direction="column">
-
       <Tooltip {...args}>
         <UnstyledIconButton label="further information">
           <InfoSmallIcon />
@@ -156,17 +142,11 @@ export const Alignment: Story = {
   ),
 };
 
-export const WithRichContent: Story = {
-  render: () => (
+export const WithHeading: Story = {
+  args: { heading: 'Tooltip heading' },
+  render: args => (
     <Flex justifyContent="center" padding="800">
-      <Tooltip
-        description={
-          <Flex direction="column" gap="100">
-            <BodyText weight="bold">Bold heading</BodyText>
-            <BodyText>Some descriptive text for the tooltip.</BodyText>
-          </Flex>
-        }
-      >
+      <Tooltip {...args}>
         <UnstyledIconButton label="further information">
           <InfoSmallIcon />
         </UnstyledIconButton>
@@ -177,10 +157,39 @@ export const WithRichContent: Story = {
 
 export const WithLongDescription: Story = {
   render: () => (
-    <Flex justifyContent="center" padding="800">
+    <Flex direction="column" gap="800" padding="800">
       <Tooltip
         description="Roaming enables your phone to connect to a foreign network when you're outside your home country's network coverage"
         align="rightCenter"
+      >
+        <UnstyledIconButton label="further information">
+          <InfoSmallIcon />
+        </UnstyledIconButton>
+      </Tooltip>
+      <Flex justifyContent="center">
+        <Tooltip
+          description="Roaming enables your phone to connect to a foreign network when you're outside your home country's network coverage"
+          align="rightCenter"
+        >
+          <UnstyledIconButton label="further information">
+            <InfoSmallIcon />
+          </UnstyledIconButton>
+        </Tooltip>
+      </Flex>
+    </Flex>
+  ),
+};
+
+export const WithCustomContent: Story = {
+  render: () => (
+    <Flex justifyContent="center" padding="800">
+      <Tooltip
+        description={
+          <Flex direction="column" gap="100">
+            <BodyText weight="bold">Bold heading</BodyText>
+            <BodyText>Some descriptive text for the tooltip.</BodyText>
+          </Flex>
+        }
       >
         <UnstyledIconButton label="further information">
           <InfoSmallIcon />

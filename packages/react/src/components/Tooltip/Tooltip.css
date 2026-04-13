@@ -3,6 +3,15 @@
   padding: var(--h-tooltip-padding-vertical) var(--h-tooltip-padding-horizontal);
   background-color: var(--h-tooltip-background-color);
   color: var(--h-text-inverted);
+  /* set the max-width of the tooltip to the smaller of the two values: the
+   * tooltip max-width token or the available width minus a horizontal gutter.
+   * This ensures that the tooltip does not exceed a certain width while also
+   * accounting for the available space on the screen.  */
+  max-width: min(
+    var(--h-tooltip-max-width),
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties */
+    calc(var(--radix-popper-available-width) - var(--h-space-400))
+  );
   user-select: none;
   animation-duration: 300ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
