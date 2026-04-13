@@ -180,6 +180,7 @@
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
       }
+
       &:where([data-full-screen] &) {
         --h-modal-content-multiplier: 0.75; /* percentage of available height */
       }
