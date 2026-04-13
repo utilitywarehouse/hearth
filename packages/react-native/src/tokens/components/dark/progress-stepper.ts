@@ -5,7 +5,7 @@
 export default {
   bar: {
     complete: {
-      backgroundColor: '#7a42c8',
+      backgroundColor: '#996cda',
     },
     height: 2,
   },

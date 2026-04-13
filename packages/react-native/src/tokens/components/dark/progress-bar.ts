@@ -34,8 +34,8 @@ export default {
     },
   },
   progress: {
-    dangerColor: '#ff634a',
-    defaultColor: '#c6b5e2',
-    successColor: '#36bf7d',
+    dangerColor: '#f4412a',
+    defaultColor: '#996cda',
+    successColor: '#19a660',
   },
 } as const;
