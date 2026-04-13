@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Combobox, ComboboxItem, useComboboxFilter } from '@utilitywarehouse/hearth-react';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import React from 'react';
+import React, { useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
@@ -14,6 +14,7 @@ const meta: Meta<typeof Combobox> = {
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     noOptionsFoundText: { control: { type: 'text' } },
     loading: { control: { type: 'boolean' } },
+    statusText: { control: { type: 'text' } },
   },
   args: {
     label: 'Combobox',
@@ -48,6 +49,46 @@ export const ItemsAsChildren: Story = {
             {fruit}
           </ComboboxItem>
         ))}
+      </Combobox>
+    );
+  },
+};
+
+export const NoItems: Story = {
+  args: { defaultOpen: false },
+  render: args => {
+    const addressOptions: Array<string> = [];
+    const [postcodeValue, setPostcodeValue] = useState('');
+    const onPostcodeChange = (value: string) => {
+      const postcode = String(value).trim().toUpperCase();
+      setPostcodeValue(postcode);
+    };
+    return (
+      <Combobox
+        {...args}
+        helperText="Start typing postcode"
+        inputValue={postcodeValue}
+        label="Address"
+        marginBottom="50"
+        onInputValueChange={onPostcodeChange}
+        onValueChange={(value: any) => setPostcodeValue(value)}
+        required
+        triggerOnlyOnType
+        validationStatus="invalid"
+        validationText="Postcode not found"
+      >
+        {(function () {
+          if (addressOptions?.length) {
+            return addressOptions.map(address => (
+              <ComboboxItem key={address} value={address}>
+                {address}
+              </ComboboxItem>
+            ));
+          }
+
+          // return <ComboboxEmpty>No address found</ComboboxEmpty>;
+          return null;
+        })()}
       </Combobox>
     );
   },
@@ -185,6 +226,65 @@ export const Virtualised: Story = {
           </div>
         )}
       </Combobox>
+    );
+  },
+};
+
+const fruits = [
+  'Apple',
+  'Apricot',
+  'Avocado',
+  'Banana',
+  'Blackberry',
+  'Blueberry',
+  'Cherry',
+  'Coconut',
+  'Grape',
+  'Kiwi',
+  'Lemon',
+  'Mango',
+  'Orange',
+  'Peach',
+  'Pear',
+  'Pineapple',
+  'Raspberry',
+  'Strawberry',
+];
+
+export const FilterItems: Story = {
+  name: 'Filter Items (contains)',
+  render: args => {
+    const [value, setValue] = React.useState<string | null>(null);
+    const { contains } = useComboboxFilter({ value });
+
+    return (
+      <Combobox
+        {...args}
+        label="Fruit (contains)"
+        items={fruits}
+        filter={contains}
+        value={value}
+        onValueChange={v => setValue(v as string | null)}
+      />
+    );
+  },
+};
+
+export const FilterItemsStartsWith: Story = {
+  name: 'Filter Items (startsWith)',
+  render: args => {
+    const [value, setValue] = React.useState<string | null>(null);
+    const { startsWith } = useComboboxFilter({ value });
+
+    return (
+      <Combobox
+        {...args}
+        label="Fruit (startsWith)"
+        items={fruits}
+        filter={startsWith}
+        value={value}
+        onValueChange={v => setValue(v as string | null)}
+      />
     );
   },
 };

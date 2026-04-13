@@ -68,6 +68,8 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     hideLabel,
   };
 
+  const popupHasContent = Boolean(statusText) || Boolean(props.items) || Boolean(children);
+
   return (
     <FormField
       className={cn(componentClassName, className)}
@@ -118,44 +120,51 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
           }
         />
 
-        <ComboboxPrimitive.Portal>
-          <ComboboxPrimitive.Positioner
-            side="bottom"
-            sideOffset={16}
-            align="start"
-            alignOffset={-47}
-          >
-            <ComboboxPrimitive.Popup className={`${componentClassName}Popup`}>
-              {statusText ? (
-                <ComboboxPrimitive.Status>{statusText}</ComboboxPrimitive.Status>
-              ) : null}
-              {props.items ? (
-                <ComboboxEmpty className={`${componentClassName}Empty`}>
-                  {noOptionsFoundText}
-                </ComboboxEmpty>
-              ) : null}
-              <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')} type="auto">
-                <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
-                  <ComboboxPrimitive.List className={`${componentClassName}List`}>
-                    {children
-                      ? children
-                      : (item: string) => (
-                          <ComboboxItem key={item} value={item}>
-                            {item}
-                          </ComboboxItem>
-                        )}
-                  </ComboboxPrimitive.List>
-                </ScrollAreaPrimitive.Viewport>
-                <ScrollAreaPrimitive.Scrollbar
-                  className={withGlobalPrefix('ScrollAreaScrollbar')}
-                  orientation="vertical"
+        {popupHasContent ? (
+          <ComboboxPrimitive.Portal>
+            <ComboboxPrimitive.Positioner
+              side="bottom"
+              sideOffset={16}
+              align="start"
+              alignOffset={-47}
+            >
+              <ComboboxPrimitive.Popup className={`${componentClassName}Popup`}>
+                {statusText ? (
+                  <ComboboxPrimitive.Status className={`${componentClassName}StatusText`}>
+                    {statusText}
+                  </ComboboxPrimitive.Status>
+                ) : null}
+                {props.items ? (
+                  <ComboboxEmpty className={`${componentClassName}Empty`}>
+                    {noOptionsFoundText}
+                  </ComboboxEmpty>
+                ) : null}
+                <ScrollAreaPrimitive.Root
+                  className={withGlobalPrefix('ScrollAreaRoot')}
+                  type="auto"
                 >
-                  <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
-                </ScrollAreaPrimitive.Scrollbar>
-              </ScrollAreaPrimitive.Root>
-            </ComboboxPrimitive.Popup>
-          </ComboboxPrimitive.Positioner>
-        </ComboboxPrimitive.Portal>
+                  <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
+                    <ComboboxPrimitive.List className={`${componentClassName}List`}>
+                      {children
+                        ? children
+                        : (item: string) => (
+                            <ComboboxItem key={item} value={item}>
+                              {item}
+                            </ComboboxItem>
+                          )}
+                    </ComboboxPrimitive.List>
+                  </ScrollAreaPrimitive.Viewport>
+                  <ScrollAreaPrimitive.Scrollbar
+                    className={withGlobalPrefix('ScrollAreaScrollbar')}
+                    orientation="vertical"
+                  >
+                    <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
+                  </ScrollAreaPrimitive.Scrollbar>
+                </ScrollAreaPrimitive.Root>
+              </ComboboxPrimitive.Popup>
+            </ComboboxPrimitive.Positioner>
+          </ComboboxPrimitive.Portal>
+        ) : null}
       </ComboboxPrimitive.Root>
     </FormField>
   );
