@@ -6,8 +6,8 @@ import SpotPiggyBankDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-pigg
 import SpotPiggyBankLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-light.svg';
 import { ScopedTheme } from 'react-native-unistyles';
 import StorybookLink from '../../../shared/storybook/StorybookLink';
-import { Alert, BodyText, Box, Card, Center, Flex, Heading, Icon, ThemedImage } from '../src';
-import { BackToTopButton, InputShadowExample, NextPrevPage, UsageWrap } from './components';
+import { Alert, BodyText, Box, Center, Flex, Heading, Icon } from '../src';
+import { BackToTopButton, NextPrevPage, UsageWrap } from './components';
 
 <Meta title="Guides / Dark Mode Best Practice" />
 <BackToTopButton />
@@ -27,7 +27,7 @@ When designing for dark mode in Hearth React Native, it's important to ensure th
 
 <br />
 <Box my="400">
-  <Alert text="By default all components adapt to the current themed color mode. This guide will help you understand how to work with and easily support dark mode in your apps using Hearth React Native." />
+  <Alert text="By default, all components adapt to the current themed colour mode. This guide will help you understand how to work with and easily support dark mode in your apps using Hearth React Native." />
 </Box>
 <br />
 <br />
@@ -141,12 +141,12 @@ For example, instead of setting a background colour directly, you can use the `b
         <ScopedTheme name="light">
           <Box backgroundColor="brand" p="400">
             <BodyText color="inverted">
-              This branded box and text adapts to light or dark mode!
+              This branded box and text adapt to light or dark mode!
             </BodyText>
           </Box>
           <Box backgroundColor="secondary" p="400">
-            <BodyText color="primary">This box and text adapts to light or dark mode!</BodyText>
-            <BodyText color="secondary">This secondary text adapts to light or dark mode!</BodyText>
+            <BodyText color="primary">This box and text adapt to light or dark mode!</BodyText>
+            <BodyText color="secondary">This secondary text adapt to light or dark mode!</BodyText>
           </Box>
         </ScopedTheme>
       </Flex>
@@ -159,12 +159,12 @@ For example, instead of setting a background colour directly, you can use the `b
         <ScopedTheme name="dark">
           <Box backgroundColor="brand" p="400">
             <BodyText color="inverted">
-              This branded box and text adapts to light or dark mode!
+              This branded box and text adapt to light or dark mode!
             </BodyText>
           </Box>
           <Box backgroundColor="secondary" p="400">
-            <BodyText color="primary">This box and text adapts to light or dark mode!</BodyText>
-            <BodyText color="secondary">This secondary text adapts to light or dark mode!</BodyText>
+            <BodyText color="primary">This box and text adapt to light or dark mode!</BodyText>
+            <BodyText color="secondary">This secondary text adapt to light or dark mode!</BodyText>
           </Box>
         </ScopedTheme>
       </Flex>
@@ -174,11 +174,11 @@ For example, instead of setting a background colour directly, you can use the `b
 
 ```tsx
 <Box backgroundColor="brand" p="400">
-  <BodyText color="inverted">This branded box and text adapts to light or dark mode!</BodyText>
+  <BodyText color="inverted">This branded box and text adapt to light or dark mode!</BodyText>
 </Box>
 <Box backgroundColor="secondary" p="400">
-  <BodyText color="primary">This box and text adapts to light or dark mode!</BodyText>
-  <BodyText color="secondary">This secondary text adapts to light or dark mode!</BodyText>
+  <BodyText color="primary">This box and text adapt to light or dark mode!</BodyText>
+  <BodyText color="secondary">This secondary text adapt to light or dark mode!</BodyText>
 </Box>
 ```
 
@@ -214,7 +214,7 @@ colour which adapts to light and dark mode):
 </UsageWrap>
 
 ```tsx
-import { Icon } from '@utilitywarehouse/hearth-react-native';
+import { Icon , useTheme } from '@utilitywarehouse/hearth-react-native';
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 <Icon as={SearchMediumIcon} />;
@@ -250,6 +250,7 @@ of the illustration and conditionally render the appropriate one based on the cu
 </UsageWrap>
 
 ```tsx
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 import SceneBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-dark.svg';
 import SceneBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg';
 
