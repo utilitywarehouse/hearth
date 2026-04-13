@@ -3,7 +3,7 @@
  */
 
 export default {
-  defaultFill: '#af90de',
+  defaultFill: '#996cda',
   lg: {
     size: 40,
     strokeWidth: 3,

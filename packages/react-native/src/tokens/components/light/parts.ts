@@ -4,7 +4,7 @@
 
 export default {
   homeIndicator: {
-    foregroundColor: '#000000',
+    foregroundColor: '#101010',
     foregroundColorInverted: '#ffffff',
   },
   modalStack: {
@@ -26,8 +26,8 @@ export default {
     borderRadius: 9999,
   },
   statusBar: {
-    foregroundColor: '#000000',
+    foregroundColor: '#101010',
     foregroundColorInverted: '#ffffff',
-    notch: '#000000',
+    notch: '#101010',
   },
 } as const;

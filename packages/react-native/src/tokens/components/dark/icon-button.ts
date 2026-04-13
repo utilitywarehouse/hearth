@@ -5,9 +5,9 @@
 export default {
   iconButton: {
     unstyled: {
-      foregroundColor: '#101010',
-      foregroundColorActive: '#3f3f3f',
-      foregroundColorHover: '#3a3837',
+      foregroundColor: '#ebebeb',
+      foregroundColorActive: '#b2afae',
+      foregroundColorHover: '#d3d3d3',
     },
   },
   borderRadius: 8,

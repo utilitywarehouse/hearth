@@ -6,7 +6,7 @@ export default {
   borderRadius: 4,
   borderWidth: 2,
   checked: {
-    backgroundColor: '#ebebeb',
+    backgroundColor: '#888888',
     icon: {
       color: '#101010',
     },
