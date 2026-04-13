@@ -30,6 +30,6 @@ export interface TooltipProps
     | 'topLeft'
     | 'topCenter'
     | 'topRight';
-  heading?: ReactNode;
+  heading?: string;
   description: ReactNode;
 }

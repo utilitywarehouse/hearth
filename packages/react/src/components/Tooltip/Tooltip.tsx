@@ -66,7 +66,9 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
                   {heading}
                 </BodyText>
               ) : null}
-              <BodyText size="md">{description}</BodyText>
+              <BodyText size="md" as="div">
+                {description}
+              </BodyText>
             </div>
             <TooltipPrimitive.Arrow
               className={`${componentClassName}Arrow`}
