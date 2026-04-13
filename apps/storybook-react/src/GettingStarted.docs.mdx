@@ -53,7 +53,8 @@ import '@utilitywarehouse/hearth-react/styles.css';
 
 Wrap your application with `HearthProvider` to enable all necessary context
 providers for Hearth components. It is recommended to place this at the root of
-your application.
+your application. However if you prefer a more specific approach, you can use
+the specific providers as needed, which are also exported from the package.
 
 ```tsx
 import { HearthProvider } from '@utilitywarehouse/hearth-react';
@@ -65,7 +66,7 @@ function App({ children }) {
 
 `HearthProvider` currently includes the following providers:
 
-- `TooltipProvider` — required for `Tooltip` components
+- `TooltipProvider` — required for the `Tooltip` component.
 
 ## Start building
 

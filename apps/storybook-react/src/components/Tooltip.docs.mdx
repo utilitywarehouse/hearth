@@ -5,10 +5,11 @@ import * as Stories from './Tooltip.stories';
 
 # Tooltip
 
-A `Tooltip` is a popup that displays information related to an element when
+Use `Tooltip` to temporarily display short, contextual text, that
+is not critical information, related to an element when
 the element receives keyboard focus or the mouse hovers over it.
 
-- [Provider setup](#provider-setup)
+- [Setup](#setup)
 - [Usage](#usage)
 - [Alignment](#alignment)
 - [Heading](#heading)
@@ -18,16 +19,17 @@ the element receives keyboard focus or the mouse hovers over it.
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
-## Provider setup
+## Setup
 
-Tooltips require a provider to be present in the component tree. You have two
-options:
+`Tooltip` requires a provider to be present in the component tree. You can use
+either the global `HearthProvider` or the more specific `TooltipProvider`
+depending on your needs.
 
-### HearthProvider (recommended)
+### HearthProvider
 
 When setting up your application, wrap it with `HearthProvider`. This is the
-preferred approach as it includes all necessary providers for Hearth components,
-including tooltip support.
+preferred approach as it includes all necessary providers for Hearth
+components, including tooltip support.
 
 ```tsx
 import { HearthProvider } from '@utilitywarehouse/hearth-react';
@@ -102,8 +104,6 @@ Adheres to the [WAI-ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/toolt
 
 ## API
 
-### Tooltip
-
 | Prop           | Type                                                                                                                         | Default       |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | `children`     | `ReactNode`                                                                                                                  |               |
@@ -114,13 +114,7 @@ Adheres to the [WAI-ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/toolt
 | `defaultOpen`  | `boolean`                                                                                                                    |               |
 | `onOpenChange` | `(open: boolean) => void`                                                                                                    |               |
 
-### TooltipProvider
-
-| Prop       | Type        |
-| ---------- | ----------- |
-| `children` | `ReactNode` |
-
-### HearthProvider
+### TooltipProvider API
 
 | Prop       | Type        |
 | ---------- | ----------- |

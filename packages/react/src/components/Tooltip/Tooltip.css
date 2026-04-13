@@ -43,6 +43,7 @@
 
   & .h-TooltipArrow {
     fill: var(--h-tooltip-background-color);
+    visibility: visible;
   }
 }
 

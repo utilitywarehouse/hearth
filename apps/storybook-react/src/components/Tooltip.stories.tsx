@@ -23,20 +23,19 @@ const meta: Meta<typeof Tooltip> = {
     heading: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
     align: {
-      control: {
-        type: 'radio',
-        options: [
-          'rightCenter',
-          'leftCenter',
-          'bottomLeft',
-          'bottomCenter',
-          'bottomRight',
-          'topLeft',
-          'topCenter',
-          'topRight',
-        ],
-      },
+      control: { type: 'radio' },
+      options: [
+        'rightCenter',
+        'leftCenter',
+        'bottomLeft',
+        'bottomCenter',
+        'bottomRight',
+        'topLeft',
+        'topCenter',
+        'topRight',
+      ],
     },
+    open: { control: { type: 'boolean' } },
   },
   args: {
     description: 'Tooltip description',
