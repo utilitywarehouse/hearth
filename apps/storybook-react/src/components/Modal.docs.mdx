@@ -51,6 +51,12 @@ If you have a lot of content within the modal, it is recommended to wrap the
 content in a `ModalContent` component. This will ensure that the content is
 scrollable and fits within the viewport.
 
+If you have long content that needs to scroll on mobile, you need to set the
+`fullScreen` prop to `true`, which will make the modal take up the full screen
+on mobile, and ensure the content scrolls correctly.
+
+<Canvas of={Stories.WithLongContent} />
+
 ## Accessibility
 
 Follows the [WAI-ARIA Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) Pattern.
