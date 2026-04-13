@@ -76,9 +76,14 @@
 
   & :where(.h-ModalCloseIconButton) {
     position: absolute;
-    top: var(--h-modal-padding);
-    right: var(--h-modal-padding);
     z-index: 1;
+    top: var(--h-bottom-sheet-padding);
+    right: var(--h-bottom-sheet-padding);
+
+    @media (--h-tablet) {
+      top: var(--h-modal-padding);
+      right: var(--h-modal-padding);
+    }
   }
 
   & :where(.h-ModalInnerContainer) {
@@ -174,9 +179,12 @@
 
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
-
-        max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
       }
+      &:where([data-full-screen] &) {
+        --h-modal-content-multiplier: 0.75; /* percentage of available height */
+      }
+
+      max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
     }
   }
 
