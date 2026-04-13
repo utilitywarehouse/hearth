@@ -2727,6 +2727,10 @@
         "type": "number",
         "value": 2
       },
+      "max-width": {
+        "type": "number",
+        "value": 680
+      },
       "padding-horizontal": {
         "alias": "{space.150}",
         "type": "number",
@@ -5512,6 +5516,10 @@
         "alias": "{space.25}",
         "type": "number",
         "value": 2
+      },
+      "max-width": {
+        "type": "number",
+        "value": 680
       },
       "padding-horizontal": {
         "alias": "{space.150}",
