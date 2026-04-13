@@ -14,6 +14,8 @@ export default {
   },
   headerCell: {
     borderWidth: 2,
+    foregoundColor: '#101010',
+    foregoundColorInverted: '#ffffff',
     gap: 8,
     height: 56,
     paddingHorizontal: 12,

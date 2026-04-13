@@ -11,9 +11,10 @@ const renderContent = (
   weight: 'regular' | 'semibold' = 'semibold',
   color: 'purple' | 'white' = 'white'
 ) => {
+  styles.useVariants({ color });
   if (typeof children === 'string' || typeof children === 'number') {
     return (
-      <BodyText size="md" weight={weight} style={styles.text} inverted={color === 'purple'}>
+      <BodyText size="md" weight={weight} style={styles.text}>
         {children}
       </BodyText>
     );
@@ -127,6 +128,14 @@ const styles = StyleSheet.create(theme => ({
       row: {
         true: {
           color: theme.color.text.primary,
+        },
+      },
+      color: {
+        purple: {
+          color: theme.components.table.headerCell.foregoundColorInverted,
+        },
+        white: {
+          color: theme.components.table.headerCell.foregoundColor,
         },
       },
     },
