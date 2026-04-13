@@ -87,13 +87,11 @@ export default function Home() {
       </StyledBox>
       <Flex padding="200" gap="300">
         <Button asChild onClick={() => console.log('Hearth React Button + Next.js')}>
-          <NextLink href="https://uw-hearth-react.vercel.app/?path=/docs/components-button--docs">
-            Hearth React + Next.js
-          </NextLink>
+          <NextLink href="https://nextjs.org/">Hearth React + Next.js</NextLink>
         </Button>
         <Link asChild>
           <NextLink
-            href="https://uw-hearth-react.vercel.app/?path=/docs/components-link--docs"
+            href="https://nextjs.org/"
             onClick={() => console.log('Hearth React Link + Next.js')}
           >
             Hearth React + Next.js

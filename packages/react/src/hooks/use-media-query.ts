@@ -24,7 +24,6 @@ export interface UseMediaQueryOptions {
  * @param {string} query - The media query to track.
  * @param {?UseMediaQueryOptions} [options] - The options for customizing the behavior of the hook (optional).
  * @returns {boolean} The current state of the media query (true if the query matches, false otherwise).
- * @see [Documentation](https://uw-web-ui.vercel.app/?path=/docs/web-ui-helpers-media-queries--documentation##usemediaqueries-hook)
  * @example
  * ```tsx
  * import { useMediaQuery, media } from '@utilitywarehouse/hearth-react';
