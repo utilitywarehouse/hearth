@@ -11,6 +11,7 @@ import * as Stories from './Combobox.stories';
 - [Trigger only on type](#trigger-only-on-type)
 - [No options found](#no-options-found)
 - [Status text](#status-text)
+- [useComboboxFilter](#usecomboboxfilter)
 - [Virtualised](#virtualised)
 - [API](#api)
 
@@ -63,6 +64,45 @@ component to display when there are no options available.
 Use the `statusText` prop to display a status message whose content changes are
 announced politely to screen readers. Useful for conveying the status of an
 asynchronously loaded list.
+
+## useComboboxFilter
+
+The `useComboboxFilter` hook provides robust string matching using `Intl.Collator`.
+It returns three filter functions — `contains`, `startsWith`, and `endsWith` —
+that can be passed to the `filter` prop on `Combobox`.
+
+When using `useComboboxFilter`, pass the `items` prop to provide the full list
+of options to the `Combobox`, and pass the chosen filter function to the `filter`
+prop. The `Combobox` will handle filtering the items internally.
+
+```tsx
+import { Combobox, useComboboxFilter } from '@utilitywarehouse/hearth-react';
+
+const fruits = ['Apple', 'Banana', 'Cherry', 'Grape', 'Mango', 'Orange'];
+
+const [value, setValue] = React.useState<string | null>(null);
+const { contains } = useComboboxFilter({ value });
+
+<Combobox label="Fruit" items={fruits} filter={contains} value={value} onValueChange={setValue} />;
+```
+
+<Canvas of={Stories.FilterItems} sourceState="hidden" />
+
+The `startsWith` and `endsWith` functions work the same way but match only from
+the beginning or end of each item's label respectively.
+
+<Canvas of={Stories.FilterItemsStartsWith} sourceState="hidden" />
+
+For more advanced scenarios, such as virtualised lists where you need to manage
+the filtered items yourself, you can call the filter functions directly:
+
+```tsx
+const { contains } = useComboboxFilter({ value });
+
+const filteredItems = React.useMemo(() => {
+  return allItems.filter(item => contains(item, searchValue, getItemLabel));
+}, [contains, searchValue]);
+```
 
 ## Virtualised
 
