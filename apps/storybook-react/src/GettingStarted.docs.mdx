@@ -10,6 +10,7 @@ Current version: v{version}
 
 - [Install Hearth](#install-hearth)
 - [Import CSS](#import-css)
+- [HearthProvider](#hearthprovider)
 - [Start building](#start-building)
 - [CSS reset](#css-reset)
 - [Portals](#portals)
@@ -47,6 +48,24 @@ Add the following imports in the root of your application:
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 ```
+
+## HearthProvider
+
+Wrap your application with `HearthProvider` to enable all necessary context
+providers for Hearth components. It is recommended to place this at the root of
+your application.
+
+```tsx
+import { HearthProvider } from '@utilitywarehouse/hearth-react';
+
+function App({ children }) {
+  return <HearthProvider>{children}</HearthProvider>;
+}
+```
+
+`HearthProvider` currently includes the following providers:
+
+- `TooltipProvider` — required for `Tooltip` components
 
 ## Start building
 

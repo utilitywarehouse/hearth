@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   Tooltip,
-  TooltipProvider,
+  HearthProvider,
   Button,
   Flex,
   BodyText,
@@ -14,9 +14,9 @@ const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
   decorators: [
     Story => (
-      <TooltipProvider>
+      <HearthProvider>
         <Story />
-      </TooltipProvider>
+      </HearthProvider>
     ),
   ],
   argTypes: {
