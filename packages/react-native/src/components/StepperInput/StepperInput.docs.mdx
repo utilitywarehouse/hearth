@@ -1,0 +1,111 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { StepperInput } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './StepperInput.stories';
+
+<Meta title="Forms / Stepper Input" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=10612-1860&t=aFS22MoPV7Y08jdq-4" />
+
+# Stepper Input
+
+The Stepper Input combines a numeric text input with decrement and increment controls. Use it when the value should stay within a defined range but still needs direct text entry.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <StepperInput
+    label="Guests"
+    helperText="Choose between 1 and 10"
+    value="2"
+    onChangeText={() => undefined}
+  />
+</UsageWrap>
+
+```tsx
+import { useState } from 'react';
+import { StepperInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('2');
+
+  return (
+    <StepperInput
+      label="Guests"
+      helperText="Choose between 1 and 10"
+      min={1}
+      max={10}
+      value={value}
+      onChangeText={setValue}
+    />
+  );
+};
+```
+
+## Props
+
+The Stepper Input inherits React Native `TextInput` props except `children`, `value`, `defaultValue`, `onChangeText`, `editable`, and `keyboardType`. It also supports the following props:
+
+| Prop                          | Type                                | Default            | Description                                                                                 |
+| ----------------------------- | ----------------------------------- | ------------------ | ------------------------------------------------------------------------------------------- |
+| `value`                       | `string \| number`                  | -                  | Controlled value displayed in the input.                                                    |
+| `defaultValue`                | `number`                            | -                  | Initial value for uncontrolled usage.                                                       |
+| `onChangeText`                | `(text: string) => void`            | -                  | Called whenever the displayed string changes.                                               |
+| `onChangeValue`               | `(value: number) => void`           | -                  | Called whenever the current text can be parsed as a number.                                 |
+| `min`                         | `number`                            | -                  | Minimum allowed numeric value.                                                              |
+| `max`                         | `number`                            | -                  | Maximum allowed numeric value.                                                              |
+| `step`                        | `number`                            | `1`                | Amount added or removed when the side buttons are pressed.                                  |
+| `focusInputOnStepPress`       | `boolean`                           | `false`            | When `true`, pressing a step button moves focus to the text input after updating the value. |
+| `validationStatus`            | `'initial' \| 'valid' \| 'invalid'` | `'initial'`        | Validation styling for the center input.                                                    |
+| `label`                       | `string`                            | -                  | Label shown above the stepper.                                                              |
+| `labelVariant`                | `'heading' \| 'body'`               | `'body'`           | Typography variant used for the label.                                                      |
+| `helperText`                  | `string`                            | -                  | Helper text shown below the label.                                                          |
+| `helperIcon`                  | `ComponentType`                     | -                  | Optional helper icon shown next to helper text.                                             |
+| `invalidText`                 | `string`                            | -                  | Validation text shown when `validationStatus="invalid"`.                                    |
+| `validText`                   | `string`                            | -                  | Validation text shown when `validationStatus="valid"`.                                      |
+| `disabled`                    | `boolean`                           | `false`            | Disables the input and both stepper buttons.                                                |
+| `readonly`                    | `boolean`                           | `false`            | Prevents editing and disables both buttons.                                                 |
+| `focused`                     | `boolean`                           | `false`            | Forces the focused visual state on the center input.                                        |
+| `decrementAccessibilityLabel` | `string`                            | `'Decrease value'` | Accessibility label for the decrement button.                                               |
+| `incrementAccessibilityLabel` | `string`                            | `'Increase value'` | Accessibility label for the increment button.                                               |
+
+## Examples
+
+### States
+
+<Canvas of={Stories.States} />
+
+### Bounds
+
+<Canvas of={Stories.Bounds} />
+
+### Opt-In Focus On Step Press
+
+By default, the increment and decrement buttons update the value without moving focus into the text field. Enable `focusInputOnStepPress` when keyboard-first flows need the caret to stay in the input after a button press.
+
+<Canvas of={Stories.FocusOnStepPress} />
+
+```tsx
+<StepperInput label="Guests" value={value} onChangeText={setValue} focusInputOnStepPress />
+```
+
+## Accessibility
+
+- The center field remains a standard text input, so screen readers can edit the value directly.
+- The side controls expose button semantics with separate accessibility labels for increment and decrement.
+- Button presses do not move focus into the text field unless `focusInputOnStepPress` is enabled.
+- Validation, helper text, and disabled state follow the same `FormField` treatment as other input components.
