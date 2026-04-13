@@ -1,6 +1,7 @@
 import { createFormControl } from '@gluestack-ui/form-control';
 import { useMemo, useState } from 'react';
 import { View } from 'react-native';
+import { BodyText } from '../BodyText';
 import { HelperIcon, HelperText } from '../Helper';
 import { FormFieldContext } from './FormField.context';
 import FormFieldProps from './FormField.props';
@@ -94,7 +95,7 @@ const FormField = ({
                 accessibilityElementsHidden={shouldHandleAccessibility}
               >
                 {label}
-                {!required ? ` (Optional)` : ''}
+                {!required ? <BodyText weight="regular"> (Optional)</BodyText> : ''}
               </FormFieldLabelText>
             )}
             {!!helperText && (

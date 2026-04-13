@@ -460,6 +460,7 @@
   --h-tooltip-border-radius: var(--h-border-radius-md);
   --h-tooltip-gap-horizontal: var(--h-space-100);
   --h-tooltip-gap-vertical: var(--h-space-25);
+  --h-tooltip-max-width: 680px;
   --h-tooltip-padding-horizontal: var(--h-space-150);
   --h-tooltip-padding-vertical: var(--h-space-100);
   --h-card-padding-desktop: var(--h-space-300);

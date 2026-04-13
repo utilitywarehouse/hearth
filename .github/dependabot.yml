@@ -29,6 +29,9 @@ updates:
         patterns:
           - '*'
 
+    ignore:
+      - dependency-name: 'next'
+
   - package-ecosystem: 'docker'
     directory: '/apps/storybook-server'
     schedule:

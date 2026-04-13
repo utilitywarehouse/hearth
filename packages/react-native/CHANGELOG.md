@@ -1,5 +1,175 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.31.0
+
+### Minor Changes
+
+- [#1108](https://github.com/utilitywarehouse/hearth/pull/1108) [`8c2f3b5`](https://github.com/utilitywarehouse/hearth/commit/8c2f3b5334de83a7dd799b857394a34209b748e7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add margin, padding, and layout utility props to `Flex`.
+
+  `Flex` now exposes the shared margin and padding utility props, along with the existing layout utility prop surface, so it can be used more like other layout primitives such as `Card`.
+
+  **Component affected**:
+  - `Flex`
+
+  **Developer changes**:
+
+  You can now apply spacing and layout utility props directly on `Flex`:
+
+  ```tsx
+  <Flex direction="row" spacing="md" padding="300" marginTop="200" flex={1}>
+    <Button>Back</Button>
+    <Button>Continue</Button>
+  </Flex>
+  ```
+
+- [#1104](https://github.com/utilitywarehouse/hearth/pull/1104) [`91feeab`](https://github.com/utilitywarehouse/hearth/commit/91feeab091ae6bf80e543f9196214066ce8b29b0) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add custom trigger content options to `ExpandableCard`.
+
+  `ExpandableCard` now supports a `triggerContent` prop for replacing the default trigger layout while keeping the chevron. `ExpandableCardTrigger` also now supports `children` with an optional `showChevron` prop, so you can fully compose the trigger content yourself and still opt in to the built-in expand/collapse chevron.
+
+  **Components affected**:
+  - `ExpandableCard`
+  - `ExpandableCardTrigger`
+
+  **Developer changes**:
+
+  Use `triggerContent` when you want a single prop on `ExpandableCard` to replace the standard trigger content:
+
+  ```tsx
+  <ExpandableCard
+    triggerContent={<BodyText weight="semibold">March bill ready</BodyText>}
+    expandedContent={<BodyText>Balance: £89.50</BodyText>}
+  />
+  ```
+
+  Use `ExpandableCardTrigger` children when you want full control over the trigger structure. Add `showChevron` if you still want the built-in chevron:
+
+  ```tsx
+  <ExpandableCardTrigger isExpanded={expanded} onPress={toggleExpanded} showChevron>
+    <ExpandableCardContent>
+      <ExpandableCardText>Custom trigger</ExpandableCardText>
+    </ExpandableCardContent>
+  </ExpandableCardTrigger>
+  ```
+
+- [#1109](https://github.com/utilitywarehouse/hearth/pull/1109) [`8215550`](https://github.com/utilitywarehouse/hearth/commit/8215550745d08a8b4c18a6902e39d3199018092a) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `numberOfLines` support to `Badge` text.
+
+  `Badge` now renders its text content on a single line by default and supports a new `numberOfLines` prop when you want to allow more lines.
+
+  **Components affected**:
+  - `Badge`
+
+  **Developer changes**:
+
+  No changes are required unless you want a `Badge` to wrap onto more than one line. To opt in, pass `numberOfLines`:
+
+  ```tsx
+  <Badge numberOfLines={2} text="Long badge text that can wrap onto a second line" />
+  ```
+
+- [#1108](https://github.com/utilitywarehouse/hearth/pull/1108) [`8c2f3b5`](https://github.com/utilitywarehouse/hearth/commit/8c2f3b5334de83a7dd799b857394a34209b748e7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add custom footer support to `Modal` and `NavModal`.
+
+  `Modal` and `NavModal` now support a `footer` prop for replacing the built-in primary and secondary action buttons with custom content, plus a `footerStyle` prop for styling the footer container. When `footer` is provided, the button props are now disallowed at the type level.
+
+  **Components affected**:
+  - `Modal`
+  - `NavModal`
+
+  **Developer changes**:
+
+  Use `footer` when you need a custom footer layout, such as horizontal actions or extra decoration:
+
+  ```tsx
+  <Modal
+    heading="Update billing details"
+    footer={
+      <Flex direction="row" spacing="md" pt="250">
+        <Button variant="outline" colorScheme="functional" style={{ flex: 1 }}>
+          Cancel
+        </Button>
+        <Button style={{ flex: 1 }}>Save changes</Button>
+      </Flex>
+    }
+    footerStyle={{
+      boxShadow: '0px -6px 12px rgba(16, 24, 40, 0.12)',
+    }}
+  />
+  ```
+
+- [#1103](https://github.com/utilitywarehouse/hearth/pull/1103) [`e375a44`](https://github.com/utilitywarehouse/hearth/commit/e375a442c507da1807e49f4d78e44edfff51d245) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add optional vertical resizing to `Textarea`.
+
+  `Textarea` now supports a new `resizable` prop that adds a bottom-right drag handle so people can increase the field height when they need more space for longer content.
+
+  **Components affected**:
+  - `Textarea`
+
+  **Developer changes**:
+
+  No changes are required unless you want to enable resizing for a textarea. To opt in, pass the new `resizable` prop:
+
+  ```tsx
+  <Textarea
+    label="Additional notes"
+    helperText="Drag the corner handle to resize"
+    placeholder="Enter your text here..."
+    resizable
+  />
+  ```
+
+- [#1108](https://github.com/utilitywarehouse/hearth/pull/1108) [`8c2f3b5`](https://github.com/utilitywarehouse/hearth/commit/8c2f3b5334de83a7dd799b857394a34209b748e7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add flex utility props to `Container`.
+
+  `Container` now exposes shared flex layout utility props, allowing layout properties such as `flex`, `alignItems`, `justifyContent`, and `flexDirection` to be applied directly through its public prop API.
+
+  **Component affected**:
+  - `Container`
+
+  **Developer changes**:
+
+  You can now combine `Container`'s existing spacing props with flex layout props:
+
+  ```tsx
+  <Container flex={1} justifyContent="center" alignItems="stretch" gap="200">
+    <BodyText>Content</BodyText>
+  </Container>
+  ```
+
+### Patch Changes
+
+- [#1103](https://github.com/utilitywarehouse/hearth/pull/1103) [`e375a44`](https://github.com/utilitywarehouse/hearth/commit/e375a442c507da1807e49f4d78e44edfff51d245) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Render FormField optional text with regular weight instead of inheriting the label weight.
+
+  This fixes FormField labels that append `(Optional)` so the optional text no longer inherits the main label weight.
+
+  **Components affected**:
+  - `FormField`
+  - `Textarea`
+  - `Input`
+
+  **Developer changes**:
+
+  No changes are required.
+
+- [#1104](https://github.com/utilitywarehouse/hearth/pull/1104) [`91feeab`](https://github.com/utilitywarehouse/hearth/commit/91feeab091ae6bf80e543f9196214066ce8b29b0) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ExpandableCard` heading font size and weight
+
+## 0.30.4
+
+### Patch Changes
+
+- [#1096](https://github.com/utilitywarehouse/hearth/pull/1096) [`6fd9021`](https://github.com/utilitywarehouse/hearth/commit/6fd9021a91ef38b56b78755965515a0807b34fa1) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: Restore visibility of bottom sheet content in iOS accessibility tree, enabling automated tests to interact with `Select` options
+
+## 0.30.3
+
+### Patch Changes
+
+- [#1094](https://github.com/utilitywarehouse/hearth/pull/1094) [`a9d8e66`](https://github.com/utilitywarehouse/hearth/commit/a9d8e660b7efa23c7a573af2658fc10ab6c043b9) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make horizontal pressable `Banner` content flex correctly on native and web.
+
+  This fixes horizontal pressable `Banner` layouts where the content area did not expand consistently, which could misplace the chevron and action content.
+
+  **Components affected**:
+  - `Banner`
+
+  **Developer changes**:
+
+  No changes are required.
+
 ## 0.30.2
 
 ### Patch Changes

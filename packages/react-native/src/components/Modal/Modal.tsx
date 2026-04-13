@@ -6,9 +6,10 @@ import {
 } from '@gorhom/bottom-sheet';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useCallback, useImperativeHandle, useMemo, useRef } from 'react';
-import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
+import { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import { AccessibilityInfo, LayoutChangeEvent, Platform, View, findNodeHandle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
@@ -38,15 +39,19 @@ const Modal = ({
   loadingDescription,
   fullscreen = false,
   image,
+  footer,
+  footerStyle,
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
   stickyFooter = true,
   ...props
 }: ModalProps) => {
+  const theme = useTheme();
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const viewRef = useRef<View>(null);
   const scrollViewRef = useRef<BottomSheetScrollViewMethods>(null);
+  const [stickyFooterHeight, setStickyFooterHeight] = useState(0);
   const { useSafeAreaInsets } = useBottomSheetContext();
 
   useImperativeHandle(ref, () => ({
@@ -100,45 +105,57 @@ const Modal = ({
     }
   }, [closeOnSecondaryButtonPress, onPressSecondaryButton]);
 
-  const noButtons = !onPressPrimaryButton && !onPressSecondaryButton;
+  const handleStickyFooterLayout = useCallback((event: LayoutChangeEvent) => {
+    const nextHeight = Math.ceil(event.nativeEvent.layout.height);
+
+    setStickyFooterHeight(currentHeight =>
+      currentHeight === nextHeight ? currentHeight : nextHeight
+    );
+  }, []);
+
+  const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
+  const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
+  const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
+  const shouldShowFooter = !loading && hasFooter;
 
   styles.useVariants({
     loading,
-    bothButtons: !!(onPressPrimaryButton && onPressSecondaryButton),
-    noButtons,
+    noButtons: !shouldShowFooter,
     stickyFooter,
     showHandle: props.showHandle,
     useSafeAreaInsets,
   });
 
-  const footer = useMemo(
-    () => (
-      <View style={styles.footer}>
-        {onPressPrimaryButton && primaryButtonText ? (
-          <Button
-            onPress={handlePrimaryButtonPress}
-            text={primaryButtonText}
-            {...primaryButtonProps}
-            variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
-            colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
-          />
-        ) : null}
-        {onPressSecondaryButton && secondaryButtonText ? (
-          <Button
-            onPress={handleSecondaryButtonPress}
-            text={secondaryButtonText}
-            {...secondaryButtonProps}
-            variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
-            colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
-          />
-        ) : null}
-      </View>
-    ),
+  const footerContent = useMemo(
+    () =>
+      footer ?? (
+        <View style={styles.footer}>
+          {hasPrimaryButton ? (
+            <Button
+              onPress={handlePrimaryButtonPress}
+              text={primaryButtonText}
+              {...primaryButtonProps}
+              variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+              colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+            />
+          ) : null}
+          {hasSecondaryButton ? (
+            <Button
+              onPress={handleSecondaryButtonPress}
+              text={secondaryButtonText}
+              {...secondaryButtonProps}
+              variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+              colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+            />
+          ) : null}
+        </View>
+      ),
     [
+      footer,
       handlePrimaryButtonPress,
       handleSecondaryButtonPress,
-      onPressPrimaryButton,
-      onPressSecondaryButton,
+      hasPrimaryButton,
+      hasSecondaryButton,
       primaryButtonProps,
       primaryButtonText,
       secondaryButtonProps,
@@ -209,38 +226,64 @@ const Modal = ({
             </View>
           ) : null}
           {children}
-          {!stickyFooter && !noButtons ? footer : null}
+          {!stickyFooter && shouldShowFooter ? (
+            <View style={footerStyle}>{footerContent}</View>
+          ) : null}
         </View>
       )}
     </>
   );
 
   const renderFooter = useCallback(
-    (props: BottomSheetFooterProps) => (
-      <BottomSheetFooter {...props}>
-        <View style={styles.footerWrap}>{footer}</View>
+    (bottomSheetFooterProps: BottomSheetFooterProps) => (
+      <BottomSheetFooter {...bottomSheetFooterProps}>
+        <View onLayout={handleStickyFooterLayout} style={[styles.footerWrap, footerStyle]}>
+          {footerContent}
+        </View>
       </BottomSheetFooter>
     ),
-    [footer]
+    [footerContent, footerStyle, handleStickyFooterLayout]
   );
 
   return (
-    <BottomSheetModal
-      ref={bottomSheetModalRef}
-      enableDynamicSizing={true}
-      snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
-      showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
-      accessible={false}
-      style={styles.modal}
-      footerComponent={stickyFooter && !noButtons ? renderFooter : undefined}
-      {...props}
-      onChange={handleChange}
-    >
-      {loading ? <View style={styles.loadingTop} /> : null}
-      <BottomSheetScrollView contentContainerStyle={styles.scrollView} ref={scrollViewRef}>
-        {content}
-      </BottomSheetScrollView>
-    </BottomSheetModal>
+    <>
+      {stickyFooter && shouldShowFooter && stickyFooterHeight === 0 ? (
+        <View
+          accessible={false}
+          importantForAccessibility="no-hide-descendants"
+          pointerEvents="none"
+          style={styles.footerMeasurementContainer}
+        >
+          <View onLayout={handleStickyFooterLayout} style={[styles.footerWrap, footerStyle]}>
+            {footerContent}
+          </View>
+        </View>
+      ) : null}
+      <BottomSheetModal
+        ref={bottomSheetModalRef}
+        enableDynamicSizing={true}
+        snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
+        showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
+        accessible={false}
+        style={styles.modal}
+        footerComponent={stickyFooter && shouldShowFooter ? renderFooter : undefined}
+        {...props}
+        onChange={handleChange}
+      >
+        {loading ? <View style={styles.loadingTop} /> : null}
+        <BottomSheetScrollView
+          contentContainerStyle={[
+            styles.scrollView,
+            stickyFooter && shouldShowFooter && stickyFooterHeight > 0
+              ? { paddingBottom: stickyFooterHeight + theme.components.modal.gap }
+              : null,
+          ]}
+          ref={scrollViewRef}
+        >
+          {content}
+        </BottomSheetScrollView>
+      </BottomSheetModal>
+    </>
   );
 };
 
@@ -262,14 +305,6 @@ const styles = StyleSheet.create((theme, rt) => ({
   scrollView: {
     flex: 1,
     variants: {
-      bothButtons: {
-        true: {
-          paddingBottom: 166,
-        },
-        false: {
-          paddingBottom: 102,
-        },
-      },
       noButtons: {
         true: {
           paddingBottom: theme.components.modal.padding,
@@ -288,30 +323,9 @@ const styles = StyleSheet.create((theme, rt) => ({
     },
     compoundVariants: [
       {
-        bothButtons: true,
-        useSafeAreaInsets: true,
-        styles: {
-          paddingBottom:
-            166 +
-            rt.insets.bottom -
-            theme.components.modal.padding +
-            theme.components.bottomSheet.padding,
-        },
-      },
-      {
-        bothButtons: false,
-        useSafeAreaInsets: true,
-        styles: {
-          paddingBottom:
-            102 +
-            rt.insets.bottom -
-            theme.components.modal.padding +
-            theme.components.bottomSheet.padding,
-        },
-      },
-      {
         noButtons: true,
         useSafeAreaInsets: true,
+        stickyFooter: false,
         styles: {
           paddingBottom:
             rt.insets.bottom +
@@ -371,6 +385,12 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   footer: {
     gap: theme.components.modal.action.gap,
+  },
+  footerMeasurementContainer: {
+    left: 0,
+    opacity: 0,
+    position: 'absolute',
+    right: 0,
   },
   footerWrap: {
     backgroundColor: theme.color.surface.neutral.strong,

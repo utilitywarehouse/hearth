@@ -33,6 +33,8 @@ const NavModal = ({
   loadingHeading = 'Loading...',
   loadingDescription,
   image,
+  footer,
+  footerStyle,
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
@@ -110,7 +112,9 @@ const NavModal = ({
     onPressSecondaryButton?.();
   }, [onPressSecondaryButton]);
 
-  const noButtons = !onPressPrimaryButton && !onPressSecondaryButton;
+  const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
+  const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
+  const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
 
   styles.useVariants({
     loading,
@@ -121,37 +125,39 @@ const NavModal = ({
     stickyFooter,
   });
 
-  const footer = useMemo(
-    () => (
-      <View style={styles.footer}>
-        {onPressPrimaryButton && primaryButtonText ? (
-          <Button
-            onPress={handlePrimaryButtonPress}
-            text={primaryButtonText}
-            inverted={isBrandBackground}
-            {...primaryButtonProps}
-            variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
-            colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
-          />
-        ) : null}
-        {onPressSecondaryButton && secondaryButtonText ? (
-          <Button
-            onPress={handleSecondaryButtonPress}
-            text={secondaryButtonText}
-            inverted={isBrandBackground}
-            {...secondaryButtonProps}
-            variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
-            colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
-          />
-        ) : null}
-      </View>
-    ),
+  const footerContent = useMemo(
+    () =>
+      footer ?? (
+        <View style={styles.footer}>
+          {hasPrimaryButton ? (
+            <Button
+              onPress={handlePrimaryButtonPress}
+              text={primaryButtonText}
+              inverted={isBrandBackground}
+              {...primaryButtonProps}
+              variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+              colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+            />
+          ) : null}
+          {hasSecondaryButton ? (
+            <Button
+              onPress={handleSecondaryButtonPress}
+              text={secondaryButtonText}
+              inverted={isBrandBackground}
+              {...secondaryButtonProps}
+              variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+              colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+            />
+          ) : null}
+        </View>
+      ),
     [
+      footer,
       handlePrimaryButtonPress,
       handleSecondaryButtonPress,
+      hasPrimaryButton,
+      hasSecondaryButton,
       isBrandBackground,
-      onPressPrimaryButton,
-      onPressSecondaryButton,
       primaryButtonProps,
       primaryButtonText,
       secondaryButtonProps,
@@ -238,8 +244,8 @@ const NavModal = ({
               {...scrollViewProps}
             >
               {children}
-              {!stickyFooter && !noButtons ? (
-                <View style={styles.inNavModalFooterContainer}>{footer}</View>
+              {!stickyFooter && hasFooter ? (
+                <View style={[styles.inNavModalFooterContainer, footerStyle]}>{footerContent}</View>
               ) : null}
             </ScrollView>
           ) : (
@@ -249,12 +255,12 @@ const NavModal = ({
               }}
             >
               {children}
-              {!stickyFooter && !noButtons ? (
-                <View style={styles.inNavModalFooterContainer}>{footer}</View>
+              {!stickyFooter && hasFooter ? (
+                <View style={[styles.inNavModalFooterContainer, footerStyle]}>{footerContent}</View>
               ) : null}
             </View>
           )}
-          {stickyFooter && !noButtons ? footer : null}
+          {stickyFooter && hasFooter ? <View style={footerStyle}>{footerContent}</View> : null}
         </View>
       )}
     </>

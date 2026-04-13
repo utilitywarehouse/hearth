@@ -3,11 +3,17 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { useBadgeContext } from './Badge.context';
 
-const BadgeText = ({ children, style, ...props }: TextProps) => {
+const BadgeText = ({ children, style, numberOfLines = 1, ...props }: TextProps) => {
   const { variant, colorScheme, size } = useBadgeContext();
   styles.useVariants({ variant, colorScheme });
   return (
-    <BodyText {...props} size={size} weight="semibold" style={[styles.text, style]}>
+    <BodyText
+      {...props}
+      numberOfLines={numberOfLines}
+      size={size}
+      weight="semibold"
+      style={[styles.text, style]}
+    >
       {children}
     </BodyText>
   );

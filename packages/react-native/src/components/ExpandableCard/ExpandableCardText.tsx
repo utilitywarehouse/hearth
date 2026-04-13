@@ -3,7 +3,7 @@ import { BodyText } from '../BodyText';
 
 const ExpandableCardText = ({ children, ...props }: TextProps) => {
   return (
-    <BodyText size="lg" {...props}>
+    <BodyText size="md" weight="semibold" {...props}>
       {children}
     </BodyText>
   );

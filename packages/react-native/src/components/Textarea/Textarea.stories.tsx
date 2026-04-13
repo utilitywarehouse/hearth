@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import { Textarea } from '.';
 
 const meta = {
@@ -56,6 +56,16 @@ const meta = {
       description: 'Focus the Textarea component',
       defaultValue: false,
     },
+    required: {
+      control: 'boolean',
+      description: 'Whether the Textarea component is required',
+      defaultValue: true,
+    },
+    resizable: {
+      control: 'boolean',
+      description: 'Enables a drag handle to resize the Textarea vertically',
+      defaultValue: false,
+    },
   },
   args: {
     placeholder: 'Textarea placeholder',
@@ -63,6 +73,7 @@ const meta = {
     disabled: false,
     readonly: false,
     focused: false,
+    resizable: false,
   },
 } satisfies Meta<typeof Textarea>;
 
@@ -70,3 +81,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const Resizable: Story = {
+  args: {
+    label: 'Notes',
+    helperText: 'Drag the bottom-right handle to resize',
+    placeholder: 'Add more detail here...',
+    resizable: true,
+  },
+};

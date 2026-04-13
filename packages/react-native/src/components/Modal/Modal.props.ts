@@ -1,10 +1,25 @@
 import { BottomSheetProps } from '../BottomSheet';
-import { ModalCommonProps } from './Modal.shared.types';
+import {
+  ModalButtonFooterProps,
+  ModalCommonBaseProps,
+  ModalCustomFooterProps,
+} from './Modal.shared.types';
 
-interface ModalProps extends Omit<BottomSheetProps, 'children'>, ModalCommonProps {
-  fullscreen?: boolean;
-  closeOnPrimaryButtonPress?: boolean;
-  closeOnSecondaryButtonPress?: boolean;
-}
+type ModalBaseProps = Omit<BottomSheetProps, 'children'> &
+  ModalCommonBaseProps & {
+    fullscreen?: boolean;
+  };
+
+type ModalProps =
+  | (ModalBaseProps &
+      ModalButtonFooterProps & {
+        closeOnPrimaryButtonPress?: boolean;
+        closeOnSecondaryButtonPress?: boolean;
+      })
+  | (ModalBaseProps &
+      ModalCustomFooterProps & {
+        closeOnPrimaryButtonPress?: never;
+        closeOnSecondaryButtonPress?: never;
+      });
 
 export default ModalProps;

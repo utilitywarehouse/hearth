@@ -916,6 +916,7 @@ export const components = {
     borderRadius: 'var(--h-tooltip-border-radius)',
     gapHorizontal: 'var(--h-tooltip-gap-horizontal)',
     gapVertical: 'var(--h-tooltip-gap-vertical)',
+    maxWidth: 'var(--h-tooltip-max-width)',
     paddingHorizontal: 'var(--h-tooltip-padding-horizontal)',
     paddingVertical: 'var(--h-tooltip-padding-vertical)',
   },

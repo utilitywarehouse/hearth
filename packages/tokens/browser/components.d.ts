@@ -915,6 +915,7 @@ export declare const components: {
     readonly borderRadius: 'var(--h-tooltip-border-radius)';
     readonly gapHorizontal: 'var(--h-tooltip-gap-horizontal)';
     readonly gapVertical: 'var(--h-tooltip-gap-vertical)';
+    readonly maxWidth: 'var(--h-tooltip-max-width)';
     readonly paddingHorizontal: 'var(--h-tooltip-padding-horizontal)';
     readonly paddingVertical: 'var(--h-tooltip-padding-vertical)';
   };
