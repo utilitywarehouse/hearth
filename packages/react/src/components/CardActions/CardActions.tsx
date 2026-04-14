@@ -30,9 +30,9 @@ export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((pro
       direction={direction}
     >
       <Tag {...cardActionsProps}>
-        {Children.map(children, child => (
-          <li className={`${componentClassName}Item`}>{child}</li>
-        ))}
+        {Children.map(children, child =>
+          child ? <li className={`${componentClassName}Item`}>{child}</li> : null
+        )}
       </Tag>
     </Flex>
   );

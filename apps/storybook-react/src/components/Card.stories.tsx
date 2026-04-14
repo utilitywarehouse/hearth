@@ -41,9 +41,12 @@ import {
   TickCircleSmallIcon,
   MobileMediumIcon,
   CashbackCardMediumIcon,
+  InfoMediumIcon,
+  CalendarMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 import { StoryGallery } from '../storybook-components/StoryGallery';
+import { useState } from 'react';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;
@@ -727,6 +730,74 @@ export const WithCardActions: Story = {
       </Card>
     </Flex>
   ),
+};
+
+export const ConditionalCardActions: Story = {
+  render: () => {
+    const [toggleElement, setToggleElement] = useState(false);
+
+    const handleButtonClick = () => {
+      setToggleElement(!toggleElement);
+    };
+
+    return (
+      <Flex gap="200" direction="column">
+        <Card width="100%" shadowColor="functional">
+          <CardContent direction="column" spacing="md">
+            <Heading size="md">Test Card</Heading>
+            <BodyText>This is a test card using CardActionLink</BodyText>
+          </CardContent>
+          <CardInteraction margin="200">
+            <Button variant="solid" onClick={handleButtonClick}>
+              Toggle Element
+            </Button>
+          </CardInteraction>
+          <CardActions direction={{ mobile: 'column', desktop: 'row' }}>
+            <CardActionLink
+              target="_blank"
+              heading="What to expect on the day"
+              href="/broadband"
+              leadingIcon={<InfoMediumIcon />}
+              leadingIconContainerColorScheme="broadband"
+            />
+            {!toggleElement ? (
+              <CardActionLink
+                heading="Change appointment"
+                href="/broadband"
+                leadingIcon={<CalendarMediumIcon />}
+                leadingIconContainerColorScheme="broadband"
+              />
+            ) : null}
+          </CardActions>
+        </Card>
+        <Card width="100%" shadowColor="functional">
+          <CardContent direction="column" spacing="md">
+            <Heading size="md">Test Card</Heading>
+            <BodyText>This is a test card using CardActionButton</BodyText>
+          </CardContent>
+          <CardInteraction margin="200">
+            <Button variant="solid" onClick={handleButtonClick}>
+              Toggle Element
+            </Button>
+          </CardInteraction>
+          <CardActions direction={{ mobile: 'column', desktop: 'row' }}>
+            <CardActionButton
+              heading="What to expect on the day"
+              leadingIcon={<InfoMediumIcon />}
+              leadingIconContainerColorScheme="broadband"
+            />
+            {!toggleElement ? (
+              <CardActionButton
+                heading="Change appointment"
+                leadingIcon={<CalendarMediumIcon />}
+                leadingIconContainerColorScheme="broadband"
+              />
+            ) : null}
+          </CardActions>
+        </Card>
+      </Flex>
+    );
+  },
 };
 
 export const InteractiveServiceCards: Story = {
