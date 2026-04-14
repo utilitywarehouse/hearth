@@ -49,6 +49,7 @@ export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
 export * from './Rating';
+export * from './Roundel';
 export * from './SectionHeader';
 export * from './SegmentedControl';
 export * from './Select';
