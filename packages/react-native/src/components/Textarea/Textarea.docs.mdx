@@ -72,6 +72,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | validText        | `string`                           | `-`         | Text to display when validation status is 'valid'. **(Only to be used if the input has no children)**                                                                   |
 | invalidText      | `string`                           | `-`         | Text to display when validation status is 'invalid'.                                                                                                                    |
 | required         | `boolean`                          | `true`      | Whether the input is required. **(Only to be used if the input has no children)**                                                                                       |
+| defaultHeight    | `number`                           | `96`        | The initial height of the textarea in pixels when `resizable` is `true`.                                                                                                |
 | resizable        | `boolean`                          | `false`     | Adds a bottom-right drag handle so the textarea can be resized vertically.                                                                                              |
 | value            | `string`                           | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
 | onChange         | `function`                         | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
@@ -157,6 +158,7 @@ const MyComponent = () => {
       helperText="Drag the corner handle to resize"
       placeholder="Enter your text here..."
       resizable
+      defaultHeight={140}
     />
   );
 };

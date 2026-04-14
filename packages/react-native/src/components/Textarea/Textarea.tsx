@@ -33,6 +33,7 @@ const Textarea = ({
   validationStatus = 'initial',
   children,
   resizable = false,
+  defaultHeight,
   disabled,
   focused,
   readonly,
@@ -56,8 +57,9 @@ const Textarea = ({
   const textareaDisabled = disabled ?? formFieldContext?.disabled;
   const textareaReadonly = readonly ?? formFieldContext?.readonly;
   const textareaValidationStatus = formFieldContext?.validationStatus ?? validationStatus;
-  const textareaHeight = useSharedValue(DEFAULT_TEXTAREA_HEIGHT);
-  const resizeStartHeight = useSharedValue(DEFAULT_TEXTAREA_HEIGHT);
+  const textareaDefaultHeight = defaultHeight ?? DEFAULT_TEXTAREA_HEIGHT;
+  const textareaHeight = useSharedValue(textareaDefaultHeight);
+  const resizeStartHeight = useSharedValue(textareaDefaultHeight);
   const theme = useTheme();
 
   useEffect(() => {
@@ -65,6 +67,13 @@ const Textarea = ({
       formFieldContext.setShouldHandleAccessibility(true);
     }
   }, [formFieldContext]);
+
+  useEffect(() => {
+    if (!hasMeasuredHeight.current) {
+      textareaHeight.value = textareaDefaultHeight;
+      resizeStartHeight.value = textareaDefaultHeight;
+    }
+  }, [resizeStartHeight, textareaDefaultHeight, textareaHeight]);
 
   const getAccessibilityLabel = () => {
     let accessibilityLabel = '';

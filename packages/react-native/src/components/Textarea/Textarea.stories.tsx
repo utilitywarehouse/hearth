@@ -66,6 +66,10 @@ const meta = {
       description: 'Enables a drag handle to resize the Textarea vertically',
       defaultValue: false,
     },
+    defaultHeight: {
+      control: { type: 'number', min: 64, step: 8 },
+      description: 'Sets the initial height of the Textarea in pixels',
+    },
   },
   args: {
     placeholder: 'Textarea placeholder',
@@ -88,5 +92,15 @@ export const Resizable: Story = {
     helperText: 'Drag the bottom-right handle to resize',
     placeholder: 'Add more detail here...',
     resizable: true,
+  },
+};
+
+export const DefaultHeight: Story = {
+  args: {
+    label: 'Notes',
+    helperText: 'Starts taller by default',
+    placeholder: 'Add more detail here...',
+    resizable: true,
+    defaultHeight: 140,
   },
 };
