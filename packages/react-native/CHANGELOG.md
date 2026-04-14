@@ -1,5 +1,43 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1132](https://github.com/utilitywarehouse/hearth/pull/1132) [`8824186`](https://github.com/utilitywarehouse/hearth/commit/882418633ee8c3a11e204329d07363dc411996dc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add the `Rating` component
+
+  **Components affected**:
+  - `Rating`
+
+  **Developer changes**:
+
+  ```tsx
+  import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+  const MyComponent = () => <Rating value={3} />;
+  ```
+
+- [#1129](https://github.com/utilitywarehouse/hearth/pull/1129) [`ec385a8`](https://github.com/utilitywarehouse/hearth/commit/ec385a8185bfa4ec7f4d5f1366ecc069a98cbba8) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `StepperInput` for controlled numeric input with increment and decrement buttons.
+
+  `StepperInput` is a new React Native form component for adjusting numeric values with direct text entry and dedicated step controls. It supports min and max bounds, configurable step size, validation and helper text through `FormField`, and an opt-in `focusInputOnStepPress` prop for keyboard-first flows.
+
+  **Components affected**:
+  - `StepperInput`
+
+  **Developer changes**:
+
+  Import and use `StepperInput` from `@utilitywarehouse/hearth-react-native`:
+
+  ```tsx
+  import { StepperInput } from '@utilitywarehouse/hearth-react-native';
+
+  <StepperInput label="Guests" min={1} max={10} value={value} onChangeText={setValue} />;
+  ```
+
+### Patch Changes
+
+- [#1133](https://github.com/utilitywarehouse/hearth/pull/1133) [`5cae98e`](https://github.com/utilitywarehouse/hearth/commit/5cae98e640a708a7d99eaf0395b7b52e71b8e6ec) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add a `defaultHeight` prop to `Textarea` so the initial height can be configured.
+
 ## 0.31.1
 
 ### Patch Changes
