@@ -129,9 +129,9 @@ const Textarea = ({
           const nextHeight =
             resizeStartHeight.value + event.translationY + event.translationX * 0.35;
 
-          textareaHeight.value = Math.max(textareaDefaultHeight, nextHeight);
+          textareaHeight.value = Math.max(DEFAULT_TEXTAREA_HEIGHT, nextHeight);
         }),
-    [resizable, resizeStartHeight, textareaDefaultHeight, textareaDisabled, textareaHeight]
+    [resizable, resizeStartHeight, textareaDisabled, textareaHeight]
   );
 
   const animatedHeightStyle = useAnimatedStyle(
