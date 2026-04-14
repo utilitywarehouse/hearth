@@ -46,7 +46,6 @@ import {
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 import { StoryGallery } from '../storybook-components/StoryGallery';
-import { useState } from 'react';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;
@@ -734,7 +733,7 @@ export const WithCardActions: Story = {
 
 export const ConditionalCardActions: Story = {
   render: () => {
-    const [toggleElement, setToggleElement] = useState(false);
+    const [toggleElement, setToggleElement] = React.useState(false);
 
     const handleButtonClick = () => {
       setToggleElement(!toggleElement);
