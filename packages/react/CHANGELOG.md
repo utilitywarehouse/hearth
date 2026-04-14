@@ -1,5 +1,47 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.7
+
+### Patch Changes
+
+- [#1105](https://github.com/utilitywarehouse/hearth/pull/1105) [`557e3c9`](https://github.com/utilitywarehouse/hearth/commit/557e3c90f9a43d8cde6a56c503051ed4a49645dd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `Tooltip` component
+
+  ```tsx
+  import { Tooltip } from '@utilitywarehouse/hearth-react';
+  import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+  <Tooltip description="Helpful information">
+    <UnstyledIconButton label="further information">
+      <InfoSmallIcon />
+    </UnstyledIconButton>
+  </Tooltip>;
+  ```
+
+- [#1105](https://github.com/utilitywarehouse/hearth/pull/1105) [`557e3c9`](https://github.com/utilitywarehouse/hearth/commit/557e3c90f9a43d8cde6a56c503051ed4a49645dd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `HearthProvider` component
+
+  This component provides the necessary context for all Hearth components. It
+  should be used at the root of your application to ensure that all components
+  have access to the required context.
+
+  Currently it provides context for the `Tooltip` component, but it may also
+  include other providers in the future, so it is recommended to use
+  `HearthProvider` instead of individual providers like `TooltipProvider`.
+
+  ```tsx
+  import { HearthProvider } from '@utilitywarehouse/hearth-react';
+
+  function App({ children }) {
+    return <HearthProvider>{children}</HearthProvider>;
+  }
+  ```
+
+- [#1131](https://github.com/utilitywarehouse/hearth/pull/1131) [`e0441b8`](https://github.com/utilitywarehouse/hearth/commit/e0441b88607ce2ebd2fc2c78889f730a96a5f25c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Render only valid `CardActions` children
+
+  We were rendering a `li` element for `null` children of `CardActions`, so we now
+  filter out any invalid children before rendering. This should prevent any
+  unexpected elements from being rendered in the DOM and ensure that only valid
+  `CardActions` children are displayed.
+
 ## 0.27.6
 
 ### Patch Changes
