@@ -9,6 +9,22 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.31.1
+
+### Patch Changes
+
+- [#1119](https://github.com/utilitywarehouse/hearth/pull/1119) [`19415d4`](https://github.com/utilitywarehouse/hearth/commit/19415d4d54458b3fb019df6647b9a5e4c375b672) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Refresh dark mode tokens across components and semantic colors.
+
+  Dark mode color tokens have been updated across semantic and component tokens to improve contrast and visual consistency. This also fixes `TableHeaderCell` text colors so purple and white header variants resolve the correct foreground token.
+
+  **Components affected**:
+  - dark mode tokens
+  - `TableHeaderCell`
+
+  **Developer changes**:
+
+  No code changes are required unless you rely on the previous dark mode token values or visual snapshots.
+
 ## 0.31.0
 
 ### Minor Changes

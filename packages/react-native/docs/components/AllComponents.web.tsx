@@ -93,6 +93,7 @@ import {
   Select,
   Skeleton,
   Spinner,
+  StepperInput,
   Switch,
   Tab,
   Table,
@@ -145,6 +146,7 @@ const ComponentWrapper = ({
 const AllComponents: React.FC = () => {
   const [comboboxValue, setComboboxValue] = React.useState<string | null>('uk');
   const [selectValue, setSelectValue] = React.useState('1');
+  const [stepperValue, setStepperValue] = React.useState('10');
   const [toggleButtonValue, setToggleButtonValue] = React.useState('');
   const bottomSheetRef = useRef<BottomSheet>(null);
   const handleOpenPress = useCallback(() => {
@@ -788,6 +790,16 @@ const AllComponents: React.FC = () => {
             <ComponentWrapper name="Switch" link="components-switch">
               <Center flex={1}>
                 <Switch value={switchEnabled} onValueChange={toggleSwitch} />
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Stepper Input" link="forms-stepper-input">
+              <Center flex={1} padding="200">
+                <StepperInput
+                  label="Label"
+                  helperText="Helper text"
+                  value={stepperValue}
+                  onChangeText={setStepperValue}
+                />
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Table" link="components-table">
