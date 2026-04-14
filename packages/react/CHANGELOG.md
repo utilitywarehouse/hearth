@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.5
+
+### Patch Changes
+
+- [#1125](https://github.com/utilitywarehouse/hearth/pull/1125) [`f1b992a`](https://github.com/utilitywarehouse/hearth/commit/f1b992a0923814dbfa3c045320366e9a87c1018a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Long `Modal` content scrolling
+
+  This change ensures that when the content of a `Modal` exceeds the viewport
+  height, it becomes scrollable, allowing users to access all content without
+  issues. For this to work correctly, the `fullScreen` prop must be set to `true`
+  on the `Modal` component.
+
+- [#1122](https://github.com/utilitywarehouse/hearth/pull/1122) [`7f4c337`](https://github.com/utilitywarehouse/hearth/commit/7f4c337e8452bc05e1e2c2c141c9e0aa2901b620) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Only render `Combobox` popup when there are contents to display
+
+- [#1122](https://github.com/utilitywarehouse/hearth/pull/1122) [`7f4c337`](https://github.com/utilitywarehouse/hearth/commit/7f4c337e8452bc05e1e2c2c141c9e0aa2901b620) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Combobox` status text styling
+
 ## 0.27.4
 
 ### Patch Changes

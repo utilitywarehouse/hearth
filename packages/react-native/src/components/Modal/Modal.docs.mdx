@@ -12,11 +12,14 @@ import * as Stories from './Modal.stories';
 
 # Modal
 
-The `Modal` component provides a versatile dialog interface that slides up from the bottom of the screen. It's built on top of the `BottomSheetModal` component and includes pre-configured layouts for common modal patterns including headers, content areas, and action buttons.
+The `Modal` component provides a versatile dialog interface that slides up from the bottom of the screen. It's built on top of
+the <StorybookLink to="components-bottom-sheet">`BottomSheetModal`</StorybookLink>
+component and includes pre-configured layouts for common modal patterns including headers, content areas, and action buttons.
 
-The Modal component is ideal for displaying important information, collecting user input, or presenting choices that require user attention without navigating away from the current screen.
+The Modal component is ideal for displaying important information, collecting user input, or presenting choices that require user attention
+without navigating away from the current screen.
 
-If you need a modal layout inside a React Navigation modal screen, use <StorybookLink to="components-navmodal">`NavModal`</StorybookLink> instead.
+If you need a modal layout inside a React Navigation modal screen, use <StorybookLink to="components-nav-modal">`NavModal`</StorybookLink> instead.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -32,6 +35,8 @@ If you need a modal layout inside a React Navigation modal screen, use <Storyboo
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
   - [Single Action Modal](#single-action-modal)
+  - [Navigation Modals](#navigation-modals)
+  - [Close handlers and state management](#close-handlers-and-state-management)
 - [Integration Notes](#integration-notes)
 - [External Resources](#external-resources)
 
@@ -513,6 +518,53 @@ const AlertModal = () => {
 ### Navigation Modals
 
 For React Navigation modal screens, use <StorybookLink to="components-navmodal">`NavModal`</StorybookLink>. It contains the extracted screen-based modal layout, background variants, scrollable content handling, and the Android `triggerCloseAnimation()` ref used during navigation dismissal.
+
+### Close handlers and state management
+
+The Modal component provides multiple ways to handle closing the modal and managing state:
+
+- Use the `onPressPrimaryButton`, `onPressSecondaryButton`, and `onPressCloseButton` props to run custom logic when buttons are pressed, such as form validation or API calls, before closing the modal.
+- Control whether the modal should automatically close when action buttons are pressed using the `closeOnPrimaryButtonPress` and `closeOnSecondaryButtonPress` props. This allows you to keep the modal
+  open while performing async operations and only close it when those operations are complete.
+- Use the `onChange` prop to detect when the modal is opened or closed based on the index parameter (0 for open, -1 for closed) and manage state accordingly.
+
+```tsx
+const MyModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setIsSubmitting(false);
+    modalRef.current?.dismiss();
+  };
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Open Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Submit Data"
+        description="Please confirm your submission"
+        primaryButtonText="Submit"
+        secondaryButtonText="Cancel"
+        onPressPrimaryButton={handleSubmit}
+        closeOnPrimaryButtonPress={false} // Keep modal open while submitting
+        onChange={index => {
+          if (index === -1) {
+            // Modal closed, reset state if needed
+            setIsSubmitting(false);
+          }
+        }}
+        loading={isSubmitting}
+      />
+    </>
+  );
+};
+```
 
 ## Integration Notes
 
