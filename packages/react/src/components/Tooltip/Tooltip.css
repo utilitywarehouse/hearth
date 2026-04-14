@@ -1,0 +1,98 @@
+.h-Tooltip {
+  border-radius: var(--h-tooltip-border-radius);
+  padding: var(--h-tooltip-padding-vertical) var(--h-tooltip-padding-horizontal);
+  background-color: var(--h-tooltip-background-color);
+  color: var(--h-text-inverted);
+
+  /* set the max-width of the tooltip to the smaller of the two values: the
+   * tooltip max-width token or the available width minus a horizontal gutter.
+   * This ensures that the tooltip does not exceed a certain width while also
+   * accounting for the available space on the screen.  */
+  /* stylelint-disable custom-property-pattern, csstools/value-no-unknown-custom-properties */
+  max-width: min(
+    var(--h-tooltip-max-width),
+    calc(var(--radix-popper-available-width) - var(--h-space-400))
+  );
+  /* stylelint-enable custom-property-pattern, csstools/value-no-unknown-custom-properties */
+  user-select: none;
+  animation-duration: 300ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+
+  &[data-state='delayed-open'][data-side='top'] {
+    animation-name: h-tooltip-slide-up-and-fade;
+  }
+
+  &[data-state='delayed-open'][data-side='right'] {
+    animation-name: h-tooltip-slide-left-and-fade;
+  }
+
+  &[data-state='delayed-open'][data-side='bottom'] {
+    animation-name: h-tooltip-slide-down-and-fade;
+  }
+
+  &[data-state='delayed-open'][data-side='left'] {
+    animation-name: h-tooltip-slide-right-and-fade;
+  }
+
+  & .h-TooltipContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-tooltip-gap-vertical);
+  }
+
+  & .h-TooltipArrow {
+    fill: var(--h-tooltip-background-color);
+    visibility: visible;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes h-tooltip-slide-up-and-fade {
+    from {
+      opacity: 0;
+      transform: translateY(2px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes h-tooltip-slide-down-and-fade {
+    from {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes h-tooltip-slide-left-and-fade {
+    from {
+      opacity: 0;
+      transform: translateX(-2px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes h-tooltip-slide-right-and-fade {
+    from {
+      opacity: 0;
+      transform: translateX(2px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

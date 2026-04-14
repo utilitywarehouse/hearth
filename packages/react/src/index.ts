@@ -303,3 +303,11 @@ export { SkeletonBodyText } from './components/Skeleton/SkeletonBodyText';
 export type { SkeletonBodyTextProps } from './components/Skeleton/SkeletonBodyText.props';
 export { SkeletonHeading } from './components/Skeleton/SkeletonHeading';
 export type { SkeletonHeadingProps } from './components/Skeleton/SkeletonHeading.props';
+
+export { TooltipProvider } from './components/Tooltip/TooltipProvider';
+export type { TooltipProviderProps } from './components/Tooltip/TooltipProvider.props';
+export { Tooltip } from './components/Tooltip/Tooltip';
+export type { TooltipProps } from './components/Tooltip/Tooltip.props';
+
+export { HearthProvider } from './components/HearthProvider/HearthProvider';
+export type { HearthProviderProps } from './components/HearthProvider/HearthProvider.props';
