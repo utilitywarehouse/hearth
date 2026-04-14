@@ -87,6 +87,7 @@ import {
   RadioCard,
   RadioCardGroup,
   RadioGroup,
+  Rating,
   Roundel,
   SectionHeader,
   SegmentedControl,
@@ -148,6 +149,7 @@ const AllComponents: React.FC = () => {
   const [comboboxValue, setComboboxValue] = React.useState<string | null>('uk');
   const [selectValue, setSelectValue] = React.useState('1');
   const [stepperValue, setStepperValue] = React.useState('10');
+  const [ratingValue, setRatingValue] = React.useState<0 | 1 | 2 | 3 | 4 | 5>(3);
   const [toggleButtonValue, setToggleButtonValue] = React.useState('');
   const bottomSheetRef = useRef<BottomSheet>(null);
   const handleOpenPress = useCallback(() => {
@@ -735,6 +737,11 @@ const AllComponents: React.FC = () => {
                     label="I'm a Radio Card"
                   ></RadioCard>
                 </RadioCardGroup>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Rating" link="components-rating">
+              <Center flex={1} padding="200">
+                <Rating value={ratingValue} onChange={setRatingValue} />
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Roundel" link="components-roundel">
