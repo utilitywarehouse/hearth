@@ -2,12 +2,13 @@ import type { TextInputProps, ViewProps } from 'react-native';
 
 export interface TextareaBaseProps {
   /**
-   * Sets the initial height of the textarea in pixels.
+   * Sets the initial height of a resizable textarea in pixels.
+   * Has no effect unless `resizable` is enabled.
    *
    * @type number
    * @example
    * ```tsx
-   * <Textarea defaultHeight={140} />
+   * <Textarea resizable defaultHeight={140} />
    * ```
    */
   defaultHeight?: number;
