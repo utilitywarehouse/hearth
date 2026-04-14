@@ -1,0 +1,178 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Box, Center, Rating } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Rating.stories';
+
+<Meta title="Components / Rating" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=10620-4185" />
+
+# Rating
+
+Use Rating to collect a star-based score with an optional descriptive label.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating value={0} labels={{ 0: 'Not rated' }} />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { useState } from 'react';
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
+
+  return <Rating value={rating} onChange={setRating} labels={{ 0: 'Not rated' }} />;
+};
+```
+
+## Props
+
+| Property       | Type                                   | Description                                 | Default     |
+| -------------- | -------------------------------------- | ------------------------------------------- | ----------- |
+| `value`        | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Current rating value.                       | `0`         |
+| `defaultValue` | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Initial rating value when uncontrolled.     | `0`         |
+| `onChange`     | `(value: RatingValue) => void`         | Called when a star is selected.             | `undefined` |
+| `disabled`     | `boolean`                              | Disables the rating input.                  | `false`     |
+| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values. | `undefined` |
+| `hideLabel`    | `boolean`                              | Hide the label text below the stars.        | `false`     |
+
+## Examples
+
+### Default rating
+
+Use the default labels for a quick feedback prompt.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating value={3} />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Rating value={3} />;
+```
+
+### Empty rating
+
+Use `value={0}` to show a zero-star state.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating value={0} labels={{ 0: 'Not rated' }} />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Rating value={0} labels={{ 0: 'Not rated' }} />;
+```
+
+### Custom labels
+
+Provide custom copy for each rating value.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating
+        value={5}
+        labels={{
+          0: 'Not rated',
+          1: 'Terrible',
+          2: 'Poor',
+          3: 'OK',
+          4: 'Great',
+          5: 'Outstanding',
+        }}
+      />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Rating
+    value={5}
+    labels={{
+      0: 'Not rated',
+      1: 'Terrible',
+      2: 'Poor',
+      3: 'OK',
+      4: 'Great',
+      5: 'Outstanding',
+    }}
+  />
+);
+```
+
+### Hidden label
+
+Use `hideLabel` when the context already explains the rating.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating value={2} hideLabel />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Rating value={2} hideLabel />;
+```
+
+### Disabled
+
+Use `disabled` to show a read-only rating.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Rating value={4} disabled />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Rating value={4} disabled />;
+```
+
+## Accessibility
+
+- Rating uses a `radiogroup` container with `radio` items for each star.
+- Each star announces a descriptive label (e.g., "Rate 3 stars"). Override labels with the `labels` prop to match your content.
+- Provide `accessibilityLabel` when the default label text is not sufficient for your screen reader context.
