@@ -46,6 +46,7 @@ export * from './Pagination';
 export * from './PillGroup';
 export * from './ProgressBar';
 export * from './ProgressStepper';
+export * from './Roundel';
 export * from './Radio';
 export * from './RadioCard';
 export * from './SectionHeader';

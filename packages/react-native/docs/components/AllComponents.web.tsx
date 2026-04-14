@@ -83,6 +83,7 @@ import {
   ProgressBar,
   ProgressStep,
   ProgressStepper,
+  Roundel,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -233,6 +234,15 @@ const AllComponents: React.FC = () => {
                 <View>
                   <Badge colorScheme="danger">This is a red badge</Badge>
                 </View>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Roundel" link="components-roundel">
+              <Center flex={1}>
+                <Flex direction="row" spacing="md" alignItems="center">
+                  <Roundel variant="success" />
+                  <Roundel variant="pending" />
+                  <Roundel variant="error" />
+                </Flex>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Banner" link="components-banner">
