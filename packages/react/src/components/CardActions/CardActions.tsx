@@ -30,7 +30,7 @@ export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((pro
       direction={direction}
     >
       <Tag {...cardActionsProps}>
-        {Children.map(Children.toArray(children), child =>
+        {Children.toArray(children).map(child =>
           isValidElement(child) ? (
             <li key={child.key} className={`${componentClassName}Item`}>
               {child}
