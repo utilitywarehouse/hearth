@@ -88,6 +88,7 @@ import {
   RadioCardGroup,
   RadioGroup,
   Rating,
+  Roundel,
   SectionHeader,
   SegmentedControl,
   SegmentedControlOption,
@@ -237,6 +238,7 @@ const AllComponents: React.FC = () => {
                 </View>
               </Center>
             </ComponentWrapper>
+
             <ComponentWrapper name="Banner" link="components-banner">
               <Center flex={1} p="200">
                 <Banner
@@ -740,6 +742,15 @@ const AllComponents: React.FC = () => {
             <ComponentWrapper name="Rating" link="components-rating">
               <Center flex={1} padding="200">
                 <Rating value={ratingValue} onChange={setRatingValue} />
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Roundel" link="components-roundel">
+              <Center flex={1}>
+                <Flex direction="row" spacing="md" alignItems="center">
+                  <Roundel variant="success" />
+                  <Roundel variant="pending" />
+                  <Roundel variant="error" />
+                </Flex>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Section Header" link="components-section-header">

@@ -1,0 +1,48 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Roundel } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Roundel.stories';
+
+<Meta title="Components / Roundel" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6414-8697&t=aFS22MoPV7Y08jdq-4" />
+
+# Roundel
+
+The `Roundel` component is a compact status indicator with success, pending, and error variants.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Roundel variant="success" />
+</UsageWrap>
+
+```tsx
+import { Roundel } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Roundel variant="success" />;
+```
+
+## Props
+
+| Prop      | Type                                | Default     | Description                              |
+| --------- | ----------------------------------- | ----------- | ---------------------------------------- |
+| `variant` | `'success' \| 'pending' \| 'error'` | `'success'` | Sets the status styling for the roundel. |
+| `...View` | React Native `ViewProps`            | -           | Any additional View props.               |
+
+## Examples
+
+<Canvas of={Stories.Variants} />
