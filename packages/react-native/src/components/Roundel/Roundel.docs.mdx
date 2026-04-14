@@ -33,17 +33,15 @@ The `Roundel` component is a compact status indicator with success, pending, and
 ```tsx
 import { Roundel } from '@utilitywarehouse/hearth-react-native';
 
-const MyComponent = () => (
-  <Roundel variant="success" />
-);
+const MyComponent = () => <Roundel variant="success" />;
 ```
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
+| Prop      | Type                                | Default     | Description                              |
+| --------- | ----------------------------------- | ----------- | ---------------------------------------- |
 | `variant` | `'success' \| 'pending' \| 'error'` | `'success'` | Sets the status styling for the roundel. |
-| `...View` | React Native `ViewProps` | - | Any additional View props. |
+| `...View` | React Native `ViewProps`            | -           | Any additional View props.               |
 
 ## Examples
 

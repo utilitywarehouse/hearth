@@ -83,11 +83,11 @@ import {
   ProgressBar,
   ProgressStep,
   ProgressStepper,
-  Roundel,
   Radio,
   RadioCard,
   RadioCardGroup,
   RadioGroup,
+  Roundel,
   SectionHeader,
   SegmentedControl,
   SegmentedControlOption,
@@ -236,15 +236,7 @@ const AllComponents: React.FC = () => {
                 </View>
               </Center>
             </ComponentWrapper>
-            <ComponentWrapper name="Roundel" link="components-roundel">
-              <Center flex={1}>
-                <Flex direction="row" spacing="md" alignItems="center">
-                  <Roundel variant="success" />
-                  <Roundel variant="pending" />
-                  <Roundel variant="error" />
-                </Flex>
-              </Center>
-            </ComponentWrapper>
+
             <ComponentWrapper name="Banner" link="components-banner">
               <Center flex={1} p="200">
                 <Banner
@@ -745,7 +737,15 @@ const AllComponents: React.FC = () => {
                 </RadioCardGroup>
               </Center>
             </ComponentWrapper>
-
+            <ComponentWrapper name="Roundel" link="components-roundel">
+              <Center flex={1}>
+                <Flex direction="row" spacing="md" alignItems="center">
+                  <Roundel variant="success" />
+                  <Roundel variant="pending" />
+                  <Roundel variant="error" />
+                </Flex>
+              </Center>
+            </ComponentWrapper>
             <ComponentWrapper name="Section Header" link="components-section-header">
               <Center flex={1} p="300">
                 <SectionHeader
