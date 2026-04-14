@@ -69,6 +69,7 @@ const Rating = ({
     <View
       {...props}
       accessibilityRole="radiogroup"
+      accessibilityState={{ disabled }}
       accessibilityLabel={accessibilityLabel ?? currentLabel}
       style={[styles.container, style]}
     >
