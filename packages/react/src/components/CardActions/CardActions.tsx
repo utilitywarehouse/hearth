@@ -1,4 +1,4 @@
-import { forwardRef, Children } from 'react';
+import { forwardRef, Children, isValidElement } from 'react';
 import { cn } from '../../helpers/cn';
 import type { CardActionsProps } from './CardActions.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -30,9 +30,13 @@ export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((pro
       direction={direction}
     >
       <Tag {...cardActionsProps}>
-        {Children.map(children, child => (
-          <li className={`${componentClassName}Item`}>{child}</li>
-        ))}
+        {Children.toArray(children).map(child =>
+          isValidElement(child) ? (
+            <li key={child.key} className={`${componentClassName}Item`}>
+              {child}
+            </li>
+          ) : null
+        )}
       </Tag>
     </Flex>
   );
