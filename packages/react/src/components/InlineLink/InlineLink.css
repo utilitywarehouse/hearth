@@ -29,6 +29,10 @@
 
   &:where(:visited) {
     color: var(--h-inline-link-color-visited);
+
+    &:where([data-inverted]) {
+      color: var(--h-inline-link-inverted-color-visited);
+    }
   }
 
   @media (hover: hover) {
