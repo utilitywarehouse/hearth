@@ -250,3 +250,21 @@ export const LargeStep: Story = {
     return <StepperInput {...args} value={value} onChangeText={setValue} />;
   },
 };
+
+export const DecimalStep: Story = {
+  parameters: {
+    controls: { include: ['min', 'max', 'step'] },
+  },
+  args: {
+    step: 0.5,
+    label: 'Weight',
+    helperText: 'Supports fractional values',
+    min: -2,
+    max: 2,
+  },
+  render: (args: StepperInputStoryProps) => {
+    const [value, setValue] = useState('0.5');
+
+    return <StepperInput {...args} value={value} onChangeText={setValue} />;
+  },
+};

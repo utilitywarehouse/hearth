@@ -68,7 +68,7 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 | `onChangeValue`               | `(value: number) => void`           | -                  | Called whenever the current text can be parsed as a number.                                 |
 | `min`                         | `number`                            | -                  | Minimum allowed numeric value.                                                              |
 | `max`                         | `number`                            | -                  | Maximum allowed numeric value.                                                              |
-| `step`                        | `number`                            | `1`                | Amount added or removed when the side buttons are pressed.                                  |
+| `step`                        | `number`                            | `1`                | Amount added or removed when the side buttons are pressed. Fractional values are supported. |
 | `focusInputOnStepPress`       | `boolean`                           | `false`            | When `true`, pressing a step button moves focus to the text input after updating the value. |
 | `validationStatus`            | `'initial' \| 'valid' \| 'invalid'` | `'initial'`        | Validation styling for the center input.                                                    |
 | `label`                       | `string`                            | -                  | Label shown above the stepper.                                                              |
@@ -92,6 +92,16 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 ### Bounds
 
 <Canvas of={Stories.Bounds} />
+
+### Fractional Values
+
+`StepperInput` supports fractional steps and negative ranges. When `step`, `min`, `max`, or the current value uses decimals, the input switches to a numeric keyboard path that preserves decimal editing.
+
+<Canvas of={Stories.DecimalStep} />
+
+```tsx
+<StepperInput label="Weight" min={-2} max={2} step={0.5} value={value} onChangeText={setValue} />
+```
 
 ### Opt-In Focus On Step Press
 
