@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.6
+
+### Patch Changes
+
+- [#1126](https://github.com/utilitywarehouse/hearth/pull/1126) [`fb275b6`](https://github.com/utilitywarehouse/hearth/commit/fb275b639400fa9b94386398eed09b4bf89c6c97) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [BUG]: Fix `InlineLink` inverted visited color
+
 ## 0.27.5
 
 ### Patch Changes
