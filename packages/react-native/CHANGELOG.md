@@ -4,6 +4,23 @@
 
 ### Minor Changes
 
+- [#1134](https://github.com/utilitywarehouse/hearth/pull/1134) [`8824186`](https://github.com/utilitywarehouse/hearth/commit/ebccb55afebcbd47508d7992614b2495c7839cc6) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `Roundel` status indicator component.
+
+`Roundel` is a compact status indicator with `success`, `pending`, and `error` variants, intended for inline state cues.
+
+**Components affected**:
+- `Roundel`
+
+**Developer changes**:
+
+Import and use `Roundel` from `@utilitywarehouse/hearth-react-native`:
+
+```tsx
+import { Roundel } from '@utilitywarehouse/hearth-react-native';
+
+<Roundel variant="success" />
+```
+
 - [#1132](https://github.com/utilitywarehouse/hearth/pull/1132) [`8824186`](https://github.com/utilitywarehouse/hearth/commit/882418633ee8c3a11e204329d07363dc411996dc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add the `Rating` component
 
   **Components affected**:
