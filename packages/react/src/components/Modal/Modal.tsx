@@ -42,9 +42,11 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
   ) => {
     const portalProps = { forceMount, container };
     const containsImage = Boolean(image);
-    const hasDescription = loading
-      ? (loadingText || loadingHeading) && loadingDescription
-      : description;
+    const hasDescription = Boolean(
+      loading
+        ? (loadingText || loadingHeading) && loadingDescription
+        : description
+    );
 
     return (
       <DialogPrimitive.Portal {...portalProps}>
