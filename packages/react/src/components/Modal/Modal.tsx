@@ -43,9 +43,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
     const portalProps = { forceMount, container };
     const containsImage = Boolean(image);
     const hasDescription = Boolean(
-      loading
-        ? (loadingText || loadingHeading) && loadingDescription
-        : description
+      loading ? (loadingText || loadingHeading) && loadingDescription : description
     );
 
     return (
