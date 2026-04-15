@@ -164,6 +164,9 @@ const styles = StyleSheet.create(theme => ({
         pig: {
           borderWidth: theme.components.card.brand.borderWidth,
         },
+        highlight: {
+          borderWidth: theme.components.card.brand.borderWidth,
+        },
       },
       shadowColor: {
         functional: {
@@ -328,6 +331,14 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'pig',
         styles: {
           backgroundColor: theme.color.surface.pig.default,
+          borderColor: theme.color.border.strong,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'highlight',
+        styles: {
+          backgroundColor: theme.color.surface.highlight.subtle,
           borderColor: theme.color.border.strong,
         },
       },
