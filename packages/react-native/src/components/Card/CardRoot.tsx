@@ -342,6 +342,14 @@ const styles = StyleSheet.create(theme => ({
           borderColor: theme.color.border.strong,
         },
       },
+      {
+        variant: 'emphasis',
+        colorScheme: 'highlight',
+        styles: {
+          backgroundColor: theme.color.surface.highlight.default,
+          borderColor: theme.color.border.strong,
+        },
+      },
     ],
   },
 }));
