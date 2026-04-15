@@ -26,41 +26,36 @@ const useFormFieldAccessibility = ({
   includeRequiredInLabel = true,
 }: UseFormFieldAccessibilityArgs) => {
   const accessibilityLabel = useMemo(() => {
-    let nextAccessibilityLabel = '';
+    const nextAccessibilityLabelParts: string[] = [];
 
     if (label) {
-      nextAccessibilityLabel = nextAccessibilityLabel + label;
+      nextAccessibilityLabelParts.push(label);
     }
 
     if (includeRequiredInLabel && required) {
-      nextAccessibilityLabel = nextAccessibilityLabel + ', required';
+      nextAccessibilityLabelParts.push('required');
     }
 
+    const nextAccessibilityLabel = nextAccessibilityLabelParts.join(', ');
     return nextAccessibilityLabel || fallbackLabel;
   }, [fallbackLabel, includeRequiredInLabel, label, required]);
 
   const accessibilityHint = useMemo(() => {
-    let nextAccessibilityHint = '';
+    const accessibilityHints: string[] = [];
 
     if (helperText) {
-      nextAccessibilityHint = nextAccessibilityHint + helperText;
+      accessibilityHints.push(helperText);
     }
 
-    if (validationStatus !== 'initial') {
-      if (nextAccessibilityHint.length > 0) {
-        nextAccessibilityHint = nextAccessibilityHint + ', ';
-      }
-
-      if (validationStatus === 'invalid' && invalidText) {
-        nextAccessibilityHint = nextAccessibilityHint + invalidText;
-      }
-
-      if (validationStatus === 'valid' && validText) {
-        nextAccessibilityHint = nextAccessibilityHint + validText;
-      }
+    if (validationStatus === 'invalid' && invalidText) {
+      accessibilityHints.push(invalidText);
     }
 
-    return nextAccessibilityHint || fallbackHint;
+    if (validationStatus === 'valid' && validText) {
+      accessibilityHints.push(validText);
+    }
+
+    return accessibilityHints.join(', ') || fallbackHint;
   }, [fallbackHint, helperText, invalidText, validText, validationStatus]);
 
   return {
