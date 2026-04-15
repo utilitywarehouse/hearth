@@ -42,6 +42,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
   ) => {
     const portalProps = { forceMount, container };
     const containsImage = Boolean(image);
+    const hasDescription = loading
+      ? (loadingText || loadingHeading) && loadingDescription
+      : description;
 
     return (
       <DialogPrimitive.Portal {...portalProps}>
@@ -54,6 +57,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                 data-contains-image={containsImage ? '' : undefined}
                 data-hide-close-button={hideCloseButton ? '' : undefined}
                 data-full-screen={fullScreen ? '' : undefined}
+                {...(hasDescription ? {} : { 'aria-describedby': undefined })}
                 {...props}
               >
                 <ModalClose>
