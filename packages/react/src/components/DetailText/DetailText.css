@@ -1,5 +1,5 @@
 .h-DetailText {
-  font-family: var(--h-font-family-detail);
+  font-family: var(--h-font-family-detail), Courier, monospace;
   font-weight: var(--h-detail-text-font-weight);
 
   &:where(.h-color-text) {
