@@ -3,6 +3,7 @@ import { useEffect, useImperativeHandle, useRef, useState } from 'react';
 import type { TextInput, TextInputFocusEvent } from 'react-native';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useFormFieldAccessibility } from '../../hooks';
 import { FormField } from '../FormField';
 import { InputComponent, InputField } from '../Input/Input';
 import StepperButton from './StepperButton';
@@ -143,6 +144,16 @@ const StepperInput = ({
   const allowDecimal = decimalPrecision > 0;
   const keyboardType = allowNegative || allowDecimal ? 'numeric' : 'number-pad';
   const inputMode = allowDecimal ? 'decimal' : 'numeric';
+  const { accessibilityHint, accessibilityLabel } = useFormFieldAccessibility({
+    label,
+    helperText,
+    validText,
+    invalidText,
+    required,
+    validationStatus,
+    fallbackLabel: props.accessibilityLabel,
+    fallbackHint: props.accessibilityHint,
+  });
 
   useImperativeHandle(ref, () => inputRef.current as TextInput, []);
 
@@ -216,44 +227,6 @@ const StepperInput = ({
     onBlur?.(event);
   };
 
-  const getAccessibilityLabel = () => {
-    let accessibilityLabel = '';
-
-    if (label) {
-      accessibilityLabel = accessibilityLabel + label;
-    }
-
-    if (required) {
-      accessibilityLabel = accessibilityLabel + ', required';
-    }
-
-    return accessibilityLabel || props.accessibilityLabel;
-  };
-
-  const getAccessibilityHint = () => {
-    let accessibilityHint = '';
-
-    if (helperText) {
-      accessibilityHint = accessibilityHint + helperText;
-    }
-
-    if (validationStatus !== 'initial') {
-      if (accessibilityHint.length > 0) {
-        accessibilityHint = accessibilityHint + ', ';
-      }
-
-      if (validationStatus === 'invalid' && invalidText) {
-        accessibilityHint = accessibilityHint + invalidText;
-      }
-
-      if (validationStatus === 'valid' && validText) {
-        accessibilityHint = accessibilityHint + validText;
-      }
-    }
-
-    return accessibilityHint || props.accessibilityHint;
-  };
-
   return (
     <FormField
       label={label}
@@ -297,8 +270,8 @@ const StepperInput = ({
             onFocus={handleFocus}
             onBlur={handleBlur}
             onChangeText={handleChangeText}
-            accessibilityLabel={getAccessibilityLabel()}
-            accessibilityHint={getAccessibilityHint()}
+            accessibilityLabel={accessibilityLabel}
+            accessibilityHint={accessibilityHint}
             accessibilityState={{
               ...(props.accessibilityState ?? {}),
               disabled: disabled || readonly,
