@@ -10,6 +10,7 @@ interface CardProps
     | 'brand'
     | 'energy'
     | 'broadband'
+    | 'highlight'
     | 'mobile'
     | 'insurance'
     | 'cashback'
