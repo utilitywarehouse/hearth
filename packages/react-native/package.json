@@ -18,7 +18,7 @@
     "watch": "tsc --watch",
     "figma:create": "figma connect create",
     "figma:publish": "figma connect publish",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest run --config vitest.unit.config.ts",
     "test:storybook": "vitest run --project storybook",
     "dev": "npm run copyChangelog && storybook dev -p 6006",
     "dev:docs": "storybook dev -p 6002 --no-open --docs",

@@ -1,6 +1,7 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useFormFieldAccessibility } from '../../hooks';
 import { FormField } from '../FormField';
 import type { VerificationInputHandle, VerificationInputProps } from './VerificationInput.props';
 import { getNextIndexFromValueChange } from './VerificationInput.utils';
@@ -163,29 +164,16 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
     );
 
     const slots = Array.from({ length }, (_, index) => index);
-
-    const getAccessibilityLabel = () => {
-      return label || props.accessibilityLabel;
-    };
-
-    const getAccessibilityHint = () => {
-      let accessibilityHint = '';
-      if (helperText) {
-        accessibilityHint = accessibilityHint + helperText;
-      }
-      if (validationStatus !== 'initial') {
-        if (accessibilityHint.length > 0) {
-          accessibilityHint = accessibilityHint + ', ';
-        }
-        if (validationStatus === 'invalid' && invalidText) {
-          accessibilityHint = accessibilityHint + invalidText;
-        }
-        if (validationStatus === 'valid' && validText) {
-          accessibilityHint = accessibilityHint + validText;
-        }
-      }
-      return accessibilityHint || props.accessibilityHint;
-    };
+    const { accessibilityHint, accessibilityLabel } = useFormFieldAccessibility({
+      label,
+      helperText,
+      validText,
+      invalidText,
+      validationStatus,
+      fallbackLabel: props.accessibilityLabel,
+      fallbackHint: props.accessibilityHint,
+      includeRequiredInLabel: false,
+    });
 
     return (
       <FormField
@@ -208,8 +196,8 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
             value={displayValue}
             autoFocus={autoFocus}
             editable={!disabled && !readonly}
-            accessibilityLabel={getAccessibilityLabel()}
-            accessibilityHint={getAccessibilityHint()}
+            accessibilityLabel={accessibilityLabel}
+            accessibilityHint={accessibilityHint}
             accessibilityState={{ disabled: disabled || readonly }}
             importantForAccessibility="yes"
             onChangeText={handleChangeText}

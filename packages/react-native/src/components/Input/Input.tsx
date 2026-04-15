@@ -9,7 +9,7 @@ import {
   EyeSmallIcon,
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { useTheme } from '../../hooks';
+import { useFormFieldAccessibility, useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
@@ -75,7 +75,7 @@ const Input = forwardRef<TextInput, InputProps>(
       if (formFieldContext?.setShouldHandleAccessibility) {
         formFieldContext.setShouldHandleAccessibility(true);
       }
-    }, []);
+    }, [formFieldContext]);
 
     const [fieldType, setFieldType] = useState<'password' | 'text'>(
       type === 'password' ? 'password' : 'text'
@@ -88,6 +88,16 @@ const Input = forwardRef<TextInput, InputProps>(
 
     const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
     const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
+    const { accessibilityHint, accessibilityLabel } = useFormFieldAccessibility({
+      label: inputLabel,
+      helperText: inputHelperText,
+      validText: inputValidText,
+      invalidText: inputInvalidText,
+      required: inputRequired,
+      validationStatus: inputValidationStatus,
+      fallbackLabel: props.accessibilityLabel,
+      fallbackHint: props.accessibilityHint,
+    });
 
     const toggleFieldType = () => {
       setFieldType(fieldType === 'password' ? 'text' : 'password');
@@ -106,37 +116,6 @@ const Input = forwardRef<TextInput, InputProps>(
       }
       return undefined;
     })();
-
-    const getAccessibilityLabel = () => {
-      let accessibilityLabel = '';
-      if (inputLabel) {
-        accessibilityLabel = accessibilityLabel + inputLabel;
-      }
-      if (inputRequired) {
-        accessibilityLabel = accessibilityLabel + ', required';
-      }
-
-      return accessibilityLabel || props.accessibilityLabel;
-    };
-
-    const getAccessibilityHint = () => {
-      let accessibilityHint = '';
-      if (inputHelperText) {
-        accessibilityHint = accessibilityHint + inputHelperText;
-      }
-      if (inputValidationStatus !== 'initial') {
-        if (accessibilityHint.length > 0) {
-          accessibilityHint = accessibilityHint + ', ';
-        }
-        if (inputValidationStatus === 'invalid' && inputInvalidText) {
-          accessibilityHint = accessibilityHint + inputInvalidText;
-        }
-        if (inputValidationStatus === 'valid' && inputValidText) {
-          accessibilityHint = accessibilityHint + inputValidText;
-        }
-      }
-      return accessibilityHint || props.accessibilityHint;
-    };
 
     return (
       <FormField
@@ -188,8 +167,8 @@ const Input = forwardRef<TextInput, InputProps>(
                 inputMode={getInputMode}
                 inBottomSheet={inBottomSheet}
                 {...props}
-                aria-label={getAccessibilityLabel()}
-                accessibilityHint={getAccessibilityHint()}
+                aria-label={accessibilityLabel}
+                accessibilityHint={accessibilityHint}
               />
               {shouldShowClear && (
                 <InputSlot>

@@ -13,7 +13,7 @@ import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import { Path, Svg } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
+import { useFormFieldAccessibility, useTheme } from '../../hooks';
 import { FormField, useFormFieldContext } from '../FormField';
 import TextareaFieldComponent from './TextareaField';
 import TextareaRoot from './TextareaRoot';
@@ -61,6 +61,16 @@ const Textarea = ({
   const textareaHeight = useSharedValue(textareaDefaultHeight);
   const resizeStartHeight = useSharedValue(textareaDefaultHeight);
   const theme = useTheme();
+  const { accessibilityHint, accessibilityLabel } = useFormFieldAccessibility({
+    label: textareaLabel,
+    helperText: textareaHelperText,
+    validText: textareaValidText,
+    invalidText: textareaInvalidText,
+    required: textareaRequired,
+    validationStatus: textareaValidationStatus,
+    fallbackLabel: props.accessibilityLabel,
+    fallbackHint: props.accessibilityHint,
+  });
 
   useEffect(() => {
     if (formFieldContext?.setShouldHandleAccessibility) {
@@ -74,37 +84,6 @@ const Textarea = ({
       resizeStartHeight.value = textareaDefaultHeight;
     }
   }, [resizeStartHeight, textareaDefaultHeight, textareaHeight]);
-
-  const getAccessibilityLabel = () => {
-    let accessibilityLabel = '';
-    if (textareaLabel) {
-      accessibilityLabel = accessibilityLabel + textareaLabel;
-    }
-    if (textareaRequired) {
-      accessibilityLabel = accessibilityLabel + ', required';
-    }
-
-    return accessibilityLabel || props.accessibilityLabel;
-  };
-
-  const getAccessibilityHint = () => {
-    let accessibilityHint = '';
-    if (textareaHelperText) {
-      accessibilityHint = accessibilityHint + textareaHelperText;
-    }
-    if (textareaValidationStatus !== 'initial') {
-      if (accessibilityHint.length > 0) {
-        accessibilityHint = accessibilityHint + ', ';
-      }
-      if (textareaValidationStatus === 'invalid' && textareaInvalidText) {
-        accessibilityHint = accessibilityHint + textareaInvalidText;
-      }
-      if (textareaValidationStatus === 'valid' && textareaValidText) {
-        accessibilityHint = accessibilityHint + textareaValidText;
-      }
-    }
-    return accessibilityHint || props.accessibilityHint;
-  };
 
   const handleTextareaLayout = (event: LayoutChangeEvent) => {
     if (!hasMeasuredHeight.current) {
@@ -171,8 +150,8 @@ const Textarea = ({
         isDisabled={textareaDisabled}
         isFocused={focused}
         required={textareaRequired}
-        aria-label={getAccessibilityLabel()}
-        accessibilityHint={getAccessibilityHint()}
+        aria-label={accessibilityLabel}
+        accessibilityHint={accessibilityHint}
       >
         {children ? (
           <>{children}</>
