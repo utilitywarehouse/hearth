@@ -4,6 +4,79 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.27.7
+
+### Patch Changes
+
+- [#1105](https://github.com/utilitywarehouse/hearth/pull/1105) [`557e3c9`](https://github.com/utilitywarehouse/hearth/commit/557e3c90f9a43d8cde6a56c503051ed4a49645dd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `Tooltip` component
+
+  ```tsx
+  import { Tooltip } from '@utilitywarehouse/hearth-react';
+  import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+  <Tooltip description="Helpful information">
+    <UnstyledIconButton label="further information">
+      <InfoSmallIcon />
+    </UnstyledIconButton>
+  </Tooltip>;
+  ```
+
+- [#1105](https://github.com/utilitywarehouse/hearth/pull/1105) [`557e3c9`](https://github.com/utilitywarehouse/hearth/commit/557e3c90f9a43d8cde6a56c503051ed4a49645dd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `HearthProvider` component
+
+  This component provides the necessary context for all Hearth components. It
+  should be used at the root of your application to ensure that all components
+  have access to the required context.
+
+  Currently it provides context for the `Tooltip` component, but it may also
+  include other providers in the future, so it is recommended to use
+  `HearthProvider` instead of individual providers like `TooltipProvider`.
+
+  ```tsx
+  import { HearthProvider } from '@utilitywarehouse/hearth-react';
+
+  function App({ children }) {
+    return <HearthProvider>{children}</HearthProvider>;
+  }
+  ```
+
+- [#1131](https://github.com/utilitywarehouse/hearth/pull/1131) [`e0441b8`](https://github.com/utilitywarehouse/hearth/commit/e0441b88607ce2ebd2fc2c78889f730a96a5f25c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Render only valid `CardActions` children
+
+  We were rendering a `li` element for `null` children of `CardActions`, so we now
+  filter out any invalid children before rendering. This should prevent any
+  unexpected elements from being rendered in the DOM and ensure that only valid
+  `CardActions` children are displayed.
+
+## 0.27.6
+
+### Patch Changes
+
+- [#1126](https://github.com/utilitywarehouse/hearth/pull/1126) [`fb275b6`](https://github.com/utilitywarehouse/hearth/commit/fb275b639400fa9b94386398eed09b4bf89c6c97) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [BUG]: Fix `InlineLink` inverted visited color
+
+## 0.27.5
+
+### Patch Changes
+
+- [#1125](https://github.com/utilitywarehouse/hearth/pull/1125) [`f1b992a`](https://github.com/utilitywarehouse/hearth/commit/f1b992a0923814dbfa3c045320366e9a87c1018a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Long `Modal` content scrolling
+
+  This change ensures that when the content of a `Modal` exceeds the viewport
+  height, it becomes scrollable, allowing users to access all content without
+  issues. For this to work correctly, the `fullScreen` prop must be set to `true`
+  on the `Modal` component.
+
+- [#1122](https://github.com/utilitywarehouse/hearth/pull/1122) [`7f4c337`](https://github.com/utilitywarehouse/hearth/commit/7f4c337e8452bc05e1e2c2c141c9e0aa2901b620) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Only render `Combobox` popup when there are contents to display
+
+- [#1122](https://github.com/utilitywarehouse/hearth/pull/1122) [`7f4c337`](https://github.com/utilitywarehouse/hearth/commit/7f4c337e8452bc05e1e2c2c141c9e0aa2901b620) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Combobox` status text styling
+
+## 0.27.4
+
+### Patch Changes
+
+- [#1098](https://github.com/utilitywarehouse/hearth/pull/1098) [`bf4a515`](https://github.com/utilitywarehouse/hearth/commit/bf4a515ee856c3bb9b1038c610de7b7ab0917c58) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Update tokens in Hearth React
+
+- [#1102](https://github.com/utilitywarehouse/hearth/pull/1102) [`55e82ad`](https://github.com/utilitywarehouse/hearth/commit/55e82ade4afaa85af7f146f4678e7926757fb96e) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add Grid & Flex item props to `Alert`
+
+- [#1101](https://github.com/utilitywarehouse/hearth/pull/1101) [`97db42d`](https://github.com/utilitywarehouse/hearth/commit/97db42d0282a8f336d9285e409bcb21418b90f6d) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Make `RadioGroup` direction responsive
+
 ## 0.27.3
 
 ### Patch Changes
