@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.8
+
+### Patch Changes
+
+- [#1141](https://github.com/utilitywarehouse/hearth/pull/1141) [`0e6e15e`](https://github.com/utilitywarehouse/hearth/commit/0e6e15ec5908e04044498dcebd1d70d7ea2710fd) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add fallback fonts to `BodyText`, `DetailText`, and `Heading` components
+
+  Add system font fallbacks to the `font-family` declarations so text renders
+  correctly when custom fonts have not yet loaded or are unavailable.
+
+  **Components affected**:
+  - `BodyText`
+  - `DetailText`
+  - `Heading`
+
+  **Developer changes**:
+
+  No changes required. The fallback fonts are applied automatically.
+
+- [#1137](https://github.com/utilitywarehouse/hearth/pull/1137) [`782dbba`](https://github.com/utilitywarehouse/hearth/commit/782dbbaa5bfa89cd450b934653e094c2e0e9fb1c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal aria description
+
+  Modal no longer sets `aria-describedby` when no description is provided. [Radix UI docs](https://www.radix-ui.com/primitives/docs/components/dialog#description)
+
 ## 0.27.7
 
 ### Patch Changes
