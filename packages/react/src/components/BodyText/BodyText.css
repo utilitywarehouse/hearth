@@ -1,5 +1,5 @@
 .h-BodyText {
-  font-family: var(--h-font-family-body);
+  font-family: var(--h-font-family-body), Helvetica, Arial, sans-serif;
   font-weight: var(--h-body-text-font-weight);
 
   &:where(.h-paragraph-spacing) {

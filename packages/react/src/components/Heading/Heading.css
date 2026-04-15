@@ -1,5 +1,5 @@
 .h-Heading {
-  font-family: var(--h-font-family-heading);
+  font-family: var(--h-font-family-heading), Georgia, serif;
   font-weight: var(--h-font-weight-semibold);
   color: var(--h-text-primary);
 
