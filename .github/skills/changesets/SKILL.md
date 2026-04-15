@@ -50,7 +50,7 @@ the `.changeset` directory. It should follow this structure:
 ...rest of the changeset content...
 ```
 
-The name of the .md file can be anything descriptive, as long as it is succinct ends with `.md`.
+The name of the `.md` file can be anything descriptive, as long as it is succinct and ends with `.md`.
 
 Make sure the package name is correct, it should be one of the following:
 
