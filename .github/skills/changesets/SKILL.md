@@ -288,8 +288,8 @@ Include helpful links or context:
 - Link to relevant discussions or documentation
 - Document the reasoning behind significant decisions
 
-For clarity, and readability, make sure to wrap component names, prop names, and
-code snippets in backticks. Also wrap lines, and include an empty line after
+For clarity and readability, make sure to wrap component names, prop names, and
+code snippets in backticks. Also wrap lines and include an empty line after
 headings.
 
 ## Common Patterns
