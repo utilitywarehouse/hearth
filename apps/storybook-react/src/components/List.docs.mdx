@@ -1,5 +1,6 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import * as Stories from './List.stories';
+import StorybookLink from '../../../../shared/storybook/StorybookLink';
 
 <Meta title="Components / List" />
 
@@ -205,7 +206,7 @@ example, "View older bills"
 
 This component is based on the `ul` element and supports the following common props:
 
-- Margin
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
 | Name             | Type                                                |
 | ---------------- | --------------------------------------------------- |
@@ -230,14 +231,12 @@ you need to present advanced content or interactive list items.
 </List>
 ```
 
-### API
-
 This component is base on the `li` element and supports the following common props:
 
-- Size
-- Gap
+- <StorybookLink to="common-props-size">Size</StorybookLink>
+- <StorybookLink to="common-props-gap">Gap</StorybookLink>
 
-As well as the following `Flex` component props:
+As well as the following <StorybookLink to="layout-flex">Flex</StorybookLink> component props:
 
 - direction
 - alignItems
@@ -251,63 +250,52 @@ The `ListItemContent` component is used to render more advanced text content.
 
 <Canvas of={Stories.ListItemContents} />
 
-### API
-
 This component is base on the `div` element.
 
-| Name          | Type        |
-| ------------- | ----------- |
-| `heading`     | `string`    |
-| `helperText`  | `string`    |
-| `leadingIcon` | `ReactNode` |
+| Name              | Type                |
+| ----------------- | ------------------- |
+| `heading`         | `string`            |
+| `helperText`      | `string`            |
+| `leadingContent`  | `ReactNode`         |
+| `trailingContent` | `ReactNode`         |
+| `badge`           | `ReactNode`         |
+| `badgePlacement`  | `"top" \| "bottom"` |
 
 ## ListItemButton
 
-The `ListItemButton` component is used to render a list item as a button, and should be wrapped in a `ListItem` component.
+The `ListItemButton` component is used to render a list item as a button, and
+should be wrapped in a `ListItem` component.
+
+This component is base on the `button` element and extends the
+`ListItemContent` component, so it supports all the same props.
 
 <Canvas of={Stories.ListItemButtons} />
 
-### API
-
-This component is base on the `button` element.
-
-| Name           | Type        |
-| -------------- | ----------- |
-| `heading`      | `string`    |
-| `helperText`   | `string`    |
-| `leadingIcon`  | `ReactNode` |
-| `trailingIcon` | `ReactNode` |
-
 ## ListItemLink
 
-The `ListItemLink` component is used to render a list item as a link, and should be wrapped in a `ListItem` component.
+The `ListItemLink` component is used to render a list item as a link, and
+should be wrapped in a `ListItem` component.
 
 <Canvas of={Stories.ListItemLinks} />
 
-### API
+This component is base on the `a` element and extends the `ListItemContent`
+component, so it supports all the same props, as well as the following
+additional props:
 
-This component is base on the `a` element.
-
-| Name           | Type        |
-| -------------- | ----------- |
-| `heading`      | `string`    |
-| `helperText`   | `string`    |
-| `leadingIcon`  | `ReactNode` |
-| `trailingIcon` | `ReactNode` |
-| `asChild`      | `boolean`   |
+| Name      | Type      |
+| --------- | --------- |
+| `asChild` | `boolean` |
 
 ## ListActionLink
 
-A single `ListActionLink` component can render a list action as a link, and should be wrapped in a `ListItem` component.
-
-### API
+A single `ListActionLink` component can render a list action as a link, and
+should be wrapped in a `ListItem` component.
 
 This component is base on the `a` element.
 
 ## ListActionButton
 
-A single `ListActionButton` component can render a list action as a link, and should be wrapped in a `ListItem` component.
-
-### API
+A single `ListActionButton` component can render a list action as a link, and
+should be wrapped in a `ListItem` component.
 
 This component is base on the `button` element.
