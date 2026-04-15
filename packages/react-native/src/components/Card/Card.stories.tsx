@@ -261,6 +261,11 @@ export const Variants: Story = {
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
+        <VariantTitle title="Highlight - Emphasis">
+          <Card {...props} colorScheme="highlight" variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
       </Flex>
     );
   },
