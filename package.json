@@ -25,7 +25,7 @@
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
     "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "ci:publish": "pnpm run build && changeset publish",
-    "ci:version": "turbo run copy:changelog && changeset version && pnpm install --no-frozen-lockfile",
+    "ci:version": "changeset version && turbo run copy:changelog && pnpm install --no-frozen-lockfile",
     "copy-tokens:react": "rm -rf ./packages/react/src/styles/tokens && cp -r ./packages/tokens/css ./packages/react/src/styles/tokens",
     "dev:docs": "turbo run dev:docs",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
