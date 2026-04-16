@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.32.1
+
+### Patch Changes
+
+- [#1144](https://github.com/utilitywarehouse/hearth/pull/1144) [`85459f2`](https://github.com/utilitywarehouse/hearth/commit/85459f2f4d7dcd8a99685a11dcda070530cee8dc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Add the missing `highlight` color scheme support across the `Banner` and `Card` components.
+
 ## 0.32.0
 
 ### Minor Changes
@@ -9,6 +15,7 @@
 `Roundel` is a compact status indicator with `success`, `pending`, and `error` variants, intended for inline state cues.
 
 **Components affected**:
+
 - `Roundel`
 
 **Developer changes**:
@@ -18,7 +25,7 @@ Import and use `Roundel` from `@utilitywarehouse/hearth-react-native`:
 ```tsx
 import { Roundel } from '@utilitywarehouse/hearth-react-native';
 
-<Roundel variant="success" />
+<Roundel variant="success" />;
 ```
 
 - [#1132](https://github.com/utilitywarehouse/hearth/pull/1132) [`8824186`](https://github.com/utilitywarehouse/hearth/commit/882418633ee8c3a11e204329d07363dc411996dc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add the `Rating` component

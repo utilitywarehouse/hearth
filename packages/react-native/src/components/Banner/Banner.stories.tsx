@@ -55,6 +55,7 @@ const meta = {
         'insurance',
         'cashback',
         'pig',
+        'highlight',
       ],
     },
     iconContainerVariant: {
@@ -542,6 +543,19 @@ export const ColorSchemes: Story = {
             colorScheme="cashback"
             heading="Cashback Lilac"
             description="Banner with cashback color scheme."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            iconContainerVariant="emphasis"
+            colorScheme="highlight"
+            heading="Highlight Yellow"
+            description="Banner with highlight color scheme."
             button={
               <Button size="sm" onPress={() => console.log('Action pressed')}>
                 Action
