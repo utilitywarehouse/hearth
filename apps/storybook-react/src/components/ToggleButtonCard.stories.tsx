@@ -11,6 +11,7 @@ import {
   CardInteraction,
   Container,
   Grid,
+  InlineLink,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
@@ -284,14 +285,11 @@ export const InteractiveContent: Story = {
                 </BodyText>
               </Flex>
               <BodyText id="variable-description" as="p" size="md">
-                Your energy rates will stay the same until December 2025
+                Your energy rates will stay the same until December 2025.{' '}
+                <CardInteraction secondary asChild>
+                  <InlineLink href="/tariff-price-breakdown">Tariff price breakdown</InlineLink>
+                </CardInteraction>
               </BodyText>
-              <CardInteraction secondary>
-                <Button variant="ghost" size="sm" paddingNone>
-                  Tariff price breakdown
-                  <ChevronRightSmallIcon />
-                </Button>
-              </CardInteraction>
             </Flex>
           </ToggleButtonCard>
         </ToggleGroup>
