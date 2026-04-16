@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.9
+
+### Patch Changes
+
+- [#1148](https://github.com/utilitywarehouse/hearth/pull/1148) [`e392c18`](https://github.com/utilitywarehouse/hearth/commit/e392c18a3df206e3b5b1365450c0bf2b8a9a139b) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Modal` hidden on Safari and in React Native webviews
+
+- [#1146](https://github.com/utilitywarehouse/hearth/pull/1146) [`43b56bb`](https://github.com/utilitywarehouse/hearth/commit/43b56bb66138ba3e7d2d28fdd19b6d3b3ea03839) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Prevent `ToggleButtonCard` hover background from triggering when hovering over interactive content inside the card
+
 ## 0.27.8
 
 ### Patch Changes
