@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.10
+
+### Patch Changes
+
+- [#1151](https://github.com/utilitywarehouse/hearth/pull/1151) [`69532ae`](https://github.com/utilitywarehouse/hearth/commit/69532ae430f863964b12fc576ea901198c61680d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Fix `Radio` indicator getting squashed when label text is long
+
 ## 0.27.9
 
 ### Patch Changes
