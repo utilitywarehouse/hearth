@@ -386,33 +386,3 @@ export const ResponsiveDirection: Story = {
     );
   },
 };
-
-export const WithLink: Story = {
-  render: args => {
-    return (
-      <ToggleGroup
-        {...args}
-        type="single"
-        gap="200"
-        direction={{ mobile: 'column', tablet: 'row' }}
-      >
-        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
-          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
-            <BodyText>
-              Can you interact with the content inside the card?
-              <CardInteraction secondary>
-                <InlineLink href="#">This should be a link.</InlineLink>
-              </CardInteraction>
-            </BodyText>
-            <Placeholder
-              borderColor="subtle"
-              backgroundColor="primary"
-              width="100%"
-              height="100px"
-            />
-          </ToggleButtonCard>
-        ))}
-      </ToggleGroup>
-    );
-  },
-};
