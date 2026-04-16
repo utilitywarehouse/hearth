@@ -11,6 +11,7 @@ import {
   CardInteraction,
   Container,
   Grid,
+  InlineLink,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
@@ -284,14 +285,11 @@ export const InteractiveContent: Story = {
                 </BodyText>
               </Flex>
               <BodyText id="variable-description" as="p" size="md">
-                Your energy rates will stay the same until December 2025
+                Your energy rates will stay the same until December 2025.{' '}
+                <CardInteraction secondary asChild>
+                  <InlineLink href="/tariff-price-breakdown">Tariff price breakdown</InlineLink>
+                </CardInteraction>
               </BodyText>
-              <CardInteraction secondary>
-                <Button variant="ghost" size="sm" paddingNone>
-                  Tariff price breakdown
-                  <ChevronRightSmallIcon />
-                </Button>
-              </CardInteraction>
             </Flex>
           </ToggleButtonCard>
         </ToggleGroup>
@@ -376,6 +374,36 @@ export const ResponsiveDirection: Story = {
       >
         {['One', 'Two', 'Three', 'Four'].map((label, value) => (
           <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
+            <Placeholder
+              borderColor="subtle"
+              backgroundColor="primary"
+              width="100%"
+              height="100px"
+            />
+          </ToggleButtonCard>
+        ))}
+      </ToggleGroup>
+    );
+  },
+};
+
+export const WithLink: Story = {
+  render: args => {
+    return (
+      <ToggleGroup
+        {...args}
+        type="single"
+        gap="200"
+        direction={{ mobile: 'column', tablet: 'row' }}
+      >
+        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
+          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
+            <BodyText>
+              Can you interact with the content inside the card?
+              <CardInteraction secondary>
+                <InlineLink href="#">This should be a link.</InlineLink>
+              </CardInteraction>
+            </BodyText>
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"

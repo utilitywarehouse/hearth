@@ -45,7 +45,7 @@
     color: var(--h-interactive-neutral-foreground-subtle);
 
     @media (hover: hover) {
-      &:where(:hover) {
+      &:where(:hover):not(:has(:hover)) {
         background-color: var(--h-interactive-neutral-surface-subtle-hover);
       }
     }
