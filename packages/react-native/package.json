@@ -11,7 +11,7 @@
     "clean": "rm -rf node_modules rm -rf build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
     "copyTokens": "node ./scripts/copyTokens.js",
-    "copyChangelog": "node ./scripts/copyChangelog.js",
+    "copy:changelog": "node ./scripts/copyChangelog.js",
     "lint:fix": "TIMING=1 eslint --fix .",
     "lint": "TIMING=1 eslint .",
     "build": "tsc",
@@ -20,10 +20,10 @@
     "figma:publish": "figma connect publish",
     "test": "vitest run --config vitest.unit.config.ts",
     "test:storybook": "vitest run --project storybook",
-    "dev": "npm run copyChangelog && storybook dev -p 6006",
+    "dev": "npm run copy:changelog && storybook dev -p 6006",
     "dev:docs": "storybook dev -p 6002 --no-open --docs",
-    "build:storybook": "npm run copyChangelog && storybook build",
-    "build:storybook:docs": "npm run copyChangelog && storybook build --docs",
+    "build:storybook": "npm run copy:changelog && storybook build",
+    "build:storybook:docs": "npm run copy:changelog && storybook build --docs",
     "chromatic": "npx chromatic --project-token=chpt_cce0fb1ebd95d2a --build-script-name build:storybook"
   },
   "dependencies": {
