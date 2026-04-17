@@ -71,6 +71,19 @@ export const FitContent: Story = {
   },
 };
 
+export const LongTitle: Story = {
+  render: () => {
+    return (
+      <RadioGroup label="Select the issue you're having with your meter" contentWidth="300px">
+        <RadioTile value="1" label="The display on my meter isn't working / the screen is blank" />
+        <RadioTile value="2" label="My in-home display is not working" />
+        <RadioTile value="3" label="Readings from my smart meter aren't showing on my bill" />
+        <RadioTile value="4" label="Something else" />
+      </RadioGroup>
+    );
+  },
+};
+
 export const WithBadge: Story = {
   render: () => (
     <RadioGroup label="With badge" contentWidth="200px">

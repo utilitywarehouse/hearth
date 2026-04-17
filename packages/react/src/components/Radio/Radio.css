@@ -45,6 +45,7 @@
   border-style: solid;
   border-width: var(--h-radio-border-width);
   border-color: var(--h-border-strong);
+  flex-shrink: 0;
 
   &:where(:focus-visible) {
     outline: 2px solid var(--h-focus-primary);
