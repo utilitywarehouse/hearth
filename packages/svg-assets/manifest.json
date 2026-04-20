@@ -899,6 +899,46 @@
       "name": "TechnicalOpticalNetworkTerminalDark",
       "path": "technical-optical-network-terminal-dark.svg",
       "hash": "310329739c9c38277a22a78feea2e93a5501f6f257414e91a360596eeb68eaee"
+    },
+    {
+      "name": "TechnicalRouterStatusOffLight",
+      "path": "technical-router-status-off-light.svg",
+      "hash": "b6e6a0234d18a31aeb1a9e45db3f0949b104a75a7f08cb841bc2120c36a81715"
+    },
+    {
+      "name": "TechnicalRouterStatusOffDark",
+      "path": "technical-router-status-off-dark.svg",
+      "hash": "7202738af999449a915befe0ba099a0545d4d6f304d6664233cf36fea3bfe54b"
+    },
+    {
+      "name": "TechnicalRouterStatusRedLight",
+      "path": "technical-router-status-red-light.svg",
+      "hash": "20141dae8c318e9326b7d9037cf7500ee097896c166ec41a61b972f176239dd5"
+    },
+    {
+      "name": "TechnicalRouterStatusRedDark",
+      "path": "technical-router-status-red-dark.svg",
+      "hash": "f1b66c3b0861f0237000ea80eedbf9676868497c9ad05695f7b9a573a546eeca"
+    },
+    {
+      "name": "TechnicalRouterStatusOrangeLight",
+      "path": "technical-router-status-orange-light.svg",
+      "hash": "ef072fd4c2526f05e77a7c0396a7b472851f15af15520a6ca7f37d781241a06e"
+    },
+    {
+      "name": "TechnicalRouterStatusOrangeDark",
+      "path": "technical-router-status-orange-dark.svg",
+      "hash": "36e0e1339afb68473cc815f17e5d62ba0e967f3f1c42096322292005ea3b94fb"
+    },
+    {
+      "name": "TechnicalRouterStatusGreenLight",
+      "path": "technical-router-status-green-light.svg",
+      "hash": "4cef69d8b98b995218d7cd6ed7e2d6fda59d40c01a30ca4e5b3fd041416a3100"
+    },
+    {
+      "name": "TechnicalRouterStatusGreenDark",
+      "path": "technical-router-status-green-dark.svg",
+      "hash": "1bf23538fbfc596158753c5d5427b3a1255a38309551234857a77bd9ef4b630a"
     }
   ]
 }

@@ -718,5 +718,37 @@
   {
     "id": "2388:51899",
     "name": "TechnicalOpticalNetworkTerminalDark"
+  },
+  {
+    "id": "2636:15703",
+    "name": "TechnicalRouterStatusOffLight"
+  },
+  {
+    "id": "2636:15705",
+    "name": "TechnicalRouterStatusOffDark"
+  },
+  {
+    "id": "2636:15718",
+    "name": "TechnicalRouterStatusRedLight"
+  },
+  {
+    "id": "2636:15730",
+    "name": "TechnicalRouterStatusRedDark"
+  },
+  {
+    "id": "2636:15753",
+    "name": "TechnicalRouterStatusOrangeLight"
+  },
+  {
+    "id": "2636:15767",
+    "name": "TechnicalRouterStatusOrangeDark"
+  },
+  {
+    "id": "2636:15783",
+    "name": "TechnicalRouterStatusGreenLight"
+  },
+  {
+    "id": "2636:15797",
+    "name": "TechnicalRouterStatusGreenDark"
   }
 ]
