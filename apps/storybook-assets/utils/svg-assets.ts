@@ -180,6 +180,14 @@ import TechnicalDslPowerMicrofilterLight from '@utilitywarehouse/hearth-svg-asse
 import TechnicalDslPowerMicrofilterDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-dark.svg'
 import TechnicalOpticalNetworkTerminalLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-light.svg'
 import TechnicalOpticalNetworkTerminalDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-dark.svg'
+import TechnicalRouterStatusOffLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-off-light.svg'
+import TechnicalRouterStatusOffDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-off-dark.svg'
+import TechnicalRouterStatusRedLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-red-light.svg'
+import TechnicalRouterStatusRedDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-red-dark.svg'
+import TechnicalRouterStatusOrangeLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-light.svg'
+import TechnicalRouterStatusOrangeDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-dark.svg'
+import TechnicalRouterStatusGreenLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-light.svg'
+import TechnicalRouterStatusGreenDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-dark.svg'
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
@@ -362,4 +370,12 @@ export const svgAssets = [
   { name: 'TechnicalDslPowerMicrofilterDark', src: TechnicalDslPowerMicrofilterDark, path: 'technical-dsl-power-microfilter-dark.svg' },
   { name: 'TechnicalOpticalNetworkTerminalLight', src: TechnicalOpticalNetworkTerminalLight, path: 'technical-optical-network-terminal-light.svg' },
   { name: 'TechnicalOpticalNetworkTerminalDark', src: TechnicalOpticalNetworkTerminalDark, path: 'technical-optical-network-terminal-dark.svg' },
+  { name: 'TechnicalRouterStatusOffLight', src: TechnicalRouterStatusOffLight, path: 'technical-router-status-off-light.svg' },
+  { name: 'TechnicalRouterStatusOffDark', src: TechnicalRouterStatusOffDark, path: 'technical-router-status-off-dark.svg' },
+  { name: 'TechnicalRouterStatusRedLight', src: TechnicalRouterStatusRedLight, path: 'technical-router-status-red-light.svg' },
+  { name: 'TechnicalRouterStatusRedDark', src: TechnicalRouterStatusRedDark, path: 'technical-router-status-red-dark.svg' },
+  { name: 'TechnicalRouterStatusOrangeLight', src: TechnicalRouterStatusOrangeLight, path: 'technical-router-status-orange-light.svg' },
+  { name: 'TechnicalRouterStatusOrangeDark', src: TechnicalRouterStatusOrangeDark, path: 'technical-router-status-orange-dark.svg' },
+  { name: 'TechnicalRouterStatusGreenLight', src: TechnicalRouterStatusGreenLight, path: 'technical-router-status-green-light.svg' },
+  { name: 'TechnicalRouterStatusGreenDark', src: TechnicalRouterStatusGreenDark, path: 'technical-router-status-green-dark.svg' },
 ];
