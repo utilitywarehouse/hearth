@@ -620,7 +620,7 @@ importers:
         specifier: workspace:^0.8.0
         version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-svg-assets':
-        specifier: workspace:^0.6.0
+        specifier: workspace:^0.6.1
         version: link:../../packages/svg-assets
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
