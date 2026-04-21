@@ -1,6 +1,6 @@
 ---
-name: changesets
-description: Guidelines for writing effective changesets in the Hearth monorepo. Use when creating changesets with pnpm changeset, documenting package changes, or reviewing changelog entries for React and React Native components.
+name: add-changeset
+description: Guidelines for writing effective changesets in the Hearth monorepo. Use when adding or creating changesets with pnpm changeset, documenting package changes, or reviewing changelog entries for React and React Native components.
 metadata:
   author: Utility Warehouse
   tags: changesets, changelog, semver, documentation, monorepo
@@ -154,7 +154,7 @@ for maintainability, and internal improvements.
 For minor bug fixes or simple enhancements, a brief single-line description is sufficient:
 
 ```markdown
-🐛 [FIX]: Correct border radius on Button component when size is small
+🐛 [FIX]: `Button` border radius incorrect when `size` is `small`
 ```
 
 ```markdown
@@ -170,15 +170,33 @@ Avoid including implementation details or internal changes that don't affect
 consumers. If further information is needed, consider adding additional sections
 as outlined below.
 
+Do not repeat the change type as a verb in the heading or description — it is
+already indicated by the emoji and label at the start of the changeset. For
+`[FIX]` changesets, state the problem plainly rather than framing it as an
+action. For example, "`Button` border radius incorrect when `size` is `small`"
+not "Fix `Button` border radius when `size` is `small`" or "Correct `Button`
+border radius when `size` is `small`". For `[FEATURE]` and `[ENHANCEMENT]`
+changesets, describe the outcome or capability, not the action taken.
+
+Keep the description focused on what changed and why it matters to users, rather
+than how it was implemented.
+
 ### For Impactful Changes
 
 For features, breaking changes, or changes that affect how consumers use the package, include:
 
-1. **Heading**: A clear, concise description of what changed
+1. **Heading**: A clear, concise description of what changed, do not repeat the
+   change type in the heading, it is already indicated by the emoji and label at
+   the start of the changeset. Focus on the user impact and what consumers need
+   to know.
 2. **Description**: Additional context including:
    - Why the change was made
    - How it affects the UI or behaviour
    - What consumers need to know or do
+
+Consumers do not need to know implementation details unless they affect how they
+use the package. Focus on the user-facing impact and any necessary migration
+steps.
 
 **Example:**
 
@@ -319,10 +337,10 @@ import { DatePicker } from '@utilitywarehouse/hearth-react-native';
 ### Fixing a Bug
 
 ```markdown
-🐛 [FIX]: Prevent `TextInput` from losing focus on Android when error message appears
+🐛 [FIX]: `TextInput` loses focus on Android when an error message appears
 
-Fixed an issue where `TextInput` would lose focus on Android devices when
-validation errors were displayed, disrupting the user's input flow.
+`TextInput` was losing focus on Android devices when validation errors were
+displayed, disrupting the user's input flow.
 ```
 
 ### Breaking Change
@@ -472,7 +490,7 @@ For uncontrolled mode, use `defaultValue`:
 ✅ **Simple fix:**
 
 ```markdown
-🐛 [FIX]: Correct `TextInput` label colour in dark mode
+🐛 [FIX]: `TextInput` label colour incorrect in dark mode
 ```
 
 ✅ **Breaking change with migration:**
@@ -524,6 +542,18 @@ const theme = {
 ```
 
 (Better: Focus on the benefit this brings to users, or skip if there's no visible change)
+
+❌ **Repeating the change type as a verb in the heading:**
+
+```markdown
+🐛 [FIX]: Fix `Modal` close button accessibility issue
+```
+
+```markdown
+🐛 [FIX]: Correct `TextInput` label colour in dark mode
+```
+
+(Better: State the problem directly — "`Modal` close button inaccessible when browser UI bars are visible", "`TextInput` label colour incorrect in dark mode")
 
 Also avoid including internal implementation details that don't affect
 consumers.
