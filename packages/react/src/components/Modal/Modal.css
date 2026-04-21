@@ -38,7 +38,13 @@
   }
 
   &:where([data-contains-image], [data-full-screen]) {
-    --h-modal-max-height-on-mobile: calc(100vh - 40px);
+    /* The 'dvh' unit accounts for the browser's UI bars */
+    --h-modal-max-height-on-mobile: calc(100dvh - 20px);
+
+    /* Fallback for older browsers that don't support dvh */
+    @supports not (height: 100dvh) {
+      --h-modal-max-height-on-mobile: calc(100vh - 80px);
+    }
 
     height: var(--h-modal-max-height-on-mobile);
 
@@ -185,7 +191,7 @@
       }
 
       &:where([data-full-screen] &) {
-        --h-modal-content-multiplier: 0.75; /* percentage of available height */
+        --h-modal-content-multiplier: 0.7; /* percentage of available height */
       }
 
       max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
