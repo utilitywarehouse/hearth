@@ -148,20 +148,6 @@ Centres content horizontally with appropriate max-width and horizontal padding. 
 
 ---
 
-## Center
-
-Centres its children both horizontally and vertically.
-
-```tsx
-import { Center } from '@utilitywarehouse/hearth-react';
-
-<Center minHeight="400px">
-  <Spinner />
-</Center>
-```
-
----
-
 ## Responsive patterns
 
 All layout props accept `{ mobile, tablet, desktop, wide }` — use these instead of CSS media queries:

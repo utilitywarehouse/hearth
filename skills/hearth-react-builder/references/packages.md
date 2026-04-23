@@ -53,10 +53,10 @@ import SpotSavingsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-savin
 import SpotProcessComplete from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional.json';
 // <Lottie animationData={SpotProcessComplete} />
 
-// Design tokens (when you need raw values outside Hearth components)
-import { color, space } from '@utilitywarehouse/hearth-tokens';
-// Or as CSS custom properties:
-import '@utilitywarehouse/hearth-tokens/css';
+// Design tokens — use CSS vars in .css files, browser format for inline React styles
+// (style props should always be tried first — see references/tokens.md)
+import '@utilitywarehouse/hearth-tokens/css';                           // exposes --h-* CSS variables
+import { color, space } from '@utilitywarehouse/hearth-tokens/browser'; // returns CSS var strings for inline styles
 ```
 
 ## Breakpoints & responsive utilities

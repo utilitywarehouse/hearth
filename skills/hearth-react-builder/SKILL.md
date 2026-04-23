@@ -19,7 +19,7 @@ Read the relevant reference file before writing any JSX.
 
 | Category | Reference |
 |---|---|
-| Layout — Box, Flex, Grid, Container, Center | [`references/layout.md`](references/layout.md) |
+| Layout — Box, Flex, Grid, Container | [`references/layout.md`](references/layout.md) |
 | Typography — Heading, BodyText, DetailText, SectionHeader, Strong, Em | [`references/typography.md`](references/typography.md) |
 | Icons, SVG assets, illustrations | [`references/icons.md`](references/icons.md) |
 | Buttons & links | [`references/components/buttons.md`](references/components/buttons.md) |
@@ -32,6 +32,7 @@ Read the relevant reference file before writing any JSX.
 | Data display — Table, Avatar, DescriptionList, ProgressBar | [`references/components/data-display.md`](references/components/data-display.md) |
 | Accordions | [`references/components/accordion.md`](references/components/accordion.md) |
 | Advanced — Combobox, DatePicker, Skeleton, IconContainer | [`references/components/advanced.md`](references/components/advanced.md) |
+| Tokens — CSS vars, space, colour, browser format | [`references/tokens.md`](references/tokens.md) |
 
 ## Process
 
