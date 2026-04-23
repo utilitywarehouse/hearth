@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "hearth-react-builder", "runs": [{"id": "eval-0-broadband-service-card-with_skill", "prompt": "I need a card that shows a customer's broadband service summary \u2014 their package name, monthly cost, contract end date, and a 'Manage broadband' link. It should also show a warning if their smart hub is offline.", "eval_id": 0, "outputs": [{"name": "BroadbandServiceCard.test.tsx", "type": "text", "content": "import { render, screen } from '@testing-library/react';\nimport { BroadbandServiceCard } from './BroadbandServiceCard';\n\nconst defaultProps = {\n  packageName: 'Full Fibre 500',\n  monthlyCost: '\u00a335.00',\n  contractEndDate: '31 March 2026',\n  manageHref: '/broadband/manage',\n};\n\ndescribe('BroadbandServiceCard', () => {\n  describe('content rendering', () => {\n    it('renders the package name as a heading', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      const heading = screen.getByRole('heading', { name: 'Full Fibre 500' });\n      expect(heading).toBeInTheDocument();\n    });\n\n    it('renders the monthly cost', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      expect(screen.getByText('\u00a335.00')).toBeInTheDocument();\n    });\n\n    it('renders the contract end date', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      expect(screen.getByText('31 March 2026')).toBeInTheDocument();\n    });\n\n    it('renders a \"Manage broadband\" link with the correct href', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      const link = screen.getByRole('link', { name: /manage broadband/i });\n      expect(link).toBeInTheDocument();\n      expect(link).toHaveAttribute('href', '/broadband/manage');\n    });\n  });\n\n  describe('hub offline warning', () => {\n    it('does not show the hub offline warning by default', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      expect(screen.queryByText(/smart hub offline/i)).not.toBeInTheDocument();\n    });\n\n    it('does not show the hub offline warning when isHubOffline is false', () => {\n      render(<BroadbandServiceCard {...defaultProps} isHubOffline={false} />);\n      expect(screen.queryByText(/smart hub offline/i)).not.toBeInTheDocument();\n    });\n\n    it('shows the hub offline warning when isHubOffline is true', () => {\n      render(<BroadbandServiceCard {...defaultProps} isHubOffline={true} />);\n      expect(screen.getByText(/smart hub offline/i)).toBeInTheDocument();\n    });\n\n    it('shows the offline warning body text when isHubOffline is true', () => {\n      render(<BroadbandServiceCard {...defaultProps} isHubOffline={true} />);\n      expect(\n        screen.getByText(/your smart hub appears to be offline/i)\n      ).toBeInTheDocument();\n    });\n  });\n\n  describe('accessibility', () => {\n    it('the card has an accessible label pointing to the package name heading', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      const heading = screen.getByRole('heading', { name: 'Full Fibre 500' });\n      expect(heading).toHaveAttribute('id', 'broadband-card-heading');\n    });\n\n    it('renders supporting labels for monthly cost and contract end date', () => {\n      render(<BroadbandServiceCard {...defaultProps} />);\n      expect(screen.getByText('Monthly cost')).toBeInTheDocument();\n      expect(screen.getByText('Contract ends')).toBeInTheDocument();\n    });\n  });\n});\n"}, {"name": "BroadbandServiceCard.tsx", "type": "text", "content": "import {\n  Alert,\n  BodyText,\n  Card,\n  CardActionLink,\n  CardActions,\n  CardContent,\n  DetailText,\n  Divider,\n  Flex,\n  Heading,\n} from '@utilitywarehouse/hearth-react';\nimport { BroadbandMediumIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';\n\nexport interface BroadbandServiceCardProps {\n  /** Name of the broadband package, e.g. \"Full Fibre 500\" */\n  packageName: string;\n  /** Monthly cost formatted as a display string, e.g. \"\u00a335.00\" */\n  monthlyCost: string;\n  /** Contract end date formatted as a display string, e.g. \"31 March 2026\" */\n  contractEndDate: string;\n  /** URL for the \"Manage broadband\" link */\n  manageHref: string;\n  /** When true, displays a warning that the smart hub is offline */\n  isHubOffline?: boolean;\n}\n\nexport function BroadbandServiceCard({\n  packageName,\n  monthlyCost,\n  contractEndDate,\n  manageHref,\n  isHubOffline = false,\n}: BroadbandServiceCardProps) {\n  return (\n    <Card colorScheme=\"broadband\" shadowColor=\"broadband\" aria-labelledby=\"broadband-card-heading\">\n      <CardContent direction=\"column\" spacing=\"md\">\n        <Heading as=\"h2\" size=\"md\" id=\"broadband-card-heading\">\n          {packageName}\n        </Heading>\n\n        <Flex direction=\"column\" gap=\"100\">\n          <BodyText size=\"sm\" color=\"secondary\">\n            Monthly cost\n          </BodyText>\n          <DetailText size=\"2xl\">{monthlyCost}</DetailText>\n          <BodyText size=\"sm\" color=\"secondary\">\n            per month\n          </BodyText>\n        </Flex>\n\n        <Flex direction=\"column\" gap=\"100\">\n          <BodyText size=\"sm\" color=\"secondary\">\n            Contract ends\n          </BodyText>\n          <BodyText size=\"md\">{contractEndDate}</BodyText>\n        </Flex>\n\n        {isHubOffline && (\n          <Alert\n            colorScheme=\"warning\"\n            title=\"Smart hub offline\"\n            text=\"Your smart hub appears to be offline. Check it's powered on and connected.\"\n          />\n        )}\n      </CardContent>\n\n      <Divider />\n\n      <CardActions>\n        <CardActionLink\n          heading=\"Manage broadband\"\n          trailingIcon={<ChevronRightSmallIcon />}\n          leadingIcon={<BroadbandMediumIcon />}\n          leadingIconContainerColorScheme=\"broadband\"\n          href={manageHref}\n        />\n      </CardActions>\n    </Card>\n  );\n}\n"}, {"name": "assumptions.md", "type": "text", "content": "# BroadbandServiceCard \u2014 Clarifying Question Assumptions\n\nThe following assumptions were made in lieu of direct user input.\n\n---\n\n## Stack\n\n- **TypeScript + React:** Yes \u2014 confirmed in the brief.\n- **CSS approach:** Plain CSS for any custom styles beyond Hearth's style props. No custom CSS was ultimately needed; all layout and spacing is handled by Hearth components and their responsive props.\n\n---\n\n## Purpose & Scope\n\n- **Feature purpose:** A customer-facing summary card shown on a broadband account dashboard or services overview page, giving the customer a quick snapshot of their broadband service.\n- **Standalone or embedded:** A reusable component designed to be embedded in a larger page (e.g. alongside other service cards for energy, mobile, etc.). It is not a standalone page.\n- **Figma spec:** No spec provided; built from written requirements only.\n\n---\n\n## Responsiveness\n\n- **Viewports:** Mobile and desktop, as stated in the brief.\n- **Layout adaptation:** The card scales naturally with its parent container. No fundamentally different layout was required between mobile and desktop \u2014 the content stacks vertically on all sizes, which is the correct pattern for a summary card. Hearth responsive props are used on layout components where appropriate.\n\n---\n\n## User Journey\n\n- **Entry:** The user arrives at this card from a services overview, home dashboard, or account page.\n- **Next step:** The primary action (\"Manage broadband\") navigates the user to a dedicated broadband management page.\n- **States handled:**\n  - Default (hub online): displays package name, cost, contract date, and manage link.\n  - Hub offline: additionally displays an `Alert` with a `warning` colour scheme.\n  - Loading and error states were not included \u2014 the assumption is that the parent page/component handles data fetching and only renders this card once data is available. Skeleton loading could be added separately if needed.\n\n---\n\n## Data & Content\n\n- **Data source:** Props only \u2014 the parent component is responsible for fetching and passing data. This component is purely presentational.\n- **Props:**\n  - `packageName: string` \u2014 e.g. \"Full Fibre 500\"\n  - `monthlyCost: string` \u2014 pre-formatted display string, e.g. \"\u00a335.00\"\n  - `contractEndDate: string` \u2014 pre-formatted display string, e.g. \"31 March 2026\"\n  - `manageHref: string` \u2014 URL for the manage link\n  - `isHubOffline?: boolean` \u2014 defaults to `false`\n- **Formatting:** Date and currency are passed in as pre-formatted strings. The component does not perform formatting itself, keeping it flexible for different locales or formatting conventions used by the consuming application.\n\n---\n\n## Interactions\n\n- **Primary action:** \"Manage broadband\" link \u2014 navigates to a management page. Implemented as a `CardActionLink` (renders as an `<a>` tag) rather than a `Button`, because the intent is navigation.\n- **No other interactions:** The card is read-only. The hub offline warning is informational only; no dismiss or action was added (the alert does not have an `onClose` prop) as no dismissal behaviour was specified.\n\n---\n\n## Accessibility\n\n- **Standard:** WCAG 2.1 AA, as stated in the brief.\n- **Card labelling:** The `Card` element carries `aria-labelledby` pointing to the package name `Heading`, so screen readers announce the card's context when it receives focus.\n- **Heading level:** `as=\"h2\"` was chosen. The assumption is that this card appears within a page that has an existing `h1`. If the card is used in a context where no `h1` exists above it, the `as` prop should be adjusted by the consumer.\n- **Manage link:** Implemented using `CardActionLink` which renders a semantic `<a>` element with a visible label \u2014 no additional aria attributes needed.\n- **Hub offline alert:** Uses Hearth's `Alert` component with `colorScheme=\"warning\"`, which renders with the appropriate ARIA `role=\"alert\"` automatically, ensuring screen readers announce it when it appears.\n- **Decorative icons:** Icons inside `CardActionLink` are decorative (the link label provides the accessible name), so no `title`/`titleId` props are added to the icons.\n\n---\n\n## Existing Context\n\n- **Codebase:** Assumed to be a standard Hearth-based React application with `HearthProvider` and `@utilitywarehouse/hearth-tokens/css` already imported at the app root.\n- **Visual consistency:** The card uses `colorScheme=\"broadband\"` and `shadowColor=\"broadband\"` to match the broadband service brand colour \u2014 consistent with how energy, mobile, and other service cards are typically styled in UW products.\n- **No custom CSS required:** All styling is achieved through Hearth component props and built-in token-backed styles. A `BroadbandServiceCard.css` file was therefore omitted.\n"}], "grading": {"expectations": [{"text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.", "passed": true, "evidence": "Component uses Card, CardContent, CardActions, Flex, Divider \u2014 all from hearth-react. No raw <div> or <span> present anywhere in the file."}, {"text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.", "passed": true, "evidence": "Imports Card, CardContent, CardActions, CardActionLink from @utilitywarehouse/hearth-react. Card is the root element wrapping the whole component."}, {"text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.", "passed": true, "evidence": "Uses Heading as='h2' for package name, BodyText for labels and cost prefix, DetailText size='2xl' for the monthly cost value. No raw text-rendering HTML elements."}, {"text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.", "passed": true, "evidence": "Uses CardActionLink with heading='Manage broadband', leadingIcon, and trailingIcon props. No raw <a> element."}, {"text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.", "passed": true, "evidence": "{isHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on the isHubOffline prop, using Alert from hearth-react."}, {"text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.", "passed": true, "evidence": "BroadbandServiceCardProps interface defines: packageName (string), monthlyCost (string), contractEndDate (string), manageHref (string), isHubOffline (boolean, optional)."}, {"text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "BroadbandServiceCard.test.tsx present with 8 tests across 3 describe blocks: 'content rendering', 'hub offline warning', and 'accessibility'."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 139.9}, "claims": [{"claim": "CardActionLink is used idiomatically as the manage link inside CardActions", "type": "quality", "verified": true, "evidence": "CardActionLink is used with leadingIcon (BroadbandMediumIcon), trailingIcon (ChevronRightSmallIcon), and leadingIconContainerColorScheme='broadband' \u2014 this is the correct compound pattern for card actions with icons."}, {"claim": "DetailText size='2xl' is used for the monthly cost", "type": "quality", "verified": true, "evidence": "<DetailText size='2xl'>{monthlyCost}</DetailText> \u2014 appropriate size for a prominent price display."}], "eval_feedback": {"suggestions": [{"reason": "All assertions check component presence but not semantic quality. No assertion distinguishes between using DetailText (appropriate for a price) vs BodyText or Heading for the cost value. This is a meaningful quality signal the eval misses."}, {"reason": "No assertion checks the Card colorScheme prop is set (e.g. 'broadband'), which is a notable with-skill improvement in brand alignment."}], "overall": "Assertions pass for all meaningful structural requirements. Quality differentiation between runs would benefit from checking prop usage patterns like colorScheme and typography choices for specific content types."}}}, {"id": "eval-0-broadband-service-card-without_skill", "prompt": "I need a card that shows a customer's broadband service summary \u2014 their package name, monthly cost, contract end date, and a 'Manage broadband' link. It should also show a warning if their smart hub is offline.", "eval_id": 0, "outputs": [{"name": "BroadbandServiceCard.test.tsx", "type": "text", "content": "import * as React from 'react';\nimport { render, screen } from '@testing-library/react';\nimport { BroadbandServiceCard } from './BroadbandServiceCard';\n\nconst defaultProps = {\n  packageName: 'Full Fibre 100',\n  monthlyCost: 35.99,\n  contractEndDate: new Date('2026-03-31'),\n  manageHref: '/broadband/manage',\n};\n\ndescribe('BroadbandServiceCard', () => {\n  it('renders the package name', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.getByText('Full Fibre 100')).toBeInTheDocument();\n  });\n\n  it('renders the monthly cost formatted as GBP currency', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.getByText('\u00a335.99 / month')).toBeInTheDocument();\n  });\n\n  it('renders the contract end date in a human-readable format', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.getByText('31 March 2026')).toBeInTheDocument();\n  });\n\n  it('renders a \"Manage broadband\" link pointing to the given href', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    const link = screen.getByRole('link', { name: /manage broadband/i });\n    expect(link).toBeInTheDocument();\n    expect(link).toHaveAttribute('href', '/broadband/manage');\n  });\n\n  it('does not show the smart hub offline warning by default', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.queryByText('Smart hub offline')).not.toBeInTheDocument();\n  });\n\n  it('shows the smart hub offline warning when isSmartHubOffline is true', () => {\n    render(<BroadbandServiceCard {...defaultProps} isSmartHubOffline />);\n    expect(screen.getByText('Smart hub offline')).toBeInTheDocument();\n    expect(\n      screen.getByText(/your smart hub appears to be offline/i)\n    ).toBeInTheDocument();\n  });\n\n  it('does not show the smart hub offline warning when isSmartHubOffline is false', () => {\n    render(<BroadbandServiceCard {...defaultProps} isSmartHubOffline={false} />);\n    expect(screen.queryByText('Smart hub offline')).not.toBeInTheDocument();\n  });\n\n  it('renders the \"Broadband\" heading', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.getByRole('heading', { name: 'Broadband' })).toBeInTheDocument();\n  });\n\n  it('renders the section labels for each data field', () => {\n    render(<BroadbandServiceCard {...defaultProps} />);\n    expect(screen.getByText('Package')).toBeInTheDocument();\n    expect(screen.getByText('Monthly cost')).toBeInTheDocument();\n    expect(screen.getByText('Contract end date')).toBeInTheDocument();\n  });\n\n  it('renders correctly with a different package and cost', () => {\n    render(\n      <BroadbandServiceCard\n        {...defaultProps}\n        packageName=\"Full Fibre 500\"\n        monthlyCost={49.0}\n      />\n    );\n    expect(screen.getByText('Full Fibre 500')).toBeInTheDocument();\n    expect(screen.getByText('\u00a349.00 / month')).toBeInTheDocument();\n  });\n});\n"}, {"name": "BroadbandServiceCard.tsx", "type": "text", "content": "import * as React from 'react';\nimport {\n  Card,\n  CardContent,\n  CardInteraction,\n  Alert,\n  Flex,\n  Heading,\n  BodyText,\n  DetailText,\n  Link,\n  IconContainer,\n} from '@utilitywarehouse/hearth-react';\nimport {\n  BroadbandMediumIcon,\n  ChevronRightSmallIcon,\n} from '@utilitywarehouse/hearth-react-icons';\n\nexport interface BroadbandServiceCardProps {\n  /** The name of the broadband package */\n  packageName: string;\n  /** The monthly cost, e.g. 35.99 */\n  monthlyCost: number;\n  /** The contract end date */\n  contractEndDate: Date;\n  /** The URL for the \"Manage broadband\" link */\n  manageHref: string;\n  /** Whether the customer's smart hub is offline */\n  isSmartHubOffline?: boolean;\n}\n\nfunction formatCurrency(amount: number): string {\n  return new Intl.NumberFormat('en-GB', {\n    style: 'currency',\n    currency: 'GBP',\n  }).format(amount);\n}\n\nfunction formatDate(date: Date): string {\n  return new Intl.DateTimeFormat('en-GB', {\n    day: 'numeric',\n    month: 'long',\n    year: 'numeric',\n  }).format(date);\n}\n\nexport function BroadbandServiceCard({\n  packageName,\n  monthlyCost,\n  contractEndDate,\n  manageHref,\n  isSmartHubOffline = false,\n}: BroadbandServiceCardProps) {\n  return (\n    <Card\n      direction=\"column\"\n      gap=\"300\"\n      shadowColor=\"broadband\"\n      colorScheme=\"neutralStrong\"\n      variant=\"emphasis\"\n    >\n      <Flex alignItems=\"center\" gap=\"200\">\n        <IconContainer colorScheme=\"broadband\" size=\"md\">\n          <BroadbandMediumIcon />\n        </IconContainer>\n        <Heading as=\"h2\" size=\"md\">\n          Broadband\n        </Heading>\n      </Flex>\n\n      <CardContent direction=\"column\" gap=\"150\" paddingNone>\n        <Flex direction=\"column\" gap=\"50\">\n          <DetailText size=\"sm\" color=\"text\" as=\"span\">\n            Package\n          </DetailText>\n          <BodyText size=\"md\" weight=\"semibold\">\n            {packageName}\n          </BodyText>\n        </Flex>\n\n        <Flex direction=\"column\" gap=\"50\">\n          <DetailText size=\"sm\" color=\"text\" as=\"span\">\n            Monthly cost\n          </DetailText>\n          <BodyText size=\"md\" weight=\"semibold\">\n            {formatCurrency(monthlyCost)} / month\n          </BodyText>\n        </Flex>\n\n        <Flex direction=\"column\" gap=\"50\">\n          <DetailText size=\"sm\" color=\"text\" as=\"span\">\n            Contract end date\n          </DetailText>\n          <BodyText size=\"md\" weight=\"semibold\">\n            {formatDate(contractEndDate)}\n          </BodyText>\n        </Flex>\n      </CardContent>\n\n      {isSmartHubOffline && (\n        <Alert\n          colorScheme=\"warning\"\n          title=\"Smart hub offline\"\n          text=\"Your smart hub appears to be offline. Please check your router is plugged in and switched on.\"\n        />\n      )}\n\n      <CardInteraction asChild>\n        <Link href={manageHref}>\n          Manage broadband\n          <ChevronRightSmallIcon />\n        </Link>\n      </CardInteraction>\n    </Card>\n  );\n}\n\nBroadbandServiceCard.displayName = 'BroadbandServiceCard';\n"}], "grading": {"expectations": [{"text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.", "passed": true, "evidence": "Component uses Card, CardContent, CardInteraction, Flex, IconContainer \u2014 all from hearth-react. No raw <div> or <span> present."}, {"text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.", "passed": true, "evidence": "Imports Card, CardContent, CardInteraction from @utilitywarehouse/hearth-react. Card is the root element."}, {"text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.", "passed": true, "evidence": "Uses Heading as='h2', BodyText, DetailText size='sm' for labels. BodyText weight='semibold' for cost display (rather than DetailText, but still a Hearth component)."}, {"text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.", "passed": true, "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage broadband...</Link></CardInteraction> \u2014 uses both CardInteraction and Link from hearth-react."}, {"text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.", "passed": true, "evidence": "{isSmartHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on isSmartHubOffline prop, using Alert."}, {"text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.", "passed": true, "evidence": "BroadbandServiceCardProps defines: packageName (string), monthlyCost (number), contractEndDate (Date), manageHref (string), isSmartHubOffline (boolean, optional). All four required fields covered."}, {"text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "BroadbandServiceCard.test.tsx present with 10 tests covering rendering, offline warning, and edge cases."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 131.9}, "claims": [{"claim": "monthlyCost is typed as number with formatting handled by a utility function", "type": "quality", "verified": true, "evidence": "monthlyCost: number prop, formatCurrency helper using Intl.NumberFormat. Contrast with with_skill which accepts pre-formatted strings."}, {"claim": "BodyText is used for the monthly cost value instead of DetailText", "type": "quality", "verified": true, "evidence": "<BodyText size='md' weight='semibold'>{formatCurrency(monthlyCost)} / month</BodyText> \u2014 BodyText rather than DetailText for the price, which is less idiomatic for a prominent price display."}], "eval_feedback": {"suggestions": [{"reason": "The typography assertion doesn't distinguish between using BodyText vs DetailText for a price figure. Both pass, but DetailText is the more appropriate choice for a highlighted numeric value. A more discriminating assertion would check that the primary cost value uses DetailText."}], "overall": "All structural assertions pass. The without-skill output is competent but makes less idiomatic choices (BodyText for price instead of DetailText, raw number props instead of pre-formatted strings)."}}}, {"id": "eval-1-contact-details-form-with_skill", "prompt": "Build a form for updating contact details: full name, email address, phone number, and a dropdown for preferred contact method (email, SMS, post). It needs inline validation and should show a success message after saving.", "eval_id": 1, "outputs": [{"name": "ContactDetailsForm.css", "type": "text", "content": "/*\n * ContactDetailsForm.css\n *\n * Fieldset/legend resets: browsers apply opinionated styles (border, padding,\n * min-inline-size) that Hearth's CSS reset does not clear. We reset them here\n * so that <fieldset> acts as a plain layout container.\n */\n\n.contact-details-form__fieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  min-inline-size: 0;\n}\n\n/*\n * The <legend> element must be a direct child of <fieldset> for accessibility,\n * but we want our Heading component inside it to be the only visible element.\n * Collapsing the legend's own box avoids a gap above the first field.\n */\n.contact-details-form__legend {\n  padding: 0;\n  margin-bottom: var(--h-space-400);\n  float: left; /* Classic browser-compat trick to keep legend in flow */\n  width: 100%;\n}\n\n/* Clear the float so subsequent content starts below the legend */\n.contact-details-form__legend + * {\n  clear: left;\n}\n"}, {"name": "ContactDetailsForm.test.tsx", "type": "text", "content": "import { render, screen, waitFor } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\nimport { describe, it, expect, vi, beforeEach } from 'vitest';\nimport { ContactDetailsForm } from './ContactDetailsForm';\n\n// HearthProvider is required for Hearth components.\n// In unit tests we mock it with a passthrough wrapper.\nvi.mock('@utilitywarehouse/hearth-react', async () => {\n  const actual = await vi.importActual('@utilitywarehouse/hearth-react');\n  return actual;\n});\n\nconst defaultOnSave = vi.fn();\n\nfunction renderForm(onSave = defaultOnSave) {\n  return render(<ContactDetailsForm onSave={onSave} />);\n}\n\ndescribe('ContactDetailsForm', () => {\n  beforeEach(() => {\n    vi.clearAllMocks();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Rendering\n  // ---------------------------------------------------------------------------\n\n  it('renders all four fields', () => {\n    renderForm();\n    expect(screen.getByLabelText(/full name/i)).toBeInTheDocument();\n    expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();\n    expect(screen.getByLabelText(/phone number/i)).toBeInTheDocument();\n    expect(screen.getByRole('combobox', { name: /preferred contact method/i })).toBeInTheDocument();\n  });\n\n  it('renders the save button', () => {\n    renderForm();\n    expect(screen.getByRole('button', { name: /save changes/i })).toBeInTheDocument();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Required field validation\n  // ---------------------------------------------------------------------------\n\n  it('shows required errors for all fields when submitted empty', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n\n    await waitFor(() => {\n      expect(screen.getByText(/full name is required/i)).toBeInTheDocument();\n      expect(screen.getByText(/email address is required/i)).toBeInTheDocument();\n      expect(screen.getByText(/phone number is required/i)).toBeInTheDocument();\n      expect(screen.getByText(/please select a preferred contact method/i)).toBeInTheDocument();\n    });\n\n    expect(defaultOnSave).not.toHaveBeenCalled();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Full name validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error when full name is shorter than 2 characters', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/full name/i), 'A');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.getByText(/full name must be at least 2 characters/i),\n      ).toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid full name', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/full name/i), 'Jane Smith');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/full name must be at least 2 characters/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Email validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error for an invalid email format', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/email address/i), 'not-an-email');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(screen.getByText(/enter a valid email address/i)).toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid email address', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/email address/i), 'jane@example.com');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid email address/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Phone validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error for a non-UK phone number', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '12345');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.getByText(/enter a valid uk phone number/i),\n      ).toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid UK mobile number with spaces', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '07700 900000');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid uk phone number/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid UK landline without spaces', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '02071234567');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid uk phone number/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Successful submission\n  // ---------------------------------------------------------------------------\n\n  async function fillAndSubmit(user: ReturnType<typeof userEvent.setup>) {\n    await user.type(screen.getByLabelText(/full name/i), 'Jane Smith');\n    await user.type(screen.getByLabelText(/email address/i), 'jane@example.com');\n    await user.type(screen.getByLabelText(/phone number/i), '07700 900000');\n\n    // Open the select and choose \"Email\"\n    await user.click(screen.getByRole('combobox', { name: /preferred contact method/i }));\n    await user.click(screen.getByRole('option', { name: /^email$/i }));\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n  }\n\n  it('calls onSave with the correct values on valid submission', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillAndSubmit(user);\n\n    await waitFor(() => {\n      expect(onSave).toHaveBeenCalledOnce();\n      expect(onSave).toHaveBeenCalledWith({\n        fullName: 'Jane Smith',\n        email: 'jane@example.com',\n        phone: '07700 900000',\n        contactMethod: 'email',\n      });\n    });\n  });\n\n  it('shows a success alert after onSave resolves', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillAndSubmit(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toHaveTextContent(/details saved/i);\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Failed submission\n  // ---------------------------------------------------------------------------\n\n  it('shows an error alert when onSave rejects', async () => {\n    const onSave = vi.fn().mockRejectedValue(new Error('Network error'));\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillAndSubmit(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toHaveTextContent(/something went wrong/i);\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Dismissing alerts\n  // ---------------------------------------------------------------------------\n\n  it('dismisses the success alert when its close button is clicked', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillAndSubmit(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toBeInTheDocument();\n    });\n\n    const closeButton = screen.getByRole('button', { name: /close/i });\n    await user.click(closeButton);\n\n    await waitFor(() => {\n      expect(screen.queryByRole('alert')).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Pre-populated values\n  // ---------------------------------------------------------------------------\n\n  it('pre-populates fields when defaultValues are provided', () => {\n    render(\n      <ContactDetailsForm\n        defaultValues={{\n          fullName: 'John Doe',\n          email: 'john@example.com',\n          phone: '07900 112233',\n          contactMethod: 'sms',\n        }}\n        onSave={defaultOnSave}\n      />,\n    );\n\n    expect(screen.getByLabelText(/full name/i)).toHaveValue('John Doe');\n    expect(screen.getByLabelText(/email address/i)).toHaveValue('john@example.com');\n    expect(screen.getByLabelText(/phone number/i)).toHaveValue('07900 112233');\n  });\n\n  // ---------------------------------------------------------------------------\n  // Accessibility\n  // ---------------------------------------------------------------------------\n\n  it('marks invalid fields with aria-invalid', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n\n    await waitFor(() => {\n      expect(screen.getByLabelText(/full name/i)).toHaveAttribute('aria-invalid', 'true');\n      expect(screen.getByLabelText(/email address/i)).toHaveAttribute('aria-invalid', 'true');\n      expect(screen.getByLabelText(/phone number/i)).toHaveAttribute('aria-invalid', 'true');\n    });\n  });\n});\n"}, {"name": "ContactDetailsForm.tsx", "type": "text", "content": "import { useState } from 'react';\nimport { useForm, Controller } from 'react-hook-form';\nimport {\n  Alert,\n  Button,\n  Flex,\n  Heading,\n  Select,\n  SelectItem,\n  TextInput,\n} from '@utilitywarehouse/hearth-react';\n\nimport './ContactDetailsForm.css';\n\nexport type ContactMethod = 'email' | 'sms' | 'post';\n\nexport interface ContactDetailsFormValues {\n  fullName: string;\n  email: string;\n  phone: string;\n  contactMethod: ContactMethod;\n}\n\nexport interface ContactDetailsFormProps {\n  /** Default values to pre-populate the form. */\n  defaultValues?: Partial<ContactDetailsFormValues>;\n  /**\n   * Called when the user submits valid form data.\n   * Return a Promise \u2014 resolves on success, rejects on failure.\n   */\n  onSave: (values: ContactDetailsFormValues) => Promise<void>;\n}\n\n// UK phone number: starts with 0, 10\u201311 digits, allows spaces and hyphens.\nconst UK_PHONE_RE = /^0[\\d\\s-]{9,10}$/;\n\nexport function ContactDetailsForm({\n  defaultValues,\n  onSave,\n}: ContactDetailsFormProps) {\n  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle');\n\n  const {\n    control,\n    handleSubmit,\n    formState: { errors },\n  } = useForm<ContactDetailsFormValues>({\n    defaultValues: {\n      fullName: '',\n      email: '',\n      phone: '',\n      contactMethod: undefined,\n      ...defaultValues,\n    },\n    mode: 'onTouched',\n  });\n\n  const onSubmit = async (values: ContactDetailsFormValues) => {\n    setSaveStatus('saving');\n    try {\n      await onSave(values);\n      setSaveStatus('success');\n    } catch {\n      setSaveStatus('error');\n    }\n  };\n\n  return (\n    <form\n      onSubmit={handleSubmit(onSubmit)}\n      noValidate\n      aria-label=\"Contact details form\"\n      className=\"contact-details-form\"\n    >\n      <Flex direction=\"column\" gap=\"500\">\n        <Heading as=\"h1\" size=\"lg\">\n          Contact details\n        </Heading>\n\n        {/* Success alert */}\n        {saveStatus === 'success' && (\n          <Alert\n            colorScheme=\"positive\"\n            title=\"Details saved\"\n            text=\"Your contact details have been updated successfully.\"\n            onClose={() => setSaveStatus('idle')}\n          />\n        )}\n\n        {/* Error alert */}\n        {saveStatus === 'error' && (\n          <Alert\n            colorScheme=\"danger\"\n            title=\"Something went wrong\"\n            text=\"We could not save your details. Please try again.\"\n            onClose={() => setSaveStatus('idle')}\n          />\n        )}\n\n        <fieldset className=\"contact-details-form__fieldset\">\n          <legend className=\"contact-details-form__legend\">\n            <Heading as=\"h2\" size=\"sm\">\n              Personal information\n            </Heading>\n          </legend>\n\n          <Flex direction=\"column\" gap=\"400\">\n            {/* Full name */}\n            <Controller\n              name=\"fullName\"\n              control={control}\n              rules={{\n                required: 'Full name is required',\n                minLength: {\n                  value: 2,\n                  message: 'Full name must be at least 2 characters',\n                },\n              }}\n              render={({ field, fieldState }) => (\n                <TextInput\n                  {...field}\n                  label=\"Full name\"\n                  type=\"text\"\n                  autoComplete=\"name\"\n                  required\n                  validationStatus={fieldState.error ? 'invalid' : undefined}\n                  validationText={fieldState.error?.message}\n                />\n              )}\n            />\n\n            {/* Email address */}\n            <Controller\n              name=\"email\"\n              control={control}\n              rules={{\n                required: 'Email address is required',\n                pattern: {\n                  value: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/,\n                  message: 'Enter a valid email address',\n                },\n              }}\n              render={({ field, fieldState }) => (\n                <TextInput\n                  {...field}\n                  label=\"Email address\"\n                  type=\"email\"\n                  autoComplete=\"email\"\n                  inputMode=\"email\"\n                  required\n                  validationStatus={fieldState.error ? 'invalid' : undefined}\n                  validationText={fieldState.error?.message}\n                />\n              )}\n            />\n\n            {/* Phone number */}\n            <Controller\n              name=\"phone\"\n              control={control}\n              rules={{\n                required: 'Phone number is required',\n                pattern: {\n                  value: UK_PHONE_RE,\n                  message: 'Enter a valid UK phone number starting with 0',\n                },\n              }}\n              render={({ field, fieldState }) => (\n                <TextInput\n                  {...field}\n                  label=\"Phone number\"\n                  type=\"tel\"\n                  autoComplete=\"tel\"\n                  inputMode=\"tel\"\n                  helperText=\"UK numbers only, e.g. 07700 900000\"\n                  required\n                  validationStatus={fieldState.error ? 'invalid' : undefined}\n                  validationText={fieldState.error?.message}\n                />\n              )}\n            />\n          </Flex>\n        </fieldset>\n\n        <fieldset className=\"contact-details-form__fieldset\">\n          <legend className=\"contact-details-form__legend\">\n            <Heading as=\"h2\" size=\"sm\">\n              Communication preferences\n            </Heading>\n          </legend>\n\n          {/* Preferred contact method */}\n          <Controller\n            name=\"contactMethod\"\n            control={control}\n            rules={{ required: 'Please select a preferred contact method' }}\n            render={({ field, fieldState }) => (\n              <Select\n                label=\"Preferred contact method\"\n                placeholder=\"Select a method\"\n                required\n                value={field.value ?? ''}\n                onValueChange={field.onChange}\n                validationStatus={fieldState.error ? 'invalid' : undefined}\n                validationText={fieldState.error?.message}\n              >\n                <SelectItem value=\"email\">Email</SelectItem>\n                <SelectItem value=\"sms\">SMS</SelectItem>\n                <SelectItem value=\"post\">Post</SelectItem>\n              </Select>\n            )}\n          />\n        </fieldset>\n\n        <Flex\n          direction={{ mobile: 'column', tablet: 'row' }}\n          justifyContent={{ mobile: 'start', tablet: 'end' }}\n        >\n          <Button\n            type=\"submit\"\n            variant=\"emphasis\"\n            colorScheme=\"highlight\"\n            loading={saveStatus === 'saving'}\n          >\n            Save changes\n          </Button>\n        </Flex>\n      </Flex>\n    </form>\n  );\n}\n\nexport default ContactDetailsForm;\n"}, {"name": "assumptions.md", "type": "text", "content": "# ContactDetailsForm \u2014 Assumptions\n\nNo live user was available during development. The following assumptions were made\nfor a Utility Warehouse customer-facing web product.\n\n---\n\n## Stack\n\n| Decision | Choice | Reason |\n|---|---|---|\n| Language | TypeScript + React | UW standard; confirmed in brief |\n| CSS approach | Plain CSS (one `.css` file) | Minimal custom styles needed; Hearth handles the rest via style props |\n| Form library | React Hook Form (`Controller` pattern) | Specified in brief; matches the Hearth forms reference exactly |\n| Test runner | Vitest + React Testing Library | Standard in the Hearth monorepo |\n\n---\n\n## Viewports\n\nMobile-first responsive layout. The submit button row switches from `column`\n(full-width on mobile) to `row` (right-aligned on tablet/desktop) using\nHearth's responsive `direction` and `justifyContent` props on `<Flex>`.\n\n---\n\n## Accessibility\n\n- WCAG 2.1 AA target.\n- `<fieldset>` / `<legend>` used for two logical groups (\"Personal information\"\n  and \"Communication preferences\") so screen readers announce the group name\n  before each field.\n- `noValidate` on `<form>` disables browser-native validation bubbles; all\n  validation is handled inline via React Hook Form + Hearth `validationStatus` /\n  `validationText` props, which wire `aria-invalid` and `aria-errormessage`\n  automatically.\n- Form has an `aria-label` so it is identifiable as a landmark when embedded\n  inside a larger page.\n\n---\n\n## Validation rules\n\n| Field | Rule |\n|---|---|\n| Full name | Required; minimum 2 characters |\n| Email address | Required; must match `[^\\s@]+@[^\\s@]+\\.[^\\s@]+` |\n| Phone number | Required; must match UK format (`0` prefix, 10\u201311 digits, spaces/hyphens allowed) |\n| Contact method | Required; one of `email`, `sms`, `post` |\n\nValidation fires `onTouched` (i.e. after the user leaves a field for the first\ntime), which gives immediate inline feedback without being intrusive on first\nload.\n\n---\n\n## Save behaviour\n\n- The component accepts an `onSave` prop of type `(values) => Promise<void>`.\n- While saving, the submit button enters a `loading` state (built-in Hearth\n  spinner + `aria-label=\"Loading\"`).\n- On resolution: a dismissible `positive` Alert appears above the form.\n- On rejection: a dismissible `danger` Alert appears above the form.\n- Dismissing either alert resets status to `idle` so the user can try again.\n\n---\n\n## Component structure\n\n```\nContactDetailsForm/\n\u251c\u2500\u2500 ContactDetailsForm.tsx        Main component\n\u251c\u2500\u2500 ContactDetailsForm.test.tsx   Vitest + RTL unit tests\n\u2514\u2500\u2500 ContactDetailsForm.css        Fieldset/legend browser resets only\n```\n\nThe component is exported as both a named export (`ContactDetailsForm`) and a\ndefault export for flexibility.\n\n---\n\n## Hearth components used\n\n| Hearth component | Purpose |\n|---|---|\n| `Flex` | Column layout of form sections, responsive submit row |\n| `Heading` | Form title (`h1`) and fieldset legends (`h2`) |\n| `TextInput` + `Controller` | Full name, email, phone \u2014 inline validation wired via `fieldState` |\n| `Select` + `SelectItem` | Preferred contact method dropdown |\n| `Button` | Submit \u2014 `variant=\"emphasis\" colorScheme=\"highlight\"` with `loading` prop |\n| `Alert` | Success (`positive`) and error (`danger`) inline messages |\n\nNo `Toast` was used because the success/error state is persistent and\ndismissible rather than transient. An inline Alert is more appropriate when the\nuser may need to read or re-read the outcome before proceeding.\n\n---\n\n## What was not assumed\n\n- No routing or navigation is wired \u2014 this is a standalone form component.\n- No initial data fetching \u2014 the caller passes `defaultValues` if needed.\n- No optimistic UI \u2014 the form does not clear or reset after a successful save,\n  so the user can verify the data that was saved.\n"}], "grading": {"expectations": [{"text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.", "passed": true, "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button \u2014 all from hearth-react. The <form> element is a structural wrapper, not an input element."}, {"text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.", "passed": true, "evidence": "Three Controller-wrapped TextInput components: fullName (type='text'), email (type='email', inputMode='email'), phone (type='tel', inputMode='tel')."}, {"text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.", "passed": true, "evidence": "Select with placeholder='Select a method' contains three SelectItem components: 'email', 'sms', 'post'. Wrapped in Controller with onValueChange={field.onChange}."}, {"text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.", "passed": true, "evidence": "All TextInput fields use validationStatus={fieldState.error ? 'invalid' : undefined} and validationText={fieldState.error?.message}. Rules include required and pattern checks."}, {"text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.", "passed": true, "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"}, {"text": "The submit action uses Button from hearth-react, not a raw <button>.", "passed": true, "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"}, {"text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, pre-population, and accessibility."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 137.3}, "claims": [{"claim": "React Hook Form with Controller and fieldState is used for form management", "type": "process", "verified": true, "evidence": "Imports useForm, Controller from react-hook-form. Uses Controller render prop with fieldState for each input. mode: 'onTouched' for progressive validation."}, {"claim": "fieldsets with legend are used for semantic grouping", "type": "quality", "verified": true, "evidence": "Two <fieldset> elements with <legend> wrapping Heading: 'Personal information' and 'Communication preferences'. CSS resets in ContactDetailsForm.css strip browser default styles."}, {"claim": "Button shows loading state during async save", "type": "quality", "verified": true, "evidence": "loading={saveStatus === 'saving'} on Button \u2014 prevents double-submit and shows loading indicator."}], "eval_feedback": {"suggestions": [{"reason": "No assertion distinguishes between React Hook Form and manual useState validation. Both satisfy all assertions equally \u2014 but one is significantly more robust and scalable. Consider checking for react-hook-form import or Controller usage."}], "overall": "All assertions pass. The with-skill output uses React Hook Form with Controller/fieldState which is the recommended pattern in the skill reference, but the assertions can't distinguish this from the manual-state approach used by the baseline."}}}, {"id": "eval-1-contact-details-form-without_skill", "prompt": "Build a form for updating contact details: full name, email address, phone number, and a dropdown for preferred contact method (email, SMS, post). It needs inline validation and should show a success message after saving.", "eval_id": 1, "outputs": [{"name": "ContactDetailsForm.css", "type": "text", "content": "/*\n * ContactDetailsForm.css\n *\n * Browsers apply opinionated styles to <fieldset> (border, padding,\n * min-inline-size) and <legend> that Hearth's CSS reset does not clear.\n * We reset them here so that the elements act as plain layout containers.\n */\n\n.contact-details-form__fieldset {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  min-inline-size: 0;\n}\n\n/*\n * The <legend> must be a direct child of <fieldset> for accessibility, but we\n * want it to behave like a normal block so the heading sits flush above the\n * fields. The float trick is the most reliable cross-browser approach.\n */\n.contact-details-form__legend {\n  padding: 0;\n  margin-bottom: var(--h-space-400);\n  float: left;\n  width: 100%;\n}\n\n/* Clear the float so subsequent content starts below the legend */\n.contact-details-form__legend + * {\n  clear: left;\n}\n"}, {"name": "ContactDetailsForm.test.tsx", "type": "text", "content": "import { render, screen, waitFor } from '@testing-library/react';\nimport userEvent from '@testing-library/user-event';\nimport { describe, it, expect, vi, beforeEach } from 'vitest';\nimport { ContactDetailsForm } from './ContactDetailsForm';\n\nconst defaultOnSave = vi.fn();\n\nfunction renderForm(onSave = defaultOnSave) {\n  return render(<ContactDetailsForm onSave={onSave} />);\n}\n\ndescribe('ContactDetailsForm', () => {\n  beforeEach(() => {\n    vi.clearAllMocks();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Rendering\n  // ---------------------------------------------------------------------------\n\n  it('renders all four fields', () => {\n    renderForm();\n    expect(screen.getByLabelText(/full name/i)).toBeInTheDocument();\n    expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();\n    expect(screen.getByLabelText(/phone number/i)).toBeInTheDocument();\n    expect(\n      screen.getByRole('combobox', { name: /preferred contact method/i }),\n    ).toBeInTheDocument();\n  });\n\n  it('renders the Save changes button', () => {\n    renderForm();\n    expect(screen.getByRole('button', { name: /save changes/i })).toBeInTheDocument();\n  });\n\n  it('pre-populates fields when defaultValues are provided', () => {\n    render(\n      <ContactDetailsForm\n        defaultValues={{\n          fullName: 'Jane Doe',\n          email: 'jane@example.com',\n          phone: '07700 900000',\n          contactMethod: 'email',\n        }}\n        onSave={defaultOnSave}\n      />,\n    );\n\n    expect(screen.getByLabelText(/full name/i)).toHaveValue('Jane Doe');\n    expect(screen.getByLabelText(/email address/i)).toHaveValue('jane@example.com');\n    expect(screen.getByLabelText(/phone number/i)).toHaveValue('07700 900000');\n  });\n\n  // ---------------------------------------------------------------------------\n  // Required field validation on submit\n  // ---------------------------------------------------------------------------\n\n  it('shows required-field errors for all fields when the form is submitted empty', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n\n    await waitFor(() => {\n      expect(screen.getByText(/full name is required/i)).toBeInTheDocument();\n      expect(screen.getByText(/email address is required/i)).toBeInTheDocument();\n      expect(screen.getByText(/phone number is required/i)).toBeInTheDocument();\n      expect(\n        screen.getByText(/please select a preferred contact method/i),\n      ).toBeInTheDocument();\n    });\n\n    expect(defaultOnSave).not.toHaveBeenCalled();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Full name validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error when full name is a single character', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/full name/i), 'A');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.getByText(/full name must be at least 2 characters/i),\n      ).toBeInTheDocument();\n    });\n  });\n\n  it('clears the full name error once a valid name is entered', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/full name/i), 'Jo');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/full name must be at least 2 characters/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Email validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error for a malformed email address', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/email address/i), 'bad-email');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(screen.getByText(/enter a valid email address/i)).toBeInTheDocument();\n    });\n  });\n\n  it('accepts a well-formed email address', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/email address/i), 'user@example.com');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid email address/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Phone number validation\n  // ---------------------------------------------------------------------------\n\n  it('shows an error for a non-UK phone number', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '12345');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.getByText(/enter a valid uk phone number/i),\n      ).toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid UK mobile number with spaces', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '07700 900000');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid uk phone number/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  it('accepts a valid UK landline without spaces', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.type(screen.getByLabelText(/phone number/i), '02071234567');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(\n        screen.queryByText(/enter a valid uk phone number/i),\n      ).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Successful submission\n  // ---------------------------------------------------------------------------\n\n  async function fillValidForm(user: ReturnType<typeof userEvent.setup>) {\n    await user.type(screen.getByLabelText(/full name/i), 'Jane Smith');\n    await user.type(screen.getByLabelText(/email address/i), 'jane@example.com');\n    await user.type(screen.getByLabelText(/phone number/i), '07700 900000');\n\n    // Open Select dropdown and choose SMS\n    await user.click(\n      screen.getByRole('combobox', { name: /preferred contact method/i }),\n    );\n    await user.click(screen.getByRole('option', { name: /^sms$/i }));\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n  }\n\n  it('calls onSave with correct values on valid submission', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillValidForm(user);\n\n    await waitFor(() => {\n      expect(onSave).toHaveBeenCalledOnce();\n      expect(onSave).toHaveBeenCalledWith({\n        fullName: 'Jane Smith',\n        email: 'jane@example.com',\n        phone: '07700 900000',\n        contactMethod: 'sms',\n      });\n    });\n  });\n\n  it('shows a success alert after onSave resolves', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillValidForm(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toHaveTextContent(/details saved/i);\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Failed submission\n  // ---------------------------------------------------------------------------\n\n  it('shows an error alert when onSave rejects', async () => {\n    const onSave = vi.fn().mockRejectedValue(new Error('Network error'));\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillValidForm(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toHaveTextContent(/something went wrong/i);\n    });\n  });\n\n  it('does not call onSave when the form has validation errors', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    // Submit without filling anything\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n\n    await waitFor(() => {\n      expect(screen.getByText(/full name is required/i)).toBeInTheDocument();\n    });\n\n    expect(onSave).not.toHaveBeenCalled();\n  });\n\n  // ---------------------------------------------------------------------------\n  // Alert dismissal\n  // ---------------------------------------------------------------------------\n\n  it('dismisses the success alert when its close button is clicked', async () => {\n    const onSave = vi.fn().mockResolvedValue(undefined);\n    const user = userEvent.setup();\n    render(<ContactDetailsForm onSave={onSave} />);\n\n    await fillValidForm(user);\n\n    await waitFor(() => {\n      expect(screen.getByRole('alert')).toBeInTheDocument();\n    });\n\n    await user.click(screen.getByRole('button', { name: /close/i }));\n\n    await waitFor(() => {\n      expect(screen.queryByRole('alert')).not.toBeInTheDocument();\n    });\n  });\n\n  // ---------------------------------------------------------------------------\n  // Accessibility\n  // ---------------------------------------------------------------------------\n\n  it('marks invalid text fields with aria-invalid after a failed submit', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    await user.click(screen.getByRole('button', { name: /save changes/i }));\n\n    await waitFor(() => {\n      expect(screen.getByLabelText(/full name/i)).toHaveAttribute('aria-invalid', 'true');\n      expect(screen.getByLabelText(/email address/i)).toHaveAttribute('aria-invalid', 'true');\n      expect(screen.getByLabelText(/phone number/i)).toHaveAttribute('aria-invalid', 'true');\n    });\n  });\n\n  it('does not show validation errors on initial render', () => {\n    renderForm();\n\n    expect(screen.queryByText(/is required/i)).not.toBeInTheDocument();\n    expect(screen.queryByText(/enter a valid/i)).not.toBeInTheDocument();\n  });\n\n  it('shows inline errors after a field is blurred with invalid content', async () => {\n    const user = userEvent.setup();\n    renderForm();\n\n    // Touch only the email field with bad content\n    await user.type(screen.getByLabelText(/email address/i), 'nope');\n    await user.tab();\n\n    await waitFor(() => {\n      expect(screen.getByText(/enter a valid email address/i)).toBeInTheDocument();\n    });\n\n    // Other fields should not show errors yet\n    expect(screen.queryByText(/full name is required/i)).not.toBeInTheDocument();\n    expect(screen.queryByText(/phone number is required/i)).not.toBeInTheDocument();\n  });\n});\n"}, {"name": "ContactDetailsForm.tsx", "type": "text", "content": "'use client';\n\nimport { useState } from 'react';\nimport {\n  Alert,\n  Button,\n  Flex,\n  Heading,\n  Select,\n  SelectItem,\n  TextInput,\n} from '@utilitywarehouse/hearth-react';\n\nimport './ContactDetailsForm.css';\n\n// ---------------------------------------------------------------------------\n// Types\n// ---------------------------------------------------------------------------\n\nexport type ContactMethod = 'email' | 'sms' | 'post';\n\nexport interface ContactDetailsFormValues {\n  fullName: string;\n  email: string;\n  phone: string;\n  contactMethod: ContactMethod | '';\n}\n\nexport interface ContactDetailsFormProps {\n  /** Pre-populate the form with existing values. */\n  defaultValues?: Partial<ContactDetailsFormValues>;\n  /**\n   * Called with validated form data when the user submits.\n   * Return a Promise \u2014 resolve on success, reject on failure.\n   */\n  onSave: (values: Omit<ContactDetailsFormValues, 'contactMethod'> & { contactMethod: ContactMethod }) => Promise<void>;\n}\n\n// ---------------------------------------------------------------------------\n// Validation helpers\n// ---------------------------------------------------------------------------\n\n// UK phone: starts with 0, 10\u201311 digits total (spaces/hyphens allowed)\nconst UK_PHONE_RE = /^0[\\d\\s-]{9,10}$/;\nconst EMAIL_RE = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n\ninterface FormErrors {\n  fullName?: string;\n  email?: string;\n  phone?: string;\n  contactMethod?: string;\n}\n\nfunction validate(values: ContactDetailsFormValues): FormErrors {\n  const errors: FormErrors = {};\n\n  if (!values.fullName.trim()) {\n    errors.fullName = 'Full name is required';\n  } else if (values.fullName.trim().length < 2) {\n    errors.fullName = 'Full name must be at least 2 characters';\n  }\n\n  if (!values.email.trim()) {\n    errors.email = 'Email address is required';\n  } else if (!EMAIL_RE.test(values.email)) {\n    errors.email = 'Enter a valid email address';\n  }\n\n  if (!values.phone.trim()) {\n    errors.phone = 'Phone number is required';\n  } else if (!UK_PHONE_RE.test(values.phone.trim())) {\n    errors.phone = 'Enter a valid UK phone number starting with 0';\n  }\n\n  if (!values.contactMethod) {\n    errors.contactMethod = 'Please select a preferred contact method';\n  }\n\n  return errors;\n}\n\n// ---------------------------------------------------------------------------\n// Component\n// ---------------------------------------------------------------------------\n\nexport function ContactDetailsForm({ defaultValues, onSave }: ContactDetailsFormProps) {\n  const [values, setValues] = useState<ContactDetailsFormValues>({\n    fullName: defaultValues?.fullName ?? '',\n    email: defaultValues?.email ?? '',\n    phone: defaultValues?.phone ?? '',\n    contactMethod: defaultValues?.contactMethod ?? '',\n  });\n\n  // Track which fields have been touched (blurred) so we only show errors after interaction\n  const [touched, setTouched] = useState<Partial<Record<keyof ContactDetailsFormValues, boolean>>>(\n    {}\n  );\n\n  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'success' | 'error'>('idle');\n\n  const errors = validate(values);\n  const hasErrors = Object.keys(errors).length > 0;\n\n  // -------------------------------------------------------------------------\n  // Handlers\n  // -------------------------------------------------------------------------\n\n  function handleChange(field: keyof ContactDetailsFormValues, value: string) {\n    setValues(prev => ({ ...prev, [field]: value }));\n    // Reset save status on any change so the banner doesn't linger\n    if (saveStatus === 'success' || saveStatus === 'error') {\n      setSaveStatus('idle');\n    }\n  }\n\n  function handleBlur(field: keyof ContactDetailsFormValues) {\n    setTouched(prev => ({ ...prev, [field]: true }));\n  }\n\n  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {\n    e.preventDefault();\n\n    // Mark all fields as touched so all errors are shown on submit\n    setTouched({ fullName: true, email: true, phone: true, contactMethod: true });\n\n    if (hasErrors) return;\n\n    setSaveStatus('saving');\n    try {\n      await onSave(values as Omit<ContactDetailsFormValues, 'contactMethod'> & { contactMethod: ContactMethod });\n      setSaveStatus('success');\n    } catch {\n      setSaveStatus('error');\n    }\n  }\n\n  // -------------------------------------------------------------------------\n  // Helpers for inline validation display\n  // -------------------------------------------------------------------------\n\n  function validationStatus(field: keyof ContactDetailsFormValues) {\n    if (!touched[field]) return undefined;\n    return errors[field] ? ('invalid' as const) : ('valid' as const);\n  }\n\n  function validationText(field: keyof ContactDetailsFormValues) {\n    if (!touched[field]) return undefined;\n    return errors[field];\n  }\n\n  // -------------------------------------------------------------------------\n  // Render\n  // -------------------------------------------------------------------------\n\n  return (\n    <form\n      onSubmit={handleSubmit}\n      noValidate\n      aria-label=\"Contact details form\"\n      className=\"contact-details-form\"\n    >\n      <Flex direction=\"column\" gap=\"500\">\n        <Heading as=\"h1\" size=\"lg\">\n          Contact details\n        </Heading>\n\n        {/* Success banner */}\n        {saveStatus === 'success' && (\n          <Alert\n            colorScheme=\"positive\"\n            title=\"Details saved\"\n            text=\"Your contact details have been updated successfully.\"\n            onClose={() => setSaveStatus('idle')}\n          />\n        )}\n\n        {/* Error banner */}\n        {saveStatus === 'error' && (\n          <Alert\n            colorScheme=\"danger\"\n            title=\"Something went wrong\"\n            text=\"We could not save your details. Please try again.\"\n            onClose={() => setSaveStatus('idle')}\n          />\n        )}\n\n        {/* Personal information */}\n        <fieldset className=\"contact-details-form__fieldset\">\n          <legend className=\"contact-details-form__legend\">\n            <Heading as=\"h2\" size=\"sm\">\n              Personal information\n            </Heading>\n          </legend>\n\n          <Flex direction=\"column\" gap=\"400\">\n            <TextInput\n              label=\"Full name\"\n              type=\"text\"\n              autoComplete=\"name\"\n              required\n              value={values.fullName}\n              onChange={e => handleChange('fullName', e.target.value)}\n              onBlur={() => handleBlur('fullName')}\n              validationStatus={validationStatus('fullName')}\n              validationText={validationText('fullName')}\n            />\n\n            <TextInput\n              label=\"Email address\"\n              type=\"email\"\n              autoComplete=\"email\"\n              inputMode=\"email\"\n              required\n              value={values.email}\n              onChange={e => handleChange('email', e.target.value)}\n              onBlur={() => handleBlur('email')}\n              validationStatus={validationStatus('email')}\n              validationText={validationText('email')}\n            />\n\n            <TextInput\n              label=\"Phone number\"\n              type=\"tel\"\n              autoComplete=\"tel\"\n              inputMode=\"tel\"\n              required\n              helperText=\"UK numbers only, e.g. 07700 900000\"\n              value={values.phone}\n              onChange={e => handleChange('phone', e.target.value)}\n              onBlur={() => handleBlur('phone')}\n              validationStatus={validationStatus('phone')}\n              validationText={validationText('phone')}\n            />\n          </Flex>\n        </fieldset>\n\n        {/* Communication preferences */}\n        <fieldset className=\"contact-details-form__fieldset\">\n          <legend className=\"contact-details-form__legend\">\n            <Heading as=\"h2\" size=\"sm\">\n              Communication preferences\n            </Heading>\n          </legend>\n\n          <Select\n            label=\"Preferred contact method\"\n            placeholder=\"Select a method\"\n            required\n            value={values.contactMethod}\n            onValueChange={value => {\n              handleChange('contactMethod', value);\n              handleBlur('contactMethod');\n            }}\n            validationStatus={validationStatus('contactMethod')}\n            validationText={validationText('contactMethod')}\n          >\n            <SelectItem value=\"email\">Email</SelectItem>\n            <SelectItem value=\"sms\">SMS</SelectItem>\n            <SelectItem value=\"post\">Post</SelectItem>\n          </Select>\n        </fieldset>\n\n        <Flex\n          direction={{ mobile: 'column', tablet: 'row' }}\n          justifyContent={{ mobile: 'start', tablet: 'end' }}\n        >\n          <Button\n            type=\"submit\"\n            variant=\"emphasis\"\n            colorScheme=\"highlight\"\n            loading={saveStatus === 'saving'}\n          >\n            Save changes\n          </Button>\n        </Flex>\n      </Flex>\n    </form>\n  );\n}\n\nexport default ContactDetailsForm;\n"}], "grading": {"expectations": [{"text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.", "passed": true, "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button. No raw form elements present."}, {"text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.", "passed": true, "evidence": "Three TextInput components: fullName (type='text', autoComplete='name'), email (type='email'), phone (type='tel', inputMode='tel')."}, {"text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.", "passed": true, "evidence": "Select with placeholder='Select a method', onValueChange handler, and three SelectItem children: 'email', 'sms', 'post'."}, {"text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.", "passed": true, "evidence": "validate() function computes FormErrors. validationStatus() helper returns 'invalid' when field is touched and has error. validationText() returns the error message. Used on all TextInput and Select fields."}, {"text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.", "passed": true, "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"}, {"text": "The submit action uses Button from hearth-react, not a raw <button>.", "passed": true, "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"}, {"text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, and accessibility."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 181.5}, "claims": [{"claim": "Manual useState-based validation with touched tracking is used instead of a form library", "type": "process", "verified": true, "evidence": "Uses useState for values, touched, and saveStatus. Separate validate() function. handleBlur marks fields touched. Functionally equivalent but more boilerplate than React Hook Form."}, {"claim": "Select onValueChange immediately marks the field as touched", "type": "quality", "verified": true, "evidence": "onValueChange={value => { handleChange('contactMethod', value); handleBlur('contactMethod'); }} \u2014 marks touched on change rather than blur, which is correct for a select."}], "eval_feedback": {"suggestions": [{"reason": "The test file is nearly identical to the with-skill test file in structure and coverage. Since both tests were independently written by different runs, this suggests the tests are testing surface-level behavior rather than implementation. Consider adding an assertion about form library usage to differentiate."}], "overall": "All assertions pass. The manual validation approach is thorough and correct but more verbose. The assertions don't capture the higher-quality form management approach recommended by the skill."}}}, {"id": "eval-2-services-dashboard-with_skill", "prompt": "Create a page showing all of a customer's active UW services \u2014 energy, broadband, and mobile. Each service should show the monthly cost and have a link to manage it. Show a total monthly spend at the top. It needs to work on mobile and desktop.", "eval_id": 2, "outputs": [{"name": "ServicesDashboard.test.tsx", "type": "text", "content": "import { render, screen } from '@testing-library/react';\nimport { HearthProvider } from '@utilitywarehouse/hearth-react';\nimport { ServicesDashboard } from './ServicesDashboard';\nimport type { Service } from './ServicesDashboard';\n\n// ---------------------------------------------------------------------------\n// Helpers\n// ---------------------------------------------------------------------------\n\nfunction renderWithProvider(ui: React.ReactElement) {\n  return render(<HearthProvider>{ui}</HearthProvider>);\n}\n\nconst energyService: Service = {\n  id: 'energy-1',\n  name: 'Energy',\n  monthlyCost: 85.0,\n  manageHref: '/services/energy',\n  colorScheme: 'energy',\n};\n\nconst broadbandService: Service = {\n  id: 'broadband-1',\n  name: 'Broadband',\n  monthlyCost: 32.5,\n  manageHref: '/services/broadband',\n  colorScheme: 'broadband',\n};\n\nconst mobileService: Service = {\n  id: 'mobile-1',\n  name: 'Mobile',\n  monthlyCost: 12.0,\n  manageHref: '/services/mobile',\n  colorScheme: 'mobile',\n};\n\nconst allServices: Service[] = [energyService, broadbandService, mobileService];\n\n// ---------------------------------------------------------------------------\n// Tests\n// ---------------------------------------------------------------------------\n\ndescribe('ServicesDashboard', () => {\n  describe('page heading', () => {\n    it('renders a generic heading when no customerName is provided', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      expect(screen.getByRole('heading', { level: 1, name: 'Your services' })).toBeInTheDocument();\n    });\n\n    it('renders a personalised greeting when customerName is provided', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} customerName=\"Alex\" />);\n\n      expect(\n        screen.getByRole('heading', { level: 1, name: 'Welcome back, Alex' }),\n      ).toBeInTheDocument();\n    });\n  });\n\n  describe('total spend summary', () => {\n    it('calculates and displays the correct total monthly spend', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      // 85.00 + 32.50 + 12.00 = 129.50\n      expect(screen.getByText('\u00a3129.50')).toBeInTheDocument();\n    });\n\n    it('shows the correct service count in the summary', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      expect(screen.getByText(/across 3 active services/i)).toBeInTheDocument();\n    });\n\n    it('uses singular \"service\" when only one service is present', () => {\n      renderWithProvider(<ServicesDashboard services={[energyService]} />);\n\n      expect(screen.getByText(/across 1 active service$/i)).toBeInTheDocument();\n    });\n\n    it('does not render the total spend summary when services array is empty', () => {\n      renderWithProvider(<ServicesDashboard services={[]} />);\n\n      expect(screen.queryByText(/total monthly spend/i)).not.toBeInTheDocument();\n    });\n  });\n\n  describe('service cards', () => {\n    it('renders a card for each service', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      expect(screen.getByRole('heading', { name: 'Energy' })).toBeInTheDocument();\n      expect(screen.getByRole('heading', { name: 'Broadband' })).toBeInTheDocument();\n      expect(screen.getByRole('heading', { name: 'Mobile' })).toBeInTheDocument();\n    });\n\n    it('displays the monthly cost for each service', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      expect(screen.getByText('\u00a385.00')).toBeInTheDocument();\n      expect(screen.getByText('\u00a332.50')).toBeInTheDocument();\n      expect(screen.getByText('\u00a312.00')).toBeInTheDocument();\n    });\n\n    it('renders a manage link for each service with the correct href', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      const energyLink = screen.getByRole('link', { name: /manage energy/i });\n      expect(energyLink).toHaveAttribute('href', '/services/energy');\n\n      const broadbandLink = screen.getByRole('link', { name: /manage broadband/i });\n      expect(broadbandLink).toHaveAttribute('href', '/services/broadband');\n\n      const mobileLink = screen.getByRole('link', { name: /manage mobile/i });\n      expect(mobileLink).toHaveAttribute('href', '/services/mobile');\n    });\n\n    it('marks each service as Active', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      const activeBadges = screen.getAllByText('Active');\n      expect(activeBadges).toHaveLength(3);\n    });\n  });\n\n  describe('empty state', () => {\n    it('renders an empty state message when there are no services', () => {\n      renderWithProvider(<ServicesDashboard services={[]} />);\n\n      expect(screen.getByRole('heading', { name: 'No active services' })).toBeInTheDocument();\n    });\n\n    it('renders an explore link in the empty state', () => {\n      renderWithProvider(<ServicesDashboard services={[]} />);\n\n      const exploreLink = screen.getByRole('link', { name: /explore services/i });\n      expect(exploreLink).toHaveAttribute('href', '/services/explore');\n    });\n  });\n\n  describe('currency formatting', () => {\n    it('formats whole-number costs with two decimal places', () => {\n      renderWithProvider(\n        <ServicesDashboard\n          services={[{ ...energyService, monthlyCost: 100 }]}\n        />,\n      );\n\n      expect(screen.getByText('\u00a3100.00')).toBeInTheDocument();\n    });\n\n    it('formats costs with one decimal place correctly', () => {\n      renderWithProvider(\n        <ServicesDashboard\n          services={[{ ...broadbandService, monthlyCost: 32.5 }]}\n        />,\n      );\n\n      expect(screen.getByText('\u00a332.50')).toBeInTheDocument();\n    });\n  });\n\n  describe('accessibility', () => {\n    it('has only one h1 on the page', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} customerName=\"Alex\" />);\n\n      const h1Elements = screen.getAllByRole('heading', { level: 1 });\n      expect(h1Elements).toHaveLength(1);\n    });\n\n    it('each service card is labelled by its heading', () => {\n      renderWithProvider(<ServicesDashboard services={allServices} />);\n\n      // Cards use aria-labelledby \u2014 verify each service heading is present and accessible\n      const headings = screen.getAllByRole('heading', { level: 2 });\n      // headings include service cards + any empty-state headings; we expect 3 service card headings\n      const serviceHeadings = headings.filter((h) =>\n        ['Energy', 'Broadband', 'Mobile'].includes(h.textContent ?? ''),\n      );\n      expect(serviceHeadings).toHaveLength(3);\n    });\n  });\n});\n"}, {"name": "ServicesDashboard.tsx", "type": "text", "content": "import {\n  Box,\n  Flex,\n  Grid,\n  Container,\n  Heading,\n  BodyText,\n  DetailText,\n  Card,\n  CardContent,\n  CardInteraction,\n  Divider,\n  Badge,\n  IconContainer,\n  Link,\n} from '@utilitywarehouse/hearth-react';\nimport {\n  ElectricityMediumIcon,\n  BroadbandMediumIcon,\n  MobileMediumIcon,\n  ChevronRightSmallIcon,\n} from '@utilitywarehouse/hearth-react-icons';\nimport type { ReactNode } from 'react';\n\n// ---------------------------------------------------------------------------\n// Types\n// ---------------------------------------------------------------------------\n\nexport type ServiceColorScheme = 'energy' | 'broadband' | 'mobile';\n\nexport interface Service {\n  /** Unique identifier for the service */\n  id: string;\n  /** Display name, e.g. \"Energy\", \"Broadband\", \"Mobile\" */\n  name: string;\n  /** Monthly cost in pounds, e.g. 45.99 */\n  monthlyCost: number;\n  /** Destination URL for the \"Manage\" link */\n  manageHref: string;\n  /** UW brand colour scheme for the card */\n  colorScheme: ServiceColorScheme;\n}\n\nexport interface ServicesDashboardProps {\n  /** The customer's given name, used in the greeting */\n  customerName?: string;\n  /** Array of active services to display */\n  services: Service[];\n}\n\n// ---------------------------------------------------------------------------\n// Helpers\n// ---------------------------------------------------------------------------\n\nfunction formatCurrency(amount: number): string {\n  return `\u00a3${amount.toFixed(2)}`;\n}\n\nconst SERVICE_ICON: Record<ServiceColorScheme, ReactNode> = {\n  energy: <ElectricityMediumIcon aria-hidden=\"true\" />,\n  broadband: <BroadbandMediumIcon aria-hidden=\"true\" />,\n  mobile: <MobileMediumIcon aria-hidden=\"true\" />,\n};\n\n// ---------------------------------------------------------------------------\n// ServiceCard\n// ---------------------------------------------------------------------------\n\ninterface ServiceCardProps {\n  service: Service;\n}\n\nfunction ServiceCard({ service }: ServiceCardProps) {\n  const { name, monthlyCost, manageHref, colorScheme } = service;\n  const icon = SERVICE_ICON[colorScheme];\n  const headingId = `service-card-${service.id}-heading`;\n\n  return (\n    <Card\n      colorScheme={colorScheme}\n      variant=\"subtle\"\n      shadowColor={colorScheme}\n      aria-labelledby={headingId}\n    >\n      <CardContent direction=\"column\" spacing=\"md\">\n        {/* Icon row */}\n        <Flex alignItems=\"center\" gap=\"200\">\n          <IconContainer colorScheme={colorScheme}>\n            {icon}\n          </IconContainer>\n          <Heading as=\"h2\" size=\"sm\" id={headingId}>\n            {name}\n          </Heading>\n          <Box marginLeft=\"auto\">\n            <Badge colorScheme=\"positive\">Active</Badge>\n          </Box>\n        </Flex>\n\n        <Divider />\n\n        {/* Cost */}\n        <Flex direction=\"column\" gap=\"100\">\n          <BodyText size=\"sm\" color=\"secondary\">\n            Monthly cost\n          </BodyText>\n          <DetailText size=\"2xl\">{formatCurrency(monthlyCost)}</DetailText>\n          <BodyText size=\"sm\" color=\"secondary\">\n            per month\n          </BodyText>\n        </Flex>\n\n        {/* Manage link */}\n        <CardInteraction asChild>\n          <Link href={manageHref}>\n            Manage {name}\n            <ChevronRightSmallIcon />\n          </Link>\n        </CardInteraction>\n      </CardContent>\n    </Card>\n  );\n}\n\n// ---------------------------------------------------------------------------\n// TotalSpendSummary\n// ---------------------------------------------------------------------------\n\ninterface TotalSpendSummaryProps {\n  total: number;\n  serviceCount: number;\n}\n\nfunction TotalSpendSummary({ total, serviceCount }: TotalSpendSummaryProps) {\n  return (\n    <Card variant=\"subtle\" colorScheme=\"neutralStrong\">\n      <CardContent direction={{ mobile: 'column', tablet: 'row' }} spacing=\"md\">\n        <Flex direction=\"column\" gap=\"100\" alignItems={{ mobile: 'start', tablet: 'start' }}>\n          <BodyText size=\"sm\" color=\"secondary\">\n            Total monthly spend\n          </BodyText>\n          <DetailText size={{ mobile: '3xl', desktop: '4xl' }} as=\"p\">\n            {formatCurrency(total)}\n          </DetailText>\n          <BodyText size=\"sm\" color=\"secondary\">\n            across {serviceCount} active {serviceCount === 1 ? 'service' : 'services'}\n          </BodyText>\n        </Flex>\n      </CardContent>\n    </Card>\n  );\n}\n\n// ---------------------------------------------------------------------------\n// ServicesDashboard (main export)\n// ---------------------------------------------------------------------------\n\nexport function ServicesDashboard({ customerName, services }: ServicesDashboardProps) {\n  const totalSpend = services.reduce((sum, svc) => sum + svc.monthlyCost, 0);\n\n  return (\n    <Container paddingY={{ mobile: '400', desktop: '800' }}>\n      <Flex direction=\"column\" gap={{ mobile: '400', desktop: '600' }}>\n        {/* Page heading */}\n        <Flex direction=\"column\" gap=\"200\">\n          <Heading as=\"h1\" size={{ mobile: 'lg', desktop: 'xl' }}>\n            {customerName ? `Welcome back, ${customerName}` : 'Your services'}\n          </Heading>\n          <BodyText size=\"md\" color=\"secondary\">\n            Manage all your UW services in one place.\n          </BodyText>\n        </Flex>\n\n        {/* Total spend summary */}\n        {services.length > 0 && (\n          <TotalSpendSummary total={totalSpend} serviceCount={services.length} />\n        )}\n\n        {/* Services grid or empty state */}\n        {services.length === 0 ? (\n          <Card variant=\"subtle\" colorScheme=\"neutralSubtle\">\n            <CardContent direction=\"column\" spacing=\"md\">\n              <Heading as=\"h2\" size=\"md\">\n                No active services\n              </Heading>\n              <BodyText size=\"md\" color=\"secondary\">\n                You don't have any active UW services yet. Get in touch to find out what's\n                available for your home.\n              </BodyText>\n              <CardInteraction asChild>\n                <Link href=\"/services/explore\">\n                  Explore services\n                  <ChevronRightSmallIcon />\n                </Link>\n              </CardInteraction>\n            </CardContent>\n          </Card>\n        ) : (\n          <Grid\n            columns={{ mobile: 1, tablet: 2, desktop: 3 }}\n            gap={{ mobile: '300', desktop: '400' }}\n          >\n            {services.map((service) => (\n              <ServiceCard key={service.id} service={service} />\n            ))}\n          </Grid>\n        )}\n      </Flex>\n    </Container>\n  );\n}\n\nexport default ServicesDashboard;\n"}, {"name": "assumptions.md", "type": "text", "content": "# ServicesDashboard \u2014 Assumptions\n\n## Stack\n\n- **TypeScript + React** \u2014 confirmed per task brief.\n- **Plain CSS** \u2014 no custom `.css` file was needed; all styling is covered by Hearth style props,\n  responsive prop objects, and Hearth's built-in `colorScheme` / `variant` tokens on `Card`.\n\n## Data model\n\n- Service data is passed in as a `services: Service[]` prop. Each service carries:\n  - `id` \u2014 stable React key.\n  - `name` \u2014 display label (e.g. \"Energy\").\n  - `monthlyCost` \u2014 raw `number` in pounds; formatted to two decimal places by the component.\n  - `manageHref` \u2014 the URL the \"Manage\" link points to.\n  - `colorScheme` \u2014 one of `'energy' | 'broadband' | 'mobile'`, used to tint the `Card` and\n    select the correct icon.\n- Total monthly spend is **derived** inside the component (`Array.reduce`) \u2014 no prop needed.\n- An optional `customerName` prop personalises the page heading; without it the heading falls\n  back to \"Your services\".\n\n## Layout\n\n- **Mobile (single column):** `Grid columns={1}` \u2014 one card per row, full-width total-spend\n  summary above the grid.\n- **Tablet (two columns):** `Grid columns={2}`.\n- **Desktop (three columns):** `Grid columns={3}`.\n- Responsive props (`columns`, `gap`, `paddingY`, `size`) are used throughout; no media queries\n  in custom CSS.\n\n## Icons\n\nChosen from `@utilitywarehouse/hearth-react-icons`:\n\n| Service   | Icon                  |\n|-----------|-----------------------|\n| Energy    | `ElectricityMediumIcon` |\n| Broadband | `BroadbandMediumIcon`   |\n| Mobile    | `MobileMediumIcon`      |\n\nIcons are rendered `aria-hidden=\"true\"` because the surrounding card heading provides the\naccessible name.\n\n## Cards\n\n- Used `Card variant=\"subtle\" colorScheme={colorScheme}` so each card carries the correct UW\n  brand tint for energy / broadband / mobile.\n- `shadowColor` is set to match `colorScheme` for a branded drop shadow.\n- `CardInteraction asChild` wraps the `Link` for correct hover/focus ring treatment on the\n  manage link \u2014 the card itself is not fully clickable, only the manage link is interactive.\n- `aria-labelledby` on each `Card` points to its `Heading id` so screen readers announce the\n  card's purpose.\n\n## Total spend summary\n\n- Rendered as a `Card variant=\"subtle\" colorScheme=\"neutralStrong\"` above the service grid.\n- Hidden entirely when `services` is empty (there is nothing to sum).\n- Displays the summed cost as `DetailText size={{ mobile: '3xl', desktop: '4xl' }}` for\n  clear visual hierarchy.\n\n## Empty state\n\n- When `services` is empty, the grid is replaced by a card with a short explanatory message and\n  an \"Explore services\" link.\n\n## Accessibility\n\n- WCAG 2.1 AA targeted throughout.\n- One `<Heading as=\"h1\">` per page.\n- Heading levels do not skip: h1 (page title) \u2192 h2 (each service card / empty-state heading).\n- `Badge colorScheme=\"positive\"` marks each service as \"Active\" \u2014 colour alone is not used;\n  the text \"Active\" is always visible.\n- Icons are `aria-hidden` inside labelled contexts; standalone icons would require `title` +\n  `titleId` (none are used standalone here).\n- `CardInteraction asChild` ensures the manage link renders as a native `<a>` element with full\n  keyboard focus behaviour.\n\n## Not implemented (out of scope)\n\n- **Loading state** \u2014 data is assumed to arrive synchronously via props; a Spinner/Skeleton\n  wrapper could be added by the caller.\n- **Error state** \u2014 error boundaries and retry UI are considered infrastructure concerns outside\n  this component.\n- **Dark mode** \u2014 no dark-mode overrides added; Hearth semantic tokens update automatically if\n  a dark-mode class is applied at the root.\n- **Router integration** \u2014 `href` strings are passed in as props; the component is router-agnostic.\n  Use `asChild` on `Link` to integrate with React Router's `<NavLink>` if needed.\n"}], "grading": {"expectations": [{"text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.", "passed": true, "evidence": "Uses Container, Flex, Grid, Box (marginLeft='auto' wrapper) \u2014 all from hearth-react. No raw <div> anywhere in the file."}, {"text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.", "passed": true, "evidence": "Each service is rendered by ServiceCard which uses Card, CardContent, CardInteraction. TotalSpendSummary also uses Card+CardContent. Empty state uses Card+CardContent."}, {"text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.", "passed": true, "evidence": "Heading for page title and service names, BodyText for secondary labels, DetailText size='2xl' for individual service costs, DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend. No raw text elements."}, {"text": "Responsive object notation used on at least one prop (e.g. direction={{ mobile: 'column', desktop: 'row' }} or gridColumnSpan={{ mobile: 'full', desktop: '4' }}) to handle mobile vs desktop layout.", "passed": true, "evidence": "Multiple responsive props: columns={{ mobile: 1, tablet: 2, desktop: 3 }}, gap={{ mobile: '300', desktop: '400' }}, direction={{ mobile: 'column', tablet: 'row' }}, size={{ mobile: 'lg', desktop: 'xl' }}, paddingY={{ mobile: '400', desktop: '800' }}, size={{ mobile: '3xl', desktop: '4xl' }}."}, {"text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.", "passed": true, "evidence": "totalSpend = services.reduce((sum, svc) => sum + svc.monthlyCost, 0). Displayed in TotalSpendSummary via <DetailText size={{ mobile: '3xl', desktop: '4xl' }} as='p'>. Conditionally shown only when services.length > 0."}, {"text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.", "passed": true, "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage {name}<ChevronRightSmallIcon /></Link></CardInteraction> for each service card. Empty state also uses CardInteraction+Link."}, {"text": "A ServicesDashboard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ServicesDashboard.test.tsx present with 18 tests across 6 describe blocks: page heading, total spend summary, service cards, empty state, currency formatting, accessibility."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 189.4}, "claims": [{"claim": "Component accepts services as props (data-driven) rather than hardcoding them", "type": "quality", "verified": true, "evidence": "ServicesDashboardProps has customerName?: string and services: Service[]. The component is fully data-driven and testable with any service data."}, {"claim": "Empty state is handled with a dedicated UI rather than rendering nothing", "type": "quality", "verified": true, "evidence": "{services.length === 0 ? <Card>No active services...</Card> : <Grid>...services...</Grid>} \u2014 explicit empty state with message and explore link."}, {"claim": "DetailText is used for price values instead of Heading", "type": "quality", "verified": true, "evidence": "DetailText size='2xl' for individual service costs and DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend \u2014 semantically correct numeric display component."}], "eval_feedback": {"suggestions": [{"reason": "No assertion checks whether the component accepts services as props vs hardcodes them. This is a significant quality difference \u2014 the with-skill output is reusable, the without-skill output requires code changes to display real data."}, {"reason": "No assertion checks for an empty state. The with-skill output includes a proper empty state; the without-skill output does not. This is an important UX consideration that goes unchecked."}], "overall": "All assertions pass. The with-skill output is notably higher quality: data-driven props, empty state handling, DetailText for prices, comprehensive responsive breakpoints. The assertions miss these quality signals."}}}, {"id": "eval-2-services-dashboard-without_skill", "prompt": "Create a page showing all of a customer's active UW services \u2014 energy, broadband, and mobile. Each service should show the monthly cost and have a link to manage it. Show a total monthly spend at the top. It needs to work on mobile and desktop.", "eval_id": 2, "outputs": [{"name": "ServicesDashboard.test.tsx", "type": "text", "content": "import { render, screen } from '@testing-library/react';\nimport { ServicesDashboard } from './ServicesDashboard';\n\ndescribe('ServicesDashboard', () => {\n  it('renders the page heading', () => {\n    render(<ServicesDashboard />);\n    expect(screen.getByRole('heading', { name: /your uw services/i })).toBeInTheDocument();\n  });\n\n  it('displays the total monthly spend', () => {\n    render(<ServicesDashboard />);\n    // Total is \u00a389.50 + \u00a335.00 + \u00a322.00 = \u00a3146.50\n    expect(screen.getByText('\u00a3146.50')).toBeInTheDocument();\n  });\n\n  it('renders all three service cards', () => {\n    render(<ServicesDashboard />);\n    expect(screen.getByRole('heading', { name: /energy/i })).toBeInTheDocument();\n    expect(screen.getByRole('heading', { name: /broadband/i })).toBeInTheDocument();\n    expect(screen.getByRole('heading', { name: /mobile/i })).toBeInTheDocument();\n  });\n\n  it('shows the monthly cost for each service', () => {\n    render(<ServicesDashboard />);\n    expect(screen.getByText('\u00a389.50')).toBeInTheDocument();\n    expect(screen.getByText('\u00a335.00')).toBeInTheDocument();\n    expect(screen.getByText('\u00a322.00')).toBeInTheDocument();\n  });\n\n  it('renders manage links for each service', () => {\n    render(<ServicesDashboard />);\n    expect(screen.getByRole('link', { name: /manage energy/i })).toBeInTheDocument();\n    expect(screen.getByRole('link', { name: /manage broadband/i })).toBeInTheDocument();\n    expect(screen.getByRole('link', { name: /manage mobile/i })).toBeInTheDocument();\n  });\n\n  it('manage links point to the correct service URLs', () => {\n    render(<ServicesDashboard />);\n    expect(screen.getByRole('link', { name: /manage energy/i })).toHaveAttribute(\n      'href',\n      '/services/energy'\n    );\n    expect(screen.getByRole('link', { name: /manage broadband/i })).toHaveAttribute(\n      'href',\n      '/services/broadband'\n    );\n    expect(screen.getByRole('link', { name: /manage mobile/i })).toHaveAttribute(\n      'href',\n      '/services/mobile'\n    );\n  });\n\n  it('shows Active badge for each service', () => {\n    render(<ServicesDashboard />);\n    const activeBadges = screen.getAllByText('Active');\n    expect(activeBadges).toHaveLength(3);\n  });\n});\n"}, {"name": "ServicesDashboard.tsx", "type": "text", "content": "import {\n  Badge,\n  BodyText,\n  Card,\n  CardActions,\n  CardActionLink,\n  CardContent,\n  Container,\n  Flex,\n  Grid,\n  Heading,\n  IconContainer,\n} from '@utilitywarehouse/hearth-react';\nimport {\n  ElectricityMediumIcon,\n  BroadbandMediumIcon,\n  MobileMediumIcon,\n} from '@utilitywarehouse/hearth-react-icons';\n\ninterface Service {\n  id: string;\n  name: string;\n  monthlyCost: number;\n  manageHref: string;\n  colorScheme: 'energy' | 'broadband' | 'mobile';\n  icon: React.ReactNode;\n}\n\nconst services: Service[] = [\n  {\n    id: 'energy',\n    name: 'Energy',\n    monthlyCost: 89.5,\n    manageHref: '/services/energy',\n    colorScheme: 'energy',\n    icon: <ElectricityMediumIcon />,\n  },\n  {\n    id: 'broadband',\n    name: 'Broadband',\n    monthlyCost: 35.0,\n    manageHref: '/services/broadband',\n    colorScheme: 'broadband',\n    icon: <BroadbandMediumIcon />,\n  },\n  {\n    id: 'mobile',\n    name: 'Mobile',\n    monthlyCost: 22.0,\n    manageHref: '/services/mobile',\n    colorScheme: 'mobile',\n    icon: <MobileMediumIcon />,\n  },\n];\n\nfunction formatCurrency(amount: number): string {\n  return new Intl.NumberFormat('en-GB', {\n    style: 'currency',\n    currency: 'GBP',\n  }).format(amount);\n}\n\nexport function ServicesDashboard() {\n  const totalMonthlyCost = services.reduce((sum, service) => sum + service.monthlyCost, 0);\n\n  return (\n    <Container paddingY=\"400\" paddingX=\"300\">\n      <Flex direction=\"column\" gap=\"400\" width=\"100%\">\n        <Flex direction=\"column\" gap=\"100\">\n          <Heading as=\"h1\" size=\"xl\">\n            Your UW Services\n          </Heading>\n          <Flex alignItems=\"center\" gap=\"150\" wrap=\"wrap\">\n            <BodyText size=\"md\" as=\"span\">\n              Total monthly spend:\n            </BodyText>\n            <Heading as=\"h2\" size=\"lg\">\n              {formatCurrency(totalMonthlyCost)}\n              <BodyText as=\"span\" size=\"sm\">\n                {' '}\n                /month\n              </BodyText>\n            </Heading>\n          </Flex>\n        </Flex>\n\n        <Grid\n          columns={{ mobile: '1', desktop: '3' }}\n          gap=\"300\"\n          width=\"100%\"\n        >\n          {services.map(service => (\n            <Card key={service.id} colorScheme={service.colorScheme} direction=\"column\">\n              <CardContent direction=\"column\" gap=\"300\">\n                <Flex alignItems=\"center\" gap=\"200\">\n                  <IconContainer colorScheme={service.colorScheme} size=\"md\">\n                    {service.icon}\n                  </IconContainer>\n                  <Flex direction=\"column\" gap=\"25\">\n                    <Heading as=\"h3\" size=\"sm\">\n                      {service.name}\n                    </Heading>\n                    <Badge colorScheme={service.colorScheme} variant=\"subtle\">\n                      Active\n                    </Badge>\n                  </Flex>\n                </Flex>\n\n                <Flex direction=\"column\" gap=\"50\">\n                  <BodyText size=\"sm\" as=\"p\">\n                    Monthly cost\n                  </BodyText>\n                  <Heading as=\"h4\" size=\"md\">\n                    {formatCurrency(service.monthlyCost)}\n                    <BodyText as=\"span\" size=\"sm\">\n                      {' '}\n                      /month\n                    </BodyText>\n                  </Heading>\n                </Flex>\n              </CardContent>\n\n              <CardActions>\n                <CardActionLink href={service.manageHref} heading={`Manage ${service.name}`} />\n              </CardActions>\n            </Card>\n          ))}\n        </Grid>\n      </Flex>\n    </Container>\n  );\n}\n"}], "grading": {"expectations": [{"text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.", "passed": true, "evidence": "Uses Container, Flex, Grid \u2014 all from hearth-react. No raw <div> elements anywhere."}, {"text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.", "passed": true, "evidence": "Each service uses Card, CardContent, CardActions, CardActionLink \u2014 correct compound pattern from hearth-react."}, {"text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.", "passed": true, "evidence": "Uses Heading as='h1', Heading as='h2', Heading as='h4', BodyText as='p', BodyText as='span'. All from hearth-react \u2014 no raw text elements. Note: Heading as='h4' is used for monthly cost values, which is semantically questionable (price displays are not headings) but is technically a Hearth component."}, {"text": "Responsive object notation used on at least one prop to handle mobile vs desktop layout.", "passed": true, "evidence": "Grid columns={{ mobile: '1', desktop: '3' }} \u2014 responsive object notation for grid columns."}, {"text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.", "passed": true, "evidence": "totalMonthlyCost = services.reduce((sum, service) => sum + service.monthlyCost, 0). Displayed as <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>."}, {"text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.", "passed": true, "evidence": "<CardActionLink href={service.manageHref} heading={`Manage ${service.name}`} /> for each service. No raw <a> tags."}, {"text": "A ServicesDashboard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ServicesDashboard.test.tsx present with 7 tests covering heading, total spend, service cards, costs, manage links, and Active badge."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 198.0}, "claims": [{"claim": "Services are hardcoded as a module-level constant rather than passed as props", "type": "quality", "verified": true, "evidence": "const services: Service[] = [...] defined at module level. export function ServicesDashboard() takes no props. Not reusable or testable with different service data."}, {"claim": "Heading is used for price values (monthlyCost) instead of DetailText", "type": "quality", "verified": true, "evidence": "<Heading as='h4' size='md'>{formatCurrency(service.monthlyCost)}</Heading> and <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>. Using Heading for numeric/price values creates incorrect heading hierarchy and is not semantically appropriate."}, {"claim": "No empty state is handled", "type": "quality", "verified": true, "evidence": "The component always renders with the hardcoded services array. There is no empty state UI for when a customer has no services."}], "eval_feedback": {"suggestions": [{"reason": "The typography assertion passes even though Heading is used for price values (as='h4'). This creates incorrect heading hierarchy and is semantically wrong. An assertion checking that price/cost values use DetailText (not Heading) would catch this important quality difference."}, {"reason": "No assertion checks that the component accepts services as props. The hardcoded implementation passes all assertions but is not a useful, reusable component."}, {"reason": "The test file hardcodes the same services array as the component, meaning tests only verify the hardcoded data. Adding a prop-driven assertion would force better component design."}], "overall": "All structural assertions pass but the output has notable quality issues: hardcoded services (not reusable), Heading used for prices (semantic mismatch), no empty state. The assertions are not discriminating enough to capture these differences."}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "hearth-react-builder", "skill_path": "<path/to/skill>", "executor_model": "<model-name>", "analyzer_model": "<model-name>", "timestamp": "2026-04-23T13:23:32Z", "evals_run": [0, 1, 2], "runs_per_configuration": 3}, "runs": [{"eval_id": 0, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 139.9, "tokens": 36129, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.", "passed": true, "evidence": "Component uses Card, CardContent, CardActions, Flex, Divider \u2014 all from hearth-react. No raw <div> or <span> present anywhere in the file."}, {"text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.", "passed": true, "evidence": "Imports Card, CardContent, CardActions, CardActionLink from @utilitywarehouse/hearth-react. Card is the root element wrapping the whole component."}, {"text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.", "passed": true, "evidence": "Uses Heading as='h2' for package name, BodyText for labels and cost prefix, DetailText size='2xl' for the monthly cost value. No raw text-rendering HTML elements."}, {"text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.", "passed": true, "evidence": "Uses CardActionLink with heading='Manage broadband', leadingIcon, and trailingIcon props. No raw <a> element."}, {"text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.", "passed": true, "evidence": "{isHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on the isHubOffline prop, using Alert from hearth-react."}, {"text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.", "passed": true, "evidence": "BroadbandServiceCardProps interface defines: packageName (string), monthlyCost (string), contractEndDate (string), manageHref (string), isHubOffline (boolean, optional)."}, {"text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "BroadbandServiceCard.test.tsx present with 8 tests across 3 describe blocks: 'content rendering', 'hub offline warning', and 'accessibility'."}], "notes": []}, {"eval_id": 1, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 137.3, "tokens": 35541, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.", "passed": true, "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button \u2014 all from hearth-react. The <form> element is a structural wrapper, not an input element."}, {"text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.", "passed": true, "evidence": "Three Controller-wrapped TextInput components: fullName (type='text'), email (type='email', inputMode='email'), phone (type='tel', inputMode='tel')."}, {"text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.", "passed": true, "evidence": "Select with placeholder='Select a method' contains three SelectItem components: 'email', 'sms', 'post'. Wrapped in Controller with onValueChange={field.onChange}."}, {"text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.", "passed": true, "evidence": "All TextInput fields use validationStatus={fieldState.error ? 'invalid' : undefined} and validationText={fieldState.error?.message}. Rules include required and pattern checks."}, {"text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.", "passed": true, "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"}, {"text": "The submit action uses Button from hearth-react, not a raw <button>.", "passed": true, "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"}, {"text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, pre-population, and accessibility."}], "notes": []}, {"eval_id": 2, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 189.4, "tokens": 44520, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.", "passed": true, "evidence": "Uses Container, Flex, Grid, Box (marginLeft='auto' wrapper) \u2014 all from hearth-react. No raw <div> anywhere in the file."}, {"text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.", "passed": true, "evidence": "Each service is rendered by ServiceCard which uses Card, CardContent, CardInteraction. TotalSpendSummary also uses Card+CardContent. Empty state uses Card+CardContent."}, {"text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.", "passed": true, "evidence": "Heading for page title and service names, BodyText for secondary labels, DetailText size='2xl' for individual service costs, DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend. No raw text elements."}, {"text": "Responsive object notation used on at least one prop (e.g. direction={{ mobile: 'column', desktop: 'row' }} or gridColumnSpan={{ mobile: 'full', desktop: '4' }}) to handle mobile vs desktop layout.", "passed": true, "evidence": "Multiple responsive props: columns={{ mobile: 1, tablet: 2, desktop: 3 }}, gap={{ mobile: '300', desktop: '400' }}, direction={{ mobile: 'column', tablet: 'row' }}, size={{ mobile: 'lg', desktop: 'xl' }}, paddingY={{ mobile: '400', desktop: '800' }}, size={{ mobile: '3xl', desktop: '4xl' }}."}, {"text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.", "passed": true, "evidence": "totalSpend = services.reduce((sum, svc) => sum + svc.monthlyCost, 0). Displayed in TotalSpendSummary via <DetailText size={{ mobile: '3xl', desktop: '4xl' }} as='p'>. Conditionally shown only when services.length > 0."}, {"text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.", "passed": true, "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage {name}<ChevronRightSmallIcon /></Link></CardInteraction> for each service card. Empty state also uses CardInteraction+Link."}, {"text": "A ServicesDashboard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ServicesDashboard.test.tsx present with 18 tests across 6 describe blocks: page heading, total spend summary, service cards, empty state, currency formatting, accessibility."}], "notes": []}, {"eval_id": 0, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 131.9, "tokens": 40395, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.", "passed": true, "evidence": "Component uses Card, CardContent, CardInteraction, Flex, IconContainer \u2014 all from hearth-react. No raw <div> or <span> present."}, {"text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.", "passed": true, "evidence": "Imports Card, CardContent, CardInteraction from @utilitywarehouse/hearth-react. Card is the root element."}, {"text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.", "passed": true, "evidence": "Uses Heading as='h2', BodyText, DetailText size='sm' for labels. BodyText weight='semibold' for cost display (rather than DetailText, but still a Hearth component)."}, {"text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.", "passed": true, "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage broadband...</Link></CardInteraction> \u2014 uses both CardInteraction and Link from hearth-react."}, {"text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.", "passed": true, "evidence": "{isSmartHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on isSmartHubOffline prop, using Alert."}, {"text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.", "passed": true, "evidence": "BroadbandServiceCardProps defines: packageName (string), monthlyCost (number), contractEndDate (Date), manageHref (string), isSmartHubOffline (boolean, optional). All four required fields covered."}, {"text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "BroadbandServiceCard.test.tsx present with 10 tests covering rendering, offline warning, and edge cases."}], "notes": []}, {"eval_id": 1, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 181.5, "tokens": 37325, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.", "passed": true, "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button. No raw form elements present."}, {"text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.", "passed": true, "evidence": "Three TextInput components: fullName (type='text', autoComplete='name'), email (type='email'), phone (type='tel', inputMode='tel')."}, {"text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.", "passed": true, "evidence": "Select with placeholder='Select a method', onValueChange handler, and three SelectItem children: 'email', 'sms', 'post'."}, {"text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.", "passed": true, "evidence": "validate() function computes FormErrors. validationStatus() helper returns 'invalid' when field is touched and has error. validationText() returns the error message. Used on all TextInput and Select fields."}, {"text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.", "passed": true, "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"}, {"text": "The submit action uses Button from hearth-react, not a raw <button>.", "passed": true, "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"}, {"text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, and accessibility."}], "notes": []}, {"eval_id": 2, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 198.0, "tokens": 45939, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.", "passed": true, "evidence": "Uses Container, Flex, Grid \u2014 all from hearth-react. No raw <div> elements anywhere."}, {"text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.", "passed": true, "evidence": "Each service uses Card, CardContent, CardActions, CardActionLink \u2014 correct compound pattern from hearth-react."}, {"text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.", "passed": true, "evidence": "Uses Heading as='h1', Heading as='h2', Heading as='h4', BodyText as='p', BodyText as='span'. All from hearth-react \u2014 no raw text elements. Note: Heading as='h4' is used for monthly cost values, which is semantically questionable (price displays are not headings) but is technically a Hearth component."}, {"text": "Responsive object notation used on at least one prop to handle mobile vs desktop layout.", "passed": true, "evidence": "Grid columns={{ mobile: '1', desktop: '3' }} \u2014 responsive object notation for grid columns."}, {"text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.", "passed": true, "evidence": "totalMonthlyCost = services.reduce((sum, service) => sum + service.monthlyCost, 0). Displayed as <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>."}, {"text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.", "passed": true, "evidence": "<CardActionLink href={service.manageHref} heading={`Manage ${service.name}`} /> for each service. No raw <a> tags."}, {"text": "A ServicesDashboard.test.tsx file is present and contains at least one test.", "passed": true, "evidence": "ServicesDashboard.test.tsx present with 7 tests covering heading, total spend, service cards, costs, manage links, and Active badge."}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 155.5333, "stddev": 29.3582, "min": 137.3, "max": 189.4}, "tokens": {"mean": 38730.0, "stddev": 5022.8987, "min": 35541, "max": 44520}}, "without_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 170.4667, "stddev": 34.4035, "min": 131.9, "max": 198.0}, "tokens": {"mean": 41219.6667, "stddev": 4365.811, "min": 37325, "max": 45939}}, "delta": {"pass_rate": "+0.00", "time_seconds": "-14.9", "tokens": "-2490"}}, "notes": []}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "skill_name": "hearth-react-builder",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I need a card that shows a customer's broadband service summary — their package name, monthly cost, contract end date, and a 'Manage broadband' link. It should also show a warning if their smart hub is offline.",
+      "expected_output": "A React/TypeScript component folder using Hearth Card compound components, Alert or similar for the offline warning, Link for navigation, correct responsive props, and a test file.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "Build a form for updating contact details: full name, email address, phone number, and a dropdown for preferred contact method (email, SMS, post). It needs inline validation and should show a success message after saving.",
+      "expected_output": "A React/TypeScript form component using Hearth TextInput, Select, Button, and Alert for success/error feedback, with validation, and a test file.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a page showing all of a customer's active UW services — energy, broadband, and mobile. Each service should show the monthly cost and have a link to manage it. Show a total monthly spend at the top. It needs to work on mobile and desktop.",
+      "expected_output": "A React/TypeScript page component using Hearth layout (Grid/Flex/Container), Card components for services, correct typography components (Heading, DetailText, BodyText), responsive props, and a test file.",
+      "files": []
+    }
+  ]
+}

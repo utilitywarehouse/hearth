@@ -1,0 +1,70 @@
+{
+  "expectations": [
+    {
+      "text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.",
+      "passed": true,
+      "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button. No raw form elements present."
+    },
+    {
+      "text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.",
+      "passed": true,
+      "evidence": "Three TextInput components: fullName (type='text', autoComplete='name'), email (type='email'), phone (type='tel', inputMode='tel')."
+    },
+    {
+      "text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.",
+      "passed": true,
+      "evidence": "Select with placeholder='Select a method', onValueChange handler, and three SelectItem children: 'email', 'sms', 'post'."
+    },
+    {
+      "text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.",
+      "passed": true,
+      "evidence": "validate() function computes FormErrors. validationStatus() helper returns 'invalid' when field is touched and has error. validationText() returns the error message. Used on all TextInput and Select fields."
+    },
+    {
+      "text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.",
+      "passed": true,
+      "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"
+    },
+    {
+      "text": "The submit action uses Button from hearth-react, not a raw <button>.",
+      "passed": true,
+      "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"
+    },
+    {
+      "text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, and accessibility."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 181.5
+  },
+  "claims": [
+    {
+      "claim": "Manual useState-based validation with touched tracking is used instead of a form library",
+      "type": "process",
+      "verified": true,
+      "evidence": "Uses useState for values, touched, and saveStatus. Separate validate() function. handleBlur marks fields touched. Functionally equivalent but more boilerplate than React Hook Form."
+    },
+    {
+      "claim": "Select onValueChange immediately marks the field as touched",
+      "type": "quality",
+      "verified": true,
+      "evidence": "onValueChange={value => { handleChange('contactMethod', value); handleBlur('contactMethod'); }} — marks touched on change rather than blur, which is correct for a select."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "The test file is nearly identical to the with-skill test file in structure and coverage. Since both tests were independently written by different runs, this suggests the tests are testing surface-level behavior rather than implementation. Consider adding an assertion about form library usage to differentiate."
+      }
+    ],
+    "overall": "All assertions pass. The manual validation approach is thorough and correct but more verbose. The assertions don't capture the higher-quality form management approach recommended by the skill."
+  }
+}

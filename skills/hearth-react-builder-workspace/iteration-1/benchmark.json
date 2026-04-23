@@ -1,0 +1,383 @@
+{
+  "metadata": {
+    "skill_name": "hearth-react-builder",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-04-23T13:23:32Z",
+    "evals_run": [
+      0,
+      1,
+      2
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 0,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 139.9,
+        "tokens": 36129,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.",
+          "passed": true,
+          "evidence": "Component uses Card, CardContent, CardActions, Flex, Divider \u2014 all from hearth-react. No raw <div> or <span> present anywhere in the file."
+        },
+        {
+          "text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.",
+          "passed": true,
+          "evidence": "Imports Card, CardContent, CardActions, CardActionLink from @utilitywarehouse/hearth-react. Card is the root element wrapping the whole component."
+        },
+        {
+          "text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.",
+          "passed": true,
+          "evidence": "Uses Heading as='h2' for package name, BodyText for labels and cost prefix, DetailText size='2xl' for the monthly cost value. No raw text-rendering HTML elements."
+        },
+        {
+          "text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.",
+          "passed": true,
+          "evidence": "Uses CardActionLink with heading='Manage broadband', leadingIcon, and trailingIcon props. No raw <a> element."
+        },
+        {
+          "text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.",
+          "passed": true,
+          "evidence": "{isHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on the isHubOffline prop, using Alert from hearth-react."
+        },
+        {
+          "text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.",
+          "passed": true,
+          "evidence": "BroadbandServiceCardProps interface defines: packageName (string), monthlyCost (string), contractEndDate (string), manageHref (string), isHubOffline (boolean, optional)."
+        },
+        {
+          "text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "BroadbandServiceCard.test.tsx present with 8 tests across 3 describe blocks: 'content rendering', 'hub offline warning', and 'accessibility'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 137.3,
+        "tokens": 35541,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.",
+          "passed": true,
+          "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button \u2014 all from hearth-react. The <form> element is a structural wrapper, not an input element."
+        },
+        {
+          "text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.",
+          "passed": true,
+          "evidence": "Three Controller-wrapped TextInput components: fullName (type='text'), email (type='email', inputMode='email'), phone (type='tel', inputMode='tel')."
+        },
+        {
+          "text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.",
+          "passed": true,
+          "evidence": "Select with placeholder='Select a method' contains three SelectItem components: 'email', 'sms', 'post'. Wrapped in Controller with onValueChange={field.onChange}."
+        },
+        {
+          "text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.",
+          "passed": true,
+          "evidence": "All TextInput fields use validationStatus={fieldState.error ? 'invalid' : undefined} and validationText={fieldState.error?.message}. Rules include required and pattern checks."
+        },
+        {
+          "text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.",
+          "passed": true,
+          "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"
+        },
+        {
+          "text": "The submit action uses Button from hearth-react, not a raw <button>.",
+          "passed": true,
+          "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"
+        },
+        {
+          "text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, pre-population, and accessibility."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 189.4,
+        "tokens": 44520,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.",
+          "passed": true,
+          "evidence": "Uses Container, Flex, Grid, Box (marginLeft='auto' wrapper) \u2014 all from hearth-react. No raw <div> anywhere in the file."
+        },
+        {
+          "text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.",
+          "passed": true,
+          "evidence": "Each service is rendered by ServiceCard which uses Card, CardContent, CardInteraction. TotalSpendSummary also uses Card+CardContent. Empty state uses Card+CardContent."
+        },
+        {
+          "text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.",
+          "passed": true,
+          "evidence": "Heading for page title and service names, BodyText for secondary labels, DetailText size='2xl' for individual service costs, DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend. No raw text elements."
+        },
+        {
+          "text": "Responsive object notation used on at least one prop (e.g. direction={{ mobile: 'column', desktop: 'row' }} or gridColumnSpan={{ mobile: 'full', desktop: '4' }}) to handle mobile vs desktop layout.",
+          "passed": true,
+          "evidence": "Multiple responsive props: columns={{ mobile: 1, tablet: 2, desktop: 3 }}, gap={{ mobile: '300', desktop: '400' }}, direction={{ mobile: 'column', tablet: 'row' }}, size={{ mobile: 'lg', desktop: 'xl' }}, paddingY={{ mobile: '400', desktop: '800' }}, size={{ mobile: '3xl', desktop: '4xl' }}."
+        },
+        {
+          "text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.",
+          "passed": true,
+          "evidence": "totalSpend = services.reduce((sum, svc) => sum + svc.monthlyCost, 0). Displayed in TotalSpendSummary via <DetailText size={{ mobile: '3xl', desktop: '4xl' }} as='p'>. Conditionally shown only when services.length > 0."
+        },
+        {
+          "text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.",
+          "passed": true,
+          "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage {name}<ChevronRightSmallIcon /></Link></CardInteraction> for each service card. Empty state also uses CardInteraction+Link."
+        },
+        {
+          "text": "A ServicesDashboard.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "ServicesDashboard.test.tsx present with 18 tests across 6 describe blocks: page heading, total spend summary, service cards, empty state, currency formatting, accessibility."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 0,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 131.9,
+        "tokens": 40395,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.",
+          "passed": true,
+          "evidence": "Component uses Card, CardContent, CardInteraction, Flex, IconContainer \u2014 all from hearth-react. No raw <div> or <span> present."
+        },
+        {
+          "text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.",
+          "passed": true,
+          "evidence": "Imports Card, CardContent, CardInteraction from @utilitywarehouse/hearth-react. Card is the root element."
+        },
+        {
+          "text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.",
+          "passed": true,
+          "evidence": "Uses Heading as='h2', BodyText, DetailText size='sm' for labels. BodyText weight='semibold' for cost display (rather than DetailText, but still a Hearth component)."
+        },
+        {
+          "text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.",
+          "passed": true,
+          "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage broadband...</Link></CardInteraction> \u2014 uses both CardInteraction and Link from hearth-react."
+        },
+        {
+          "text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.",
+          "passed": true,
+          "evidence": "{isSmartHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} \u2014 conditional on isSmartHubOffline prop, using Alert."
+        },
+        {
+          "text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.",
+          "passed": true,
+          "evidence": "BroadbandServiceCardProps defines: packageName (string), monthlyCost (number), contractEndDate (Date), manageHref (string), isSmartHubOffline (boolean, optional). All four required fields covered."
+        },
+        {
+          "text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "BroadbandServiceCard.test.tsx present with 10 tests covering rendering, offline warning, and edge cases."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 181.5,
+        "tokens": 37325,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.",
+          "passed": true,
+          "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button. No raw form elements present."
+        },
+        {
+          "text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.",
+          "passed": true,
+          "evidence": "Three TextInput components: fullName (type='text', autoComplete='name'), email (type='email'), phone (type='tel', inputMode='tel')."
+        },
+        {
+          "text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.",
+          "passed": true,
+          "evidence": "Select with placeholder='Select a method', onValueChange handler, and three SelectItem children: 'email', 'sms', 'post'."
+        },
+        {
+          "text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.",
+          "passed": true,
+          "evidence": "validate() function computes FormErrors. validationStatus() helper returns 'invalid' when field is touched and has error. validationText() returns the error message. Used on all TextInput and Select fields."
+        },
+        {
+          "text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.",
+          "passed": true,
+          "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"
+        },
+        {
+          "text": "The submit action uses Button from hearth-react, not a raw <button>.",
+          "passed": true,
+          "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"
+        },
+        {
+          "text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, and accessibility."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 198.0,
+        "tokens": 45939,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.",
+          "passed": true,
+          "evidence": "Uses Container, Flex, Grid \u2014 all from hearth-react. No raw <div> elements anywhere."
+        },
+        {
+          "text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.",
+          "passed": true,
+          "evidence": "Each service uses Card, CardContent, CardActions, CardActionLink \u2014 correct compound pattern from hearth-react."
+        },
+        {
+          "text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.",
+          "passed": true,
+          "evidence": "Uses Heading as='h1', Heading as='h2', Heading as='h4', BodyText as='p', BodyText as='span'. All from hearth-react \u2014 no raw text elements. Note: Heading as='h4' is used for monthly cost values, which is semantically questionable (price displays are not headings) but is technically a Hearth component."
+        },
+        {
+          "text": "Responsive object notation used on at least one prop to handle mobile vs desktop layout.",
+          "passed": true,
+          "evidence": "Grid columns={{ mobile: '1', desktop: '3' }} \u2014 responsive object notation for grid columns."
+        },
+        {
+          "text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.",
+          "passed": true,
+          "evidence": "totalMonthlyCost = services.reduce((sum, service) => sum + service.monthlyCost, 0). Displayed as <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>."
+        },
+        {
+          "text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.",
+          "passed": true,
+          "evidence": "<CardActionLink href={service.manageHref} heading={`Manage ${service.name}`} /> for each service. No raw <a> tags."
+        },
+        {
+          "text": "A ServicesDashboard.test.tsx file is present and contains at least one test.",
+          "passed": true,
+          "evidence": "ServicesDashboard.test.tsx present with 7 tests covering heading, total spend, service cards, costs, manage links, and Active badge."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 155.5333,
+        "stddev": 29.3582,
+        "min": 137.3,
+        "max": 189.4
+      },
+      "tokens": {
+        "mean": 38730.0,
+        "stddev": 5022.8987,
+        "min": 35541,
+        "max": 44520
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 170.4667,
+        "stddev": 34.4035,
+        "min": 131.9,
+        "max": 198.0
+      },
+      "tokens": {
+        "mean": 41219.6667,
+        "stddev": 4365.811,
+        "min": 37325,
+        "max": 45939
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "-14.9",
+      "tokens": "-2490"
+    }
+  },
+  "notes": []
+}

@@ -1,0 +1,73 @@
+{
+  "expectations": [
+    {
+      "text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.",
+      "passed": true,
+      "evidence": "Component uses Card, CardContent, CardActions, Flex, Divider — all from hearth-react. No raw <div> or <span> present anywhere in the file."
+    },
+    {
+      "text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.",
+      "passed": true,
+      "evidence": "Imports Card, CardContent, CardActions, CardActionLink from @utilitywarehouse/hearth-react. Card is the root element wrapping the whole component."
+    },
+    {
+      "text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.",
+      "passed": true,
+      "evidence": "Uses Heading as='h2' for package name, BodyText for labels and cost prefix, DetailText size='2xl' for the monthly cost value. No raw text-rendering HTML elements."
+    },
+    {
+      "text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.",
+      "passed": true,
+      "evidence": "Uses CardActionLink with heading='Manage broadband', leadingIcon, and trailingIcon props. No raw <a> element."
+    },
+    {
+      "text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.",
+      "passed": true,
+      "evidence": "{isHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} — conditional on the isHubOffline prop, using Alert from hearth-react."
+    },
+    {
+      "text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.",
+      "passed": true,
+      "evidence": "BroadbandServiceCardProps interface defines: packageName (string), monthlyCost (string), contractEndDate (string), manageHref (string), isHubOffline (boolean, optional)."
+    },
+    {
+      "text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "BroadbandServiceCard.test.tsx present with 8 tests across 3 describe blocks: 'content rendering', 'hub offline warning', and 'accessibility'."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 139.9
+  },
+  "claims": [
+    {
+      "claim": "CardActionLink is used idiomatically as the manage link inside CardActions",
+      "type": "quality",
+      "verified": true,
+      "evidence": "CardActionLink is used with leadingIcon (BroadbandMediumIcon), trailingIcon (ChevronRightSmallIcon), and leadingIconContainerColorScheme='broadband' — this is the correct compound pattern for card actions with icons."
+    },
+    {
+      "claim": "DetailText size='2xl' is used for the monthly cost",
+      "type": "quality",
+      "verified": true,
+      "evidence": "<DetailText size='2xl'>{monthlyCost}</DetailText> — appropriate size for a prominent price display."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "All assertions check component presence but not semantic quality. No assertion distinguishes between using DetailText (appropriate for a price) vs BodyText or Heading for the cost value. This is a meaningful quality signal the eval misses."
+      },
+      {
+        "reason": "No assertion checks the Card colorScheme prop is set (e.g. 'broadband'), which is a notable with-skill improvement in brand alignment."
+      }
+    ],
+    "overall": "Assertions pass for all meaningful structural requirements. Quality differentiation between runs would benefit from checking prop usage patterns like colorScheme and typography choices for specific content types."
+  }
+}

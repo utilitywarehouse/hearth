@@ -1,0 +1,35 @@
+{
+  "eval_id": 2,
+  "eval_name": "services-dashboard",
+  "prompt": "Create a page showing all of a customer's active UW services — energy, broadband, and mobile. Each service should show the monthly cost and have a link to manage it. Show a total monthly spend at the top. It needs to work on mobile and desktop.",
+  "assertions": [
+    {
+      "name": "no-raw-html-layout",
+      "description": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers."
+    },
+    {
+      "name": "uses-hearth-cards",
+      "description": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service."
+    },
+    {
+      "name": "uses-hearth-typography",
+      "description": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>."
+    },
+    {
+      "name": "responsive-props",
+      "description": "Responsive object notation used on at least one prop (e.g. direction={{ mobile: 'column', desktop: 'row' }} or gridColumnSpan={{ mobile: 'full', desktop: '4' }}) to handle mobile vs desktop layout."
+    },
+    {
+      "name": "total-spend-displayed",
+      "description": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component."
+    },
+    {
+      "name": "uses-hearth-links",
+      "description": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags."
+    },
+    {
+      "name": "test-file-exists",
+      "description": "A ServicesDashboard.test.tsx file is present and contains at least one test."
+    }
+  ]
+}

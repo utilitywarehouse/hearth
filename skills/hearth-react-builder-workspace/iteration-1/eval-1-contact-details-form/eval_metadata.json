@@ -1,0 +1,35 @@
+{
+  "eval_id": 1,
+  "eval_name": "contact-details-form",
+  "prompt": "Build a form for updating contact details: full name, email address, phone number, and a dropdown for preferred contact method (email, SMS, post). It needs inline validation and should show a success message after saving.",
+  "assertions": [
+    {
+      "name": "no-raw-form-elements",
+      "description": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead."
+    },
+    {
+      "name": "uses-hearth-inputs",
+      "description": "TextInput from hearth-react is used for the full name, email address, and phone number fields."
+    },
+    {
+      "name": "uses-hearth-select",
+      "description": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown."
+    },
+    {
+      "name": "validation-present",
+      "description": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input."
+    },
+    {
+      "name": "success-feedback",
+      "description": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>."
+    },
+    {
+      "name": "uses-hearth-button",
+      "description": "The submit action uses Button from hearth-react, not a raw <button>."
+    },
+    {
+      "name": "test-file-exists",
+      "description": "A ContactDetailsForm.test.tsx file is present and contains at least one test."
+    }
+  ]
+}

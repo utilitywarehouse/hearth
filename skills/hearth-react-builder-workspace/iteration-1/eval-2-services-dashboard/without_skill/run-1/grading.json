@@ -1,0 +1,82 @@
+{
+  "expectations": [
+    {
+      "text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.",
+      "passed": true,
+      "evidence": "Uses Container, Flex, Grid — all from hearth-react. No raw <div> elements anywhere."
+    },
+    {
+      "text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.",
+      "passed": true,
+      "evidence": "Each service uses Card, CardContent, CardActions, CardActionLink — correct compound pattern from hearth-react."
+    },
+    {
+      "text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.",
+      "passed": true,
+      "evidence": "Uses Heading as='h1', Heading as='h2', Heading as='h4', BodyText as='p', BodyText as='span'. All from hearth-react — no raw text elements. Note: Heading as='h4' is used for monthly cost values, which is semantically questionable (price displays are not headings) but is technically a Hearth component."
+    },
+    {
+      "text": "Responsive object notation used on at least one prop to handle mobile vs desktop layout.",
+      "passed": true,
+      "evidence": "Grid columns={{ mobile: '1', desktop: '3' }} — responsive object notation for grid columns."
+    },
+    {
+      "text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.",
+      "passed": true,
+      "evidence": "totalMonthlyCost = services.reduce((sum, service) => sum + service.monthlyCost, 0). Displayed as <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>."
+    },
+    {
+      "text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.",
+      "passed": true,
+      "evidence": "<CardActionLink href={service.manageHref} heading={`Manage ${service.name}`} /> for each service. No raw <a> tags."
+    },
+    {
+      "text": "A ServicesDashboard.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "ServicesDashboard.test.tsx present with 7 tests covering heading, total spend, service cards, costs, manage links, and Active badge."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 198.0
+  },
+  "claims": [
+    {
+      "claim": "Services are hardcoded as a module-level constant rather than passed as props",
+      "type": "quality",
+      "verified": true,
+      "evidence": "const services: Service[] = [...] defined at module level. export function ServicesDashboard() takes no props. Not reusable or testable with different service data."
+    },
+    {
+      "claim": "Heading is used for price values (monthlyCost) instead of DetailText",
+      "type": "quality",
+      "verified": true,
+      "evidence": "<Heading as='h4' size='md'>{formatCurrency(service.monthlyCost)}</Heading> and <Heading as='h2' size='lg'>{formatCurrency(totalMonthlyCost)}</Heading>. Using Heading for numeric/price values creates incorrect heading hierarchy and is not semantically appropriate."
+    },
+    {
+      "claim": "No empty state is handled",
+      "type": "quality",
+      "verified": true,
+      "evidence": "The component always renders with the hardcoded services array. There is no empty state UI for when a customer has no services."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "The typography assertion passes even though Heading is used for price values (as='h4'). This creates incorrect heading hierarchy and is semantically wrong. An assertion checking that price/cost values use DetailText (not Heading) would catch this important quality difference."
+      },
+      {
+        "reason": "No assertion checks that the component accepts services as props. The hardcoded implementation passes all assertions but is not a useful, reusable component."
+      },
+      {
+        "reason": "The test file hardcodes the same services array as the component, meaning tests only verify the hardcoded data. Adding a prop-driven assertion would force better component design."
+      }
+    ],
+    "overall": "All structural assertions pass but the output has notable quality issues: hardcoded services (not reusable), Heading used for prices (semantic mismatch), no empty state. The assertions are not discriminating enough to capture these differences."
+  }
+}

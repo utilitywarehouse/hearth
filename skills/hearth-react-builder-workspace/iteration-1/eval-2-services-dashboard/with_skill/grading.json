@@ -1,0 +1,79 @@
+{
+  "expectations": [
+    {
+      "text": "Layout uses Flex, Grid, Container, or Box from hearth-react. No raw <div> used as structural containers.",
+      "passed": true,
+      "evidence": "Uses Container, Flex, Grid, Box (marginLeft='auto' wrapper) — all from hearth-react. No raw <div> anywhere in the file."
+    },
+    {
+      "text": "Card (or CardActionLink/CardContent sub-components) from hearth-react is used for each service.",
+      "passed": true,
+      "evidence": "Each service is rendered by ServiceCard which uses Card, CardContent, CardInteraction. TotalSpendSummary also uses Card+CardContent. Empty state uses Card+CardContent."
+    },
+    {
+      "text": "Heading, BodyText, or DetailText from hearth-react used for all text. No raw <h1>-<h6> or <p>.",
+      "passed": true,
+      "evidence": "Heading for page title and service names, BodyText for secondary labels, DetailText size='2xl' for individual service costs, DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend. No raw text elements."
+    },
+    {
+      "text": "Responsive object notation used on at least one prop (e.g. direction={{ mobile: 'column', desktop: 'row' }} or gridColumnSpan={{ mobile: 'full', desktop: '4' }}) to handle mobile vs desktop layout.",
+      "passed": true,
+      "evidence": "Multiple responsive props: columns={{ mobile: 1, tablet: 2, desktop: 3 }}, gap={{ mobile: '300', desktop: '400' }}, direction={{ mobile: 'column', tablet: 'row' }}, size={{ mobile: 'lg', desktop: 'xl' }}, paddingY={{ mobile: '400', desktop: '800' }}, size={{ mobile: '3xl', desktop: '4xl' }}."
+    },
+    {
+      "text": "Total monthly spend is calculated from the services and displayed prominently, using an appropriate Hearth typography component.",
+      "passed": true,
+      "evidence": "totalSpend = services.reduce((sum, svc) => sum + svc.monthlyCost, 0). Displayed in TotalSpendSummary via <DetailText size={{ mobile: '3xl', desktop: '4xl' }} as='p'>. Conditionally shown only when services.length > 0."
+    },
+    {
+      "text": "Each service's manage link uses Link, CardActionLink, or CardInteraction from hearth-react. No raw <a> tags.",
+      "passed": true,
+      "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage {name}<ChevronRightSmallIcon /></Link></CardInteraction> for each service card. Empty state also uses CardInteraction+Link."
+    },
+    {
+      "text": "A ServicesDashboard.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "ServicesDashboard.test.tsx present with 18 tests across 6 describe blocks: page heading, total spend summary, service cards, empty state, currency formatting, accessibility."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 189.4
+  },
+  "claims": [
+    {
+      "claim": "Component accepts services as props (data-driven) rather than hardcoding them",
+      "type": "quality",
+      "verified": true,
+      "evidence": "ServicesDashboardProps has customerName?: string and services: Service[]. The component is fully data-driven and testable with any service data."
+    },
+    {
+      "claim": "Empty state is handled with a dedicated UI rather than rendering nothing",
+      "type": "quality",
+      "verified": true,
+      "evidence": "{services.length === 0 ? <Card>No active services...</Card> : <Grid>...services...</Grid>} — explicit empty state with message and explore link."
+    },
+    {
+      "claim": "DetailText is used for price values instead of Heading",
+      "type": "quality",
+      "verified": true,
+      "evidence": "DetailText size='2xl' for individual service costs and DetailText size={{ mobile: '3xl', desktop: '4xl' }} for total spend — semantically correct numeric display component."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "No assertion checks whether the component accepts services as props vs hardcodes them. This is a significant quality difference — the with-skill output is reusable, the without-skill output requires code changes to display real data."
+      },
+      {
+        "reason": "No assertion checks for an empty state. The with-skill output includes a proper empty state; the without-skill output does not. This is an important UX consideration that goes unchecked."
+      }
+    ],
+    "overall": "All assertions pass. The with-skill output is notably higher quality: data-driven props, empty state handling, DetailText for prices, comprehensive responsive breakpoints. The assertions miss these quality signals."
+  }
+}

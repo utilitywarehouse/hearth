@@ -1,0 +1,76 @@
+{
+  "expectations": [
+    {
+      "text": "No raw <input>, <select>, or <button> elements. Hearth components (TextInput, Select, Button) used instead.",
+      "passed": true,
+      "evidence": "All inputs use TextInput, dropdown uses Select/SelectItem, submit uses Button — all from hearth-react. The <form> element is a structural wrapper, not an input element."
+    },
+    {
+      "text": "TextInput from hearth-react is used for the full name, email address, and phone number fields.",
+      "passed": true,
+      "evidence": "Three Controller-wrapped TextInput components: fullName (type='text'), email (type='email', inputMode='email'), phone (type='tel', inputMode='tel')."
+    },
+    {
+      "text": "Select and SelectItem from hearth-react are used for the preferred contact method dropdown.",
+      "passed": true,
+      "evidence": "Select with placeholder='Select a method' contains three SelectItem components: 'email', 'sms', 'post'. Wrapped in Controller with onValueChange={field.onChange}."
+    },
+    {
+      "text": "Form validation logic is present. Fields show validationStatus='invalid' and validationText with error messages on invalid input.",
+      "passed": true,
+      "evidence": "All TextInput fields use validationStatus={fieldState.error ? 'invalid' : undefined} and validationText={fieldState.error?.message}. Rules include required and pattern checks."
+    },
+    {
+      "text": "On successful save, an Alert component from hearth-react with colorScheme='positive' (or similar) is shown. Not a raw <div> or <p>.",
+      "passed": true,
+      "evidence": "{saveStatus === 'success' && <Alert colorScheme='positive' title='Details saved' text='...' onClose={...} />}"
+    },
+    {
+      "text": "The submit action uses Button from hearth-react, not a raw <button>.",
+      "passed": true,
+      "evidence": "<Button type='submit' variant='emphasis' colorScheme='highlight' loading={saveStatus === 'saving'}>Save changes</Button>"
+    },
+    {
+      "text": "A ContactDetailsForm.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "ContactDetailsForm.test.tsx present with 16 tests covering rendering, validation, submission, error handling, dismissal, pre-population, and accessibility."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 137.3
+  },
+  "claims": [
+    {
+      "claim": "React Hook Form with Controller and fieldState is used for form management",
+      "type": "process",
+      "verified": true,
+      "evidence": "Imports useForm, Controller from react-hook-form. Uses Controller render prop with fieldState for each input. mode: 'onTouched' for progressive validation."
+    },
+    {
+      "claim": "fieldsets with legend are used for semantic grouping",
+      "type": "quality",
+      "verified": true,
+      "evidence": "Two <fieldset> elements with <legend> wrapping Heading: 'Personal information' and 'Communication preferences'. CSS resets in ContactDetailsForm.css strip browser default styles."
+    },
+    {
+      "claim": "Button shows loading state during async save",
+      "type": "quality",
+      "verified": true,
+      "evidence": "loading={saveStatus === 'saving'} on Button — prevents double-submit and shows loading indicator."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "No assertion distinguishes between React Hook Form and manual useState validation. Both satisfy all assertions equally — but one is significantly more robust and scalable. Consider checking for react-hook-form import or Controller usage."
+      }
+    ],
+    "overall": "All assertions pass. The with-skill output uses React Hook Form with Controller/fieldState which is the recommended pattern in the skill reference, but the assertions can't distinguish this from the manual-state approach used by the baseline."
+  }
+}

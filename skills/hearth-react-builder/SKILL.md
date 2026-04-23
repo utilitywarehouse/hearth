@@ -33,6 +33,7 @@ Read the relevant reference file before writing any JSX.
 | Accordions | [`references/components/accordion.md`](references/components/accordion.md) |
 | Advanced — Combobox, DatePicker, Skeleton, IconContainer | [`references/components/advanced.md`](references/components/advanced.md) |
 | Tokens — CSS vars, space, colour, browser format | [`references/tokens.md`](references/tokens.md) |
+| Storybook stories | [`references/storybook.md`](references/storybook.md) |
 
 ## Process
 
@@ -41,6 +42,7 @@ Read the relevant reference file before writing any JSX.
 Before anything else, confirm with the user:
 1. **TypeScript + React?** (assumed — verify before proceeding)
 2. **CSS approach?** (assumed plain CSS — ask if they'd prefer CSS Modules or Emotion styled)
+3. **Storybook story?** Ask whether they'd like a `.stories.tsx` file included. Not everyone has Storybook set up — don't assume. If yes, read [`references/storybook.md`](references/storybook.md) before writing the story.
 
 ### Step 2 — Always ask clarifying questions
 
@@ -92,7 +94,8 @@ Output a folder:
 ComponentName/
 ├── ComponentName.tsx
 ├── ComponentName.test.tsx
-└── ComponentName.css       # omit if no custom styles are needed
+├── ComponentName.stories.tsx  # only if the user asked for it in Step 1
+└── ComponentName.css          # omit if no custom styles are needed
 ```
 
 ## Principles

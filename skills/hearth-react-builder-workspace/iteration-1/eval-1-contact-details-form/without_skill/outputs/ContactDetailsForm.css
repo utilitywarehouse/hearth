@@ -1,0 +1,31 @@
+/*
+ * ContactDetailsForm.css
+ *
+ * Browsers apply opinionated styles to <fieldset> (border, padding,
+ * min-inline-size) and <legend> that Hearth's CSS reset does not clear.
+ * We reset them here so that the elements act as plain layout containers.
+ */
+
+.contact-details-form__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+/*
+ * The <legend> must be a direct child of <fieldset> for accessibility, but we
+ * want it to behave like a normal block so the heading sits flush above the
+ * fields. The float trick is the most reliable cross-browser approach.
+ */
+.contact-details-form__legend {
+  padding: 0;
+  margin-bottom: var(--h-space-400);
+  float: left;
+  width: 100%;
+}
+
+/* Clear the float so subsequent content starts below the legend */
+.contact-details-form__legend + * {
+  clear: left;
+}

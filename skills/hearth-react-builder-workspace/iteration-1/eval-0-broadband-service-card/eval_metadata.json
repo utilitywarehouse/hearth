@@ -1,0 +1,35 @@
+{
+  "eval_id": 0,
+  "eval_name": "broadband-service-card",
+  "prompt": "I need a card that shows a customer's broadband service summary — their package name, monthly cost, contract end date, and a 'Manage broadband' link. It should also show a warning if their smart hub is offline.",
+  "assertions": [
+    {
+      "name": "no-raw-html-layout",
+      "description": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead."
+    },
+    {
+      "name": "uses-card-component",
+      "description": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container."
+    },
+    {
+      "name": "uses-hearth-typography",
+      "description": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text."
+    },
+    {
+      "name": "uses-hearth-link",
+      "description": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag."
+    },
+    {
+      "name": "conditional-warning",
+      "description": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element."
+    },
+    {
+      "name": "typescript-props",
+      "description": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline."
+    },
+    {
+      "name": "test-file-exists",
+      "description": "A BroadbandServiceCard.test.tsx file is present and contains at least one test."
+    }
+  ]
+}

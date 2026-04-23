@@ -1,0 +1,70 @@
+{
+  "expectations": [
+    {
+      "text": "No raw <div> or <span> used as layout containers. Flex, Box, or Card from hearth-react used instead.",
+      "passed": true,
+      "evidence": "Component uses Card, CardContent, CardInteraction, Flex, IconContainer — all from hearth-react. No raw <div> or <span> present."
+    },
+    {
+      "text": "Card (or CardContent / CardActions sub-components) is imported from @utilitywarehouse/hearth-react and used as the outer container.",
+      "passed": true,
+      "evidence": "Imports Card, CardContent, CardInteraction from @utilitywarehouse/hearth-react. Card is the root element."
+    },
+    {
+      "text": "All text content uses Hearth typography components (Heading, BodyText, DetailText). No raw <p>, <h1>-<h6>, or <span> for text.",
+      "passed": true,
+      "evidence": "Uses Heading as='h2', BodyText, DetailText size='sm' for labels. BodyText weight='semibold' for cost display (rather than DetailText, but still a Hearth component)."
+    },
+    {
+      "text": "The 'Manage broadband' link uses Link or CardInteraction/CardActionLink from hearth-react. No raw <a> tag.",
+      "passed": true,
+      "evidence": "<CardInteraction asChild><Link href={manageHref}>Manage broadband...</Link></CardInteraction> — uses both CardInteraction and Link from hearth-react."
+    },
+    {
+      "text": "The hub offline warning is conditionally rendered based on a prop, and uses a Hearth feedback component (Alert or similar) rather than a raw element.",
+      "passed": true,
+      "evidence": "{isSmartHubOffline && <Alert colorScheme='warning' title='Smart hub offline' text='...' />} — conditional on isSmartHubOffline prop, using Alert."
+    },
+    {
+      "text": "A TypeScript interface or type is defined for the component's props, covering at minimum packageName, monthlyCost, contractEndDate, and hubOffline.",
+      "passed": true,
+      "evidence": "BroadbandServiceCardProps defines: packageName (string), monthlyCost (number), contractEndDate (Date), manageHref (string), isSmartHubOffline (boolean, optional). All four required fields covered."
+    },
+    {
+      "text": "A BroadbandServiceCard.test.tsx file is present and contains at least one test.",
+      "passed": true,
+      "evidence": "BroadbandServiceCard.test.tsx present with 10 tests covering rendering, offline warning, and edge cases."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 131.9
+  },
+  "claims": [
+    {
+      "claim": "monthlyCost is typed as number with formatting handled by a utility function",
+      "type": "quality",
+      "verified": true,
+      "evidence": "monthlyCost: number prop, formatCurrency helper using Intl.NumberFormat. Contrast with with_skill which accepts pre-formatted strings."
+    },
+    {
+      "claim": "BodyText is used for the monthly cost value instead of DetailText",
+      "type": "quality",
+      "verified": true,
+      "evidence": "<BodyText size='md' weight='semibold'>{formatCurrency(monthlyCost)} / month</BodyText> — BodyText rather than DetailText for the price, which is less idiomatic for a prominent price display."
+    }
+  ],
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "reason": "The typography assertion doesn't distinguish between using BodyText vs DetailText for a price figure. Both pass, but DetailText is the more appropriate choice for a highlighted numeric value. A more discriminating assertion would check that the primary cost value uses DetailText."
+      }
+    ],
+    "overall": "All structural assertions pass. The without-skill output is competent but makes less idiomatic choices (BodyText for price instead of DetailText, raw number props instead of pre-formatted strings)."
+  }
+}
