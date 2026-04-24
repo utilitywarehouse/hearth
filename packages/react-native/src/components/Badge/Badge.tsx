@@ -78,11 +78,11 @@ const styles = StyleSheet.create(theme => ({
       size: {
         sm: {
           paddingVertical: theme.components.badge.sm.paddingVertical,
-          height: theme.components.badge.sm.height,
+          minHeight: theme.components.badge.sm.height,
         },
         md: {
           paddingVertical: theme.components.badge.md.paddingVertical,
-          height: theme.components.badge.md.height,
+          minHeight: theme.components.badge.md.height,
         },
       },
       flatBase: {

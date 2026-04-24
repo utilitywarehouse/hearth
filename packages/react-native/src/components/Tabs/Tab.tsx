@@ -87,8 +87,8 @@ const styles = StyleSheet.create(theme => ({
     },
     variants: {
       size: {
-        md: { height: theme.components.tabs.md.height },
-        lg: { height: theme.components.tabs.lg.height },
+        md: { minHeight: theme.components.tabs.md.height },
+        lg: { minHeight: theme.components.tabs.lg.height },
       },
       pressed: {
         true: {
