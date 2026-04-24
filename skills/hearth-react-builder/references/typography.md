@@ -2,6 +2,8 @@
 
 All text uses Hearth typography components — never raw `<p>`, `<h1>`–`<h6>`, `<span>`, `<strong>`, `<em>`.
 
+**Component reference:** [Heading](components/Heading.md) · [BodyText](components/BodyText.md) · [DetailText](components/DetailText.md) · [SectionHeader](components/SectionHeader.md) · [Strong](components/Strong.md) · [Label](components/Label.md)
+
 ## Heading
 
 Semantic heading element. Size and tag are independent — choose `as` for document structure, `size` for visual treatment.

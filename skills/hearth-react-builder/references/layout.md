@@ -2,6 +2,8 @@
 
 All layout uses Hearth components — never raw `<div>` or `<span>`.
 
+**Component reference:** [Box](components/Box.md) · [Flex](components/Flex.md) · [Grid](components/Grid.md) · [Container](components/Container.md)
+
 ## Box
 
 Generic container with styling props but no flexbox behaviour.
@@ -98,6 +100,24 @@ import { Flex } from '@utilitywarehouse/hearth-react';
 ```
 
 **Gotcha:** `spacing` is a convenience shorthand — use `gap` for fine-grained control.
+
+**Positioning principle:** use `justifyContent` and `alignItems` on a `Flex` parent to position children — don't add `margin` to individual elements for alignment. `marginLeft="auto"` on a `Box` to push it right works but is harder to read and breaks when the layout changes. Prefer:
+
+```tsx
+// Push badge to the right — use justifyContent on the parent
+<Flex justifyContent="between" alignItems="center">
+  <Heading as="h2" size="sm">{name}</Heading>
+  <Badge colorScheme="positive">Active</Badge>
+</Flex>
+
+// Not this
+<Flex alignItems="center">
+  <Heading as="h2" size="sm">{name}</Heading>
+  <Box marginLeft="auto">
+    <Badge colorScheme="positive">Active</Badge>
+  </Box>
+</Flex>
+```
 
 ---
 
