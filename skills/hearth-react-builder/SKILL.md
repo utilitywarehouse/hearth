@@ -21,7 +21,9 @@ Read the relevant reference file before writing any JSX.
 |---|---|
 | Layout — Box, Flex, Grid, Container | [`references/layout.md`](references/layout.md) |
 | Typography — Heading, BodyText, DetailText, SectionHeader, Strong, Em | [`references/typography.md`](references/typography.md) |
-| Icons, SVG assets, illustrations | [`references/icons.md`](references/icons.md) |
+| Icons | [`references/icons.md`](references/icons.md) |
+| Illustrations — logos, spots, scenes, mascots, technical diagrams | [`references/illustrations.md`](references/illustrations.md) |
+| Animations — Lottie JSON assets | [`references/animations.md`](references/animations.md) |
 | Buttons & links | [`references/components/buttons.md`](references/components/buttons.md) |
 | Forms & inputs | [`references/components/forms.md`](references/components/forms.md) |
 | Selections — Checkbox, Radio, Select, Switch, ToggleGroup | [`references/components/selections.md`](references/components/selections.md) |
