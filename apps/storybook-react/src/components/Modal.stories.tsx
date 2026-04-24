@@ -357,7 +357,6 @@ export const WithCard: Story = {
 };
 
 export const WithLongContent: Story = {
-  globals: { viewport: { value: 'mobile' } },
   args: { heading: 'Tariff details', description: undefined, fullScreen: true },
   render: (args, context) => (
     <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
