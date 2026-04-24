@@ -1,5 +1,14 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.12
+
+### Patch Changes
+
+- [#1162](https://github.com/utilitywarehouse/hearth/pull/1162) [`506088e`](https://github.com/utilitywarehouse/hearth/commit/506088ef414c0caee57597c5e688dd5cba8afde0) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Modal` position in Safari
+
+  The `Modal` was pushed down beyond the visible scroll area due to redundant CSS
+  positioning.
+
 ## 0.27.11
 
 ### Patch Changes
