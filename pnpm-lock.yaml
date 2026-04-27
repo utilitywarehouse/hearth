@@ -617,7 +617,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.8.0
+        specifier: workspace:^0.8.1
         version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-svg-assets':
         specifier: workspace:^0.6.1

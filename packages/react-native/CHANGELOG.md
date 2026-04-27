@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.32.2
+
+### Patch Changes
+
+- [#1164](https://github.com/utilitywarehouse/hearth/pull/1164) [`c8848d9`](https://github.com/utilitywarehouse/hearth/commit/c8848d9b01611e4c25b9caef7f211b8c623432c4) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - 🐛 [FIX]: Badge and Tabs now adapt their height for larger accessibility font sizes.
+
+  When larger text sizes are enabled (for example in iOS accessibility settings),
+  Badge and Tabs no longer clip text within fixed-height layouts. Their containers
+  now grow to fit scaled text while keeping the default visual sizing at standard
+  font settings.
+
+  **Components affected**:
+  - Badge
+  - Tab
+
+  **Developer changes**:
+
+  No code changes are required.
+
+- Updated dependencies [[`e4167f2`](https://github.com/utilitywarehouse/hearth/commit/e4167f27325dacc0cbc1feae456697387162aa77)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.8.1
+
 ## 0.32.1
 
 ### Patch Changes
