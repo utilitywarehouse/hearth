@@ -86,8 +86,29 @@ When the `row` prop is set it can also be used as the first cell in a `TableRow`
   </TableHeader>
   <TableBody>
     <TableRow>
-      <TableHeaderCell row>Toni Morrison</TableCell>
+      <TableHeaderCell row>Toni Morrison</TableHeaderCell>
       <TableCell>Writer</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Text Align
+
+You can align the text in both the `TableHeaderCell` and `TableCell` components using the `textAlign` prop.
+
+```tsx
+<Table>
+  <TableHeader>
+    <TableHeaderCell textAlign="left">Name</TableHeaderCell>
+    <TableHeaderCell textAlign="center">Occupation</TableHeaderCell>
+    <TableHeaderCell textAlign="right">Location</TableHeaderCell>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell textAlign="left">Toni Morrison</TableCell>
+      <TableCell textAlign="center">Writer</TableCell>
+      <TableCell textAlign="right">United States</TableCell>
     </TableRow>
   </TableBody>
 </Table>
@@ -110,7 +131,9 @@ This component is based on the `thead` element.
 
 ### TableHeaderCell API
 
-This component is based on the `th` element.
+This component is based on the `th` element and supports the following common props:
+
+- <StorybookLink to="common-props-text">Text Align</StorybookLink>
 
 | Prop  | Type      | Description                                                                             |
 | ----- | --------- | --------------------------------------------------------------------------------------- |
@@ -126,7 +149,9 @@ This component is based on the `tr` element.
 
 ### TableCell API
 
-This component is based on the `td` element.
+This component is based on the `td` element and supports the following common props:
+
+- <StorybookLink to="common-props-text">Text Align</StorybookLink>
 
 ### TablePagination API
 
