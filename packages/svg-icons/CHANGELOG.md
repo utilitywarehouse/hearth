@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-svg-icons
 
+## 0.8.1
+
+### Patch Changes
+
+- [#1167](https://github.com/utilitywarehouse/hearth/pull/1167) [`e4167f2`](https://github.com/utilitywarehouse/hearth/commit/e4167f27325dacc0cbc1feae456697387162aa77) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+  - QrCodeSmallIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.8.0
 
 ### Minor Changes
