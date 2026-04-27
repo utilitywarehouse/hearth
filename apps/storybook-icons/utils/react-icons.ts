@@ -134,6 +134,7 @@ import { PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/
 import { PlaceholderSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderSmallIcon';
 import { PlayMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlayMediumIcon';
 import { PlaySmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaySmallIcon';
+import { QrCodeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QrCodeSmallIcon';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
 import { QuestionMarkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkSmallIcon';
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
@@ -325,6 +326,7 @@ export const reactIcons = [
   PlaceholderSmallIcon,
   PlayMediumIcon,
   PlaySmallIcon,
+  QrCodeSmallIcon,
   QuestionMarkMediumIcon,
   QuestionMarkSmallIcon,
   RefundMediumIcon,
