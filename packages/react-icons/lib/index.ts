@@ -133,6 +133,7 @@ export { PlaceholderMediumIcon } from './PlaceholderMediumIcon';
 export { PlaceholderSmallIcon } from './PlaceholderSmallIcon';
 export { PlayMediumIcon } from './PlayMediumIcon';
 export { PlaySmallIcon } from './PlaySmallIcon';
+export { QrCodeSmallIcon } from './QrCodeSmallIcon';
 export { QuestionMarkMediumIcon } from './QuestionMarkMediumIcon';
 export { QuestionMarkSmallIcon } from './QuestionMarkSmallIcon';
 export { RefundMediumIcon } from './RefundMediumIcon';

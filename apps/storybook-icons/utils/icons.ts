@@ -73,6 +73,7 @@ export const icons = [
   { reactName: 'TimeSmallIcon', svgName: 'time-small-icon.svg' },
   { reactName: 'TopUpSmallIcon', svgName: 'top-up-small-icon.svg' },
   { reactName: 'TrashSmallIcon', svgName: 'trash-small-icon.svg' },
+  { reactName: 'QrCodeSmallIcon', svgName: 'qr-code-small-icon.svg' },
   { reactName: 'UnlockSmallIcon', svgName: 'unlock-small-icon.svg' },
   { reactName: 'UploadSmallIcon', svgName: 'upload-small-icon.svg' },
   { reactName: 'UserSmallIcon', svgName: 'user-small-icon.svg' },

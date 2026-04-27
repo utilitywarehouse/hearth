@@ -366,6 +366,11 @@
       "hash": "9ecf5532bfdd2622bf7cb0c096d1beebf18721229c04cda4523e057dc0789349"
     },
     {
+      "name": "QrCodeSmallIcon",
+      "path": "qr-code-small-icon.svg",
+      "hash": "dbc678f6a0954f639c7c34e2f627b98d98337adcdf46e4bceaff08a704b3aeb5"
+    },
+    {
       "name": "UnlockSmallIcon",
       "path": "unlock-small-icon.svg",
       "hash": "d4a4227aa55cf91870e459204665893eecadd5e789d1cd8a6cd48e2d135d9084"

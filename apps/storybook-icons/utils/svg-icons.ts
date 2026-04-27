@@ -73,6 +73,7 @@ import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-d
 import TimeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-small-icon.svg';
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import TrashSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/trash-small-icon.svg';
+import QrCodeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/qr-code-small-icon.svg';
 import UnlockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import UserSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/user-small-icon.svg';
@@ -264,6 +265,7 @@ export const svgIcons = [
   TimeSmallIcon,
   TopUpSmallIcon,
   TrashSmallIcon,
+  QrCodeSmallIcon,
   UnlockSmallIcon,
   UploadSmallIcon,
   UserSmallIcon,
