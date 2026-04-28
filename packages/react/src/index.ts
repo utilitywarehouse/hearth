@@ -80,6 +80,8 @@ export { CardBannerImage } from './components/Card/CardBannerImage';
 
 export { ExpandableCard } from './components/ExpandableCard/ExpandableCard';
 export type { ExpandableCardProps } from './components/ExpandableCard/ExpandableCard.props';
+export { ExpandableCardGroup } from './components/ExpandableCard/ExpandableCardGroup';
+export type { ExpandableCardGroupProps } from './components/ExpandableCard/ExpandableCardGroup.props';
 
 export { CardActions } from './components/CardActions/CardActions';
 export type { CardActionsProps } from './components/CardActions/CardActions.props';

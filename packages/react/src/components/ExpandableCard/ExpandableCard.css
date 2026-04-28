@@ -1,3 +1,9 @@
+.h-ExpandableCardGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-expandable-card-group-gap);
+}
+
 .h-ExpandableCard {
   background-color: var(--h-surface-neutral-strong);
   border-radius: var(--h-card-border-radius);

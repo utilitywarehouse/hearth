@@ -1,9 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ExpandableCard, BodyText, Box, Flex, Badge } from '@utilitywarehouse/hearth-react';
+import {
+  ExpandableCard,
+  ExpandableCardGroup,
+  BodyText,
+  Box,
+  Flex,
+  Badge,
+  Link,
+} from '@utilitywarehouse/hearth-react';
 import {
   SettingsMediumIcon,
   BroadbandMediumIcon,
   MobileMediumIcon,
+  ElectricitySmallIcon,
+  BroadbandSmallIcon,
+  CashbackCardSmallIcon,
+  ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
@@ -167,6 +179,118 @@ export const Disabled: Story = {
   ),
 };
 
+export const Group: Story = {
+  render: () => (
+    <Box width="400px" marginX="auto">
+      <ExpandableCardGroup heading="My services" helperText="Manage your UW services">
+        <ExpandableCard
+          heading="Broadband"
+          helperText="Manage your broadband settings"
+          leadingIcon={<BroadbandMediumIcon aria-hidden />}
+        >
+          <BodyText size="md">Your broadband plan details and settings appear here.</BodyText>
+        </ExpandableCard>
+        <ExpandableCard
+          heading="Mobile"
+          helperText="Manage your mobile settings"
+          leadingIcon={<MobileMediumIcon aria-hidden />}
+          leadingIconContainerColorScheme="mobile"
+        >
+          <BodyText size="md">Your mobile plan details and settings appear here.</BodyText>
+        </ExpandableCard>
+        <ExpandableCard
+          heading="Settings"
+          helperText="General account settings"
+          leadingIcon={<SettingsMediumIcon aria-hidden />}
+        >
+          <BodyText size="md">Your account settings appear here.</BodyText>
+        </ExpandableCard>
+      </ExpandableCardGroup>
+    </Box>
+  ),
+};
+
+export const GroupWithoutSectionHeader: Story = {
+  render: () => (
+    <Box width="400px" marginX="auto">
+      <ExpandableCardGroup>
+        <ExpandableCard
+          heading="Broadband"
+          helperText="Manage your broadband settings"
+          leadingIcon={<BroadbandMediumIcon aria-hidden />}
+        >
+          <BodyText size="md">Your broadband plan details and settings appear here.</BodyText>
+        </ExpandableCard>
+        <ExpandableCard
+          heading="Mobile"
+          helperText="Manage your mobile settings"
+          leadingIcon={<MobileMediumIcon aria-hidden />}
+        >
+          <BodyText size="md">Your mobile plan details and settings appear here.</BodyText>
+        </ExpandableCard>
+      </ExpandableCardGroup>
+    </Box>
+  ),
+};
+
+export const DecemberBill: Story = {
+  render: () => (
+    <Box width="400px" marginX="auto">
+      <ExpandableCardGroup
+        heading="Your December bill"
+        trailingContent={
+          <Link href="#">
+            View PDF
+            <ChevronRightSmallIcon aria-hidden />
+          </Link>
+        }
+      >
+        <ExpandableCard
+          heading="Energy"
+          helperText="1 Nov to 30 Nov"
+          leadingIcon={<ElectricitySmallIcon aria-hidden />}
+          leadingIconContainerColorScheme="energy"
+          numericValue="£75.00"
+          defaultOpen
+        >
+          <Flex direction="column" gap="100">
+            <Flex justifyContent="between">
+              <BodyText size="md">Electricity</BodyText>
+              <BodyText size="md">£50.00</BodyText>
+            </Flex>
+            <Flex justifyContent="between">
+              <BodyText size="md">Gas</BodyText>
+              <BodyText size="md">£45.00</BodyText>
+            </Flex>
+            <Link href="#" marginTop="100">
+              View energy usage
+              <ChevronRightSmallIcon aria-hidden />
+            </Link>
+          </Flex>
+        </ExpandableCard>
+        <ExpandableCard
+          heading="Broadband"
+          helperText="1 Nov to 30 Nov"
+          leadingIcon={<BroadbandSmallIcon aria-hidden />}
+          leadingIconContainerColorScheme="broadband"
+          numericValue="£30.00"
+        >
+          <BodyText size="md">Your broadband plan details appear here.</BodyText>
+        </ExpandableCard>
+        <ExpandableCard
+          heading="Cashback"
+          helperText="1 Nov to 30 Nov"
+          leadingIcon={<CashbackCardSmallIcon aria-hidden />}
+          leadingIconContainerColorScheme="cashback"
+          numericValue="+£5.00"
+        >
+          <BodyText size="md">Your cashback details appear here.</BodyText>
+        </ExpandableCard>
+      </ExpandableCardGroup>
+    </Box>
+  ),
+};
+
 export const Gallery: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -181,6 +305,9 @@ export const Gallery: Story = {
       WithoutHelperText,
       DefaultOpen,
       Disabled,
+      Group,
+      GroupWithoutSectionHeader,
+      DecemberBill,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
