@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.4.1
+
+### Patch Changes
+
+- [#1169](https://github.com/utilitywarehouse/hearth/pull/1169) [`786d31c`](https://github.com/utilitywarehouse/hearth/commit/786d31c1e7781b00443608cc627fcd79ba0c4945) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ANIMATED ASSETS
+
+  No new assets.
+
+  ## CHANGED ANIMATED ASSETS
+  - AnimatedSpotInnovation
+
+  ## REMOVED ANIMATED ASSETS
+
+  No removed assets.
+
 ## 0.4.0
 
 ### Minor Changes
