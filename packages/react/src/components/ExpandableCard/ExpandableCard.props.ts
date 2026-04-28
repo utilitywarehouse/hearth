@@ -7,7 +7,7 @@ export interface ExpandableCardProps
   extends
     Pick<
       ComponentPropsWithRef<typeof CollapsiblePrimitive.Root>,
-      'open' | 'defaultOpen' | 'onOpenChange' | 'disabled' | 'className'
+      'open' | 'defaultOpen' | 'onOpenChange' | 'className'
     >,
     MarginProps {
   heading: string;

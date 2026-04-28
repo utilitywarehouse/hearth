@@ -26,13 +26,11 @@ const meta: Meta<typeof ExpandableCard> = {
     heading: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
     defaultOpen: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     heading: 'Heading',
     helperText: 'Helper text',
     defaultOpen: false,
-    disabled: false,
   },
 };
 
@@ -164,21 +162,6 @@ export const DefaultOpen: Story = {
   ),
 };
 
-export const Disabled: Story = {
-  render: () => (
-    <Box width="400px" marginX="auto">
-      <ExpandableCard
-        heading="Heading"
-        helperText="This card is disabled"
-        leadingIcon={<SettingsMediumIcon aria-hidden />}
-        disabled
-      >
-        <BodyText size="md">This content cannot be reached when the card is disabled.</BodyText>
-      </ExpandableCard>
-    </Box>
-  ),
-};
-
 export const Group: Story = {
   render: () => (
     <Box width="400px" marginX="auto">
@@ -187,6 +170,7 @@ export const Group: Story = {
           heading="Broadband"
           helperText="Manage your broadband settings"
           leadingIcon={<BroadbandMediumIcon aria-hidden />}
+          leadingIconContainerColorScheme="broadband"
         >
           <BodyText size="md">Your broadband plan details and settings appear here.</BodyText>
         </ExpandableCard>
@@ -202,6 +186,7 @@ export const Group: Story = {
           heading="Settings"
           helperText="General account settings"
           leadingIcon={<SettingsMediumIcon aria-hidden />}
+          leadingIconContainerColorScheme="highlight"
         >
           <BodyText size="md">Your account settings appear here.</BodyText>
         </ExpandableCard>
@@ -304,7 +289,6 @@ export const Gallery: Story = {
       WithLeadingIcon,
       WithoutHelperText,
       DefaultOpen,
-      Disabled,
       Group,
       GroupWithoutSectionHeader,
       DecemberBill,
