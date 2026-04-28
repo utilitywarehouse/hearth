@@ -1,0 +1,124 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as Stories from './ExpandableCard.stories';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import StorybookLink from '../../../../shared/storybook/StorybookLink';
+
+<Meta title="Components / ExpandableCard" />
+
+# ExpandableCard
+
+Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
+can be expanded to reveal additional content. It is built on the
+[Radix UI Collapsible](https://www.radix-ui.com/primitives/docs/components/collapsible) primitive.
+
+- [Leading content](#leading-content)
+- [Helper text](#helper-text)
+- [Default open](#default-open)
+- [Controlled](#controlled)
+- [Disabled](#disabled)
+- [Accessibility](#accessibility)
+  - [Keyboard interactions](#keyboard-interactions)
+- [API](#api)
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Leading content
+
+Use the `leadingContent` prop to render an icon or other element to the left of the heading. When
+using an icon, pass `aria-hidden` to ensure it is not announced to screen readers.
+
+<Canvas of={Stories.WithLeadingContent} />
+
+## Helper text
+
+The `helperText` prop renders a secondary line of text below the heading.
+
+<Canvas of={Stories.WithoutHelperText} />
+
+## Default open
+
+Use `defaultOpen` to render the card in the open state on initial mount. This is an uncontrolled
+approach — the card manages its own open/closed state internally after mount.
+
+```tsx
+<ExpandableCard heading="Heading" helperText="Helper text" defaultOpen>
+  {children}
+</ExpandableCard>
+```
+
+<Canvas of={Stories.DefaultOpen} />
+
+## Controlled
+
+Use the `open` and `onOpenChange` props together to control the open state externally.
+
+```tsx
+const [open, setOpen] = React.useState(false);
+
+<ExpandableCard
+  heading="Heading"
+  helperText="Helper text"
+  open={open}
+  onOpenChange={setOpen}
+>
+  {children}
+</ExpandableCard>
+```
+
+## Disabled
+
+The `disabled` prop prevents the card from being opened or closed.
+
+<Canvas of={Stories.Disabled} />
+
+## Accessibility
+
+Follows the [Disclosure (Show/Hide) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    { key: 'Space', description: 'Toggles the expanded state of the card.' },
+    { key: 'Enter', description: 'Toggles the expanded state of the card.' },
+    { key: 'Tab', description: 'Moves focus to the next focusable element.' },
+    { key: 'Shift+Tab', description: 'Moves focus to the previous focusable element.' },
+  ].map((kbi, i, arr) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < arr.length - 1 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+| Name             | Type                          |
+| ---------------- | ----------------------------- |
+| `heading`        | `string` (required)           |
+| `helperText`     | `string`                      |
+| `leadingContent` | `ReactNode`                   |
+| `open`           | `boolean`                     |
+| `defaultOpen`    | `boolean`                     |
+| `onOpenChange`   | `(open: boolean) => void`     |
+| `disabled`       | `boolean`                     |

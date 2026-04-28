@@ -1,0 +1,133 @@
+.h-ExpandableCard {
+  background-color: var(--h-surface-neutral-strong);
+  border-radius: var(--h-card-border-radius);
+  border: var(--h-card-brand-border-width) solid var(--h-border-strong);
+  overflow: hidden;
+
+  & :where(.h-ExpandableCardTrigger) {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--h-space-3);
+    padding: var(--h-card-padding-mobile);
+
+    @media (--h-tablet) {
+      padding: var(--h-card-padding-tablet);
+    }
+
+    @media (--h-desktop) {
+      padding: var(--h-card-padding-desktop);
+    }
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-interactive-neutral-surface-subtle-hover);
+      }
+    }
+
+    &:where(:active) {
+      background-color: var(--h-interactive-neutral-surface-subtle-active);
+    }
+
+    &:where(:focus-visible) {
+      outline: 2px solid var(--h-focus-primary);
+      outline-offset: -2px;
+    }
+
+    &:where([data-disabled]) {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
+
+  & :where(.h-ExpandableCardLeadingContent) {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  & :where(.h-ExpandableCardHeadingWrapper) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-space-1);
+  }
+
+  & :where(.h-ExpandableCardHeading) {
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-semibold);
+    line-height: var(--h-body-text-md-line-height);
+    letter-spacing: var(--h-body-text-md-letter-spacing);
+    color: var(--h-text-primary);
+  }
+
+  & :where(.h-ExpandableCardHelperText) {
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-regular);
+    line-height: var(--h-body-text-md-line-height);
+    letter-spacing: var(--h-body-text-md-letter-spacing);
+    color: var(--h-text-subdued);
+  }
+
+  & :where(.h-ExpandableCardChevron) {
+    flex-shrink: 0;
+    transition: transform 200ms ease-out;
+  }
+
+  &:has(.h-ExpandableCardTrigger[data-state='open']) :where(.h-ExpandableCardChevron) {
+    transform: rotate(180deg);
+  }
+
+  & :where(.h-ExpandableCardContent) {
+    overflow: hidden;
+  }
+
+  & :where(.h-ExpandableCardContent[data-state='open']) {
+    animation: h-expandable-card-slide-down 200ms ease-out;
+  }
+
+  & :where(.h-ExpandableCardContent[data-state='closed']) {
+    animation: h-expandable-card-slide-up 200ms ease-out;
+  }
+
+  & :where(.h-ExpandableCardContentInner) {
+    padding: var(--h-card-padding-mobile);
+
+    @media (--h-tablet) {
+      padding: var(--h-card-padding-tablet);
+    }
+
+    @media (--h-desktop) {
+      padding: var(--h-card-padding-desktop);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes h-expandable-card-slide-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes h-expandable-card-slide-up {
+    from {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-collapsible-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+}
