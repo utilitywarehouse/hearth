@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ExpandableCard, BodyText, Box } from '@utilitywarehouse/hearth-react';
-import { SettingsMediumIcon, BroadbandMediumIcon, MobileMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { ExpandableCard, BodyText, Box, Flex, Badge } from '@utilitywarehouse/hearth-react';
+import {
+  SettingsMediumIcon,
+  BroadbandMediumIcon,
+  MobileMediumIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof ExpandableCard> = {
@@ -26,54 +30,105 @@ type Story = StoryObj<typeof ExpandableCard>;
 export const Playground: Story = {
   render: args => (
     <Box width="400px" marginX="auto">
-      <ExpandableCard {...args} leadingContent={<SettingsMediumIcon aria-hidden />}>
+      <ExpandableCard {...args}>
         <BodyText size="md">
-          This is the expandable content area. It can contain any content you need to show when
-          the card is expanded.
+          This is the expandable content area. It can contain any content you need to show when the
+          card is expanded.
         </BodyText>
       </ExpandableCard>
     </Box>
   ),
 };
 
-export const WithLeadingContent: Story = {
-  render: () => (
-    <Box width="400px" marginX="auto" display="flex" flexDirection="column" gap="200">
+export const WithLeadingIcon: Story = {
+  render: args => (
+    <Flex width="400px" direction="column" gap="200">
+      <ExpandableCard {...args} leadingIcon={<SettingsMediumIcon aria-hidden />}>
+        <BodyText size="md">
+          This is the expandable content area. It can contain any content you need to show when the
+          card is expanded.
+        </BodyText>
+      </ExpandableCard>
       <ExpandableCard
         heading="Broadband"
         helperText="Manage your broadband settings"
-        leadingContent={<BroadbandMediumIcon aria-hidden />}
+        leadingIcon={<BroadbandMediumIcon aria-hidden />}
       >
+        <BodyText size="md">Your broadband plan details and settings appear here.</BodyText>
+      </ExpandableCard>
+      <ExpandableCard heading="Broadband" leadingIcon={<BroadbandMediumIcon aria-hidden />}>
         <BodyText size="md">Your broadband plan details and settings appear here.</BodyText>
       </ExpandableCard>
       <ExpandableCard
         heading="Mobile"
         helperText="Manage your mobile settings"
-        leadingContent={<MobileMediumIcon aria-hidden />}
+        leadingIcon={<MobileMediumIcon aria-hidden />}
+        leadingIconContainerColorScheme="mobile"
       >
         <BodyText size="md">Your mobile plan details and settings appear here.</BodyText>
+      </ExpandableCard>
+      <ExpandableCard
+        heading="Mobile"
+        leadingIcon={<MobileMediumIcon aria-hidden />}
+        leadingIconContainerColorScheme="mobile"
+      >
+        <BodyText size="md">Your mobile plan details and settings appear here.</BodyText>
+      </ExpandableCard>
+    </Flex>
+  ),
+};
+
+export const WithBadge: Story = {
+  render: args => (
+    <Box width="400px" marginX="auto">
+      <ExpandableCard
+        {...args}
+        badge={
+          <Badge colorScheme="info" size="sm">
+            Badge
+          </Badge>
+        }
+      >
+        <BodyText size="md">
+          This is the expandable content area. It can contain any content you need to show when the
+          card is expanded.
+        </BodyText>
       </ExpandableCard>
     </Box>
   ),
 };
 
-export const WithoutLeadingContent: Story = {
-  render: () => (
-    <Box width="400px" marginX="auto">
-      <ExpandableCard heading="Heading" helperText="Helper text">
-        <BodyText size="md">Content without a leading icon.</BodyText>
+export const WithNumericValue: Story = {
+  render: args => (
+    <Flex direction="column" width="400px" gap="200">
+      <ExpandableCard {...args} numericValue="£100">
+        <BodyText size="md">
+          This is the expandable content area. It can contain any content you need to show when the
+          card is expanded.
+        </BodyText>
       </ExpandableCard>
-    </Box>
+      <ExpandableCard
+        {...args}
+        numericValue="£100"
+        badge={
+          <Badge colorScheme="info" size="sm">
+            Badge
+          </Badge>
+        }
+      >
+        <BodyText size="md">
+          This is the expandable content area. It can contain any content you need to show when the
+          card is expanded.
+        </BodyText>
+      </ExpandableCard>
+    </Flex>
   ),
 };
 
 export const WithoutHelperText: Story = {
   render: () => (
     <Box width="400px" marginX="auto">
-      <ExpandableCard
-        heading="Heading only"
-        leadingContent={<SettingsMediumIcon aria-hidden />}
-      >
+      <ExpandableCard heading="Heading only" leadingIcon={<SettingsMediumIcon aria-hidden />}>
         <BodyText size="md">Content without helper text below the heading.</BodyText>
       </ExpandableCard>
     </Box>
@@ -86,7 +141,7 @@ export const DefaultOpen: Story = {
       <ExpandableCard
         heading="Heading"
         helperText="This card starts expanded"
-        leadingContent={<SettingsMediumIcon aria-hidden />}
+        leadingIcon={<SettingsMediumIcon aria-hidden />}
         defaultOpen
       >
         <BodyText size="md">
@@ -103,7 +158,7 @@ export const Disabled: Story = {
       <ExpandableCard
         heading="Heading"
         helperText="This card is disabled"
-        leadingContent={<SettingsMediumIcon aria-hidden />}
+        leadingIcon={<SettingsMediumIcon aria-hidden />}
         disabled
       >
         <BodyText size="md">This content cannot be reached when the card is disabled.</BodyText>
@@ -122,8 +177,7 @@ export const Gallery: Story = {
   render: () => {
     const stories = {
       Playground,
-      WithLeadingContent,
-      WithoutLeadingContent,
+      WithLeadingIcon,
       WithoutHelperText,
       DefaultOpen,
       Disabled,

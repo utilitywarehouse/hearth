@@ -1,25 +1,29 @@
 .h-ExpandableCard {
   background-color: var(--h-surface-neutral-strong);
   border-radius: var(--h-card-border-radius);
-  border: var(--h-card-brand-border-width) solid var(--h-border-strong);
+  border-width: var(--h-card-neutral-subtle-border-width);
+  border-style: solid;
+  border-color: var(--h-border-subtle);
   overflow: hidden;
 
   & :where(.h-ExpandableCardTrigger) {
     all: unset;
     box-sizing: border-box;
     width: 100%;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: var(--h-space-3);
+    gap: var(--h-expandable-card-gap-horizontal);
     padding: var(--h-card-padding-mobile);
+    border-radius: inherit;
 
-    @media (--h-tablet) {
-      padding: var(--h-card-padding-tablet);
+    &:where([data-state='open']) {
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
     }
 
-    @media (--h-desktop) {
-      padding: var(--h-card-padding-desktop);
+    cursor: pointer;
+    * {
+      cursor: pointer;
     }
 
     @media (hover: hover) {
@@ -34,44 +38,23 @@
 
     &:where(:focus-visible) {
       outline: 2px solid var(--h-focus-primary);
-      outline-offset: -2px;
+      outline-offset: calc(-1 * var(--h-space-100));
     }
 
     &:where([data-disabled]) {
       cursor: not-allowed;
       opacity: 0.4;
     }
+
+    & :where(.h-IconContainer) {
+      align-self: flex-start;
+    }
   }
 
-  & :where(.h-ExpandableCardLeadingContent) {
+  & :where(.h-ExpandableCardLeadingIcon) {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    flex-shrink: 0;
-  }
-
-  & :where(.h-ExpandableCardHeadingWrapper) {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: var(--h-space-1);
-  }
-
-  & :where(.h-ExpandableCardHeading) {
-    font-family: var(--h-font-family-body);
-    font-size: var(--h-body-text-md-font-size);
-    font-weight: var(--h-font-weight-semibold);
-    line-height: var(--h-body-text-md-line-height);
-    letter-spacing: var(--h-body-text-md-letter-spacing);
-    color: var(--h-text-primary);
-  }
-
-  & :where(.h-ExpandableCardHelperText) {
-    font-family: var(--h-font-family-body);
-    font-size: var(--h-body-text-md-font-size);
-    font-weight: var(--h-font-weight-regular);
-    line-height: var(--h-body-text-md-line-height);
-    letter-spacing: var(--h-body-text-md-letter-spacing);
-    color: var(--h-text-subdued);
   }
 
   & :where(.h-ExpandableCardChevron) {
@@ -97,14 +80,6 @@
 
   & :where(.h-ExpandableCardContentInner) {
     padding: var(--h-card-padding-mobile);
-
-    @media (--h-tablet) {
-      padding: var(--h-card-padding-tablet);
-    }
-
-    @media (--h-desktop) {
-      padding: var(--h-card-padding-desktop);
-    }
   }
 }
 

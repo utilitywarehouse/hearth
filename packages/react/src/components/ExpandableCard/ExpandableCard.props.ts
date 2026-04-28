@@ -1,15 +1,20 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react';
-import { Collapsible } from 'radix-ui';
+import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
 import type { MarginProps } from '../../props/margin.props';
-
-type CollapsibleRootProps = ComponentPropsWithRef<typeof Collapsible.Root>;
+import { IconContainerProps } from '../IconContainer/IconContainer.props';
 
 export interface ExpandableCardProps
   extends
-    MarginProps,
-    Pick<CollapsibleRootProps, 'open' | 'defaultOpen' | 'onOpenChange' | 'disabled' | 'className'> {
+    Pick<
+      ComponentPropsWithRef<typeof CollapsiblePrimitive.Root>,
+      'open' | 'defaultOpen' | 'onOpenChange' | 'disabled' | 'className'
+    >,
+    MarginProps {
   heading: string;
   helperText?: string;
-  leadingContent?: ReactNode;
+  leadingIcon?: ReactNode;
+  leadingIconContainerColorScheme?: IconContainerProps['colorScheme'];
+  badge?: ReactNode;
+  numericValue?: string;
   children?: ReactNode;
 }
