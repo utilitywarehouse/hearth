@@ -1,6 +1,6 @@
 # React
 
-[Storybook](https://uw-hearth-react.vercel.app)
+[Storybook](https://hearth.prod.uw.systems/?path=/docs/react_getting-started--docs) (UW VPN required)
 
 ## Releases
 
