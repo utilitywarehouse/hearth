@@ -1,0 +1,137 @@
+{
+  "skill_name": "hearth-react-component-reference + build-with-hearth-react",
+  "evals": [
+    {
+      "id": 1,
+      "skill": "hearth-react-component-reference",
+      "prompt": "I need to build a form field where users type their email address. It should show a validation error if the format is wrong. Which hearth-react component should I use and how do I wire up the validation?",
+      "expected_output": "Uses TextInput directly (not FormField wrapper). Shows label, validationStatus and validationText props together. Mentions setting noValidate on the form.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "skill": "hearth-react-component-reference",
+      "prompt": "I'm adding a loading placeholder while user data fetches. My designer wants three lines of body text and a heading placeholder. How do I build this accessibly in hearth-react?",
+      "expected_output": "Uses Skeleton with loadingTitle prop. Wraps in container with aria-busy. Uses SkeletonHeading and SkeletonBodyText with lines prop.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "skill": "hearth-react-component-reference",
+      "prompt": "I need a button that navigates to /dashboard using Next.js routing. It should look like a solid highlight button. How do I do this in hearth-react?",
+      "expected_output": "Uses Button with asChild prop, wrapping NextLink. Correct variant/colorScheme. Notes asChild doesn't work with emphasis variant.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "skill": "hearth-react-component-reference",
+      "prompt": "I want to add a tooltip to an icon-only button that says 'Delete item'. The button opens a confirmation modal when clicked. Show me how to compose this correctly.",
+      "expected_output": "Uses IconButton with label prop for the button, Tooltip wrapping it. Mentions HearthProvider/TooltipProvider requirement. Uses ModalRoot composition for the modal.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "skill": "build-with-hearth-react",
+      "prompt": "I need to build a two-column layout: on mobile it should stack vertically, on tablet and above it should be side by side with equal columns and a gap between them. Each column has a card inside. How do I build this with hearth-react?",
+      "expected_output": "Uses Flex or Grid with responsive direction/columns. Gap specified on parent not margin on children. mobile breakpoint always specified. Space tokens used not raw px values.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "skill": "build-with-hearth-react",
+      "prompt": "My team is setting up a new Next.js App Router project with hearth-react. Walk me through what goes in the root layout file, where HearthProvider goes, and when we need to add 'use client' to a page.",
+      "expected_output": "HearthProvider in root layout.tsx. CSS imports there too. 'use client' needed in files using event handlers or hooks. Static hearth-react usage doesn't need it.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "skill": "build-with-hearth-react",
+      "prompt": "I want to apply a design token colour as a background on a custom div that's not a hearth Box component, and also use a token value as padding in a React inline style on a third-party chart component. What's the correct way to access hearth tokens for each case?",
+      "expected_output": "CSS vars (var(--h-color-*)) for the custom div CSS. hearth-tokens/browser import for JS inline styles. NOT root hearth-tokens import.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "skill": "hearth-react-component-reference",
+      "prompt": "Build me a broadband service card component. It should show the customer's broadband plan name and speed, then list two actions at the bottom: 'View usage' and 'Upgrade plan'. Use the broadband colour scheme for the action icons.",
+      "expected_output": "Uses Card with CardContent (wrapping the text content) and CardActions (with CardActionButton items). No colorScheme on the Card itself. No Divider between content and actions. leadingIconContainerColorScheme='broadband' on the action items.",
+      "assertions": [
+        {
+          "text": "Uses CardContent to wrap the text content",
+          "type": "manual"
+        },
+        {
+          "text": "Uses CardActions (not a manual list) for the action items",
+          "type": "manual"
+        },
+        {
+          "text": "No colorScheme prop on the Card element itself",
+          "type": "manual"
+        },
+        {
+          "text": "No Divider component between content and actions",
+          "type": "manual"
+        },
+        {
+          "text": "Uses leadingIconContainerColorScheme='broadband' on action items",
+          "type": "manual"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 9,
+      "skill": "hearth-react-component-reference",
+      "prompt": "Build me a contact details form with three fields: full name, email address, and phone number. Include a primary 'Save changes' button and a secondary 'Cancel' button.",
+      "expected_output": "Uses TextInput for each field with label props. Does NOT use FormField wrapper. Buttons use solid (primary) and outline (secondary) variants, not emphasis. Buttons are left-aligned. Uses Flex with gap for button row, not margin on individual buttons.",
+      "assertions": [
+        {
+          "text": "Uses TextInput directly with label prop (not FormField wrapper)",
+          "type": "manual"
+        },
+        {
+          "text": "Primary button uses variant='solid' (not variant='emphasis')",
+          "type": "manual"
+        },
+        {
+          "text": "Secondary button uses variant='outline'",
+          "type": "manual"
+        },
+        {
+          "text": "Button row uses Flex with gap, not margin on individual buttons",
+          "type": "manual"
+        },
+        {
+          "text": "Buttons are left-aligned (no justifyContent='end' on button row)",
+          "type": "manual"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 10,
+      "skill": "build-with-hearth-react",
+      "prompt": "Build a services dashboard that shows three service cards in a responsive grid: broadband, mobile, and energy. On mobile they should stack, on tablet show two columns, on desktop show three. Each card has a title and a brief status line.",
+      "expected_output": "Uses Grid with gridColumnSpan for responsive column layout (not gridItemColumns). Mobile breakpoint always specified. Token strings used for gap (e.g. '300' not '3' or 3). Children spaced with gap on parent, not margin on individual cards.",
+      "assertions": [
+        {
+          "text": "Uses gridColumnSpan (not gridItemColumns)",
+          "type": "manual"
+        },
+        {
+          "text": "Mobile breakpoint included in responsive gridColumnSpan or columns",
+          "type": "manual"
+        },
+        {
+          "text": "Gap uses token string values (e.g. '300') not numeric values (e.g. 3)",
+          "type": "manual"
+        },
+        {
+          "text": "Gap/spacing set on parent container, not margin on individual cards",
+          "type": "manual"
+        }
+      ],
+      "files": []
+    }
+  ]
+}

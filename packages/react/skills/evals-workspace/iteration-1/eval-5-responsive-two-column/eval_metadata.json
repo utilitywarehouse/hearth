@@ -1,0 +1,27 @@
+{
+  "eval_id": 5,
+  "eval_name": "responsive-two-column",
+  "prompt": "I need to build a two-column layout: on mobile it should stack vertically, on tablet and above it should be side by side with equal columns and a gap between them. Each column has a card inside. How do I build this with hearth-react?",
+  "assertions": [
+    {
+      "text": "Uses Flex or Grid layout component (not raw div)",
+      "check": "Code example uses hearth-react Flex or Grid, not a raw div with inline styles"
+    },
+    {
+      "text": "Gap specified on parent container (not margin on children)",
+      "check": "Spacing between columns uses gap prop on the container, not marginRight/marginLeft on individual children"
+    },
+    {
+      "text": "Includes mobile breakpoint in responsive direction/columns prop",
+      "check": "Responsive prop includes mobile key (e.g. direction={{ mobile: 'column', tablet: 'row' }})"
+    },
+    {
+      "text": "Uses space tokens for gap (not raw px values)",
+      "check": "Gap value uses a hearth-react token number (e.g. '200', '300', '400') not a raw CSS value like '16px' or '2rem'"
+    },
+    {
+      "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+      "check": "The responsive behaviour correctly shows column direction on mobile and row direction on tablet or above"
+    }
+  ]
+}

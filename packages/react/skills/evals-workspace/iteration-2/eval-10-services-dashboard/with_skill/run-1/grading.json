@@ -1,0 +1,33 @@
+{
+  "eval_id": 10,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses gridColumnSpan (not gridItemColumns)",
+      "passed": true,
+      "evidence": "gridColumnSpan={{ mobile: \"4\", tablet: \"4\", desktop: \"4\" }} used throughout"
+    },
+    {
+      "text": "Mobile breakpoint included in responsive gridColumnSpan or columns prop",
+      "passed": true,
+      "evidence": "mobile key always included in responsive objects"
+    },
+    {
+      "text": "Gap uses token string values (e.g. \"300\") not numeric values (e.g. 3)",
+      "passed": true,
+      "evidence": "gap={{ mobile: \"200\", desktop: \"300\" }} uses string tokens"
+    },
+    {
+      "text": "Gap/spacing set on parent container, not margin on individual cards",
+      "passed": true,
+      "evidence": "gap on Grid parent, no margin on individual Card children"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  },
+  "pass_rate": 1.0
+}

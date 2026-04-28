@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses Skeleton wrapper component",
+      "passed": true,
+      "evidence": "<Skeleton loadingTitle=\"user profile\"> used as wrapper"
+    },
+    {
+      "text": "Includes loadingTitle on Skeleton",
+      "passed": true,
+      "evidence": "loadingTitle=\"user profile\" present. Response explains it renders an aria-live region and is not optional."
+    },
+    {
+      "text": "Sets aria-busy on a wrapping container",
+      "passed": true,
+      "evidence": "<div aria-busy={isLoading}> wraps both states in all examples"
+    },
+    {
+      "text": "Uses SkeletonBodyText with lines prop",
+      "passed": true,
+      "evidence": "<SkeletonBodyText lines=\"3\" /> in examples"
+    },
+    {
+      "text": "Uses SkeletonHeading for the heading placeholder",
+      "passed": true,
+      "evidence": "<SkeletonHeading width=\"60%\" /> present in examples"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

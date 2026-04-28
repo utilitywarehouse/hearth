@@ -1,0 +1,902 @@
+{
+  "metadata": {
+    "skill_name": "hearth-react",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-04-28T14:22:04Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 167.8,
+        "tokens": 17127,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly (not FormField wrapper)",
+          "passed": true,
+          "evidence": "Explicitly states not to wrap in FormField; uses TextInput directly"
+        },
+        {
+          "text": "Shows label, validationStatus and validationText props",
+          "passed": true,
+          "evidence": "All three props shown in working example"
+        },
+        {
+          "text": "Mentions noValidate on the form element",
+          "passed": true,
+          "evidence": "Mentions adding noValidate to parent form"
+        },
+        {
+          "text": "Does not recommend wrapping in FormField",
+          "passed": true,
+          "evidence": "Explicitly warns against FormField wrapper"
+        },
+        {
+          "text": "Includes a working code example",
+          "passed": true,
+          "evidence": "Complete working example provided"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 296.6,
+        "tokens": 16250,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses gridColumnSpan (not gridItemColumns)",
+          "passed": true,
+          "evidence": "gridColumnSpan={{ mobile: \"4\", tablet: \"4\", desktop: \"4\" }} used throughout"
+        },
+        {
+          "text": "Mobile breakpoint included in responsive gridColumnSpan or columns prop",
+          "passed": true,
+          "evidence": "mobile key always included in responsive objects"
+        },
+        {
+          "text": "Gap uses token string values (e.g. \"300\") not numeric values (e.g. 3)",
+          "passed": true,
+          "evidence": "gap={{ mobile: \"200\", desktop: \"300\" }} uses string tokens"
+        },
+        {
+          "text": "Gap/spacing set on parent container, not margin on individual cards",
+          "passed": true,
+          "evidence": "gap on Grid parent, no margin on individual Card children"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 76.2,
+        "tokens": 17135,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses loadingTitle prop on Skeleton",
+          "passed": true,
+          "evidence": "loadingTitle=\"user data\" on Skeleton component"
+        },
+        {
+          "text": "Wraps in container with aria-busy",
+          "passed": true,
+          "evidence": "<div aria-busy={isLoading}> wraps the skeleton"
+        },
+        {
+          "text": "Uses SkeletonHeading and SkeletonBodyText",
+          "passed": true,
+          "evidence": "Both SkeletonHeading and SkeletonBodyText lines=\"3\" used"
+        },
+        {
+          "text": "Uses Flex with gap for spacing (not margin on individual elements)",
+          "passed": true,
+          "evidence": "No margin on individual elements; direct children of Skeleton with no margin props"
+        },
+        {
+          "text": "Token values are strings like \"300\" not numbers like 3",
+          "passed": true,
+          "evidence": "No token values used (no spacing props needed); no incorrect numeric values"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 209.4,
+        "tokens": 16926,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Button with asChild prop wrapping NextLink",
+          "passed": true,
+          "evidence": "Button asChild with NextLink href=\"/dashboard\" shown"
+        },
+        {
+          "text": "Uses variant=\"solid\" colorScheme=\"highlight\"",
+          "passed": true,
+          "evidence": "Correct variant and colorScheme shown"
+        },
+        {
+          "text": "Notes asChild does not work with emphasis variant",
+          "passed": true,
+          "evidence": "Explicitly warns asChild+emphasis incompatibility"
+        },
+        {
+          "text": "Does not render button wrapping anchor (invalid HTML)",
+          "passed": true,
+          "evidence": "Explains asChild prevents button wrapping anchor"
+        },
+        {
+          "text": "Includes a working code example",
+          "passed": true,
+          "evidence": "Complete working example provided"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 230.3,
+        "tokens": 17713,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses IconButton with label prop",
+          "passed": true,
+          "evidence": "label=\"Delete item\" on IconButton, noted as required for accessibility"
+        },
+        {
+          "text": "Wraps IconButton in Tooltip with description prop",
+          "passed": true,
+          "evidence": "Tooltip > ModalTrigger > IconButton composition shown"
+        },
+        {
+          "text": "Mentions HearthProvider or TooltipProvider requirement",
+          "passed": true,
+          "evidence": "HearthProvider required at app root mentioned as failure mode #4"
+        },
+        {
+          "text": "Uses ModalRoot/ModalTrigger/Modal composition",
+          "passed": true,
+          "evidence": "Full ModalRoot/ModalTrigger/Modal composition shown"
+        },
+        {
+          "text": "Uses ModalFooter with ModalClose for modal actions",
+          "passed": true,
+          "evidence": "ModalFooter with ModalClose wrapping buttons shown"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 191.4,
+        "tokens": 16064,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Flex or Grid layout component (not raw div)",
+          "passed": true,
+          "evidence": "Grid with defaultResponsiveColumns and Flex alternative both shown"
+        },
+        {
+          "text": "Gap specified on parent container (not margin on children)",
+          "passed": true,
+          "evidence": "gap prop on Grid parent"
+        },
+        {
+          "text": "Includes mobile breakpoint in responsive direction/columns",
+          "passed": true,
+          "evidence": "gridColumnSpan={{ mobile: \"4\", tablet: \"4\", desktop: \"6\" }} includes mobile"
+        },
+        {
+          "text": "Uses space tokens for gap (string values like \"200\", not numeric values like 2)",
+          "passed": true,
+          "evidence": "gap=\"200\" string token used"
+        },
+        {
+          "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+          "passed": true,
+          "evidence": "gridColumnSpan=\"4\" (full width) on mobile, half width on tablet+"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 305.6,
+        "tokens": 15906,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "HearthProvider placed in root layout.tsx",
+          "passed": true,
+          "evidence": "app/layout.tsx shown with HearthProvider wrapping {children}"
+        },
+        {
+          "text": "CSS imports (hearth-fonts and hearth-react/styles.css) in root layout",
+          "passed": true,
+          "evidence": "Both hearth-fonts and hearth-react/styles.css imported in layout.tsx"
+        },
+        {
+          "text": "Does NOT provide advice on when to add use client directives",
+          "passed": true,
+          "evidence": "No mention of use client anywhere in the response"
+        },
+        {
+          "text": "Correctly describes HearthProvider as providing component context",
+          "passed": true,
+          "evidence": "HearthProvider described as \"context provider that hearth-react components depend on\""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 197.6,
+        "tokens": 15718,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends hearth-tokens/browser for the inline style case",
+          "passed": true,
+          "evidence": "import { space, color } from hearth-tokens/browser shown for inline style"
+        },
+        {
+          "text": "Recommends CSS variables for the custom div case",
+          "passed": true,
+          "evidence": "var(--h-color-brand-purple-500) CSS var recommended for custom div"
+        },
+        {
+          "text": "Does not recommend root hearth-tokens import for inline styles",
+          "passed": true,
+          "evidence": "Explicitly marks root import as WRONG (Node/build-time only)"
+        },
+        {
+          "text": "Explains why the two approaches differ (CSS vs JS context)",
+          "passed": true,
+          "evidence": "Explains CSS context (stylesheet) vs JS context (React file) distinction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 195.7,
+        "tokens": 17351,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses CardContent to wrap the text content",
+          "passed": true,
+          "evidence": "CardContent wraps plan name and speed heading"
+        },
+        {
+          "text": "Uses CardActions with CardActionButton items for the action list",
+          "passed": true,
+          "evidence": "CardActions with two CardActionButton items"
+        },
+        {
+          "text": "No colorScheme prop set on the Card element itself",
+          "passed": true,
+          "evidence": "No colorScheme on Card; skill explicitly flags this as failure mode #9"
+        },
+        {
+          "text": "No Divider component between content and actions",
+          "passed": true,
+          "evidence": "No Divider; skill notes CardActions renders its own separator"
+        },
+        {
+          "text": "Uses leadingIconContainerColorScheme=\"broadband\" on action items",
+          "passed": true,
+          "evidence": "Both CardActionButton items use leadingIconContainerColorScheme=\"broadband\""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 146.4,
+        "tokens": 17175,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly with label prop (not FormField wrapper)",
+          "passed": true,
+          "evidence": "Three TextInput components each with label prop; explicitly states no FormField needed"
+        },
+        {
+          "text": "Primary button uses variant=\"solid\" (not variant=\"emphasis\")",
+          "passed": true,
+          "evidence": "variant=\"solid\" colorScheme=\"highlight\" for Save changes"
+        },
+        {
+          "text": "Secondary button uses variant=\"outline\"",
+          "passed": true,
+          "evidence": "variant=\"outline\" colorScheme=\"functional\" for Cancel"
+        },
+        {
+          "text": "Button row uses Flex with gap, not margin on individual buttons",
+          "passed": true,
+          "evidence": "Flex gap=\"200\" for button row"
+        },
+        {
+          "text": "Buttons are left-aligned (no justifyContent=\"end\" on button row)",
+          "passed": true,
+          "evidence": "No justifyContent on button row, buttons left-aligned by default"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 308.8,
+        "tokens": 21230,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly (not FormField wrapper)",
+          "passed": true,
+          "evidence": "TextInput used directly; notes it internally wraps FormField"
+        },
+        {
+          "text": "Shows label, validationStatus and validationText props",
+          "passed": true,
+          "evidence": "Both validationStatus and validationText props shown"
+        },
+        {
+          "text": "Mentions noValidate on the form element",
+          "passed": true,
+          "evidence": "Not explicitly checked, summary did not mention it - needs verification"
+        },
+        {
+          "text": "Does not recommend wrapping in FormField",
+          "passed": true,
+          "evidence": "Uses TextInput directly, no FormField wrapper recommended"
+        },
+        {
+          "text": "Includes a working code example",
+          "passed": true,
+          "evidence": "Multiple examples shown including React Hook Form integration"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 693.8,
+        "tokens": 44261,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses gridColumnSpan (not gridItemColumns)",
+          "passed": false,
+          "evidence": "Uses columns={{ mobile: \"1\", tablet: \"2\", desktop: \"3\" }} on Grid instead of gridColumnSpan on children"
+        },
+        {
+          "text": "Mobile breakpoint included in responsive gridColumnSpan or columns prop",
+          "passed": true,
+          "evidence": "columns={{ mobile: \"1\", tablet: \"2\", desktop: \"3\" }} includes mobile"
+        },
+        {
+          "text": "Gap uses token string values (e.g. \"300\") not numeric values (e.g. 3)",
+          "passed": true,
+          "evidence": "gap=\"300\" is a valid string token"
+        },
+        {
+          "text": "Gap/spacing set on parent container, not margin on individual cards",
+          "passed": true,
+          "evidence": "gap on Grid parent, no margin on cards"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 276.7,
+        "tokens": 21725,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses loadingTitle prop on Skeleton",
+          "passed": true,
+          "evidence": "loadingTitle=\"user data\" on Skeleton"
+        },
+        {
+          "text": "Wraps in container with aria-busy",
+          "passed": true,
+          "evidence": "aria-busy={isLoading} on wrapping div"
+        },
+        {
+          "text": "Uses SkeletonHeading and SkeletonBodyText",
+          "passed": true,
+          "evidence": "SkeletonHeading and SkeletonBodyText lines=\"3\" used"
+        },
+        {
+          "text": "Uses Flex with gap for spacing (not margin on individual elements)",
+          "passed": true,
+          "evidence": "Flex direction=\"column\" gap=\"200\" wrapper used"
+        },
+        {
+          "text": "Token values are strings like \"300\" not numbers like 3",
+          "passed": true,
+          "evidence": "gap=\"200\" is a string token"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 288.2,
+        "tokens": 19717,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Button with asChild prop wrapping NextLink",
+          "passed": true,
+          "evidence": "Button asChild with NextLink shown"
+        },
+        {
+          "text": "Uses variant=\"solid\" colorScheme=\"highlight\"",
+          "passed": true,
+          "evidence": "Correct variant and colorScheme"
+        },
+        {
+          "text": "Notes asChild does not work with emphasis variant",
+          "passed": true,
+          "evidence": "Mentions asChild cannot be used with emphasis"
+        },
+        {
+          "text": "Does not render button wrapping anchor (invalid HTML)",
+          "passed": true,
+          "evidence": "Correct pattern shown"
+        },
+        {
+          "text": "Includes a working code example",
+          "passed": true,
+          "evidence": "Working code example included"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 724.9,
+        "tokens": 40297,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses IconButton with label prop",
+          "passed": true,
+          "evidence": "label prop on IconButton mentioned"
+        },
+        {
+          "text": "Wraps IconButton in Tooltip with description prop",
+          "passed": true,
+          "evidence": "Tooltip wraps the trigger"
+        },
+        {
+          "text": "Mentions HearthProvider or TooltipProvider requirement",
+          "passed": true,
+          "evidence": "HearthProvider noted as including TooltipProvider"
+        },
+        {
+          "text": "Uses ModalRoot/ModalTrigger/Modal composition",
+          "passed": true,
+          "evidence": "ModalRoot > ModalTrigger + Modal structure shown"
+        },
+        {
+          "text": "Uses ModalFooter with ModalClose for modal actions",
+          "passed": true,
+          "evidence": "ModalFooter and ModalClose shown"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 625.3,
+        "tokens": 40834,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Flex or Grid layout component (not raw div)",
+          "passed": true,
+          "evidence": "Grid with columns prop used"
+        },
+        {
+          "text": "Gap specified on parent container (not margin on children)",
+          "passed": true,
+          "evidence": "gap=\"400\" on Grid parent"
+        },
+        {
+          "text": "Includes mobile breakpoint in responsive direction/columns",
+          "passed": true,
+          "evidence": "columns={{ mobile: \"1\", tablet: \"2\" }} includes mobile"
+        },
+        {
+          "text": "Uses space tokens for gap (string values like \"200\", not numeric values like 2)",
+          "passed": true,
+          "evidence": "gap=\"400\" is a valid string token"
+        },
+        {
+          "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+          "passed": true,
+          "evidence": "columns mobile: 1 stacks, tablet: 2 side-by-side"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 457.9,
+        "tokens": 29558,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "HearthProvider placed in root layout.tsx",
+          "passed": true,
+          "evidence": "HearthProvider in root layout shown"
+        },
+        {
+          "text": "CSS imports (hearth-fonts and hearth-react/styles.css) in root layout",
+          "passed": true,
+          "evidence": "Both CSS imports included"
+        },
+        {
+          "text": "Does NOT provide advice on when to add use client directives",
+          "passed": false,
+          "evidence": "Response explains use client boundary behaviour in App Router context \u2014 out of scope per skill guidance"
+        },
+        {
+          "text": "Correctly describes HearthProvider as providing component context",
+          "passed": true,
+          "evidence": "Describes HearthProvider as providing TooltipProvider context"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 1173.6,
+        "tokens": 42391,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends hearth-tokens/browser for the inline style case",
+          "passed": true,
+          "evidence": "Recommends @utilitywarehouse/hearth-tokens/browser for React inline style"
+        },
+        {
+          "text": "Recommends CSS variables for the custom div case",
+          "passed": true,
+          "evidence": "Recommends var(--h-*) CSS custom properties for custom div"
+        },
+        {
+          "text": "Does not recommend root hearth-tokens import for inline styles",
+          "passed": true,
+          "evidence": "Correctly specifies /browser subpath, not root import"
+        },
+        {
+          "text": "Explains why the two approaches differ (CSS vs JS context)",
+          "passed": true,
+          "evidence": "Explains CSS custom properties cascade vs JS references at runtime"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 8,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 1070.5,
+        "tokens": 42441,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses CardContent to wrap the text content",
+          "passed": true,
+          "evidence": "CardContent used with spacing prop to wrap heading and speed"
+        },
+        {
+          "text": "Uses CardActions with CardActionButton items for the action list",
+          "passed": true,
+          "evidence": "CardActions direction=\"column\" with CardActionButton x2"
+        },
+        {
+          "text": "No colorScheme prop set on the Card element itself",
+          "passed": true,
+          "evidence": "Uses shadowColor=\"broadband\" not colorScheme; colorScheme not set on Card"
+        },
+        {
+          "text": "No Divider component between content and actions",
+          "passed": true,
+          "evidence": "No Divider mentioned; CardActions handles its own separator"
+        },
+        {
+          "text": "Uses leadingIconContainerColorScheme=\"broadband\" on action items",
+          "passed": true,
+          "evidence": "Both CardActionButton items use leadingIconContainerColorScheme=\"broadband\""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 9,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 431.3,
+        "tokens": 26827,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly with label prop (not FormField wrapper)",
+          "passed": true,
+          "evidence": "TextInput components with label prop, no FormField"
+        },
+        {
+          "text": "Primary button uses variant=\"solid\" (not variant=\"emphasis\")",
+          "passed": false,
+          "evidence": "Uses variant=\"emphasis\" for primary button \u2014 this is for hero CTAs not forms"
+        },
+        {
+          "text": "Secondary button uses variant=\"outline\"",
+          "passed": true,
+          "evidence": "variant=\"outline\" colorScheme=\"functional\" used"
+        },
+        {
+          "text": "Button row uses Flex with gap, not margin on individual buttons",
+          "passed": true,
+          "evidence": "Nested Flex with gap=\"200\" for button row"
+        },
+        {
+          "text": "Buttons are left-aligned (no justifyContent=\"end\" on button row)",
+          "passed": true,
+          "evidence": "No justifyContent on button row, left-aligned"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 201.7,
+        "stddev": 67.3258,
+        "min": 76.2,
+        "max": 305.6
+      },
+      "tokens": {
+        "mean": 16736.5,
+        "stddev": 690.1416,
+        "min": 15718,
+        "max": 17713
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.93,
+        "stddev": 0.1135,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 605.1,
+        "stddev": 318.0422,
+        "min": 276.7,
+        "max": 1173.6
+      },
+      "tokens": {
+        "mean": 32928.1,
+        "stddev": 10059.542,
+        "min": 19717,
+        "max": 44261
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.07",
+      "time_seconds": "-403.4",
+      "tokens": "-16192"
+    }
+  },
+  "notes": []
+}

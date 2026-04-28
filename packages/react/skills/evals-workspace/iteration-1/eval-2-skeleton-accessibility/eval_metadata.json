@@ -1,0 +1,27 @@
+{
+  "eval_id": 2,
+  "eval_name": "skeleton-accessibility",
+  "prompt": "I'm adding a loading placeholder while user data fetches. My designer wants three lines of body text and a heading placeholder. How do I build this accessibly in hearth-react?",
+  "assertions": [
+    {
+      "text": "Uses Skeleton wrapper component",
+      "check": "Response uses the Skeleton component as a wrapper"
+    },
+    {
+      "text": "Includes loadingTitle on Skeleton",
+      "check": "Code example includes loadingTitle prop on the Skeleton component with a descriptive string"
+    },
+    {
+      "text": "Sets aria-busy on a wrapping container",
+      "check": "Code example sets aria-busy={isLoading} (or similar) on a container element around the Skeleton"
+    },
+    {
+      "text": "Uses SkeletonBodyText with lines prop",
+      "check": "Code example uses SkeletonBodyText with a lines prop value of 3 or '3'"
+    },
+    {
+      "text": "Uses SkeletonHeading for the heading placeholder",
+      "check": "Code example uses SkeletonHeading for the heading placeholder"
+    }
+  ]
+}

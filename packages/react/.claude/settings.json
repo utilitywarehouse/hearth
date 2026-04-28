@@ -1,0 +1,9 @@
+{
+  "sandbox": {
+    "filesystem": {
+      "allowRead": [
+        "/Users/robphoenix/code/uw/hearth/apps/storybook-react"
+      ]
+    }
+  }
+}

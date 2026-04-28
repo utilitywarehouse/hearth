@@ -1,0 +1,33 @@
+{
+  "eval_id": 6,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "HearthProvider placed in root layout.tsx",
+      "passed": true,
+      "evidence": "app/layout.tsx shown with HearthProvider wrapping {children}"
+    },
+    {
+      "text": "CSS imports (hearth-fonts and hearth-react/styles.css) in root layout",
+      "passed": true,
+      "evidence": "Both hearth-fonts and hearth-react/styles.css imported in layout.tsx"
+    },
+    {
+      "text": "Does NOT provide advice on when to add use client directives",
+      "passed": true,
+      "evidence": "No mention of use client anywhere in the response"
+    },
+    {
+      "text": "Correctly describes HearthProvider as providing component context",
+      "passed": true,
+      "evidence": "HearthProvider described as \"context provider that hearth-react components depend on\""
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  },
+  "pass_rate": 1.0
+}

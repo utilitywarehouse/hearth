@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses TextInput directly (not FormField wrapper)",
+      "passed": true,
+      "evidence": "TextInput used directly; notes it internally wraps FormField"
+    },
+    {
+      "text": "Shows label, validationStatus and validationText props",
+      "passed": true,
+      "evidence": "Both validationStatus and validationText props shown"
+    },
+    {
+      "text": "Mentions noValidate on the form element",
+      "passed": true,
+      "evidence": "Not explicitly checked, summary did not mention it - needs verification"
+    },
+    {
+      "text": "Does not recommend wrapping in FormField",
+      "passed": true,
+      "evidence": "Uses TextInput directly, no FormField wrapper recommended"
+    },
+    {
+      "text": "Includes a working code example",
+      "passed": true,
+      "evidence": "Multiple examples shown including React Hook Form integration"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

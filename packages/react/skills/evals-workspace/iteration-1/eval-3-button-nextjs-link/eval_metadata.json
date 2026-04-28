@@ -1,0 +1,27 @@
+{
+  "eval_id": 3,
+  "eval_name": "button-nextjs-link",
+  "prompt": "I need a button that navigates to /dashboard using Next.js routing. It should look like a solid highlight button. How do I do this in hearth-react?",
+  "assertions": [
+    {
+      "text": "Uses asChild prop on Button",
+      "check": "Code example uses asChild prop on the Button component"
+    },
+    {
+      "text": "Wraps NextLink (from next/link) as the child",
+      "check": "Code example imports NextLink from next/link and uses it as the child of Button"
+    },
+    {
+      "text": "Uses variant='solid'",
+      "check": "Code example sets variant='solid' on the Button"
+    },
+    {
+      "text": "Uses colorScheme='highlight'",
+      "check": "Code example sets colorScheme='highlight' on the Button"
+    },
+    {
+      "text": "Does not nest NextLink inside Button without asChild",
+      "check": "Response does not show NextLink nested inside Button without the asChild prop"
+    }
+  ]
+}

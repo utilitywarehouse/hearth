@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses IconButton with label prop",
+      "passed": true,
+      "evidence": "label=\"Delete item\" on IconButton, noted as required for accessibility"
+    },
+    {
+      "text": "Wraps IconButton in Tooltip with description prop",
+      "passed": true,
+      "evidence": "Tooltip > ModalTrigger > IconButton composition shown"
+    },
+    {
+      "text": "Mentions HearthProvider or TooltipProvider requirement",
+      "passed": true,
+      "evidence": "HearthProvider required at app root mentioned as failure mode #4"
+    },
+    {
+      "text": "Uses ModalRoot/ModalTrigger/Modal composition",
+      "passed": true,
+      "evidence": "Full ModalRoot/ModalTrigger/Modal composition shown"
+    },
+    {
+      "text": "Uses ModalFooter with ModalClose for modal actions",
+      "passed": true,
+      "evidence": "ModalFooter with ModalClose wrapping buttons shown"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

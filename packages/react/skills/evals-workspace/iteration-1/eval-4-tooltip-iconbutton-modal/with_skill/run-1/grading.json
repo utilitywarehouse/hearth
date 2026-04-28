@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses IconButton with label prop",
+      "passed": true,
+      "evidence": "label=\"Delete item\" on IconButton in both examples. Response explains label is required and TypeScript won't catch its absence."
+    },
+    {
+      "text": "Wraps IconButton in Tooltip",
+      "passed": true,
+      "evidence": "Tooltip wraps ModalTrigger which wraps IconButton. Correct nesting order explained."
+    },
+    {
+      "text": "Mentions HearthProvider or TooltipProvider requirement",
+      "passed": true,
+      "evidence": "Prominently mentioned: 'Without HearthProvider, Tooltip will silently fail to appear'"
+    },
+    {
+      "text": "Uses ModalRoot composition for the modal",
+      "passed": true,
+      "evidence": "ModalRoot > ModalTrigger > Modal > ModalFooter > ModalClose composition shown"
+    },
+    {
+      "text": "Modal has a heading prop or accessible heading",
+      "passed": true,
+      "evidence": "heading=\"Delete item\" on Modal in both examples"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

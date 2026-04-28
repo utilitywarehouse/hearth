@@ -1,0 +1,38 @@
+{
+  "eval_id": 8,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses CardContent to wrap the text content",
+      "passed": true,
+      "evidence": "CardContent wraps plan name and speed heading"
+    },
+    {
+      "text": "Uses CardActions with CardActionButton items for the action list",
+      "passed": true,
+      "evidence": "CardActions with two CardActionButton items"
+    },
+    {
+      "text": "No colorScheme prop set on the Card element itself",
+      "passed": true,
+      "evidence": "No colorScheme on Card; skill explicitly flags this as failure mode #9"
+    },
+    {
+      "text": "No Divider component between content and actions",
+      "passed": true,
+      "evidence": "No Divider; skill notes CardActions renders its own separator"
+    },
+    {
+      "text": "Uses leadingIconContainerColorScheme=\"broadband\" on action items",
+      "passed": true,
+      "evidence": "Both CardActionButton items use leadingIconContainerColorScheme=\"broadband\""
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

@@ -1,0 +1,27 @@
+{
+  "eval_id": 4,
+  "eval_name": "tooltip-iconbutton-modal",
+  "prompt": "I want to add a tooltip to an icon-only button that says 'Delete item'. The button opens a confirmation modal when clicked. Show me how to compose this correctly.",
+  "assertions": [
+    {
+      "text": "Uses IconButton with label prop",
+      "check": "Code example includes label prop on IconButton (e.g. label='Delete item' or similar)"
+    },
+    {
+      "text": "Wraps IconButton in Tooltip",
+      "check": "Code example wraps the IconButton inside a Tooltip component"
+    },
+    {
+      "text": "Mentions HearthProvider or TooltipProvider requirement",
+      "check": "Response mentions that HearthProvider or TooltipProvider must be present in the tree for Tooltip to work"
+    },
+    {
+      "text": "Uses ModalRoot composition for the modal",
+      "check": "Code example uses ModalRoot (not just Modal alone) as the root of the modal composition"
+    },
+    {
+      "text": "Modal has a heading prop or accessible heading",
+      "check": "The Modal in the code example has a heading prop for the confirmation dialog"
+    }
+  ]
+}

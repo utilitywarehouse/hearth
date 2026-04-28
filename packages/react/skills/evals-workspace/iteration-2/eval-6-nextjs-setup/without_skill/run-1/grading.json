@@ -1,0 +1,33 @@
+{
+  "eval_id": 6,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "HearthProvider placed in root layout.tsx",
+      "passed": true,
+      "evidence": "HearthProvider in root layout shown"
+    },
+    {
+      "text": "CSS imports (hearth-fonts and hearth-react/styles.css) in root layout",
+      "passed": true,
+      "evidence": "Both CSS imports included"
+    },
+    {
+      "text": "Does NOT provide advice on when to add use client directives",
+      "passed": false,
+      "evidence": "Response explains use client boundary behaviour in App Router context \u2014 out of scope per skill guidance"
+    },
+    {
+      "text": "Correctly describes HearthProvider as providing component context",
+      "passed": true,
+      "evidence": "Describes HearthProvider as providing TooltipProvider context"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.75,
+    "passed": 3,
+    "failed": 1,
+    "total": 4
+  },
+  "pass_rate": 0.75
+}

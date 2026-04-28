@@ -1,0 +1,651 @@
+{
+  "metadata": {
+    "skill_name": "hearth-react",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-04-28T12:17:14Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 64.2,
+        "tokens": 15870,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly (not FormField wrapper)",
+          "passed": true,
+          "evidence": "Uses TextInput directly and explicitly says 'do not wrap it in a FormField component (that is an internal implementation detail)'"
+        },
+        {
+          "text": "Includes label prop on TextInput",
+          "passed": true,
+          "evidence": "label=\"Email address\" present in code example"
+        },
+        {
+          "text": "Uses validationStatus prop",
+          "passed": true,
+          "evidence": "validationStatus={showError ? 'invalid' : undefined} in example"
+        },
+        {
+          "text": "Uses validationText prop alongside validationStatus",
+          "passed": true,
+          "evidence": "validationText={showError ? 'Enter a valid email address' : undefined} in example"
+        },
+        {
+          "text": "Mentions noValidate on the form",
+          "passed": true,
+          "evidence": "<form noValidate> shown in code example"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 422.1,
+        "tokens": 23504,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Skeleton wrapper component",
+          "passed": true,
+          "evidence": "<Skeleton loadingTitle=\"user profile\"> used as wrapper"
+        },
+        {
+          "text": "Includes loadingTitle on Skeleton",
+          "passed": true,
+          "evidence": "loadingTitle=\"user profile\" present. Response explains it renders an aria-live region and is not optional."
+        },
+        {
+          "text": "Sets aria-busy on a wrapping container",
+          "passed": true,
+          "evidence": "<div aria-busy={isLoading}> wraps both states in all examples"
+        },
+        {
+          "text": "Uses SkeletonBodyText with lines prop",
+          "passed": true,
+          "evidence": "<SkeletonBodyText lines=\"3\" /> in examples"
+        },
+        {
+          "text": "Uses SkeletonHeading for the heading placeholder",
+          "passed": true,
+          "evidence": "<SkeletonHeading width=\"60%\" /> present in examples"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 243.2,
+        "tokens": 16428,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses asChild prop on Button",
+          "passed": true,
+          "evidence": "<Button asChild variant=\"solid\" colorScheme=\"highlight\">"
+        },
+        {
+          "text": "Wraps NextLink (from next/link) as the child",
+          "passed": true,
+          "evidence": "import Link from 'next/link'; <Link href=\"/dashboard\"> as child"
+        },
+        {
+          "text": "Uses variant='solid'",
+          "passed": true,
+          "evidence": "variant=\"solid\" in code example"
+        },
+        {
+          "text": "Uses colorScheme='highlight'",
+          "passed": true,
+          "evidence": "colorScheme=\"highlight\" in code example"
+        },
+        {
+          "text": "Does not nest NextLink inside Button without asChild",
+          "passed": true,
+          "evidence": "Explicitly shows both wrong patterns and explains why they're invalid HTML"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 237.9,
+        "tokens": 17641,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses IconButton with label prop",
+          "passed": true,
+          "evidence": "label=\"Delete item\" on IconButton in both examples. Response explains label is required and TypeScript won't catch its absence."
+        },
+        {
+          "text": "Wraps IconButton in Tooltip",
+          "passed": true,
+          "evidence": "Tooltip wraps ModalTrigger which wraps IconButton. Correct nesting order explained."
+        },
+        {
+          "text": "Mentions HearthProvider or TooltipProvider requirement",
+          "passed": true,
+          "evidence": "Prominently mentioned: 'Without HearthProvider, Tooltip will silently fail to appear'"
+        },
+        {
+          "text": "Uses ModalRoot composition for the modal",
+          "passed": true,
+          "evidence": "ModalRoot > ModalTrigger > Modal > ModalFooter > ModalClose composition shown"
+        },
+        {
+          "text": "Modal has a heading prop or accessible heading",
+          "passed": true,
+          "evidence": "heading=\"Delete item\" on Modal in both examples"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 247.8,
+        "tokens": 16527,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Flex or Grid layout component (not raw div)",
+          "passed": true,
+          "evidence": "Uses hearth-react Flex component directly in primary example, Grid in secondary"
+        },
+        {
+          "text": "Gap specified on parent container (not margin on children)",
+          "passed": true,
+          "evidence": "gap prop on Flex/Grid, explicitly stated 'use gap on the parent \u2014 never margin on individual siblings'"
+        },
+        {
+          "text": "Includes mobile breakpoint in responsive direction/columns prop",
+          "passed": true,
+          "evidence": "direction={{ mobile: 'column', tablet: 'row' }} includes mobile key. Response explicitly warns 'Always include mobile in a responsive object'"
+        },
+        {
+          "text": "Uses space tokens for gap (not raw px values)",
+          "passed": true,
+          "evidence": "gap={{ mobile: '200', tablet: '300' }} uses correct string token values, not px"
+        },
+        {
+          "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+          "passed": true,
+          "evidence": "mobile: 'column', tablet: 'row' correctly implements the stacking behaviour"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 212.0,
+        "tokens": 16945,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "HearthProvider placed in root layout.tsx",
+          "passed": true,
+          "evidence": "app/layout.tsx shown with <HearthProvider>{children}</HearthProvider> wrapping inside <body>"
+        },
+        {
+          "text": "CSS imports in root layout",
+          "passed": true,
+          "evidence": "Both @utilitywarehouse/hearth-fonts and @utilitywarehouse/hearth-react/styles.css imported in layout.tsx"
+        },
+        {
+          "text": "Explains use client is needed for event handlers or hooks",
+          "passed": true,
+          "evidence": "Table and examples clearly show 'use client' needed for onClick, onChange, useState, useEffect etc."
+        },
+        {
+          "text": "Explains that static hearth-react usage does not need use client",
+          "passed": true,
+          "evidence": "Static page example shown without 'use client', explains hearth-react components declare it internally"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 133.1,
+        "tokens": 16236,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends CSS variables for the custom div case",
+          "passed": true,
+          "evidence": "Recommends CSS file with var(--h-color-*) and var(--h-spacing-*) for the custom div case"
+        },
+        {
+          "text": "Recommends hearth-tokens/browser for the inline style case",
+          "passed": true,
+          "evidence": "import { space, color } from '@utilitywarehouse/hearth-tokens/browser' shown with working example"
+        },
+        {
+          "text": "Does not recommend root hearth-tokens import for inline styles",
+          "passed": true,
+          "evidence": "Explicitly shows root import as WRONG with comment 'root import is for Node.js / build-time use only'"
+        },
+        {
+          "text": "Explains why the two approaches differ",
+          "passed": true,
+          "evidence": "Explains CSS custom properties approach vs JS import approach; explains root vs /browser subpath distinction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 297.5,
+        "tokens": 22569,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses TextInput directly (not FormField wrapper)",
+          "passed": true,
+          "evidence": "Uses TextInput directly throughout, no FormField mentioned"
+        },
+        {
+          "text": "Includes label prop on TextInput",
+          "passed": true,
+          "evidence": "label=\"Email address\" present in both examples"
+        },
+        {
+          "text": "Uses validationStatus prop",
+          "passed": true,
+          "evidence": "validationStatus={validationStatus} and validationStatus={fieldState.error ? 'invalid' : undefined} in examples"
+        },
+        {
+          "text": "Uses validationText prop alongside validationStatus",
+          "passed": true,
+          "evidence": "validationText present alongside validationStatus in both examples"
+        },
+        {
+          "text": "Mentions noValidate on the form",
+          "passed": true,
+          "evidence": "noValidate explicitly mentioned and shown on <form> element"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 506.0,
+        "tokens": 25977,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Skeleton wrapper component",
+          "passed": true,
+          "evidence": "Skeleton component used throughout as wrapper"
+        },
+        {
+          "text": "Includes loadingTitle on Skeleton",
+          "passed": true,
+          "evidence": "loadingTitle prop explained and shown, noted as required (agent read source to confirm)"
+        },
+        {
+          "text": "Sets aria-busy on a wrapping container",
+          "passed": true,
+          "evidence": "aria-busy={isLoading} on wrapping div shown in example"
+        },
+        {
+          "text": "Uses SkeletonBodyText with lines prop",
+          "passed": true,
+          "evidence": "<SkeletonBodyText lines=\"3\" size=\"md\" /> in example"
+        },
+        {
+          "text": "Uses SkeletonHeading for the heading placeholder",
+          "passed": true,
+          "evidence": "<SkeletonHeading size=\"md\" width=\"50%\" /> in example"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 365.3,
+        "tokens": 26151,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses asChild prop on Button",
+          "passed": true,
+          "evidence": "<Button asChild variant=\"solid\" colorScheme=\"highlight\">"
+        },
+        {
+          "text": "Wraps NextLink (from next/link) as the child",
+          "passed": true,
+          "evidence": "import NextLink from 'next/link'; <NextLink href=\"/dashboard\"> as child"
+        },
+        {
+          "text": "Uses variant='solid'",
+          "passed": true,
+          "evidence": "variant=\"solid\" in code example"
+        },
+        {
+          "text": "Uses colorScheme='highlight'",
+          "passed": true,
+          "evidence": "colorScheme=\"highlight\" in code example"
+        },
+        {
+          "text": "Does not nest NextLink inside Button without asChild",
+          "passed": true,
+          "evidence": "Demonstrates correct asChild pattern, no incorrect nesting shown"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 745.4,
+        "tokens": 43062,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses IconButton with label prop",
+          "passed": true,
+          "evidence": "label prop included on IconButton, noted as required for aria-label (from reading source)"
+        },
+        {
+          "text": "Wraps IconButton in Tooltip",
+          "passed": true,
+          "evidence": "ModalRoot > Tooltip > ModalTrigger > IconButton nesting shown"
+        },
+        {
+          "text": "Mentions HearthProvider or TooltipProvider requirement",
+          "passed": true,
+          "evidence": "HearthProvider (or TooltipProvider) mentioned as required for Tooltip"
+        },
+        {
+          "text": "Uses ModalRoot composition for the modal",
+          "passed": true,
+          "evidence": "ModalRoot used as root of modal composition"
+        },
+        {
+          "text": "Modal has a heading prop or accessible heading",
+          "passed": true,
+          "evidence": "heading prop on Modal shown in examples"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.8,
+        "passed": 4,
+        "failed": 1,
+        "total": 5,
+        "time_seconds": 165.2,
+        "tokens": 12453,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses Flex or Grid layout component (not raw div)",
+          "passed": true,
+          "evidence": "Uses Box with display='grid' or display='flex' \u2014 not a dedicated Flex/Grid component but is a hearth-react component, not a raw div"
+        },
+        {
+          "text": "Gap specified on parent container (not margin on children)",
+          "passed": true,
+          "evidence": "gap prop used on parent Box, not margin on children"
+        },
+        {
+          "text": "Includes mobile breakpoint in responsive direction/columns prop",
+          "passed": true,
+          "evidence": "flexDirection={{ mobile: 'column', tablet: 'row' }} and gridTemplateColumns={{ mobile: '1fr', tablet: '1fr 1fr' }} both include mobile"
+        },
+        {
+          "text": "Uses space tokens for gap (not raw px values)",
+          "passed": false,
+          "evidence": "Uses gap={{ mobile: 2, tablet: 4 }} with numeric values 2 and 4, not valid hearth-react token strings like '200' and '400'. Also suggests gap='16px' as acceptable."
+        },
+        {
+          "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+          "passed": true,
+          "evidence": "Correct responsive behaviour shown via CSS grid or flex direction"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 790.1,
+        "tokens": 36933,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "HearthProvider placed in root layout.tsx",
+          "passed": true,
+          "evidence": "Root layout.tsx shown with HearthProvider wrapping children"
+        },
+        {
+          "text": "CSS imports in root layout",
+          "passed": true,
+          "evidence": "hearth-react/styles.css import shown in root layout"
+        },
+        {
+          "text": "Explains use client is needed for event handlers or hooks",
+          "passed": true,
+          "evidence": "Explains 'use client' needed for useState, useEffect, event handlers \u2014 found from source inspection"
+        },
+        {
+          "text": "Explains that static hearth-react usage does not need use client",
+          "passed": true,
+          "evidence": "Notes 92 of 132 component files declare 'use client' internally, so static pages don't need the directive"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 643.1,
+        "tokens": 46310,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Recommends CSS variables for the custom div case",
+          "passed": true,
+          "evidence": "CSS class or inline style with var(--h-surface-brand-default) recommended for custom div"
+        },
+        {
+          "text": "Recommends hearth-tokens/browser for the inline style case",
+          "passed": false,
+          "evidence": "Does not mention hearth-tokens/browser. Instead recommends using CSS var strings directly (var(--h-space-300)) or getComputedStyle for numeric values. Both are valid alternatives but don't match the skill's preferred approach."
+        },
+        {
+          "text": "Does not recommend root hearth-tokens import for inline styles",
+          "passed": true,
+          "evidence": "Does not suggest root hearth-tokens import; recommends CSS vars or getComputedStyle instead"
+        },
+        {
+          "text": "Explains why the two approaches differ",
+          "passed": true,
+          "evidence": "Explains CSS vars are globally available on :root, explains getComputedStyle for numeric values, explains different options for different scenarios"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 222.9,
+        "stddev": 111.2851,
+        "min": 64.2,
+        "max": 422.1
+      },
+      "tokens": {
+        "mean": 17593.0,
+        "stddev": 2666.6423,
+        "min": 15870,
+        "max": 23504
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.9357,
+        "stddev": 0.1107,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 501.8,
+        "stddev": 236.6824,
+        "min": 165.2,
+        "max": 790.1
+      },
+      "tokens": {
+        "mean": 30493.5714,
+        "stddev": 12090.6951,
+        "min": 12453,
+        "max": 46310
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.06",
+      "time_seconds": "-278.9",
+      "tokens": "-12901"
+    }
+  },
+  "notes": []
+}

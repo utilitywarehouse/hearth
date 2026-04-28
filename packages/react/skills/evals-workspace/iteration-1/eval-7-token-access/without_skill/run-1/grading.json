@@ -1,0 +1,33 @@
+{
+  "eval_id": 7,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Recommends CSS variables for the custom div case",
+      "passed": true,
+      "evidence": "CSS class or inline style with var(--h-surface-brand-default) recommended for custom div"
+    },
+    {
+      "text": "Recommends hearth-tokens/browser for the inline style case",
+      "passed": false,
+      "evidence": "Does not mention hearth-tokens/browser. Instead recommends using CSS var strings directly (var(--h-space-300)) or getComputedStyle for numeric values. Both are valid alternatives but don't match the skill's preferred approach."
+    },
+    {
+      "text": "Does not recommend root hearth-tokens import for inline styles",
+      "passed": true,
+      "evidence": "Does not suggest root hearth-tokens import; recommends CSS vars or getComputedStyle instead"
+    },
+    {
+      "text": "Explains why the two approaches differ",
+      "passed": true,
+      "evidence": "Explains CSS vars are globally available on :root, explains getComputedStyle for numeric values, explains different options for different scenarios"
+    }
+  ],
+  "pass_rate": 0.75,
+  "summary": {
+    "pass_rate": 0.75,
+    "passed": 3,
+    "failed": 1,
+    "total": 4
+  }
+}

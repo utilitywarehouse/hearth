@@ -1,0 +1,23 @@
+{
+  "eval_id": 6,
+  "eval_name": "nextjs-setup",
+  "prompt": "My team is setting up a new Next.js App Router project with hearth-react. Walk me through what goes in the root layout file, where HearthProvider goes, and when we need to add 'use client' to a page.",
+  "assertions": [
+    {
+      "text": "HearthProvider placed in root layout.tsx",
+      "check": "Response places HearthProvider in the root app/layout.tsx file wrapping children"
+    },
+    {
+      "text": "CSS imports in root layout",
+      "check": "Response shows hearth-fonts and hearth-react/styles.css imported in the root layout"
+    },
+    {
+      "text": "Explains use client is needed for event handlers or hooks",
+      "check": "Response explains that 'use client' is needed in files that use onClick, onChange, or React hooks alongside hearth-react"
+    },
+    {
+      "text": "Explains that static hearth-react usage does not need use client",
+      "check": "Response clarifies that purely static rendering of hearth-react components (no handlers, no hooks) does not require 'use client'"
+    }
+  ]
+}

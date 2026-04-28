@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses Skeleton wrapper component",
+      "passed": true,
+      "evidence": "Skeleton component used throughout as wrapper"
+    },
+    {
+      "text": "Includes loadingTitle on Skeleton",
+      "passed": true,
+      "evidence": "loadingTitle prop explained and shown, noted as required (agent read source to confirm)"
+    },
+    {
+      "text": "Sets aria-busy on a wrapping container",
+      "passed": true,
+      "evidence": "aria-busy={isLoading} on wrapping div shown in example"
+    },
+    {
+      "text": "Uses SkeletonBodyText with lines prop",
+      "passed": true,
+      "evidence": "<SkeletonBodyText lines=\"3\" size=\"md\" /> in example"
+    },
+    {
+      "text": "Uses SkeletonHeading for the heading placeholder",
+      "passed": true,
+      "evidence": "<SkeletonHeading size=\"md\" width=\"50%\" /> in example"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

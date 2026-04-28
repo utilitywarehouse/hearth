@@ -1,0 +1,38 @@
+{
+  "eval_id": 9,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses TextInput directly with label prop (not FormField wrapper)",
+      "passed": true,
+      "evidence": "Three TextInput components each with label prop; explicitly states no FormField needed"
+    },
+    {
+      "text": "Primary button uses variant=\"solid\" (not variant=\"emphasis\")",
+      "passed": true,
+      "evidence": "variant=\"solid\" colorScheme=\"highlight\" for Save changes"
+    },
+    {
+      "text": "Secondary button uses variant=\"outline\"",
+      "passed": true,
+      "evidence": "variant=\"outline\" colorScheme=\"functional\" for Cancel"
+    },
+    {
+      "text": "Button row uses Flex with gap, not margin on individual buttons",
+      "passed": true,
+      "evidence": "Flex gap=\"200\" for button row"
+    },
+    {
+      "text": "Buttons are left-aligned (no justifyContent=\"end\" on button row)",
+      "passed": true,
+      "evidence": "No justifyContent on button row, buttons left-aligned by default"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

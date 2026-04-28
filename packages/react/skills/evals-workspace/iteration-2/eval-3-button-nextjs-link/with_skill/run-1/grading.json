@@ -1,0 +1,38 @@
+{
+  "eval_id": 3,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses Button with asChild prop wrapping NextLink",
+      "passed": true,
+      "evidence": "Button asChild with NextLink href=\"/dashboard\" shown"
+    },
+    {
+      "text": "Uses variant=\"solid\" colorScheme=\"highlight\"",
+      "passed": true,
+      "evidence": "Correct variant and colorScheme shown"
+    },
+    {
+      "text": "Notes asChild does not work with emphasis variant",
+      "passed": true,
+      "evidence": "Explicitly warns asChild+emphasis incompatibility"
+    },
+    {
+      "text": "Does not render button wrapping anchor (invalid HTML)",
+      "passed": true,
+      "evidence": "Explains asChild prevents button wrapping anchor"
+    },
+    {
+      "text": "Includes a working code example",
+      "passed": true,
+      "evidence": "Complete working example provided"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

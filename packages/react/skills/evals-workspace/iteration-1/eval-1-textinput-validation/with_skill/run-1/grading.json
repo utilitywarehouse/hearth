@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses TextInput directly (not FormField wrapper)",
+      "passed": true,
+      "evidence": "Uses TextInput directly and explicitly says 'do not wrap it in a FormField component (that is an internal implementation detail)'"
+    },
+    {
+      "text": "Includes label prop on TextInput",
+      "passed": true,
+      "evidence": "label=\"Email address\" present in code example"
+    },
+    {
+      "text": "Uses validationStatus prop",
+      "passed": true,
+      "evidence": "validationStatus={showError ? 'invalid' : undefined} in example"
+    },
+    {
+      "text": "Uses validationText prop alongside validationStatus",
+      "passed": true,
+      "evidence": "validationText={showError ? 'Enter a valid email address' : undefined} in example"
+    },
+    {
+      "text": "Mentions noValidate on the form",
+      "passed": true,
+      "evidence": "<form noValidate> shown in code example"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

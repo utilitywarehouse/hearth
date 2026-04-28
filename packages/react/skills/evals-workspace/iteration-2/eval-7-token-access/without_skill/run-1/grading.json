@@ -1,0 +1,33 @@
+{
+  "eval_id": 7,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Recommends hearth-tokens/browser for the inline style case",
+      "passed": true,
+      "evidence": "Recommends @utilitywarehouse/hearth-tokens/browser for React inline style"
+    },
+    {
+      "text": "Recommends CSS variables for the custom div case",
+      "passed": true,
+      "evidence": "Recommends var(--h-*) CSS custom properties for custom div"
+    },
+    {
+      "text": "Does not recommend root hearth-tokens import for inline styles",
+      "passed": true,
+      "evidence": "Correctly specifies /browser subpath, not root import"
+    },
+    {
+      "text": "Explains why the two approaches differ (CSS vs JS context)",
+      "passed": true,
+      "evidence": "Explains CSS custom properties cascade vs JS references at runtime"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  },
+  "pass_rate": 1.0
+}

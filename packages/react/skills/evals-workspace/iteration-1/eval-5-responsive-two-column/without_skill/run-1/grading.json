@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses Flex or Grid layout component (not raw div)",
+      "passed": true,
+      "evidence": "Uses Box with display='grid' or display='flex' \u2014 not a dedicated Flex/Grid component but is a hearth-react component, not a raw div"
+    },
+    {
+      "text": "Gap specified on parent container (not margin on children)",
+      "passed": true,
+      "evidence": "gap prop used on parent Box, not margin on children"
+    },
+    {
+      "text": "Includes mobile breakpoint in responsive direction/columns prop",
+      "passed": true,
+      "evidence": "flexDirection={{ mobile: 'column', tablet: 'row' }} and gridTemplateColumns={{ mobile: '1fr', tablet: '1fr 1fr' }} both include mobile"
+    },
+    {
+      "text": "Uses space tokens for gap (not raw px values)",
+      "passed": false,
+      "evidence": "Uses gap={{ mobile: 2, tablet: 4 }} with numeric values 2 and 4, not valid hearth-react token strings like '200' and '400'. Also suggests gap='16px' as acceptable."
+    },
+    {
+      "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+      "passed": true,
+      "evidence": "Correct responsive behaviour shown via CSS grid or flex direction"
+    }
+  ],
+  "pass_rate": 0.8,
+  "summary": {
+    "pass_rate": 0.8,
+    "passed": 4,
+    "failed": 1,
+    "total": 5
+  }
+}

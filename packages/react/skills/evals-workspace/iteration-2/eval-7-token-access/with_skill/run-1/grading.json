@@ -1,0 +1,33 @@
+{
+  "eval_id": 7,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Recommends hearth-tokens/browser for the inline style case",
+      "passed": true,
+      "evidence": "import { space, color } from hearth-tokens/browser shown for inline style"
+    },
+    {
+      "text": "Recommends CSS variables for the custom div case",
+      "passed": true,
+      "evidence": "var(--h-color-brand-purple-500) CSS var recommended for custom div"
+    },
+    {
+      "text": "Does not recommend root hearth-tokens import for inline styles",
+      "passed": true,
+      "evidence": "Explicitly marks root import as WRONG (Node/build-time only)"
+    },
+    {
+      "text": "Explains why the two approaches differ (CSS vs JS context)",
+      "passed": true,
+      "evidence": "Explains CSS context (stylesheet) vs JS context (React file) distinction"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  },
+  "pass_rate": 1.0
+}

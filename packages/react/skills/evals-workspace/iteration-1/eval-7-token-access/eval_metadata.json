@@ -1,0 +1,23 @@
+{
+  "eval_id": 7,
+  "eval_name": "token-access",
+  "prompt": "I want to apply a design token colour as a background on a custom div that's not a hearth Box component, and also use a token value as padding in a React inline style on a third-party chart component. What's the correct way to access hearth tokens for each case?",
+  "assertions": [
+    {
+      "text": "Recommends CSS variables for the custom div case",
+      "check": "Response recommends using CSS custom properties (var(--h-color-*) or var(--h-spacing-*)) for styling a plain CSS class on the custom div"
+    },
+    {
+      "text": "Recommends hearth-tokens/browser for the inline style case",
+      "check": "Response recommends importing from @utilitywarehouse/hearth-tokens/browser (not the root import) for React inline styles"
+    },
+    {
+      "text": "Does not recommend root hearth-tokens import for inline styles",
+      "check": "Response does not suggest using 'import { ... } from @utilitywarehouse/hearth-tokens' (without /browser) for inline React styles"
+    },
+    {
+      "text": "Explains why the two approaches differ",
+      "check": "Response explains the distinction between the CSS variable approach and the JS token approach, or why root hearth-tokens is not for browser use"
+    }
+  ]
+}

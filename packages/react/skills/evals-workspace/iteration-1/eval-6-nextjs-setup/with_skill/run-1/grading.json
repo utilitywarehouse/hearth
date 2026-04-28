@@ -1,0 +1,33 @@
+{
+  "eval_id": 6,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "HearthProvider placed in root layout.tsx",
+      "passed": true,
+      "evidence": "app/layout.tsx shown with <HearthProvider>{children}</HearthProvider> wrapping inside <body>"
+    },
+    {
+      "text": "CSS imports in root layout",
+      "passed": true,
+      "evidence": "Both @utilitywarehouse/hearth-fonts and @utilitywarehouse/hearth-react/styles.css imported in layout.tsx"
+    },
+    {
+      "text": "Explains use client is needed for event handlers or hooks",
+      "passed": true,
+      "evidence": "Table and examples clearly show 'use client' needed for onClick, onChange, useState, useEffect etc."
+    },
+    {
+      "text": "Explains that static hearth-react usage does not need use client",
+      "passed": true,
+      "evidence": "Static page example shown without 'use client', explains hearth-react components declare it internally"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "eval_id": 8,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses CardContent to wrap the text content",
+      "passed": true,
+      "evidence": "CardContent used with spacing prop to wrap heading and speed"
+    },
+    {
+      "text": "Uses CardActions with CardActionButton items for the action list",
+      "passed": true,
+      "evidence": "CardActions direction=\"column\" with CardActionButton x2"
+    },
+    {
+      "text": "No colorScheme prop set on the Card element itself",
+      "passed": true,
+      "evidence": "Uses shadowColor=\"broadband\" not colorScheme; colorScheme not set on Card"
+    },
+    {
+      "text": "No Divider component between content and actions",
+      "passed": true,
+      "evidence": "No Divider mentioned; CardActions handles its own separator"
+    },
+    {
+      "text": "Uses leadingIconContainerColorScheme=\"broadband\" on action items",
+      "passed": true,
+      "evidence": "Both CardActionButton items use leadingIconContainerColorScheme=\"broadband\""
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

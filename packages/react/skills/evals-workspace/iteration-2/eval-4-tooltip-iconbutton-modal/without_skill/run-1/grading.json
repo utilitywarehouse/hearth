@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses IconButton with label prop",
+      "passed": true,
+      "evidence": "label prop on IconButton mentioned"
+    },
+    {
+      "text": "Wraps IconButton in Tooltip with description prop",
+      "passed": true,
+      "evidence": "Tooltip wraps the trigger"
+    },
+    {
+      "text": "Mentions HearthProvider or TooltipProvider requirement",
+      "passed": true,
+      "evidence": "HearthProvider noted as including TooltipProvider"
+    },
+    {
+      "text": "Uses ModalRoot/ModalTrigger/Modal composition",
+      "passed": true,
+      "evidence": "ModalRoot > ModalTrigger + Modal structure shown"
+    },
+    {
+      "text": "Uses ModalFooter with ModalClose for modal actions",
+      "passed": true,
+      "evidence": "ModalFooter and ModalClose shown"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

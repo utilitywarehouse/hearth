@@ -1,0 +1,33 @@
+{
+  "eval_id": 7,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Recommends CSS variables for the custom div case",
+      "passed": true,
+      "evidence": "Recommends CSS file with var(--h-color-*) and var(--h-spacing-*) for the custom div case"
+    },
+    {
+      "text": "Recommends hearth-tokens/browser for the inline style case",
+      "passed": true,
+      "evidence": "import { space, color } from '@utilitywarehouse/hearth-tokens/browser' shown with working example"
+    },
+    {
+      "text": "Does not recommend root hearth-tokens import for inline styles",
+      "passed": true,
+      "evidence": "Explicitly shows root import as WRONG with comment 'root import is for Node.js / build-time use only'"
+    },
+    {
+      "text": "Explains why the two approaches differ",
+      "passed": true,
+      "evidence": "Explains CSS custom properties approach vs JS import approach; explains root vs /browser subpath distinction"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

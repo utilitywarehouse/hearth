@@ -1,0 +1,38 @@
+{
+  "eval_id": 5,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses Flex or Grid layout component (not raw div)",
+      "passed": true,
+      "evidence": "Grid with columns prop used"
+    },
+    {
+      "text": "Gap specified on parent container (not margin on children)",
+      "passed": true,
+      "evidence": "gap=\"400\" on Grid parent"
+    },
+    {
+      "text": "Includes mobile breakpoint in responsive direction/columns",
+      "passed": true,
+      "evidence": "columns={{ mobile: \"1\", tablet: \"2\" }} includes mobile"
+    },
+    {
+      "text": "Uses space tokens for gap (string values like \"200\", not numeric values like 2)",
+      "passed": true,
+      "evidence": "gap=\"400\" is a valid string token"
+    },
+    {
+      "text": "Layout stacks on mobile and sits side-by-side on tablet+",
+      "passed": true,
+      "evidence": "columns mobile: 1 stacks, tablet: 2 side-by-side"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

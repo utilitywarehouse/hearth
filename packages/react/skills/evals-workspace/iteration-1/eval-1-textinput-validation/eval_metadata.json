@@ -1,0 +1,27 @@
+{
+  "eval_id": 1,
+  "eval_name": "textinput-validation",
+  "prompt": "I need to build a form field where users type their email address. It should show a validation error if the format is wrong. Which hearth-react component should I use and how do I wire up the validation?",
+  "assertions": [
+    {
+      "text": "Uses TextInput directly (not wrapped in FormField)",
+      "check": "Response uses TextInput and does not suggest using FormField as a wrapper around it"
+    },
+    {
+      "text": "Includes label prop on TextInput",
+      "check": "Code example includes a label prop on the TextInput"
+    },
+    {
+      "text": "Uses validationStatus prop",
+      "check": "Code example includes validationStatus set to 'invalid' or conditionally"
+    },
+    {
+      "text": "Uses validationText prop alongside validationStatus",
+      "check": "Code example includes validationText with an error message"
+    },
+    {
+      "text": "Mentions noValidate on the form",
+      "check": "Response mentions adding noValidate to the form element to suppress browser validation UI"
+    }
+  ]
+}

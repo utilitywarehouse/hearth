@@ -1,0 +1,33 @@
+{
+  "eval_id": 6,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "HearthProvider placed in root layout.tsx",
+      "passed": true,
+      "evidence": "Root layout.tsx shown with HearthProvider wrapping children"
+    },
+    {
+      "text": "CSS imports in root layout",
+      "passed": true,
+      "evidence": "hearth-react/styles.css import shown in root layout"
+    },
+    {
+      "text": "Explains use client is needed for event handlers or hooks",
+      "passed": true,
+      "evidence": "Explains 'use client' needed for useState, useEffect, event handlers \u2014 found from source inspection"
+    },
+    {
+      "text": "Explains that static hearth-react usage does not need use client",
+      "passed": true,
+      "evidence": "Notes 92 of 132 component files declare 'use client' internally, so static pages don't need the directive"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 4,
+    "failed": 0,
+    "total": 4
+  }
+}

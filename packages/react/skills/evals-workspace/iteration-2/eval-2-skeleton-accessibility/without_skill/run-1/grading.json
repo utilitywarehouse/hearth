@@ -1,0 +1,38 @@
+{
+  "eval_id": 2,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses loadingTitle prop on Skeleton",
+      "passed": true,
+      "evidence": "loadingTitle=\"user data\" on Skeleton"
+    },
+    {
+      "text": "Wraps in container with aria-busy",
+      "passed": true,
+      "evidence": "aria-busy={isLoading} on wrapping div"
+    },
+    {
+      "text": "Uses SkeletonHeading and SkeletonBodyText",
+      "passed": true,
+      "evidence": "SkeletonHeading and SkeletonBodyText lines=\"3\" used"
+    },
+    {
+      "text": "Uses Flex with gap for spacing (not margin on individual elements)",
+      "passed": true,
+      "evidence": "Flex direction=\"column\" gap=\"200\" wrapper used"
+    },
+    {
+      "text": "Token values are strings like \"300\" not numbers like 3",
+      "passed": true,
+      "evidence": "gap=\"200\" is a string token"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

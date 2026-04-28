@@ -1,0 +1,38 @@
+{
+  "eval_id": 1,
+  "configuration": "with_skill",
+  "expectations": [
+    {
+      "text": "Uses TextInput directly (not FormField wrapper)",
+      "passed": true,
+      "evidence": "Explicitly states not to wrap in FormField; uses TextInput directly"
+    },
+    {
+      "text": "Shows label, validationStatus and validationText props",
+      "passed": true,
+      "evidence": "All three props shown in working example"
+    },
+    {
+      "text": "Mentions noValidate on the form element",
+      "passed": true,
+      "evidence": "Mentions adding noValidate to parent form"
+    },
+    {
+      "text": "Does not recommend wrapping in FormField",
+      "passed": true,
+      "evidence": "Explicitly warns against FormField wrapper"
+    },
+    {
+      "text": "Includes a working code example",
+      "passed": true,
+      "evidence": "Complete working example provided"
+    }
+  ],
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  },
+  "pass_rate": 1.0
+}

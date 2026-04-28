@@ -1,0 +1,38 @@
+{
+  "eval_id": 4,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses IconButton with label prop",
+      "passed": true,
+      "evidence": "label prop included on IconButton, noted as required for aria-label (from reading source)"
+    },
+    {
+      "text": "Wraps IconButton in Tooltip",
+      "passed": true,
+      "evidence": "ModalRoot > Tooltip > ModalTrigger > IconButton nesting shown"
+    },
+    {
+      "text": "Mentions HearthProvider or TooltipProvider requirement",
+      "passed": true,
+      "evidence": "HearthProvider (or TooltipProvider) mentioned as required for Tooltip"
+    },
+    {
+      "text": "Uses ModalRoot composition for the modal",
+      "passed": true,
+      "evidence": "ModalRoot used as root of modal composition"
+    },
+    {
+      "text": "Modal has a heading prop or accessible heading",
+      "passed": true,
+      "evidence": "heading prop on Modal shown in examples"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

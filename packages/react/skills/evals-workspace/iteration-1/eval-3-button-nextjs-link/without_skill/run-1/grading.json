@@ -1,0 +1,38 @@
+{
+  "eval_id": 3,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses asChild prop on Button",
+      "passed": true,
+      "evidence": "<Button asChild variant=\"solid\" colorScheme=\"highlight\">"
+    },
+    {
+      "text": "Wraps NextLink (from next/link) as the child",
+      "passed": true,
+      "evidence": "import NextLink from 'next/link'; <NextLink href=\"/dashboard\"> as child"
+    },
+    {
+      "text": "Uses variant='solid'",
+      "passed": true,
+      "evidence": "variant=\"solid\" in code example"
+    },
+    {
+      "text": "Uses colorScheme='highlight'",
+      "passed": true,
+      "evidence": "colorScheme=\"highlight\" in code example"
+    },
+    {
+      "text": "Does not nest NextLink inside Button without asChild",
+      "passed": true,
+      "evidence": "Demonstrates correct asChild pattern, no incorrect nesting shown"
+    }
+  ],
+  "pass_rate": 1.0,
+  "summary": {
+    "pass_rate": 1.0,
+    "passed": 5,
+    "failed": 0,
+    "total": 5
+  }
+}

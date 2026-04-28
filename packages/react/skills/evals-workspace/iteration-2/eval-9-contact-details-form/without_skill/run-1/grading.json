@@ -1,0 +1,38 @@
+{
+  "eval_id": 9,
+  "configuration": "without_skill",
+  "expectations": [
+    {
+      "text": "Uses TextInput directly with label prop (not FormField wrapper)",
+      "passed": true,
+      "evidence": "TextInput components with label prop, no FormField"
+    },
+    {
+      "text": "Primary button uses variant=\"solid\" (not variant=\"emphasis\")",
+      "passed": false,
+      "evidence": "Uses variant=\"emphasis\" for primary button \u2014 this is for hero CTAs not forms"
+    },
+    {
+      "text": "Secondary button uses variant=\"outline\"",
+      "passed": true,
+      "evidence": "variant=\"outline\" colorScheme=\"functional\" used"
+    },
+    {
+      "text": "Button row uses Flex with gap, not margin on individual buttons",
+      "passed": true,
+      "evidence": "Nested Flex with gap=\"200\" for button row"
+    },
+    {
+      "text": "Buttons are left-aligned (no justifyContent=\"end\" on button row)",
+      "passed": true,
+      "evidence": "No justifyContent on button row, left-aligned"
+    }
+  ],
+  "summary": {
+    "pass_rate": 0.8,
+    "passed": 4,
+    "failed": 1,
+    "total": 5
+  },
+  "pass_rate": 0.8
+}
