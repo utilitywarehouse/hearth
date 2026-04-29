@@ -119,6 +119,12 @@ In general, radio buttons should have a value selected by default. If this is
 not the case, you can display an error if no value is selected when the form is
 submitted.
 
+<Canvas of={Stories.Validation} />
+
+By default, the validation text is placed above the radio items. Use `validationPlacement="bottom"` to display it below instead.
+
+<Canvas of={Stories.ValidationPlacement} />
+
 ## Content width
 
 The width of the `RadioGroup` should be set by the parent layout, however it is
