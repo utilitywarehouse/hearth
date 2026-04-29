@@ -1,0 +1,115 @@
+.h-ExpandableCardGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-expandable-card-group-gap);
+}
+
+.h-ExpandableCard {
+  background-color: var(--h-surface-neutral-strong);
+  border-radius: var(--h-card-border-radius);
+  border-width: var(--h-card-neutral-subtle-border-width);
+  border-style: solid;
+  border-color: var(--h-border-subtle);
+  overflow: hidden;
+
+  & :where(.h-ExpandableCardTrigger) {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--h-expandable-card-gap-horizontal);
+    padding: var(--h-card-padding-mobile);
+    border-radius: inherit;
+
+    &:where([data-state='open']) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    cursor: pointer;
+
+    * {
+      cursor: pointer;
+    }
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-interactive-neutral-surface-subtle-hover);
+      }
+    }
+
+    &:where(:active) {
+      background-color: var(--h-interactive-neutral-surface-subtle-active);
+    }
+
+    &:where(:focus-visible) {
+      outline: 2px solid var(--h-focus-primary);
+      outline-offset: calc(-1 * var(--h-space-100));
+    }
+
+    &:where([data-disabled]) {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+
+    & :where(.h-IconContainer) {
+      align-self: flex-start;
+    }
+  }
+
+  & :where(.h-ExpandableCardLeadingIcon) {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  & :where(.h-ExpandableCardChevron) {
+    flex-shrink: 0;
+    transition: transform 200ms ease-out;
+  }
+
+  &:has(.h-ExpandableCardTrigger[data-state='open']) :where(.h-ExpandableCardChevron) {
+    transform: rotate(180deg);
+  }
+
+  & :where(.h-ExpandableCardContent) {
+    overflow: hidden;
+  }
+
+  & :where(.h-ExpandableCardContent[data-state='open']) {
+    animation: h-expandable-card-slide-down 200ms ease-out;
+  }
+
+  & :where(.h-ExpandableCardContent[data-state='closed']) {
+    animation: h-expandable-card-slide-up 200ms ease-out;
+  }
+
+  & :where(.h-ExpandableCardContentInner) {
+    padding: var(--h-card-padding-mobile);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes h-expandable-card-slide-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-collapsible-content-height);
+    }
+  }
+
+  @keyframes h-expandable-card-slide-up {
+    from {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-collapsible-content-height);
+    }
+
+    to {
+      height: 0;
+    }
+  }
+}
