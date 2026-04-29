@@ -18,6 +18,7 @@ const meta: Meta<typeof CheckboxGroup> = {
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
+    validationPlacement: { options: ['top', 'bottom'], control: { type: 'radio' } },
     disabled: { control: { type: 'boolean' } },
     contentWidth: { control: { type: 'text' } },
   },
@@ -110,6 +111,34 @@ export const Validation: Story = {
     validationText: 'Please pick two.',
     label: 'What are your two favourite animals?',
   },
+};
+
+export const ValidationPlacement: Story = {
+  name: 'Validation placement',
+  render: () => (
+    <Flex direction="column" gap="400">
+      <CheckboxGroup
+        label="Validation top (default)"
+        validationStatus="invalid"
+        validationText="Please select at least one option"
+        validationPlacement="top"
+      >
+        <CheckboxTile value="1" label="Bear" />
+        <CheckboxTile value="2" label="Koala" />
+        <CheckboxTile value="3" label="Wolf" />
+      </CheckboxGroup>
+      <CheckboxGroup
+        label="Validation bottom"
+        validationStatus="invalid"
+        validationText="Please select at least one option"
+        validationPlacement="bottom"
+      >
+        <CheckboxTile value="1" label="Bear" />
+        <CheckboxTile value="2" label="Koala" />
+        <CheckboxTile value="3" label="Wolf" />
+      </CheckboxGroup>
+    </Flex>
+  ),
 };
 
 export const ContentWidth: Story = {

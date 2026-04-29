@@ -20,6 +20,7 @@ const meta: Meta<typeof RadioGroup> = {
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
+    validationPlacement: { options: ['top', 'bottom'], control: { type: 'radio' } },
     contentWidth: { control: { type: 'text' } },
   },
   args: {
@@ -166,6 +167,38 @@ export const Validation: Story = {
       </RadioGroup>
     );
   },
+};
+
+export const ValidationPlacement: Story = {
+  name: 'Validation placement',
+  render: () => (
+    <Flex direction="column" gap="400">
+      <RadioGroup
+        label="Validation top (default)"
+        validationStatus="invalid"
+        validationText="Please select an option"
+        validationPlacement="top"
+        name="validation-placement-top"
+        contentWidth="fit-content"
+      >
+        <RadioTile value="1" label="Bear" />
+        <RadioTile value="2" label="Koala" />
+        <RadioTile value="3" label="Wolf" />
+      </RadioGroup>
+      <RadioGroup
+        label="Validation bottom"
+        validationStatus="invalid"
+        validationText="Please select an option"
+        validationPlacement="bottom"
+        name="validation-placement-bottom"
+        contentWidth="fit-content"
+      >
+        <RadioTile value="1" label="Bear" />
+        <RadioTile value="2" label="Koala" />
+        <RadioTile value="3" label="Wolf" />
+      </RadioGroup>
+    </Flex>
+  ),
 };
 
 export const Wrap: Story = {
