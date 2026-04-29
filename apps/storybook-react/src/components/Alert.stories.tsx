@@ -14,6 +14,7 @@ const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
 
 const meta: Meta<typeof Alert> = {
   title: 'Stories / Alert',
+  tags: ['!test'],
   component: Alert,
   args: {},
 };

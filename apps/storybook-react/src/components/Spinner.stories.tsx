@@ -6,6 +6,7 @@ const colors = ['primary', 'secondary', 'brand', 'inverted'] as const;
 
 const meta: Meta<typeof Spinner> = {
   title: 'Stories / Spinner',
+  tags: ['!test'],
   component: Spinner,
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },

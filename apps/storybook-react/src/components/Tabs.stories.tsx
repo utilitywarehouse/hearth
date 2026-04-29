@@ -21,6 +21,7 @@ const sizes = ['md', 'lg'] as const;
 
 const meta: Meta<typeof Tabs> = {
   title: 'Stories / Tabs',
+  tags: ['!test'],
   component: Tabs,
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },

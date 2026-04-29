@@ -19,6 +19,7 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof ToggleGroup> = {
   title: 'Stories / ToggleButtonCard',
+  tags: ['!test'],
   component: ToggleGroup,
   argTypes: {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },

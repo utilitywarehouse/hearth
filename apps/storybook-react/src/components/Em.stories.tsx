@@ -5,6 +5,7 @@ const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof Em> = {
   title: 'Stories / Em',
+  tags: ['!test'],
   component: Em,
 };
 

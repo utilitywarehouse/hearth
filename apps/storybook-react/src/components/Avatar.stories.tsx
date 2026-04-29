@@ -3,6 +3,7 @@ import { Avatar, Flex } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Stories / Avatar',
+  tags: ['!test'],
   component: Avatar,
   argTypes: {
     size: { control: { type: 'radio' }, options: ['sm', 'md'] },

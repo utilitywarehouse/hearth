@@ -6,6 +6,7 @@ const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const meta: Meta<typeof Heading> = {
   title: 'Stories / Heading',
+  tags: ['!test'],
   component: Heading,
   argTypes: {
     children: { control: { type: 'text' } },

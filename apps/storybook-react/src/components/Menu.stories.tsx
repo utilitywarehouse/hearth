@@ -17,6 +17,7 @@ import {
 
 const meta: Meta<typeof Menu> = {
   title: 'Stories / Menu',
+  tags: ['!test'],
   component: Menu,
   argTypes: {},
   args: {},

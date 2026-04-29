@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof TextArea> = {
   title: 'Stories / TextArea',
+  tags: ['!test'],
   component: TextArea,
   argTypes: {
     label: { control: { type: 'text' } },

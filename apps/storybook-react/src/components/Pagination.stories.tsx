@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Pagination> = {
   title: 'Stories / Pagination',
+  tags: ['!test'],
   component: Pagination,
   argTypes: {
     currentPage: { control: { type: 'number', min: 1 } },

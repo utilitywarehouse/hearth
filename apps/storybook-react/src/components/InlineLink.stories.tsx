@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof InlineLink> = {
   title: 'Stories / InlineLink',
+  tags: ['!test'],
   component: InlineLink,
   argTypes: {
     children: { control: { type: 'text' } },

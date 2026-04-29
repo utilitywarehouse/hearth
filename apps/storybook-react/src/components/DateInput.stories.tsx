@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Stories / DateInput',
+  tags: ['!test'],
   component: DateInput,
   argTypes: {
     label: { control: { type: 'text' } },

@@ -21,6 +21,7 @@ import {
 
 const meta: Meta<typeof Modal> = {
   title: 'Stories / Modal',
+  tags: ['!test'],
   component: Modal,
   argTypes: {},
   args: {

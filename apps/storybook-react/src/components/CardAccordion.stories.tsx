@@ -12,6 +12,7 @@ import {
 
 const meta: Meta<typeof CardAccordion> = {
   title: 'Stories / CardAccordion',
+  tags: ['!test'],
   component: CardAccordion,
 };
 

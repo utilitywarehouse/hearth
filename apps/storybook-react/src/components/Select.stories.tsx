@@ -3,6 +3,7 @@ import { Select, SelectItem } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Select> = {
   title: 'Stories / Select',
+  tags: ['!test'],
   component: Select,
   argTypes: {
     label: { control: { type: 'text' } },

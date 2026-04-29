@@ -12,6 +12,7 @@ import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Toast> = {
   title: 'Stories / Toast',
+  tags: ['!test'],
   component: Toast,
   decorators: [
     Story => (

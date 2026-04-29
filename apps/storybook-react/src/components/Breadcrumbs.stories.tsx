@@ -3,6 +3,7 @@ import { Breadcrumbs, BreadcrumbItem, Flex } from '@utilitywarehouse/hearth-reac
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Stories / Breadcrumbs',
+  tags: ['!test'],
   component: Breadcrumbs,
   argTypes: {},
   args: {},

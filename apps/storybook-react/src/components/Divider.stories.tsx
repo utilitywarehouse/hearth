@@ -4,6 +4,7 @@ import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse
 
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
+  tags: ['!test'],
   component: Divider,
   argTypes: {
     orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },

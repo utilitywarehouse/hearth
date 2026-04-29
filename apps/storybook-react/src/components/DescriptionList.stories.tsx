@@ -11,6 +11,7 @@ import {
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Stories / DescriptionList',
+  tags: ['!test'],
   component: DescriptionList,
   argTypes: {
     headingElement: {

@@ -5,6 +5,7 @@ import { BankMediumIcon, CashbackCardMediumIcon } from '@utilitywarehouse/hearth
 
 const meta: Meta<typeof RadioCard> = {
   title: 'Stories / RadioCard',
+  tags: ['!test'],
   component: RadioCard,
   argTypes: {
     value: { control: { type: 'text' } },

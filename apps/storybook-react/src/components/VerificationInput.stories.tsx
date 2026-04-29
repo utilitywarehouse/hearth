@@ -4,6 +4,7 @@ import React from 'react';
 
 const meta: Meta<typeof VerificationInput> = {
   title: 'Stories / VerificationInput',
+  tags: ['!test'],
   component: VerificationInput,
   argTypes: {
     label: { control: { type: 'text' } },

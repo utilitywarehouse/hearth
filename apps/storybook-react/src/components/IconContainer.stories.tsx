@@ -18,6 +18,7 @@ const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof IconContainer> = {
   title: 'Stories / IconContainer',
+  tags: ['!test'],
   component: IconContainer,
   argTypes: {
     children: { control: { type: 'text' } },

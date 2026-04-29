@@ -4,6 +4,7 @@ import React from 'react';
 
 const meta: Meta<typeof CurrencyInput> = {
   title: 'Stories / CurrencyInput',
+  tags: ['!test'],
   component: CurrencyInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

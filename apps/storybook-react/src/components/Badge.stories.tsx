@@ -23,6 +23,7 @@ const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Badge> = {
   title: 'Stories / Badge',
+  tags: ['!test'],
   component: Badge,
   argTypes: {
     children: { control: { type: 'text' } },

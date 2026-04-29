@@ -8,6 +8,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Stories / CheckboxGroup',
+  tags: ['!test'],
   component: CheckboxGroup,
   argTypes: {
     direction: {

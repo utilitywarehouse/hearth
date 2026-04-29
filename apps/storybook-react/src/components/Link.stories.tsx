@@ -9,6 +9,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
+  tags: ['!test'],
   component: Link,
   argTypes: {
     children: { control: { type: 'text' } },

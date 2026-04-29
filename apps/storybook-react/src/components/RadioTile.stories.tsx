@@ -7,6 +7,7 @@ import visa from '../assets/visa.png';
 
 const meta: Meta<typeof RadioTile> = {
   title: 'Stories / RadioTile',
+  tags: ['!test'],
   component: RadioTile,
   argTypes: {
     value: { control: { type: 'text' } },

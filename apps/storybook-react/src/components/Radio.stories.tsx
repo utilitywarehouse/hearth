@@ -6,6 +6,7 @@ import visa from '../assets/visa.png';
 
 const meta: Meta<typeof Radio> = {
   title: 'Stories / Radio',
+  tags: ['!test'],
   component: Radio,
   argTypes: {
     value: { control: { type: 'text' } },

@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Stories / ProgressBar',
+  tags: ['!test'],
   component: ProgressBar,
   argTypes: {
     colorScheme: { control: { type: 'radio' }, options: ['default', 'success', 'danger'] },

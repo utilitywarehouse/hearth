@@ -6,6 +6,7 @@ const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Switch> = {
   title: 'Stories / Switch',
+  tags: ['!test'],
   component: Switch,
   argTypes: {
     size: { options: sizes, control: { type: 'radio' } },

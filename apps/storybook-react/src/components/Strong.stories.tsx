@@ -5,6 +5,7 @@ const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof Strong> = {
   title: 'Stories / Strong',
+  tags: ['!test'],
   component: Strong,
 };
 

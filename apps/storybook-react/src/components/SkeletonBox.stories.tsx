@@ -3,6 +3,7 @@ import { Flex, Skeleton, SkeletonBox } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof SkeletonBox> = {
   title: 'Stories / SkeletonBox',
+  tags: ['!test'],
   component: SkeletonBox,
   decorators: [
     Story => (

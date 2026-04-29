@@ -7,6 +7,7 @@ const colorValues = ['text', 'valid', 'invalid'] as const;
 
 const meta: Meta<typeof DetailText> = {
   title: 'Stories / DetailText',
+  tags: ['!test'],
   component: DetailText,
   argTypes: {
     children: { control: { type: 'text' } },

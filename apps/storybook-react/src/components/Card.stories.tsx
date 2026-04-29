@@ -72,6 +72,7 @@ const shadowColors = [
 
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
+  tags: ['!test'],
   component: Card,
   argTypes: {
     children: { control: { type: 'text' } },

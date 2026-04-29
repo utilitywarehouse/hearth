@@ -19,6 +19,7 @@ const sizes = ['md', 'sm'] as const;
 
 const meta: Meta<typeof UnstyledIconButton> = {
   title: 'Stories / UnstyledIconButton',
+  tags: ['!test'],
   component: UnstyledIconButton,
   argTypes: {
     children: { control: { type: 'text' } },

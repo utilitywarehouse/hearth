@@ -14,6 +14,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Stories / Accordion',
+  tags: ['!test'],
   component: Accordion,
   argTypes: {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },

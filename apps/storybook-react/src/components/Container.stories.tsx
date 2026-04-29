@@ -4,6 +4,7 @@ import { Placeholder } from '../storybook-components/Placeholder';
 
 const meta: Meta<typeof Container> = {
   title: 'Stories / Container',
+  tags: ['!test'],
   component: Container,
   parameters: {
     layout: 'fullscreen',

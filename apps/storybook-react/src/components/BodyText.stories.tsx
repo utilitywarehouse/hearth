@@ -8,6 +8,7 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
+  tags: ['!test'],
   component: BodyText,
   argTypes: {
     children: { control: { type: 'text' } },

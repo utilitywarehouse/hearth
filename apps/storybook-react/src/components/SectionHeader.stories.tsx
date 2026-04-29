@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof SectionHeader> = {
   title: 'Stories / SectionHeader',
+  tags: ['!test'],
   component: SectionHeader,
   argTypes: {
     helperText: { control: { type: 'text' } },

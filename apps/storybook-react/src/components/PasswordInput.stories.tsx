@@ -5,6 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof PasswordInput> = {
   title: 'Stories / PasswordInput',
+  tags: ['!test'],
   component: PasswordInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

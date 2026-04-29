@@ -8,6 +8,7 @@ import {
   UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
+import { argosScreenshot } from '@argos-ci/storybook/vitest';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -16,6 +17,7 @@ const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
+  tags: ['!test'],
   component: Button,
   argTypes: {
     children: { control: { type: 'text' } },
@@ -443,11 +445,17 @@ export const PaddingNone: Story = {
 };
 
 export const Gallery: Story = {
+  tags: ['test'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
+  },
+  play: async ctx => {
+    // It captures a screenshot of the current story and uploads it to Argos
+    // See options at: https://argos-ci.com/docs/storybook
+    await argosScreenshot(ctx, 'button-gallery');
   },
   render: () => {
     const stories = {

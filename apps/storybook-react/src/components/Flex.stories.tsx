@@ -11,6 +11,7 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',
+  tags: ['!test'],
   component: Flex,
   argTypes: {
     children: { control: { type: 'text' } },

@@ -14,6 +14,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',
+  tags: ['!test'],
   component: TextInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

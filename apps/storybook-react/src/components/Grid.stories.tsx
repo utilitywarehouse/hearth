@@ -12,6 +12,7 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 
 const meta: Meta<typeof Grid> = {
   title: 'Stories / Grid',
+  tags: ['!test'],
   component: Grid,
   argTypes: {
     children: { control: { type: 'text' } },

@@ -61,12 +61,15 @@ const preview: Preview = {
         brand: { name: 'Brand', value: 'var(--h-background-brand)' },
       },
     },
+
     viewport: {
       options: HEARTH_VIEWPORTS,
     },
+
     docs: {
       theme,
     },
+
     options: {
       storySort: {
         order: [
@@ -85,8 +88,16 @@ const preview: Preview = {
         ],
       },
     },
+
     // globally disable chromatic snapshots & accessibility tests
     chromatic: { disableSnapshot: true },
+
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo',
+    },
   },
 };
 

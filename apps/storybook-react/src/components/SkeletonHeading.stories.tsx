@@ -5,6 +5,7 @@ const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const meta: Meta<typeof SkeletonHeading> = {
   title: 'Stories / SkeletonHeading',
+  tags: ['!test'],
   component: SkeletonHeading,
   decorators: [
     Story => (

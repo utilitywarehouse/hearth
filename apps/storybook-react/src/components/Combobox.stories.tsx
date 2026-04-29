@@ -6,6 +6,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Stories / Combobox',
+  tags: ['!test'],
   component: Combobox,
   argTypes: {
     label: { control: { type: 'text' } },

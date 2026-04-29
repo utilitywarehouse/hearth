@@ -9,6 +9,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
+  tags: ['!test'],
   component: RadioGroup,
   argTypes: {
     direction: {

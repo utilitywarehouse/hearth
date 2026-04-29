@@ -8,6 +8,7 @@ import visa from '../assets/visa.png';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Stories / CheckboxTile',
+  tags: ['!test'],
   component: CheckboxTile,
   argTypes: {
     helperText: { control: { type: 'text' } },

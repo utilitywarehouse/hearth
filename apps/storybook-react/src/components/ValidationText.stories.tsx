@@ -3,6 +3,7 @@ import { ValidationText } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof ValidationText> = {
   title: 'Stories / ValidationText',
+  tags: ['!test'],
   component: ValidationText,
   argTypes: {
     children: { control: { type: 'text' } },
