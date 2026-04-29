@@ -4,6 +4,33 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.28.0
+
+### Minor Changes
+
+- [#1178](https://github.com/utilitywarehouse/hearth/pull/1178) [`7452b83`](https://github.com/utilitywarehouse/hearth/commit/7452b83d5e3860f35fdf328825991f5e3e793aef) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING CHANGE]: `validationPlacement` prop removed from `DateInput`
+
+  This prop has been removed from the public API as it should not have been
+  exposed in the first place.
+
+  **Developer changes**:
+
+  Remove any `validationPlacement` usage from `DateInput`:
+
+  ```diff
+  - <DateInput validationPlacement="bottom" ... />
+  + <DateInput ... />
+  ```
+
+### Patch Changes
+
+- [#1174](https://github.com/utilitywarehouse/hearth/pull/1174) [`bc13e50`](https://github.com/utilitywarehouse/hearth/commit/bc13e50880eaaaddfeb8d44654cffb566927f832) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DatePickerTrigger` ref not forwarded to underlying button element
+
+- [#1179](https://github.com/utilitywarehouse/hearth/pull/1179) [`d9b40f6`](https://github.com/utilitywarehouse/hearth/commit/d9b40f61133e5b4b2946ea83eda7358f90f5f201) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Do not display the open icon in `AlertLink` as it clashes with the default icon
+
+  This change also removes the `hideOpenIcon` prop from `AlertLink` as it is no
+  longer needed.
+
 ## 0.27.14
 
 ### Patch Changes
