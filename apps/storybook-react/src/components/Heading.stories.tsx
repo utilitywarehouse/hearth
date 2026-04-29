@@ -5,7 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const meta: Meta<typeof Heading> = {
-  title: 'Stories / Heading',
+  title: 'Typography / Heading',
   component: Heading,
   argTypes: {
     children: { control: { type: 'text' } },

@@ -11,7 +11,7 @@ import {
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof CardAccordion> = {
-  title: 'Stories / CardAccordion',
+  title: 'Components / CardAccordion',
   component: CardAccordion,
 };
 

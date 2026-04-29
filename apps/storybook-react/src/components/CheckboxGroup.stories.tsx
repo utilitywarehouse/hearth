@@ -7,7 +7,7 @@ import { CheckboxGroup, Flex, CheckboxTile, Box } from '@utilitywarehouse/hearth
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof CheckboxGroup> = {
-  title: 'Stories / CheckboxGroup',
+  title: 'Components / CheckboxGroup',
   component: CheckboxGroup,
   argTypes: {
     direction: {

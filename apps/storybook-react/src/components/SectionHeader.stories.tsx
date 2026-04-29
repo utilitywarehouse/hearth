@@ -4,7 +4,7 @@ import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hear
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof SectionHeader> = {
-  title: 'Stories / SectionHeader',
+  title: 'Components / SectionHeader',
   component: SectionHeader,
   argTypes: {
     helperText: { control: { type: 'text' } },

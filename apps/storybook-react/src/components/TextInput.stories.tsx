@@ -13,7 +13,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 import { useForm, Controller } from 'react-hook-form';
 
 const meta: Meta<typeof TextInput> = {
-  title: 'Stories / TextInput',
+  title: 'Components / TextInput',
   component: TextInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

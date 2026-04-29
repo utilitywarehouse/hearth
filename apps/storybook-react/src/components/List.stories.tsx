@@ -26,7 +26,7 @@ import {
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof List> = {
-  title: 'Stories / List',
+  title: 'Components / List',
   component: List,
   argTypes: {
     variant: {

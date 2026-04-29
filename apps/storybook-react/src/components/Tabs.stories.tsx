@@ -20,7 +20,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const sizes = ['md', 'lg'] as const;
 
 const meta: Meta<typeof Tabs> = {
-  title: 'Stories / Tabs',
+  title: 'Components / Tabs',
   component: Tabs,
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },

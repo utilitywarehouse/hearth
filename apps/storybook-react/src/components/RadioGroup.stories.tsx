@@ -8,7 +8,7 @@ import { ThumbsUpSmallIcon, ThumbsDownSmallIcon } from '@utilitywarehouse/hearth
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Stories / RadioGroup',
+  title: 'Components / RadioGroup',
   component: RadioGroup,
   argTypes: {
     direction: {

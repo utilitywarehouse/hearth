@@ -2,6 +2,7 @@ import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GridItemProps } from '../../props/grid-item.props';
+import { LinkProps } from '../Link/Link.props';
 
 export interface AlertProps
   extends Omit<ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps, FlexItemProps, GridItemProps {
@@ -23,3 +24,5 @@ export interface AlertProps
    */
   onClose?: () => void;
 }
+
+export type AlertLinkProps = Omit<LinkProps, 'hideOpenIcon'>;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof DateInput> = {
-  title: 'Stories / DateInput',
+  title: 'Components / DateInput',
   component: DateInput,
   argTypes: {
     label: { control: { type: 'text' } },

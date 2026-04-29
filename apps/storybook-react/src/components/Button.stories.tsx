@@ -15,7 +15,7 @@ const solidColorSchemes = ['highlight', 'affirmative', 'destructive'] as const;
 const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 
 const meta: Meta<typeof Button> = {
-  title: 'Stories / Button',
+  title: 'Components / Button',
   component: Button,
   argTypes: {
     children: { control: { type: 'text' } },

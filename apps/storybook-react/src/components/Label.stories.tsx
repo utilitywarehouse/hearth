@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Label } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Label> = {
-  title: 'Stories / Label',
+  title: 'Typography / Label',
   component: Label,
   argTypes: {
     children: { control: { type: 'text' } },

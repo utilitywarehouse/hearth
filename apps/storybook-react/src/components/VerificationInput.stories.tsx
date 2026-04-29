@@ -3,7 +3,7 @@ import { VerificationInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof VerificationInput> = {
-  title: 'Stories / VerificationInput',
+  title: 'Components / VerificationInput',
   component: VerificationInput,
   argTypes: {
     label: { control: { type: 'text' } },

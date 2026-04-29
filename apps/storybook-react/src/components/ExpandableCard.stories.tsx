@@ -20,7 +20,7 @@ import {
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof ExpandableCard> = {
-  title: 'Stories / ExpandableCard',
+  title: 'Components / ExpandableCard',
   component: ExpandableCard,
   argTypes: {
     heading: { control: { type: 'text' } },

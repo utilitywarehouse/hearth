@@ -18,7 +18,7 @@ import { Placeholder } from '../storybook-components/Placeholder';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof ToggleGroup> = {
-  title: 'Stories / ToggleButtonCard',
+  title: 'Components / ToggleButtonCard',
   component: ToggleGroup,
   argTypes: {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },

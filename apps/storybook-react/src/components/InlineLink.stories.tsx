@@ -4,7 +4,7 @@ import { BodyText, Flex, InlineLink } from '@utilitywarehouse/hearth-react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof InlineLink> = {
-  title: 'Stories / InlineLink',
+  title: 'Typography / InlineLink',
   component: InlineLink,
   argTypes: {
     children: { control: { type: 'text' } },

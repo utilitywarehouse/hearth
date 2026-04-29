@@ -10,7 +10,7 @@ const solidColorSchemes = ['highlight', 'affirmative', 'destructive'] as const;
 const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 
 const meta: Meta<typeof IconButton> = {
-  title: 'Stories / IconButton',
+  title: 'Components / IconButton',
   component: IconButton,
   argTypes: {
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },

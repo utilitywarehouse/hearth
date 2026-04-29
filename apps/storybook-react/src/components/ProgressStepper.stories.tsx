@@ -11,7 +11,7 @@ import {
 import React from 'react';
 
 const meta: Meta<typeof ProgressStepper> = {
-  title: 'Stories / ProgressStepper',
+  title: 'Components / ProgressStepper',
   component: ProgressStepper,
   argTypes: {
     hideLabels: {

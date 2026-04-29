@@ -4,7 +4,7 @@ import React from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof SearchInput> = {
-  title: 'Stories / SearchInput',
+  title: 'Components / SearchInput',
   component: SearchInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

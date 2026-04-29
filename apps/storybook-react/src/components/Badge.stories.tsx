@@ -22,7 +22,7 @@ const colorSchemes = [
 const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Badge> = {
-  title: 'Stories / Badge',
+  title: 'Components / Badge',
   component: Badge,
   argTypes: {
     children: { control: { type: 'text' } },

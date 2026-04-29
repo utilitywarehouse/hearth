@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { HelperText } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof HelperText> = {
-  title: 'Stories / HelperText',
+  title: 'Typography / HelperText',
   component: HelperText,
   argTypes: {
     children: { control: { type: 'text' } },

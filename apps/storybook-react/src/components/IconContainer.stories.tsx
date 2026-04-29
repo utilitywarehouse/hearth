@@ -17,7 +17,7 @@ const colorSchemes = [...otherColorSchemes, ...subtleOnlyColorSchemes] as const;
 const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof IconContainer> = {
-  title: 'Stories / IconContainer',
+  title: 'Components / IconContainer',
   component: IconContainer,
   argTypes: {
     children: { control: { type: 'text' } },

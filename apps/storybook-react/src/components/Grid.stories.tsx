@@ -11,7 +11,7 @@ const borderColorValues = ['strong', 'subtle'] as const;
 const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof Grid> = {
-  title: 'Stories / Grid',
+  title: 'Layout / Grid',
   component: Grid,
   argTypes: {
     children: { control: { type: 'text' } },

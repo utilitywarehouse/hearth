@@ -13,7 +13,7 @@ import {
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Stories / Accordion',
+  title: 'Components / Accordion',
   component: Accordion,
   argTypes: {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },

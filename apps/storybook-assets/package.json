@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev --quiet -p 6010",
-    "dev:docs": "storybook dev -p 6005 --no-open --docs",
+    "dev:docs": "storybook dev -p 6005 --no-open",
     "generate": "node './scripts/generate-assets-utils.js'",
     "lint": "eslint .",
     "clean": "rm -rf node_modules storybook-static .turbo",

@@ -16,7 +16,7 @@ import {
 } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Menu> = {
-  title: 'Stories / Menu',
+  title: 'Components / Menu',
   component: Menu,
   argTypes: {},
   args: {},

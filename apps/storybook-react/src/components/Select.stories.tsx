@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Select, SelectItem } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Select> = {
-  title: 'Stories / Select',
+  title: 'Components / Select',
   component: Select,
   argTypes: {
     label: { control: { type: 'text' } },

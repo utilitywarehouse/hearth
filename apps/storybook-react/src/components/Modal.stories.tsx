@@ -20,7 +20,7 @@ import {
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
-  title: 'Stories / Modal',
+  title: 'Components / Modal',
   component: Modal,
   argTypes: {},
   args: {

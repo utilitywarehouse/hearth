@@ -3,7 +3,7 @@ import { CurrencyInput, Flex } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof CurrencyInput> = {
-  title: 'Stories / CurrencyInput',
+  title: 'Components / CurrencyInput',
   component: CurrencyInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },

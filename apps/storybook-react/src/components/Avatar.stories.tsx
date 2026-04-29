@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Avatar, Flex } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Avatar> = {
-  title: 'Stories / Avatar',
+  title: 'Components / Avatar',
   component: Avatar,
   argTypes: {
     size: { control: { type: 'radio' }, options: ['sm', 'md'] },

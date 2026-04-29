@@ -3,7 +3,7 @@ import { Container, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const meta: Meta<typeof Container> = {
-  title: 'Stories / Container',
+  title: 'Layout / Container',
   component: Container,
   parameters: {
     layout: 'fullscreen',

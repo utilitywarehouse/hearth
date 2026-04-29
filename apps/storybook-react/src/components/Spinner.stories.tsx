@@ -5,7 +5,7 @@ const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 const colors = ['primary', 'secondary', 'brand', 'inverted'] as const;
 
 const meta: Meta<typeof Spinner> = {
-  title: 'Stories / Spinner',
+  title: 'Components / Spinner',
   component: Spinner,
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },

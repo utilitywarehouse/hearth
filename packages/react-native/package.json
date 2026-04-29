@@ -21,7 +21,7 @@
     "test": "vitest run --config vitest.unit.config.ts",
     "test:storybook": "vitest run --project storybook",
     "dev": "npm run copy:changelog && storybook dev -p 6006",
-    "dev:docs": "storybook dev -p 6002 --no-open --docs",
+    "dev:docs": "storybook dev -p 6002 --no-open",
     "build:storybook": "npm run copy:changelog && storybook build",
     "build:storybook:docs": "npm run copy:changelog && storybook build --docs",
     "chromatic": "npx chromatic --project-token=chpt_cce0fb1ebd95d2a --build-script-name build:storybook"
