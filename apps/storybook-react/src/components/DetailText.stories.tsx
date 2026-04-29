@@ -6,7 +6,7 @@ const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
 const colorValues = ['text', 'valid', 'invalid'] as const;
 
 const meta: Meta<typeof DetailText> = {
-  title: 'Stories / DetailText',
+  title: 'Typography / DetailText',
   component: DetailText,
   argTypes: {
     children: { control: { type: 'text' } },

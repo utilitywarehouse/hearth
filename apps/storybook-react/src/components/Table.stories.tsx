@@ -16,7 +16,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const variants = [undefined, 'subtle', 'emphasis'] as const;
 
 const meta: Meta<typeof Table> = {
-  title: 'Stories / Table',
+  title: 'Components / Table',
   component: Table,
   argTypes: {
     variant: { control: { type: 'radio' }, options: variants },

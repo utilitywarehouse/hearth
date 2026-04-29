@@ -5,7 +5,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Switch> = {
-  title: 'Stories / Switch',
+  title: 'Components / Switch',
   component: Switch,
   argTypes: {
     size: { options: sizes, control: { type: 'radio' } },

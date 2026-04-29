@@ -7,7 +7,7 @@ import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
 
 const meta: Meta<typeof Checkbox> = {
-  title: 'Stories / Checkbox',
+  title: 'Components / Checkbox',
   component: Checkbox,
   argTypes: {
     helperText: { control: { type: 'text' } },

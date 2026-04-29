@@ -10,7 +10,7 @@ const borderColorValues = ['strong', 'subtle'] as const;
 const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof Flex> = {
-  title: 'Stories / Flex',
+  title: 'Layout / Flex',
   component: Flex,
   argTypes: {
     children: { control: { type: 'text' } },

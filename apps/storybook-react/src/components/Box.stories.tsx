@@ -11,7 +11,7 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 
 const meta: Meta<typeof Box> = {
-  title: 'Stories / Box',
+  title: 'Layout / Box',
   component: Box,
   argTypes: {
     children: { control: { type: 'text' } },

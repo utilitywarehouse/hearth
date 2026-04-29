@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Breadcrumbs, BreadcrumbItem, Flex } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Breadcrumbs> = {
-  title: 'Stories / Breadcrumbs',
+  title: 'Components / Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {},
   args: {},

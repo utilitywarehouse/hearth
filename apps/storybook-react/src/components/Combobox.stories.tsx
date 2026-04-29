@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
-  title: 'Stories / Combobox',
+  title: 'Components / Combobox',
   component: Combobox,
   argTypes: {
     label: { control: { type: 'text' } },

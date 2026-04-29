@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev --quiet -p 6006",
-    "dev:docs": "storybook dev -p 6004 --no-open --docs",
+    "dev:docs": "storybook dev -p 6004 --no-open",
     "format": "prettier --log-level=silent --write --parser=typescript \"utils/*.ts*\"",
     "generate": "node './scripts/generate-icons-utils.js'",
     "lint": "eslint .",

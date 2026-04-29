@@ -10,7 +10,7 @@ import {
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof DescriptionList> = {
-  title: 'Stories / DescriptionList',
+  title: 'Components / DescriptionList',
   component: DescriptionList,
   argTypes: {
     headingElement: {

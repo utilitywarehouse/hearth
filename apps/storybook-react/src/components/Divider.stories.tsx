@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Divider> = {
-  title: 'Stories / Divider',
+  title: 'Components / Divider',
   component: Divider,
   argTypes: {
     orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },

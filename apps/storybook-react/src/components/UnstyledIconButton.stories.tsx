@@ -18,7 +18,7 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const sizes = ['md', 'sm'] as const;
 
 const meta: Meta<typeof UnstyledIconButton> = {
-  title: 'Stories / UnstyledIconButton',
+  title: 'Components / UnstyledIconButton',
   component: UnstyledIconButton,
   argTypes: {
     children: { control: { type: 'text' } },

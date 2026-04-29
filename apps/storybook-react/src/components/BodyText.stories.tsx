@@ -7,7 +7,7 @@ const weights = ['regular', 'semibold', 'bold'] as const;
 const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof BodyText> = {
-  title: 'Stories / BodyText',
+  title: 'Typography / BodyText',
   component: BodyText,
   argTypes: {
     children: { control: { type: 'text' } },

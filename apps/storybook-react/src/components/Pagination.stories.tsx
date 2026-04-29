@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Pagination> = {
-  title: 'Stories / Pagination',
+  title: 'Components / Pagination',
   component: Pagination,
   argTypes: {
     currentPage: { control: { type: 'number', min: 1 } },

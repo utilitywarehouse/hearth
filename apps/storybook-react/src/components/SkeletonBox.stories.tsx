@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Skeleton, SkeletonBox } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof SkeletonBox> = {
-  title: 'Stories / SkeletonBox',
+  title: 'Components / Skeleton / SkeletonBox',
   component: SkeletonBox,
   decorators: [
     Story => (

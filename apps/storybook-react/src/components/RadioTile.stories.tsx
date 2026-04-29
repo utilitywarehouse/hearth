@@ -6,7 +6,7 @@ import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
 
 const meta: Meta<typeof RadioTile> = {
-  title: 'Stories / RadioTile',
+  title: 'Components / RadioGroup / RadioTile',
   component: RadioTile,
   argTypes: {
     value: { control: { type: 'text' } },

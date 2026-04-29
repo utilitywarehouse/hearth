@@ -4,7 +4,7 @@ import React from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'Stories / ProgressBar',
+  title: 'Components / ProgressBar',
   component: ProgressBar,
   argTypes: {
     colorScheme: { control: { type: 'radio' }, options: ['default', 'success', 'danger'] },

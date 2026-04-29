@@ -4,7 +4,7 @@ import { Box, Flex, Skeleton, SkeletonBodyText } from '@utilitywarehouse/hearth-
 const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof SkeletonBodyText> = {
-  title: 'Stories / SkeletonBodyText',
+  title: 'Components / Skeleton / SkeletonBodyText',
   component: SkeletonBodyText,
   decorators: [
     Story => (

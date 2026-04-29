@@ -4,7 +4,7 @@ import { RadioCard, Flex, RadioGroup, Badge, Box, Heading } from '@utilitywareho
 import { BankMediumIcon, CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof RadioCard> = {
-  title: 'Stories / RadioCard',
+  title: 'Components / RadioGroup / RadioCard',
   component: RadioCard,
   argTypes: {
     value: { control: { type: 'text' } },

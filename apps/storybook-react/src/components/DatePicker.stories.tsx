@@ -12,7 +12,7 @@ import {
 import React from 'react';
 
 const meta: Meta<typeof DatePicker> = {
-  title: 'Stories / DatePicker',
+  title: 'Components / DatePicker',
   component: DatePicker,
   argTypes: {
     disabled: { control: { type: 'boolean' } },

@@ -22,7 +22,7 @@ const headingColors = [
 ] as const;
 
 const meta: Meta<typeof HighlightBanner> = {
-  title: 'Stories / HighlightBanner',
+  title: 'Components / HighlightBanner',
   component: HighlightBanner,
   argTypes: {},
   args: {},

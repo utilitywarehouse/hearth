@@ -4,7 +4,7 @@ import { Box, Flex, Skeleton, SkeletonHeading } from '@utilitywarehouse/hearth-r
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const meta: Meta<typeof SkeletonHeading> = {
-  title: 'Stories / SkeletonHeading',
+  title: 'Components / Skeleton / SkeletonHeading',
   component: SkeletonHeading,
   decorators: [
     Story => (

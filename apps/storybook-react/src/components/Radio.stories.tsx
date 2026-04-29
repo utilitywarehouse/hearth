@@ -5,7 +5,7 @@ import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import visa from '../assets/visa.png';
 
 const meta: Meta<typeof Radio> = {
-  title: 'Stories / Radio',
+  title: 'Components / RadioGroup / Radio',
   component: Radio,
   argTypes: {
     value: { control: { type: 'text' } },

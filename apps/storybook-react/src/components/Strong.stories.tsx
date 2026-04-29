@@ -4,7 +4,7 @@ import { BodyText, Flex, Strong } from '@utilitywarehouse/hearth-react';
 const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof Strong> = {
-  title: 'Stories / Strong',
+  title: 'Typography / Strong',
   component: Strong,
 };
 

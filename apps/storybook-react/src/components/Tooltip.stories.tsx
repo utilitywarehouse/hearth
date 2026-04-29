@@ -10,7 +10,7 @@ import {
 import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Stories / Tooltip',
+  title: 'Components / Tooltip',
   component: Tooltip,
   decorators: [
     Story => (
