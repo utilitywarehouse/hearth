@@ -163,6 +163,57 @@ export const Playground: Story = {
   ),
 };
 
+export const Variant: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex gap="400" padding="400" wrap="wrap">
+      {variants.map(variant => (
+        <Card key={variant} variant={variant} colorScheme="neutralStrong" width="300px">
+          <BodyText size="md">
+            <strong>{variant}</strong>
+          </BodyText>
+        </Card>
+      ))}
+    </Flex>
+  ),
+};
+
+export const ColorScheme: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400" padding="400">
+      {colorSchemes.map(colorScheme => (
+        <Flex key={colorScheme} gap="400">
+          {variants.flatMap(variant => {
+            if (colorScheme === 'highlight' && variant === 'emphasis') return [];
+            return (
+              <Card
+                key={variant}
+                colorScheme={colorScheme}
+                variant={variant}
+                width="300px"
+              >
+                <BodyText
+                  size="md"
+                  inverted={colorScheme === 'brand' && variant === 'emphasis'}
+                >
+                  <strong>{colorScheme} / {variant}</strong>
+                </BodyText>
+              </Card>
+            );
+          })}
+        </Flex>
+      ))}
+    </Flex>
+  ),
+};
+
 export const ShadowColours: Story = {
   parameters: {
     controls: { disable: true },
@@ -1022,6 +1073,8 @@ export const Gallery: Story = {
   render: () => {
     const stories = {
       KitchenSink,
+      Variant,
+      ColorScheme,
       ShadowColours,
       InteractiveCards,
       SingleCardActionLink,

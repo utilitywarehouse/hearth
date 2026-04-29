@@ -12,6 +12,8 @@ Use Cards as containers for concise information about a single subject. They can
 
 - [Components](#components)
 - [Alternatives](#alternatives)
+- [Variant](#variant)
+- [Color Scheme](#color-scheme)
 - [Grouping related cards](#grouping-related-cards)
 - [Interactive Cards](#interactive-cards)
   - [Shadow colours](#shadow-colours)
@@ -35,6 +37,20 @@ Use Cards as containers for concise information about a single subject. They can
 ## Alternatives
 
 - <StorybookLink to="components-highlightbanner">HighlightBanner</StorybookLink> - For highlighting key information or marketing messaging
+
+## Variant
+
+The `variant` prop controls the visual weight of the card. Use `subtle` for a low-emphasis container and `emphasis` for a more prominent, filled appearance.
+
+<Canvas of={Stories.Variant} sourceState="hide" />
+
+## Color Scheme
+
+The `colorScheme` prop sets the colour family applied to the card surface. It works in combination with `variant` — `subtle` applies a light tint of the colour, while `emphasis` uses a stronger fill. All available colour schemes are shown below, each with both variants.
+
+> **Note:** The `highlight` colour scheme is only available with the `subtle` variant.
+
+<Canvas of={Stories.ColorScheme} sourceState="hide" />
 
 ## Grouping related cards
 
@@ -112,6 +128,8 @@ You can set a shadow on the `Card` component using the `shadowColor` prop.
 Shadows serve as a visual cue for interactivity. While interactive cards do not
 require a shadow, shadows should only be applied to cards that contain an
 action. Don't apply a shadow to a static card.
+
+> **Note:** Shadow colours should only be used with the `neutralStrong` or `neutralSubtle` colour schemes.
 
 <Canvas of={Stories.ShadowColours} sourceState="hide" />
 
