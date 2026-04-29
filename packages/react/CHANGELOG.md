@@ -1,5 +1,24 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.14
+
+### Patch Changes
+
+- [#1171](https://github.com/utilitywarehouse/hearth/pull/1171) [`2afd1bb`](https://github.com/utilitywarehouse/hearth/commit/2afd1bb3bba60e20be9c0f8edc2c35ac8c418002) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `ExpandableCard` component
+
+  ```tsx
+  <ExpandableCard
+    heading="Heading"
+    helperText="Helper text"
+    leadingIcon={<SettingsMediumIcon aria-hidden />}
+  >
+    <BodyText size="md">
+      This is the expandable content area. It can contain any content you need to show when the card
+      is expanded.
+    </BodyText>
+  </ExpandableCard>
+  ```
+
 ## 0.27.13
 
 ### Patch Changes
