@@ -11,6 +11,7 @@ import {
   Box,
 } from '@utilitywarehouse/hearth-react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
+import { useState } from 'react';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components / Accordion',
@@ -41,6 +42,23 @@ export const Playground: Story = {
           {[1, 2, 3, 4, 5, 6].map(n => (
             <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+};
+
+export const SEOFriendly: Story = {
+  args: { type: 'single', collapsible: true },
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent forceMount>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

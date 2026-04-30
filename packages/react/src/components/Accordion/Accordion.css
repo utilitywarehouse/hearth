@@ -77,7 +77,7 @@
   }
 
   & :where(.h-AccordionContent[data-state='closed']) {
-    animation: h-slide-up 200ms ease-out;
+    animation: h-slide-up 200ms ease-out forwards;
   }
 
   & :where(.h-AccordionContentText) {
