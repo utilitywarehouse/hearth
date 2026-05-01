@@ -25,26 +25,6 @@ const meta: Meta<typeof Menu> = {
 export default meta;
 type Story = StoryObj<typeof Menu>;
 
-export const SEOFriendly: Story = {
-  render: args => {
-    return (
-      <Menu {...args}>
-        <MenuTrigger>
-          <Button variant="outline" colorScheme="functional">
-            Menu trigger
-            <ExpandSmallIcon />
-          </Button>
-        </MenuTrigger>
-        <MenuContent forceMount>
-          <MenuItem>Item</MenuItem>
-          <MenuItem>Item</MenuItem>
-          <MenuItem>Item</MenuItem>
-        </MenuContent>
-      </Menu>
-    );
-  },
-};
-
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   args: { defaultOpen: true },
@@ -72,6 +52,26 @@ export const Playground: Story = {
             <TrashSmallIcon />
           </MenuItem>
           <MenuItem disabled>Disabled item</MenuItem>
+        </MenuContent>
+      </Menu>
+    );
+  },
+};
+
+export const SEOFriendly: Story = {
+  render: args => {
+    return (
+      <Menu {...args}>
+        <MenuTrigger>
+          <Button variant="outline" colorScheme="functional">
+            Menu trigger
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent forceMount>
+          <MenuItem>Item</MenuItem>
+          <MenuItem>Item</MenuItem>
+          <MenuItem>Item</MenuItem>
         </MenuContent>
       </Menu>
     );
