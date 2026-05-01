@@ -40,13 +40,13 @@ export const AccordionContent = forwardRef<AccordionContentElement, AccordionCon
         } else {
           // When forceMount is set, Radix's layout effect measures the element while it's
           // hidden (display:none), so getBoundingClientRect() returns 0. This corrupts
-          // --radix-collapsible-content-height, causing the h-slide-up animation to have
+          // --radix-accordion-content-height, causing the h-slide-up animation to have
           // no valid `from` height. This observer fires after layout effects but before
           // paint, so we can re-measure the real height, correct the property, and restart
           // the animation before the first frame renders.
           const h = node.getBoundingClientRect().height;
           if (h > 0) {
-            node.style.setProperty('--radix-collapsible-content-height', `${h}px`);
+            node.style.setProperty('--radix-accordion-content-height', `${h}px`);
             // Cancel and restart the animation so it picks up the corrected property.
             // The forced reflow between 'none' and '' commits the cancelled state before
             // the browser starts the fresh animation.
