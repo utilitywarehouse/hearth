@@ -5,14 +5,6 @@
   flex-direction: column;
 }
 
-.h-MenuContentPortal {
-  &:where([data-radix-popper-content-wrapper][data-force-mount='true']):has(
-      .h-MenuContent[data-state='closed']
-    ) {
-    border: 1px solid red;
-  }
-}
-
 .h-MenuContent {
   min-width: var(--h-menu-min-width);
   max-width: var(--h-menu-max-width);
