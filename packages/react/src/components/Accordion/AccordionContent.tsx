@@ -14,10 +14,6 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionContentElement = ComponentRef<'div'>;
 
-// Matches the h-slide-up animation duration (200ms) plus a small buffer.
-// Used as a fallback when animationend never fires (e.g. prefers-reduced-motion).
-const ANIMATION_FALLBACK_MS = 250;
-
 export const AccordionContent = forwardRef<AccordionContentElement, AccordionContentProps>(
   ({ className, children, forceMount, ...props }, ref) => {
     const internalRef = useRef<AccordionContentElement>(null);
@@ -38,6 +34,15 @@ export const AccordionContent = forwardRef<AccordionContentElement, AccordionCon
         if (node.dataset.state === 'open') {
           node.hidden = false;
         } else {
+          // The h-slide-up keyframes are only defined inside
+          // @media (prefers-reduced-motion: no-preference) (see Accordion.css).
+          // When reduced motion is preferred the animation never runs, so
+          // animationend never fires — hide immediately instead of waiting.
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            node.hidden = true;
+            return;
+          }
+
           // When forceMount is set, Radix's layout effect measures the element while it's
           // hidden (display:none), so getBoundingClientRect() returns 0. This corrupts
           // --radix-accordion-content-height, causing the h-slide-up animation to have
@@ -55,6 +60,14 @@ export const AccordionContent = forwardRef<AccordionContentElement, AccordionCon
             node.style.animationName = '';
           }
 
+          // Derive the fallback timeout from the computed animation duration so it
+          // stays in sync if the CSS duration ever changes, rather than hardcoding it.
+          const durationStr = getComputedStyle(node).animationDuration;
+          const durationMs = durationStr.endsWith('ms')
+            ? parseFloat(durationStr)
+            : parseFloat(durationStr) * 1000;
+          const fallbackMs = Number.isFinite(durationMs) && durationMs > 0 ? durationMs + 50 : 250;
+
           // eslint-disable-next-line prefer-const
           let timer: ReturnType<typeof setTimeout>;
           const onAnimationEnd = (e: AnimationEvent) => {
@@ -68,7 +81,7 @@ export const AccordionContent = forwardRef<AccordionContentElement, AccordionCon
           timer = setTimeout(() => {
             node.removeEventListener('animationend', onAnimationEnd);
             node.hidden = true;
-          }, ANIMATION_FALLBACK_MS);
+          }, fallbackMs);
 
           pendingCleanup = () => {
             clearTimeout(timer);

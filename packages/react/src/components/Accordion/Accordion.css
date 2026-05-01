@@ -72,12 +72,14 @@
     overflow: hidden;
   }
 
-  & :where(.h-AccordionContent[data-state='open']) {
-    animation: h-slide-down 200ms ease-out;
-  }
+  @media (prefers-reduced-motion: no-preference) {
+    & :where(.h-AccordionContent[data-state='open']) {
+      animation: h-slide-down 200ms ease-out;
+    }
 
-  & :where(.h-AccordionContent[data-state='closed']) {
-    animation: h-slide-up 200ms ease-out forwards;
+    & :where(.h-AccordionContent[data-state='closed']) {
+      animation: h-slide-up 200ms ease-out forwards;
+    }
   }
 
   & :where(.h-AccordionContentText) {
