@@ -11,7 +11,6 @@ import {
   Box,
 } from '@utilitywarehouse/hearth-react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
-import { useState } from 'react';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components / Accordion',
