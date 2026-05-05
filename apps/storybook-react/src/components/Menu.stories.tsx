@@ -58,6 +58,26 @@ export const Playground: Story = {
   },
 };
 
+export const SEOFriendly: Story = {
+  render: args => {
+    return (
+      <Menu {...args}>
+        <MenuTrigger>
+          <Button variant="outline" colorScheme="functional">
+            Menu trigger
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent forceMount>
+          <MenuItem>Item</MenuItem>
+          <MenuItem>Item</MenuItem>
+          <MenuItem>Item</MenuItem>
+        </MenuContent>
+      </Menu>
+    );
+  },
+};
+
 export const IconButtonTrigger: Story = {
   render: args => {
     return (

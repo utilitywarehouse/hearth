@@ -1,5 +1,43 @@
 # @utilitywarehouse/hearth-react
 
+## 0.28.1
+
+### Patch Changes
+
+- [#1185](https://github.com/utilitywarehouse/hearth/pull/1185) [`7393005`](https://github.com/utilitywarehouse/hearth/commit/73930057f6aceb8c46e8ed0ccc9e05bbe2c5e230) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `forceMount` support for `AccordionContent` and `MenuContent`
+
+  When `forceMount` is set, content remains in the DOM at all times — making it
+  indexable by search engine crawlers — while still being hidden from view and the
+  accessibility tree when closed.
+
+  **Components affected**:
+  - `AccordionContent`
+  - `MenuContent`
+
+  **Developer changes**:
+
+  No changes required. Pass `forceMount` to opt in:
+
+  ```tsx
+  <Accordion>
+    <AccordionItem value="item-1">
+      <AccordionTrigger>Trigger</AccordionTrigger>
+      <AccordionContent forceMount>Content</AccordionContent>
+    </AccordionItem>
+  </Accordion>
+  ```
+
+  ```tsx
+  <Menu>
+    <MenuTrigger>
+      <Button>Open</Button>
+    </MenuTrigger>
+    <MenuContent forceMount>
+      <MenuItem>Item</MenuItem>
+    </MenuContent>
+  </Menu>
+  ```
+
 ## 0.28.0
 
 ### Minor Changes

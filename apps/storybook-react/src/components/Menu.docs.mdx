@@ -142,6 +142,25 @@ to manage focus movement among menu items.
   ))}
 </Flex>
 
+## SEO
+
+By default, `MenuContent` is removed from the DOM when the menu is closed, which
+means search engines may not index its content. If the menu items are important
+for SEO — for example, primary navigation links — use the `forceMount` prop on
+`MenuContent` to keep them in the DOM at all times.
+
+When `forceMount` is set, the closed menu is hidden from view and the
+accessibility tree using the `hidden` attribute, so it has no impact on the
+visual layout or screen reader experience.
+
+```tsx
+<MenuContent forceMount>
+  <MenuItem>Item</MenuItem>
+</MenuContent>
+```
+
+<Canvas of={Stories.SEOFriendly} />
+
 ## Menu API
 
 | Prop           | Type                      |

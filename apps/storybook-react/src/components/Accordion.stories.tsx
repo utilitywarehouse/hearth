@@ -49,6 +49,23 @@ export const Playground: Story = {
   },
 };
 
+export const SEOFriendly: Story = {
+  args: { type: 'single', collapsible: true },
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent forceMount>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+};
+
 export const CustomItemHeader: Story = {
   render: () => {
     return (
