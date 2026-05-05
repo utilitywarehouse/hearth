@@ -2,42 +2,66 @@
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
     "build": {
-      "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
-      "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!**/*.stories.{tsx,jsx,mdx}",
+        "!**/*.figma.tsx",
+        "!**/figma-code-connect/**",
+        "!figma.config.json",
+        "!scripts/generate-figma-code-connect.cjs"
+      ],
+      "outputs": ["dist/**", "build/**", "**/*.css"],
       "dependsOn": ["^build"]
     },
+    "copy:tokens": {
+      "inputs": ["../tokens/css/**/*.css"],
+      "outputs": ["src/styles/tokens/**"]
+    },
+    "copy:tokens:index": {
+      "cache": false,
+      "dependsOn": ["copy:tokens"]
+    },
     "build:react": {
-      "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
-      "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
-      "dependsOn": ["^build:react"]
+      "outputs": ["dist/**", "build/**", "**/*.css"],
+      "dependsOn": ["^build", "build"]
     },
     "build:icons": {
       "outputs": ["dist/**"]
     },
+    "build:storybook": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build", "build"]
+    },
+    "build:storybook:docs": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build", "build"]
+    },
+    "build:storybook:react": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build", "build"]
+    },
     "checks": {
-      "outputs": []
+      "outputs": [],
+      "dependsOn": ["format", "lint:fix"]
     },
     "checks:ci": {
-      "outputs": []
+      "outputs": [],
+      "dependsOn": ["format:ci", "lint:fix"]
     },
     "checks:build": {
       "outputs": ["dist/**"]
     },
-    "format": {
-      "dependsOn": ["^format"],
-      "outputs": []
-    },
-    "format:ci": {
-      "dependsOn": ["^format:ci"],
-      "outputs": []
-    },
     "lint": {
-      "dependsOn": ["^lint"],
-      "outputs": []
+      "dependsOn": ["^build"]
     },
     "lint:fix": {
-      "dependsOn": ["^lint:fix"],
-      "outputs": []
+      "dependsOn": ["^build"]
+    },
+    "format": {
+      "dependsOn": ["^build"]
+    },
+    "format:ci": {
+      "dependsOn": ["^build"]
     },
     "dev": {
       "cache": false,
@@ -65,18 +89,6 @@
     },
     "dev:docs": {
       "cache": false
-    },
-    "build:storybook": {
-      "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build"]
-    },
-    "build:storybook:docs": {
-      "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build"]
-    },
-    "build:storybook:react": {
-      "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build:react"]
     },
     "generate": {
       "cache": false
@@ -106,9 +118,6 @@
       "cache": false
     },
     "copy:changelog": {
-      "cache": false
-    },
-    "copy-tokens-index": {
       "cache": false
     },
     "gen:color-tokens": {

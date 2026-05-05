@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf node_modules storybook-static .turbo",
     "dev": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
