@@ -1,5 +1,5 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { createRequire } from "node:module";
+import { createRequire } from 'node:module';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { dirname, join } from 'path';
 
@@ -10,7 +10,7 @@ function getAbsolutePath(value: string): any {
 }
 
 const config: StorybookConfig = {
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.tsx', '../stories/**/*.stories.ts'],
+  stories: ['../**/*.docs.mdx', '../**/*.stories.tsx'],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@chromatic-com/storybook'),
