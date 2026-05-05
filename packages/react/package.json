@@ -26,8 +26,10 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css",
     "build": "pnpm build:css && pnpm build:js",
-    "build:breakpoints": "cp ./src/styles/breakpoints.css ./breakpoints.css",
-    "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm build:breakpoints",
+    "copy:breakpoints": "cp ./src/styles/breakpoints.css ./breakpoints.css",
+    "copy:tokens": "rm -rf ./src/styles/tokens && mkdir -p ./src/styles/tokens && cp -r ../tokens/css/* ./src/styles/tokens",
+    "copy:tokens:index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
+    "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm copy:breakpoints",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
@@ -41,8 +43,7 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "figma:publish": "figma connect publish",
-    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css"
+    "figma:publish": "figma connect publish"
   },
   "publishConfig": {
     "access": "restricted"
