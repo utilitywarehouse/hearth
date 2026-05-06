@@ -34,7 +34,6 @@ const config: StorybookConfig = {
     options: {},
   },
   features: {
-    // componentsManifest: true,
     changeDetection: true,
     experimentalComponentsManifest: true,
   },
