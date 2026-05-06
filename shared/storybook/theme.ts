@@ -4,43 +4,8 @@ import logo from './assets/logo.svg';
 
 export default create({
   base: 'light',
-  // Typography
-  fontBase: '"DM Sans", sans-serif',
-  fontCode: '"DM Mono", monospace',
-
   brandTitle: 'Hearth Design Systems',
   brandUrl: 'https://hearth.prod.uw.systems/',
   brandImage: logo,
   brandTarget: '_self',
-
-  colorPrimary: '#FAAF00',
-  colorSecondary: '#7A42C8',
-
-  // UI
-  appBg: '#7A42C8',
-  appHoverBg: '#5c2ca9',
-  appContentBg: '#fcfbf2',
-  appPreviewBg: '#fcfbf2',
-  appBorderColor: '#101010',
-  appBorderRadius: 4,
-
-  buttonBg: '#FAAF00',
-  buttonBorder: '#101010',
-
-  // Text colors
-  textColor: '#101010',
-  textInverseColor: '#fcfbf2',
-  textMutedColor: '#9E9E9E',
-
-  // Toolbar default and active colors
-  barTextColor: '#9E9E9E',
-  barSelectedColor: '#585C6D',
-  barHoverColor: '#585C6D',
-  barBg: '#fcfbf2',
-
-  // Form colors
-  inputBg: '#fcfbf2',
-  inputBorder: '#10162F',
-  inputTextColor: '#10162F',
-  inputBorderRadius: 2,
 });

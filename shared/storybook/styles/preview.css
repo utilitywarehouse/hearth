@@ -11,13 +11,12 @@ html {
   padding: 20px;
 }
 
-input:focus-visible {
-  outline: none;
-  box-shadow: 0;
+.sbdocs-a {
+  text-decoration: underline !important;
 }
 
-body {
-  background: var(--h-background-primary);
+.sbdocs-a:hover {
+  text-decoration: none !important;
 }
 
 p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p, [class^='h-']),
@@ -27,59 +26,25 @@ li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, [class^='h-']) {
 }
 
 .docblock-source,
-.docs-story,
 .sbdocs-preview {
-  background-color: var(--h-background-primary) !important;
   border-color: var(--h-border-strong) !important;
+  border-width: var(--h-border-width-1) !important;
   border-radius: var(--h-border-radius-md) !important;
   box-shadow: none !important;
 }
 
 .docblock-source {
-  margin: var(--h-space-300) 0 !important;
-  background: var(--h-color-warm-white-200) !important;
+  background-color: var(--h-background-primary) !important;
 }
 
 code {
   background-color: var(--h-color-grey-100) !important;
   color: var(--h-text-primary) !important;
-  border: 1px solid var(--h-color-grey-100) !important;
 }
 
 .docblock-argstable {
   border-collapse: collapse;
   filter: none !important;
-}
-
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .h-Table table)) tr,
-.docblock-argstable-body tr td {
-  background-color: var(--h-color-warm-white-200) !important;
-}
-
-thead th:not(.h-TableHeaderCell) {
-  background-color: var(--h-background-brand) !important;
-  color: var(--h-text-inverted) !important;
-}
-
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .h-Table table)) tr:nth-of-type(2n),
-.docblock-argstable-body tr:nth-of-type(2n) td {
-  background-color: var(--h-color-warm-white-50) !important;
-}
-
-.docblock-argstable-head th {
-  border-top: var(--h-border-width-1) solid var(--h-border-strong) !important;
-}
-
-.docblock-argstable-head th:first-of-type {
-  border-left: var(--h-border-width-1) solid var(--h-border-strong) !important;
-}
-
-.docblock-argstable-head th:last-of-type {
-  border-right: var(--h-border-width-1) solid var(--h-border-strong) !important;
-}
-
-button[aria-label='Reset controls'] {
-  color: var(--h-text-inverted) !important;
 }
 
 #storybook-docs h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-']),
@@ -90,8 +55,6 @@ button[aria-label='Reset controls'] {
 #storybook-docs h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   font-family: var(--h-font-family-heading), serif !important;
   font-weight: var(--h-font-weight-bold) !important;
-  border-bottom: none;
-  padding: 0 !important;
 }
 
 #storybook-docs h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-'], #error-message) {
@@ -99,16 +62,19 @@ button[aria-label='Reset controls'] {
   line-height: var(--h-heading-xl-line-height-desktop);
   margin-bottom: var(--h-space-400);
 }
+
 #storybook-docs h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, [class^='h-']) {
   font-size: var(--h-heading-lg-font-size-desktop);
   line-height: var(--h-heading-lg-line-height-desktop);
   margin-bottom: var(--h-space-300);
 }
+
 #storybook-docs h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, [class^='h-']) {
   font-size: var(--h-heading-md-font-size-desktop);
   line-height: var(--h-heading-md-line-height-desktop);
   margin-bottom: var(--h-space-200);
 }
+
 #storybook-docs h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']) {
   font-size: var(--h-heading-sm-font-size-desktop);
   line-height: var(--h-heading-sm-line-height-desktop);
