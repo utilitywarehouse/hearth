@@ -26,10 +26,17 @@ const config: StorybookConfig = {
       },
     },
     getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-mcp'),
+    ,
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
+  },
+  features: {
+    // componentsManifest: true,
+    changeDetection: true,
+    experimentalComponentsManifest: true,
   },
   async viteFinal(config) {
     return config;
