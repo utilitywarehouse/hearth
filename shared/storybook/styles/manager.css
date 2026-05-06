@@ -9,6 +9,8 @@
 #storybook-explorer-tree .sidebar-item button,
 #storybook-explorer-tree .sidebar-item a,
 .sidebar-subheading button {
+  margin-top: 4px !important;
+  align-items: center !important;
   & div {
     margin-top: 4px !important;
     align-items: stretch !important;
