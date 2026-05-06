@@ -1,9 +1,9 @@
 import { Preview } from '@storybook/react-vite';
+import theme from '../../../shared/storybook/theme';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';
-import theme from '../../../shared/storybook/theme';
 
 const HEARTH_VIEWPORTS = {
   mobile: {
@@ -50,17 +50,9 @@ const preview: Preview = {
     },
   },
   initialGlobals: {
-    backgrounds: { value: 'primary' },
     viewport: { value: 'reset' },
   },
   parameters: {
-    backgrounds: {
-      options: {
-        primary: { name: 'Primary', value: 'var(--h-background-primary)' },
-        secondary: { name: 'Secondary', value: 'var(--h-background-secondary)' },
-        brand: { name: 'Brand', value: 'var(--h-background-brand)' },
-      },
-    },
     viewport: {
       options: HEARTH_VIEWPORTS,
     },
