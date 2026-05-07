@@ -1,5 +1,3 @@
-import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-react/styles.css';
 import { addons, type State } from 'storybook/manager-api';
 import '../../../shared/storybook/styles/manager.css';
 import theme from '../../../shared/storybook/theme';
