@@ -1,6 +1,6 @@
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
-import { addons } from 'storybook/manager-api';
+import { addons, type State } from 'storybook/manager-api';
 import '../../../shared/storybook/styles/manager.css';
 import theme from '../../../shared/storybook/theme';
 
@@ -113,11 +113,13 @@ bootstrapComposedPreviewIframeFix();
 
 addons.setConfig({
   theme,
-  showToolbar: false,
-  navSize: 300,
+  layoutCustomisations: {
+    showToolbar(state: State, defaultValue: boolean) {
+      return state.viewMode === 'docs' ? false : defaultValue;
+    },
+  },
   sidebar: {
     showRoots: true,
-    collapsedRoots: ['react_common-props', 'react_responsive-design'],
   },
 });
 
