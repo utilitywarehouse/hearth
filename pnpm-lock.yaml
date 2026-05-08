@@ -261,8 +261,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-svg-assets':
-        specifier: ^0.6.1
-        version: 0.6.1
+        specifier: workspace:*
+        version: link:../../packages/svg-assets
       lottie-react:
         specifier: ^2.4.1
         version: 2.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -5798,9 +5798,6 @@ packages:
     resolution: {integrity: sha512-TQMCz2pFJMfpNxmSfX1VSfTjwUIFx/mL+p1bnfM1xjjdla7Z+KnGMW/EhFbpckp3LyWAH4PgOsMwOMnIN+MBFg==}
     peerDependencies:
       '@urql/core': ^5.0.0
-
-  '@utilitywarehouse/hearth-svg-assets@0.6.1':
-    resolution: {integrity: sha512-pKDqt4LkJV0sdcRxpphQ6rU0c4FDYRQbG1X6oM0aJ0YAFo/uB9/Q57Rm77JcgX50SLH1l61ZVy8M6HFh3o/wYw==}
 
   '@utilitywarehouse/prettier-config@0.1.4':
     resolution: {integrity: sha512-lB59xchPIuxJGm30RXFaYfNZ+7a6LwnUobWac9AdBasJLbYsMphWHpAyDtv3n+b27LRU/T7a+6tX8q+cKTzJ5w==}
@@ -19219,8 +19216,6 @@ snapshots:
     dependencies:
       '@urql/core': 5.2.0(graphql@16.8.1)
       wonka: 6.3.5
-
-  '@utilitywarehouse/hearth-svg-assets@0.6.1': {}
 
   '@utilitywarehouse/prettier-config@0.1.4': {}
 

@@ -15,7 +15,7 @@
     "@mui/material": "^6.4.0",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
-    "@utilitywarehouse/hearth-svg-assets": "^0.6.1",
+    "@utilitywarehouse/hearth-svg-assets": "workspace:*",
     "@utilitywarehouse/hearth-json-assets": "workspace:*",
     "lottie-react": "^2.4.1",
     "next": "15.5.10",
