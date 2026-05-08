@@ -3,7 +3,10 @@ import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../../../shared/storybook/styles/preview.css';
 import '../docs/fonts.css';
-import theme from '../../../shared/storybook/theme';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 const closeStories = (delay: number = 0) => {
   // Close Stories menu if open

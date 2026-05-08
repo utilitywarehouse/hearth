@@ -1,9 +1,9 @@
 import { addons } from 'storybook/manager-api';
-import '@utilitywarehouse/hearth-css-reset';
-import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
-import theme from '../../../shared/storybook/theme';
 import '../../../shared/storybook/styles/manager.css';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 addons.setConfig({
   panelPosition: 'right',

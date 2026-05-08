@@ -602,9 +602,6 @@ importers:
       '@storybook/react-vite':
         specifier: ^10.1.8
         version: 10.2.0(esbuild@0.27.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.57.0)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(typescript@5.6.3)(vite@7.3.1(@types/node@22.19.7)(lightningcss@1.31.1)(terser@5.46.0)(yaml@2.8.2))(webpack@5.104.1(esbuild@0.27.2))
-      '@storybook/theming':
-        specifier: ^8.6.14
-        version: 8.6.14(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@types/react':
         specifier: ^19.1.8
         version: 19.1.17
@@ -5080,11 +5077,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  '@storybook/theming@8.6.14':
-    resolution: {integrity: sha512-r4y+LsiB37V5hzpQo+BM10PaCsp7YlZ0YcZzQP1OCkPlYXmUAFy2VvDKaFRpD8IeNPKug2u4iFm/laDEbs03dg==}
-    peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
 
   '@svgr/babel-plugin-add-jsx-attribute@7.0.0':
     resolution: {integrity: sha512-khWbXesWIP9v8HuKCl2NU2HNAyqpSQ/vkIl36Nbn4HIwEYSRWL0H7Gs6idJdha2DkpFDWlsqMELvoCE8lfFY6Q==}
@@ -18254,10 +18246,6 @@ snapshots:
       typescript: 5.9.2
     transitivePeerDependencies:
       - supports-color
-
-  '@storybook/theming@8.6.14(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
-    dependencies:
-      storybook: 10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
 
   '@svgr/babel-plugin-add-jsx-attribute@7.0.0(@babel/core@7.26.10)':
     dependencies:

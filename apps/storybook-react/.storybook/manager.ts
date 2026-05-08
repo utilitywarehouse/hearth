@@ -1,6 +1,9 @@
 import { addons, type State } from 'storybook/manager-api';
-import theme from '../../../shared/storybook/theme';
 import '../../../shared/storybook/styles/manager.css';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 addons.setConfig({
   theme,

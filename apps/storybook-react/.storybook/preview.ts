@@ -1,9 +1,12 @@
 import { Preview } from '@storybook/react-vite';
-import theme from '../../../shared/storybook/theme';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 const HEARTH_VIEWPORTS = {
   mobile: {
