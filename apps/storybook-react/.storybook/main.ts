@@ -2,6 +2,7 @@ import { createRequire } from 'node:module';
 import { dirname } from 'node:path';
 import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
+import { InlineConfig } from 'vite';
 
 const require = createRequire(import.meta.url);
 
@@ -36,21 +37,11 @@ const config: StorybookConfig = {
     changeDetection: true,
     experimentalComponentsManifest: true,
   },
-  async viteFinal(config) {
+  viteFinal: async (config: InlineConfig) => {
     return {
       ...config,
-      build: {
-        ...config.build,
-        rollupOptions: {
-          ...config.build?.rollupOptions,
-          // This tells Vite "don't try to bundle this, it will be provided at runtime"
-          external: [
-            ...(Array.isArray(config.build?.rollupOptions?.external)
-              ? config.build.rollupOptions.external
-              : []),
-            '@storybook/theming',
-          ],
-        },
+      optimizeDeps: {
+        include: ['@storybook/theming'],
       },
     };
   },

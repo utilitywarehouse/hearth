@@ -1,5 +1,5 @@
-import { fileURLToPath } from "node:url";
-import { dirname } from "node:path";
+import { fileURLToPath } from 'node:url';
+import { dirname } from 'node:path';
 import remarkGfm from 'remark-gfm';
 import svgr from 'vite-plugin-svgr';
 
@@ -14,9 +14,9 @@ const unistylesPluginOptions = {
 const config = {
   stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    getAbsolutePath("@chromatic-com/storybook"),
+    getAbsolutePath('@chromatic-com/storybook'),
     {
-      name: getAbsolutePath("@storybook/addon-docs"),
+      name: getAbsolutePath('@storybook/addon-docs'),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -25,11 +25,11 @@ const config = {
         },
       },
     },
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-vitest"),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-vitest'),
   ],
   framework: {
-    name: getAbsolutePath("@storybook/react-native-web-vite"),
+    name: getAbsolutePath('@storybook/react-native-web-vite'),
     options: {
       pluginReactOptions: {
         babel: {
@@ -70,6 +70,7 @@ const config = {
       optimizeDeps: {
         ...config.optimizeDeps,
         exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
+        include: ['@storybook/theming'],
       },
     };
   },
