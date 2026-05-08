@@ -1,4 +1,4 @@
-import { create } from 'storybook/theming';
+import { create } from '@storybook/theming';
 // @ts-expect-error - logo is not a module
 import logo from './assets/logo.svg';
 
