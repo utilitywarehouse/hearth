@@ -20,36 +20,29 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: 🏗 Setup pnpm
-        uses: pnpm/action-setup@8912a9102ac27614460f54aedde9e1e7f9aec20d # v6.0.5
+      - uses: pnpm/action-setup@8912a9102ac27614460f54aedde9e1e7f9aec20d # v6.0.5
         with:
-          version: 11.0.8
-
-      - name: 🏗 Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+          version: 11.0.5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           # Check out the PR's head branch with full history
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           fetch-depth: 0 # Fetch all history for accurate merging
-
-      - name: 🏗 Setup Node
-        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-
-      - name: 📦 Install dependencies
-        run: pnpm install --frozen-lockfile
+      - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
-      - name: 🏗 Build Design Tokens
+      - name: Build Design Tokens
         working-directory: ./packages/tokens
         run: pnpm build
 
-      - name: 📝 Commit Built Files
+      - name: Commit Built Files
         run: |
           git config --global user.name 'UW Design Systems Bot'
           git config --global user.email 'design-systems@uw.co.uk'
@@ -60,7 +53,7 @@ jobs:
             git commit -m 'Build design tokens output'
           fi
 
-      - name: 🚀 Push Changes
+      - name: Push Changes
         run: |
           # Pull latest changes from the remote branch
           git pull origin ${{ github.event.pull_request.head.ref }}

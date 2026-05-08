@@ -6,7 +6,7 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@11.0.8 --activate && pnpm install",
+    "setup": "corepack enable && corepack prepare pnpm@11.0.5 --activate && pnpm install",
     "refresh:react": "pnpm clean && pnpm install && pnpm run build:react",
     "clean": "turbo run clean --concurrency=20 && rm -rf node_modules",
     "build": "turbo run build",
@@ -51,10 +51,10 @@
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "11.0.8"
+    "pnpm": "11.0.5"
   },
   "prettier": "@utilitywarehouse/prettier-config",
-  "packageManager": "pnpm@11.0.8+sha512.4c4097e1dd2d42372c4e7fa5a791ff28fc75a484c7ac192e64b1df0fdef17594ba982f9b4fed9adfb3c757846f565b799b2763fb3733d1de1bcb82cf46684912",
+  "packageManager": "pnpm@11.0.5+sha512.94fa09e72016402aefce788e46994e18eb1922998b16b6fd5aa6bafd8ae4dea05d0852f60247fdb7d5ab8199a7b0beda830398f3f80cb9f822398522a1535481",
   "pnpm": {
     "overrides": {
       "react": "19.1.0",
@@ -62,16 +62,7 @@
     },
     "patchedDependencies": {
       "react-native-worklets@0.5.1": "patches/react-native-worklets@0.5.1.patch"
-    },
-    "onlyBuiltDependencies": [
-      "@bundled-es-modules/glob",
-      "dtrace-provider",
-      "esbuild",
-      "react-native-nitro-modules",
-      "sharp",
-      "style-dictionary",
-      "unrs-resolver"
-    ]
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",

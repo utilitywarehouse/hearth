@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       pnpm:
-        specifier: 11.0.8
-        version: 11.0.8
+        specifier: 11.0.5
+        version: 11.0.5
     devDependencies:
       '@changesets/changelog-github':
         specifier: ^0.5.0
@@ -10118,8 +10118,8 @@ packages:
     resolution: {integrity: sha512-LKWqWJRhstyYo9pGvgor/ivk2w94eSjE3RGVuzLGlr3NmD8bf7RcYGze1mNdEHRP6TRP6rMuDHk5t44hnTRyow==}
     engines: {node: '>=14.19.0'}
 
-  pnpm@11.0.8:
-    resolution: {integrity: sha512-TECX4d0tQjcsTn+lp5H/KPx1pITHrBkuZLHfD97xdZS6mC+bT+2a37PHV4RvVlt5mydj+zcz0d4by4LPRmhJEg==}
+  pnpm@11.0.5:
+    resolution: {integrity: sha512-lPoJ5yAWQCrvzniORplOGOsZIpmLFrb9Wqa6/Yrk3qBdCFL2Akf9t9WrgZmnsL7agwOY8/gMufgiOYUioVNUgQ==}
     engines: {node: '>=22.13'}
     hasBin: true
 
@@ -24713,7 +24713,7 @@ snapshots:
 
   pngjs@7.0.0: {}
 
-  pnpm@11.0.8: {}
+  pnpm@11.0.5: {}
 
   polished@4.3.1:
     dependencies:
