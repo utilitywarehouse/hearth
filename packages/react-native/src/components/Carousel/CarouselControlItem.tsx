@@ -1,4 +1,5 @@
 import { createPressable } from '@gluestack-ui/pressable';
+import type React from 'react';
 import { useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -29,9 +30,9 @@ export const CarouselControlItemRoot = ({
   );
 };
 
-const CarouselControlItem = createPressable({
+const CarouselControlItem: React.ComponentType<React.ComponentProps<typeof CarouselControlItemRoot>> = createPressable({
   Root: CarouselControlItemRoot,
-});
+}) as unknown as React.ComponentType<React.ComponentProps<typeof CarouselControlItemRoot>>;
 
 CarouselControlItem.displayName = 'CarouselControlItem';
 

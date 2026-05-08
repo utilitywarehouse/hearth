@@ -10,6 +10,10 @@
     ],
     "compilerOptions": {
         "baseUrl": ".",
+        "paths": {
+            "react-native": ["./node_modules/react-native"],
+            "react-native/*": ["./node_modules/react-native/*"]
+        },
         "ignoreDeprecations": "5.0",
         "noEmit": false,
         "declaration": true,

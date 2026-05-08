@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@gluestack-ui/accordion": "1.0.7",
+    "@gluestack-ui/form-control": "0.1.19",
     "@gluestack-ui/alert": "0.1.15",
     "@gluestack-ui/button": "1.0.7",
     "@gluestack-ui/checkbox": "0.1.32",
@@ -40,7 +41,8 @@
     "@gluestack-ui/switch": "0.1.22",
     "@gluestack-ui/textarea": "0.1.23",
     "@quidone/react-native-wheel-picker": "^1.6.1",
-    "dayjs": "^1.11.13"
+    "dayjs": "^1.11.13",
+    "nanoid": "3.3.11"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
@@ -55,6 +57,7 @@
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.6",
+    "@types/react-native": "^0.72.8",
     "@utilitywarehouse/hearth-fonts": "workspace:^",
     "@utilitywarehouse/hearth-react-icons": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",

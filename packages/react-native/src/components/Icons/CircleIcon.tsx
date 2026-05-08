@@ -1,7 +1,8 @@
 import { createIcon } from '@gluestack-ui/icon';
+import type React from 'react';
 import { Path, Svg } from 'react-native-svg';
 
-const CircleIcon = createIcon({
+const CircleIcon: React.ComponentType<React.ComponentProps<typeof Svg>> = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
   path: (
@@ -14,7 +15,7 @@ const CircleIcon = createIcon({
       strokeLinejoin="round"
     />
   ),
-});
+}) as unknown as React.ComponentType<React.ComponentProps<typeof Svg>>;
 
 CircleIcon.displayName = 'CircleIcon';
 

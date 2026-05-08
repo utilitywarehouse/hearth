@@ -1,4 +1,5 @@
 import { createPressable } from '@gluestack-ui/pressable';
+import type React from 'react';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
@@ -39,7 +40,7 @@ const PillRoot = ({
   );
 };
 
-export const Pill = createPressable({ Root: PillRoot });
+export const Pill: React.ComponentType<React.ComponentProps<typeof PillRoot>> = createPressable({ Root: PillRoot }) as unknown as React.ComponentType<React.ComponentProps<typeof PillRoot>>;
 
 Pill.displayName = 'Pill';
 

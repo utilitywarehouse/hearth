@@ -1,12 +1,12 @@
+import { createPressable } from '@gluestack-ui/pressable';
+import type React from 'react';
 import { useCallback, useRef } from 'react';
 import { Platform, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import type TabProps from './Tab.props';
 import { useTabsContext } from './Tabs.context';
-
-import { createPressable } from '@gluestack-ui/pressable';
-import { BodyText } from '../BodyText';
 
 const Tab = ({
   value,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const PressableTab = createPressable({ Root: Tab });
+const PressableTab: React.ComponentType<React.ComponentProps<typeof Tab>> = createPressable({ Root: Tab }) as unknown as React.ComponentType<React.ComponentProps<typeof Tab>>;
 
 PressableTab.displayName = 'Tab';
 

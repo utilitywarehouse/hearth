@@ -1,5 +1,6 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import type React from 'react';
 import { useId, useLayoutEffect } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -86,9 +87,9 @@ const ListActionRoot = ({
   );
 };
 
-const ListAction = createPressable({
+const ListAction: React.ComponentType<React.ComponentProps<typeof ListActionRoot>> = createPressable({
   Root: ListActionRoot,
-});
+}) as unknown as React.ComponentType<React.ComponentProps<typeof ListActionRoot>>;
 
 ListAction.displayName = 'ListAction';
 
