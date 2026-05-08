@@ -37,7 +37,22 @@ const config: StorybookConfig = {
     experimentalComponentsManifest: true,
   },
   async viteFinal(config) {
-    return config;
+    return {
+      ...config,
+      build: {
+        ...config.build,
+        rollupOptions: {
+          ...config.build?.rollupOptions,
+          // This tells Vite "don't try to bundle this, it will be provided at runtime"
+          external: [
+            ...(Array.isArray(config.build?.rollupOptions?.external)
+              ? config.build.rollupOptions.external
+              : []),
+            '@storybook/theming',
+          ],
+        },
+      },
+    };
   },
 };
 export default config;
