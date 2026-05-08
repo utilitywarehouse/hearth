@@ -6,10 +6,10 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@10.28.2 --activate && pnpm install --loglevel=\"info\" && pnpm build",
-    "refresh": "pnpm clean && pnpm install --loglevel=\"info\" && pnpm run build",
-    "clean": "pnpm -r --stream --loglevel=\"info\" clean && rm -rf node_modules",
-    "build": "turbo build",
+    "setup": "corepack enable && corepack prepare pnpm@11.0.8 --activate && pnpm install",
+    "refresh:react": "pnpm clean && pnpm install && pnpm run build:react",
+    "clean": "turbo run clean --concurrency=20 && rm -rf node_modules",
+    "build": "turbo run build",
     "build:assets": "turbo run build:storybook --filter=storybook-assets",
     "build:css-reset": "turbo run build --filter=@utilitywarehouse/hearth-css-reset",
     "build:fonts": "turbo run build:storybook --filter=storybook-fonts",
@@ -51,10 +51,10 @@
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "10.28.2"
+    "pnpm": "11.0.8"
   },
   "prettier": "@utilitywarehouse/prettier-config",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@11.0.8+sha512.4c4097e1dd2d42372c4e7fa5a791ff28fc75a484c7ac192e64b1df0fdef17594ba982f9b4fed9adfb3c757846f565b799b2763fb3733d1de1bcb82cf46684912",
   "pnpm": {
     "overrides": {
       "react": "19.1.0",
