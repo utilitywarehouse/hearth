@@ -1,5 +1,4 @@
 import { createPressable } from '@gluestack-ui/pressable';
-import type React from 'react';
 import { useEffect } from 'react';
 import { Platform, Pressable, View } from 'react-native';
 import Animated, {
@@ -129,7 +128,7 @@ const SegmentedControlOptionRoot = ({
   );
 };
 
-const SegmentedControlOption: React.ComponentType<React.ComponentProps<typeof SegmentedControlOptionRoot>> = createPressable({ Root: SegmentedControlOptionRoot }) as unknown as React.ComponentType<React.ComponentProps<typeof SegmentedControlOptionRoot>>;
+const SegmentedControlOption = createPressable({ Root: SegmentedControlOptionRoot });
 
 SegmentedControlOption.displayName = 'SegmentedControlOption';
 

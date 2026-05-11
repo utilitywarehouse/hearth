@@ -1,5 +1,4 @@
 import { createPressable } from '@gluestack-ui/pressable';
-import type React from 'react';
 import { useCallback, useRef } from 'react';
 import { Platform, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -108,7 +107,7 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const PressableTab: React.ComponentType<React.ComponentProps<typeof Tab>> = createPressable({ Root: Tab }) as unknown as React.ComponentType<React.ComponentProps<typeof Tab>>;
+const PressableTab = createPressable({ Root: Tab });
 
 PressableTab.displayName = 'Tab';
 

@@ -1,5 +1,4 @@
 import { createPressable } from '@gluestack-ui/pressable';
-import type React from 'react';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
@@ -45,7 +44,7 @@ const MenuItemRoot = ({
   );
 };
 
-const MenuItem: React.ComponentType<React.ComponentProps<typeof MenuItemRoot>> = createPressable({ Root: MenuItemRoot }) as unknown as React.ComponentType<React.ComponentProps<typeof MenuItemRoot>>;
+const MenuItem = createPressable({ Root: MenuItemRoot });
 
 MenuItem.displayName = 'MenuItem';
 
