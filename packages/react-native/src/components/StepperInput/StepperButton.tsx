@@ -1,5 +1,4 @@
 import { createPressable } from '@gluestack-ui/pressable';
-import type React from 'react';
 import type { ComponentType } from 'react';
 import type { PressableProps, ViewStyle } from 'react-native';
 import { Pressable } from 'react-native';
@@ -35,7 +34,7 @@ const StepperButtonRoot = ({
   );
 };
 
-const StepperButton: React.ComponentType<React.ComponentProps<typeof StepperButtonRoot>> = createPressable({ Root: StepperButtonRoot }) as unknown as React.ComponentType<React.ComponentProps<typeof StepperButtonRoot>>;
+const StepperButton = createPressable({ Root: StepperButtonRoot });
 
 StepperButton.displayName = 'StepperButton';
 
