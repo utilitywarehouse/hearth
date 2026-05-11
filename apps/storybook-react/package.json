@@ -35,7 +35,6 @@
     "@types/react-dom": "^19.1.6",
     "@types/seedrandom": "^3.0.8",
     "@vitejs/plugin-react": "^5.1.2",
-    "eslint-plugin-storybook": "^10.1.8",
     "globals": "^15.14.0",
     "remark-gfm": "^4.0.1",
     "seedrandom": "^3.0.5",

@@ -6,10 +6,10 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@10.28.2 --activate && pnpm install --loglevel=\"info\" && pnpm build",
-    "refresh": "pnpm clean && pnpm install --loglevel=\"info\" && pnpm run build",
-    "clean": "pnpm -r --stream --loglevel=\"info\" clean && rm -rf node_modules",
-    "build": "turbo build",
+    "setup": "corepack enable && corepack prepare pnpm@11.0.5 --activate && pnpm install",
+    "refresh:react": "pnpm clean && pnpm install && pnpm run build:react",
+    "clean": "turbo run clean --concurrency=20 && rm -rf node_modules",
+    "build": "turbo run build",
     "build:assets": "turbo run build:storybook --filter=storybook-assets",
     "build:css-reset": "turbo run build --filter=@utilitywarehouse/hearth-css-reset",
     "build:fonts": "turbo run build:storybook --filter=storybook-fonts",
@@ -51,10 +51,10 @@
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "10.28.2"
+    "pnpm": "11.0.5"
   },
   "prettier": "@utilitywarehouse/prettier-config",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@11.0.5+sha512.94fa09e72016402aefce788e46994e18eb1922998b16b6fd5aa6bafd8ae4dea05d0852f60247fdb7d5ab8199a7b0beda830398f3f80cb9f822398522a1535481",
   "pnpm": {
     "overrides": {
       "react": "19.1.0",
@@ -62,32 +62,25 @@
     },
     "patchedDependencies": {
       "react-native-worklets@0.5.1": "patches/react-native-worklets@0.5.1.patch"
-    },
-    "onlyBuiltDependencies": [
-      "@bundled-es-modules/glob",
-      "dtrace-provider",
-      "esbuild",
-      "react-native-nitro-modules",
-      "sharp",
-      "style-dictionary",
-      "unrs-resolver"
-    ]
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.9",
     "@figma/code-connect": "^1.3.12",
-    "@typescript-eslint/eslint-plugin": "^8.14.0",
-    "@typescript-eslint/parser": "^8.14.0",
     "@utilitywarehouse/prettier-config": "^0.1.1",
+    "@eslint/js": "^8.57.0",
     "chromatic": "^13.3.0",
-    "eslint": "8",
+    "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "eslint-plugin-storybook": "^10.2.1",
     "prettier": "^3.3.3",
     "turbo": "^2.3.3",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.0.0"
   }
 }

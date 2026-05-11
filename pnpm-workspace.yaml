@@ -1,3 +1,11 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+allowBuilds:
+  '@bundled-es-modules/glob': true
+  dtrace-provider: true
+  esbuild: true
+  react-native-nitro-modules: true
+  sharp: true
+  style-dictionary: true
+  unrs-resolver: true

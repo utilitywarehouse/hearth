@@ -4,7 +4,10 @@ import '../src/stories/styles.css';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-tokens/index.css';
 import '../../../shared/storybook/styles/preview.css';
-import theme from '../../../shared/storybook/theme';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 const preview: Preview = {
   decorators: [
