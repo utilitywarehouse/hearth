@@ -18,7 +18,7 @@
     "@utilitywarehouse/hearth-svg-assets": "workspace:*",
     "@utilitywarehouse/hearth-json-assets": "workspace:*",
     "lottie-react": "^2.4.1",
-    "next": "15.5.10",
+    "next": "15.5.15",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

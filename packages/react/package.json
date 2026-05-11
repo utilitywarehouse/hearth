@@ -76,7 +76,7 @@
     "browserslist": "^4.28.1",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.10",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",
     "postcss-import": "^16.1.0",
@@ -88,6 +88,6 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-media-use-custom-media": "^4.0.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1",
-    "tsup": "^8.3.5"
+    "tsup": "^8.5.1"
   }
 }
