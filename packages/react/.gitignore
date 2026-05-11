@@ -1,3 +1,6 @@
 *.css
 !src/**/*.css
 !legacy-components/**/*.css
+
+*storybook.log
+storybook-static

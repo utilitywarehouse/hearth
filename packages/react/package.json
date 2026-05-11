@@ -43,7 +43,9 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "figma:publish": "figma connect publish"
+    "figma:publish": "figma connect publish",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "publishConfig": {
     "access": "restricted"
@@ -88,6 +90,15 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-media-use-custom-media": "^4.0.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1",
-    "tsup": "^8.3.5"
+    "tsup": "^8.3.5",
+    "storybook": "^10.3.6",
+    "@storybook/react-vite": "^10.3.6",
+    "@chromatic-com/storybook": "^5.1.2",
+    "@storybook/addon-vitest": "^10.3.6",
+    "@storybook/addon-a11y": "^10.3.6",
+    "@storybook/addon-docs": "^10.3.6",
+    "vitest": "3.2.4",
+    "playwright": "^1.59.1",
+    "@vitest/browser": "3.2.4"
   }
 }
