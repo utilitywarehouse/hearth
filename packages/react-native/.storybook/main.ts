@@ -70,7 +70,6 @@ const config = {
       optimizeDeps: {
         ...config.optimizeDeps,
         exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
-        include: ['@storybook/theming'],
       },
     };
   },
