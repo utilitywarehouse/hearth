@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.28.2
+
+### Patch Changes
+
+- [#1192](https://github.com/utilitywarehouse/hearth/pull/1192) [`a74bf02`](https://github.com/utilitywarehouse/hearth/commit/a74bf02c58c12e1b42351e0d7f8e3e79ea0acbd6) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Fix missing dependencies
+
 ## 0.28.1
 
 ### Patch Changes
