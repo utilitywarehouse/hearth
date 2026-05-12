@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Flex,
-  DescriptionList,
-  DescriptionListItem,
-  Box,
-  Link,
-  Card,
-  Badge,
-} from '@utilitywarehouse/hearth-react';
+import { Badge } from '../Badge/Badge';
+import { Box } from '../Box/Box';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Link } from '../Link/Link';
+import { DescriptionList } from './DescriptionList';
+import { DescriptionListItem } from './DescriptionListItem';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Components / DescriptionList',

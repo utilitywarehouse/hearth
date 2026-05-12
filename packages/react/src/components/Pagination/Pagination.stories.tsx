@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, BodyText, Pagination } from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Flex } from '../Flex/Flex';
+import { Pagination } from './Pagination';
 import { useState } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

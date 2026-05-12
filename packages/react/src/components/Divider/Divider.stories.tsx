@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { Strong } from '../Strong/Strong';
+import { Divider } from './Divider';
 
 const meta: Meta<typeof Divider> = {
   title: 'Components / Divider',

@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-  BodyText,
-  AccordionHeader,
-  Badge,
-  Flex,
-  Box,
-} from '@utilitywarehouse/hearth-react';
+import { Badge } from '../Badge/Badge';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Accordion } from './Accordion';
+import { AccordionContent } from './AccordionContent';
+import { AccordionHeader } from './AccordionHeader';
+import { AccordionItem } from './AccordionItem';
+import { AccordionTrigger } from './AccordionTrigger';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {

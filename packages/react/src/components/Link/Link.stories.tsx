@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Link, Flex } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Link } from './Link';
 import {
   DownloadSmallIcon,
   ChevronLeftSmallIcon,

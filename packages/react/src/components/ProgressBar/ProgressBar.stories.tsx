@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ProgressBar, Flex } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { ProgressBar } from './ProgressBar';
 import React from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

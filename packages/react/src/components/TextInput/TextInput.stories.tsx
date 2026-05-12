@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  BodyText,
-  Card,
-  Flex,
-  Heading,
-  TextInput,
-  InputSlot,
-  Button,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { InputSlot } from '../InputSlot/InputSlot';
+import { TextInput } from './TextInput';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 import { useForm, Controller } from 'react-hook-form';

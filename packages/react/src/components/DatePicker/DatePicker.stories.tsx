@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Button,
-  DatePicker,
-  Flex,
-  Modal,
-  ModalRoot,
-  ModalTrigger,
-  ModalClose,
-  ModalFooter,
-} from '@utilitywarehouse/hearth-react';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { Modal } from '../Modal/Modal';
+import { ModalClose } from '../Modal/ModalClose';
+import { ModalFooter } from '../Modal/ModalFooter';
+import { ModalRoot } from '../Modal/ModalRoot';
+import { ModalTrigger } from '../Modal/ModalTrigger';
+import { DatePicker } from './DatePicker';
 import React from 'react';
 
 const meta: Meta<typeof DatePicker> = {

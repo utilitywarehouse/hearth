@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Box,
-  HighlightBanner,
-  HighlightBannerFooter,
-  HighlightBannerContent,
-  BodyText,
-  Flex,
-  Link,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Link } from '../Link/Link';
+import { HighlightBanner } from './HighlightBanner';
+import { HighlightBannerContent } from './HighlightBannerContent';
+import { HighlightBannerFooter } from './HighlightBannerFooter';
 import piggies from '../../docs/assets/piggies.png';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 

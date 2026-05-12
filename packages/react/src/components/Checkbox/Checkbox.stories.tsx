@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Checkbox, Flex, BodyText, Grid } from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Flex } from '../Flex/Flex';
+import { Grid } from '../Grid/Grid';
+import { Checkbox } from './Checkbox';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../../docs/assets/mastercard.png';
 import visa from '../../docs/assets/visa.png';

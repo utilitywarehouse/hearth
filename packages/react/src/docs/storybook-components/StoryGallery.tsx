@@ -22,7 +22,7 @@ export const StoryGallery = ({ meta, stories, direction = 'column' }: StoryGalle
       {Object.entries(stories).map(([name, story]) => (
         <Flex direction="column" gap="200" key={name}>
           <BodyText weight="bold">Story: {name}</BodyText>
-          {story.render?.({ ...meta.args, ...story.args } as any, {} as any)}
+          {story.render?.({ ...meta.args, ...story.args }, {} as any)}
         </Flex>
       ))}
     </Flex>

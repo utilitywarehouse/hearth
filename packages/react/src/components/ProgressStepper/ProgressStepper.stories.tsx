@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  ProgressStepper,
-  ProgressStep,
-  ProgressStepLink,
-  ProgressStepButton,
-  Flex,
-  BodyText,
-  Button,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { ProgressStep } from './ProgressStep';
+import { ProgressStepButton } from './ProgressStepButton';
+import { ProgressStepLink } from './ProgressStepLink';
+import { ProgressStepper } from './ProgressStepper';
 import React from 'react';
 
 const meta: Meta<typeof ProgressStepper> = {

@@ -1,15 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useMemo, useState } from 'react';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-  TableCell,
-  TablePagination,
-  Flex,
-} from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Table } from './Table';
+import { TableBody } from './TableBody';
+import { TableCell } from './TableCell';
+import { TableHeader } from './TableHeader';
+import { TableHeaderCell } from './TableHeaderCell';
+import { TablePagination } from './TablePagination';
+import { TableRow } from './TableRow';
 import seedrandom from 'seedrandom';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

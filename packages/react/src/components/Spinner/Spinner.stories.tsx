@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, Spinner } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Spinner } from './Spinner';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 const colors = ['primary', 'secondary', 'brand', 'inverted'] as const;

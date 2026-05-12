@@ -1,12 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Tooltip,
-  HearthProvider,
-  Button,
-  Flex,
-  BodyText,
-  UnstyledIconButton,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { HearthProvider } from '../HearthProvider/HearthProvider';
+import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import { Tooltip } from './Tooltip';
 import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Tooltip> = {

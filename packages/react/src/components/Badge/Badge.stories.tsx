@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Badge, Box, Flex } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Badge } from './Badge';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

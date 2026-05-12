@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import { Box, Flex, Heading, IconButton } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { IconButton } from './IconButton';
 import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

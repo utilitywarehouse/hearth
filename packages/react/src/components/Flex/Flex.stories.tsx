@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { spaceTokens } from '../../tokens/space';
+import { Flex } from './Flex';
 import { Placeholder } from '../../docs/storybook-components/Placeholder';
 
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;

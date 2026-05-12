@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { PasswordInput } from './PasswordInput';
 import React from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

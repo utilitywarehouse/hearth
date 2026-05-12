@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  CardAccordion,
-  CardAccordionItem,
-  CardAccordionFooter,
-  CardAccordionButton,
-  BodyText,
-  Flex,
-  Box,
-  HelperText,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { HelperText } from '../HelperText/HelperText';
+import { CardAccordion } from './CardAccordion';
+import { CardAccordionButton } from './CardAccordionButton';
+import { CardAccordionFooter } from './CardAccordionFooter';
+import { CardAccordionItem } from './CardAccordionItem';
 
 const meta: Meta<typeof CardAccordion> = {
   title: 'Components / CardAccordion',

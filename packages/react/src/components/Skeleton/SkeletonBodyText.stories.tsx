@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Flex, Skeleton, SkeletonBodyText } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Skeleton } from './Skeleton';
+import { SkeletonBodyText } from './SkeletonBodyText';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 

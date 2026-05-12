@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Select, SelectItem } from '@utilitywarehouse/hearth-react';
+import { Select } from './Select';
+import { SelectItem } from './SelectItem';
 
 const meta: Meta<typeof Select> = {
   title: 'Components / Select',

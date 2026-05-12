@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar, Flex } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Avatar } from './Avatar';
 
 const meta: Meta<typeof Avatar> = {
   title: 'Components / Avatar',

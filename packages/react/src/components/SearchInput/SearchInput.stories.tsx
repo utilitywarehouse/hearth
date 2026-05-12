@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Button, Flex, SearchInput } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { SearchInput } from './SearchInput';
 import React from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

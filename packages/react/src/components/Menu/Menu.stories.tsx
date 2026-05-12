@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Button,
-  Menu,
-  MenuTrigger,
-  MenuContent,
-  MenuItem,
-  IconButton,
-  Flex,
-} from '@utilitywarehouse/hearth-react';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { IconButton } from '../IconButton/IconButton';
+import { Menu } from './Menu';
+import { MenuContent } from './MenuContent';
+import { MenuItem } from './MenuItem';
+import { MenuTrigger } from './MenuTrigger';
 import {
   AddMediumIcon,
   ExpandSmallIcon,

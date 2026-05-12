@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Label } from '@utilitywarehouse/hearth-react';
+import { Label } from './Label';
 
 const meta: Meta<typeof Label> = {
   title: 'Typography / Label',

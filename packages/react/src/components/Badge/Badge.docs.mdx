@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Badge.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Badge } from './Badge';
 
 <Meta title="Components / Badge" />
 
@@ -69,11 +70,7 @@ the meaning of the text.
 
 This component is based on the `span` element and supports the following common props:
 
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 
-| Prop          | Type                                                                                                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `variant`     | `emphasis` \| `subtle` \| `outline`                                                                                                                 |
-| `size`        | `Responsive<"sm" \| "md">`                                                                                                                          |
-| `colorScheme` | `info` \|`positive` \| `danger` \| `warning` \| `functional`\|`pig` \|`highlight` \| `energy` \| `mobile` \| `broadband`\| `cashback`\| `insurance` |
-| `flatBase`    | `boolean`                                                                                                                                           |
+<ArgTypes of={Badge} exclude={'margin*|textTransform'} />

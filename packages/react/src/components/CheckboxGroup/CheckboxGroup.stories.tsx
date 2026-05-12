@@ -3,7 +3,10 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { CheckboxGroup, Flex, CheckboxTile, Box } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { CheckboxTile } from '../CheckboxTile/CheckboxTile';
+import { Flex } from '../Flex/Flex';
+import { CheckboxGroup } from './CheckboxGroup';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof CheckboxGroup> = {

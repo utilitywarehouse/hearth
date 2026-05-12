@@ -35,11 +35,6 @@
   "exclude": [
     "dist",
     "node_modules",
-    "./src/figma/**",
-    "./src/**/*.stories.tsx",
-    "./src/**/*.docs.mdx",
-    "./src/docs/**",
-    "./src/scripts/**"
   ],
   "include": [
     "src/**/*"

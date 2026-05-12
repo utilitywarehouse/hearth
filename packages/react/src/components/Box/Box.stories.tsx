@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, BoxProps, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { spaceTokens } from '../../tokens/space';
+import { Flex } from '../Flex/Flex';
+import { Box } from './Box';
+import { BoxProps } from './Box.props';
 import { useRef } from 'react';
 import { Placeholder } from '../../docs/storybook-components/Placeholder';
 

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CurrencyInput, Flex } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { CurrencyInput } from './CurrencyInput';
 import React from 'react';
 
 const meta: Meta<typeof CurrencyInput> = {

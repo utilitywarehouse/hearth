@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import { Button, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { TextInput } from '../TextInput/TextInput';
+import { Button } from './Button';
 import {
   ChevronRightSmallIcon,
   SettingsSmallIcon,

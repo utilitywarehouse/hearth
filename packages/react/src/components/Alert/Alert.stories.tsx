@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Alert,
-  AlertIconButton,
-  AlertLink,
-  Flex,
-  Grid,
-  InlineLink,
-  Strong,
-} from '@utilitywarehouse/hearth-react';
+import { Flex } from '../Flex/Flex';
+import { Grid } from '../Grid/Grid';
+import { InlineLink } from '../InlineLink/InlineLink';
+import { Strong } from '../Strong/Strong';
+import { Alert } from './Alert';
+import { AlertIconButton } from './AlertIconButton';
+import { AlertLink } from './AlertLink';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;

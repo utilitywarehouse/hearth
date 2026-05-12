@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ValidationText } from '@utilitywarehouse/hearth-react';
+import { ValidationText } from './ValidationText';
 
 const meta: Meta<typeof ValidationText> = {
   title: 'Typography / ValidationText',

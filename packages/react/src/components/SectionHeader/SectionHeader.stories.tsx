@@ -1,5 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, Link, Badge, SectionHeader, Button } from '@utilitywarehouse/hearth-react';
+import { Badge } from '../Badge/Badge';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { Link } from '../Link/Link';
+import { SectionHeader } from './SectionHeader';
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

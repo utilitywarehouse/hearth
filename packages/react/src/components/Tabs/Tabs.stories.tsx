@@ -1,14 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import * as React from 'react';
-import {
-  Tabs,
-  TabsList,
-  Tab,
-  TabContent,
-  Flex,
-  BodyText,
-  Button,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
+import { Flex } from '../Flex/Flex';
+import { Tab } from './Tab';
+import { TabContent } from './TabContent';
+import { Tabs } from './Tabs';
+import { TabsList } from './TabsList';
 import {
   ElectricityMediumIcon,
   BroadbandMediumIcon,

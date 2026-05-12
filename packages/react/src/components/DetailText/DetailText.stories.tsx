@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DetailText, Flex, Box } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { DetailText } from './DetailText';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;

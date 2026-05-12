@@ -1,13 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import {
-  Heading,
-  Card,
-  Box,
-  UnstyledIconButton,
-  Flex,
-  BodyText,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { UnstyledIconButton } from './UnstyledIconButton';
 import {
   AddMediumIcon,
   CloseMediumIcon,

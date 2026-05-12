@@ -2,7 +2,12 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { RadioGroup, RadioTile, Box, Heading, Grid, Radio } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Grid } from '../Grid/Grid';
+import { Heading } from '../Heading/Heading';
+import { Radio } from '../Radio/Radio';
+import { RadioTile } from '../RadioTile/RadioTile';
+import { RadioGroup } from './RadioGroup';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
 import { ThumbsUpSmallIcon, ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
@@ -110,7 +115,10 @@ export const ResponsiveDirection: Story = {
   args: { name: 'responsive-direction', direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
     return (
-      <RadioGroup {...args} helperText="Changing the direction of the children elements responsively">
+      <RadioGroup
+        {...args}
+        helperText="Changing the direction of the children elements responsively"
+      >
         <RadioTile value="1" label="One" />
         <RadioTile value="2" label="Two" />
         <RadioTile value="3" label="Three" />

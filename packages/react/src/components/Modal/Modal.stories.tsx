@@ -1,23 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import React from 'react';
 import SpotSavings from '../../docs/assets/spot-savings.svg';
-import {
-  Button,
-  Modal,
-  ModalRoot,
-  ModalTrigger,
-  ModalClose,
-  ModalFooter,
-  ModalContent,
-  BodyText,
-  Card,
-  List,
-  ListItem,
-  ListItemContent,
-  Combobox,
-  Strong,
-  InlineLink,
-} from '@utilitywarehouse/hearth-react';
+import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
+import { Card } from '../Card/Card';
+import { Combobox } from '../Combobox/Combobox';
+import { InlineLink } from '../InlineLink/InlineLink';
+import { List } from '../List/List';
+import { ListItem } from '../List/ListItem';
+import { ListItemContent } from '../List/ListItemContent';
+import { Strong } from '../Strong/Strong';
+import { Modal } from './Modal';
+import { ModalClose } from './ModalClose';
+import { ModalContent } from './ModalContent';
+import { ModalFooter } from './ModalFooter';
+import { ModalRoot } from './ModalRoot';
+import { ModalTrigger } from './ModalTrigger';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components / Modal',

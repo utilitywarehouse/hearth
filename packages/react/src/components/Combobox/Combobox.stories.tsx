@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Combobox, ComboboxItem, useComboboxFilter } from '@utilitywarehouse/hearth-react';
+import { useComboboxFilter } from '../../hooks/use-combobox-filter';
+import { Combobox } from './Combobox';
+import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import React, { useState } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';

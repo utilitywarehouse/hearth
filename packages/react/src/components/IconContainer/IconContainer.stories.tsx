@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { IconContainer, Flex, Card } from '@utilitywarehouse/hearth-react';
+import { Card } from '../Card/Card';
+import { Flex } from '../Flex/Flex';
+import { IconContainer } from './IconContainer';
 import { PlaceholderSmallIcon, PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

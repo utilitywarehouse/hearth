@@ -1,28 +1,26 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Card,
-  Box,
-  Flex,
-  DetailText,
-  BodyText,
-  Heading,
-  Link,
-  CardInteraction,
-  CardActionLink,
-  CardActionButton,
-  CardActions,
-  Button,
-  IconButton,
-  Badge,
-  CardContent,
-  CardBannerContent,
-  CardBannerImage,
-  UnstyledIconButton,
-  IconContainer,
-  Container,
-  Grid,
-} from '@utilitywarehouse/hearth-react';
+import { Badge } from '../Badge/Badge';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Button } from '../Button/Button';
+import { CardActionButton } from '../CardActions/CardActionButton';
+import { CardActionLink } from '../CardActions/CardActionLink';
+import { CardActions } from '../CardActions/CardActions';
+import { Container } from '../Container/Container';
+import { DetailText } from '../DetailText/DetailText';
+import { Flex } from '../Flex/Flex';
+import { Grid } from '../Grid/Grid';
+import { Heading } from '../Heading/Heading';
+import { IconButton } from '../IconButton/IconButton';
+import { IconContainer } from '../IconContainer/IconContainer';
+import { Link } from '../Link/Link';
+import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import { Card } from './Card';
+import { CardBannerContent } from './CardBannerContent';
+import { CardBannerImage } from './CardBannerImage';
+import { CardContent } from './CardContent';
+import { CardInteraction } from './CardInteraction';
 import piggies from '../../docs/assets/piggies.png';
 import SpotSmartMeter from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg';
 import SpotSavings from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg';
@@ -193,17 +191,11 @@ export const ColorScheme: Story = {
           {variants.flatMap(variant => {
             if (colorScheme === 'highlight' && variant === 'emphasis') return [];
             return (
-              <Card
-                key={variant}
-                colorScheme={colorScheme}
-                variant={variant}
-                width="300px"
-              >
-                <BodyText
-                  size="md"
-                  inverted={colorScheme === 'brand' && variant === 'emphasis'}
-                >
-                  <strong>{colorScheme} / {variant}</strong>
+              <Card key={variant} colorScheme={colorScheme} variant={variant} width="300px">
+                <BodyText size="md" inverted={colorScheme === 'brand' && variant === 'emphasis'}>
+                  <strong>
+                    {colorScheme} / {variant}
+                  </strong>
                 </BodyText>
               </Card>
             );

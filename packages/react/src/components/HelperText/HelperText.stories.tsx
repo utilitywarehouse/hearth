@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { HelperText } from '@utilitywarehouse/hearth-react';
+import { HelperText } from './HelperText';
 
 const meta: Meta<typeof HelperText> = {
   title: 'Typography / HelperText',
