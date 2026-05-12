@@ -1,4 +1,6 @@
-import { Flex, FlexProps } from '@utilitywarehouse/hearth-react';
+import React from 'react';
+import { Flex } from '../../components/Flex/Flex';
+import type { FlexProps } from '../../components/Flex/Flex.props';
 
 export const Placeholder = (props: FlexProps) => {
   return (

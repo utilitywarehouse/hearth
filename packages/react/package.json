@@ -24,7 +24,7 @@
     "*.css"
   ],
   "scripts": {
-    "clean": "rm -rf .turbo node_modules dist *.css",
+    "clean": "rm -rf .turbo node_modules dist *.css storybook-static",
     "build": "pnpm build:css && pnpm build:js",
     "copy:breakpoints": "cp ./src/styles/breakpoints.css ./breakpoints.css",
     "copy:tokens": "rm -rf ./src/styles/tokens && mkdir -p ./src/styles/tokens && cp -r ../tokens/css/* ./src/styles/tokens",
@@ -45,7 +45,7 @@
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
     "figma:publish": "figma connect publish",
     "sb": "storybook dev -p 6006",
-    "build:storybook": "storybook build",
+    "build:storybook": "pnpm run copy:changelog && storybook build",
     "copy:changelog": "node ./scripts/copy-changelog.js"
   },
   "publishConfig": {

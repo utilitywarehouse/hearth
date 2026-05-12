@@ -1,4 +1,7 @@
-import { BodyText, Flex, FlexProps } from '@utilitywarehouse/hearth-react';
+import React from 'react';
+import { Flex } from '../../components/Flex/Flex';
+import { BodyText } from '../../components/BodyText/BodyText';
+import type { FlexProps } from '../../components/Flex/Flex.props';
 
 interface StoryGalleryProps {
   /** The meta object from the story file (for default args) */
