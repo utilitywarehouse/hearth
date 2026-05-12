@@ -42,4 +42,4 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           zip: true
-          storybookBaseDir: apps/storybook-react
+          storybookBaseDir: packages/react

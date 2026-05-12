@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Label.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+<Meta title="Typography / Label" />
+
+# Label
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## API
+
+This component is based on the `label` element, and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+
+| Prop                | Type                  |
+| ------------------- | --------------------- |
+| `as`                | `"label" \| "span"`   |
+| `labelVariant`      | `"body" \| "heading"` |
+| `disabled`          | `boolean`             |
+| `disableUserSelect` | `boolean`             |

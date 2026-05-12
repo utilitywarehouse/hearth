@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './SectionHeader.stories';
+
+<Meta title="Components / SectionHeader" />
+
+# SectionHeader
+
+Use the `SectionHeader` component to help define and separate content within a
+screen. It provides structure, clarity, and improves page scannability for
+users.
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Trailing content
+
+Use the `trailingContent` prop to include a `Link`, `Button` or `Badge` component.
+
+```tsx
+import { Link, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+[...]
+
+<SectionHeader
+  {...args}
+  trailingContent={
+    <Link>
+      Link text
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+/>
+```
+
+<Canvas of={Stories.WithBadge} />
+<Canvas of={Stories.WithButton} />
+
+## API
+
+| Prop              | Type                                    |
+| ----------------- | --------------------------------------- |
+| `heading`         | `string`                                |
+| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` |
+| `helperText`      | `string`                                |
+| `trailingContent` | `ReactNode`                             |
+| `direction`       | `Responsive<"row" \| "column">`         |

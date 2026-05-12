@@ -1,0 +1,104 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './DescriptionList.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+<Meta title="Components / DescriptionList" />
+
+# DescriptionList
+
+Use the `DescriptionList` component when you need to present pairs of related information together.
+
+<Canvas of={Stories.Playground} />
+
+- [Usage](#usage)
+- [Heading](#heading)
+- [Trailing content](#trailing-content)
+- [Direction](#direction)
+- [API](#api)
+- [DescriptionListItem API](#descriptionlistitem-api)
+
+## Usage
+
+Use the `DescriptionList` element to wrap any number of `DescriptionListItem`
+components. This will render a semantic `dl` element, containing `dt` & `dd`
+elements, where the `DescriptionListItem` heading is the `description term
+(dt)`, and the description is the `description details (dd)`.
+
+```tsx
+<DescriptionList heading="Contact details">
+  <DescriptionListItem heading="Phone number" description="07123 456789" />
+  <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+  <DescriptionListItem heading="Password" description="***************" />
+</DescriptionList>
+```
+
+## Heading
+
+The `heading` prop specifies the title of the list. This is useful for
+providing context or describing the purpose of the list.
+
+The `headingElement` prop allows you to specify the HTML element used for the
+heading. This is important for maintaining semantic structure in your document.
+
+- Use `'h1'`, `'h2'`, etc., for headings that are part of your page's hierarchy.
+- Use `'div'` if the heading is purely decorative or doesn't fit into the semantic structure.
+
+```tsx
+<DescriptionList heading="Contact details" headingElement="h2">
+  <DescriptionListItem heading="Phone number" description="07123 456789" />
+  <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+</DescriptionList>
+```
+
+## Trailing content
+
+Use the `trailingContent` prop to include a `Link`, `Button` or `Badge` component.
+
+```tsx
+<DescriptionList
+  heading="My Bills"
+  trailingContent={
+    <Link href="https://uw.co.uk/bills">
+      View all
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+>
+  {...}
+</DescriptionList>
+```
+
+## Direction
+
+The direction of the `DescriptionListItem` components can be controlled via the
+root `DescriptionList`. This prop is responsive, so you can control the layout
+per breakpoint.
+
+<Canvas of={Stories.ResponsiveDirection} />
+
+## API
+
+This component is based on the `dl` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-size">Size</StorybookLink> (width props only)
+
+| Name              | Type                                                                 |
+| ----------------- | -------------------------------------------------------------------- |
+| `heading`         | `string`                                                             |
+| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`                     |
+| `helperText`      | `string`                                                             |
+| `trailingContent` | `ReactNode`                                                          |
+| `direction`       | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
+
+## DescriptionListItem API
+
+This component is base on the `div` element.
+
+| Name               | Type                       |
+| ------------------ | -------------------------- |
+| `heading`          | `string`                   |
+| `description`      | `string`                   |
+| `link`             | `ReactNode`                |
+| `validationStatus` | `"invalid" \| "undefined"` |
+| `validationText`   | `string`                   |

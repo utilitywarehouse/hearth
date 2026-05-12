@@ -1,0 +1,139 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as Stories from './ExpandableCard.stories';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+<Meta title="Components / ExpandableCard" />
+
+# ExpandableCard
+
+Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
+can be expanded to reveal additional content.
+
+- [Leading icon](#leading-icon)
+- [Default open](#default-open)
+- [Controlled](#controlled)
+- [ExpandableCardGroup](#expandablecardgroup)
+- [Accessibility](#accessibility)
+  - [Keyboard interactions](#keyboard-interactions)
+- [API](#api)
+  - [ExpandableCardGroup](#expandablecardgroup-api)
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="components-accordion">Accordion</StorybookLink> - for when you have multiple
+  sections of content that need to be expanded/collapsed independently.
+
+## Leading icon
+
+Use the `leadingIcon` prop to render an icon to the left of the heading. Pass `aria-hidden` to
+ensure it is not announced to screen readers. Use `leadingIconContainerColorScheme` to wrap the
+icon in a coloured `IconContainer`.
+
+<Canvas of={Stories.WithLeadingIcon} />
+
+## Default open
+
+Use `defaultOpen` to render the card in the open state on initial mount. This is an uncontrolled
+approach — the card manages its own open/closed state internally after mount.
+
+```tsx
+<ExpandableCard heading="Heading" helperText="Helper text" defaultOpen>
+  {children}
+</ExpandableCard>
+```
+
+<Canvas of={Stories.DefaultOpen} />
+
+## Controlled
+
+Use the `open` and `onOpenChange` props together to control the open state externally.
+
+```tsx
+const [open, setOpen] = React.useState(false);
+
+<ExpandableCard heading="Heading" helperText="Helper text" open={open} onOpenChange={setOpen}>
+  {children}
+</ExpandableCard>;
+```
+
+## ExpandableCardGroup
+
+Use `ExpandableCardGroup` to group multiple `ExpandableCard` components together with a consistent
+gap. An optional `heading`, `helperText`, and `trailingContent` can be provided via the built-in
+`SectionHeader`.
+
+If the `ExpandableCard` components are closely related, you might be better off
+using the `Accordion` component instead, which has built-in support for
+grouping related content.
+
+<Canvas of={Stories.Group} />
+
+## Accessibility
+
+Follows the [Disclosure (Show/Hide) WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/).
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    { key: 'Space', description: 'Toggles the expanded state of the card.' },
+    { key: 'Enter', description: 'Toggles the expanded state of the card.' },
+    { key: 'Tab', description: 'Moves focus to the next focusable element.' },
+    { key: 'Shift+Tab', description: 'Moves focus to the previous focusable element.' },
+  ].map((kbi, i, arr) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < arr.length - 1 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+| Name                              | Type                                |
+| --------------------------------- | ----------------------------------- |
+| `heading`                         | `string` (required)                 |
+| `helperText`                      | `string`                            |
+| `leadingIcon`                     | `ReactNode`                         |
+| `leadingIconContainerColorScheme` | `IconContainerProps['colorScheme']` |
+| `badge`                           | `ReactNode`                         |
+| `numericValue`                    | `string`                            |
+| `open`                            | `boolean`                           |
+| `defaultOpen`                     | `boolean`                           |
+| `onOpenChange`                    | `(open: boolean) => void`           |
+
+### ExpandableCardGroup API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+| Name              | Type                           |
+| ----------------- | ------------------------------ |
+| `heading`         | `string`                       |
+| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` |
+| `helperText`      | `string`                       |
+| `trailingContent` | `ReactNode`                    |

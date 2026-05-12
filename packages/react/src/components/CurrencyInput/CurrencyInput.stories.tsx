@@ -1,0 +1,70 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { CurrencyInput, Flex } from '@utilitywarehouse/hearth-react';
+import React from 'react';
+
+const meta: Meta<typeof CurrencyInput> = {
+  title: 'Components / CurrencyInput',
+  component: CurrencyInput,
+  argTypes: {
+    placeholder: { control: { type: 'text' } },
+    label: { control: { type: 'text' } },
+    value: { control: { type: 'text' } },
+    disableGroupSeparators: { control: { type: 'boolean' } },
+    helperText: { control: { type: 'text' } },
+    validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
+    validationText: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
+    readOnly: { control: { type: 'boolean' } },
+  },
+  args: {
+    label: 'Amount',
+    disabled: false,
+    readOnly: false,
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof CurrencyInput>;
+
+export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  render: args => {
+    const [value, setValue] = React.useState<string>('');
+    const [separatorsValue, setSeparatorsValue] = React.useState<string>('1234567.89');
+    return (
+      <Flex direction="column" gap="400">
+        <CurrencyInput
+          {...args}
+          label="Uncontrolled"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+        />
+        <CurrencyInput
+          {...args}
+          label="Controlled"
+          helperText={`Value: ${value}`}
+          value={value}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+        />
+        <CurrencyInput
+          {...args}
+          required
+          label="Group separators"
+          value={separatorsValue}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSeparatorsValue(event.target.value)
+          }
+        />
+        <CurrencyInput
+          {...args}
+          required
+          label="Group separators disabled"
+          disableGroupSeparators
+          value={separatorsValue}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSeparatorsValue(event.target.value)
+          }
+        />
+      </Flex>
+    );
+  },
+};

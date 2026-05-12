@@ -1,0 +1,41 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './DatePicker.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+
+<Meta title="Components / DatePicker" />
+
+# DatePicker
+
+`DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="components-dateinput">DateInput</StorybookLink> - For faster date entry
+
+## API
+
+This component is built upon the [React Datepicker](https://reactdatepicker.com)
+library. Please explore their documentation for more in-depth usage.
+
+It supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+| Prop                    | Type                                                                                                                    |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `label`                 | `string`                                                                                                                |
+| `helperText`            | `string`                                                                                                                |
+| `validationText`        | `string`                                                                                                                |
+| `validationStatus`      | `"valid" \| "invalid"`                                                                                                  |
+| `required`              | `boolean`                                                                                                               |
+| `disabled`              | `boolean`                                                                                                               |
+| `selected`              | `Date \| null \| undefined`                                                                                             |
+| `onChange`              | `( date: Date \| null, event?: React.MouseEvent<HTMLElement> \| React.KeyboardEvent<HTMLElement>) => void \| undefined` |
+| `id`                    | `string`                                                                                                                |
+| `labelId`               | `string`                                                                                                                |
+| `helperTextId`          | `string`                                                                                                                |
+| `validationTextId`      | `string`                                                                                                                |
+| `disableTodayIndicator` | `boolean`                                                                                                               |

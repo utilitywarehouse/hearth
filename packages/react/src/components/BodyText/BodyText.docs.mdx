@@ -1,0 +1,122 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './BodyText.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+<Meta title="Typography / BodyText" />
+
+# BodyText
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="typography-detailtext">DetailText</StorybookLink> - For detail text
+- <StorybookLink to="typography-heading">Heading</StorybookLink> - For heading-level text
+- <StorybookLink to="typography-strong">Strong</StorybookLink> - For strong importance
+- <StorybookLink to="typography-em">Em</StorybookLink> - For emphasis
+
+## Semantic HTML
+
+By default `BodyText` renders a `p` element, this can be customised using the
+`as` prop, to render a `span` or a `div`.
+
+```tsx
+<BodyText as="span">...</Box>
+```
+
+To render any other valid HTML element, you can use the `asChild` prop.
+
+```tsx
+<BodyText asChild>
+  <label>...</label>
+</Box>
+```
+
+This will render the child element, with all the styles declared on the `Box`
+component passed down to it as well.
+
+## Size
+
+The size prop is responsive, so you can render different sizes at different breakpoints.
+
+```tsx
+<BodyText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg'}}>{...}</BodyText>
+```
+
+<Canvas of={Stories.TextSizes} />
+
+## Weight
+
+The weight prop is responsive, so you can render different weights at different breakpoints.
+
+```tsx
+<BodyText weight={{ mobile: 'bold', tablet: 'regular'}}>{...}</BodyText>
+```
+
+<Canvas of={Stories.TextWeights} />
+
+## Colour
+
+You can use the `color` prop to set a semantic text colour.
+
+```tsx
+<BodyText color="primary" />
+<BodyText color="secondary" />
+<BodyText color="brand" />
+<BodyText color="affirmative" />
+<BodyText color="inverted" />
+```
+
+<Canvas of={Stories.Colours} />
+
+## Inverted
+
+When using `BodyText` on a brand background you can set the `color` prop to
+inverted to ensure proper colour contrast.
+
+<Canvas of={Stories.InvertedText} />
+
+## Text truncate
+
+Use the `truncate` prop to set the text to truncate, instead of wrapping, with a
+text overflow ellipsis. Note that text overflow can only happen with block or
+inline-block level elements (the element needs to have a width in order to
+overflow).
+
+<Canvas of={Stories.TextTruncate} />
+
+## Paragraph Spacing
+
+The `paragraphSpacing` prop aligns with the auto spacing between paragraphs in
+Figma designs. While layout components are preferred for managing layouts, and
+applying spacing between elements, sometimes multiple paragraphs can be stacked
+without a parent layout component. When this happens in a design there is no
+indication what the spacing is between these stacked paragraphs. You can use
+`paragraphSpacing` on these `BodyText` elements to apply a predefined bottom
+gutter.
+
+<Canvas of={Stories.ParagraphSpacing} />
+
+## API
+
+This component is based on the `p` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-colour">Color</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+- <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+
+| Prop               | Type                                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| `as`               | `"p" \| "div" \| "span"`                                           |
+| `asChild`          | `boolean`                                                          |
+| `size`             | `Responsive<"sm" \| "md" \| "lg">`                                 |
+| `weight`           | `Responsive<"regular" \| "bold">`                                  |
+| `align`            | `Responsive<"left" \| "center" \| "right">`                        |
+| `textTransform`    | `Responsive<"none" \| "capitalize" \| "uppercase" \| "lowercase">` |
+| `wrap`             | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">`          |
+| `truncate`         | `boolean`                                                          |
+| `paragraphSpacing` | `boolean`                                                          |

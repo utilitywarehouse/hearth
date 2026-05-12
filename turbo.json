@@ -76,6 +76,10 @@
       "cache": false,
       "persistent": true
     },
+    "sb": {
+      "cache": false,
+      "persistent": true
+    },
     "ios": {
       "cache": false,
       "persistent": true

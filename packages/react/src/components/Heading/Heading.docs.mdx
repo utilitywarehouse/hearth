@@ -1,0 +1,47 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Heading.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+
+<Meta title="Typography / Heading" />
+
+# Heading
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="typography-bodytext">BodyText</StorybookLink> - For body text
+- <StorybookLink to="typography-detailtext">DetailText</StorybookLink> - For detail text
+- <StorybookLink to="typography-strong">Strong</StorybookLink> - For strong importance
+- <StorybookLink to="typography-em">Em</StorybookLink> - For emphasis
+
+## Sizes
+
+The size prop is not responsive, as the sizes themselves are already responsive
+where necessary.
+
+## Inverted
+
+When using `Heading` on a darker background, specifically `purple700` &
+`purple1000`, use the `inverted` prop to ensure colour contrast.
+
+<Canvas of={Stories.InvertedText} />
+
+## API
+
+This component is based on the `h2` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+- <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+
+| Prop      | Type                           |
+| --------- | ------------------------------ |
+| `as`      | `"h1" \| "h2" \| "h3" \| "h4"` |
+| `asChild` | `boolean`                      |
+| `size`    | `"sm" \| "md" \| "lg" \| "xl"` |
