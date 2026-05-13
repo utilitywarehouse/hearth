@@ -51,7 +51,7 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="500">
         {sizes.map(size => (
-          <Flex direction="column" gap="200" alignItems="start">
+          <Flex key={size} direction="column" gap="200" alignItems="start">
             {variants.map(variant => (
               <Flex key={variant} gap="200" justifyContent="center" direction="row">
                 {allVariantColorSchemes.map(colorScheme => (

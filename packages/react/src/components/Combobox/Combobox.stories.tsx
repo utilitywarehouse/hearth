@@ -3,7 +3,7 @@ import { useComboboxFilter } from '../../hooks/use-combobox-filter';
 import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
-import React, { useState } from 'react';
+import { useState, useDeferredValue, useRef, useCallback, useMemo } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
@@ -73,7 +73,7 @@ export const NoItems: Story = {
         label="Address"
         marginBottom="50"
         onInputValueChange={onPostcodeChange}
-        onValueChange={(value: any) => setPostcodeValue(value)}
+        onValueChange={value => setPostcodeValue(value)}
         required
         triggerOnlyOnType
         validationStatus="invalid"
@@ -128,20 +128,20 @@ const virtualizedItems: Array<VirtualizedItem> = Array.from({ length: 10000 }, (
 
 export const Virtualised: Story = {
   render: () => {
-    const [open, setOpen] = React.useState(false);
-    const [searchValue, setSearchValue] = React.useState('');
-    const [value, setValue] = React.useState<VirtualizedItem | null>(null);
+    const [open, setOpen] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
+    const [value, setValue] = useState<VirtualizedItem | null>(null);
 
-    const deferredSearchValue = React.useDeferredValue(searchValue);
+    const deferredSearchValue = useDeferredValue(searchValue);
 
-    const scrollElementRef = React.useRef<HTMLDivElement | null>(null);
+    const scrollElementRef = useRef<HTMLDivElement | null>(null);
 
     const { contains } = useComboboxFilter({ value });
 
     const resolvedSearchValue =
       searchValue === '' || deferredSearchValue === '' ? searchValue : deferredSearchValue;
 
-    const filteredItems = React.useMemo(() => {
+    const filteredItems = useMemo(() => {
       return virtualizedItems.filter(item => contains(item, resolvedSearchValue, getItemLabel));
     }, [contains, resolvedSearchValue]);
 
@@ -153,7 +153,7 @@ export const Virtualised: Story = {
       overscan: 20,
     });
 
-    const handleScrollElementRef = React.useCallback(
+    const handleScrollElementRef = useCallback(
       (element: HTMLDivElement | null) => {
         scrollElementRef.current = element;
         if (element) {
@@ -178,7 +178,10 @@ export const Virtualised: Story = {
         value={value}
         onValueChange={setValue}
         itemToStringLabel={getItemLabel}
-        onItemHighlighted={(item: any, { reason, index }: any) => {
+        onItemHighlighted={(
+          item: unknown,
+          { reason, index }: { reason: string; index: number }
+        ) => {
           if (!item) {
             return;
           }
@@ -256,7 +259,7 @@ const fruits = [
 export const FilterItems: Story = {
   name: 'Filter Items (contains)',
   render: args => {
-    const [value, setValue] = React.useState<string | null>(null);
+    const [value, setValue] = useState<string | null>(null);
     const { contains } = useComboboxFilter({ value });
 
     return (
@@ -275,7 +278,7 @@ export const FilterItems: Story = {
 export const FilterItemsStartsWith: Story = {
   name: 'Filter Items (startsWith)',
   render: args => {
-    const [value, setValue] = React.useState<string | null>(null);
+    const [value, setValue] = useState<string | null>(null);
     const { startsWith } = useComboboxFilter({ value });
 
     return (

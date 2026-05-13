@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
@@ -97,7 +97,7 @@ export const WithImage: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const [checked, setChecked] = React.useState(false);
+    const [checked, setChecked] = useState(false);
     return (
       <Flex direction="column" gap="400">
         <BodyText>Checked: {checked ? 'true' : 'false'}</BodyText>

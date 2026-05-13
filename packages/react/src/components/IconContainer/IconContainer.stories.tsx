@@ -43,7 +43,7 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="500">
         {sizes.map(size => (
-          <Flex direction="column" gap="200" alignItems="start">
+          <Flex key={size} direction="column" gap="200" alignItems="start">
             {variants.map(variant => (
               <Flex key={variant} gap="200" justifyContent="center" direction="row">
                 {otherColorSchemes.map(colorScheme => (
@@ -78,7 +78,7 @@ export const KitchenSink: Story = {
 };
 
 export const Playground: Story = {
-  render: args => (
+  render: (args: { size?: string }) => (
     <IconContainer {...args}>
       {args.size === 'sm' ? <PlaceholderSmallIcon /> : <PlaceholderMediumIcon />}
     </IconContainer>
@@ -127,7 +127,7 @@ export const RadiusNone: Story = {
     return (
       <Flex direction="column" gap="500">
         {sizes.map(size => (
-          <Flex direction="column" gap="200" alignItems="start">
+          <Flex key={size} direction="column" gap="200" alignItems="start">
             {variants.map(variant => (
               <Flex key={variant} gap="200" justifyContent="center" direction="row">
                 {otherColorSchemes.map(colorScheme => (

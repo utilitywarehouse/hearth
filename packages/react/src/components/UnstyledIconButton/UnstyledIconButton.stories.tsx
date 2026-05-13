@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
 import { Card } from '../Card/Card';
@@ -12,6 +11,7 @@ import {
   CloseSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
+import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 
 const sizes = ['md', 'sm'] as const;
 
@@ -26,7 +26,6 @@ const meta: Meta<typeof UnstyledIconButton> = {
     loading: { control: { type: 'boolean' } },
   },
   args: {
-    onClick: fn(),
     label: 'close',
   },
 } satisfies Meta<typeof UnstyledIconButton>;
@@ -35,7 +34,7 @@ export default meta;
 type Story = StoryObj<typeof UnstyledIconButton>;
 
 export const Playground: Story = {
-  render: args => (
+  render: (args: UnstyledIconButtonProps) => (
     <Flex direction="column">
       <Box padding="200">
         <UnstyledIconButton {...args}>
@@ -72,7 +71,7 @@ export const WithCard: Story = {
 };
 
 export const AsLink: Story = {
-  render: args => {
+  render: (args: { size?: string; disabled?: boolean }) => {
     return (
       <Flex gap="200">
         <UnstyledIconButton {...args} asChild>

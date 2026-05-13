@@ -1,4 +1,3 @@
-import React from 'react';
 import { Flex } from '../../components/Flex/Flex';
 import type { FlexProps } from '../../components/Flex/Flex.props';
 

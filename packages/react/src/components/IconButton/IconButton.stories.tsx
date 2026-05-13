@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
@@ -23,7 +22,6 @@ const meta: Meta<typeof IconButton> = {
     loading: { control: { type: 'boolean' } },
   },
   args: {
-    onClick: fn(),
     variant: 'solid',
     colorScheme: 'highlight',
   },
@@ -207,7 +205,7 @@ export const KitchenSink: Story = {
 };
 
 export const AsLink: Story = {
-  render: args => {
+  render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="200">
         <IconButton {...args} asChild>

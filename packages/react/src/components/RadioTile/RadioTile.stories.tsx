@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Badge } from '../Badge/Badge';
-import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { RadioTile } from './RadioTile';
@@ -33,7 +32,7 @@ export const Playground: Story = {
     label: 'Radio label',
     helperText: 'Radio helper text',
   },
-  render: args => {
+  render: (args: { value?: string }) => {
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">

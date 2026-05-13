@@ -20,7 +20,7 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
-  render: args => {
+  render: (args: { value?: string }) => {
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">

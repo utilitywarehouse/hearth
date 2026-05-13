@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
@@ -56,7 +55,7 @@ export const Playground: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const [value, setValue] = React.useState(['1']);
+    const [value, setValue] = useState(['1']);
     return (
       <CheckboxGroup
         label="Controlled"

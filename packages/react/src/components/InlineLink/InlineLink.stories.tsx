@@ -73,7 +73,7 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="100">
         {sizes.map(size =>
           weights.map(weight => (
-            <BodyText size={size} weight={weight}>
+            <BodyText key={`${size}-${weight}`} size={size} weight={weight}>
               <InlineLink href="#">
                 InlineLink ({size}, {weight})
               </InlineLink>
@@ -86,7 +86,7 @@ export const KitchenSink: Story = {
 };
 
 export const LengthyContent: Story = {
-  render: args => (
+  render: (args: { children?: string }) => (
     <Flex width="600px">
       <BodyText>
         To limit spend on international calls, turn on Budget Control and then{' '}

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { PasswordInput } from './PasswordInput';
-import React from 'react';
+import { useState, ChangeEvent } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof PasswordInput> = {
@@ -71,7 +71,7 @@ export const Validation: Story = {
 
 export const FormUsage: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('password123');
+    const [value, setValue] = useState<string>('password123');
     return (
       <Flex direction="column" gap="400">
         <Flex gap="100" alignItems="end">
@@ -79,7 +79,7 @@ export const FormUsage: Story = {
             {...args}
             label="Not inside form"
             value={value}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+            onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
           />
         </Flex>
         <Flex asChild gap="100" alignItems="end">
@@ -93,9 +93,7 @@ export const FormUsage: Story = {
               {...args}
               label="Inside form"
               value={value}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setValue(event.target.value)
-              }
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
             />
           </form>
         </Flex>

@@ -135,9 +135,9 @@ export const KitchenSink: Story = {
         </List>
       </Box>
       {(['subtle', 'emphasis'] as const).map(variant => (
-        <Flex gap="400">
+        <Flex key={variant} gap="400">
           {(['neutralStrong', 'neutralSubtle'] as const).map(colorScheme => (
-            <Box width="300px">
+            <Box key={colorScheme} width="300px">
               <List
                 {...args}
                 key={`${variant}${colorScheme}`}
@@ -797,7 +797,7 @@ export const CustomContent: Story = {
     return (
       <List {...args} aria-label="Partner events">
         {events.map(event => (
-          <ListItem>
+          <ListItem key={event.title}>
             <Flex direction="column" width="44px" textAlign="center">
               <BodyText size="md">{event.date.month}</BodyText>
               <DetailText size="2xl">{event.date.day}</DetailText>

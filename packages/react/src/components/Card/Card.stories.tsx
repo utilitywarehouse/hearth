@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge } from '../Badge/Badge';
 import { BodyText } from '../BodyText/BodyText';
@@ -93,12 +93,11 @@ export const KitchenSink: Story = {
     <Flex padding="600" direction="column" gap="300" width="600px">
       <Flex direction="row" gap="300">
         {variants.map(variant => (
-          <Flex gap="300" asChild direction="column">
+          <Flex key={variant} gap="300" asChild direction="column">
             <ul role="list">
               {neutralColorSchemes.map(colorScheme => (
-                <li>
+                <li key={`${variant}${colorScheme}`}>
                   <Card
-                    key={`${variant}${colorScheme}`}
                     variant={variant}
                     colorScheme={colorScheme}
                     justifyContent="center"
@@ -125,12 +124,11 @@ export const KitchenSink: Story = {
       </Flex>
       <Flex direction="row" gap="300">
         {variants.map(variant => (
-          <Flex gap="300" asChild direction="column">
+          <Flex key={variant} gap="300" asChild direction="column">
             <ul role="list">
               {brandColorSchemes.map(colorScheme => (
-                <li>
+                <li key={`${variant}${colorScheme}`}>
                   <Card
-                    key={`${colorScheme}`}
                     variant={variant}
                     colorScheme={colorScheme}
                     justifyContent="center"
@@ -533,8 +531,8 @@ export const InteractiveCards: Story = {
 
 export const WithoutLink: Story = {
   render: () => {
-    const [likedArgos, setLikedArgos] = React.useState(false);
-    const [likedAskItalian, setLikedAskItalian] = React.useState(false);
+    const [likedArgos, setLikedArgos] = useState(false);
+    const [likedAskItalian, setLikedAskItalian] = useState(false);
     return (
       <Flex padding="600" backgroundColor="primary" justifyContent="center" gap="400">
         <Flex asChild gap="400" width="400px">
@@ -776,7 +774,7 @@ export const WithCardActions: Story = {
 
 export const ConditionalCardActions: Story = {
   render: () => {
-    const [toggleElement, setToggleElement] = React.useState(false);
+    const [toggleElement, setToggleElement] = useState(false);
 
     const handleButtonClick = () => {
       setToggleElement(!toggleElement);

@@ -8,7 +8,7 @@ import { Heading } from '../Heading/Heading';
 import { Radio } from '../Radio/Radio';
 import { RadioTile } from '../RadioTile/RadioTile';
 import { RadioGroup } from './RadioGroup';
-import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
+import { Flex } from '../Flex/Flex';
 import { ThumbsUpSmallIcon, ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 

@@ -3,7 +3,7 @@ import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { SearchInput } from './SearchInput';
-import React from 'react';
+import { useState, ChangeEvent } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof SearchInput> = {
@@ -31,11 +31,11 @@ type Story = StoryObj<typeof SearchInput>;
 
 export const Playground: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('');
+    const [value, setValue] = useState<string>('');
     return (
       <SearchInput
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
         onClear={() => setValue('')}
         id="search-input-playground"
         {...args}
@@ -46,12 +46,12 @@ export const Playground: Story = {
 
 export const Loading: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('Energy');
+    const [value, setValue] = useState<string>('Energy');
     return (
       <SearchInput
         {...args}
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+        onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
         onClear={() => setValue('')}
         loading
       />
@@ -61,13 +61,13 @@ export const Loading: Story = {
 
 export const FormUsage: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('');
+    const [value, setValue] = useState<string>('');
     return (
       <form role="search" action="/search">
         <SearchInput
           {...args}
           value={value}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
           onClear={() => setValue('')}
         />
       </form>
@@ -77,7 +77,7 @@ export const FormUsage: Story = {
 
 export const UsageWithButton: Story = {
   render: () => {
-    const [value, setValue] = React.useState<string>('');
+    const [value, setValue] = useState<string>('');
     return (
       <Box height="100%" width="100%" backgroundColor="primary" padding="200">
         <Flex asChild gap="50" width={{ mobile: '100%', tablet: '500px' }}>
@@ -86,9 +86,7 @@ export const UsageWithButton: Story = {
               label="Search"
               value={value}
               placeholder="What do you need help with?"
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                setValue(event.target.value)
-              }
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
               onClear={() => setValue('')}
             />
             <Box display={{ mobile: 'none', tablet: 'block' }}>

@@ -95,7 +95,7 @@ export const LengthyContent: Story = {
     children:
       'Agnes Bernice Martin was an American abstract painter known for her minimalist style and abstract expressionism.',
   },
-  render: args => (
+  render: (args: { children?: string }) => (
     <Flex width="500px">
       <Link {...args}>{args.children}</Link>
     </Flex>

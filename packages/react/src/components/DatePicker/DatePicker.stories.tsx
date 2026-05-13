@@ -7,7 +7,7 @@ import { ModalFooter } from '../Modal/ModalFooter';
 import { ModalRoot } from '../Modal/ModalRoot';
 import { ModalTrigger } from '../Modal/ModalTrigger';
 import { DatePicker } from './DatePicker';
-import React from 'react';
+import { useState } from 'react';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Components / DatePicker',
@@ -38,7 +38,7 @@ type Story = StoryObj<typeof DatePicker>;
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
-    const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     return (
       <DatePicker
         selected={selectedDate}
@@ -51,7 +51,7 @@ export const Playground: Story = {
 
 export const FormUsage: Story = {
   render: args => {
-    const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
+    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
     return (
       <form>
         <DatePicker
@@ -66,8 +66,8 @@ export const FormUsage: Story = {
 
 export const UsageInModal: Story = {
   render: () => {
-    const [selectedFromDate, setSelectedFromDate] = React.useState<Date | null>();
-    const [selectedToDate, setSelectedToDate] = React.useState<Date | null>();
+    const [selectedFromDate, setSelectedFromDate] = useState<Date | null>();
+    const [selectedToDate, setSelectedToDate] = useState<Date | null>();
     return (
       <Flex>
         <ModalRoot>

@@ -27,7 +27,7 @@ export default meta;
 type Story = StoryObj<typeof Pagination>;
 
 export const Playground: Story = {
-  render: args => {
+  render: (args: { currentPage?: number }) => {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
 
     return <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />;

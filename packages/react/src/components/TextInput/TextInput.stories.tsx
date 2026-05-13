@@ -155,7 +155,7 @@ export const ReactHookForm: Story = {
     });
     return (
       <Flex asChild gap="200" direction="column" alignItems="start">
-        <form onSubmit={handleSubmit(() => {})} noValidate>
+        <form onSubmit={e => void handleSubmit((): void => {})(e)} noValidate>
           <Controller
             name="firstName"
             control={control}

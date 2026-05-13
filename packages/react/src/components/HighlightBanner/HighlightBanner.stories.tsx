@@ -30,7 +30,7 @@ export default meta;
 type Story = StoryObj<typeof HighlightBanner>;
 
 export const Playground: Story = {
-  render: args => (
+  render: () => (
     <HighlightBanner heading="Heading" headingColor="highlight" colorScheme="neutralSubtle">
       <Box height="100px" width="200px" />
       <HighlightBannerFooter>
@@ -41,7 +41,7 @@ export const Playground: Story = {
 };
 
 export const Showcase: Story = {
-  render: args => (
+  render: () => (
     <Flex gap="400" width="800px">
       <HighlightBanner heading="Save a bundle" headingColor="highlight" colorScheme="neutralStrong">
         <img src={piggies} height="200px" />
@@ -59,8 +59,8 @@ export const Showcase: Story = {
       >
         <HighlightBannerContent>
           <BodyText size="md" textAlign="center">
-            For almost 30 years, we've been providing energy, broadband, mobile and insurance to the
-            nation - and helping our customers save along the way.
+            For almost 30 years, we&apos;ve been providing energy, broadband, mobile and insurance
+            to the nation - and helping our customers save along the way.
           </BodyText>
           <BodyText size="md" textAlign="center">
             Want to talk it through? Our network of friendly, local Partners can help you find ways
@@ -81,7 +81,7 @@ export const KitchenSink: Story = {
   render: () => (
     <Flex gap="200" direction="column">
       {headingColors.map(color => (
-        <Flex direction="row" gap="200">
+        <Flex key={color} direction="row" gap="200">
           <HighlightBanner
             heading={`Heading ${color}`}
             headingColor={color}

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { fn } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { TextInput } from '../TextInput/TextInput';
@@ -30,7 +29,6 @@ const meta: Meta<typeof Button> = {
   },
   args: {
     children: 'Button',
-    onClick: fn(),
     paddingNone: false,
   },
 } satisfies Meta<typeof Button>;
@@ -201,7 +199,7 @@ export const ResponsiveSize: Story = {
 };
 
 export const AsLink: Story = {
-  render: args => {
+  render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="200">
         <Button asChild>
@@ -361,7 +359,7 @@ export const Sizes: Story = {
 
 export const DeadPropCombinations: Story = {
   render: () => (
-    // @ts-ignore: for illustration purposes only
+    // @ts-expect-error: for illustration purposes only
     <Button variant="emphasis" colorScheme="grey">
       Invalid Button
     </Button>
@@ -412,7 +410,7 @@ export const Loading: Story = {
   args: {
     loading: true,
   },
-  render: args => {
+  render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="400" direction="column" alignItems="start">
         <Button loading={args.loading} variant="emphasis" colorScheme="highlight">

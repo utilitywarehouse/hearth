@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { Toast } from './Toast';
@@ -35,14 +35,14 @@ type Story = StoryObj<typeof Toast>;
 
 export const Playground: Story = {
   render: args => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     // Note: The timer logic below is only needed for Storybook to properly replay
     // the toast animation when clicking the button multiple times. In your app,
     // you can simply use: onClick={() => setOpen(true)}
-    const timerRef = React.useRef(0);
+    const timerRef = useRef(0);
 
-    React.useEffect(() => {
+    useEffect(() => {
       return () => clearTimeout(timerRef.current);
     }, []);
 
@@ -87,13 +87,13 @@ export const ToastStory: Story = {
 
 export const Actions: Story = {
   render: () => {
-    const [openLinkActionToast, setOpenLinkActionToast] = React.useState(false);
-    const [openButtonActionToast, setOpenButtonActionToast] = React.useState(false);
+    const [openLinkActionToast, setOpenLinkActionToast] = useState(false);
+    const [openButtonActionToast, setOpenButtonActionToast] = useState(false);
 
-    const linkActionTimerRef = React.useRef(0);
-    const buttonActionTimerRef = React.useRef(0);
+    const linkActionTimerRef = useRef(0);
+    const buttonActionTimerRef = useRef(0);
 
-    React.useEffect(() => {
+    useEffect(() => {
       return () => {
         clearTimeout(linkActionTimerRef.current);
         clearTimeout(buttonActionTimerRef.current);
@@ -156,7 +156,7 @@ export const Actions: Story = {
 
 export const DuplicateToasts: Story = {
   render: () => {
-    const [savedCount, setSavedCount] = React.useState(0);
+    const [savedCount, setSavedCount] = useState(0);
 
     return (
       <div>

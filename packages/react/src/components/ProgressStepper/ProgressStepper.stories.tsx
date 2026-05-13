@@ -6,7 +6,7 @@ import { ProgressStep } from './ProgressStep';
 import { ProgressStepButton } from './ProgressStepButton';
 import { ProgressStepLink } from './ProgressStepLink';
 import { ProgressStepper } from './ProgressStepper';
-import React from 'react';
+import { useState } from 'react';
 
 const meta: Meta<typeof ProgressStepper> = {
   title: 'Components / ProgressStepper',
@@ -66,7 +66,7 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: args => {
-    const [currentStep, setCurrentStep] = React.useState(1);
+    const [currentStep, setCurrentStep] = useState(1);
 
     const getStatus = (step: number) => {
       if (step === currentStep) return 'active';

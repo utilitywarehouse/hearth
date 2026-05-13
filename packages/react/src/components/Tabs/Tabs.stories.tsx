@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import * as React from 'react';
+import { useState } from 'react';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
@@ -220,10 +220,10 @@ export const WithIcons: Story = {
 
 export const Controlled: Story = {
   render: () => {
-    const [value, setValue] = React.useState('account');
+    const [value, setValue] = useState('account');
     const tabs = ['account', 'billing', 'usage'] as const;
     const next = () => {
-      const index = tabs.indexOf(value as any);
+      const index = tabs.indexOf(value as (typeof tabs)[number]);
       const nextIndex = (index + 1) % tabs.length;
       setValue(tabs[nextIndex]);
     };

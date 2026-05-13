@@ -11,7 +11,7 @@ import { Heading } from '../Heading/Heading';
 import { InlineLink } from '../InlineLink/InlineLink';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 import { ToggleButtonCard } from './ToggleButtonCard';
-import React from 'react';
+import { useState } from 'react';
 import { Placeholder } from '../../docs/storybook-components/Placeholder';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
@@ -32,7 +32,7 @@ type Story = StoryObj<typeof ToggleGroup>;
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
-    const [value, setValue] = React.useState<string>('fixed');
+    const [value, setValue] = useState<string>('fixed');
     return (
       <Box maxWidth="750px">
         <ToggleGroup
@@ -133,7 +133,7 @@ export const Multiple: Story = {
 
 export const SingleWithOneAlwaysSelected: Story = {
   render: args => {
-    const [value, setValue] = React.useState('2');
+    const [value, setValue] = useState('2');
     return (
       <ToggleGroup
         {...args}
@@ -162,7 +162,7 @@ export const SingleWithOneAlwaysSelected: Story = {
 export const StartAligned: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
-    const [value, setValue] = React.useState<string>('fixed');
+    const [value, setValue] = useState<string>('fixed');
     return (
       <Box width="750px">
         <ToggleGroup
@@ -227,7 +227,7 @@ export const StartAligned: Story = {
 
 export const InteractiveContent: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('fixed');
+    const [value, setValue] = useState<string>('fixed');
     return (
       <Box width="750px">
         <ToggleGroup
@@ -298,7 +298,7 @@ export const InteractiveContent: Story = {
 
 export const LayoutExample: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('fixed');
+    const [value, setValue] = useState<string>('fixed');
     return (
       <Container>
         <Grid defaultResponsiveColumns>

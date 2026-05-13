@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VerificationInput } from './VerificationInput';
-import React from 'react';
+import { useState } from 'react';
 
 const meta: Meta<typeof VerificationInput> = {
   title: 'Components / VerificationInput',
@@ -31,7 +31,7 @@ export const Playground: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    const [value, setValue] = React.useState('');
+    const [value, setValue] = useState('');
     return (
       <VerificationInput
         {...args}
@@ -48,7 +48,7 @@ export const Controlled: Story = {
 
 export const PasswordType: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string | undefined>();
+    const [value, setValue] = useState<string | undefined>();
     return (
       <VerificationInput
         {...args}

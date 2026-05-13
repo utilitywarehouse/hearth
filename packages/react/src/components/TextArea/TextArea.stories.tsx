@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { TextInput } from '../TextInput/TextInput';
 import { TextArea } from './TextArea';
-import React from 'react';
+import { useState, ChangeEvent } from 'react';
 import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof TextArea> = {
@@ -96,12 +96,12 @@ export const CustomRows: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    const [value, setValue] = React.useState<string>('Initial value');
+    const [value, setValue] = useState<string>('Initial value');
     return (
       <TextArea
         {...args}
         value={value}
-        onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => setValue(event.target.value)}
+        onChange={(event: ChangeEvent<HTMLTextAreaElement>) => setValue(event.target.value)}
         label="Controlled TextArea"
       />
     );

@@ -1,13 +1,18 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { Flex } from '../../components/Flex/Flex';
 import { BodyText } from '../../components/BodyText/BodyText';
 import type { FlexProps } from '../../components/Flex/Flex.props';
 
+interface StoryEntry {
+  render?: (args: Record<string, unknown>, context: Record<string, unknown>) => ReactNode;
+  args?: Record<string, unknown>;
+}
+
 interface StoryGalleryProps {
   /** The meta object from the story file (for default args) */
-  meta: any;
+  meta: { args?: Record<string, unknown> };
   /** The object containing all exported stories (e.g., import * as Stories) */
-  stories: Record<string, any>;
+  stories: Record<string, StoryEntry>;
   direction?: FlexProps['direction'];
 }
 
@@ -22,7 +27,7 @@ export const StoryGallery = ({ meta, stories, direction = 'column' }: StoryGalle
       {Object.entries(stories).map(([name, story]) => (
         <Flex direction="column" gap="200" key={name}>
           <BodyText weight="bold">Story: {name}</BodyText>
-          {story.render?.({ ...meta.args, ...story.args }, {} as any)}
+          {story.render?.({ ...meta.args, ...story.args }, {})}
         </Flex>
       ))}
     </Flex>
