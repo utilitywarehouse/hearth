@@ -32,6 +32,7 @@ export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
       {asChild ? (
         children
       ) : (
+        /* eslint-disable jsx-a11y/anchor-is-valid */
         <a>
           {children}
           {linkProps.target === '_blank' ? (

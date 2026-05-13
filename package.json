@@ -18,7 +18,7 @@
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
     "build:storybook:react": "turbo run build:storybook --filter=storybook-react -- -o \"./storybook-static\"",
-    "build:tokens": "turbo run build:storybook --filter=storybook-tokens",
+    "build:tokens": "turbo run generate --filter=@utilitywarehouse/hearth-tokens && turbo run build:storybook --filter=storybook-tokens",
     "changeset": "changeset",
     "checks": "turbo run checks --filter='./packages/*'",
     "checks:ci": "turbo run checks:ci --filter='./packages/*'",
