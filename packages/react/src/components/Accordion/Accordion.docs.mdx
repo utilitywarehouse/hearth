@@ -1,6 +1,14 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Accordion.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import { Accordion } from './Accordion';
+import { AccordionItem } from './AccordionItem';
+import { AccordionContent } from './AccordionContent';
+import { AccordionHeader } from './AccordionHeader';
+import { AccordionTrigger } from './AccordionTrigger';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 
 <Meta title="Components / Accordion" />
@@ -192,49 +200,24 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Name              | Type                                                            |
-| ----------------- | --------------------------------------------------------------- |
-| `heading`         | `string`                                                        |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"`                                  |
-| `helperText`      | `string`                                                        |
-| `trailingContent` | `ReactNode`                                                     |
-| `type`            | `"multiple" \| "single"`                                        |
-| `value`           | `"Array<string>" \| "string"`                                   |
-| `defaultValue`    | `"Array<string>" \| "string"`                                   |
-| `onValueChange`   | `"(value: Array<string>) => void" \| "(value: string) => void"` |
-| `collapsible`     | `boolean`                                                       |
-| `disabled`        | `boolean`                                                       |
+<ArgTypes of={Accordion} exclude={'margin*'} />
 
 ### AccordionItem
 
-Used to render a collapsible accordion section.
+This component is based on the `div` element.
 
-| Name             | Type                           |
-| ---------------- | ------------------------------ |
-| `title`          | `string`                       |
-| `description`    | `string`                       |
-| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"` |
-
-### AccordionContent
-
-Contains the collapsible content for an accordion item.
-
-| Prop         | Type      |
-| ------------ | --------- |
-| `forceMount` | `boolean` |
+<ArgTypes of={AccordionItem} />
 
 ### AccordionHeader
 
-Wraps an `AccordionTrigger`. Use the `as` prop to render the appropriate heading level for your page.
+This component is based on the `h3` element.
 
-This component is based on the `a` element.
+<ArgTypes of={AccordionHeader} />
 
-| Name | Type                           |
-| ---- | ------------------------------ |
-| `as` | `"h1" \| "h2" \| "h3" \| "h4"` |
+### AccordionContent
+
+This component is based on the `div` element.
 
 ### AccordionTrigger
-
-Toggles the collapsed state of its associated item. It should be nested inside of an `AccordionHeader`.
 
 This component is based on the `button` element.
