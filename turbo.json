@@ -28,6 +28,15 @@
     "build:icons": {
       "outputs": ["dist/**"]
     },
+    "build:css": {
+      "outputs": ["css"]
+    },
+    "build:js": {
+      "outputs": ["js"]
+    },
+    "build:browser": {
+      "outputs": ["browser"]
+    },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build", "build"]
