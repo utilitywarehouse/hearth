@@ -34,6 +34,7 @@ export const InlineLink = forwardRef<InlineLinkElement, InlineLinkProps>((props,
       {asChild ? (
         children
       ) : (
+        /* eslint-disable jsx-a11y/anchor-is-valid */
         <a>
           {children}
           {inlineLinkProps.target === '_blank' ? (
