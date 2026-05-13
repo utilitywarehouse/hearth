@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Grid Items" />
 
@@ -20,13 +21,4 @@ for the relevant prop.
 </Grid>
 ```
 
-| Prop              | Type                                                                        |
-| ----------------- | --------------------------------------------------------------------------- |
-| `gridColumnSpan`  | `Responsive<'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'7'\|'8'\|'9'\|'10'\|'11'\|'12'>` |
-| `gridArea`        | `Responsive<string>`                                                        |
-| `gridColumn`      | `Responsive<string>`                                                        |
-| `gridColumnStart` | `Responsive<string>`                                                        |
-| `gridColumnEnd`   | `Responsive<string>`                                                        |
-| `gridRow`         | `Responsive<string>`                                                        |
-| `gridRowStart`    | `Responsive<string>`                                                        |
-| `gridRowEnd`      | `Responsive<string>`                                                        |
+<ArgTypes of={Box} include={'grid*'} sort="requiredFirst" />

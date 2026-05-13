@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Flex } from '../../components/Flex/Flex';
 
 <Meta title="Common Props / Spacing" />
 
@@ -12,6 +13,4 @@ any usage of the `Flex` or `Grid` gap props.
 <Flex spacing="lg" />
 ```
 
-| Prop      | Type                                                      |
-| --------- | --------------------------------------------------------- |
-| `spacing` | `'none' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` |
+<ArgTypes of={Flex} include={'spacing'} sort="requiredFirst" />

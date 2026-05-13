@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Border" />
 
@@ -47,13 +48,7 @@ import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
 // <Box borderColor='rebeccapurple'/>
 ```
 
-| Prop                | Type                                           |
-| ------------------- | ---------------------------------------------- |
-| `borderColor`       | `'strong' \| 'subtle' \| 'var(--h-${string})'` |
-| `borderTopColor`    | `'strong' \| 'subtle' \| 'var(--h-${string})'` |
-| `borderRightColor`  | `'strong' \| 'subtle' \| 'var(--h-${string})'` |
-| `borderBottomColor` | `'strong' \| 'subtle' \| 'var(--h-${string})'` |
-| `borderLeftColor`   | `'strong' \| 'subtle' \| 'var(--h-${string})'` |
+<ArgTypes of={Box} include={'border*Color'} sort="requiredFirst" />
 
 ## Border width and style
 
@@ -69,18 +64,7 @@ won't need it.
 <Box borderTopColor="subtle" borderTopWidth={{ mobile: '1', desktop: '2'}} borderRadius="full" />
 ```
 
-| Prop                | Type                          |
-| ------------------- | ----------------------------- |
-| `borderWidth`       | `Responsive<'0'\|'1'\|'2'>`   |
-| `borderTopWidth`    | `Responsive<'0'\|'1'\|'2'>`   |
-| `borderRightWidth`  | `Responsive<'0'\|'1'\|'2'>`   |
-| `borderBottomWidth` | `Responsive<'0'\|'1'\|'2'>`   |
-| `borderLeftWidth`   | `Responsive<'0'\|'1'\|'2'>`   |
-| `borderStyle`       | `Responsive<'none'\|'solid'>` |
-| `borderTopStyle`    | `Responsive<'none'\|'solid'>` |
-| `borderRightStyle`  | `Responsive<'none'\|'solid'>` |
-| `borderBottomStyle` | `Responsive<'none'\|'solid'>` |
-| `borderLeftStyle`   | `Responsive<'none'\|'solid'>` |
+<ArgTypes of={Box} include={'border*Width|border*Style'} sort="requiredFirst" />
 
 ## Border radius
 
@@ -96,14 +80,4 @@ You can also override the `borderRadius` for individual corners and sides.
 <Box borderRadius="lg" borderRadiusTopLeftNone borderRadiusBottomRightNone  />
 ```
 
-| Prop                          | Type                                                                  |
-| ----------------------------- | --------------------------------------------------------------------- |
-| `borderRadius`                | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
-| `borderRadiusTopLeftNone`     | `boolean`                                                             |
-| `borderRadiusTopRightNone`    | `boolean`                                                             |
-| `borderRadiusBottomLeftNone`  | `boolean`                                                             |
-| `borderRadiusBottomRightNone` | `boolean`                                                             |
-| `borderRadiusTopNone`         | `boolean`                                                             |
-| `borderRadiusRightNone`       | `boolean`                                                             |
-| `borderRadiusBottomNone`      | `boolean`                                                             |
-| `borderRadiusLeftNone`        | `boolean`                                                             |
+<ArgTypes of={Box} include={'borderRadius*'} sort="requiredFirst" />

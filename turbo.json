@@ -66,8 +66,12 @@
     "lint:fix": {
       "dependsOn": ["^build"]
     },
-    "lint:js:fix": {},
-    "lint:css:fix": {},
+    "lint:js:fix": {
+      "dependsOn": ["^build"]
+    },
+    "lint:css:fix": {
+      "dependsOn": ["^build"]
+    },
     "format": {
       "dependsOn": ["^build"]
     },
@@ -80,7 +84,8 @@
     },
     "sb": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "dependsOn": ["^build", "build"]
     },
     "ios": {
       "cache": false,

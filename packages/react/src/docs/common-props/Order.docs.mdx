@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Order" />
 
@@ -14,6 +15,4 @@ accepts any valid string value.
 <Grid order="0" />
 ```
 
-| Prop    | Type                 |
-| ------- | -------------------- |
-| `order` | `Responsive<string>` |
+<ArgTypes of={Box} include={'^order'} sort="requiredFirst" />

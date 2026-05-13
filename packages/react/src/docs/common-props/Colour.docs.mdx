@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Colour" />
 
@@ -38,9 +39,7 @@ import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
 // <Box color='rebeccapurple'/>
 ```
 
-| Prop    | Type                                                                                         |
-| ------- | -------------------------------------------------------------------------------------------- |
-| `color` | `'primary' \| 'secondary' \| 'brand' \| 'affirmative' \| 'inverted' \| 'var(--h-${string})'` |
+<ArgTypes of={Box} include={'color'} sort="requiredFirst" />
 
 ## Background colour
 
@@ -72,6 +71,4 @@ import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
 // <Box backgroundColor='rebeccapurple'/>
 ```
 
-| Prop              | Type                                                          |
-| ----------------- | ------------------------------------------------------------- |
-| `backgroundColor` | `'primary' \| 'secondary' \| 'brand' \| 'var(--h-${string})'` |
+<ArgTypes of={Box} include={'backgroundColor'} sort="requiredFirst" />

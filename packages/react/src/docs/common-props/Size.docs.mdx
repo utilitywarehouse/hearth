@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Size" />
 
@@ -17,11 +18,4 @@ This also means you can use the Hearth browser tokens as values.
 <Box maxWidth={container.width}/>
 ```
 
-| Prop        | Type                 |
-| ----------- | -------------------- |
-| `width`     | `Responsive<string>` |
-| `maxWidth`  | `Responsive<string>` |
-| `minWidth`  | `Responsive<string>` |
-| `height`    | `Responsive<string>` |
-| `maxHeight` | `Responsive<string>` |
-| `minHeight` | `Responsive<string>` |
+<ArgTypes of={Box} include={'width|maxWidth|minWidth|height|maxHeight|minHeight'} sort="none" />

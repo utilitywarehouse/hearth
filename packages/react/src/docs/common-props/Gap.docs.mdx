@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Flex } from '../../components/Flex/Flex';
 
 <Meta title="Common Props / Gap" />
 
@@ -27,8 +28,4 @@ import { components } from '@utilitywarehouse/hearth-tokens/browser';
 // <Box gap={{ mobile: '100', tablet: 'var(--h-space-200)', desktop: '32px' }}/>
 ```
 
-| Prop        | Type                                                                                                                                                           |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `gap`       | `Responsive<'var(--h-${string})' \| '0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
-| `rowGap`    | `Responsive<'var(--h-${string})' \| '0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
-| `columnGap` | `Responsive<'var(--h-${string})' \| '0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+<ArgTypes of={Flex} include={'gap|rowGap|columnGap'} sort="requiredFirst" />

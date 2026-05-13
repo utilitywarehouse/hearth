@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Z-Index" />
 
@@ -12,6 +13,4 @@ use any token values.
 <Box zIndex={{ mobile: "1", desktop: "-1" }}/>
 ```
 
-| Prop     | Type                 |
-| -------- | -------------------- |
-| `zIndex` | `Responsive<string>` |
+<ArgTypes of={Box} include={'zIndex'} sort="requiredFirst" />

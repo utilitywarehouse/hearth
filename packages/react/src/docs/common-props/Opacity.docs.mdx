@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Opacity" />
 
@@ -24,6 +25,4 @@ import {semantic} from '@utilitywarehouse/hearth-tokens/browser';
 <Grid opacity="var(--h-opacity-disabled)" />
 ```
 
-| Prop      | Type                 |
-| --------- | -------------------- |
-| `opacity` | `Responsive<string>` |
+<ArgTypes of={Box} include={'opacity'} sort="requiredFirst" />

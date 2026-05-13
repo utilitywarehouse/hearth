@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Overflow" />
 
@@ -13,8 +14,4 @@ The overflow props are responsive, and are available for the shorthand as well a
 <Box overflowY="auto" />
 ```
 
-| Prop        | Type                                                                |
-| ----------- | ------------------------------------------------------------------- |
-| `overflow`  | `Responsive<'visible' \| 'hidden' \| 'clip' \| 'scroll' \| 'auto'>` |
-| `overflowX` | `Responsive<'visible' \| 'hidden' \| 'clip' \| 'scroll' \| 'auto'>` |
-| `overflowY` | `Responsive<'visible' \| 'hidden' \| 'clip' \| 'scroll' \| 'auto'>` |
+<ArgTypes of={Box} include={'overflow*'} sort="requiredFirst" />

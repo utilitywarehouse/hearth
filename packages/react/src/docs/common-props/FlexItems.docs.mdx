@@ -1,4 +1,5 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
 
 <Meta title="Common Props / Flex Items" />
 
@@ -15,9 +16,4 @@ Flex item props enable styling on components when they are children of a flexbox
 </Flex>
 ```
 
-| Prop         | Type                 |
-| ------------ | -------------------- |
-| `flex`       | `Responsive<string>` |
-| `flexBasis`  | `Responsive<string>` |
-| `flexShrink` | `Responsive<string>` |
-| `flexGrow`   | `Responsive<string>` |
+<ArgTypes of={Box} include={'flex|flexBasis|flexShrink|flexGrow'} sort="requiredFirst" />
