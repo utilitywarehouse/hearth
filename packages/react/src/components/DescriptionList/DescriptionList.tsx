@@ -48,7 +48,11 @@ export const DescriptionList = forwardRef<DescriptionListElement, DescriptionLis
     };
 
     return (
-      <Box className={cn(componentClassName, className)} data-testid={componentClassName} {...containerProps}>
+      <Box
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        {...containerProps}
+      >
         {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
         <Flex asChild className={`${componentClassName}Container`} role="list">
           <dl ref={ref} role="list" {...listProps}>

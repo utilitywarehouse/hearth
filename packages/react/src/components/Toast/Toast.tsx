@@ -17,7 +17,12 @@ type ToastElement = ComponentRef<'li'>;
 export const Toast = forwardRef<ToastElement, ToastProps>(
   ({ className, icon, description, showDismissButton, children, ...props }, ref) => {
     return (
-      <ToastPrimitive.Root ref={ref} className={cn(componentClassName, className)} data-testid={componentClassName} {...props}>
+      <ToastPrimitive.Root
+        ref={ref}
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        {...props}
+      >
         {icon}
         <ToastPrimitive.Description asChild>
           <div className={`${componentClassName}Description`}>{description}</div>

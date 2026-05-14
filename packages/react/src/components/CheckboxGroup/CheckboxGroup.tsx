@@ -84,7 +84,12 @@ export const CheckboxGroup = forwardRef<CheckboxGroupElement, CheckboxGroupProps
   };
 
   return (
-    <FormGroupBase ref={ref} className={cn(componentClassName, className)} data-testid={componentClassName} {...formGroupBaseProps}>
+    <FormGroupBase
+      ref={ref}
+      className={cn(componentClassName, className)}
+      data-testid={componentClassName}
+      {...formGroupBaseProps}
+    >
       <Flex
         {...checkboxGroupProps}
         className={`${componentClassName}Content`}

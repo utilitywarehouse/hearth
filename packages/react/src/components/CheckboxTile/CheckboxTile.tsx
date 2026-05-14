@@ -58,7 +58,11 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
   );
 
   return (
-    <label className={cn(componentClassName, className)} data-testid={componentClassName} data-disabled={disabled ? '' : undefined}>
+    <label
+      className={cn(componentClassName, className)}
+      data-testid={componentClassName}
+      data-disabled={disabled ? '' : undefined}
+    >
       <CheckboxPrimitive.Root
         ref={ref}
         className="h-CheckboxRoot"

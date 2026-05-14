@@ -40,7 +40,12 @@ export const ToggleButtonCard = forwardRef<ToggleButtonCardElement, ToggleButton
       justifyContentPropDefs
     );
     return (
-      <Card direction="column" className={cn(componentClassName, className)} data-testid={componentClassName} style={style}>
+      <Card
+        direction="column"
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        style={style}
+      >
         {children}
         <RadixToggleGroup.Item
           ref={ref}

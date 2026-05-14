@@ -21,7 +21,11 @@ export const Table = forwardRef<TableElement, TableProps>((props, ref) => {
 
   if (variant === undefined) {
     return (
-      <div className={cn(componentClassName, className)} data-testid={componentClassName} style={style}>
+      <div
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        style={style}
+      >
         <table {...tableProps}>{children}</table>
         {pagination}
       </div>
