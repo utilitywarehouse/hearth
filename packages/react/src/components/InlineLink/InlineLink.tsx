@@ -29,6 +29,7 @@ export const InlineLink = forwardRef<InlineLinkElement, InlineLinkProps>((props,
       className={cn(componentClassName, className)}
       data-inverted={color === 'inverted' ? '' : undefined}
       data-inherit-color={color === 'inherit' ? '' : undefined}
+      data-testid={componentClassName}
       {...inlineLinkProps}
     >
       {asChild ? (

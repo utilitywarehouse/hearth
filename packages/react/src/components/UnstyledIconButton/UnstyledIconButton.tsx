@@ -43,6 +43,7 @@ export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, Unstyled
         aria-disabled={disabled || loading}
         data-inverted={inverted ? '' : undefined}
         onClick={disabled ? undefined : onClick}
+        data-testid={componentClassName}
         {...unstyledIconButtonProps}
       >
         {loading

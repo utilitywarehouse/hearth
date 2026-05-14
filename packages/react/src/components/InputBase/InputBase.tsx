@@ -21,6 +21,7 @@ export const InputBase = forwardRef<InputBaseElement, InputBaseProps>(
       <div
         className={cn(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
+        data-testid={componentClassName}
         onPointerDown={event => {
           // avoid losing focus when users click on non-interactive slot elements, such as icons
           const target = event.target as HTMLElement;

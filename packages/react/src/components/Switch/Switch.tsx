@@ -61,7 +61,7 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>(({ ...props }, forw
   }, [switchRef, disabled]);
 
   return (
-    <div aria-disabled={disabled || undefined} className={componentClassName}>
+    <div aria-disabled={disabled || undefined} className={componentClassName} data-testid={componentClassName}>
       {showLabel ? (
         <BodyText as="label" size="lg" id={labelId} htmlFor={id}>
           {label}

@@ -44,6 +44,7 @@ export const Card = forwardRef<CardElement, CardProps>((props, ref) => {
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
       data-card-variant={props.variant}
+      data-testid={componentClassName}
       {...cardProps}
       as="div"
     >

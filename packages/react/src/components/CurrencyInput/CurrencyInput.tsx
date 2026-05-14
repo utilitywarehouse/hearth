@@ -134,6 +134,7 @@ export const CurrencyInput = forwardRef<InputBaseElement, CurrencyInputProps>(
         value={formatValue(numericValue)} // Display with commas
         onChange={handleChange}
         placeholder={placeholder}
+        data-testid={componentClassName}
         {...props}
       >
         <InputSlot placement="prefix">

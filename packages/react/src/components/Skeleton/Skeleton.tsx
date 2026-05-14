@@ -15,7 +15,7 @@ type SkeletonElement = ComponentRef<'div'>;
 export const Skeleton = forwardRef<SkeletonElement, SkeletonProps>(
   ({ className, children, loadingTitle, ...props }, ref) => {
     return (
-      <Box ref={ref} as="div" className={cn(componentClassName, className)} {...props}>
+      <Box ref={ref} as="div" className={cn(componentClassName, className)} data-testid={componentClassName} {...props}>
         <div className="visually-hidden" aria-live="polite">
           Loading {loadingTitle}
         </div>

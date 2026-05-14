@@ -187,7 +187,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
   };
 
   return (
-    <FormField className={cn(componentClassName, className)} {...formFieldProps}>
+    <FormField className={cn(componentClassName, className)} data-testid={componentClassName} {...formFieldProps}>
       <DatePickerPrimitive
         {...reactDatePickerProps}
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct

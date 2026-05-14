@@ -110,6 +110,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
       ref={ref}
       aria-label="pagination"
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       {...paginationProps}
     >
       <Tag>

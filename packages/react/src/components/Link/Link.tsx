@@ -27,6 +27,7 @@ export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
+      data-testid={componentClassName}
       {...linkProps}
     >
       {asChild ? (

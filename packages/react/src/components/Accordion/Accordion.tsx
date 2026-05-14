@@ -42,7 +42,7 @@ export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, re
   >;
 
   return (
-    <div ref={ref} className={cn(componentClassName, className)}>
+    <div ref={ref} className={cn(componentClassName, className)} data-testid={componentClassName}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       <AccordionPrimitive.Root {...accordionProps} />
     </div>

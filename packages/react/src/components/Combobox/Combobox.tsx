@@ -74,6 +74,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     <FormField
       className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
+      data-testid={componentClassName}
       {...formFieldProps}
     >
       <ComboboxPrimitive.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>

@@ -22,6 +22,7 @@ export const HighlightBanner = forwardRef<HighlightBannerElement, HighlightBanne
       <Card
         ref={ref}
         className={cn(componentClassName, className)}
+        data-testid={componentClassName}
         {...highlightBannerProps}
         colorScheme={colorScheme}
         direction="column"

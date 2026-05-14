@@ -57,6 +57,7 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
     <FormField
       className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
+      data-testid={componentClassName}
       {...formFieldProps}
     >
       <SelectPrimitive.Root {...selectProps}>

@@ -27,6 +27,7 @@ export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((pro
       asChild
       role="list"
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       direction={direction}
     >
       <Tag {...cardActionsProps}>

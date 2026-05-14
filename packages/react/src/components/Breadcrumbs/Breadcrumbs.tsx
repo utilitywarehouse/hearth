@@ -25,6 +25,7 @@ export const Breadcrumbs = forwardRef<BreadcrumbsElement, BreadcrumbsProps>((pro
       aria-label="breadcrumbs"
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
+      data-testid={componentClassName}
       {...breadcrumbsProps}
     >
       <ol role="list">

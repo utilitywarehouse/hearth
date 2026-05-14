@@ -44,7 +44,7 @@ export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
   });
 
   return (
-    <AvatarPrimitive.Root className={cn(componentClassName, className)} ref={ref}>
+    <AvatarPrimitive.Root className={cn(componentClassName, className)} data-testid={componentClassName} ref={ref}>
       {src ? (
         <AvatarPrimitive.Image
           className={`${componentClassName}Image`}

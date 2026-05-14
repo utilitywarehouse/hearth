@@ -58,6 +58,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
             {...alignmentTranslation[align]}
             sideOffset={4}
             arrowPadding={32}
+            data-testid={componentClassName}
             {...props}
           >
             <div className={`${componentClassName}Content`}>

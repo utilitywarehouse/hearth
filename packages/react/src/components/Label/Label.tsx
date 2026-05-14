@@ -35,6 +35,7 @@ export const Label = forwardRef<LabelElement, LabelProps>((props, ref) => {
         className={cn(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
         data-disable-user-select={disableUserSelect ? '' : undefined}
+        data-testid={componentClassName}
         {...(labelProps as HeadingProps)}
       >
         <Tag ref={ref}>{children}</Tag>
@@ -50,6 +51,7 @@ export const Label = forwardRef<LabelElement, LabelProps>((props, ref) => {
       className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}
+      data-testid={componentClassName}
       {...labelProps}
     >
       <Tag ref={ref}>{children}</Tag>

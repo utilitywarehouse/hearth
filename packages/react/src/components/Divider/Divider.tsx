@@ -38,6 +38,7 @@ export const Divider = forwardRef<DividerElement, DividerProps>((props, ref) => 
       ref={ref}
       className={cn(componentClassName, className)}
       data-orientation={orientation}
+      data-testid={componentClassName}
       {...semanticProps}
       {...dividerProps}
     />

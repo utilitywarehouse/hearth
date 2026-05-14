@@ -49,6 +49,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
         // disable the onClick event
         onClick={disabled ? undefined : onClick}
         {...dataAttributeProps}
+        data-testid={componentClassName}
         {...buttonBaseProps}
       >
         {getSubtree({ asChild, children }, children => (
@@ -67,6 +68,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
       className={cn(componentClassName, className)}
       onClick={disabled ? undefined : onClick}
       {...dataAttributeProps}
+      data-testid={componentClassName}
       {...buttonBaseProps}
     >
       {children}
