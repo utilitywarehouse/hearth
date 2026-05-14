@@ -1,6 +1,10 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ProgressStepper.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ProgressStepper } from './ProgressStepper';
+import { ProgressStep } from './ProgressStep';
+import { ProgressStepLink } from './ProgressStepLink';
+import { ProgressStepButton } from './ProgressStepButton';
 
 <Meta title="Components / ProgressStepper" />
 
@@ -86,34 +90,20 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop         | Type             |
-| ------------ | ---------------- |
-| `as`         | `'div' \| 'nav'` |
-| `hideLabels` | `boolean`        |
+<ArgTypes of={ProgressStepper} exclude={'margin*'} />
 
 ### ProgressStep API
 
-| Prop     | Type                                     |
-| -------- | ---------------------------------------- |
-| `status` | `'complete' \| 'active' \| 'incomplete'` |
-| `label`  | `string`                                 |
+<ArgTypes of={ProgressStep} />
 
 ### ProgressStepLink API
 
 This component is based on the `a` element.
 
-| Prop       | Type                                     |
-| ---------- | ---------------------------------------- |
-| `status`   | `'complete' \| 'active' \| 'incomplete'` |
-| `label`    | `string`                                 |
-| `disabled` | `boolean`                                |
+<ArgTypes of={ProgressStepLink} />
 
 ### ProgressStepButton API
 
 This component is based on the `button` element.
 
-| Prop       | Type                                     |
-| ---------- | ---------------------------------------- |
-| `status`   | `'complete' \| 'active' \| 'incomplete'` |
-| `label`    | `string`                                 |
-| `disabled` | `boolean`                                |
+<ArgTypes of={ProgressStepButton} />

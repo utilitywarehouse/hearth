@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Grid.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Grid } from './Grid';
 
 <Meta title="Layout / Grid" />
 
@@ -112,6 +113,7 @@ component passed down to it as well.
 
 This component is based on the `div` element and supports the following common style props:
 
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
 - <StorybookLink to="common-props-gap">Gap</StorybookLink>
 - <StorybookLink to="common-props-padding">Padding</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
@@ -131,22 +133,8 @@ This component is based on the `div` element and supports the following common s
 - <StorybookLink to="common-props-opacity">Opacity</StorybookLink>
 - <StorybookLink to="common-props-order">Order</StorybookLink>
 
-| Prop              | Type                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------- |
-| `as`              | `"div" \| "span"`                                                                                 |
-| `asChild`         | `boolean`                                                                                         |
-| `display`         | `Responsive<"none" \| "grid" \| "inline-grid">`                                                   |
-| `columns`         | `Responsive<"1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "10" \| "11" \| "12">` |
-| `template`        | `Responsive<string>`                                                                              |
-| `templateColumns` | `Responsive<string>`                                                                              |
-| `templateRows`    | `Responsive<string>`                                                                              |
-| `templateAreas`   | `Responsive<string>`                                                                              |
-| `autoflow`        | `Responsive<"row" \| "column" \| "dense" \| "row-dense" \| "column-dense">`                       |
-| `autoColumns`     | `Responsive<string>`                                                                              |
-| `autoRows`        | `Responsive<string>`                                                                              |
-| `alignItems`      | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" >`                            |
-| `alignContent`    | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">`      |
-| `alignSelf`       | `Responsive<"start" \| "center" \| "end" \| "stretch">`                                           |
-| `justifyItems`    | `Responsive<"start" \| "center" \| "end" \| "stretch">`                                           |
-| `justifyContent`  | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">`      |
-| `spacing`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl">`                                                           |
+<ArgTypes
+  of={Grid}
+  include={'display|columns|template*|auto*|justify*|alignItems|alignContent'}
+  sort="requiredFirst"
+/>

@@ -1,7 +1,14 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Card.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Card } from './Card';
+import { CardInteraction } from './CardInteraction';
+import { CardActions } from '../CardActions/CardActions';
+import { CardActionLink } from '../CardActions/CardActionLink';
+import { CardActionButton } from '../CardActions/CardActionButton';
+import { CardContent } from './CardContent';
+import { CardBannerContent } from './CardBannerContent';
 
 <Meta title="Components / Card" />
 
@@ -188,28 +195,28 @@ matters then use the `as` prop to render a `ol` instead.
 
 This component is based on the `Flex` component and supports the following common props:
 
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink>
 - <StorybookLink to="common-props-position">Position</StorybookLink>
 - <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 - <StorybookLink to="common-props-grid-items">Grid item</StorybookLink>
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
+- <StorybookLink to="common-props-overflow">Overflow</StorybookLink>
+- <StorybookLink to="common-props-opacity">Opacity</StorybookLink>
+- <StorybookLink to="common-props-order">Order</StorybookLink>
+- <StorybookLink to="common-props-overflow">Overflow</StorybookLink>
 
-| Prop          | Type                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`          | `"div" \| "li"`                                                                                                                             |
-| `variant`     | `"emphasis" \| "subtle"`                                                                                                                    |
-| `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
-| `shadowColor` | `"pig" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback" \| "functional"`                                      |
-| `paddingNone` | `boolean`                                                                                                                                   |
+<ArgTypes
+  of={Card}
+  exclude={
+    'gap|rowGap|columnGap|margin*|align*|flex*|grid*|textAlign|width|height|minWidth|maxWidth|minHeight|maxHeight|position|top|right|bottom|left|inset|display|direction|wrap|justify*|order|opacity|overflow|zIndex'
+  }
+/>
 
 ### CardInteraction API
 
 This component is based on the `Flex` component.
-
-| Prop        | Type      |
-| ----------- | --------- |
-| `secondary` | `boolean` |
 
 ### CardActions API
 
@@ -217,57 +224,28 @@ This component is based on the `ul` element and supports the following common pr
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop        | Type                                                                 |
-| ----------- | -------------------------------------------------------------------- |
-| `as`        | `"ul" \| "ol"`                                                       |
-| `direction` | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
+<ArgTypes of={CardActions} exclude={'margin*'} />
 
 ### CardActionLink API
 
 This component is based on the `a` element.
 
-| Name                              | Type                                                                                    |
-| --------------------------------- | --------------------------------------------------------------------------------------- |
-| `heading`                         | `string`                                                                                |
-| `helperText`                      | `string`                                                                                |
-| `leadingIcon`                     | `ReactNode`                                                                             |
-| `leadingIconContainerColorScheme` | `"pig" \|"highlight" \| "energy" \| "mobile" \| "broadband"\| "cashback"\| "insurance"` |
-| `trailingIcon`                    | `ReactNode`                                                                             |
-| `badge`                           | `ReactNode`                                                                             |
-| `badgePlacement`                  | `"middle" \|"bottom" \| "right"`                                                        |
+<ArgTypes of={CardActionLink} sort="requiredFirst" />
 
 ### CardActionButton API
 
 This component is based on the `button` element.
 
-| Name                              | Type                                                                                    |
-| --------------------------------- | --------------------------------------------------------------------------------------- |
-| `heading`                         | `string`                                                                                |
-| `helperText`                      | `string`                                                                                |
-| `leadingIcon`                     | `ReactNode`                                                                             |
-| `leadingIconContainerColorScheme` | `"pig" \|"highlight" \| "energy" \| "mobile" \| "broadband"\| "cashback"\| "insurance"` |
-| `trailingIcon`                    | `ReactNode`                                                                             |
-| `badge`                           | `ReactNode`                                                                             |
-| `badgePlacement`                  | `"middle" \|"bottom" \| "right"`                                                        |
+<ArgTypes of={CardActionButton} sort="requiredFirst" />
 
 ### CardContent API
 
 This component is based on the `Card` component, supporting the same props except for those related to appearance and polymorphism.
 
-| Name                | Type      |
-| ------------------- | --------- |
-| `paddingBottomNone` | `boolean` |
+<ArgTypes of={CardContent} include="paddingBottomNone" />
 
 ### CardBannerContent API
 
 This component is based on the `Flex` component.
 
-| Name          | Type                           |
-| ------------- | ------------------------------ |
-| `heading`     | `string`                       |
-| `description` | `string`                       |
-| `textAlign`   | `"left" \|"center" \| "right"` |
-
-### CardBannerImage API
-
-This component is based on the `Flex` component.
+<ArgTypes of={CardBannerContent} include="heading|description|textAlign" />

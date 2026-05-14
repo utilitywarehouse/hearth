@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './CheckboxTile.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { CheckboxTile } from './CheckboxTile';
 
 <Meta title="Components / CheckboxTile" />
 
@@ -82,13 +83,4 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop              | Type                         |
-| ----------------- | ---------------------------- |
-| `value`           | `string`                     |
-| `defaultValue`    | `string`                     |
-| `label`           | `ReactNode`                  |
-| `helperText`      | `ReactNode`                  |
-| `image`           | `ReactNode`                  |
-| `checked`         | `boolean`                    |
-| `defaultChecked`  | `boolean`                    |
-| `onCheckedChange` | `(checked: boolean) => void` |
+<ArgTypes of={CheckboxTile} exclude={'margin*'} />

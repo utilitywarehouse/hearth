@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './TextInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { TextInput } from './TextInput';
 
 <Meta title="Components / TextInput" />
 
@@ -130,11 +131,4 @@ This component is based on the `input` element and supports the following common
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop               | Type                                                                        |
-| ------------------ | --------------------------------------------------------------------------- |
-| `type`             | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` |
-| `label`            | `string`                                                                    |
-| `helperText`       | `string`                                                                    |
-| `validationStatus` | `undefined \| "valid" \| "invalid"`                                         |
-| `validationText`   | `string`                                                                    |
-| `hideLabel`        | `boolean`                                                                   |
+<ArgTypes of={TextInput} exclude={'margin*'} />

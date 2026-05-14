@@ -1,7 +1,11 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './CheckboxGroup.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { CheckboxGroup } from './CheckboxGroup';
 
 <Meta title="Components / CheckboxGroup" />
 
@@ -103,16 +107,4 @@ This component is based on the `fieldset` element and supports the following com
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                  | Type                                  |
-| --------------------- | ------------------------------------- |
-| `label`               | `ReactNode`                           |
-| `labelVariant`        | `"body" \| "heading"`                 |
-| `helperText`          | `ReactNode`                           |
-| `validationText`      | `ReactNode`                           |
-| `validationStatus`    | `"undefined" \| "valid" \| "invalid"` |
-| `validationPlacement` | `"top" \| "bottom"`                   |
-| `contentWidth`        | `Responsive<string>`                  |
-| `direction`           | `"column" \| "row"`                   |
-| `value`               | `Array<string>`                       |
-| `defaultValue`        | `Array<string>`                       |
-| `onCheckedChange`     | `(value: Array<string>) => void`      |
+<ArgTypes of={CheckboxGroup} exclude={'margin*'} />

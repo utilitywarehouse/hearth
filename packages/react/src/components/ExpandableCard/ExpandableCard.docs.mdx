@@ -1,7 +1,12 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ExpandableCard.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ExpandableCard } from './ExpandableCard';
+import { ExpandableCardGroup } from './ExpandableCardGroup';
 
 <Meta title="Components / ExpandableCard" />
 
@@ -113,17 +118,7 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Name                              | Type                                |
-| --------------------------------- | ----------------------------------- |
-| `heading`                         | `string` (required)                 |
-| `helperText`                      | `string`                            |
-| `leadingIcon`                     | `ReactNode`                         |
-| `leadingIconContainerColorScheme` | `IconContainerProps['colorScheme']` |
-| `badge`                           | `ReactNode`                         |
-| `numericValue`                    | `string`                            |
-| `open`                            | `boolean`                           |
-| `defaultOpen`                     | `boolean`                           |
-| `onOpenChange`                    | `(open: boolean) => void`           |
+<ArgTypes of={ExpandableCard} exclude={'margin*'} />
 
 ### ExpandableCardGroup API
 
@@ -131,9 +126,4 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Name              | Type                           |
-| ----------------- | ------------------------------ |
-| `heading`         | `string`                       |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` |
-| `helperText`      | `string`                       |
-| `trailingContent` | `ReactNode`                    |
+<ArgTypes of={ExpandableCardGroup} exclude={'margin*'} />

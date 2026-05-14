@@ -1,8 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as SkeletonBoxStories from './SkeletonBox.stories';
 import * as SkeletonHeadingStories from './SkeletonHeading.stories';
 import * as SkeletonBodyTextStories from './SkeletonBodyText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Skeleton } from './Skeleton';
+import { SkeletonBox } from './SkeletonBox';
+import { SkeletonBodyText } from './SkeletonBodyText';
+import { SkeletonHeading } from './SkeletonHeading';
 
 <Meta title="Components / Skeleton" />
 
@@ -99,10 +103,12 @@ Use `SkeletonBox` when you need explicit control over shape and dimensions.
 - <StorybookLink to="common-props-size">Size</StorybookLink>
 - <StorybookLink to="common-props-z-index">ZIndex</StorybookLink>
 
-| Prop           | Type                                                          |
-| -------------- | ------------------------------------------------------------- |
-| `loadingTitle` | `string`                                                      |
-| `display`      | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` |
+<ArgTypes
+  of={Skeleton}
+  exclude={
+    'margin*|alignSelf|flex*|grid*|border*|position|top|right|bottom|left|inset|width|height|minWidth|maxWidth|minHeight|maxHeight|zIndex|order'
+  }
+/>
 
 ### SkeletonBox API
 
@@ -118,9 +124,12 @@ This component is based on `div` and supports the following common props:
 - <StorybookLink to="common-props-size">Size</StorybookLink>
 - <StorybookLink to="common-props-z-index">ZIndex</StorybookLink>
 
-| Prop      | Type                                                          |
-| --------- | ------------------------------------------------------------- |
-| `display` | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` |
+<ArgTypes
+  of={SkeletonBox}
+  exclude={
+    'margin*|alignSelf|flex*|grid*|border*|position|top|right|bottom|left|inset|width|height|minWidth|maxWidth|minHeight|maxHeight|zIndex|order'
+  }
+/>
 
 ### SkeletonBodyText API
 
@@ -129,10 +138,7 @@ This component is based on `div` and supports the following common props:
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink> (width props only)
 
-| Prop    | Type                                                                                  |
-| ------- | ------------------------------------------------------------------------------------- |
-| `size`  | `Responsive<"sm" \| "md" \| "lg">`                                                    |
-| `lines` | `'1' \| '2' \| '3' \| '4' \| '5' \| '6' \| '7' \| '8' \| '9' \| '10' \| '11' \| '12'` |
+<ArgTypes of={SkeletonBodyText} exclude={'margin*|width|minWidth|maxWidth'} />
 
 ### SkeletonHeading API
 
@@ -141,6 +147,4 @@ This component is based on `div` and supports the following common props:
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink> (width props only)
 
-| Prop   | Type                           |
-| ------ | ------------------------------ |
-| `size` | `"sm" \| "md" \| "lg" \| "xl"` |
+<ArgTypes of={SkeletonHeading} exclude={'margin*|width|minWidth|maxWidth'} />

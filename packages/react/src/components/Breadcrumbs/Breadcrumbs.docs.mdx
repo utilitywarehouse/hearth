@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Breadcrumbs.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { BreadcrumbItem } from './BreadcrumbItem';
 
 <Meta title="Components / Breadcrumbs" />
 
@@ -70,7 +71,4 @@ This component is based on the `nav` element and supports the following common p
 
 This component is based on the `Link` component.
 
-| Prop          | Type      |
-| ------------- | --------- |
-| `currentPage` | `boolean` |
-| `inverted`    | `boolean` |
+<ArgTypes of={BreadcrumbItem} />

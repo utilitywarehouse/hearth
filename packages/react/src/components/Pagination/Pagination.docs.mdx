@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Pagination.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Pagination } from './Pagination';
 
 <Meta title="Components / Pagination" />
 
@@ -17,7 +18,7 @@ Use the `Pagination` component to help users navigate through multiple pages of 
   - [Few Pages](#few-pages)
   - [Many Pages](#many-pages)
   - [Edge Cases](#edge-cases)
-- [Pagination API](#pagination-api)
+- [API](#api)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
@@ -85,17 +86,10 @@ Examples showing different positions in a large page set:
 
 <Canvas of={Stories.EdgeCases} />
 
-## Pagination API
+## API
 
 This component is based on the `div` element by default and supports the following common props:
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop              | Type                     | Default | Description                                                              |
-| ----------------- | ------------------------ | ------- | ------------------------------------------------------------------------ |
-| `as`              | `'div' \| 'nav'`         | `'div'` | Changes the rendered element into a semantically appropriate alternative |
-| `currentPage`     | `number`                 | -       | The current active page number (1-indexed)                               |
-| `totalPages`      | `number`                 | -       | The total number of pages                                                |
-| `onPageChange`    | `(page: number) => void` | -       | Callback when page changes                                               |
-| `condensed`       | `boolean`                | `false` | Whether to show condensed version with only "Page X of Y"                |
-| `hideSkipButtons` | `boolean`                | `false` | Whether to hide the skip to first/last page buttons                      |
+<ArgTypes of={Pagination} exclude={'margin*'} sort="requiredFirst" />

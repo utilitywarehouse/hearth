@@ -1,5 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Tooltip.stories';
+import { Tooltip } from './Tooltip';
+import { TooltipProvider } from './TooltipProvider';
 
 <Meta title="Components / Tooltip" />
 
@@ -104,18 +106,4 @@ Adheres to the [WAI-ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/toolt
 
 ## API
 
-| Prop           | Type                                                                                                                         | Default       |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `children`     | `ReactNode`                                                                                                                  |               |
-| `description`  | `string`                                                                                                                     |               |
-| `heading`      | `ReactNode`                                                                                                                  |               |
-| `align`        | `"topLeft" \| "topCenter" \| "topRight" \| "bottomLeft" \| "bottomCenter" \| "bottomRight" \| "leftCenter" \| "rightCenter"` | `"topCenter"` |
-| `open`         | `boolean`                                                                                                                    |               |
-| `defaultOpen`  | `boolean`                                                                                                                    |               |
-| `onOpenChange` | `(open: boolean) => void`                                                                                                    |               |
-
-### TooltipProvider API
-
-| Prop       | Type        |
-| ---------- | ----------- |
-| `children` | `ReactNode` |
+<ArgTypes of={Tooltip} />

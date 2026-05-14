@@ -1,6 +1,7 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './UnstyledIconButton.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { UnstyledIconButton } from './UnstyledIconButton';
 
 <Meta title="Components / UnstyledIconButton" />
 
@@ -144,8 +145,4 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop      | Type                       |
-| --------- | -------------------------- |
-| `asChild` | `boolean`                  |
-| `size`    | `Responsive<"sm" \| "md">` |
-| `loading` | `boolean`                  |
+<ArgTypes of={UnstyledIconButton} exclude={'margin*'} />

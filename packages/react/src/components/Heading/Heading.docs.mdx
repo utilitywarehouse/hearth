@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Heading.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Heading } from './Heading';
 
 <Meta title="Typography / Heading" />
 
@@ -39,8 +40,4 @@ This component is based on the `h2` element and supports the following common pr
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 - <StorybookLink to="common-props-text">Text wrap</StorybookLink>
 
-| Prop      | Type                           |
-| --------- | ------------------------------ |
-| `as`      | `"h1" \| "h2" \| "h3" \| "h4"` |
-| `asChild` | `boolean`                      |
-| `size`    | `"sm" \| "md" \| "lg" \| "xl"` |
+<ArgTypes of={Heading} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './HelperText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { HelperText } from './HelperText';
 
 <Meta title="Typography / HelperText" />
 
@@ -17,7 +18,4 @@ This component is based on the `span` element and supports the following common 
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 
-| Prop                | Type      |
-| ------------------- | --------- |
-| `disabled`          | `boolean` |
-| `disableUserSelect` | `boolean` |
+<ArgTypes of={HelperText} exclude={'margin*|textTransform|textAlign'} />

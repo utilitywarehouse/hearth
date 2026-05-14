@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './TextArea.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { TextArea } from './TextArea';
 
 <Meta title="Components / TextArea" />
 
@@ -79,17 +80,4 @@ This component is based on the `textarea` element, and supports the following co
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop               | Type                                             |
-| ------------------ | ------------------------------------------------ |
-| `label`            | `string`                                         |
-| `helperText`       | `string`                                         |
-| `validationStatus` | `"valid" \| "invalid"`                           |
-| `validationText`   | `string`                                         |
-| `placeholder`      | `string`                                         |
-| `rows`             | `number`                                         |
-| `resize`           | `"none" \| "both" \| "horizontal" \| "vertical"` |
-| `disabled`         | `boolean`                                        |
-| `readOnly`         | `boolean`                                        |
-| `required`         | `boolean`                                        |
-| `maxHeight`        | `Responsive<string>`                             |
-| `minHeight`        | `Responsive<string>`                             |
+<ArgTypes of={TextArea} exclude={'margin*'} />

@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Combobox.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Combobox } from './Combobox';
 
 <Meta title="Components / Combobox" />
 
@@ -227,14 +228,4 @@ This component is based on the [Base UI Combobox](https://base-ui.com/react/comp
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                 | Type                                |
-| -------------------- | ----------------------------------- |
-| `label`              | `string`                            |
-| `helperText`         | `string`                            |
-| `validationStatus`   | `undefined \| "valid" \| "invalid"` |
-| `validationText`     | `string`                            |
-| `required`           | `boolean`                           |
-| `disabled`           | `boolean`                           |
-| `triggerOnlyOnType`  | `boolean`                           |
-| `noOptionsFoundText` | `string`                            |
-| `statusText`         | `string`                            |
+<ArgTypes of={Combobox} exclude={'margin*'} sort="requiredFirst" />

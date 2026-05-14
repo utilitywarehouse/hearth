@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './VerificationInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { VerificationInput } from './VerificationInput';
 
 <Meta title="Components / VerificationInput" />
 
@@ -65,22 +66,4 @@ This component is based on the `input` element and supports the following common
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop               | Type                                               |
-| ------------------ | -------------------------------------------------- |
-| `label`            | `string`                                           |
-| `helperText`       | `string`                                           |
-| `validationStatus` | `undefined \| "valid" \| "invalid"`                |
-| `validationText`   | `string`                                           |
-| `value`            | `string`                                           |
-| `defaultValue`     | `string`                                           |
-| `onValueChange`    | `(value:string) => void`                           |
-| `autoSubmit`       | `boolean`                                          |
-| `onAutoSubmit`     | `(value:string) => void`                           |
-| `disabled`         | `boolean`                                          |
-| `readOnly`         | `boolean`                                          |
-| `required`         | `boolean`                                          |
-| `form`             | `string`                                           |
-| `name`             | `string`                                           |
-| `sanitizeValue`    | `(value:string) => string`                         |
-| `type`             | `"password" \| "text"`                             |
-| `validationType`   | `"none" \| "numeric" \| "alpha" \| "alphanumeric"` |
+<ArgTypes of={VerificationInput} exclude={'margin*'} />

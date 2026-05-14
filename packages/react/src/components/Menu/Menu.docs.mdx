@@ -1,6 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Menu.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import { Menu } from './Menu';
+import { MenuContent } from './MenuContent';
+import { MenuItem } from './MenuItem';
 
 <Meta title="Components / Menu" />
 
@@ -159,30 +165,16 @@ visual layout or screen reader experience.
 </MenuContent>
 ```
 
-<Canvas of={Stories.SEOFriendly} />
-
 ## Menu API
 
-| Prop           | Type                      |
-| -------------- | ------------------------- |
-| `defaultOpen`  | `boolean`                 |
-| `open`         | `boolean`                 |
-| `onOpenChange` | `(open: boolean) => void` |
+<ArgTypes of={Menu} />
 
 ## MenuContent API
 
-| Prop         | Type                                                       |
-| ------------ | ---------------------------------------------------------- |
-| `placement`  | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` |
-| `forceMount` | `boolean`                                                  |
+<ArgTypes of={MenuContent} />
 
 ### MenuItem API
 
 This component is based on the `div` element.
 
-| Prop          | Type                            |
-| ------------- | ------------------------------- |
-| `colorScheme` | `"functional" \| "destructive"` |
-| `disabled`    | `boolean`                       |
-| `onSelect`    | `(event: Event) => void`        |
-| `textValue`   | `string`                        |
+<ArgTypes of={MenuItem} />

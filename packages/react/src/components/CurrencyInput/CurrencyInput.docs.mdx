@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './CurrencyInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { CurrencyInput } from './CurrencyInput';
 
 <Meta title="Components / CurrencyInput" />
 
@@ -40,10 +41,4 @@ This component is based on the `TextInput` component and supports the following 
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                     | Type                   |
-| ------------------------ | ---------------------- |
-| `label`                  | `string`               |
-| `helperText`             | `string`               |
-| `disableGroupSeparators` | `boolean`              |
-| `validationStatus`       | `"valid" \| "invalid"` |
-| `validationText`         | `string`               |
+<ArgTypes of={CurrencyInput} exclude={'margin*'} />

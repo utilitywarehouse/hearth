@@ -1,7 +1,11 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DateInput.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DateInput } from './DateInput';
 
 <Meta title="Components / DateInput" />
 
@@ -36,27 +40,4 @@ This component is based on the `fieldset` element and supports the following com
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                | Type                                                      |
-| ------------------- | --------------------------------------------------------- |
-| `label`             | `ReactNode`                                               |
-| `labelVariant`      | `"body" \| "heading"`                                     |
-| `helperText`        | `ReactNode`                                               |
-| `validationStatus`  | `undefined \| "valid" \| "invalid"`                       |
-| `validationText`    | `ReactNode`                                               |
-| `required`          | `boolean`                                                 |
-| `disabled`          | `boolean`                                                 |
-| `hideDay`           | `boolean`                                                 |
-| `hideMonth`         | `boolean`                                                 |
-| `hideYear`          | `boolean`                                                 |
-| `dayPlaceholder`    | `string`                                                  |
-| `monthPlaceholder`  | `string`                                                  |
-| `yearPlaceholder`   | `string`                                                  |
-| `dayValue`          | `string`                                                  |
-| `monthValue`        | `string`                                                  |
-| `yearValue`         | `string`                                                  |
-| `defaultDayValue`   | `string`                                                  |
-| `defaultMonthValue` | `string`                                                  |
-| `defaultYearValue`  | `string`                                                  |
-| `onDayChange`       | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |
-| `onMonthChange`     | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |
-| `onYearChange`      | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |
+<ArgTypes of={DateInput} exclude={'margin*'} sort="requiredFirst" />

@@ -2,6 +2,7 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Em.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Em } from './Em';
 
 <Meta title="Typography / Em" />
 
@@ -24,3 +25,5 @@ This component is based on the `em` element and supports the following common pr
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 - <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+
+<ArgTypes of={Em} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

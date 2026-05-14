@@ -1,7 +1,13 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './CardAccordion.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { CardAccordion } from './CardAccordion';
+import { CardAccordionItem } from './CardAccordionItem';
+import { CardAccordionButton } from './CardAccordionButton';
 
 <Meta title="Components / CardAccordion" />
 
@@ -184,24 +190,12 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Name            | Type                      |
-| --------------- | ------------------------- |
-| `value`         | `string`                  |
-| `onValueChange` | `(value: string) => void` |
+<ArgTypes of={CardAccordion} exclude={'margin*'} />
 
 ### CardAccordionItem
 
-| Name                 | Type                                                   |
-| -------------------- | ------------------------------------------------------ |
-| `title`              | `string`                                               |
-| `description`        | `string`                                               |
-| `summaryTitle`       | `string`                                               |
-| `summaryDescription` | `ReactNode`                                            |
-| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`                         |
-| `onEditClick`        | `(event: React.MouseEvent<HTMLButtonElement>) => void` |
+<ArgTypes of={CardAccordionItem} />
 
 ### CardAccordionButton
 
-| Name     | Type                   |
-| -------- | ---------------------- |
-| `action` | `"previous" \| "next"` |
+<ArgTypes of={CardAccordionButton} include={'action'} />

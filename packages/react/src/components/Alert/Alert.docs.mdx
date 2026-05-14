@@ -1,7 +1,8 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Alert.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Alert } from './Alert';
 
 <Meta title="Components / Alert" />
 
@@ -106,14 +107,9 @@ Use `AlertIconButton` to add interactive buttons to alerts.
 
 This component supports the following common props:
 
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 - <StorybookLink to="common-props-grid-items">Grid item</StorybookLink>
 
-| Prop          | Type                                          | Description                                          |
-| ------------- | --------------------------------------------- | ---------------------------------------------------- |
-| `colorScheme` | `info` \| `positive` \| `danger` \| `warning` | Sets the colour scheme                               |
-| `title`       | `string`                                      | Sets the title of the alert                          |
-| `text`        | `string` \| `React.ReactNode`                 | Sets the text content of the alert                   |
-| `onClose`     | `() => void`                                  | Adds a close button to dismiss the alert             |
-| `children`    | `React.ReactNode`                             | Additional content like AlertLink or AlertIconButton |
+<ArgTypes of={Alert} exclude={'margin*|alignSelf|flex*|grid*'} />

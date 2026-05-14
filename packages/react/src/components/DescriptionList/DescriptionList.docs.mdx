@@ -1,6 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DescriptionList.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DescriptionList } from './DescriptionList';
+import { DescriptionListItem } from './DescriptionListItem';
 
 <Meta title="Components / DescriptionList" />
 
@@ -83,22 +85,10 @@ This component is based on the `dl` element and supports the following common pr
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink> (width props only)
 
-| Name              | Type                                                                 |
-| ----------------- | -------------------------------------------------------------------- |
-| `heading`         | `string`                                                             |
-| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`                     |
-| `helperText`      | `string`                                                             |
-| `trailingContent` | `ReactNode`                                                          |
-| `direction`       | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
+<ArgTypes of={DescriptionList} exclude={'margin*|width|minWidth|maxWidth'} />
 
 ## DescriptionListItem API
 
 This component is base on the `div` element.
 
-| Name               | Type                       |
-| ------------------ | -------------------------- |
-| `heading`          | `string`                   |
-| `description`      | `string`                   |
-| `link`             | `ReactNode`                |
-| `validationStatus` | `"invalid" \| "undefined"` |
-| `validationText`   | `string`                   |
+<ArgTypes of={DescriptionListItem} />

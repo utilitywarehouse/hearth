@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Container.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Container } from './Container';
 
 <Meta title="Layout / Container" />
 
@@ -70,17 +71,16 @@ The `display` prop is responsive, you can use this to show or hide content respo
 
 This component is based on the `div` element and supports the following common props:
 
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
+- <StorybookLink to="common-props-gap">Gap</StorybookLink>
+- <StorybookLink to="common-props-padding">Padding</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-position">Position</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink>
 - <StorybookLink to="common-props-colour">Background colour</StorybookLink>
+- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
+- <StorybookLink to="common-props-z-index">Z-Index</StorybookLink>
+- <StorybookLink to="common-props-overflow">Overflow</StorybookLink>
+- <StorybookLink to="common-props-order">Order</StorybookLink>
 
-| Prop             | Type                                                                                         |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| `asChild`        | `boolean`                                                                                    |
-| `align`          | `Responsive<"start" \| "center" \| "end">`                                                   |
-| `display`        | `Responsive<"none" \| "flex" \| "inline-flex">`                                              |
-| `direction`      | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">`                         |
-| `alignItems`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch">`                        |
-| `alignContent`   | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">` |
-| `justifyContent` | `Responsive<"start" \| "center" \| "end" \| "between" \| "around" \| "evenly">`              |
-| `wrap`           | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                           |
+<ArgTypes of={Container} include={'align$'} />

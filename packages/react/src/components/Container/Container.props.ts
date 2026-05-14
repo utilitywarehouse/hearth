@@ -3,6 +3,7 @@ import { BorderStyleProps } from '../../props/border-style.props';
 import { BorderWidthProps } from '../../props/border-width.props';
 import { ColorProps } from '../../props/color.props';
 import { GridItemProps } from '../../props/grid-item.props';
+import { OpacityProps } from '../../props/opacity.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { Responsive } from '../../types/responsive';
@@ -18,6 +19,7 @@ export type ContainerProps = Omit<
   | keyof GridItemProps
   | keyof TextTransformProps
   | keyof TextAlignProps
+  | keyof OpacityProps
 > & {
   align?: Responsive<'start' | 'center' | 'end'>;
 };

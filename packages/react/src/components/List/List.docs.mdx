@@ -1,6 +1,9 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './List.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { List } from './List';
+import { ListItemContent } from './ListItemContent';
+import { ListItemLink } from './ListItemLink';
 
 <Meta title="Components / List" />
 
@@ -208,15 +211,7 @@ This component is based on the `ul` element and supports the following common pr
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Name             | Type                                                |
-| ---------------- | --------------------------------------------------- |
-| `variant`        | `"subtle" \| "emphasis" \| "undefined"`             |
-| `as`             | `"ul" \| "ol"`                                      |
-| `colorScheme`    | `"neutralStrong" \| "neutralSubtle" \| "undefined"` |
-| `heading`        | `string`                                            |
-| `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`    |
-| `helperText`     | `string`                                            |
-| `link`           | `ReactNode`                                         |
+<ArgTypes of={List} exclude={'margin*'} />
 
 ## ListItem
 
@@ -252,14 +247,7 @@ The `ListItemContent` component is used to render more advanced text content.
 
 This component is base on the `div` element.
 
-| Name              | Type                |
-| ----------------- | ------------------- |
-| `heading`         | `string`            |
-| `helperText`      | `ReactNode`         |
-| `leadingContent`  | `ReactNode`         |
-| `trailingContent` | `ReactNode`         |
-| `badge`           | `ReactNode`         |
-| `badgePlacement`  | `"top" \| "bottom"` |
+<ArgTypes of={ListItemContent} />
 
 ## ListItemButton
 
@@ -282,9 +270,7 @@ This component is base on the `a` element and extends the `ListItemContent`
 component, so it supports all the same props, as well as the following
 additional props:
 
-| Name      | Type      |
-| --------- | --------- |
-| `asChild` | `boolean` |
+<ArgTypes of={ListItemLink} include={'asChild'} />
 
 ## ListActionLink
 

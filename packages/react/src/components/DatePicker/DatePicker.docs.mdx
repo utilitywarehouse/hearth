@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DatePicker.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DatePicker } from './DatePicker';
 
 <Meta title="Components / DatePicker" />
 
@@ -23,18 +24,4 @@ It supports the following common props:
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                    | Type                                                                                                                    |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `label`                 | `string`                                                                                                                |
-| `helperText`            | `string`                                                                                                                |
-| `validationText`        | `string`                                                                                                                |
-| `validationStatus`      | `"valid" \| "invalid"`                                                                                                  |
-| `required`              | `boolean`                                                                                                               |
-| `disabled`              | `boolean`                                                                                                               |
-| `selected`              | `Date \| null \| undefined`                                                                                             |
-| `onChange`              | `( date: Date \| null, event?: React.MouseEvent<HTMLElement> \| React.KeyboardEvent<HTMLElement>) => void \| undefined` |
-| `id`                    | `string`                                                                                                                |
-| `labelId`               | `string`                                                                                                                |
-| `helperTextId`          | `string`                                                                                                                |
-| `validationTextId`      | `string`                                                                                                                |
-| `disableTodayIndicator` | `boolean`                                                                                                               |
+<ArgTypes of={DatePicker} exclude={'margin*'} sort="requiredFirst" />

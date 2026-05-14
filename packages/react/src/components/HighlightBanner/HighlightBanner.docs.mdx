@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './HighlightBanner.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { HighlightBanner } from './HighlightBanner';
 
 <Meta title="Components / HighlightBanner" />
 
@@ -26,8 +27,4 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop           | Type                                                                                       |
-| -------------- | ------------------------------------------------------------------------------------------ |
-| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                       |
-| `heading`      | `string`                                                                                   |
-| `headingColor` | `"pig" \| "highlight" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
+<ArgTypes of={HighlightBanner} exclude={'margin*'} sort="requiredFirst" />

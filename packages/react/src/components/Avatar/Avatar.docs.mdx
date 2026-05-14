@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Avatar.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Avatar } from './Avatar';
 
 <Meta title="Components / Avatar" />
 
@@ -68,9 +69,4 @@ This component is based on the `img` & `span` elements and supports the followin
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                    | Type                                                           |
-| ----------------------- | -------------------------------------------------------------- |
-| `size`                  | `Responsive<"sm" \| "md">`                                     |
-| `name`                  | `string`                                                       |
-| `delayMs`               | `number`                                                       |
-| `onLoadingStatusChange` | `(status: "idle" \| "loading" \| "loaded" \| "error") => void` |
+<ArgTypes of={Avatar} exclude={'margin*'} />

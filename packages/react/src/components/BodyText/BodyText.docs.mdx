@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './BodyText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { BodyText } from './BodyText';
 
 <Meta title="Typography / BodyText" />
 
@@ -109,14 +110,4 @@ This component is based on the `p` element and supports the following common pro
 - <StorybookLink to="common-props-text">Text wrap</StorybookLink>
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 
-| Prop               | Type                                                               |
-| ------------------ | ------------------------------------------------------------------ |
-| `as`               | `"p" \| "div" \| "span"`                                           |
-| `asChild`          | `boolean`                                                          |
-| `size`             | `Responsive<"sm" \| "md" \| "lg">`                                 |
-| `weight`           | `Responsive<"regular" \| "bold">`                                  |
-| `align`            | `Responsive<"left" \| "center" \| "right">`                        |
-| `textTransform`    | `Responsive<"none" \| "capitalize" \| "uppercase" \| "lowercase">` |
-| `wrap`             | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">`          |
-| `truncate`         | `boolean`                                                          |
-| `paragraphSpacing` | `boolean`                                                          |
+<ArgTypes of={BodyText} exclude={'margin*|color|textTransform|textAlign|textWrap|wrap'} />

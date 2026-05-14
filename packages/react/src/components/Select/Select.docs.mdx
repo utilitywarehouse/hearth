@@ -1,7 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Select.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Select } from './Select';
+import { SelectItem } from './SelectItem';
 
 <Meta title="Components / Select" />
 
@@ -113,29 +118,8 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop               | Type                      |
-| ------------------ | ------------------------- |
-| `label`            | `string`                  |
-| `labelVariant`     | `"body" \| "heading"`     |
-| `helperText`       | `string`                  |
-| `validationStatus` | `"valid" \| "invalid"`    |
-| `validationText`   | `string`                  |
-| `defaultValue`     | `string`                  |
-| `value`            | `string`                  |
-| `onValueChange`    | `(value: string) => void` |
-| `defaultOpen`      | `boolean`                 |
-| `open`             | `boolean`                 |
-| `onOpenChange`     | `(open: boolean) => void` |
-| `name`             | `string`                  |
-| `disabled`         | `boolean`                 |
-| `required`         | `boolean`                 |
-| `placeholder`      | `string`                  |
+<ArgTypes of={Select} exclude={'margin*'} />
 
 ### SelectItem API
 
 This component is based on the `div` element.
-
-| Prop       | Type      |
-| ---------- | --------- |
-| `value`    | `string`  |
-| `disabled` | `boolean` |

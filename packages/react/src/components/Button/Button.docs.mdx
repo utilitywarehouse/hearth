@@ -1,7 +1,8 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Button.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Button } from './Button';
 
 <Meta title="Components / Button" />
 
@@ -292,12 +293,4 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop          | Type                                                            |
-| ------------- | --------------------------------------------------------------- |
-| `asChild`     | `boolean`                                                       |
-| `size`        | `Responsive<"sm" \| "md">`                                      |
-| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"`                 |
-| `colorScheme` | `"highlight" \| "functional" \| "affirmative" \| "destructive"` |
-| `inverted`    | `boolean`                                                       |
-| `loading`     | `boolean`                                                       |
-| `paddingNone` | `boolean`                                                       |
+<ArgTypes of={Button} exclude={'margin*'} />

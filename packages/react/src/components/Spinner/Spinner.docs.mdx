@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Spinner.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Spinner } from './Spinner';
 
 <Meta title="Components / Spinner" />
 
@@ -44,7 +45,4 @@ This component is based on the `div` element and supports the following common p
 - <StorybookLink to="common-props-colour">Color</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop           | Type                                       |
-| -------------- | ------------------------------------------ |
-| `size`         | `Responsive<"xs" \| "sm" \| "md" \| "lg">` |
-| `currentColor` | `boolean`                                  |
+<ArgTypes of={Spinner} exclude={'margin*|color'} />

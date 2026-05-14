@@ -1,7 +1,11 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ProgressBar.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ProgressBar } from './ProgressBar';
 
 <Meta title="Components / ProgressBar" />
 
@@ -73,15 +77,4 @@ This component is based on the `div` element and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop              | Type                                 |
-| ----------------- | ------------------------------------ |
-| `variant`         | `"linear" \| "circular"`             |
-| `colorScheme`     | `"default" \| "success" \| "danger"` |
-| `size`            | `Responsive<"sm" \| "md">`           |
-| `label`           | `string`                             |
-| `value`           | `number`                             |
-| `min`             | `number`                             |
-| `max`             | `number`                             |
-| `hideLabel`       | `boolean`                            |
-| `formatValueText` | `(value: number) => string`          |
-| `aria-valuetext`  | `string \| undefined`                |
+<ArgTypes of={ProgressBar} exclude={'margin*'} sort="requiredFirst" />

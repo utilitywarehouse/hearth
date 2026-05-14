@@ -1,6 +1,7 @@
-import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Divider.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Divider } from './Divider';
 
 <Meta title="Components / Divider" />
 
@@ -34,8 +35,4 @@ This component is based on the `hr` element, and supports the following common p
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop          | Type                         |
-| ------------- | ---------------------------- |
-| `orientation` | `"horizontal" \| "vertical"` |
-| `decorative`  | `boolean`                    |
-| `color`       | `string`                     |
+<ArgTypes of={Divider} exclude={'margin*'} />

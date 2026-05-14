@@ -1,7 +1,8 @@
-import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Strong.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Strong } from './Strong';
 
 <Meta title="Typography / Strong" />
 
@@ -30,3 +31,5 @@ This component is based on the `strong` element and supports the following commo
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 - <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+
+<ArgTypes of={Strong} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Label.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Label } from './Label';
 
 <Meta title="Typography / Label" />
 
@@ -16,9 +17,4 @@ This component is based on the `label` element, and supports the following commo
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 
-| Prop                | Type                  |
-| ------------------- | --------------------- |
-| `as`                | `"label" \| "span"`   |
-| `labelVariant`      | `"body" \| "heading"` |
-| `disabled`          | `boolean`             |
-| `disableUserSelect` | `boolean`             |
+<ArgTypes of={Label} exclude={'margin*|textTransform'} />

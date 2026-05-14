@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Box.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Box } from './Box';
 
 <Meta title="Layout / Box" />
 
@@ -55,14 +56,14 @@ The `display` prop is responsive, you can use this to show or hide content respo
 
 This component is based on the `div` element and supports the following common props:
 
-- <StorybookLink to="common-props-flex-items">AlignSelf</StorybookLink>
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
 - <StorybookLink to="common-props-padding">Padding</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-position">Position</StorybookLink>
 - <StorybookLink to="common-props-size">Size</StorybookLink>
 - <StorybookLink to="common-props-colour">Colour</StorybookLink>
 - <StorybookLink to="common-props-colour">Background colour</StorybookLink>
-- <StorybookLink to="common-props-colour">Border colour</StorybookLink>
+- <StorybookLink to="common-props-border">Border colour</StorybookLink>
 - <StorybookLink to="common-props-border">Border</StorybookLink>
 - <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 - <StorybookLink to="common-props-grid-items">Grid item</StorybookLink>
@@ -73,8 +74,4 @@ This component is based on the `div` element and supports the following common p
 - <StorybookLink to="common-props-opacity">Opacity</StorybookLink>
 - <StorybookLink to="common-props-order">Order</StorybookLink>
 
-| Prop      | Type                                                          |
-| --------- | ------------------------------------------------------------- |
-| `as`      | `"div" \| "span"`                                             |
-| `asChild` | `boolean`                                                     |
-| `display` | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` |
+<ArgTypes of={Box} include={'as|asChild|display'} />

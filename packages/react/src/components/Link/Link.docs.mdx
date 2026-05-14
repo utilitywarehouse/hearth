@@ -1,8 +1,9 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Link.stories';
 
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Link } from './Link';
 
 <Meta title="Components / Link" />
 
@@ -189,7 +190,4 @@ This component is based on the `a` element and supports the following common pro
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 
-| Prop       | Type      |
-| ---------- | --------- |
-| `asChild`  | `boolean` |
-| `inverted` | `boolean` |
+<ArgTypes of={Link} exclude={'margin*|textTransform'} />

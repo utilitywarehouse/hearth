@@ -1,9 +1,16 @@
-import { Meta, Description, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './RadioGroup.stories';
 import * as RadioCardStories from '../RadioCard/RadioCard.stories';
 import * as RadioTileStories from '../RadioTile/RadioTile.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { RadioGroup } from './RadioGroup';
+import { Radio } from '../Radio/Radio';
+import { RadioTile } from '../RadioTile/RadioTile';
+import { RadioCard } from '../RadioCard/RadioCard';
 
 <Meta title="Components / RadioGroup" />
 
@@ -232,17 +239,7 @@ This component is based on the `fieldset` element and supports the following com
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop                  | Type                                  |
-| --------------------- | ------------------------------------- |
-| `label`               | `ReactNode`                           |
-| `labelVariant`        | `"body" \| "heading"`                 |
-| `helperText`          | `ReactNode`                           |
-| `validationText`      | `ReactNode`                           |
-| `validationStatus`    | `"undefined" \| "valid" \| "invalid"` |
-| `validationPlacement` | `"top" \| "bottom"`                   |
-| `direction`           | `Responsive<"row" \| "column">`       |
-| `columns`             | `Responsive<number>`                  |
-| `contentWidth`        | `Responsive<string>`                  |
+<ArgTypes of={RadioGroup} exclude={'margin*'} />
 
 ### Radio API
 
@@ -250,25 +247,16 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop         | Type        |
-| ------------ | ----------- |
-| `label`      | `string`    |
-| `helperText` | `string`    |
-| `image`      | `ReactNode` |
+<ArgTypes of={Radio} exclude={'margin*'} />
 
 ### RadioTile API
 
 This component is based on the `button` element and supports the following common props:
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 
-| Prop         | Type        |
-| ------------ | ----------- |
-| `label`      | `string`    |
-| `helperText` | `string`    |
-| `image`      | `ReactNode` |
-| `badge`      | `ReactNode` |
-| `fitContent` | `boolean`   |
+<ArgTypes of={RadioTile} exclude={'margin*|flex*'} />
 
 ### RadioCard API
 
@@ -276,7 +264,4 @@ This component is based on the `button` element and supports the following commo
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop       | Type        |
-| ---------- | ----------- |
-| `label`    | `string`    |
-| `children` | `ReactNode` |
+<ArgTypes of={RadioCard} exclude={'margin*'} />

@@ -1,7 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ToggleButtonCard.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
+import { ToggleButtonCard } from './ToggleButtonCard';
 
 <Meta title="Components / ToggleButtonCard" />
 
@@ -212,30 +217,12 @@ Uses [roving tabindex](https://www.w3.org/TR/wai-aria-practices-1.2/examples/rad
 
 ## ToggleGroup API
 
-This component is based on the `Flex` component and supports the following common props:
-
-- <StorybookLink to="common-props-margin">Margin</StorybookLink>
-
-| Name            | Type                                                            |
-| --------------- | --------------------------------------------------------------- |
-| `direction`     | `Responsive<"row" \| "column">`                                 |
-| `type`          | `"multiple" \| "single"`                                        |
-| `value`         | `"Array<string>" \| "string"`                                   |
-| `defaultValue`  | `"Array<string>" \| "string"`                                   |
-| `onValueChange` | `"(value: Array<string>) => void" \| "(value: string) => void"` |
-| `disabled`      | `boolean`                                                       |
+This component is based on the `Flex` component.
 
 ## ToggleButtonCard API
 
-This component is based on the `button` element and supports the following common props:
+This component is based on the `button` element and `Flex` component and supports the following common props:
 
-- <StorybookLink to="layout-flex">Flex</StorybookLink>
 - <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 
-| Name              | Type                                                                  |
-| ----------------- | --------------------------------------------------------------------- |
-| `label`           | `string`                                                              |
-| `aria-labelledby` | `string`                                                              |
-| `value`           | `string`                                                              |
-| `disabled`        | `boolean`                                                             |
-| `alignItems`      | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch">` |
+<ArgTypes of={ToggleButtonCard} include={'label|aria*'} />

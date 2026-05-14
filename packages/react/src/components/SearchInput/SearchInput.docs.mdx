@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './SearchInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { SearchInput } from './SearchInput';
 
 <Meta title="Components / SearchInput" />
 
@@ -101,8 +102,4 @@ This component is based on the `TextInput` component and supports the following 
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop      | Type         |
-| --------- | ------------ |
-| `label`   | `string`     |
-| `onClear` | `() => void` |
-| `loading` | `boolean`    |
+<ArgTypes of={SearchInput} exclude={'margin*'} />

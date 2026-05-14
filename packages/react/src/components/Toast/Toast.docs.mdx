@@ -1,6 +1,13 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Toast.stories';
-import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import { ToastProvider } from './ToastProvider';
+import { Toast } from './Toast';
+import { ToastActionLink } from './ToastActionLink';
+import { ToastActionButton } from './ToastActionButton';
 
 <Meta title="Components / Toast" />
 
@@ -219,46 +226,20 @@ return (
 
 This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop             | Type            |
-| ---------------- | --------------- |
-| `duration`       | `number`        |
-| `viewportLabel`  | `string`        |
-| `viewportHotkey` | `Array<string>` |
+<ArgTypes of={ToastProvider} />
 
 ### Toast
 
 This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop                | Type                             |
-| ------------------- | -------------------------------- |
-| `description`       | `ReactNode`                      |
-| `icon`              | `ReactNode`                      |
-| `showDismissButton` | `boolean`                        |
-| `type`              | `"foreground"` \| `"background"` |
-| `duration`          | `number`                         |
-| `defaultOpen`       | `boolean`                        |
-| `open`              | `boolean`                        |
-| `onOpenChange`      | `(open: boolean) => void`        |
-| `onEscapeKeyDown`   | `(event: KeyboardEvent) => void` |
-| `onPause`           | `() => void`                     |
-| `onResume`          | `() => void`                     |
-| `onSwipeStart`      | `(event: SwipeEvent) => void`    |
-| `onSwipeMove`       | `(event: SwipeEvent) => void`    |
-| `onSwipeEnd`        | `(event: SwipeEvent) => void`    |
-| `onSwipeCancel`     | `(event: SwipeEvent) => void`    |
+<ArgTypes of={Toast} />
 
 ### ToastActionLink
 
 This component is based on the `a` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop      | Type     |
-| --------- | -------- |
-| `altText` | `string` |
+<ArgTypes of={ToastActionLink} />
 
 ### ToastActionButton
 
 This component is based on the `button` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
-
-| Prop      | Type     |
-| --------- | -------- |
-| `altText` | `string` |

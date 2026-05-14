@@ -24,6 +24,37 @@ export default meta;
 type Story = StoryObj<typeof Menu>;
 
 export const Playground: Story = {
+  render: args => {
+    return (
+      <Menu {...args}>
+        <MenuTrigger>
+          <Button variant="outline" colorScheme="functional">
+            Menu trigger
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent>
+          <MenuItem>Item</MenuItem>
+          <MenuItem>Item</MenuItem>
+          <MenuItem asChild>
+            <a href="#">
+              Navigation Item
+              <OpenSmallIcon />
+            </a>
+          </MenuItem>
+          <MenuItem colorScheme="functional">Item</MenuItem>
+          <MenuItem colorScheme="destructive">
+            Destructive item
+            <TrashSmallIcon />
+          </MenuItem>
+          <MenuItem disabled>Disabled item</MenuItem>
+        </MenuContent>
+      </Menu>
+    );
+  },
+};
+
+export const DefaultOpen: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   args: { defaultOpen: true },
   render: args => {

@@ -1,6 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Modal.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ModalRoot } from './ModalRoot';
+import { Modal } from './Modal';
 
 <Meta title="Components / Modal" />
 
@@ -152,24 +154,10 @@ users click outside of the modal or press the escape key.
 
 This component is based on [Radix UI's Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog).
 
-| Prop           | Type                      |
-| -------------- | ------------------------- |
-| `open`         | `boolean`                 |
-| `defaultOpen`  | `boolean`                 |
-| `onOpenChange` | `(open: boolean) => void` |
-
 ### Modal
 
 This component is based on Radix UI's Dialog primitive and supports the following common props:
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop              | Type        |
-| ----------------- | ----------- |
-| `heading`         | `string`    |
-| `description`     | `string`    |
-| `hideCloseButton` | `boolean`   |
-| `image`           | `ReactNode` |
-| `loading`         | `boolean`   |
-| `loadingText`     | `string`    |
-| `fullScreen`      | `boolean`   |
+<ArgTypes of={Modal} exclude={'margin*'} />

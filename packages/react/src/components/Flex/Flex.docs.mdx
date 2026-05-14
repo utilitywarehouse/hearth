@@ -1,7 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Flex.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Flex } from './Flex';
 
 <Meta title="Layout / Flex" />
 
@@ -89,6 +90,7 @@ You can insert a `Divider` component in between `Flex` children in the following
 
 This component is based on the `div` element and supports the following common props:
 
+- <StorybookLink to="common-props-alignself">AlignSelf</StorybookLink>
 - <StorybookLink to="common-props-gap">Gap</StorybookLink>
 - <StorybookLink to="common-props-padding">Padding</StorybookLink>
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
@@ -97,7 +99,6 @@ This component is based on the `div` element and supports the following common p
 - <StorybookLink to="common-props-colour">Colour</StorybookLink>
 - <StorybookLink to="common-props-colour">Background colour</StorybookLink>
 - <StorybookLink to="common-props-colour">Border colour</StorybookLink>
-- <StorybookLink to="common-props-spacing">Spacing</StorybookLink>
 - <StorybookLink to="common-props-border">Border</StorybookLink>
 - <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
 - <StorybookLink to="common-props-grid-items">Grid item</StorybookLink>
@@ -108,14 +109,9 @@ This component is based on the `div` element and supports the following common p
 - <StorybookLink to="common-props-opacity">Opacity</StorybookLink>
 - <StorybookLink to="common-props-order">Order</StorybookLink>
 
-| Prop             | Type                                                                                         |
-| ---------------- | -------------------------------------------------------------------------------------------- |
-| `as`             | `"div" \| "span"`                                                                            |
-| `asChild`        | `boolean`                                                                                    |
-| `display`        | `Responsive<"none" \| "flex" \| "inline-flex">`                                              |
-| `direction`      | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">`                         |
-| `alignItems`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch">`                        |
-| `alignContent`   | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">` |
-| `alignSelf`      | `Responsive<"start" \| "center" \| "end" \| "stretch">`                                      |
-| `justifyContent` | `Responsive<"start" \| "center" \| "end" \| "between" \| "around" \| "evenly">`              |
-| `wrap`           | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                           |
+<ArgTypes
+  of={Flex}
+  exclude={
+    'margin*|padding*|gap|columnGap|rowGap|position|top|right|bottom|left|inset|width|height|minWidth|maxWidth|minHeight|maxHeight|color|background*|border*|flexItem*|grid*|textAlign|textTransform|wrap|zIndex|overflow*|opacity|order|alignSelf'
+  }
+/>

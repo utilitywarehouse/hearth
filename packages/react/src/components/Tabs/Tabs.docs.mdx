@@ -1,6 +1,10 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Tabs.stories';
+import { Tabs } from './Tabs';
+import { TabsList } from './TabsList';
+import { Tab } from './Tab';
+import { TabContent } from './TabContent';
 
 <Meta title="Components / Tabs" />
 
@@ -131,34 +135,4 @@ smooth experience while maintaining the benefits of automatic activation.
 
 ### Tabs
 
-| Prop             | Type                                                 |
-| ---------------- | ---------------------------------------------------- |
-| `value`          | `string`                                             |
-| `defaultValue`   | `string`                                             |
-| `onValueChange`  | `(value: string) => void`                            |
-| `size`           | `Responsive<"md" \| "lg">`                           |
-| `activationMode` | `"automatic" \| "manual"`                            |
-| `children`       | `ReactNode`                                          |
-| `spacing`        | `'none'\|'2xs'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'2xl'` |
-
-### TabsList
-
-| Prop       | Type        |
-| ---------- | ----------- |
-| `children` | `ReactNode` |
-
-### Tab
-
-| Prop       | Type        |
-| ---------- | ----------- |
-| `value`    | `string`    |
-| `children` | `ReactNode` |
-| `disabled` | `boolean`   |
-
-### TabContent
-
-| Prop         | Type        |
-| ------------ | ----------- |
-| `value`      | `string`    |
-| `children`   | `ReactNode` |
-| `forceMount` | `boolean`   |
+<ArgTypes of={Tabs} />

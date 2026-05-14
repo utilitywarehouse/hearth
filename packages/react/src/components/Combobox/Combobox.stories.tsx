@@ -34,6 +34,13 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 export const Playground: Story = {
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return <Combobox {...args} items={fruits} />;
+  },
+};
+
+export const DefaultOpen: Story = {
   args: { defaultOpen: true },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
@@ -303,7 +310,7 @@ export const Gallery: Story = {
   },
   render: () => {
     const stories = {
-      Playground,
+      DefaultOpen,
       ScrollArea,
     };
     return <StoryGallery meta={meta} stories={stories} direction="row" />;

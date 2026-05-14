@@ -1,6 +1,8 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Table.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Table } from './Table';
+import { TableHeaderCell } from './TableHeaderCell';
 
 <Meta title="Components / Table" />
 
@@ -120,10 +122,7 @@ This component is based on the `table` element and supports the following common
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-| Prop         | Type                                  |
-| ------------ | ------------------------------------- |
-| `variant`    | `undefined \| 'subtle' \| 'emphasis'` |
-| `pagination` | `ReactElement<TablePaginationProps>`  |
+<ArgTypes of={Table} exclude={'margin*'} />
 
 ### TableHeader API
 
@@ -135,9 +134,7 @@ This component is based on the `th` element and supports the following common pr
 
 - <StorybookLink to="common-props-text">Text Align</StorybookLink>
 
-| Prop  | Type      | Description                                                                             |
-| ----- | --------- | --------------------------------------------------------------------------------------- |
-| `row` | `boolean` | When true, sets `scope="row"` on the header cell, for use as a row header in table body |
+<ArgTypes of={TableHeaderCell} />
 
 ### TableBody API
 

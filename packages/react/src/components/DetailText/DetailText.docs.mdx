@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DetailText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DetailText } from './DetailText';
 
 <Meta title="Typography / DetailText" />
 
@@ -48,8 +49,4 @@ This component is based on the `span` element and supports the following common 
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 - <StorybookLink to="common-props-text">Text wrap</StorybookLink>
 
-| Prop      | Type                                                                  |
-| --------- | --------------------------------------------------------------------- |
-| `as`      | `"p" \| "div" \| "span"`                                              |
-| `asChild` | `boolean`                                                             |
-| `size`    | `Responsive<"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl">` |
+<ArgTypes of={DetailText} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

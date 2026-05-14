@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ValidationText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ValidationText } from './ValidationText';
 
 <Meta title="Typography / ValidationText" />
 
@@ -18,7 +19,4 @@ This component is based on the `span` element and supports the following common 
 - <StorybookLink to="common-props-text">Text transform</StorybookLink>
 - <StorybookLink to="common-props-text">Text align</StorybookLink>
 
-| Prop                | Type                   |
-| ------------------- | ---------------------- |
-| `status`            | `'valid' \| 'invalid'` |
-| `disableUserSelect` | `boolean`              |
+<ArgTypes of={ValidationText} exclude={'margin*|textTransform|textAlign'} />
