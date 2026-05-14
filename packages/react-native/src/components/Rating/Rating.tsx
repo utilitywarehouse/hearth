@@ -97,7 +97,7 @@ const Rating = ({
                   disabled={disabled}
                   hitSlop={8}
                   onPress={() => handlePress(entry.value)}
-                  style={styles.emojiStar}
+                  style={styles.emojiItem}
                 >
                   <RatingEmoji
                     emoji={entry.emoji}
@@ -172,7 +172,7 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     padding: theme.components.rating.borderWidth,
   },
-  emojiStar: {
+  emojiItem: {
     width: EMOJI_CONTAINER_SIZE,
     height: EMOJI_CONTAINER_SIZE,
     alignItems: 'center',

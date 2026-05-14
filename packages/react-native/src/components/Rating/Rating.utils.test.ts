@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { EMOJI_LIST, getEmojiForValue } from './Rating.utils';
+import { EMOJI_LIST } from './Rating.utils';
 
 describe('EMOJI_LIST', () => {
   it('has exactly 5 emojis mapped to values 1-5', () => {
@@ -13,12 +13,4 @@ describe('EMOJI_LIST', () => {
       expect(entry.accessibilityLabel).toBeTruthy();
     }
   });
-});
-
-describe('getEmojiForValue', () => {
-  it('returns the correct emoji for a given value', () => {
-    expect(getEmojiForValue(1).emoji).toBe('\u{1F61E}');
-    expect(getEmojiForValue(5).emoji).toBe('\u{1F604}');
-  });
-
 });

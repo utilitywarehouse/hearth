@@ -13,13 +13,13 @@ export interface RatingProps extends Omit<ViewProps, 'children'> {
   value?: RatingValue;
   /** Initial rating value when uncontrolled. */
   defaultValue?: RatingValue;
-  /** Called when a star is selected. */
+  /** Called when a rating is selected. */
   onChange?: (value: RatingValue) => void;
   /** Disables the rating input. */
   disabled?: boolean;
   /** Override labels for specific rating values. */
   labels?: RatingLabels;
-  /** Hide the label text below the stars. */
+  /** Hide the label text below the rating. */
   hideLabel?: boolean;
 }
 

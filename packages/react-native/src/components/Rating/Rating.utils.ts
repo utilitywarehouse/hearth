@@ -14,5 +14,3 @@ export const EMOJI_LIST: EmojiEntry[] = [
   { value: 5, emoji: '\u{1F604}', accessibilityLabel: 'Very satisfied' },
 ];
 
-export const getEmojiForValue = (value: Exclude<RatingValue, 0>): EmojiEntry =>
-  EMOJI_LIST.find(e => e.value === value)!;
