@@ -4,7 +4,11 @@ export type RatingValue = 0 | 1 | 2 | 3 | 4 | 5;
 
 export type RatingLabels = Partial<Record<RatingValue, string>>;
 
+export type RatingVariant = 'stars' | 'emojis';
+
 export interface RatingProps extends Omit<ViewProps, 'children'> {
+  /** Visual variant for the rating indicators. */
+  variant?: RatingVariant;
   /** Current rating value. */
   value?: RatingValue;
   /** Initial rating value when uncontrolled. */
