@@ -29,6 +29,7 @@ export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props,
       className={cn(componentClassName, className)}
       aria-label={label}
       disabled={disabled || loading}
+      data-testid={componentClassName}
       asChild
       {...iconButtonProps}
     >

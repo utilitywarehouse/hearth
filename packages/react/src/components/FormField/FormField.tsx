@@ -33,6 +33,7 @@ export const FormField = ({
     <div
       className={cn(componentClassName, className)}
       data-validation-status={validationStatus ? validationStatus : undefined}
+      data-testid={componentClassName}
       {...props}
     >
       <div

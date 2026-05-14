@@ -77,6 +77,7 @@ export const PasswordInput = forwardRef<InputBaseElement, PasswordInputProps>(
           type={visible ? 'text' : 'password'}
           disabled={disabled}
           id={id}
+          data-testid={componentClassName}
           {...props}
         >
           <InputSlot placement="suffix">

@@ -69,6 +69,7 @@ export const TextArea = forwardRef<TextAreaElement, TextAreaProps>((props, ref) 
       data-validation-status={validationStatus ? validationStatus : undefined}
       data-disabled={disabled ? '' : undefined}
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       {...formFieldProps}
     >
       <Box asChild minHeight={minHeight} maxHeight={maxHeight}>

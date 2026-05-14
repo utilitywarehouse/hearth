@@ -67,6 +67,7 @@ export const VerificationInput = forwardRef<VerificationInputElement, Verificati
       <FormField
         className={cn(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
+        data-testid={componentClassName}
         {...formFieldProps}
       >
         <OneTimePasswordFieldPrimitive.Root

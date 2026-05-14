@@ -60,7 +60,11 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
   );
 
   return (
-    <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
+    <Flex
+      className={cn(componentClassName, className)}
+      data-testid={componentClassName}
+      data-disabled={disabled ? '' : undefined}
+    >
       <CheckboxPrimitive.Root
         ref={ref}
         className={`${componentClassName}Root`}

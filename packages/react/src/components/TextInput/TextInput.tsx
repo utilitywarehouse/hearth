@@ -64,6 +64,7 @@ export const TextInput = forwardRef<InputBaseElement, TextInputProps>((props, re
     <FormField
       className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
+      data-testid={componentClassName}
       {...formFieldProps}
     >
       <InputBase

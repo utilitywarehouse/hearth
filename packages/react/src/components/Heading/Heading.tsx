@@ -34,6 +34,7 @@ export const Heading = forwardRef<HeadingElement, HeadingProps>(
         ref={ref}
         className={cn(componentClassName, className)}
         data-inverted={inverted ? '' : undefined}
+        data-testid={componentClassName}
         {...headingProps}
       >
         {asChild ? children : <Tag>{children}</Tag>}

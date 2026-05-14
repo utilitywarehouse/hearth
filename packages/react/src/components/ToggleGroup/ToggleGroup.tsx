@@ -31,6 +31,7 @@ export const ToggleGroup = forwardRef<ToggleGroupElement, ToggleGroupProps>(
       <Flex asChild {...props}>
         <ToggleGroupPrimitive.Root
           className={cn(componentClassName, className)}
+          data-testid={componentClassName}
           {...(toggleGroupProps as ComponentPropsWithRef<typeof ToggleGroupPrimitive.Root>)}
         />
       </Flex>

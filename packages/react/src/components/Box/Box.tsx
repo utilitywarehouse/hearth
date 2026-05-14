@@ -65,7 +65,12 @@ export const Box = forwardRef<BoxElement, BoxProps>((props, ref) => {
   );
 
   return (
-    <Slot.Root ref={ref} className={cn(componentClassName, className)} {...boxProps}>
+    <Slot.Root
+      ref={ref}
+      className={cn(componentClassName, className)}
+      data-testid={componentClassName}
+      {...boxProps}
+    >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );

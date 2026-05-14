@@ -62,6 +62,7 @@ export const SearchInput = forwardRef<InputBaseElement, SearchInputProps>(
         helperText={helperText}
         value={value}
         id={id}
+        data-testid={componentClassName}
         {...props}
       >
         <InputSlot placement="prefix">

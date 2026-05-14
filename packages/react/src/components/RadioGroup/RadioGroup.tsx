@@ -60,7 +60,7 @@ export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
     };
 
     return (
-      <FormGroupBase ref={ref} {...formGroupBaseProps}>
+      <FormGroupBase ref={ref} data-testid={componentClassName} {...formGroupBaseProps}>
         <RadioGroupPrimitive.Root
           asChild
           className={cn(componentClassName, className)}

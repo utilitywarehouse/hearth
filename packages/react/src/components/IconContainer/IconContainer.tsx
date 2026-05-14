@@ -34,6 +34,7 @@ export const IconContainer = forwardRef<IconContainerElement, IconContainerProps
       className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       data-fill={fill}
+      data-testid={componentClassName}
       {...iconContainerProps}
     />
   );

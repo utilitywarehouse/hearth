@@ -56,7 +56,7 @@ export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   };
 
   return (
-    <div className={cn(componentClassName, className)}>
+    <div className={cn(componentClassName, className)} data-testid={componentClassName}>
       {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box

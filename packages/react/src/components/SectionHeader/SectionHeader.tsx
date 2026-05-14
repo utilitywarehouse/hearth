@@ -37,6 +37,7 @@ export const SectionHeader = forwardRef<SectionHeaderElement, SectionHeaderProps
         ref={ref}
         className={cn(componentClassName, className)}
         direction={direction}
+        data-testid={componentClassName}
         {...props}
       >
         <Box className={`${componentClassName}Content`}>

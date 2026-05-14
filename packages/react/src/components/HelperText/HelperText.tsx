@@ -29,6 +29,7 @@ export const HelperText = forwardRef<HelperTextElement, HelperTextProps>((props,
       className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}
+      data-testid={componentClassName}
       {...helperTextProps}
     >
       {children}

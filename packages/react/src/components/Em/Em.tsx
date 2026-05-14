@@ -30,6 +30,7 @@ export const Em = forwardRef<EmElement, EmProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
+      data-testid={componentClassName}
       {...emProps}
     >
       {asChild ? children : <em>{children}</em>}

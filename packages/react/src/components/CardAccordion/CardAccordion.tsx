@@ -74,6 +74,7 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
     <AccordionPrimitive.Root
       ref={ref}
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       {...accordionProps}
     >
       <CardAccordionProvider

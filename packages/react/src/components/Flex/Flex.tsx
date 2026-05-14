@@ -75,7 +75,12 @@ export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
   );
 
   return (
-    <Slot.Root ref={ref} className={cn(componentClassName, className)} {...flexProps}>
+    <Slot.Root
+      ref={ref}
+      className={cn(componentClassName, className)}
+      data-testid={componentClassName}
+      {...flexProps}
+    >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );

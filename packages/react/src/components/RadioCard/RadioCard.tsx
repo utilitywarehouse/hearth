@@ -31,6 +31,7 @@ export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, re
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       {...radioCardProps}
       id={id}
       aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}

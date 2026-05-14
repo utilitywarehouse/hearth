@@ -36,7 +36,7 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
-      <div className={cn(componentClassName, className)}>
+      <div className={cn(componentClassName, className)} data-testid={componentClassName}>
         <div className={`${componentClassName}Container`}>
           <RadioGroupPrimitive.Item
             ref={ref}
