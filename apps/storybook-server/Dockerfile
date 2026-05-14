@@ -30,25 +30,25 @@ RUN pnpm run build:storybook --filter="./packages/react-native"
 
 # --- STAGE: Isolate Server Deps ---
 FROM builder-base AS prod-deps
-# This creates a standalone folder in /out with only storybook-server's prod dependencies
+# We still use deploy to fix the symlink/express issue
 RUN pnpm --filter storybook-server --prod deploy /out
 
 # --- STAGE: Final Runner ---
 FROM base AS runner
+# Set WORKDIR to /app so everything is relative to the root
 WORKDIR /app
 ARG APP_PORT=7337
 ENV PORT=${APP_PORT}
 ENV NODE_ENV=production
 
-# 1. Copy the flattened server structure from pnpm deploy
-# This includes the 'node_modules' that actually contains 'express'
-COPY --from=prod-deps /out .
+# 1. Copy the "deployed" app into its original subdirectory
+# This ensures node_modules is at /app/apps/storybook-server/node_modules
+COPY --from=prod-deps /out ./apps/storybook-server
 
-# 2. Copy the compiled server code into the /app/dist folder
-COPY --from=builder /app/apps/storybook-server/dist ./dist
+# 2. Copy the compiled JS into its original subdirectory
+COPY --from=builder /app/apps/storybook-server/dist ./apps/storybook-server/dist
 
-# 3. Copy the static storybook builds
-# We preserve the original paths so your Express server can still find them
+# 3. Copy static assets (Paths now perfectly match your path.resolve logic)
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
 COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-react/storybook-static
 COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
@@ -58,5 +58,5 @@ COPY --from=react-native-builder /app/packages/react-native/storybook-static ./p
 
 EXPOSE ${APP_PORT}
 
-# IMPORTANT: The path is now simply dist/index.js because we are inside the /out context
-CMD ["node", "dist/index.js"]
+# Run from the original deep path
+CMD ["node", "apps/storybook-server/dist/index.js"]
