@@ -29,11 +29,16 @@ const meta = {
     disabled: {
       control: 'boolean',
     },
+    variant: {
+      options: ['stars', 'emojis'],
+      control: 'radio',
+    },
   },
   args: {
     value: 3,
     hideLabel: false,
     disabled: false,
+    variant: 'stars',
   },
 } satisfies Meta<typeof Rating>;
 
@@ -89,6 +94,15 @@ export const Variants: Story = {
       </VariantTitle>
       <VariantTitle title="Disabled">
         <Rating value={5} disabled />
+      </VariantTitle>
+      <VariantTitle title="Emojis">
+        <Rating value={4} variant="emojis" />
+      </VariantTitle>
+      <VariantTitle title="Emojis (No Selection)">
+        <Rating value={0} variant="emojis" />
+      </VariantTitle>
+      <VariantTitle title="Emojis (Disabled)">
+        <Rating value={3} variant="emojis" disabled />
       </VariantTitle>
     </Box>
   ),
