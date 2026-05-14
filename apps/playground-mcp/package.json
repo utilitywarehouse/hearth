@@ -4,13 +4,17 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "clean": "rm -rf node_modules .next .turbo",
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6060",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-react": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
