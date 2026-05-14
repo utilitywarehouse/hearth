@@ -44,6 +44,7 @@ export const Showcase: Story = {
   render: () => (
     <Flex gap="400" width="800px">
       <HighlightBanner heading="Save a bundle" headingColor="highlight" colorScheme="neutralStrong">
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <img src={piggies} height="200px" />
         <HighlightBannerFooter>
           <BodyText size="md" wrap="wrap">
