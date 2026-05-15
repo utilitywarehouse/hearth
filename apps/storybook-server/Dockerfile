@@ -28,12 +28,9 @@ FROM builder-base AS react-native-builder
 RUN pnpm install --prod=false --frozen-lockfile
 RUN pnpm run build:storybook --filter="./packages/react-native"
 
-# --- STAGE: Isolate Server Deps ---
 FROM builder-base AS prod-deps
-# We still use deploy to fix the symlink/express issue
 RUN pnpm --filter storybook-server --prod deploy --legacy /out
 
-# --- STAGE: Final Runner ---
 FROM base AS runner
 # Set WORKDIR to /app so everything is relative to the root
 WORKDIR /app
@@ -41,14 +38,15 @@ ARG APP_PORT=7337
 ENV PORT=${APP_PORT}
 ENV NODE_ENV=production
 
-# 1. Copy the "deployed" app into its original subdirectory
 # This ensures node_modules is at /app/apps/storybook-server/node_modules
 COPY --from=prod-deps /out ./apps/storybook-server
 
-# 2. Copy the compiled JS into its original subdirectory
+COPY --from=builder /app/packages ./packages
+
+# Copy the compiled JS into its original subdirectory
 COPY --from=builder /app/apps/storybook-server/dist ./apps/storybook-server/dist
 
-# 3. Copy static assets (Paths now perfectly match your path.resolve logic)
+# Copy static assets
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
 COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-react/storybook-static
 COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
@@ -58,5 +56,4 @@ COPY --from=react-native-builder /app/packages/react-native/storybook-static ./p
 
 EXPOSE ${APP_PORT}
 
-# Run from the original deep path
 CMD ["node", "apps/storybook-server/dist/index.js"]
