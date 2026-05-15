@@ -31,7 +31,7 @@ RUN pnpm run build:storybook --filter="./packages/react-native"
 # --- STAGE: Isolate Server Deps ---
 FROM builder-base AS prod-deps
 # We still use deploy to fix the symlink/express issue
-RUN pnpm --filter storybook-server --prod deploy /out
+RUN pnpm --filter storybook-server --prod deploy --legacy /out
 
 # --- STAGE: Final Runner ---
 FROM base AS runner
