@@ -29,16 +29,24 @@ RUN pnpm install --prod=false --frozen-lockfile
 RUN pnpm run build:storybook --filter="./packages/react-native"
 
 FROM builder-base AS prod-deps
-RUN pnpm install --prod --frozen-lockfile --filter=storybook-server
+RUN pnpm --filter storybook-server --prod deploy --legacy --frozen-lockfile /out
 
 FROM base AS runner
+# Set WORKDIR to /app so everything is relative to the root
+WORKDIR /app
 ARG APP_PORT=7337
 ENV PORT=${APP_PORT}
 ENV NODE_ENV=production
 
-COPY --from=prod-deps /app/node_modules ./node_modules
+# This ensures node_modules is at /app/apps/storybook-server/node_modules
+COPY --from=prod-deps /out ./apps/storybook-server
+
 COPY --from=builder /app/packages ./packages
+
+# Copy the compiled JS into its original subdirectory
 COPY --from=builder /app/apps/storybook-server/dist ./apps/storybook-server/dist
+
+# Copy static assets
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
 COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-react/storybook-static
 COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
@@ -47,4 +55,5 @@ COPY --from=builder /app/apps/storybook-tokens/storybook-static ./apps/storybook
 COPY --from=react-native-builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
 
 EXPOSE ${APP_PORT}
+
 CMD ["node", "apps/storybook-server/dist/index.js"]
