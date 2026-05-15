@@ -29,7 +29,7 @@ RUN pnpm install --prod=false --frozen-lockfile
 RUN pnpm run build:storybook --filter="./packages/react-native"
 
 FROM builder-base AS prod-deps
-RUN pnpm --filter storybook-server --prod deploy --legacy /out
+RUN pnpm --filter storybook-server --prod deploy --legacy --frozen-lockfile /out
 
 FROM base AS runner
 # Set WORKDIR to /app so everything is relative to the root
