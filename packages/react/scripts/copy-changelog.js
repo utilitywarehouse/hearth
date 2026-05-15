@@ -32,8 +32,7 @@ const mdxContent = `import { Meta } from '@storybook/addon-docs/blocks';
 <Meta title="Changelog" />
 
 # Changelog
-${changelogContent}
-`;
+${changelogContent}`;
 
 // Write the new MDX file
 console.log('Writing Changelog MDX file...');
