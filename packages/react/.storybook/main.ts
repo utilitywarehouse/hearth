@@ -1,8 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
-
 import { dirname } from 'path';
-
 import { fileURLToPath } from 'url';
 
 /**

@@ -21,7 +21,7 @@ const storybookDocsIndex = path.join(storybookDocsStaticDir, 'index.html');
 
 // Define other storybook apps to serve
 const storybookAppsToServe = [
-  { name: 'react', dirName: 'storybook-react' },
+  { name: 'react', dirName: '../packages/react' },
   { name: 'react-native', dirName: '../packages/react-native' },
   { name: 'icons', dirName: 'storybook-icons' },
   { name: 'tokens', dirName: 'storybook-tokens' },

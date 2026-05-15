@@ -3,13 +3,11 @@
   "buildScriptName": "build:storybook",
   "onlyChanged": true,
   "projectId": "Project:68dbda8270df9c2a6568ece8",
-  "storybookBaseDir": "./apps/storybook-react",
+  "storybookBaseDir": "./packages/react",
   "zip": true,
   "$schema": "https://www.chromatic.com/config-file.schema.json",
-  "storybookConfigDir": "./apps/storybook-react/.storybook",
+  "storybookConfigDir": "./packages/react/.storybook",
   "storybookBuildDir": "./storybook-static",
-  "externals": [
-    "src/assets/**/*.png",
-    "src/assets/spot-savings.svg/**/*.svg"
-  ]
+  "externals": ["src/djocs/assets/**/*.png", "src/docs/assets/**/*.svg"]
 }
+
