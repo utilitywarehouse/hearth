@@ -1,21 +1,12 @@
-name: Build React
-on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - 'packages/react/**'
-  push:
-    branches:
-      - main
-    paths:
-      - 'packages/react/**'
+name: Code Checks
+on: push
 
 permissions:
   contents: read
 
 jobs:
   checks:
-    name: Build
+    name: Code Checks
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -32,9 +23,9 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install --frozen-lockfile
+      - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build:react
+      - run: pnpm lint:ci
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'

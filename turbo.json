@@ -49,19 +49,16 @@
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build", "build"]
     },
-    "checks": {
+    "lint": {
       "outputs": [],
       "dependsOn": ["format", "lint:fix"]
     },
-    "checks:ci": {
+    "lint:ci": {
       "outputs": [],
       "dependsOn": ["format:ci", "lint:fix"]
     },
     "checks:build": {
       "outputs": ["dist/**"]
-    },
-    "lint": {
-      "dependsOn": ["^build"]
     },
     "lint:fix": {
       "dependsOn": ["^build"]
