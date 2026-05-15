@@ -9,8 +9,8 @@ patch deprecates the `wrap` prop and introduces the correctly named `textWrap`
 prop. The `wrap` prop will be removed in a future major version.
 
 ```diff
-- <BodyText wrap>...</BodyText>
-+ <BodyText textWrap>...</BodyText>
+- <BodyText wrap="pretty">...</BodyText>
++ <BodyText textWrap="pretty">...</BodyText>
 ```
 
 ## Components Affected

@@ -11,7 +11,7 @@ RUN apk add --no-cache \
     && rm -f /usr/local/bin/yarn /usr/local/bin/yarnpkg \
     && npm install -g corepack@0.34.5
 RUN corepack enable && corepack prepare pnpm@11.0.5 --activate
-RUN pnpm install turbo@2.3.3 --global
+RUN pnpm install turbo@2.9.12 --global
 RUN turbo telemetry disable
 RUN --mount=type=secret,id=npm_token,env=NPM_TOKEN \
 echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > $HOME/.npmrc
