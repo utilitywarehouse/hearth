@@ -24,12 +24,6 @@ for (const p of possiblePaths) {
 }
 
 if (!breakpointsFile) {
-  console.error('--- DEBUG: DIRECTORY CONTENT ---');
-  console.error('__dirname is:', __dirname);
-  try {
-    console.error('Files in this dir:', fs.readdirSync(__dirname));
-  } catch (e) {}
-
   throw new Error(`Could not find breakpoints.css. Tried: ${possiblePaths.join(', ')}`);
 }
 
