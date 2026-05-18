@@ -77,11 +77,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
       data-testid={componentClassName}
       {...formFieldProps}
     >
-      <ComboboxPrimitive.Root
-        openOnInputClick={!triggerOnlyOnType}
-        {...comboboxProps}
-        autoHighlight
-      >
+      <ComboboxPrimitive.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
         <ComboboxPrimitive.Input
           render={
             <InputBase id={id} disabled={disabled} placeholder={placeholder}>
