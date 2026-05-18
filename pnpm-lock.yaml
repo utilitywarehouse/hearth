@@ -29296,13 +29296,7 @@ snapshots:
     optionalDependencies:
       '@types/debug': 4.1.12
       '@types/node': 22.19.7
-<<<<<<< HEAD
       '@vitest/browser': 3.2.4(playwright@1.59.1)(vite@8.0.13(@types/node@22.19.7)(esbuild@0.27.2)(terser@5.46.0)(yaml@2.8.2))(vitest@3.2.4)
-||||||| parent of 0e042df8 (fix Next.js setup)
-      '@vitest/browser': 3.2.4(playwright@1.58.0)(vite@7.3.1(@types/node@22.19.7)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vitest@3.2.4)
-=======
-      '@vitest/browser': 3.2.4(playwright@1.60.0)(vite@7.3.1(@types/node@22.19.7)(lightningcss@1.32.0)(terser@5.46.0)(yaml@2.8.2))(vitest@3.2.4)
->>>>>>> 0e042df8 (fix Next.js setup)
       jsdom: 24.1.3
     transitivePeerDependencies:
       - jiti
