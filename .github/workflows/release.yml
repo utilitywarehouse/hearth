@@ -34,7 +34,7 @@ jobs:
       - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm checks:ci
+      - run: pnpm lint:ci
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
       - run: pnpm build
