@@ -24,7 +24,7 @@ export default defineConfig([
     tsconfig: path.join(__dirname, './tsconfig.build.json'),
     esbuildOptions(options) {
       options.banner = {
-        js: '"use client"',
+        js: '"use client";\n',
       };
     },
   },
