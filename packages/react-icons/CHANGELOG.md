@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.8.2
+
+### Patch Changes
+
+- [#1207](https://github.com/utilitywarehouse/hearth/pull/1207) [`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Improve build pipeline
+
+  CI was failing as it did not have the memory heap to build the react and
+  react-icons packages. Generation of declarations has been passed to tsc, while
+  tsup now only bundles the code.
+
 ## 0.8.1
 
 ### Patch Changes

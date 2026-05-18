@@ -1,5 +1,36 @@
 # @utilitywarehouse/hearth-react
 
+## 0.28.4
+
+### Patch Changes
+
+- [#1207](https://github.com/utilitywarehouse/hearth/pull/1207) [`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Improve build pipeline
+
+  CI was failing as it did not have the memory heap to build the react and
+  react-icons packages. Generation of declarations has been passed to tsc, while
+  tsup now only bundles the code.
+
+- [#1207](https://github.com/utilitywarehouse/hearth/pull/1207) [`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Deprecate incorrectly named `wrap` prop
+
+  The `TextWrap` prop was incorrectly named `wrap` in the `Text` component. This
+  patch deprecates the `wrap` prop and introduces the correctly named `textWrap`
+  prop. The `wrap` prop will be removed in a future major version.
+
+  ```diff
+  - <BodyText wrap="pretty">...</BodyText>
+  + <BodyText textWrap="pretty">...</BodyText>
+  ```
+
+  ## Components Affected
+  - `Heading`
+  - `BodyText`
+  - `DetailText`
+  - `Em`
+  - `Strong`
+
+- Updated dependencies [[`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2)]:
+  - @utilitywarehouse/hearth-react-icons@0.8.2
+
 ## 0.28.3
 
 ### Patch Changes
