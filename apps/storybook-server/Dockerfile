@@ -3,7 +3,7 @@ WORKDIR /app
 
 FROM base AS builder-base
 ENV PNPM_HOME=/usr/local/pnpm
-ENV PATH="${PNPM_HOME}:${PATH}"
+ENV PATH="${PNPM_HOME}/bin:${PATH}"
 RUN apk add --no-cache \
     python3 \
     make \
