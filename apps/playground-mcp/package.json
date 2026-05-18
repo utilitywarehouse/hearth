@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "dev:storybook": "storybook dev -p 6060",
+    "build:storybook": "storybook build",
     "build-storybook": "storybook build"
   },
   "dependencies": {
