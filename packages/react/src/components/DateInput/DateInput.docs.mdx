@@ -1,0 +1,43 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './DateInput.stories';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DateInput } from './DateInput';
+
+<Meta title="Components / DateInput" />
+
+# DateInput
+
+`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="components-datepicker">DatePicker</StorybookLink> - For when a calendar adds
+  visual benefit to the user.
+
+## Validation
+
+`DateInput` provides the UI for `valid` & `invalid` states visually, however
+there is not internal validation logic.
+
+<Canvas of={Stories.WithCustomValidation} />
+
+## Optional inputs
+
+Control which inputs are shown using `hideDay`, `hideMonth`, and `hideYear`
+props.
+
+<Canvas of={Stories.FlexibleSegments} />
+
+## API
+
+This component is based on the `fieldset` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={DateInput} exclude={'margin*'} sort="requiredFirst" />

@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './HighlightBanner.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { HighlightBanner } from './HighlightBanner';
+
+<Meta title="Components / HighlightBanner" />
+
+# HighlightBanner
+
+`HighlightBanner` can be used to highlight key information or marketing messaging.
+
+<Canvas of={Stories.Showcase} sourceState="shown" />
+
+## Usage
+
+- `HighlightBanner` - the parent component, provides heading and main content layout
+- `HighlightBannerContent` - For main content that requires consistent banner layout
+- `HighlightBannerFooter` - For footer content
+
+## Heading color
+
+<Canvas of={Stories.KitchenSink} />
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={HighlightBanner} exclude={'margin*'} sort="requiredFirst" />

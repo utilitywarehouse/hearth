@@ -1,0 +1,110 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './CheckboxGroup.stories';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { CheckboxGroup } from './CheckboxGroup';
+
+<Meta title="Components / CheckboxGroup" />
+
+# CheckboxGroup
+
+`CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.
+
+<Canvas of={Stories.Playground} sourceState="none" />
+
+## Alternatives
+
+- CheckboxGroupRoot: For presenting checkboxes, outside of a fieldset, without label, helper text, or error message.
+- <StorybookLink to="components-radiogroup">RadioGroup</StorybookLink>: For single-select
+
+## Accessibility
+
+The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
+`aria-errormessage` are handled internally, however you can pass these and
+other aria props, such as `aria-label`, to the `CheckboxGroup`, `Checkbox` &
+`CheckboxTile` components yourself if you need to.
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    { key: 'Tab', description: 'Moves keyboard focus to the checkbox.' },
+    { key: 'Space', description: 'Toggles checkbox between checked and unchecked states.' },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## Helper text
+
+The Checkbox group can display a secondary message as a helper text. While the
+checkbox items can also display a helper text, these will not be displayed if
+the checkbox group has a helper text.
+
+<Canvas of={Stories.CheckboxHelperText} />
+
+## Validation
+
+You can display validation status using the `validationStatus` & `validationText` props.
+While the checkbox items can also display a validation text, these will not be
+displayed if the checkbox group has a validation text.
+
+<Canvas of={Stories.Validation} />
+
+By default, the validation text is placed above the checkbox items. Use `validationPlacement="bottom"` to display it below instead.
+
+<Canvas of={Stories.ValidationPlacement} />
+
+## Content width
+
+The width of the `CheckboxGroup` should be set by the parent layout, however it is
+possible to independently set the width of the children using `contentWidth`
+prop.
+
+By default it will set the width of the children to fit their content, however
+you can set it to a specific width, or to `100%` to take up the full width of
+the `CheckboxGroup`.
+
+This is a responsive property, so you are able to set different widths for
+different breakpoints.
+
+<Canvas of={Stories.ContentWidth} />
+
+## Controlled
+
+A controlled value can be provided using the value prop, which accepts a string
+array, corresponding to the value props of each child `Checkbox`. The
+`onValueChange` event is fired when the user selects or deselects a `Checkbox`
+child of the group.
+
+<Canvas of={Stories.Controlled} />
+
+## API
+
+This component is based on the `fieldset` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={CheckboxGroup} exclude={'margin*'} />

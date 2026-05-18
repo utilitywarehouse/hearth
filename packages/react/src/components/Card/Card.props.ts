@@ -5,6 +5,7 @@ import { PaddingProps } from '../../props/padding.props';
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderWidthProps } from '../../props/border-width.props';
 import { BorderStyleProps } from '../../props/border-style.props';
+import { BorderRadiusProps } from '../../props/border-radius.props';
 
 const variants = ['emphasis', 'subtle'] as const;
 
@@ -31,6 +32,7 @@ export interface CardProps
       | keyof BorderWidthProps
       | keyof BorderStyleProps
       | keyof BorderColorProps
+      | keyof BorderRadiusProps
       | keyof ElementProps
     > {
   /**

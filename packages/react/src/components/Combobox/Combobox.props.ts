@@ -6,7 +6,14 @@ import { InputBaseProps } from '../InputBase/InputBase.props';
 
 export interface ComboboxProps<Value, Multiple extends boolean | undefined = false>
   extends
-    Omit<ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>, 'openOnInputClick'>,
+    Omit<
+      ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>,
+      | 'openOnInputClick'
+      | 'autoHighlight'
+      | 'highlightItemOnHover'
+      | 'actionsRef'
+      | 'onItemHighlighted'
+    >,
     Pick<ComboboxPrimitive.Trigger.Props, 'disabled'>,
     FormFieldProps,
     Pick<InputBaseProps, 'placeholder'>,

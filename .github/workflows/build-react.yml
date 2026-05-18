@@ -4,11 +4,13 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - 'packages/react/**'
+      - 'apps/storybook-react/**'
   push:
     branches:
       - main
     paths:
       - 'packages/react/**'
+      - 'apps/storybook-react/**'
 
 permissions:
   contents: read
@@ -32,9 +34,9 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build:react
+      - run: pnpm build:storybook:react
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'

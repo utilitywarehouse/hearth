@@ -1,0 +1,223 @@
+import { Canvas, Controls, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './Accordion.stories';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import { Accordion } from './Accordion';
+import { AccordionItem } from './AccordionItem';
+import { AccordionContent } from './AccordionContent';
+import { AccordionHeader } from './AccordionHeader';
+import { AccordionTrigger } from './AccordionTrigger';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+
+<Meta title="Components / Accordion" />
+
+# Accordion
+
+Use `Accordion` to allow users to expand or collapse individual content
+sections, providing a compact way to present a large amount of information
+while maintaining a clean and organised interface.
+
+- [Accordion type](#accordion-type)
+- [Collapsible](#collapsible)
+- [Value](#value)
+- [Accordion items](#accordion-items)
+- [Heading levels](#heading-levels)
+- [Accessibility](#accessibility)
+  - [Keyboard interactions](#keyboard-interactions)
+- [SEO](#seo)
+- [API](#api)
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Accordion type
+
+`Accordion` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
+
+When `type` is set to `single`, only one item can be expanded at once.
+
+<Canvas of={Stories.Single} />
+
+When `type` is set to `multiple`, then multiple items can be expanded at once.
+
+<Canvas of={Stories.Multiple} />
+
+## Collapsible
+
+The `collapsible` prop can be used when the `type` is set to `single`. When
+`true` items can be collapsed, allowing all items to be closed at the same
+time.
+
+<Canvas of={Stories.Collapsible} />
+
+## Value
+
+The `value` prop differs depending on whether the `type` is set to `single` or
+`multiple`. This also affects the `defaultValue` and `onValueChange` props.
+
+When using a `single` type `Accordion`, the value is a `string`.
+
+```tsx
+<Accordion
+  type="single"
+  defaultValue="item-1"
+>
+{...}
+</Accordion>
+```
+
+When using a `multiple` type `Accordion`, the value is an array of `string` values.
+
+```tsx
+<Accordion
+  type="multiple"
+  defaultValue={["item-1", "item-2"]}
+>
+{...}
+</Accordion>
+```
+
+## Accordion items
+
+The `AccordionItem` component, in tandem with `AccordionContent`, is intended
+to cover most use cases, and uses the header & trigger components internally.
+However if you need something more custom, you can use the internal subcomponents;
+`AccordionHeader` & `AccordionTrigger`, ensuring you wrap the trigger in a header component.
+
+```tsx
+<Accordion type="multiple" heading="Custom item headers">
+  <AccordionItem value='item-1'>
+    <AccordionHeader>
+      <AccordionTrigger>
+        <Flex width="100%" alignItems="center" justifyContent="between">
+          <BodyText weight="semibold">Custom Header</BodyText>
+          <Badge size="sm" colorScheme="positive">New</Badge>
+        </Flex>
+      </AccordionTrigger>
+    </AccordionHeader>
+    <AccordionContent>{...}</AccordionContent>
+  </AccordionItem>
+  {...}
+</Accordion>
+```
+
+<Canvas of={Stories.CustomItemHeader} />
+
+## Heading levels
+
+By default the `Accordion` heading renders an `h2` element, and each item
+renders an `h3` element. If this doesn't follow the structure of your page, you
+can use the `headingElement` prop on `Accordion` and `AccordionItem` to update
+these to an appropriate heading level.
+
+<Canvas of={Stories.HeadingElement} />
+
+## Accessibility
+
+Follows the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion).
+
+While `Accordion` is meant to present multiple disclosure items, if you have
+variable data that could return only a single item, then using an `Accordion` is
+still OK. If you know ahead of time you only need to show/hide a single item,
+then an alternative disclosure pattern should be used.
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Space',
+      description:
+        'When focus is on an AccordionTrigger of a collapsed section, expands the section.',
+    },
+    {
+      key: 'Enter',
+      description:
+        'When focus is on an AccordionTrigger of a collapsed section, expands the section.',
+    },
+    {
+      key: 'Tab',
+      description: 'Moves focus to the next focusable element.',
+    },
+    {
+      key: 'Shift+Tab',
+      description: 'Moves focus to the previous focusable element.',
+    },
+    {
+      key: 'ArrowDown',
+      description: 'Moves focus to the next AccordionTrigger.',
+    },
+    {
+      key: 'ArrowUp',
+      description: 'Moves focus to the previous AccordionTrigger.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## SEO
+
+By default, `AccordionContent` is removed from the DOM when collapsed, which
+means search engines may not index its content. If the content is important for
+SEO — for example, FAQ answers — use the `forceMount` prop on `AccordionContent`
+to keep it in the DOM at all times.
+
+When `forceMount` is set, collapsed content is hidden from view and the
+accessibility tree using the `hidden` attribute, so it has no impact on the
+visual layout or screen reader experience. The close animation plays before the
+content is hidden.
+
+```tsx
+<AccordionContent forceMount>Content</AccordionContent>
+```
+
+<Canvas of={Stories.SEOFriendly} />
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={Accordion} exclude={'margin*'} />
+
+### AccordionItem
+
+This component is based on the `div` element.
+
+<ArgTypes of={AccordionItem} />
+
+### AccordionHeader
+
+This component is based on the `h3` element.
+
+<ArgTypes of={AccordionHeader} />
+
+### AccordionContent
+
+This component is based on the `div` element.
+
+### AccordionTrigger
+
+This component is based on the `button` element.

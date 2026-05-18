@@ -1,0 +1,22 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './ValidationText.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ValidationText } from './ValidationText';
+
+<Meta title="Typography / ValidationText" />
+
+# ValidationText
+
+`ValidationText` should be used with form field components to display validation messages.
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## API
+
+This component is based on the `span` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+
+<ArgTypes of={ValidationText} exclude={'margin*|textTransform|textAlign'} />

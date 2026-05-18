@@ -1,0 +1,13 @@
+{
+  "autoAcceptChanges": "main",
+  "buildScriptName": "build:storybook",
+  "onlyChanged": true,
+  "projectId": "Project:68dbda8270df9c2a6568ece8",
+  "storybookBaseDir": "./packages/react",
+  "zip": true,
+  "$schema": "https://www.chromatic.com/config-file.schema.json",
+  "storybookConfigDir": "./packages/react/.storybook",
+  "storybookBuildDir": "./storybook-static",
+  "externals": ["src/djocs/assets/**/*.png", "src/docs/assets/**/*.svg"]
+}
+

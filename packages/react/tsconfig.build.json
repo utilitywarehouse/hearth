@@ -1,5 +1,13 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["."],
-  "exclude": ["dist", "node_modules"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "./src/figma/**",
+    "./src/**/*.stories.tsx",
+    "./src/**/*.docs.mdx",
+    "./src/docs/**",
+    "./src/scripts/**"
+  ]
 }

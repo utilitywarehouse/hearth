@@ -1,0 +1,66 @@
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Skeleton } from './Skeleton';
+import { SkeletonHeading } from './SkeletonHeading';
+
+const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
+
+const meta: Meta<typeof SkeletonHeading> = {
+  title: 'Components / Skeleton / SkeletonHeading',
+  component: SkeletonHeading,
+  decorators: [
+    Story => (
+      <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
+        <Story />
+      </Flex>
+    ),
+  ],
+  argTypes: {
+    size: { options: sizes, control: { type: 'radio' } },
+  },
+  args: {
+    size: 'md',
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof SkeletonHeading>;
+
+export const Playground: Story = {
+  render: args => (
+    <Box width="360px">
+      <Skeleton loadingTitle="playground story">
+        <SkeletonHeading {...args} />
+      </Skeleton>
+    </Box>
+  ),
+};
+
+export const Sizes: Story = {
+  render: args => (
+    <Skeleton loadingTitle="sizes story">
+      <Flex direction="column" gap="200" width="360px">
+        {sizes.map(size => (
+          <SkeletonHeading key={size} {...args} size={size} />
+        ))}
+      </Flex>
+    </Skeleton>
+  ),
+};
+
+export const ContentBlock: Story = {
+  render: args => (
+    <Skeleton loadingTitle="content block story">
+      <Flex direction="column" gap="300" width="420px">
+        <SkeletonHeading {...args} size="lg" />
+        <Box width="100%">
+          <Flex direction="column" gap="150">
+            <SkeletonHeading {...args} size="sm" />
+            <SkeletonHeading {...args} size="sm" />
+          </Flex>
+        </Box>
+      </Flex>
+    </Skeleton>
+  ),
+};

@@ -1,0 +1,287 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './List.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { List } from './List';
+import { ListItemContent } from './ListItemContent';
+import { ListItemLink } from './ListItemLink';
+
+<Meta title="Components / List" />
+
+# List
+
+The `List` component is a flexible and customizable component for displaying a
+list of items. It supports various visual variants, color schemes, and
+additional features like helper text and links.
+
+<Canvas of={Stories.Playground} />
+
+- [Usage](#usage)
+- [Appearance](#appearance)
+  - [Variant](#variant)
+  - [ColorScheme](#colorscheme)
+  - [Padding None](#padding-none)
+- [Heading](#heading)
+- [Leading content](#leading-content)
+- [Trailing content](#trailing-content)
+- [Advanced Content](#advanced-content)
+- [List actions](#list-actions)
+- [API](#api)
+
+## Usage
+
+- The `List` component can be customized with different variants and color schemes.
+- Use `ListItem` by itself for simple text content, or as a container for more complex, or interactive, content.
+- Use `ListItemContent` as a child of `ListItem` to include `helperText` or a `leadingIcon`.
+- Use `ListItemButton` as a child of `ListItem` when you need the list item to perform an action.
+- Use `ListItemLink` as a child of `ListItem` when you need the list item to navigate somewhere.
+- Use `ListActionLink` as a child of `ListItem` when you need an action for the list to navigate somewhere.
+- Use `ListActionButton` as a child of `ListItem` when you need an action for the list to do something.
+
+### With Next.js
+
+You can use the `ListItemLink` component with Next.js's `Link` component by using the
+`asChild` prop. This allows you to wrap the `ListItemLink` around Next.js's `Link`
+component, enabling client-side navigation while maintaining the styling and
+functionality of the `ListItemLink`.
+
+```tsx
+import NextLink from 'next/link';
+import { List, ListItem, ListItemLink } from '@utilitywarehouse/hearth-react';
+
+[...]
+
+<List>
+  <ListItem>
+    <ListItemLink heading="Page One" asChild>
+      <NextLink href="/one" />
+    </ListItemLink>
+  </ListItem>
+  <ListItem>
+    <ListItemLink heading="Page Two" asChild>
+      <NextLink href="/two" />
+    </ListItemLink>
+  </ListItem>
+</List>
+```
+
+## Appearance
+
+**Important:** The `variant` prop must be used together with the `colorScheme`
+prop. If either `variant` or `colorScheme` is `undefined`, the list will fall
+back to its default appearance.
+
+<Canvas of={Stories.KitchenSink} />
+
+### Variant
+
+The `variant` prop controls the overall style of the list. It can be used to
+adjust the visual prominence of the list.
+
+- **`undefined`**: Default appearance with no special styling.
+- **`'subtle'`**: A minimal style with subtle borders and background.
+- **`'emphasis'`**: A more pronounced style with stronger borders and background.
+
+### ColorScheme
+
+The `colorScheme` prop adjusts the background color of the list. It works in
+conjunction with the `variant` prop.
+
+- **`undefined`**: Default color scheme.
+- **`'neutralStrong'`**: A clean, neutral white background.
+- **`'neutralSubtle'`**: A softer, warmer white background.
+
+### Padding None
+
+You can remove the inline padding from all list items with the `paddingNone`
+prop. This only has an effect when the variant or colorScheme are not set.
+
+## Heading
+
+The `heading` prop specifies the title of the list. This is useful for
+providing context or describing the purpose of the list.
+
+The `headingElement` prop allows you to specify the HTML element used for the
+heading. This is important for maintaining semantic structure in your document.
+
+- Use `'h1'`, `'h2'`, etc., for headings that are part of your page's hierarchy.
+- Use `'div'` if the heading is purely decorative or doesn't fit into the semantic structure.
+
+```tsx
+<List heading="My List" headingElement="h2">
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+</List>
+```
+
+### Link
+
+Use the `link` prop to provide a call-to-action or navigation link.
+
+```tsx
+<List
+  heading="My Bills"
+  link={
+    <Link href="https://uw.co.uk/bills">
+      View all
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+>
+  <ListItem>January 2025</ListItem>
+  <ListItem>February 2025</ListItem>
+</List>
+```
+
+### Helper text
+
+The `helperText` prop provides additional context or instructions for the list.
+It is displayed below the heading.
+
+### Badge
+
+You can include a `Badge` component, using the `badge` prop, with the
+`badgePlacement` prop enabling you to change the position between `top` &
+`bottom`.
+
+<Canvas of={Stories.ListItemContentWithBadge} />
+
+## Leading content
+
+Use the `leadingContent` prop on the `ListItemContent`, `ListItemButton` &
+`ListItemLink` components to include a visual element at the start of a list
+item. Typically, this would be an icon, `IconContainer`, or `Avatar`.
+
+<Canvas of={Stories.LeadingContent} />
+
+## Trailing content
+
+Use the `trailingContent` prop on the `ListItemContent`, `ListItemButton` &
+`ListItemLink` components to include a visual element at the end of a list
+item. Typically, this would be an icon, `Switch`, `Link` or transaction, though
+interactive elements such as `Switch` & `Link` should **NOT** be used as
+trailing content with the `ListItemButton` & `ListItemLink` components.
+
+<Canvas of={Stories.TrailingContent} />
+
+### Custom trailing content
+
+You can also include custom content, such as a transaction. The layout should
+be handled for you, however if necessary you can always wrap your custom
+content in a `Flex` component.
+
+```tsx
+<ListItem>
+  <ListItemContent
+    heading="Transaction"
+    trailingContent={
+      <>
+        <BodyText size="md" as="span">
+          -£100.00
+        </BodyText>
+        <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+          +£1.00 CB
+        </BodyText>
+      </>
+    }
+  />
+</ListItem>
+```
+
+<Canvas of={Stories.ListItemContentWithTransaction} />
+
+## Advanced Content
+
+You can compose more complex content within the `ListItem` component. The
+`ListItemButton` and `ListItemLink` components will continue to make the entire
+list item interactive.
+
+<Canvas of={Stories.CustomContent} />
+
+## List actions
+
+A single List Action can be applied to any List that sits within a container.
+Use List Action to apply to actions that apply to the content of the list. For
+example, "View older bills"
+
+<Canvas of={Stories.ListActions} />
+
+## API
+
+This component is based on the `ul` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={List} exclude={'margin*'} />
+
+## ListItem
+
+The `ListItem` component represents an individual item in the `List`. It can be
+used by itself to present simple text content. It also works as a wrapper when
+you need to present advanced content or interactive list items.
+
+```tsx
+<List heading="Example List">
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+</List>
+```
+
+This component is base on the `li` element and supports the following common props:
+
+- <StorybookLink to="common-props-size">Size</StorybookLink>
+- <StorybookLink to="common-props-gap">Gap</StorybookLink>
+
+As well as the following <StorybookLink to="layout-flex">Flex</StorybookLink> component props:
+
+- direction
+- alignItems
+- alignContent
+- justifyContent
+- wrap
+
+## ListItemContent
+
+The `ListItemContent` component is used to render more advanced text content.
+
+<Canvas of={Stories.ListItemContents} />
+
+This component is base on the `div` element.
+
+<ArgTypes of={ListItemContent} />
+
+## ListItemButton
+
+The `ListItemButton` component is used to render a list item as a button, and
+should be wrapped in a `ListItem` component.
+
+This component is base on the `button` element and extends the
+`ListItemContent` component, so it supports all the same props.
+
+<Canvas of={Stories.ListItemButtons} />
+
+## ListItemLink
+
+The `ListItemLink` component is used to render a list item as a link, and
+should be wrapped in a `ListItem` component.
+
+<Canvas of={Stories.ListItemLinks} />
+
+This component is base on the `a` element and extends the `ListItemContent`
+component, so it supports all the same props, as well as the following
+additional props:
+
+<ArgTypes of={ListItemLink} include={'asChild'} />
+
+## ListActionLink
+
+A single `ListActionLink` component can render a list action as a link, and
+should be wrapped in a `ListItem` component.
+
+This component is based on the `a` element.
+
+## ListActionButton
+
+A single `ListActionButton` component can render a list action as a button, and
+should be wrapped in a `ListItem` component.
+
+This component is based on the `button` element.
