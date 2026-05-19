@@ -5,7 +5,7 @@
   "license": "ISC",
   "private": "true",
   "scripts": {
-    "build": "webpack --mode=production",
+    "build:app": "webpack --mode=production",
     "build:watch": "webpack --mode=development --watch",
     "clean": "rm -rf node_modules dist .turbo",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0 --ext ts,tsx src",
