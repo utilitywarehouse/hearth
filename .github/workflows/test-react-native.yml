@@ -41,7 +41,5 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - name: Install Playwright Chromium 🧪
         run: pnpm --dir packages/react-native exec playwright install --with-deps chromium
-      - name: Run React Native unit tests ✅
-        run: pnpm --dir packages/react-native run test
-      - name: Run React Native Storybook tests ✅
-        run: pnpm --dir packages/react-native run test:storybook
+      - name: Run React Native tests ✅
+        run: pnpm run test:react-native
