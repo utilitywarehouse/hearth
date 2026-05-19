@@ -5,7 +5,7 @@ publicHoistPattern:
   - 'expo-modules-core'
 patchedDependencies:
   react-native-worklets@0.5.1: patches/react-native-worklets@0.5.1.patch
-allowNonAppliedPatches: true
+allowUnusedPatches: true
 nodeLinker: hoisted
 allowBuilds:
   '@bundled-es-modules/glob': true
