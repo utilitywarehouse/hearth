@@ -92,6 +92,19 @@
       "persistent": true,
       "dependsOn": ["^build", "build"]
     },
+    "dev:mcp": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "dev:storybook": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build", "build"]
+    },
     "ios": {
       "cache": false,
       "persistent": true

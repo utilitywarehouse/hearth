@@ -44,7 +44,7 @@
     "format": "prettier --write \"src/**/*.{ts*,mdx}\"",
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx}\"",
     "figma:publish": "figma connect publish",
-    "sb": "storybook dev -p 6006",
+    "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "copy:changelog": "node ./scripts/copy-changelog.js",
     "test:storybook": "vitest run --project storybook"

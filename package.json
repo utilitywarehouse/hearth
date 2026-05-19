@@ -27,7 +27,8 @@
     "ci:version": "changeset version && turbo run copy:changelog && pnpm install --no-frozen-lockfile",
     "dev:docs": "turbo run dev:docs",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
-    "dev:react": "turbo run sb --filter=@utilitywarehouse/hearth-react",
+    "dev:mcp": "turbo run dev:storybook --filter=playground-mcp --filter=@utilitywarehouse/hearth-react",
+    "dev:react": "turbo run dev:storybook --filter=@utilitywarehouse/hearth-react",
     "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev @utilitywarehouse/hearth-react-native#dev",
     "dev:react-native:android": "turbo run hearth-react-native-expo#android",
     "dev:react-native:ios": "turbo run hearth-react-native-expo#ios",
@@ -58,11 +59,7 @@
     "overrides": {
       "react": "19.1.0",
       "react-dom": "19.1.0"
-    },
-    "patchedDependencies": {
-      "react-native-worklets@0.5.1": "patches/react-native-worklets@0.5.1.patch"
-    },
-    "allowUnusedPatches": true
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
