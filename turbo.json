@@ -75,6 +75,14 @@
     "format:ci": {
       "dependsOn": ["^build"]
     },
+    "test": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
+    "test:storybook": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

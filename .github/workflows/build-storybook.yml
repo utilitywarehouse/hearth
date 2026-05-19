@@ -1,21 +1,17 @@
-name: Build CSS Reset
+name: Build Storybook
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - 'packages/css-reset/**'
   push:
     branches:
       - main
-    paths:
-      - 'packages/css-reset/**'
 
 permissions:
   contents: read
 
 jobs:
   checks:
-    name: Build
+    name: Build Storybook
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -32,9 +28,9 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build:css-reset
+      - run: pnpm build:storybook
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
