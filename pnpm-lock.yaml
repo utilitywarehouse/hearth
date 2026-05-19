@@ -257,6 +257,9 @@ importers:
       '@utilitywarehouse/hearth-react-icons':
         specifier: workspace:*
         version: link:../../packages/react-icons
+      '@utilitywarehouse/hearth-svg-assets':
+        specifier: workspace:*
+        version: link:../../packages/svg-assets
       next:
         specifier: 16.2.6
         version: 16.2.6(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

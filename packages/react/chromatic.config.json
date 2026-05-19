@@ -6,8 +6,6 @@
   "storybookBaseDir": "./packages/react",
   "zip": true,
   "$schema": "https://www.chromatic.com/config-file.schema.json",
-  "storybookConfigDir": "./packages/react/.storybook",
   "storybookBuildDir": "./storybook-static",
   "externals": ["src/djocs/assets/**/*.png", "src/docs/assets/**/*.svg"]
 }
-

@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/nextjs-vite';
+import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-react/styles.css';
 
 const preview: Preview = {
   parameters: {
