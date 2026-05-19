@@ -26,6 +26,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
+      data-testid={componentClassName}
       data-bottom-radius-zero={flatBase ? '' : undefined}
       {...badgeProps}
     />

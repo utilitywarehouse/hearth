@@ -58,6 +58,7 @@ export const FormGroupBase = forwardRef<FormGroupBaseElement, FormGroupBaseProps
     <fieldset
       ref={ref}
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       {...fieldsetProps}
       disabled={disabled}
       id={id}

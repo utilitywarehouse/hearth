@@ -13,7 +13,6 @@ const InputField = forwardRef<RNTextInput, TextInputProps & { inBottomSheet?: bo
 
     if (inBottomSheet) {
       return (
-        // @ts-expect-error - BottomSheetTextInput has incompatible event types with TextInput
         <BottomSheetTextInput
           ref={ref as any}
           placeholderTextColor={color.text.secondary}

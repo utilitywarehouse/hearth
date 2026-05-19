@@ -41,7 +41,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const flexItemProps = { flex, flexBasis, flexShrink, flexGrow };
     return (
-      <Box asChild {...flexItemProps}>
+      <Box asChild data-testid={componentClassName} {...flexItemProps}>
         <RadioGroupPrimitive.Item
           ref={ref}
           className={cn(componentClassName, className)}

@@ -1,0 +1,52 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './DetailText.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { DetailText } from './DetailText';
+
+<Meta title="Typography / DetailText" />
+
+# DetailText
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Alternatives
+
+- <StorybookLink to="typography-bodytext">BodyText</StorybookLink> - For body text
+- <StorybookLink to="typography-strong">Strong</StorybookLink> - For strong importance
+- <StorybookLink to="typography-em">Em</StorybookLink> - For emphasis
+- <StorybookLink to="typography-heading">Heading</StorybookLink> - For heading-level text
+
+## Size
+
+The size prop is responsive, so you can render different sizes at different breakpoints.
+
+```tsx
+<DetailText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg'}}>{...}</DetailText>
+```
+
+<Canvas of={Stories.TextSizes} />
+
+## Color
+
+The text color of `DetailText` can be set to either `text`, `valid` or
+`invalid`. These colours will be overridden by the `inverted` prop.
+
+## Inverted
+
+When using `BodyText` on a darker background, specifically `uwPurple` &
+`darkPurple`, use the `inverted` prop to ensure colour contrast.
+
+<Canvas of={Stories.InvertedText} />
+
+## API
+
+This component is based on the `span` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+- <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+
+<ArgTypes of={DetailText} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

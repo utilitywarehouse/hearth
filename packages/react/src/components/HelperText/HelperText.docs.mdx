@@ -1,0 +1,21 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './HelperText.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { HelperText } from './HelperText';
+
+<Meta title="Typography / HelperText" />
+
+# HelperText
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## API
+
+This component is based on the `span` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+
+<ArgTypes of={HelperText} exclude={'margin*|textTransform|textAlign'} />

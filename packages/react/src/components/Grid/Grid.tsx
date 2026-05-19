@@ -80,6 +80,7 @@ export const Grid = forwardRef<GridElement, GridProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-responsive-columns={defaultResponsiveColumns ? '' : undefined}
+      data-testid={componentClassName}
       {...gridProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}

@@ -7,10 +7,8 @@ export interface InlineLinkProps
   /**
    * Sets the color scheme for the InlineLink.
    * - 'default': Uses the standard link color.
-   * - 'inverted': Uses a color suitable for dark backgrounds.
-   * - 'inherit': Inherits the color from its parent element.
-   * Use 'inverted' when placing the link on a dark or colored background for better contrast.
-   * Use 'inherit' to match the surrounding text color.
+   * - 'inverted': Uses a color suitable for dark backgrounds. Use when placing the link on a dark or colored background for better contrast.
+   * - 'inherit': Inherits the color from its parent element. Use to match the surrounding text color.
    */
   color?: 'default' | 'inverted' | 'inherit';
   /**

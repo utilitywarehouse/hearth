@@ -6,9 +6,12 @@ import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import '../../../shared/storybook/styles/diff-highlighting.css';
 import '../../../shared/storybook/styles/preview.css';
-import theme from '../../../shared/storybook/theme';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
 import { initializePrism } from './prism-setup';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 // Initialize Prism.js for syntax highlighting
 initializePrism();

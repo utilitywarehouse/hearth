@@ -1,0 +1,18 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
+
+<Meta title="Common Props / AlignSelf" />
+
+# AlignSelf
+
+The align-self CSS property overrides a grid or flex item's align-items value.
+
+```tsx
+<Flex alignItems="center">
+  <Box />
+  <Box alignSelf="start" />
+  <Box alignSelf={{ mobile: 'end', desktop: 'center' }} />
+</Flex>
+```
+
+<ArgTypes of={Box} include={'alignSelf'} />

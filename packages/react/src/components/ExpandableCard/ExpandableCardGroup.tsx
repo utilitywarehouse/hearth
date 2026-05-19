@@ -27,7 +27,12 @@ export const ExpandableCardGroup = forwardRef<ExpandableCardGroupElement, Expand
     } = extractProps(props, marginPropDefs);
 
     return (
-      <div ref={ref} className={cn(componentClassName, className)} {...restProps}>
+      <div
+        ref={ref}
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        {...restProps}
+      >
         {heading ? (
           <SectionHeader
             heading={heading}

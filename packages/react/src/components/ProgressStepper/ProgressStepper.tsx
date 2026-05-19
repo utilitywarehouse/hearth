@@ -31,6 +31,7 @@ export const ProgressStepper = forwardRef<ProgressStepperElement, ProgressSteppe
         aria-label={ariaLabel}
         className={cn(componentClassName, className)}
         data-visually-hidden-labels={hideLabels ? '' : undefined}
+        data-testid={componentClassName}
         {...progressStepperProps}
       >
         <Tag>

@@ -62,6 +62,7 @@ export const ProgressBar = forwardRef<ProgressBarElement, ProgressBarProps>((pro
       aria-valuetext={ariaValueText || valueText}
       aria-labelledby={labelId}
       data-colorscheme={colorScheme}
+      data-testid={componentClassName}
       {...progressBarProps}
     >
       {variant === 'linear' ? <ProgressBarLinear {...internalProgressBarProps} /> : null}

@@ -6,28 +6,28 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@10.28.2 --activate && pnpm install --loglevel=\"info\" && pnpm build",
-    "refresh": "pnpm clean && pnpm install --loglevel=\"info\" && pnpm run build",
-    "clean": "pnpm -r --stream --loglevel=\"info\" clean && rm -rf node_modules",
-    "build": "turbo build",
+    "setup": "corepack enable && corepack prepare pnpm@11.0.5 --activate && pnpm install",
+    "refresh": "pnpm clean && pnpm install && pnpm run build",
+    "clean": "turbo run clean --concurrency=20 && rm -rf node_modules",
+    "build": "turbo run build --filter=!./apps/figma-variables-plugin",
     "build:assets": "turbo run build:storybook --filter=storybook-assets",
     "build:css-reset": "turbo run build --filter=@utilitywarehouse/hearth-css-reset",
     "build:fonts": "turbo run build:storybook --filter=storybook-fonts",
     "build:react": "turbo run build --filter=@utilitywarehouse/hearth-react",
     "build:react-native": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react-native",
+    "build:tokens": "turbo run build:storybook --filter=storybook-tokens",
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
-    "build:storybook:react": "turbo run build:storybook --filter=storybook-react -- -o \"./storybook-static\"",
-    "build:tokens": "turbo run build:storybook --filter=storybook-tokens",
+    "build:storybook:react": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react -- -o \"./storybook-static\"",
     "changeset": "changeset",
-    "checks": "turbo run checks --filter='./packages/*'",
-    "checks:ci": "turbo run checks:ci --filter='./packages/*'",
+    "lint": "turbo run lint --filter='./packages/*'",
+    "lint:ci": "turbo run lint:ci --filter='./packages/*'",
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
     "ci:publish": "pnpm run build && changeset publish",
     "ci:version": "changeset version && turbo run copy:changelog && pnpm install --no-frozen-lockfile",
     "dev:docs": "turbo run dev:docs",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
-    "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
+    "dev:react": "turbo run sb --filter=@utilitywarehouse/hearth-react",
     "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev @utilitywarehouse/hearth-react-native#dev",
     "dev:react-native:android": "turbo run hearth-react-native-expo#android",
     "dev:react-native:ios": "turbo run hearth-react-native-expo#ios",
@@ -42,52 +42,40 @@
     "generate:storybook:icons": "turbo run storybook-icons#generate",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "copy:tokens:react": "turbo run copy:tokens:index --filter=@utilitywarehouse/hearth-react",
-    "lint": "turbo run lint --filter='./packages/*'",
-    "lint:fix": "turbo run lint:fix --filter='./packages/*'"
+    "copy:tokens:react": "turbo run copy:tokens:index --filter=@utilitywarehouse/hearth-react"
   },
   "workspaces": [
     "packages/*",
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "10.28.2"
+    "pnpm": "11.0.5"
   },
   "prettier": "@utilitywarehouse/prettier-config",
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@11.0.5+sha512.94fa09e72016402aefce788e46994e18eb1922998b16b6fd5aa6bafd8ae4dea05d0852f60247fdb7d5ab8199a7b0beda830398f3f80cb9f822398522a1535481",
   "pnpm": {
     "overrides": {
       "react": "19.1.0",
       "react-dom": "19.1.0"
-    },
-    "patchedDependencies": {
-      "react-native-worklets@0.5.1": "patches/react-native-worklets@0.5.1.patch"
-    },
-    "onlyBuiltDependencies": [
-      "@bundled-es-modules/glob",
-      "dtrace-provider",
-      "esbuild",
-      "react-native-nitro-modules",
-      "sharp",
-      "style-dictionary",
-      "unrs-resolver"
-    ]
+    }
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.9",
     "@figma/code-connect": "^1.3.12",
-    "@typescript-eslint/eslint-plugin": "^8.14.0",
-    "@typescript-eslint/parser": "^8.14.0",
     "@utilitywarehouse/prettier-config": "^0.1.1",
+    "@eslint/js": "^8.57.0",
     "chromatic": "^13.3.0",
-    "eslint": "8",
+    "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.26",
+    "eslint-plugin-storybook": "^10.2.1",
     "prettier": "^3.3.3",
-    "turbo": "^2.3.3",
-    "typescript": "^5.6.3"
+    "turbo": "^2.9.12",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.0.0"
   }
 }

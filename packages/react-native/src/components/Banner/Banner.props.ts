@@ -1,4 +1,5 @@
 import type { ComponentType, ReactElement, ReactNode } from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import type CardProps from '../Card/Card.props';
 
 export type BannerDirection = 'horizontal' | 'vertical';
@@ -92,6 +93,7 @@ export interface BannerProps extends Omit<
    * @default 'center'
    */
   alignChevron?: 'center' | 'start' | 'end';
+  style?: StyleProp<ViewStyle>;
 }
 
 export default BannerProps;

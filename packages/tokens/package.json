@@ -21,15 +21,17 @@
     "build:js": "tsc --project ./tsconfig.json",
     "build:browser": "tsc --project ./tsconfig.browser.json",
     "generate:tokens": "node ./scripts/generate-tokens.js",
-    "build": "pnpm clean:build && pnpm generate:tokens && pnpm build:css && pnpm build:js && pnpm build:browser && pnpm format",
+    "generate": "pnpm clean:build && pnpm generate:tokens && turbo run build:css build:js build:browser && pnpm run lint:fix",
     "clean": "rm -rf node_modules .turbo",
     "clean:build": "rm -rf src css js browser",
-    "lint:css": "stylelint \"./**/*.css\" --fix",
-    "format": "prettier --write \"./**/*.{ts,js}\" && pnpm lint:css"
+    "lint:css": "stylelint \"./css/*.css\" --fix",
+    "format": "prettier --write \"./**/*.{ts,js}\"",
+    "lint:fix": "pnpm run lint:css && pnpm run format"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "prettier": "@utilitywarehouse/prettier-config",
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
     "cssnano": "^5.1.15",

@@ -20,6 +20,7 @@ export const Spinner = forwardRef<SpinnerElement, SpinnerProps>(
         ref={ref}
         className={cn(componentClassName, className)}
         data-current-color={currentColor ? '' : undefined}
+        data-testid={componentClassName}
         {...spinnerProps}
       >
         <svg xmlns="http://www.w3.org/2000/svg">

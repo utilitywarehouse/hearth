@@ -1,0 +1,109 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './ProgressStepper.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ProgressStepper } from './ProgressStepper';
+import { ProgressStep } from './ProgressStep';
+import { ProgressStepLink } from './ProgressStepLink';
+import { ProgressStepButton } from './ProgressStepButton';
+
+<Meta title="Components / ProgressStepper" />
+
+# ProgressStepper
+
+Use the `ProgressStepper` component to show users their progress through a multi-step process.
+
+- [Usage](#usage)
+- [Step states](#step-states)
+- [Accessability](#accessability)
+- [API](#api)
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Usage
+
+There are 3 step components for different scenarios. Do not mix these step
+types, they should not be used together.
+
+- `ProgressStep` is a static step
+- `ProgressStepButton` is an interactive step for use when the step requires an action
+- `ProgressStepLink` is an interactive step for use when the step requires navigation
+
+Wrap the steps in a `ProgressStepper` components.
+
+```tsx
+<ProgressStepper>
+  <ProgressStep status="complete" label="Customer data"/>
+  <ProgressStep status="complete" label="Shipping data"/>
+  <ProgressStep status="active" label="Payment data"/>
+  <ProgressStep status="incomplete" label="Summary"/>
+</ProgressStepper>
+
+[...]
+
+<ProgressStepper>
+  <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
+  <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
+  <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
+  <ProgressStepLink status="incomplete" label="Summary" />
+</ProgressStepper>
+
+[...]
+
+<ProgressStepper >
+  <ProgressStepButton status="complete" label="Customer data" onClick={setStep('shipping')} />
+  <ProgressStepButton status="complete" label="Shipping data" onClick={setStep('payment')} />
+  <ProgressStepButton status="active" label="Payment data" onClick={setStep('summary')} />
+  <ProgressStepButton status="incomplete" label="Summary" />
+</ProgressStepper>
+```
+
+## Step states
+
+Each step can have one of three states:
+
+- `complete`
+- `active`
+- `incomplete`
+
+The `ProgressStepButton` and `ProgressStepLink` components will render a static
+step when they have an `active` status.
+
+To prevent users interacting with a `ProgressStepButton` or `ProgressStepLink`
+component, use the `disabled` prop. This will prevent click events and remove
+the href attribute.
+
+## Step Labels
+
+Each step requires a label, this should be clear and descriptive to guide the user.
+
+The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
+
+## Accessability
+
+- Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
+- Add `name` to `ProgressStepper` when using `nav` as element and having multiple navigations on the page.
+- Any `aria-label` value passed to a progress step will be appended to the default `aria-label`.
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={ProgressStepper} exclude={'margin*'} />
+
+### ProgressStep API
+
+<ArgTypes of={ProgressStep} />
+
+### ProgressStepLink API
+
+This component is based on the `a` element.
+
+<ArgTypes of={ProgressStepLink} />
+
+### ProgressStepButton API
+
+This component is based on the `button` element.
+
+<ArgTypes of={ProgressStepButton} />

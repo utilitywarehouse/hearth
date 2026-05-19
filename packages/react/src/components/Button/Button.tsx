@@ -26,6 +26,7 @@ export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) =>
       className={cn(componentClassName, className)}
       disabled={disabled || loading}
       aria-label={loading ? 'Loading' : undefined}
+      data-testid={componentClassName}
       asChild
       {...buttonProps}
     >

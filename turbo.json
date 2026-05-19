@@ -28,6 +28,15 @@
     "build:icons": {
       "outputs": ["dist/**"]
     },
+    "build:css": {
+      "outputs": ["css"]
+    },
+    "build:js": {
+      "outputs": ["js"]
+    },
+    "build:browser": {
+      "outputs": ["browser"]
+    },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build", "build"]
@@ -40,21 +49,24 @@
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build", "build"]
     },
-    "checks": {
+    "lint": {
       "outputs": [],
       "dependsOn": ["format", "lint:fix"]
     },
-    "checks:ci": {
+    "lint:ci": {
       "outputs": [],
       "dependsOn": ["format:ci", "lint:fix"]
     },
     "checks:build": {
       "outputs": ["dist/**"]
     },
-    "lint": {
+    "lint:fix": {
       "dependsOn": ["^build"]
     },
-    "lint:fix": {
+    "lint:js:fix": {
+      "dependsOn": ["^build"]
+    },
+    "lint:css:fix": {
       "dependsOn": ["^build"]
     },
     "format": {
@@ -66,6 +78,11 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "sb": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build", "build"]
     },
     "ios": {
       "cache": false,

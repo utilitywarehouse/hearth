@@ -29,6 +29,7 @@ export const Tabs = forwardRef<TabsElement, TabsProps>((props, ref) => {
         ref={ref}
         className={cn(componentClassName, className)}
         activationMode={activationMode}
+        data-testid={componentClassName}
         {...tabsProps}
       />
     </Flex>

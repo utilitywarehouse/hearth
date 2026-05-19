@@ -38,6 +38,7 @@ export const ExpandableCard = forwardRef<ExpandableCardElement, ExpandableCardPr
       <CollapsiblePrimitive.Root
         ref={ref}
         className={cn(componentClassName, className)}
+        data-testid={componentClassName}
         {...restProps}
       >
         <CollapsiblePrimitive.Trigger className={`${componentClassName}Trigger`}>

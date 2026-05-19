@@ -34,5 +34,13 @@ module.exports = {
         children: 'never',
       },
     ],
+    // The list role is applied intentionally to apply default styling
+    'jsx-a11y/no-redundant-roles': [
+      'error',
+      {
+        ol: ['list'],
+        ul: ['list'],
+      },
+    ],
   },
 };

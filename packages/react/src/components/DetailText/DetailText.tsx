@@ -40,6 +40,7 @@ export const DetailText = forwardRef<DetailTextElement, DetailTextProps>((props,
       ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
+      data-testid={componentClassName}
       {...detailTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}

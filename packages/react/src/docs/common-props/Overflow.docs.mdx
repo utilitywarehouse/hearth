@@ -1,0 +1,17 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../components/Box/Box';
+
+<Meta title="Common Props / Overflow" />
+
+# Overflow
+
+The overflow props are responsive, and are available for the shorthand as well as both X and Y axis.
+
+```tsx
+<Box overflow="hidden" />
+<Box overflow={{ mobile: "hidden", desktop: "scroll"}} />
+<Box overflowX="auto" />
+<Box overflowY="auto" />
+```
+
+<ArgTypes of={Box} include={'overflow*'} sort="requiredFirst" />

@@ -1,0 +1,267 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './RadioGroup.stories';
+import * as RadioCardStories from '../RadioCard/RadioCard.stories';
+import * as RadioTileStories from '../RadioTile/RadioTile.stories';
+import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Divider } from '../Divider/Divider';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { RadioGroup } from './RadioGroup';
+import { Radio } from '../Radio/Radio';
+import { RadioTile } from '../RadioTile/RadioTile';
+import { RadioCard } from '../RadioCard/RadioCard';
+
+<Meta title="Components / RadioGroup" />
+
+# RadioGroup
+
+`RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.
+
+<Canvas of={Stories.Playground} />
+
+- [Alternatives](#alternatives)
+- [Usage](#usage)
+- [Accessibility](#accessibility)
+- [Keyboard interactions](#keyboard-interactions)
+- [Custom label](#custom-label)
+- [Helper text](#helper-text)
+- [Validation](#validation)
+- [Content width](#content-width)
+- [Grid layout](#grid-layout)
+- [RadioTile layout](#radiotile-layout)
+- [Controlled](#controlled)
+- [Radio & RadioTile Image](#radio--radiotile-image)
+- [RadioCard](#radiocard)
+- [API](#api)
+
+## Alternatives
+
+- `CheckboxGroup`: For multi-select.
+
+## Usage
+
+`RadioGroup` is intended for use with the `RadioTile`, `RadioCard` and `Radio` components.
+
+- `RadioTile` is the most common radio button used within the `RadioGroup`, and offers a simple way to present grouped options.
+- `RadioCard` is for instances when you have options that are either the main focus of your UI or would benefit from additional explanation.
+- `Radio` will not often be used, as `RadioTile` is preferred.
+
+## Accessibility
+
+The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
+`aria-errormessage` are handled internally, however when it is necessary for
+the `RadioGroup` to be labelled by another element or even not to have a visual
+label, either `aria-label` or `aria-labelledby` can be provided.
+
+The `Radio` and `RadioTile` are, by default, appropriately labelled when using
+the `label` props, if you do not provide a label, you must specify an
+`aria-label` or `aria-labelledby` for accessibility.
+
+## Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Tab',
+      description:
+        'Moves focus to either the checked radio item or the first radio item in the group.',
+    },
+    {
+      key: 'Shift+Tab',
+      description:
+        'Moves focus to either the checked radio item or the last radio item in the group.',
+    },
+    {
+      key: 'Space',
+      description: 'When focus is on an unchecked radio item, checks it.',
+    },
+    {
+      key: 'Arrow Down / Arrow Right',
+      description: 'Moves focus and checks the next radio item in the group.',
+    },
+    {
+      key: 'Arrow Up / Arrow Left',
+      description: 'Moves focus and checks the previous radio item in the group.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## Custom label
+
+You can set a custom label either by passing in a component to the label prop,
+or by properly labelling the `RadioGroup` with the relevant text element.
+
+<Canvas of={Stories.CustomLabel} />
+
+## Helper text
+
+`RadioGroup` can display a secondary message as a helper text. If displayed then
+child radio items will not be display their own helper text.
+
+## Validation
+
+In general, radio buttons should have a value selected by default. If this is
+not the case, you can display an error if no value is selected when the form is
+submitted.
+
+<Canvas of={Stories.Validation} />
+
+By default, the validation text is placed above the radio items. Use `validationPlacement="bottom"` to display it below instead.
+
+<Canvas of={Stories.ValidationPlacement} />
+
+## Content width
+
+The width of the `RadioGroup` should be set by the parent layout, however it is
+possible to independently set the width of the children using `contentWidth`
+prop.
+
+By default it will set the width of the children to fit their content, however
+you can set it to a specific width, or to `100%` to take up the full width of
+the `RadioGroup`.
+
+This is a responsive property, so you are able to set different widths for
+different breakpoints.
+
+## Grid layout
+
+You can compose the `RadioGroup` with the `Grid` component if you need to
+present a specific grid layout.
+
+<Canvas of={Stories.WithGrid} />
+
+## RadioTile layout
+
+`RadioTile` components will, by default, fit their content. However they have
+access to all flex item props, so you can set them to grow and fill the
+available space, or to have a specific width.
+
+```tsx
+<RadioGroup direction="row" label="Numbers">
+  <RadioTile value="1" label="One" flex="1" />
+  <RadioTile value="2" label="Two" flex="1" />
+</RadioGroup>
+```
+
+## Controlled
+
+A controlled value can be provided using the value prop, which accepts a value
+corresponding with the value prop of each `Radio`. The onChange event is fired
+when the user selects a `Radio`.
+
+```
+const options = ['Bear', 'Koala', 'Wolf', 'Horse'];
+const [selected, setSelected] = useState(options[0]);
+
+[...]
+
+<RadioGroup
+  {...args}
+  value={selected}
+  onValueChange={setSelected}
+  helperText={`Your favourite animal is a ${selected}`}
+>
+  {options.map(animal => (
+    <RadioTile key={animal} value={animal} label={animal} />
+  ))}
+</RadioGroup>
+```
+
+<Canvas of={Stories.Controlled} />
+
+## Radio & RadioTile Image
+
+The `Radio` & `RadioTile` components can display an icon or image between the indicator and label.
+
+```tsx
+<Radio value="2" label="Two" helperText="The number two" image={<CashbackCardMediumIcon />} />
+```
+
+<Canvas of={RadioTileStories.WithImage} />
+
+**If you are using an `img` element, remember to include a null alt tag
+(`alt=""` ) so the image is ignored by assistive technologies.**
+
+```tsx
+<RadioTile
+  value="2"
+  label="Two"
+  helperText="The number two"
+  image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
+/>
+```
+
+## RadioCard
+
+You can use the `RadioCard` component to present additional content in a more
+card-like visual style. Unlike `RadioTile`, this component will accept
+children.
+
+```tsx
+<RadioCard value="1" label="Debit card payment">
+  <Flex asChild gap="100" direction="column">
+    <ul role="list">
+      <li>• Unlimited free top-ups</li>
+      <li>• Instant withdrawals</li>
+      <li>• Extra layer of security</li>
+    </ul>
+  </Flex>
+</RadioCard>
+```
+
+<Canvas of={RadioCardStories.Playground} />
+
+## API
+
+This component is based on the `fieldset` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={RadioGroup} exclude={'margin*'} />
+
+### Radio API
+
+This component is based on the `button` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={Radio} exclude={'margin*'} />
+
+### RadioTile API
+
+This component is based on the `button` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
+
+<ArgTypes of={RadioTile} exclude={'margin*|flex*'} />
+
+### RadioCard API
+
+This component is based on the `button` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={RadioCard} exclude={'margin*'} />

@@ -10,7 +10,6 @@
     "clean": "rm -rf node_modules dist .turbo",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0 --ext ts,tsx src",
     "lint": "TIMING=1 eslint --max-warnings 0 --ext ts,tsx src",
-    "postinstall": "node ./postinstall.js",
     "prettier:format": "prettier --write '**/*.{js,jsx,ts,tsx,css,json}' "
   },
   "dependencies": {

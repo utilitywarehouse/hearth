@@ -1,0 +1,29 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Em.stories';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Em } from './Em';
+
+<Meta title="Typography / Em" />
+
+# Em
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Alternatives
+
+- <StorybookLink to="typography-bodytext">BodyText</StorybookLink> - For body text
+- <StorybookLink to="typography-detailtext">DetailText</StorybookLink> - For detail text
+- <StorybookLink to="typography-heading">Heading</StorybookLink> - For heading-level text
+- <StorybookLink to="typography-strong">Strong</StorybookLink> - For strong importance
+
+## API
+
+This component is based on the `em` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-text">Text transform</StorybookLink>
+- <StorybookLink to="common-props-text">Text align</StorybookLink>
+- <StorybookLink to="common-props-text">Text wrap</StorybookLink>
+
+<ArgTypes of={Em} exclude={'margin*|textTransform|textAlign|textWrap|wrap'} />

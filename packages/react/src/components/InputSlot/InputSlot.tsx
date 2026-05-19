@@ -18,6 +18,7 @@ export const InputSlot = forwardRef<InputSlotElement, InputSlotProps>(
         ref={ref}
         className={cn(componentClassName, className)}
         data-placement={placement}
+        data-testid={componentClassName}
         {...props}
       >
         {children}

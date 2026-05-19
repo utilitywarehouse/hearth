@@ -1,3 +1,16 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+publicHoistPattern:
+  - 'expo-modules-core'
+patchedDependencies:
+  react-native-worklets@0.5.1: patches/react-native-worklets@0.5.1.patch
+nodeLinker: hoisted
+allowBuilds:
+  '@bundled-es-modules/glob': true
+  dtrace-provider: true
+  esbuild: true
+  react-native-nitro-modules: true
+  sharp: true
+  style-dictionary: true
+  unrs-resolver: true

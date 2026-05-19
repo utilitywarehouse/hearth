@@ -33,6 +33,7 @@ export const ValidationText = forwardRef<ValidationTextElement, ValidationTextPr
         className={cn(componentClassName, className)}
         data-disable-user-select={disableUserSelect ? '' : undefined}
         data-status={status}
+        data-testid={componentClassName}
         {...validationTextProps}
       >
         {status === 'valid' ? (

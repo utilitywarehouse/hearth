@@ -18,7 +18,7 @@ jobs:
 
       - uses: pnpm/action-setup@8912a9102ac27614460f54aedde9e1e7f9aec20d # v6.0.5
         with:
-          version: 10.28.2
+          version: 11.0.5
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
@@ -27,12 +27,9 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm run build:react
-        env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
 
       - name: Run Chromatic
         uses: chromaui/action@42839e8c28caf61a16433fa96a03b312bbc47ab5 # latest
@@ -42,4 +39,4 @@ jobs:
           exitOnceUploaded: true
           onlyChanged: true
           zip: true
-          storybookBaseDir: apps/storybook-react
+          storybookBaseDir: packages/react

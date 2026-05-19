@@ -30,6 +30,7 @@ export const Strong = forwardRef<StrongElement, StrongProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
+      data-testid={componentClassName}
       {...strongProps}
     >
       {asChild ? children : <strong>{children}</strong>}

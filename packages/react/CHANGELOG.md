@@ -1,5 +1,64 @@
 # @utilitywarehouse/hearth-react
 
+## 0.28.4
+
+### Patch Changes
+
+- [#1207](https://github.com/utilitywarehouse/hearth/pull/1207) [`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Improve build pipeline
+
+  CI was failing as it did not have the memory heap to build the react and
+  react-icons packages. Generation of declarations has been passed to tsc, while
+  tsup now only bundles the code.
+
+- [#1207](https://github.com/utilitywarehouse/hearth/pull/1207) [`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Deprecate incorrectly named `wrap` prop
+
+  The `TextWrap` prop was incorrectly named `wrap` in the `Text` component. This
+  patch deprecates the `wrap` prop and introduces the correctly named `textWrap`
+  prop. The `wrap` prop will be removed in a future major version.
+
+  ```diff
+  - <BodyText wrap="pretty">...</BodyText>
+  + <BodyText textWrap="pretty">...</BodyText>
+  ```
+
+  ## Components Affected
+  - `Heading`
+  - `BodyText`
+  - `DetailText`
+  - `Em`
+  - `Strong`
+
+- Updated dependencies [[`b10d0d0`](https://github.com/utilitywarehouse/hearth/commit/b10d0d0e2352666646a1d324e7145e414d25dfc2)]:
+  - @utilitywarehouse/hearth-react-icons@0.8.2
+
+## 0.28.3
+
+### Patch Changes
+
+- [#1204](https://github.com/utilitywarehouse/hearth/pull/1204) [`d4fb990`](https://github.com/utilitywarehouse/hearth/commit/d4fb990830dec551be624615f1860995f9706e95) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add default `data-testid` attributes to all components
+
+  All components now render with a default `data-testid` attribute using the
+  pattern `h-ComponentName` (e.g. `data-testid="h-Spinner"`), making it easier
+  to target Hearth components in automated tests without relying on class names
+  or other selectors.
+
+  The default value can be overridden by passing your own `data-testid` prop:
+
+  ```tsx
+  <Spinner data-testid="my-custom-spinner" />
+  ```
+
+  **Developer changes**:
+
+  No changes required. The test IDs are added automatically and are fully
+  backward-compatible.
+
+## 0.28.2
+
+### Patch Changes
+
+- [#1192](https://github.com/utilitywarehouse/hearth/pull/1192) [`a74bf02`](https://github.com/utilitywarehouse/hearth/commit/a74bf02c58c12e1b42351e0d7f8e3e79ea0acbd6) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Fix missing dependencies
+
 ## 0.28.1
 
 ### Patch Changes

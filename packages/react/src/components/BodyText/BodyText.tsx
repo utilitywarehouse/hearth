@@ -42,6 +42,7 @@ export const BodyText = forwardRef<BodyTextElement, BodyTextProps>((props, ref) 
       ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
+      data-testid={componentClassName}
       {...bodyTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}

@@ -57,6 +57,7 @@ export const DateInput = ({
   return (
     <FormGroupBase
       className={cn(componentClassName, className)}
+      data-testid={componentClassName}
       validationPlacement="bottom"
       {...formGroupBaseProps}
     >

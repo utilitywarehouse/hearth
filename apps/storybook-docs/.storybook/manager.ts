@@ -1,6 +1,9 @@
 import { addons, type State } from 'storybook/manager-api';
 import '../../../shared/storybook/styles/manager.css';
-import theme from '../../../shared/storybook/theme';
+import { config } from '../../../shared/storybook/theme';
+import { create } from 'storybook/theming';
+
+const theme = create(config);
 
 const ROOT_PREVIEW_IFRAME_ID = 'storybook-preview-iframe';
 const ROOT_PREVIEW_FALLBACK_SRC = '/iframe.html?id=*&viewMode=story';

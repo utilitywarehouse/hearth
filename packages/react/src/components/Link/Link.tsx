@@ -27,11 +27,13 @@ export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
       ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
+      data-testid={componentClassName}
       {...linkProps}
     >
       {asChild ? (
         children
       ) : (
+        /* eslint-disable jsx-a11y/anchor-is-valid */
         <a>
           {children}
           {linkProps.target === '_blank' ? (
