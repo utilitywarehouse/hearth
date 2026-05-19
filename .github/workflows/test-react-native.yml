@@ -1,4 +1,4 @@
-name: Build And Test React Native
+name: Test React Native
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -39,10 +39,6 @@ jobs:
         run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - name: Build React Native project 📱
-        run: pnpm build:react-native
-        env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
       - name: Install Playwright Chromium 🧪
         run: pnpm --dir packages/react-native exec playwright install --with-deps chromium
       - name: Run React Native unit tests ✅

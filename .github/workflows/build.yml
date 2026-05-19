@@ -1,16 +1,10 @@
-name: Build Fonts
+name: Build
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - 'packages/fonts/**'
-      - 'apps/storybook-fonts/**'
   push:
     branches:
       - main
-    paths:
-      - 'packages/fonts/**'
-      - 'apps/storybook-fonts/**'
 
 permissions:
   contents: read
@@ -34,9 +28,9 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install
+      - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build:fonts
+      - run: pnpm build
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
