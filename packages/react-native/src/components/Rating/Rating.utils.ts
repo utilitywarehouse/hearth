@@ -8,7 +8,7 @@ export interface EmojiEntry {
 
 export const EMOJI_LIST: EmojiEntry[] = [
   { value: 1, emoji: '\u{1F61E}', accessibilityLabel: 'Very dissatisfied' },
-  { value: 2, emoji: '\u{1F615}', accessibilityLabel: 'Dissatisfied' },
+  { value: 2, emoji: '\u{1F641}', accessibilityLabel: 'Dissatisfied' },
   { value: 3, emoji: '\u{1F610}', accessibilityLabel: 'Neutral' },
   { value: 4, emoji: '\u{1F642}', accessibilityLabel: 'Satisfied' },
   { value: 5, emoji: '\u{1F604}', accessibilityLabel: 'Very satisfied' },
