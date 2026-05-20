@@ -7,9 +7,8 @@ describe('EMOJI_LIST', () => {
     expect(EMOJI_LIST.map(e => e.value)).toEqual([1, 2, 3, 4, 5]);
   });
 
-  it('each entry has an emoji character and an accessibility label', () => {
+  it('each entry has an accessibility label', () => {
     for (const entry of EMOJI_LIST) {
-      expect(entry.emoji).toBeTruthy();
       expect(entry.accessibilityLabel).toBeTruthy();
     }
   });

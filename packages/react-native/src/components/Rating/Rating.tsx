@@ -100,7 +100,7 @@ const Rating = ({
                   style={styles.emojiItem}
                 >
                   <RatingEmoji
-                    emoji={entry.emoji}
+                    emoji={entry.value}
                     grayscale={hasSelection && !isSelected}
                     size={size}
                   />
