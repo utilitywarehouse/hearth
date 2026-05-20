@@ -103,7 +103,7 @@
     "dev:storybook": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["^build", "build"]
+      "dependsOn": ["@utilitywarehouse/hearth-react-icons#build"]
     },
     "ios": {
       "cache": false,

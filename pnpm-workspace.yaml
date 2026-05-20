@@ -15,3 +15,9 @@ allowBuilds:
   sharp: true
   style-dictionary: true
   unrs-resolver: true
+supportedArchitectures:
+  os:
+    - current
+  cpu:
+    - current
+minimumReleaseAge: 5760
