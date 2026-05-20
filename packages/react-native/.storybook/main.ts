@@ -68,10 +68,6 @@ const config = {
             find: /^@utilitywarehouse\/hearth-react-native-icons$/,
             replacement: '@utilitywarehouse/hearth-react-icons',
           },
-          {
-            find: /^@utilitywarehouse\/hearth-react-native-icons\/(.*)$/,
-            replacement: '@utilitywarehouse/hearth-react-icons/$1',
-          },
         ],
       },
       optimizeDeps: {
