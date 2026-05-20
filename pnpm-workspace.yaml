@@ -19,5 +19,5 @@ supportedArchitectures:
   os:
     - current
   cpu:
-    - arm64
+    - current
 minimumReleaseAge: 5760
