@@ -1,4 +1,4 @@
-name: Test React Native
+name: Test React
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -39,4 +39,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+      - run: pnpm build
       - run: pnpm run test:react
