@@ -1,5 +1,5 @@
-import { useId } from 'react';
-import { Defs, FeColorMatrix, Filter, Svg, Text as SvgText } from 'react-native-svg';
+import { Text, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 
 type RatingEmojiProps = {
   emoji: string;
@@ -9,29 +9,28 @@ type RatingEmojiProps = {
 
 const RatingEmoji = ({ emoji, grayscale = false, size }: RatingEmojiProps) => {
   const fontSize = size * 0.75;
-  const filterId = useId();
+
+  styles.useVariants({ grayscale });
 
   return (
-    <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      {grayscale ? (
-        <Defs>
-          <Filter id={filterId}>
-            <FeColorMatrix type="saturate" values="0" />
-          </Filter>
-        </Defs>
-      ) : null}
-      <SvgText
-        x={size / 2}
-        y={size / 2}
-        textAnchor="middle"
-        alignmentBaseline="central"
-        fontSize={fontSize}
-        filter={grayscale ? `url(#${filterId})` : undefined}
-      >
-        {emoji}
-      </SvgText>
-    </Svg>
+    <View style={[styles.container, { width: size, height: size }]}>
+      <Text style={{ fontSize, lineHeight: size }}>{emoji}</Text>
+    </View>
   );
 };
+
+const styles = StyleSheet.create(() => ({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    variants: {
+      grayscale: {
+        true: {
+          filter: [{ grayscale: 1 }],
+        },
+      },
+    },
+  },
+}));
 
 export default RatingEmoji;
