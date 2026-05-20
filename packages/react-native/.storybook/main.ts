@@ -71,6 +71,16 @@ const config = {
         ...config.optimizeDeps,
         exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
       },
+      build: {
+        ...config.build,
+        rolldownOptions: {
+          ...config.build?.rolldownOptions,
+          external: [
+            ...(config.build?.rolldownOptions?.external || []),
+            '@react-stately/utils',
+          ],
+        },
+      },
     };
   },
 };
