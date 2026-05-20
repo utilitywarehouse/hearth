@@ -10,6 +10,17 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  optimizeDeps: {
+    include: [
+      'radix-ui',
+      '@base-ui/utils/useMergedRefs',
+      '@radix-ui/react-use-controllable-state',
+      'react-datepicker',
+      '@floating-ui/dom',
+      '@base-ui/react/combobox',
+      'react/jsx-dev-runtime',
+    ],
+  },
   test: {
     projects: [
       {

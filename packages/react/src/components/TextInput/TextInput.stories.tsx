@@ -45,6 +45,19 @@ export const Playground: Story = {
 };
 
 export const DisabledAndReadOnly: Story = {
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Disabled HelperText fails colour contrast rules. This is a known issue affecting an inactive UI component - https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html
+            id: 'color-contrast',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
   render: args => (
     <Flex direction="column" gap="400">
       <TextInput {...args} label="Disabled" disabled helperText="Please do something before this" />
@@ -66,7 +79,7 @@ export const Validation: Story = {
         {...args}
         label="Email"
         type="email"
-        value="rphoenix@uw.co.uk"
+        defaultValue="rphoenix@uw.co.uk"
         validationStatus="valid"
         validationText="Valid email address"
         required
@@ -75,7 +88,7 @@ export const Validation: Story = {
         {...args}
         label="Email"
         type="email"
-        value="rphoenix@geemail."
+        defaultValue="rphoenix@geemail."
         validationStatus="invalid"
         validationText="Please enter a valid email address"
         required
@@ -117,6 +130,12 @@ export const WithIcons: Story = {
 };
 
 export const GroupingInputs: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex asChild direction="column">
       <fieldset>
@@ -147,6 +166,12 @@ export const GroupingInputs: Story = {
 };
 
 export const ReactHookForm: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const { control, handleSubmit } = useForm({
       defaultValues: {
@@ -177,24 +202,5 @@ export const ReactHookForm: Story = {
         </form>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      DisabledAndReadOnly,
-      Validation,
-      PrefixAndSuffix,
-      WithIcons,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

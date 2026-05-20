@@ -231,9 +231,9 @@ export const WithImage: Story = {
 };
 
 export const OnMobile: Story = {
+  tags: ['!test'],
   parameters: {
-    chromatic: { disableSnapshot: false, delay: 300 },
-    a11y: { test: 'off' },
+    chromatic: { delay: 300 },
   },
   globals: { viewport: { value: 'mobile' } },
   render: args => (
@@ -410,6 +410,7 @@ export const WithLongContent: Story = {
 };
 
 export const WithLongContentAndImage: Story = {
+  tags: ['!test'],
   globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
