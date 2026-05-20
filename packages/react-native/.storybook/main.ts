@@ -62,10 +62,17 @@ const config = {
       ...config,
       resolve: {
         ...config.resolve,
-        alias: {
-          ...config.resolve?.alias,
-          '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
-        },
+        alias: [
+          ...(Array.isArray(config.resolve?.alias) ? config.resolve.alias : []),
+          {
+            find: /^@utilitywarehouse\/hearth-react-native-icons$/,
+            replacement: '@utilitywarehouse/hearth-react-icons',
+          },
+          {
+            find: /^@utilitywarehouse\/hearth-react-native-icons\/(.*)$/,
+            replacement: '@utilitywarehouse/hearth-react-icons/$1',
+          },
+        ],
       },
       optimizeDeps: {
         ...config.optimizeDeps,
