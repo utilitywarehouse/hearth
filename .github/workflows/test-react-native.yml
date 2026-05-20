@@ -17,6 +17,10 @@ jobs:
   checks:
     name: Build and Test
     runs-on: ubuntu-latest
+    container:
+      # Make sure to grab the latest version of the Playwright image
+      # https://playwright.dev/docs/docker#pull-the-image
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
@@ -39,7 +43,5 @@ jobs:
         run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - name: Install Playwright Chromium 🧪
-        run: pnpm --dir packages/react-native exec playwright install --with-deps chromium
       - name: Run React Native tests ✅
         run: pnpm run test:react-native

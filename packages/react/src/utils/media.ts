@@ -60,7 +60,7 @@ function not(breakpoint: Breakpoint) {
   if (keyIndex === keys.length - 1) {
     return below(keys[keyIndex] as Breakpoint);
   }
-  const end = keys[keys.indexOf(breakpoint as string) + 1] as Breakpoint;
+  const end = keys[keys.indexOf(breakpoint) + 1] as Breakpoint;
   return between(breakpoint, end).replace('@media', '@media not all and');
 }
 

@@ -7,7 +7,6 @@ import { Heading } from '../Heading/Heading';
 import { InputSlot } from '../InputSlot/InputSlot';
 import { TextInput } from './TextInput';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 import { useForm, Controller } from 'react-hook-form';
 
 const meta: Meta<typeof TextInput> = {
