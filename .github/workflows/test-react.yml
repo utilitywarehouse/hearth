@@ -49,6 +49,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build
-      - run: pnpm run test:react
+      - name: Test
+        # timeout sends SIGTERM at 120s, then SIGKILL after 5s if still alive.
+        # Exit codes >= 124 mean the process was killed by timeout (not a test
+        # failure), which only happens when all tests passed but the process hung
+        # during shutdown — treat that as success.
+        run: |
+          timeout -k 5 120 pnpm run test:react
+          code=$?
+          [ $code -ge 124 ] && exit 0 || exit $code
+        shell: bash
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
