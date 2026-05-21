@@ -13,6 +13,7 @@ export default defineConfig({
   },
   test: {
     globalSetup: './vitest.global-setup.ts',
+    pool: 'threads',
     projects: [
       {
         extends: true,
