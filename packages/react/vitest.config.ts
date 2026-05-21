@@ -25,6 +25,11 @@ export default defineConfig({
             provider: 'playwright',
             instances: [{ browser: 'chromium' }],
           },
+          poolOptions: {
+            threads: {
+              singleThread: process.env.CI ? true : false,
+            },
+          },
         },
       },
     ],
