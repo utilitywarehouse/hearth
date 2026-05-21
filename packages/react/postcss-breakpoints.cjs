@@ -8,8 +8,25 @@ const postcss = require('postcss');
  *
  */
 
-// Build a list of breakpoints from "@custom media" rules in "breakpoints.css"
-const breakpointsFile = path.resolve('./src/styles/breakpoints.css');
+// Try a few variations to account for different monorepo structures, and Turbopack/Next.js 16 environment
+const possiblePaths = [
+  path.join(__dirname, 'src/styles/breakpoints.css'),
+  path.join(__dirname, 'styles/breakpoints.css'),
+  path.join(process.cwd(), '../../packages/react/src/styles/breakpoints.css'), // Up from app to root
+];
+
+let breakpointsFile;
+for (const p of possiblePaths) {
+  if (fs.existsSync(p)) {
+    breakpointsFile = p;
+    break;
+  }
+}
+
+if (!breakpointsFile) {
+  throw new Error(`Could not find breakpoints.css. Tried: ${possiblePaths.join(', ')}`);
+}
+
 const breakpointsCss = fs.readFileSync(breakpointsFile, 'utf-8');
 const breakpoints = postcss
   .parse(breakpointsCss)
