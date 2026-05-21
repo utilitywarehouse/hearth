@@ -8,7 +8,7 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  optimizeDeps: { noDiscovery: true, include: [] },
+  // optimizeDeps: { noDiscovery: true, include: [] },
   server: { watch: null },
   test: {
     projects: [
