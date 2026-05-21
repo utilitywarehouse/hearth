@@ -24,6 +24,7 @@ permissions:
 jobs:
   checks:
     name: Build and Test
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     container:
       # Make sure to grab the latest version of the Playwright image
