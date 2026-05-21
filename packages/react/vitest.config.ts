@@ -1,8 +1,6 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-
 import { defineConfig } from 'vitest/config';
-
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 
 const dirname =
@@ -10,17 +8,6 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  optimizeDeps: {
-    include: [
-      'radix-ui',
-      '@base-ui/utils/useMergedRefs',
-      '@radix-ui/react-use-controllable-state',
-      'react-datepicker',
-      '@floating-ui/dom',
-      '@base-ui/react/combobox',
-      'react/jsx-dev-runtime',
-    ],
-  },
   test: {
     projects: [
       {
@@ -38,9 +25,6 @@ export default defineConfig({
             provider: 'playwright',
             instances: [{ browser: 'chromium' }],
           },
-          testTimeout: 60000,
-          // https://vitest.dev/guide/common-errors.html#failed-to-terminate-worker
-          pool: 'forks',
         },
       },
     ],
