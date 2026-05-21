@@ -47,7 +47,8 @@
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "copy:changelog": "node ./scripts/copy-changelog.js",
-    "test:storybook": "NODE_OPTIONS='--max-old-space-size=6144' vitest run --project=storybook"
+    "test:storybook": "vitest run --project=storybook",
+    "test:storybook:ci": "vitest run --project=storybook -- --watch false"
   },
   "publishConfig": {
     "access": "restricted"
