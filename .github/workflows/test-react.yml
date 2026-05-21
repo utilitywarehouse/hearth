@@ -48,6 +48,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build
-      - run: pnpm run test:react:ci
+      - run: pnpm run test:react
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
