@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-svg-assets",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Hearth SVG assets",
   "scripts": {
     "clean:lib": "rm -rf lib",
