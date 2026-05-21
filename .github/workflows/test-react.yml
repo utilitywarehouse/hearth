@@ -23,9 +23,15 @@ permissions:
 
 jobs:
   checks:
-    name: Build and Test
+    name: storybook tests
     timeout-minutes: 10
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
+
     container:
       # Make sure to grab the latest version of the Playwright image
       # https://playwright.dev/docs/docker#pull-the-image
@@ -49,15 +55,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build
-      - name: Test
-        # timeout sends SIGTERM at 120s, then SIGKILL after 5s if still alive.
-        # Exit codes >= 124 mean the process was killed by timeout (not a test
-        # failure), which only happens when all tests passed but the process hung
-        # during shutdown — treat that as success.
-        run: |
-          timeout -k 5 120 pnpm run test:react
-          code=$?
-          [ $code -ge 124 ] && exit 0 || exit $code
-        shell: bash
+      - run: pnpm test:react  -- --no-file-parallelism --retry 1 --shard=${{ matrix.shard }}/${{ strategy.job-total }}
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
