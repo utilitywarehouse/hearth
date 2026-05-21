@@ -27,15 +27,7 @@ export default defineConfig({
           browser: {
             enabled: true,
             headless: true,
-            provider: playwright({
-            launchOptions: {
-              // In Docker (CI), /dev/shm is 64MB by default. Chromium uses shared
-              // memory per browser context; across 63 sequential story files the
-              // allocation exhausts it, causing the last file to fail to fetch the
-              // Storybook setup module. Using /tmp sidesteps the limit entirely.
-              args: ['--disable-dev-shm-usage'],
-            },
-          }),
+            provider: playwright(),
             instances: [{ browser: 'chromium' }],
           },
         },
