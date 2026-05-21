@@ -43,6 +43,5 @@ jobs:
         run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build
       - name: Run React Native tests ✅
         run: pnpm run test:react-native
