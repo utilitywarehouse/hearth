@@ -22,4 +22,3 @@ supportedArchitectures:
   cpu:
     - current
 verifyDepsBeforeRun: prompt
-resolutionMode: highest
