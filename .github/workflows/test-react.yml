@@ -49,6 +49,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build
-      - run: pnpm --dir packages/react exec vitest run --project=storybook --reporter=default --reporter=hanging-process
+      - run: pnpm --dir packages/react exec vitest run --project=storybook --reporter=default --reporter=hanging-process --reporter=github-actions
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'
