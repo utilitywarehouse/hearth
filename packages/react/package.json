@@ -48,7 +48,7 @@
     "build:storybook": "storybook build",
     "copy:changelog": "node ./scripts/copy-changelog.js",
     "test:storybook": "vitest run --project=storybook",
-    "test:storybook:ci": "vitest run --project=storybook -- --watch false"
+    "test:storybook:ci": "vitest run --project=storybook --no-threads"
   },
   "publishConfig": {
     "access": "restricted"
