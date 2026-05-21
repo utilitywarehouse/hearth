@@ -83,6 +83,10 @@
       "cache": false,
       "dependsOn": ["^build"]
     },
+    "test:storybook:ci": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
     "dev": {
       "cache": false,
       "persistent": true
