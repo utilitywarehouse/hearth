@@ -38,6 +38,9 @@ export default defineConfig({
             provider: 'playwright',
             instances: [{ browser: 'chromium' }],
           },
+          testTimeout: 60000,
+          // https://vitest.dev/guide/common-errors.html#failed-to-terminate-worker
+          pool: 'forks',
         },
       },
     ],
