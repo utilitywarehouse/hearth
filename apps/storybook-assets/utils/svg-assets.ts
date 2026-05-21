@@ -4,6 +4,16 @@ import LogoFullPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-pu
 import LogoFullWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-warm-white.svg'
 import LogoCondensedPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-purple.svg'
 import LogoCondensedWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-warm-white.svg'
+import BeamingFace from '@utilitywarehouse/hearth-svg-assets/lib/beaming-face.svg'
+import BeamingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/beaming-face-grey.svg'
+import DissapointedFace from '@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face.svg'
+import FrowningFace from '@utilitywarehouse/hearth-svg-assets/lib/frowning-face.svg'
+import NeutralFace from '@utilitywarehouse/hearth-svg-assets/lib/neutral-face.svg'
+import NeutralFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/neutral-face-grey.svg'
+import SlightlySmilingFace from '@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face.svg'
+import SlightlySmilingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face-grey.svg'
+import DissapointedFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face-grey.svg'
+import FrowningFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/frowning-face-grey.svg'
 import SpotNeighboursLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-light.svg'
 import SpotNeighboursDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-dark.svg'
 import SpotNotificationLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-notification-light.svg'
@@ -194,6 +204,16 @@ export const svgAssets = [
   { name: 'LogoFullWarmWhite', src: LogoFullWarmWhite, path: 'logo-full-warm-white.svg' },
   { name: 'LogoCondensedPurple', src: LogoCondensedPurple, path: 'logo-condensed-purple.svg' },
   { name: 'LogoCondensedWarmWhite', src: LogoCondensedWarmWhite, path: 'logo-condensed-warm-white.svg' },
+  { name: 'BeamingFace', src: BeamingFace, path: 'beaming-face.svg' },
+  { name: 'BeamingFaceGrey', src: BeamingFaceGrey, path: 'beaming-face-grey.svg' },
+  { name: 'DissapointedFace', src: DissapointedFace, path: 'dissapointed-face.svg' },
+  { name: 'FrowningFace', src: FrowningFace, path: 'frowning-face.svg' },
+  { name: 'NeutralFace', src: NeutralFace, path: 'neutral-face.svg' },
+  { name: 'NeutralFaceGrey', src: NeutralFaceGrey, path: 'neutral-face-grey.svg' },
+  { name: 'SlightlySmilingFace', src: SlightlySmilingFace, path: 'slightly-smiling-face.svg' },
+  { name: 'SlightlySmilingFaceGrey', src: SlightlySmilingFaceGrey, path: 'slightly-smiling-face-grey.svg' },
+  { name: 'DissapointedFaceGrey', src: DissapointedFaceGrey, path: 'dissapointed-face-grey.svg' },
+  { name: 'FrowningFaceGrey', src: FrowningFaceGrey, path: 'frowning-face-grey.svg' },
   { name: 'SpotNeighboursLight', src: SpotNeighboursLight, path: 'spot-neighbours-light.svg' },
   { name: 'SpotNeighboursDark', src: SpotNeighboursDark, path: 'spot-neighbours-dark.svg' },
   { name: 'SpotNotificationLight', src: SpotNotificationLight, path: 'spot-notification-light.svg' },
