@@ -1,5 +1,29 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.2
+
+### Patch Changes
+
+- [#1220](https://github.com/utilitywarehouse/hearth/pull/1220) [`9aca53f`](https://github.com/utilitywarehouse/hearth/commit/9aca53f584ffe1c34777ccab0b5572127c402fd6) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+  - BeamingFace
+  - BeamingFaceGrey
+  - DissapointedFace
+  - FrowningFace
+  - NeutralFace
+  - NeutralFaceGrey
+  - SlightlySmilingFace
+  - SlightlySmilingFaceGrey
+  - DissapointedFaceGrey
+  - FrowningFaceGrey
+
+  ## CHANGED ASSETS
+
+  No changed assets.
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.6.1
 
 ### Patch Changes
