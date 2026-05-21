@@ -21,6 +21,56 @@
       "hash": "b89820dfc9931013f44b48b669ffdc08cc1fe71f8f55d2c92b6a21455010742f"
     },
     {
+      "name": "BeamingFace",
+      "path": "beaming-face.svg",
+      "hash": "0c85723a6305f6a47fc969da1eb553009ff86ef70e74232abd776ac575fa5331"
+    },
+    {
+      "name": "BeamingFaceGrey",
+      "path": "beaming-face-grey.svg",
+      "hash": "87b1e033603d786be350f08a7a0e7fa8cddf7ca1261b1ab4b5b13df39d4e9911"
+    },
+    {
+      "name": "DissapointedFace",
+      "path": "dissapointed-face.svg",
+      "hash": "d0c8541616ad67114ac05ba3e2ee6774c48e9f514c528903dadc1e1fdc8f13cb"
+    },
+    {
+      "name": "FrowningFace",
+      "path": "frowning-face.svg",
+      "hash": "15845c3e33a4e10ff8c727eca10976cf7fd519e32309c8a229825cd0aa3f5cb0"
+    },
+    {
+      "name": "NeutralFace",
+      "path": "neutral-face.svg",
+      "hash": "5dc3452de4f613110d9f397abc96a87d757cee2578ebf53d52c8dd7488c7883b"
+    },
+    {
+      "name": "NeutralFaceGrey",
+      "path": "neutral-face-grey.svg",
+      "hash": "03eb9c2b510cc7066a780547fed8d8826554485c383f538d88b2592ca024882f"
+    },
+    {
+      "name": "SlightlySmilingFace",
+      "path": "slightly-smiling-face.svg",
+      "hash": "120cb9c759315504632028744edf766fbb4d08af8495bf4a80d0efb371fa79b7"
+    },
+    {
+      "name": "SlightlySmilingFaceGrey",
+      "path": "slightly-smiling-face-grey.svg",
+      "hash": "5105016309f7a57a98c91105ccf95e5491cc344191e42759cc1d2d3a62555136"
+    },
+    {
+      "name": "DissapointedFaceGrey",
+      "path": "dissapointed-face-grey.svg",
+      "hash": "795802093b434bc14684a908ab202fd3634f6862a03628cb61777dc7644f1bcb"
+    },
+    {
+      "name": "FrowningFaceGrey",
+      "path": "frowning-face-grey.svg",
+      "hash": "cbf063e6fb28f8b5f37c584e7c031d62d223741ba02e8a84157efd0d94926b52"
+    },
+    {
       "name": "SpotNeighboursLight",
       "path": "spot-neighbours-light.svg",
       "hash": "13d748bad37864fd8c46173832ebdcebe44bb2d7cfb36d9c2f548abea4f85bc4"

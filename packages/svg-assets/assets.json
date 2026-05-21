@@ -16,6 +16,46 @@
     "name": "LogoCondensedWarmWhite"
   },
   {
+    "id": "2787:5299",
+    "name": "BeamingFace"
+  },
+  {
+    "id": "2787:5750",
+    "name": "BeamingFaceGrey"
+  },
+  {
+    "id": "2787:5290",
+    "name": "DissapointedFace"
+  },
+  {
+    "id": "2787:5292",
+    "name": "FrowningFace"
+  },
+  {
+    "id": "2787:5294",
+    "name": "NeutralFace"
+  },
+  {
+    "id": "2787:5738",
+    "name": "NeutralFaceGrey"
+  },
+  {
+    "id": "2787:5296",
+    "name": "SlightlySmilingFace"
+  },
+  {
+    "id": "2787:5744",
+    "name": "SlightlySmilingFaceGrey"
+  },
+  {
+    "id": "2787:5726",
+    "name": "DissapointedFaceGrey"
+  },
+  {
+    "id": "2787:5732",
+    "name": "FrowningFaceGrey"
+  },
+  {
     "id": "2119:909",
     "name": "SpotNeighboursLight"
   },
