@@ -9,9 +9,9 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  // server: {
-  //   watch: null, // disable chokidar watchers — not needed for one-shot test runs
-  // },
+  server: {
+    watch: null, // disable chokidar watchers — not needed for one-shot test runs
+  },
   test: {
     projects: [
       {
