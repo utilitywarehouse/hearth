@@ -12,6 +12,7 @@ export default defineConfig({
     watch: null, // disable chokidar watchers — not needed for one-shot test runs
   },
   test: {
+    globalSetup: './vitest.global-setup.ts',
     projects: [
       {
         extends: true,
