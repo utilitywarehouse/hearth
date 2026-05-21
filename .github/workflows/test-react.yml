@@ -22,7 +22,7 @@ permissions:
   contents: read
 
 jobs:
-  if: false # I'm disabling this until I have the energy to continue trying to debug why it fails
+  # if: false # I'm disabling this until I have the energy to continue trying to debug why it fails
   checks:
     name: storybook tests
     timeout-minutes: 10
