@@ -47,7 +47,7 @@
     "dev:storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "copy:changelog": "node ./scripts/copy-changelog.js",
-    "test:storybook": "vitest run --project=storybook --reporter=verbose --bail=1 --teardown-timeout=1000"
+    "test:storybook": "vitest run --project=storybook"
   },
   "publishConfig": {
     "access": "restricted"
