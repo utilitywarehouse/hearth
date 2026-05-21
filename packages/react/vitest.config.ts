@@ -8,6 +8,8 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  optimizeDeps: { noDiscovery: true, include: [] },
+  server: { watch: null },
   test: {
     projects: [
       {
@@ -17,9 +19,6 @@ export default defineConfig({
           // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
           storybookTest({ configDir: path.join(dirname, '.storybook') }),
         ],
-        server: {
-          watch: null, // disable chokidar watchers — not needed for one-shot test runs
-        },
         test: {
           name: 'storybook',
           browser: {
