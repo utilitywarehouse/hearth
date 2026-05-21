@@ -8,6 +8,15 @@ const fetch = require('node-fetch');
 
 require('dotenv').config();
 
+const APPROVED_CANVASES = [
+  'Logo',
+  'Spots - Theme',
+  'Scenes - Theme',
+  'Mascots - Theme',
+  'Technical - Theme',
+  'Emojis',
+];
+
 if (!process.env.FIGMA_ACCESS_TOKEN) {
   throw new Error("❌ FIGMA_ACCESS_TOKEN is missing! Make sure it's set.");
 }
@@ -91,9 +100,7 @@ async function getSizeCanvases(document) {
 
     if (
       // Include these canvases only, and ensure they have content
-      ['Logo', 'Spots - Theme', 'Scenes - Theme', 'Mascots - Theme', 'Technical - Theme'].some(s =>
-        name.includes(s)
-      ) &&
+      APPROVED_CANVASES.some(s => name.includes(s)) &&
       children.length > 0
     ) {
       canvases = [...canvases, { size, children }];
