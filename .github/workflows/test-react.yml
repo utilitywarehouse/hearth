@@ -27,11 +27,6 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
 
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [1, 2, 3]
-
     container:
       # Make sure to grab the latest version of the Playwright image
       # https://playwright.dev/docs/docker#pull-the-image
@@ -55,6 +50,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build
-      - run: pnpm test:react  -- --no-file-parallelism --retry 1 --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+      - run: pnpm test:react -- --no-file-parallelism
         env:
           NODE_OPTIONS: '--max-old-space-size=6144'

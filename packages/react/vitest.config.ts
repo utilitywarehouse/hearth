@@ -13,7 +13,6 @@ export default defineConfig({
   },
   test: {
     globalSetup: './vitest.global-setup.ts',
-    pool: 'forks',
     projects: [
       {
         extends: true,
