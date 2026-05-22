@@ -22,10 +22,29 @@ Import JSON animation data directly and pass it to your animation renderer:
 
 ```tsx
 import Lottie from 'lottie-react';
-import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional.json';
+import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-light.json';
 
 function Example() {
   return <Lottie animationData={SpotProcessCompleteFunctional} loop={false} />;
+}
+```
+
+There are variations for both light and dark mode, indicated by the suffixes `-light` and `-dark` in the file names.
+
+```tsx
+import Lottie from 'lottie-react';
+import SpotProcessCompleteDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-dark.json';
+import SpotProcessCompleteLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-light.json';
+
+function Example() {
+  const isDarkMode = useIsDarkMode(); // Replace with your dark mode detection logic
+
+  return (
+    <Lottie
+      animationData={isDarkMode ? SpotProcessCompleteDark : SpotProcessCompleteLight}
+      loop={false}
+    />
+  );
 }
 ```
 

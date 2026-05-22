@@ -14,7 +14,7 @@ const brandfolderConfig = {
   /** The base Brandfolder API url */
   baseUrl: 'https://brandfolder.com/api/v4',
   /** The UW Brandfolder collection ID for JSON assets (Lottie animations) */
-  collectionId: process.env.BRANDFOLDER_COLLECTION_ID, // new-brand
+  collectionId: process.env.BRANDFOLDER_COLLECTION_ID,
   /** The headers for authenticating with the Brandfolder API. */
   headers: {
     Authorization: `Bearer ${process.env.BRANDFOLDER_API_KEY}`,
