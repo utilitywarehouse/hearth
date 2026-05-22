@@ -3,6 +3,7 @@ import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Badge } from './Badge';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { VariantsExample } from './Badge.examples';
 
 const variants = ['subtle', 'emphasis', 'outline'] as const;
 const subtleOnlyColorSchemes = ['highlight'] as const;
@@ -99,15 +100,7 @@ export const KitchenSink: Story = {
 export const Playground: Story = {};
 
 export const Variants: Story = {
-  render: () => (
-    <Flex gap="200">
-      {variants.map(variant => (
-        <Badge key={variant} variant={variant} textTransform="capitalize">
-          {variant}
-        </Badge>
-      ))}
-    </Flex>
-  ),
+  render: VariantsExample,
 };
 
 export const Sizes: Story = {
