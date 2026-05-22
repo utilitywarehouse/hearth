@@ -21,4 +21,4 @@ supportedArchitectures:
     - current
   cpu:
     - current
-verifyDepsBeforeRun: prompt
+verifyDepsBeforeRun: warn
