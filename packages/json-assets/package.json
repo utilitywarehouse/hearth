@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-json-assets",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Hearth JSON assets",
   "scripts": {
     "clean:lib": "rm -rf lib",
