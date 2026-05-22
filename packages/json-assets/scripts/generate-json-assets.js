@@ -24,15 +24,22 @@ const brandfolderConfig = {
 
 const transformers = {
   normalizeFilename(fileName) {
-    return `animated-${fileName.split('.')[0].toLowerCase().replace(/_/g, '-')}-light.json`;
+    const isDarkMode = fileName.startsWith('Dark-mode');
+    const name = `${fileName
+      .split('.')[0]
+      .replace(/^Dark-mode_/, '')
+      .replace(/_/g, '-')}`;
+    return `animated-${name.toLowerCase()}-${isDarkMode ? 'dark' : 'light'}.json`;
   },
   toJsxName(filePath) {
+    const isDarkMode = filePath.startsWith('Dark-mode');
     const withoutExt = filePath.replace(/\.[^.]+$/, '');
     const parts = withoutExt
+      .replace(/^Dark-mode_/, '')
       .split(/[\\/]/)
       .flatMap(part => part.split(/[^a-zA-Z0-9]+/))
       .filter(Boolean);
-    return `Animated${parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('')}`;
+    return `Animated${parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('')}${isDarkMode ? 'Dark' : 'Light'}`;
   },
 };
 
