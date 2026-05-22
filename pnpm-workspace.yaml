@@ -9,6 +9,7 @@ allowUnusedPatches: true
 nodeLinker: hoisted
 allowBuilds:
   '@bundled-es-modules/glob': true
+  '@swc/core': true
   dtrace-provider: true
   esbuild: true
   react-native-nitro-modules: true
@@ -20,4 +21,4 @@ supportedArchitectures:
     - current
   cpu:
     - current
-minimumReleaseAge: 5760
+verifyDepsBeforeRun: prompt
