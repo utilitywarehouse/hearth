@@ -1,222 +1,412 @@
 {
   "jsonAssets": [
     {
-      "name": "AnimatedSpotAccount",
+      "name": "AnimatedSpotAccountDark",
+      "filename": "animated-spot-account-dark.json",
+      "hash": "e6d2dd02362105b1c47cccb15cd369c15ddfbb56631aa80f91375cc41f7e7d69"
+    },
+    {
+      "name": "AnimatedSpotAccountLight",
       "filename": "animated-spot-account-light.json",
       "hash": "29576e76afc28be20d2ced68ad220260b1b473b7345b68853d97db5b8575a34c"
     },
     {
-      "name": "AnimatedSpotBilling",
+      "name": "AnimatedSpotBillingDark",
+      "filename": "animated-spot-billing-dark.json",
+      "hash": "b4510b8048e68bda8831e89c57547f70ab864126c8d8ded5b3e780f41b4b79e7"
+    },
+    {
+      "name": "AnimatedSpotBillingLight",
       "filename": "animated-spot-billing-light.json",
       "hash": "b62330ef0f85ee447fd0c9f537ff0821914d541a7b850b6f051c23fe910a2a4e"
     },
     {
-      "name": "AnimatedSpotBoiler",
+      "name": "AnimatedSpotBoilerDark",
+      "filename": "animated-spot-boiler-dark.json",
+      "hash": "936649899bbd850328bf93394f5e976982aac278f4ca3d733003df9f4d003a84"
+    },
+    {
+      "name": "AnimatedSpotBoilerLight",
       "filename": "animated-spot-boiler-light.json",
       "hash": "66104ff2e49bd96e4495097dbe83d0ae8ce5fe2f87487057dee23610820b14c3"
     },
     {
-      "name": "AnimatedSpotBookAppointments",
+      "name": "AnimatedSpotBookAppointmentsDark",
+      "filename": "animated-spot-book-appointments-dark.json",
+      "hash": "5ad45dbe3252f4836e434aca132d5dcce4a9c50d41f87a80562c7a5280ccab79"
+    },
+    {
+      "name": "AnimatedSpotBookAppointmentsLight",
       "filename": "animated-spot-book-appointments-light.json",
       "hash": "26a6d464858215f3ba478b98725f8844af536c4a4a7ad11f259ebdb6d68dade5"
     },
     {
-      "name": "AnimatedSpotBroadbandSymbol",
+      "name": "AnimatedSpotBroadbandSymbolDark",
+      "filename": "animated-spot-broadband-symbol-dark.json",
+      "hash": "b0ab8e38d89ef9489748e11cfc85fc0263220ca6e5038a75f4e946cfc90b3f61"
+    },
+    {
+      "name": "AnimatedSpotBroadbandSymbolLight",
       "filename": "animated-spot-broadband-symbol-light.json",
       "hash": "18ed53d85ec4825c01b2d4de34f3cfa57c8ce50cdfa52a4d652b61d0397e543b"
     },
     {
-      "name": "AnimatedSpotBundle1",
+      "name": "AnimatedSpotBundle1Dark",
+      "filename": "animated-spot-bundle-1-dark.json",
+      "hash": "ab2cb18ee883cfd616b1d492354bd77b686b76184482f7a46e01709d1877fbbe"
+    },
+    {
+      "name": "AnimatedSpotBundle1Light",
       "filename": "animated-spot-bundle-1-light.json",
       "hash": "39a8197755c81a85781d438ff33ad7beff573c6dfe8e656332f2defee565b2d1"
     },
     {
-      "name": "AnimatedSpotBundle2",
+      "name": "AnimatedSpotBundle2Dark",
+      "filename": "animated-spot-bundle-2-dark.json",
+      "hash": "d81202f7f89e25c94c5acec2e43f003f642fe3b7ba0a437a1bd8101417289365"
+    },
+    {
+      "name": "AnimatedSpotBundle2Light",
       "filename": "animated-spot-bundle-2-light.json",
       "hash": "9f89397e83f64ab90e3acfe4151f637b8f79843dccc0a1b35b7048f894f087c9"
     },
     {
-      "name": "AnimatedSpotCalendar",
+      "name": "AnimatedSpotCalendarDark",
+      "filename": "animated-spot-calendar-dark.json",
+      "hash": "5d6f5e69a37d9bb46505f8b2a285dbc578545b775b618c9e16a43eaf2b00ca46"
+    },
+    {
+      "name": "AnimatedSpotCalendarLight",
       "filename": "animated-spot-calendar-light.json",
       "hash": "4a56fcab620b02f2523fb5068088f2108f199f49b9b1cd6f3e1a372911acc415"
     },
     {
-      "name": "AnimatedSpotCelebratory",
+      "name": "AnimatedSpotCelebratoryDark",
+      "filename": "animated-spot-celebratory-dark.json",
+      "hash": "fe8397c01536ae4a38c2a6ed87fea41d11aa57c49c8881dd56e83fb7a633b34f"
+    },
+    {
+      "name": "AnimatedSpotCelebratoryLight",
       "filename": "animated-spot-celebratory-light.json",
       "hash": "2f088950789bfb81b1115b7832562d49014ca94feb5c568f2e17f17bba8fe985"
     },
     {
-      "name": "AnimatedSpotDarkMode",
+      "name": "AnimatedSpotDarkModeDark",
+      "filename": "animated-spot-dark-mode-dark.json",
+      "hash": "fce221924ff6ea5314047abbf43e9f5eaba684ab976c04da58ead82417601d68"
+    },
+    {
+      "name": "AnimatedSpotDarkModeLight",
       "filename": "animated-spot-dark-mode-light.json",
       "hash": "15cbe1261cc3d52961b52a0eed3a71e91e081e2a2c31faea445501c9e688b992"
     },
     {
-      "name": "AnimatedSpotEarnings",
+      "name": "AnimatedSpotEarningsDark",
+      "filename": "animated-spot-earnings-dark.json",
+      "hash": "b292eea0cfe0c33179d3757a501a654dc3bd375d24c6f6785ebdc0c78e81e211"
+    },
+    {
+      "name": "AnimatedSpotEarningsLight",
       "filename": "animated-spot-earnings-light.json",
       "hash": "3d20123f9b82fb3cdf4ce0e9696fd0072f07fef82d9b7ccf1ce899167a457114"
     },
     {
-      "name": "AnimatedSpotEmptyState1",
+      "name": "AnimatedSpotEmptyState1Dark",
+      "filename": "animated-spot-empty-state-1-dark.json",
+      "hash": "472ad4e45e4b084af37e48d48f3fbef36f371456e6e3a2d22bf4c3943ce91d04"
+    },
+    {
+      "name": "AnimatedSpotEmptyState1Light",
       "filename": "animated-spot-empty-state-1-light.json",
       "hash": "d98d4c70de0483bb4c2caf8a2344cc6360bfac65f6c6cda179066050bf11b130"
     },
     {
-      "name": "AnimatedSpotEmptyState2",
+      "name": "AnimatedSpotEmptyState2Dark",
+      "filename": "animated-spot-empty-state-2-dark.json",
+      "hash": "182e0191f18d8874dbb6e051bdfcd70309e22f9effe92d749f1184208c713f02"
+    },
+    {
+      "name": "AnimatedSpotEmptyState2Light",
       "filename": "animated-spot-empty-state-2-light.json",
       "hash": "2dbbbbf4672c2b6a3c974bb81c24e3fd61ba76a9aea76ae5bf47e47e8d73ec92"
     },
     {
-      "name": "AnimatedSpotError",
+      "name": "AnimatedSpotErrorDark",
+      "filename": "animated-spot-error-dark.json",
+      "hash": "0994a856813b0a3143b6a06e85f13414fd54435dc165b73ed726ab5e61e249de"
+    },
+    {
+      "name": "AnimatedSpotErrorLight",
       "filename": "animated-spot-error-light.json",
       "hash": "a155e690032ab66b9b20f0f10d6465b3b2e5cc4ac26b585e136281c58aa8d47b"
     },
     {
-      "name": "AnimatedSpotEV",
+      "name": "AnimatedSpotEVDark",
+      "filename": "animated-spot-ev-dark.json",
+      "hash": "29ba75ed00965715d1489b15c8fe26181f6aab675cc3905eaea5c1ceb69980f0"
+    },
+    {
+      "name": "AnimatedSpotEVLight",
       "filename": "animated-spot-ev-light.json",
       "hash": "96d6a894960ac48b03fd7e42970af2dd4e2fa9c0526037c18b2de0f8efc70f02"
     },
     {
-      "name": "AnimatedSpotHeart",
+      "name": "AnimatedSpotHeartDark",
+      "filename": "animated-spot-heart-dark.json",
+      "hash": "443b0f95545ae9d5615a5c4f26c254e8b77d35655a4afb3f1c2c6ff3ad495996"
+    },
+    {
+      "name": "AnimatedSpotHeartLight",
       "filename": "animated-spot-heart-light.json",
       "hash": "f7ee378bd10ac8deb5eb9e8406c88a6c67f2c43a361e8d149e6054f967227170"
     },
     {
-      "name": "AnimatedSpotHelp",
+      "name": "AnimatedSpotHelpDark",
+      "filename": "animated-spot-help-dark.json",
+      "hash": "5321e6b9392ae8102f4ecdd527f5c18dc457fb8b967857b8af047f76b6aed1a1"
+    },
+    {
+      "name": "AnimatedSpotHelpLight",
       "filename": "animated-spot-help-light.json",
       "hash": "a06536aea7ffcbc718df48c4328ca031dc5f77492d59404511eaac0141cf13a2"
     },
     {
-      "name": "AnimatedSpotHowToVideos",
+      "name": "AnimatedSpotHowToVideosDark",
+      "filename": "animated-spot-how-to-videos-dark.json",
+      "hash": "b1cd91b1d9caf36470fa91c6f97e0d9722e8e3fd771e49d460a948a27cc94821"
+    },
+    {
+      "name": "AnimatedSpotHowToVideosLight",
       "filename": "animated-spot-how-to-videos-light.json",
       "hash": "3e9b6177c45a6f55994d8851798624a9881467aa0843c72d80aafcfcbee979b8"
     },
     {
-      "name": "AnimatedSpotInnovation",
+      "name": "AnimatedSpotInnovationDark",
+      "filename": "animated-spot-innovation-dark.json",
+      "hash": "228a4d5ff5e28fde32732b64acc7c7c5887fc0a9dcc3ee45e257d3f9e20712b4"
+    },
+    {
+      "name": "AnimatedSpotInnovationLight",
       "filename": "animated-spot-innovation-light.json",
       "hash": "6d7ace60513425ffba0cfb5b1565895468f7451e21c2cd69939398e4efcf8667"
     },
     {
-      "name": "AnimatedSpotKeepTrack",
+      "name": "AnimatedSpotKeepTrackDark",
+      "filename": "animated-spot-keep-track-dark.json",
+      "hash": "4226382b93b3fdcff76b663a878fc5c0453506c4ea43cac3ad728b065efb802e"
+    },
+    {
+      "name": "AnimatedSpotKeepTrackLight",
       "filename": "animated-spot-keep-track-light.json",
       "hash": "b3503bc2bfa96a3798c21765a6f1614180d1bb5fe222b5a8499f78b7e1481482"
     },
     {
-      "name": "AnimatedSpotLeads",
+      "name": "AnimatedSpotLeadsDark",
+      "filename": "animated-spot-leads-dark.json",
+      "hash": "938ed04491e79cb07bd8e56541baf4abdf45893b2989c0ac74a2d3ce0ecc3af6"
+    },
+    {
+      "name": "AnimatedSpotLeadsLight",
       "filename": "animated-spot-leads-light.json",
       "hash": "17f1bd73f1c636dc7cca9258f046e65fd9ba92d32a9179b16657fca173f193ee"
     },
     {
-      "name": "AnimatedSpotMovingHouse",
+      "name": "AnimatedSpotMovingHouseDark",
+      "filename": "animated-spot-moving-house-dark.json",
+      "hash": "fb584dad6f1f0d83960e6de74aab592585339ae4c7d2ee0c98819a346315cf8a"
+    },
+    {
+      "name": "AnimatedSpotMovingHouseLight",
       "filename": "animated-spot-moving-house-light.json",
       "hash": "887fe9a97ee42da6470ba8b4b6ee77265e6b5af2fb76328b19a1af51ba4f5fd1"
     },
     {
-      "name": "AnimatedSpotNeighbours",
+      "name": "AnimatedSpotNeighboursDark",
+      "filename": "animated-spot-neighbours-dark.json",
+      "hash": "1796e948e2c9f6d9af3cfb650e077d5cc925b2452e865b52f3638ef17c1510d7"
+    },
+    {
+      "name": "AnimatedSpotNeighboursLight",
       "filename": "animated-spot-neighbours-light.json",
       "hash": "68aeab804ab0a43b5eb1a0c5435433297602acf3eb706ea71bfc7f56088abd79"
     },
     {
-      "name": "AnimatedSpotNewLook",
+      "name": "AnimatedSpotNewLookDark",
+      "filename": "animated-spot-new-look-dark.json",
+      "hash": "da262962f7391777a4b3dedf74078598850be57cfe5cc07f8dc7fd23f919a248"
+    },
+    {
+      "name": "AnimatedSpotNewLookLight",
       "filename": "animated-spot-new-look-light.json",
       "hash": "8b3240c49c79451c58c765ccdce8cc20790ef66920a6fcccb70a9d155adb92c3"
     },
     {
-      "name": "AnimatedSpotNoBroadband",
+      "name": "AnimatedSpotNoBroadbandDark",
+      "filename": "animated-spot-no-broadband-dark.json",
+      "hash": "ed3e733d484f714617f419fa540b76dfb585c3a1ab67bf8af70dd395c6b53763"
+    },
+    {
+      "name": "AnimatedSpotNoBroadbandLight",
       "filename": "animated-spot-no-broadband-light.json",
       "hash": "705ee2bb8695eb4358ec25c858fecddd878da08162e9d81b3b3ba80785ef4afd"
     },
     {
-      "name": "AnimatedSpotNotification",
+      "name": "AnimatedSpotNotificationDark",
+      "filename": "animated-spot-notification-dark.json",
+      "hash": "4bf62fef982b6efc64c3d58d9019ab5b9c504c8ebf5226955844b89a895f63fe"
+    },
+    {
+      "name": "AnimatedSpotNotificationLight",
       "filename": "animated-spot-notification-light.json",
       "hash": "a7358f74f344679208c1ba797e8d5e7ae892a8a66b502ef1d95a8beccf74fea2"
     },
     {
-      "name": "AnimatedSpotPests",
+      "name": "AnimatedSpotPestsDark",
+      "filename": "animated-spot-pests-dark.json",
+      "hash": "582b5049210ff74316132416295585ac9ca2d7ad03d2b797f184d8b368bd1c6d"
+    },
+    {
+      "name": "AnimatedSpotPestsLight",
       "filename": "animated-spot-pests-light.json",
       "hash": "4a893116a69302a4ba948c9b97aef7b41f9b31b3ef74851f9c3926b0c44e309b"
     },
     {
-      "name": "AnimatedSpotProcessCompleteCelebratory",
+      "name": "AnimatedSpotProcessCompleteCelebratoryDark",
+      "filename": "animated-spot-process-complete-celebratory-dark.json",
+      "hash": "80dfbfbddcf03180134314f38dcb8cea16d31843d435c6f60ea74ba588a7b30e"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteCelebratoryLight",
       "filename": "animated-spot-process-complete-celebratory-light.json",
       "hash": "bf9076cb62753f966e1c8c5721e9d77abd7f8399ff5799c7bc14731aaed4bec8"
     },
     {
-      "name": "AnimatedSpotProcessCompleteFunctional",
+      "name": "AnimatedSpotProcessCompleteFunctionalDark",
+      "filename": "animated-spot-process-complete-functional-dark.json",
+      "hash": "d3e6adff7164a8d7526636650bfef7ac198bb45d5209ccee36918348f1caef47"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteFunctionalLight",
       "filename": "animated-spot-process-complete-functional-light.json",
       "hash": "89b54c3900d376d4fb03e7eb0451b4d052538b1f97bd43b28e42c135fa8e8364"
     },
     {
-      "name": "AnimatedSpotQuoteSales",
+      "name": "AnimatedSpotQuoteSalesDark",
+      "filename": "animated-spot-quote-sales-dark.json",
+      "hash": "d89269e8f5d117afdfd5be9bef77fc92c1a2936c38cf615b406c019ec5fee733"
+    },
+    {
+      "name": "AnimatedSpotQuoteSalesLight",
       "filename": "animated-spot-quote-sales-light.json",
       "hash": "5f38744ae9f8d038f58d214f968970df1fb2d0d7e104645951e58547fa923227"
     },
     {
-      "name": "AnimatedSpotRecognition",
+      "name": "AnimatedSpotRecognitionDark",
+      "filename": "animated-spot-recognition-dark.json",
+      "hash": "1183200c34318651fe3bdc6e81f4a9c64f34c4b92b5af21b827247666843d83c"
+    },
+    {
+      "name": "AnimatedSpotRecognitionLight",
       "filename": "animated-spot-recognition-light.json",
       "hash": "4b58ec2ca90a721e4d1b7cef841d6cca7464a668fdad19ccfc853d075b7dba47"
     },
     {
-      "name": "AnimatedSpotSavings2",
+      "name": "AnimatedSpotSavings2Dark",
+      "filename": "animated-spot-savings-2-dark.json",
+      "hash": "cf04db0d3f2e9df6beb859dc878c4b15944c8292d3943faa3ccf5a4601b76a62"
+    },
+    {
+      "name": "AnimatedSpotSavings2Light",
       "filename": "animated-spot-savings-2-light.json",
       "hash": "7d7276a1b65fe34bf090fd05baaa844f163ea1035f7611974bddaed4d9f10e56"
     },
     {
-      "name": "AnimatedSpotSecurity",
-      "filename": "animated-spot-security-light.json",
-      "hash": "dba1ea3de1e94d872ace9e8a37ea415480ddb7b5af93277933d4dd9a404b7835"
+      "name": "AnimatedSpotSecurityCodeDark",
+      "filename": "animated-spot-security-code-dark.json",
+      "hash": "35de3f6601b224d3eecfb8ac21a4cfe67cf4a9c9d82ba76ccaa7c9a816f2f831"
     },
     {
-      "name": "AnimatedSpotSecurityCode",
+      "name": "AnimatedSpotSecurityCodeLight",
       "filename": "animated-spot-security-code-light.json",
       "hash": "52e7632dd08995a66e889bea3caa2c7a382908e3150b95fdd27358d49accc196"
     },
     {
-      "name": "AnimatedSpotSmartMeter",
+      "name": "AnimatedSpotSecurityDark",
+      "filename": "animated-spot-security-dark.json",
+      "hash": "8b144f984ab2122eba4c58e2e372b162fe38f15f171b2b49f7619dc788544b2a"
+    },
+    {
+      "name": "AnimatedSpotSecurityLight",
+      "filename": "animated-spot-security-light.json",
+      "hash": "dba1ea3de1e94d872ace9e8a37ea415480ddb7b5af93277933d4dd9a404b7835"
+    },
+    {
+      "name": "AnimatedSpotSmartMeterDark",
+      "filename": "animated-spot-smart-meter-dark.json",
+      "hash": "1a5057ef39cd0107591b6c4b6f8e33b39fa4c3a23d1a3b657f1fe4d99a5fbf90"
+    },
+    {
+      "name": "AnimatedSpotSmartMeterLight",
       "filename": "animated-spot-smart-meter-light.json",
       "hash": "ed12a1172dc365c3cf0c8be1e78e79b743ed67b2919c4a92939cece28572376c"
     },
     {
-      "name": "AnimatedSpotSuccess",
-      "filename": "animated-spot-success-light.json",
-      "hash": "976f7d3cd33740b20c7fe8c0884819f1f88f510b747c4de8d7bb6c690d7c80d1"
+      "name": "AnimatedSpotSuccessDark",
+      "filename": "animated-spot-success-dark.json",
+      "hash": "c042377754a9e327af4cfb75ceb4e33c291a9a619324dbfdfc65c0182aca18a4"
     },
     {
-      "name": "AnimatedSpotSwitch",
+      "name": "AnimatedSpotSuccessDark",
+      "filename": "animated-spot-success-dark.json",
+      "hash": "c042377754a9e327af4cfb75ceb4e33c291a9a619324dbfdfc65c0182aca18a4"
+    },
+    {
+      "name": "AnimatedSpotSwitchDark",
+      "filename": "animated-spot-switch-dark.json",
+      "hash": "544885202d30a8cd3f3905dd6c802a4d7f94c4e96a6b5e15e1b9d175cdaa072a"
+    },
+    {
+      "name": "AnimatedSpotSwitchLight",
       "filename": "animated-spot-switch-light.json",
       "hash": "42f193bb955a9c4ad6afdfe2337c19741f1b7d14bc2711f150790a68df0ec362"
     },
     {
-      "name": "AnimatedSpotWelcome",
+      "name": "AnimatedSpotWelcomeDark",
+      "filename": "animated-spot-welcome-dark.json",
+      "hash": "9e3eea006c7fd5aa0448a1a157913c55c6282c4cfd37dcd813f23efe3a649151"
+    },
+    {
+      "name": "AnimatedSpotWelcomeLight",
       "filename": "animated-spot-welcome-light.json",
       "hash": "5a48eacf1fdad173757102806c5b968116a526385928ca0a402418a334c3d89d"
     },
     {
-      "name": "AnimatedUWLogoExtendedOffWhite",
+      "name": "AnimatedUWLogoExtendedOffWhiteLight",
       "filename": "animated-uw-logo-extended-off-white-light.json",
       "hash": "19ff70aeba227f1fff85dc1ced38589ea644820d90559bcaec4c0abf6b7af335"
     },
     {
-      "name": "AnimatedUWLogoExtendedPurple",
+      "name": "AnimatedUWLogoExtendedPurpleLight",
       "filename": "animated-uw-logo-extended-purple-light.json",
       "hash": "ff115595d734b0c15137b44d68cbb6dc5cb80883824aadb2efea5c8fd6d6899c"
     },
     {
-      "name": "AnimatedUWLogoStandardOffWhite",
+      "name": "AnimatedUWLogoStandardOffWhiteLight",
       "filename": "animated-uw-logo-standard-off-white-light.json",
       "hash": "d1f81bdefebfd15ea2dfd58199796872ee75482ef1682120f6e034d8a3e44ce4"
     },
     {
-      "name": "AnimatedUWLogoStandardPurple",
+      "name": "AnimatedUWLogoStandardPurpleLight",
       "filename": "animated-uw-logo-standard-purple-light.json",
       "hash": "581f0b8ddca7c2a560f4b1bf29fab8358484d9539f32d51e24509bb2a16d0cc3"
     },
     {
-      "name": "AnimatedUWMonoOffWhite",
+      "name": "AnimatedUWMonoOffWhiteLight",
       "filename": "animated-uw-mono-off-white-light.json",
       "hash": "35771f666dc23ddb178f8d62ac13935ae2ae410822fdb723954bf5fe789f9e0f"
     },
     {
-      "name": "AnimatedUWMonoPurple",
+      "name": "AnimatedUWMonoPurpleLight",
       "filename": "animated-uw-mono-purple-light.json",
       "hash": "3e46e0fa398f24eb9677daa17730bd5ff79a49c7765a072160daed9a74e2aae9"
     }
