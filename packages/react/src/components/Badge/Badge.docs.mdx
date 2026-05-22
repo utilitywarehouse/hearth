@@ -3,6 +3,14 @@ import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Badge.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Badge } from './Badge';
+import { DocExample } from '../../docs/storybook-components/DocExample';
+import {
+  VariantsExample,
+  SizesExample,
+  ColorSchemesExample,
+  FlatBaseExample,
+  IconsExample,
+} from './Badge.examples';
 
 <Meta title="Components / Badge" />
 
@@ -18,23 +26,19 @@ A `Badge` is a visual label or indicator used to convey status or highlight cont
 
 The variant prop controls the visual appearance of the Badge.
 
-<Canvas of={Stories.Variants} sourceState="none" />
+<DocExample of={VariantsExample} />
 
 ## Sizes
 
 The size prop controls the size of the Badge. This prop is responsive.
 
-```tsx
-<Badge size={{ mobile: 'sm', desktop: 'md' }}>Responsive badge</Badge>
-```
-
-<Canvas of={Stories.Sizes} sourceState="none" />
+<DocExample of={SizesExample} />
 
 ## Color schemes
 
 The `colorScheme` prop will change the Badge colours.
 
-<Canvas of={Stories.ColorSchemes} sourceState="none" />
+<DocExample of={ColorSchemesExample} />
 
 ## Dead prop combinations
 
@@ -45,11 +49,7 @@ Be aware there are some combinations of `colorScheme` & `variant` that do not wo
 
 The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-left-radius`, for use when the badge is positioned on top of another element.
 
-```tsx
-<Badge flatBase>Multi SIM offer</Badge>
-```
-
-<Canvas of={Stories.FlatBase} sourceState="none" />
+<DocExample of={FlatBaseExample} />
 
 ## Icons
 
@@ -57,14 +57,7 @@ You can enhance the your badge's meaning by adding a small icon to the
 left. This icon is not an interactive icon button; its purpose is to reinforce
 the meaning of the text.
 
-```tsx
-<Badge colorScheme="positive">
-  <TickSmallIcon />
-  Success
-</Badge>
-```
-
-<Canvas of={Stories.Icons} sourceState="none" />
+<DocExample of={IconsExample} />
 
 ## API
 

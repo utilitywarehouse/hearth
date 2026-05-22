@@ -84,12 +84,41 @@ function deriveOutputPath(mdxAbsPath, outputDir) {
  *   importMap  — component name → resolved absolute file path
  *   exprMap    — identifier name → resolved string value (for JSON imports like {version})
  */
+/**
+ * Joins multi-line import statements into single lines so they can be matched
+ * by simple single-line regexes.
+ */
+function normaliseImports(content) {
+  const lines = content.split('\n');
+  const out = [];
+  let acc = null;
+
+  for (const line of lines) {
+    if (acc !== null) {
+      // Accumulating a multi-line import
+      acc += ' ' + line.trim();
+      if (line.includes(';')) {
+        out.push(acc);
+        acc = null;
+      }
+    } else if (line.trimStart().startsWith('import ') && !line.includes(';')) {
+      // Start of a multi-line import
+      acc = line;
+    } else {
+      out.push(line);
+    }
+  }
+
+  if (acc !== null) out.push(acc);
+  return out.join('\n');
+}
+
 function parseImports(content, mdxDir) {
   const importMap = new Map();
   const exprMap = new Map();
 
-  for (const line of content.split('\n')) {
-    if (!line.startsWith('import ')) continue;
+  for (const line of normaliseImports(content).split('\n')) {
+    if (!line.trimStart().startsWith('import ')) continue;
 
     // JSON value imports: import { version } from '../../package.json'
     const jsonMatch = line.match(/import\s+\{([^}]+)\}\s+from\s+['"]([^'"]+\.json)['"]/);
@@ -218,6 +247,99 @@ function generatePropTable(componentFile) {
   ].join('\n');
 }
 
+// ─── DocExample source extraction ────────────────────────────────────────────
+
+/**
+ * Parses an .examples.tsx file and extracts the JSX return value of the named
+ * exported function component, returned as a dedented string.
+ */
+function extractExampleSource(filePath, functionName) {
+  let source;
+  try {
+    source = fs.readFileSync(filePath, 'utf-8');
+  } catch {
+    return null;
+  }
+
+  const sf = typescript.createSourceFile(
+    path.basename(filePath),
+    source,
+    typescript.ScriptTarget.Latest,
+    /* setParentNodes */ true,
+    typescript.ScriptKind.TSX
+  );
+
+  for (const stmt of sf.statements) {
+    const jsx = _stmtJsx(stmt, functionName, source, sf);
+    if (jsx) return jsx;
+  }
+
+  return null;
+}
+
+function _stmtJsx(node, name, source, sf) {
+  if (typescript.isFunctionDeclaration(node) && node.name?.text === name && _isExported(node)) {
+    return _blockJsx(node.body, source, sf);
+  }
+  if (typescript.isVariableStatement(node) && _isExported(node)) {
+    for (const decl of node.declarationList.declarations) {
+      if (!typescript.isIdentifier(decl.name) || decl.name.text !== name || !decl.initializer) continue;
+      const init = decl.initializer;
+      if (typescript.isArrowFunction(init) || typescript.isFunctionExpression(init)) {
+        return _fnJsx(init, source, sf);
+      }
+    }
+  }
+  return null;
+}
+
+function _fnJsx(fn, source, sf) {
+  if (typescript.isArrowFunction(fn) && !typescript.isBlock(fn.body)) {
+    return _jsxText(fn.body, source, sf);
+  }
+  return _blockJsx(fn.body, source, sf);
+}
+
+function _blockJsx(block, source, sf) {
+  if (!block) return null;
+  for (const stmt of block.statements) {
+    if (typescript.isReturnStatement(stmt) && stmt.expression) {
+      return _jsxText(stmt.expression, source, sf);
+    }
+  }
+  return null;
+}
+
+function _jsxText(node, source, sf) {
+  const inner = typescript.isParenthesizedExpression(node) ? node.expression : node;
+  if (
+    !typescript.isJsxElement(inner) &&
+    !typescript.isJsxSelfClosingElement(inner) &&
+    !typescript.isJsxFragment(inner)
+  ) {
+    return null;
+  }
+  const raw = source.slice(inner.getStart(sf), inner.getEnd());
+  return _dedent(raw);
+}
+
+function _isExported(node) {
+  return !!(
+    typescript.canHaveModifiers(node) &&
+    typescript.getModifiers(node)?.some(m => m.kind === typescript.SyntaxKind.ExportKeyword)
+  );
+}
+
+function _dedent(str) {
+  const lines = str.split('\n');
+  const minIndent = Math.min(
+    ...lines
+      .filter(l => l.trim().length > 0)
+      .map(l => (l.match(/^(\s*)/) ?? ['', ''])[1].length)
+  );
+  return lines.map(l => l.slice(minIndent)).join('\n');
+}
+
 // ─── MDX line-by-line transformation ─────────────────────────────────────────
 
 // Matches a full line that is purely a self-closing block JSX element to drop
@@ -226,6 +348,9 @@ const BLOCK_DROP_RE = /^\s*<(Meta|Canvas|Controls)\b[^>]*\/?>\s*$/;
 // Matches a full line that is an <ArgTypes> element; captures the attribute string
 const ARG_TYPES_RE = /^\s*<ArgTypes\b([^>]*)\/?>\s*$/;
 
+// Matches a full line that is a <DocExample of={X} /> element; captures the attribute string
+const DOC_EXAMPLE_RE = /^\s*<DocExample\b([^>]*)\/?>\s*$/;
+
 // Matches inline <StorybookLink ...>text</StorybookLink> — global, may appear multiple times per line
 const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 
@@ -233,7 +358,7 @@ const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 const IMPORT_RE = /^import\s+/;
 
 function transformContent(content, importMap, exprMap) {
-  const lines = content.split('\n');
+  const lines = normaliseImports(content).split('\n');
   const output = [];
   let inCodeFence = false;
 
@@ -267,6 +392,24 @@ function transformContent(content, importMap, exprMap) {
           const table = generatePropTable(filePath);
           if (table) {
             output.push(table);
+            continue;
+          }
+        }
+      }
+      continue;
+    }
+
+    // Replace DocExample with an extracted tsx code block
+    const docExMatch = line.match(DOC_EXAMPLE_RE);
+    if (docExMatch) {
+      const ofMatch = docExMatch[1].match(/\bof=\{([^}]+)\}/);
+      if (ofMatch) {
+        const componentName = ofMatch[1].trim();
+        const filePath = importMap.get(componentName);
+        if (filePath) {
+          const jsx = extractExampleSource(filePath, componentName);
+          if (jsx) {
+            output.push('', '```tsx', jsx, '```', '');
             continue;
           }
         }
