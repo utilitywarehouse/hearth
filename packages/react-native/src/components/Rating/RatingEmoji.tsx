@@ -11,14 +11,13 @@ import SlightlySmilingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/sli
 import type { FC } from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-// SVG imports are typed as `string` by vite/client but transformed to components at runtime by react-native-svg-transformer
-const EMOJI_ASSETS = {
+const EMOJI_ASSETS: Record<1 | 2 | 3 | 4 | 5, { color: FC<SvgProps>; grey: FC<SvgProps> }> = {
   1: { color: DissapointedFace, grey: DissapointedFaceGrey },
   2: { color: FrowningFace, grey: FrowningFaceGrey },
   3: { color: NeutralFace, grey: NeutralFaceGrey },
   4: { color: SlightlySmilingFace, grey: SlightlySmilingFaceGrey },
   5: { color: BeamingFace, grey: BeamingFaceGrey },
-} as unknown as Record<1 | 2 | 3 | 4 | 5, { color: FC<SvgProps>; grey: FC<SvgProps> }>;
+};
 
 export const getEmojiSvg = (
   value: 1 | 2 | 3 | 4 | 5,
