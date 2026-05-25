@@ -11,7 +11,7 @@ import * as Stories from './Rating.stories';
 
 # Rating
 
-Use Rating to collect a star-based score with an optional descriptive label.
+Use Rating to collect a score with an optional descriptive label. Supports star and emoji variants.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -53,10 +53,10 @@ const MyComponent = () => {
 | -------------- | -------------------------------------- | ------------------------------------------- | ----------- |
 | `value`        | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Current rating value.                       | `0`         |
 | `defaultValue` | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Initial rating value when uncontrolled.     | `0`         |
-| `onChange`     | `(value: RatingValue) => void`         | Called when a star is selected.             | `undefined` |
+| `onChange`     | `(value: RatingValue) => void`         | Called when a rating is selected.           | `undefined` |
 | `disabled`     | `boolean`                              | Disables the rating input.                  | `false`     |
-| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values. | `undefined` |
-| `hideLabel`    | `boolean`                              | Hide the label text below the stars.        | `false`     |
+| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values. For the emoji variant, `labels[1]` and `labels[5]` override the start and end labels. | `undefined` |
+| `hideLabel`    | `boolean`                              | Hide the label text below the rating.       | `false`     |
 | `variant`      | `'stars' \| 'emojis'`                  | Visual variant for the rating indicators. | `'stars'` |
 
 ## Examples
@@ -175,7 +175,7 @@ const MyComponent = () => <Rating value={4} disabled />;
 
 ### Emoji variant
 
-Use `variant="emojis"` to show emoji faces instead of stars. Labels change to "Very dissatisfied" and "Very satisfied" at the extremes.
+Use `variant="emojis"` to show emoji faces instead of stars. Labels default to "Very dissatisfied" and "Very satisfied" at the extremes. Override them with `labels={{ 1: 'Custom start', 5: 'Custom end' }}`.
 
 <UsageWrap>
   <Center>
@@ -212,5 +212,5 @@ const MyComponent = () => <Rating value={0} variant="emojis" />;
 ## Accessibility
 
 - Rating uses a `radiogroup` container with `radio` items for each star or emoji.
-- Each star announces a descriptive label (e.g., "Rate Okay"). Each emoji announces its position and sentiment (e.g., "Rate 3 of 5, Neutral"). Override labels with the `labels` prop to match your content (stars variant only).
+- Each star announces a descriptive label (e.g., "Rate Okay"). Each emoji announces its sentiment (e.g., "Rate Neutral"). Override labels with the `labels` prop to match your content.
 - Provide `accessibilityLabel` when the default label text is not sufficient for your screen reader context.

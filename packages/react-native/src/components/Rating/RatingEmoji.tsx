@@ -11,13 +11,7 @@ import SlightlySmilingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/sli
 import type { FC } from 'react';
 import type { SvgProps } from 'react-native-svg';
 
-type RatingEmojiProps = {
-  emoji: 1 | 2 | 3 | 4 | 5;
-  grayscale?: boolean;
-  size: number;
-};
-
-// SVG imports are typed as `string` by vite/client but transformed to components at runtime
+// SVG imports are typed as `string` by vite/client but transformed to components at runtime by react-native-svg-transformer
 const EMOJI_ASSETS = {
   1: { color: DissapointedFace, grey: DissapointedFaceGrey },
   2: { color: FrowningFace, grey: FrowningFaceGrey },
@@ -26,11 +20,10 @@ const EMOJI_ASSETS = {
   5: { color: BeamingFace, grey: BeamingFaceGrey },
 } as unknown as Record<1 | 2 | 3 | 4 | 5, { color: FC<SvgProps>; grey: FC<SvgProps> }>;
 
-const RatingEmoji = ({ emoji, grayscale = false, size }: RatingEmojiProps) => {
-  const assets = EMOJI_ASSETS[emoji];
-  const EmojiComponent = grayscale ? assets.grey : assets.color;
-
-  return <EmojiComponent width={size} height={size} />;
+export const getEmojiSvg = (
+  value: 1 | 2 | 3 | 4 | 5,
+  grayscale: boolean
+): FC<SvgProps> => {
+  const assets = EMOJI_ASSETS[value];
+  return grayscale ? assets.grey : assets.color;
 };
-
-export default RatingEmoji;

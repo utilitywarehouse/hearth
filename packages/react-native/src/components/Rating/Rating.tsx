@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import type RatingProps from './Rating.props';
 import type { RatingLabels, RatingValue } from './Rating.props';
-import RatingEmoji from './RatingEmoji';
+import { getEmojiSvg } from './RatingEmoji';
 import RatingStarEmpty from './RatingStarEmpty';
 import RatingStarFilled from './RatingStarFilled';
 import { EMOJI_LIST } from './Rating.utils';
@@ -74,6 +74,9 @@ const Rating = ({
   const isEmojis = variant === 'emojis';
   const hasSelection = resolvedValue > 0;
 
+  const startLabel = labels?.[1] ?? EMOJI_LIST[0].accessibilityLabel;
+  const endLabel = labels?.[5] ?? EMOJI_LIST[EMOJI_LIST.length - 1].accessibilityLabel;
+
   return (
     <View
       {...props}
@@ -82,28 +85,25 @@ const Rating = ({
       accessibilityLabel={accessibilityLabel ?? (isEmojis ? 'Rate your experience' : currentLabel)}
       style={[styles.container, style]}
     >
-      <View style={styles.stars}>
+      <View style={styles.items}>
         {isEmojis
           ? EMOJI_LIST.map(entry => {
               const isSelected = resolvedValue === entry.value;
               const size = isSelected ? EMOJI_SIZE_SELECTED : EMOJI_SIZE_DEFAULT;
+              const EmojiSvg = getEmojiSvg(entry.value, hasSelection && !isSelected);
 
               return (
                 <Pressable
                   key={entry.value}
                   accessibilityRole="radio"
                   accessibilityState={{ selected: isSelected, disabled }}
-                  accessibilityLabel={`Rate ${entry.value} of 5, ${entry.accessibilityLabel}`}
+                  accessibilityLabel={`Rate ${entry.accessibilityLabel}`}
                   disabled={disabled}
                   hitSlop={8}
                   onPress={() => handlePress(entry.value)}
                   style={styles.emojiItem}
                 >
-                  <RatingEmoji
-                    emoji={entry.value}
-                    grayscale={hasSelection && !isSelected}
-                    size={size}
-                  />
+                  <EmojiSvg width={size} height={size} />
                 </Pressable>
               );
             })
@@ -120,7 +120,7 @@ const Rating = ({
                   disabled={disabled}
                   hitSlop={8}
                   onPress={() => handlePress(starValue)}
-                  style={styles.star}
+                  style={styles.starItem}
                 >
                   {isFilled ? (
                     <RatingStarFilled width={STAR_WIDTH} height={STAR_HEIGHT} />
@@ -134,8 +134,8 @@ const Rating = ({
       {isEmojis ? (
         !hideLabel ? (
           <View style={styles.emojiLabels}>
-            <BodyText size="md" color="secondary">{EMOJI_LIST[0].accessibilityLabel}</BodyText>
-            <BodyText size="md" color="secondary">{EMOJI_LIST[EMOJI_LIST.length - 1].accessibilityLabel}</BodyText>
+            <BodyText size="md" color="secondary">{startLabel}</BodyText>
+            <BodyText size="md" color="secondary">{endLabel}</BodyText>
           </View>
         ) : null
       ) : !hideLabel ? (
@@ -161,11 +161,11 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-  stars: {
+  items: {
     flexDirection: 'row',
     gap: theme.components.rating.gap,
   },
-  star: {
+  starItem: {
     width: STAR_CONTAINER_SIZE,
     height: STAR_CONTAINER_SIZE,
     alignItems: 'center',
