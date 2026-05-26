@@ -6,7 +6,7 @@ permissions:
 
 jobs:
   checks:
-    name: Code Checks
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -28,4 +28,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm lint:ci
         env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
+          NODE_OPTIONS: '--max-old-space-size=6144'

@@ -9,7 +9,7 @@ export type FormGroupBaseContextValue = {
 export const FormGroupBaseContext = createContext<FormGroupBaseContextValue>({
   hasGroupHelperText: false,
   hasGroupValidationText: false,
-} as FormGroupBaseContextValue);
+});
 
 export const FormGroupBaseProvider = FormGroupBaseContext.Provider;
 

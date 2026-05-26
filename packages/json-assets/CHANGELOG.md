@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.5.0
+
+### Minor Changes
+
+- [#1227](https://github.com/utilitywarehouse/hearth/pull/1227) [`83658d7`](https://github.com/utilitywarehouse/hearth/commit/83658d7e73c6a2a610e1acf3aa38a581a825f4df) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add dark mode animated illustrations to JSON assets library
+
 ## 0.4.1
 
 ### Patch Changes

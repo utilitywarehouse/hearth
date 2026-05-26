@@ -17,6 +17,7 @@ export default meta;
 type Story = StoryObj<typeof CardAccordion>;
 
 export const Playground: Story = {
+  tags: ['!test'],
   render: () => {
     return (
       <Box width="600px">

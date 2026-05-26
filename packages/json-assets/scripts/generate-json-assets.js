@@ -14,7 +14,7 @@ const brandfolderConfig = {
   /** The base Brandfolder API url */
   baseUrl: 'https://brandfolder.com/api/v4',
   /** The UW Brandfolder collection ID for JSON assets (Lottie animations) */
-  collectionId: process.env.BRANDFOLDER_COLLECTION_ID, // new-brand
+  collectionId: process.env.BRANDFOLDER_COLLECTION_ID,
   /** The headers for authenticating with the Brandfolder API. */
   headers: {
     Authorization: `Bearer ${process.env.BRANDFOLDER_API_KEY}`,
@@ -24,15 +24,22 @@ const brandfolderConfig = {
 
 const transformers = {
   normalizeFilename(fileName) {
-    return `animated-${fileName.split('.')[0].toLowerCase().replace(/_/g, '-')}-light.json`;
+    const isDarkMode = fileName.startsWith('Dark-mode');
+    const name = `${fileName
+      .split('.')[0]
+      .replace(/^Dark-mode_/, '')
+      .replace(/_/g, '-')}`;
+    return `animated-${name.toLowerCase()}-${isDarkMode ? 'dark' : 'light'}.json`;
   },
   toJsxName(filePath) {
+    const isDarkMode = filePath.startsWith('Dark-mode');
     const withoutExt = filePath.replace(/\.[^.]+$/, '');
     const parts = withoutExt
+      .replace(/^Dark-mode_/, '')
       .split(/[\\/]/)
       .flatMap(part => part.split(/[^a-zA-Z0-9]+/))
       .filter(Boolean);
-    return `Animated${parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('')}`;
+    return `Animated${parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('')}${isDarkMode ? 'Dark' : 'Light'}`;
   },
 };
 
