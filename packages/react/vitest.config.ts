@@ -27,7 +27,16 @@ export default defineConfig({
           browser: {
             enabled: true,
             headless: true,
-            provider: playwright(),
+            provider: playwright({
+              launchOptions: {
+                // The mcr.microsoft.com/playwright Docker image runs as root.
+                // Chromium refuses to start with its sandbox when running as root,
+                // causing a silent hang while Playwright waits for the browser
+                // WebSocket connection that never arrives. --no-sandbox is the
+                // standard fix for Playwright-in-Docker-as-root setups.
+                args: process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+              },
+            }),
             instances: [{ browser: 'chromium' }],
           },
         },

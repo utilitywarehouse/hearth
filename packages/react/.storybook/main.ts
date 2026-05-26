@@ -38,8 +38,9 @@ const config: StorybookConfig = {
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldExtractLiteralValuesFromEnum: true,
-      // 👇 Default prop filter, which excludes props from node_modules
-      // propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      // Exclude props from node_modules — without this react-docgen-typescript
+      // crawls the entire dependency tree, which is extremely slow in CI.
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
 };

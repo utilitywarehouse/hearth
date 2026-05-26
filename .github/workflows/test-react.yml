@@ -25,7 +25,7 @@ jobs:
   # if: false # I'm disabling this until I have the energy to continue trying to debug why it fails
   checks:
     name: storybook tests
-    timeout-minutes: 10
+    timeout-minutes: 20
     runs-on: ubuntu-latest
 
     container:
@@ -54,6 +54,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+          # The playwright Docker image already has browsers installed at /ms-playwright.
+          # Skip the postinstall download so pnpm install doesn't re-fetch them.
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: '1'
       - run: pnpm build
       - run: pnpm test:react
         env:
