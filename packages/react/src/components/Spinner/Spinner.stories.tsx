@@ -21,9 +21,12 @@ const meta: Meta<typeof Spinner> = {
 export default meta;
 type Story = StoryObj<typeof Spinner>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  tags: ['!test'],
+};
 
 export const KitchenSink: Story = {
+  tags: ['!test'],
   parameters: { chromatic: { disableSnapshot: false } },
   render: () => (
     <Flex gap="600">

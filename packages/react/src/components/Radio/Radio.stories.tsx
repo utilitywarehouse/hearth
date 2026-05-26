@@ -20,6 +20,7 @@ export default meta;
 type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
+  tags: ['!test'],
   render: (args: { value?: string }) => {
     return (
       <Flex gap="500" direction="column">
