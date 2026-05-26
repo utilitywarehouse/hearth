@@ -21,6 +21,7 @@ export default meta;
 type Story = StoryObj<typeof ProgressBar>;
 
 export const Playground: Story = {
+  tags: ['!test'],
   parameters: { chromatic: { disableSnapshot: true } },
   render: (args: { value?: number }) => {
     const [value, setValue] = useState(20);

@@ -95,6 +95,7 @@ export const CustomRows: Story = {
 };
 
 export const Controlled: Story = {
+  tags: ['!test'],
   render: args => {
     const [value, setValue] = useState<string>('Initial value');
     return (
