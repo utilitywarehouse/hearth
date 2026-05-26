@@ -1,10 +1,11 @@
 {
   "name": "@utilitywarehouse/hearth-json-assets",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Hearth JSON assets",
   "scripts": {
     "clean:lib": "rm -rf lib",
-    "generate": "pnpm clean:lib && node ./scripts/generate-json-assets.js"
+    "gen:script": "node ./scripts/generate-json-assets.js",
+    "generate": "pnpm clean:lib && pnpm gen:script"
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
