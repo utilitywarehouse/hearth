@@ -34,7 +34,7 @@ export default defineConfig({
                 // causing a silent hang while Playwright waits for the browser
                 // WebSocket connection that never arrives. --no-sandbox is the
                 // standard fix for Playwright-in-Docker-as-root setups.
-                args: process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+                args: process.getuid?.() === 0 ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
               },
             }),
             instances: [{ browser: 'chromium' }],
