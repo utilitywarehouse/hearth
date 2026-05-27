@@ -27,7 +27,19 @@ export default defineConfig({
           browser: {
             enabled: true,
             headless: true,
-            provider: playwright(),
+            provider: playwright({
+              launchOptions: {
+                // Chromium refuses to start with its sandbox when running as root,
+                // causing a silent hang while Playwright waits for the browser
+                // WebSocket connection that never arrives. --no-sandbox is the
+                // standard fix for root-user setups (e.g. the default
+                // mcr.microsoft.com/playwright Docker image). Keyed off UID so
+                // that switching to a rootless image automatically re-enables the
+                // sandbox without any config change. process.getuid is Unix-only,
+                // so the optional call returns undefined (falsy) on Windows.
+                args: process.getuid?.() === 0 ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+              },
+            }),
             instances: [{ browser: 'chromium' }],
           },
         },
