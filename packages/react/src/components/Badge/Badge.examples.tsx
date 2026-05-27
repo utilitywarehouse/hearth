@@ -2,6 +2,7 @@ import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-ic
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Badge } from './Badge';
+import { Card } from '../Card/Card';
 
 export const VariantsExample = () => (
   <Flex gap="200">
@@ -35,19 +36,11 @@ export const ColorSchemesExample = () => (
 export const FlatBaseExample = () => (
   <Box>
     <Flex justifyContent="end" paddingRight="300" width="400px">
-      <Badge colorScheme="positive" variant="emphasis" flatBase>
+      <Badge colorScheme="positive" variant="emphasis" size="sm" flatBase>
         Multi SIM offer
       </Badge>
     </Flex>
-    <Box
-      width="400px"
-      height="200px"
-      backgroundColor="primary"
-      borderColor="subtle"
-      borderStyle="solid"
-      borderWidth="2"
-      borderRadius="sm"
-    />
+    <Card width="400px" height="200px" colorScheme="neutralSubtle" />
   </Box>
 );
 

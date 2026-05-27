@@ -3,7 +3,7 @@ import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { examplesSourcePlugin } from './examples-source-plugin';
+import { examplesSourcePlugin } from './examples-source-plugin.js';
 
 /**
  * This function is used to resolve the absolute path of a package.

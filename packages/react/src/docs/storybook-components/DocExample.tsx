@@ -7,17 +7,11 @@ interface DocExampleProps {
 }
 
 export const DocExample = ({ of: Component }: DocExampleProps) => {
-  const source = (Component as Record<string, unknown>).__source as string | undefined;
+  const source = (Component as unknown as Record<string, unknown>).__source as string | undefined;
 
   return (
-    <Flex direction="column" gap="0">
-      <Box
-        padding="400"
-        borderWidth="1"
-        borderStyle="solid"
-        borderColor="subtle"
-        borderRadius="sm"
-      >
+    <Flex direction="column">
+      <Box padding="400" borderWidth="1" borderColor="strong" borderRadius="md">
         <Component />
       </Box>
       {source && <Source code={source} language="tsx" />}

@@ -1,9 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Badge } from './Badge';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { VariantsExample } from './Badge.examples';
+import {
+  VariantsExample,
+  SizesExample,
+  ColorSchemesExample,
+  FlatBaseExample,
+  IconsExample,
+} from './Badge.examples';
 
 const variants = ['subtle', 'emphasis', 'outline'] as const;
 const subtleOnlyColorSchemes = ['highlight'] as const;
@@ -98,56 +103,12 @@ export const KitchenSink: Story = {
 };
 
 export const Playground: Story = {};
-
-export const Variants: Story = {
-  render: VariantsExample,
-};
-
-export const Sizes: Story = {
-  render: () => (
-    <Flex gap="200">
-      {sizes.map(size => (
-        <Badge key={size} size={size}>
-          {size} badge
-        </Badge>
-      ))}
-    </Flex>
-  ),
-};
-
-export const ColorSchemes: Story = {
-  render: () => (
-    <Flex gap="200">
-      {colorSchemes.map(colorScheme => (
-        <Badge key={colorScheme} colorScheme={colorScheme} textTransform="capitalize">
-          {colorScheme}
-        </Badge>
-      ))}
-    </Flex>
-  ),
-};
-
-export const FlatBase: Story = {
-  render: () => {
-    return (
-      <Box>
-        <Flex justifyContent="end" paddingRight="300" width="400px">
-          <Badge colorScheme="positive" variant="emphasis" flatBase>
-            Multi SIM offer
-          </Badge>
-        </Flex>
-        <Box
-          width="400px"
-          height="200px"
-          backgroundColor="primary"
-          borderColor="subtle"
-          borderStyle="solid"
-          borderWidth="2"
-          borderRadius="sm"
-        />
-      </Box>
-    );
-  },
+export {
+  VariantsExample as Variants,
+  SizesExample as Sizes,
+  ColorSchemesExample as ColorSchemes,
+  FlatBaseExample as FlatBase,
+  IconsExample as WithIcons,
 };
 
 export const SurfaceColours: Story = {
