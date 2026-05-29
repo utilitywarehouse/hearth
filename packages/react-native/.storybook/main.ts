@@ -65,21 +65,12 @@ const config = {
         alias: {
           ...config.resolve?.alias,
           '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
+          '@react-stately/utils': 'react-stately',
         },
       },
       optimizeDeps: {
         ...config.optimizeDeps,
         exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
-      },
-      build: {
-        ...config.build,
-        rolldownOptions: {
-          ...config.build?.rolldownOptions,
-          external: [
-            ...(config.build?.rolldownOptions?.external || []),
-            '@react-stately/utils',
-          ],
-        },
       },
     };
   },
