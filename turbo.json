@@ -57,6 +57,12 @@
       "outputs": [],
       "dependsOn": ["format:ci", "lint:fix"]
     },
+    "lint:css": {
+      "outputs": []
+    },
+    "lint:js": {
+      "outputs": []
+    },
     "checks:build": {
       "outputs": ["dist/**"]
     },

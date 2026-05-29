@@ -23,7 +23,7 @@ figma.connect(
   Rating,
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=10620-4185',
   {
-    variant: { Variant: 'Emojis' },
+    // variant: { Variant: 'Emojis' },
     props: {
       value: figma.enum('Rating', {
         '0 Star': 0,

@@ -29,7 +29,7 @@
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
     "dev:mcp": "turbo run dev:storybook --filter=playground-mcp --filter=@utilitywarehouse/hearth-react",
     "dev:react": "turbo run dev:storybook --filter=@utilitywarehouse/hearth-react",
-    "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev @utilitywarehouse/hearth-react-native#dev",
+    "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev",
     "dev:react-native:android": "turbo run hearth-react-native-expo#android",
     "dev:react-native:ios": "turbo run hearth-react-native-expo#ios",
     "dev:react-native:prebuild": "turbo run hearth-react-native-expo#prebuild",

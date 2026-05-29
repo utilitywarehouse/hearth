@@ -1003,8 +1003,8 @@ importers:
   packages/react-native:
     dependencies:
       '@gluestack-ui/accordion':
-        specifier: 1.0.7
-        version: 1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+        specifier: 1.0.14
+        version: 1.0.14(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       '@gluestack-ui/alert':
         specifier: 0.1.15
         version: 0.1.15(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1063,9 +1063,6 @@ importers:
       '@gorhom/bottom-sheet':
         specifier: 5.2.6
         version: 5.2.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0)))(@types/react@19.1.17)(react-native-gesture-handler@2.28.0(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.29.0)(react-native-worklets@0.5.1(patch_hash=df5ea8d8f16a4bb2cedc988009ffafd0bdfc5af4bd186e54bf4ab6eaf43c3bd3)(@babel/core@7.29.0)(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
-      '@react-stately/utils':
-        specifier: ^3.12.0
-        version: 3.12.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@storybook/addon-a11y':
         specifier: ^10.2.1
         version: 10.4.0(storybook@10.4.0(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@testing-library/dom@10.4.1)(@types/react@19.1.17)(prettier@3.8.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
@@ -2775,8 +2772,8 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@gluestack-ui/accordion@1.0.7':
-    resolution: {integrity: sha512-pvEjAL343p/npQfmNFmKDy+p/POUua0/hog8weFRZ7E0CzI00VHDxIsbmkBEREjhzekRXry/wg8se6lGlKOpCA==}
+  '@gluestack-ui/accordion@1.0.14':
+    resolution: {integrity: sha512-dpqlSnIZk1grZOPtLoMYh08OGmRgl/Sjpv1KltPdpjNaG2Gt7DPAmT/8l9wVuJYMOfdsLOsBOfzGo5eECZ9WFg==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -4746,12 +4743,6 @@ packages:
 
   '@react-stately/toggle@3.10.0':
     resolution: {integrity: sha512-gb50aVW9y+8gW82KyDJNSCnGtTftUDMuoz0YYlaiUJktQQkZ4eNg+ANKqZiZiKj0dwr9NalLCR/3EuNnO6qYWA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-
-  '@react-stately/utils@3.12.0':
-    resolution: {integrity: sha512-7q+iHz9cENvro1dVKgdTxNh1i1mtWuLUI6UHp10TAgpxM9DyRDvmuN35zLXYCmMDgx3WLY2xkwqoez8xd+CdxQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -15839,12 +15830,12 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@gluestack-ui/accordion@1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)':
+  '@gluestack-ui/accordion@1.0.14(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       '@react-native-aria/accordion': 0.0.2(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      '@react-native-aria/interactions': 0.2.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
@@ -18176,13 +18167,6 @@ snapshots:
       react-stately: 3.46.0(react@19.1.0)
 
   '@react-stately/toggle@3.10.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.21
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.46.0(react@19.1.0)
-
-  '@react-stately/utils@3.12.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@swc/helpers': 0.5.21
       react: 19.1.0
