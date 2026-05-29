@@ -1,5 +1,35 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.32.4
+
+### Patch Changes
+
+- [#1222](https://github.com/utilitywarehouse/hearth/pull/1222) [`3f35a43`](https://github.com/utilitywarehouse/hearth/commit/3f35a431ba4a0fae45cc640a62ea6cb53f85c384) Thanks [@Utakato](https://github.com/Utakato)! - 🌟 [FEATURE]: `Rating` component `emojis` variant
+
+  The `Rating` component now supports an `emojis` variant that renders emoji faces
+  instead of stars. When selected, the chosen emoji appears larger whilst
+  unselected emojis become grayscale. Two static labels ("Very dissatisfied" /
+  "Very satisfied") are displayed at the extremes.
+
+  **Components affected**:
+  - `Rating`
+
+  **Developer changes**:
+
+  ```tsx
+  import { Rating } from '@utilitywarehouse/hearth-react-native';
+
+  <Rating value={rating} onChange={setRating} variant="emojis" />;
+  ```
+
+  All existing props (`value`, `defaultValue`, `onChange`, `disabled`, `hideLabel`)
+  work with the emoji variant. The new `rangeLabels` prop allows overriding the
+  endpoint labels (defaulting to "Very dissatisfied" / "Very satisfied"):
+
+  ```tsx
+  <Rating variant="emojis" rangeLabels={{ low: 'Not at all', high: 'Absolutely' }} />
+  ```
+
 ## 0.32.3
 
 ### Patch Changes
