@@ -55,7 +55,8 @@ const MyComponent = () => {
 | `defaultValue` | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Initial rating value when uncontrolled.     | `0`         |
 | `onChange`     | `(value: RatingValue) => void`         | Called when a rating is selected.           | `undefined` |
 | `disabled`     | `boolean`                              | Disables the rating input.                  | `false`     |
-| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values. For the emoji variant, `labels[1]` and `labels[5]` override the start and end labels. | `undefined` |
+| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values. | `undefined` |
+| `rangeLabels`  | `{ low: string; high: string }`        | Override the low and high end labels shown below the emoji variant. | `{ low: 'Very dissatisfied', high: 'Very satisfied' }` |
 | `hideLabel`    | `boolean`                              | Hide the label text below the rating.       | `false`     |
 | `variant`      | `'stars' \| 'emojis'`                  | Visual variant for the rating indicators. | `'stars'` |
 
@@ -175,7 +176,7 @@ const MyComponent = () => <Rating value={4} disabled />;
 
 ### Emoji variant
 
-Use `variant="emojis"` to show emoji faces instead of stars. Labels default to "Very dissatisfied" and "Very satisfied" at the extremes. Override them with `labels={{ 1: 'Custom start', 5: 'Custom end' }}`.
+Use `variant="emojis"` to show emoji faces instead of stars. Labels default to "Very dissatisfied" and "Very satisfied" at the extremes. Override them with `rangeLabels={{ low: 'Custom low', high: 'Custom high' }}`.
 
 <UsageWrap>
   <Center>

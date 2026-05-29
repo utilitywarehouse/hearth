@@ -23,6 +23,9 @@ const meta = {
     labels: {
       control: 'object',
     },
+    rangeLabels: {
+      control: 'object',
+    },
     hideLabel: {
       control: 'boolean',
     },

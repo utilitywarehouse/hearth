@@ -19,6 +19,8 @@ export interface RatingProps extends Omit<ViewProps, 'children'> {
   disabled?: boolean;
   /** Override labels for specific rating values. */
   labels?: RatingLabels;
+  /** Override the low and high end labels shown below the emoji variant. */
+  rangeLabels?: { low: string; high: string };
   /** Hide the label text below the rating. */
   hideLabel?: boolean;
 }

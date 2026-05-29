@@ -22,5 +22,9 @@ import { Rating } from '@utilitywarehouse/hearth-react-native';
 ```
 
 All existing props (`value`, `defaultValue`, `onChange`, `disabled`, `hideLabel`)
-work with the emoji variant. The `labels` prop is ignored when using
-`variant="emojis"` as the emoji variant uses fixed endpoint labels.
+work with the emoji variant. The new `rangeLabels` prop allows overriding the
+endpoint labels (defaulting to "Very dissatisfied" / "Very satisfied"):
+
+```tsx
+<Rating variant="emojis" rangeLabels={{ low: 'Not at all', high: 'Absolutely' }} />
+```

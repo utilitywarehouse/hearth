@@ -17,6 +17,11 @@ const EMOJI_SIZE_DEFAULT = 32;
 const EMOJI_SIZE_SELECTED = 40;
 const EMOJI_CONTAINER_SIZE = 44;
 
+const DEFAULT_RANGE_LABELS = {
+  low: EMOJI_LIST[0].accessibilityLabel,
+  high: EMOJI_LIST[EMOJI_LIST.length - 1].accessibilityLabel,
+};
+
 const DEFAULT_LABELS: Record<RatingValue, string> = {
   0: 'Select a rating',
   1: 'Awful',
@@ -36,6 +41,7 @@ const Rating = ({
   onChange,
   disabled = false,
   labels,
+  rangeLabels = DEFAULT_RANGE_LABELS,
   hideLabel = false,
   style,
   accessibilityLabel,
@@ -74,8 +80,8 @@ const Rating = ({
   const isEmojis = variant === 'emojis';
   const hasSelection = resolvedValue > 0;
 
-  const startLabel = labels?.[1] ?? EMOJI_LIST[0].accessibilityLabel;
-  const endLabel = labels?.[5] ?? EMOJI_LIST[EMOJI_LIST.length - 1].accessibilityLabel;
+  const startLabel = rangeLabels.low;
+  const endLabel = rangeLabels.high;
 
   return (
     <View
