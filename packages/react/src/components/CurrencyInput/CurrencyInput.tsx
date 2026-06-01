@@ -23,12 +23,15 @@ export const CurrencyInput = forwardRef<InputBaseElement, CurrencyInputProps>(
       onChange,
       placeholder = '0.00',
       disableGroupSeparators,
+      defaultValue,
       ...props
     },
     forwardedRef
   ) => {
     const maxDecimals = 2;
-    const [internalValue, setInternalValue] = useState<string>('');
+    const [internalValue, setInternalValue] = useState<string>(
+      typeof defaultValue === 'string' ? defaultValue : ''
+    );
     const internalRef = useRef<HTMLInputElement>(null);
     const cursorPositionRef = useRef<number | null>(null);
 
