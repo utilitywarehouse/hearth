@@ -34,8 +34,8 @@
     "@vitest/browser": "3.2.4",
     "eslint-config-next": "16.2.6",
     "playwright": "^1.60.0",
-    "storybook": "^10.3.6",
+    "storybook": "^10.2.10",
     "vite": "^8.0.12",
-    "vitest": "3.2.4"
+    "vitest": "4.1.0"
   }
 }
