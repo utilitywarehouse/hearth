@@ -1,3 +1,11 @@
+[![Lint](https://github.com/utilitywarehouse/hearth/actions/workflows/lint.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/lint.yml) 
+[![Build](https://github.com/utilitywarehouse/hearth/actions/workflows/build.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/build.yml) 
+[![Build Storybook](https://github.com/utilitywarehouse/hearth/actions/workflows/build-storybook.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/build-storybook.yml) 
+[![Figma Code Connect publish](https://github.com/utilitywarehouse/hearth/actions/workflows/figma-code-connect.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/figma-code-connect.yml)
+[![Release](https://github.com/utilitywarehouse/hearth/actions/workflows/release.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/release.yml)
+[![Docker Build & Push](https://github.com/utilitywarehouse/hearth/actions/workflows/storybook-docker.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/storybook-docker.yml)
+
+
 # Hearth - Utility Warehouse Design Systems
 
 Hearth is a set of systems for designing and building coherent, scalable and
