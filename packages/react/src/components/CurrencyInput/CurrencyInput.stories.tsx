@@ -73,7 +73,7 @@ export const KitchenSink: Story = {
 // Bug verification: defaultValue is ignored because the component always sets value={...}
 // Expected: input pre-filled with "12,345.67" — Actual: input is empty
 export const DefaultValue: Story = {
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { disable: true } },
   render: () => (
     <Flex direction="column" gap="400">
       <CurrencyInput
