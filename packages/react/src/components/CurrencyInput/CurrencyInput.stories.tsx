@@ -69,3 +69,23 @@ export const KitchenSink: Story = {
     );
   },
 };
+
+// Bug verification: defaultValue is ignored because the component always sets value={...}
+// Expected: input pre-filled with "12,345.67" — Actual: input is empty
+export const DefaultValue: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <CurrencyInput
+        label='defaultValue="12345.67" (bug: renders empty)'
+        defaultValue="12345.67"
+        onChange={(event: ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+      />
+      <CurrencyInput
+        label='value="12345.67" (correct: renders formatted)'
+        value="12345.67"
+        onChange={(event: ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+      />
+    </Flex>
+  ),
+};
