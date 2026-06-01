@@ -1,4 +1,6 @@
 .h-ProgressBar {
+  width: 100%;
+
   & :where(.h-ProgressBarLinear) {
     display: grid;
     grid-template-columns: 1fr 1fr;

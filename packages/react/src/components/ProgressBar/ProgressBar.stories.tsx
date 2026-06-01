@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { ProgressBar } from './ProgressBar';
 import { useState, useEffect } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components / ProgressBar',
@@ -120,21 +119,16 @@ export const HideLabel: Story = {
   },
 };
 
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
+export const WithinFlex: Story = {
+  parameters: { controls: { disable: true } },
   render: () => {
-    const stories = {
-      Variants,
-      ColorSchemes,
-      Sizes,
-      FormatValueText,
-      HideLabel,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
+    return (
+      <Flex width="400px">
+        <Flex direction="column" gap="400" flexGrow="1" alignItems="start">
+          <ProgressBar label="0" hideLabel variant="linear" value={0} />
+          <ProgressBar label="20" hideLabel variant="linear" value={20} />
+        </Flex>
+      </Flex>
+    );
   },
 };
