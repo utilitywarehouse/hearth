@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { Badge } from './Badge';
-import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import {
   VariantsExample,
   SizesExample,
