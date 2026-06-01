@@ -8,10 +8,10 @@ import { Alert } from './Alert';
 
 # Alert
 
-An `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are
-read-only status indicators or labels and are not interactive.
-
-<Canvas of={Stories.KitchenSink} sourceState="none" />
+The `Alert` component displays a short, important message in a way that
+attracts the user's attention without interrupting the user's task. This
+component should be used to flag information of high importance, whether it be
+an error, warning, success or information.
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
@@ -57,9 +57,25 @@ If you need to you can also render the `AlertLink` as a `button` element using t
 
 <Canvas of={Stories.WithAlertLink} sourceState="none" />
 
+## Title and Text
+
+`Alert` supports a `title` and `text` prop to provide a clear and concise
+message to users. The `title` is typically used for a brief headline, while the
+`text` provides additional details.
+
+These props are optional as they can be used together or separately, depending
+on the context of the alert. While it is technically possible to provide a
+custom title via the `children` prop, it is generally not recommended as it may
+lead to a broken UI and a poor user experience.
+
 ## Dismissable
 
-Alerts can be made dismissable by providing an `onClose` handler. This adds a close button that users can click to dismiss the alert.
+Alerts can be made dismissable by providing an `onClose` handler. This adds a
+close button that users can click to dismiss the alert.
+The `onClose` handler will be called when the alert is dismissed, allowing you
+to perform any necessary cleanup or state updates. It will not handle the
+actual hiding of the alert, so you will need to manage the visibility state of
+the alert in your component.
 
 ```tsx
 <Alert
