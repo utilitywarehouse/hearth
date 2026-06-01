@@ -4,6 +4,19 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.28.6
+
+### Patch Changes
+
+- [#1238](https://github.com/utilitywarehouse/hearth/pull/1238) [`4514f71`](https://github.com/utilitywarehouse/hearth/commit/4514f7123c41d0270ac48ae856a5755240c041b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CurrencyInput` `defaultValue` prop renders empty input
+
+  `CurrencyInput` ignored the `defaultValue` prop because the component always
+  set a controlled `value` on the underlying input, causing uncontrolled usage
+  with `defaultValue` to render an empty field instead of the provided initial
+  value.
+
+- [#1239](https://github.com/utilitywarehouse/hearth/pull/1239) [`eac44c4`](https://github.com/utilitywarehouse/hearth/commit/eac44c4c65c56f4579cee2b1f4cfab387c91f146) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Linear `ProgressBar` width when parent `Flex` has no explicit width
+
 ## 0.28.5
 
 ### Patch Changes
