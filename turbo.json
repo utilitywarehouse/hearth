@@ -28,6 +28,9 @@
     "build:icons": {
       "outputs": ["dist/**"]
     },
+    "build:tokens": {
+      "outputs": ["src/**", "js/**", "css/**", "browser/**", "index.css"]
+    },
     "build:css": {
       "outputs": ["css"]
     },

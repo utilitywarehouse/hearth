@@ -15,7 +15,6 @@
     "build:fonts": "turbo run build:storybook --filter=storybook-fonts",
     "build:react": "turbo run build --filter=@utilitywarehouse/hearth-react",
     "build:react-native": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react-native",
-    "build:tokens": "turbo run build:storybook --filter=storybook-tokens",
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
     "build:storybook:react": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react -- -o \"./storybook-static\"",
@@ -27,7 +26,6 @@
     "ci:version": "changeset version && turbo run copy:changelog && pnpm install --no-frozen-lockfile",
     "dev:docs": "turbo run dev:docs",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
-    "dev:mcp": "turbo run dev:storybook --filter=playground-mcp --filter=@utilitywarehouse/hearth-react",
     "dev:react": "turbo run dev --filter=@utilitywarehouse/hearth-react",
     "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev",
     "dev:react-native:android": "turbo run hearth-react-native-expo#android",
@@ -45,6 +43,8 @@
     "generate:storybook:icons": "turbo run storybook-icons#generate",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
+    "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
+    "generate:tokens:react": "pnpm run build:tokens && pnpm run copy-tokens:react && turbo run @utilitywarehouse/hearth-react#copy-tokens-index",
     "copy:tokens:react": "turbo run copy:tokens:index --filter=@utilitywarehouse/hearth-react"
   },
   "workspaces": [
