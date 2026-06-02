@@ -1,4 +1,4 @@
-name: Build and Commit Design Tokens Changes
+name: Build and Commit Design Tokens
 
 on:
   pull_request:
@@ -40,7 +40,7 @@ jobs:
 
       - name: Build Design Tokens
         working-directory: ./packages/tokens
-        run: pnpm build
+        run: pnpm build:tokens
 
       - name: Commit Built Files
         run: |
