@@ -15,7 +15,6 @@ import {
   CashbackCardSmallIcon,
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof ExpandableCard> = {
   title: 'Components / ExpandableCard',
@@ -272,25 +271,4 @@ export const DecemberBill: Story = {
       </ExpandableCardGroup>
     </Box>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      WithLeadingIcon,
-      WithoutHelperText,
-      DefaultOpen,
-      Group,
-      GroupWithoutSectionHeader,
-      DecemberBill,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

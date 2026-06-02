@@ -3,7 +3,6 @@ import { Card } from '../Card/Card';
 import { Flex } from '../Flex/Flex';
 import { IconContainer } from './IconContainer';
 import { PlaceholderSmallIcon, PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const variants = ['subtle', 'emphasis'] as const;
 const subtleOnlyColorSchemes = ['highlight'] as const;
@@ -195,22 +194,5 @@ export const Fill: Story = {
         </Card>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      RadiusNone,
-      Fill,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

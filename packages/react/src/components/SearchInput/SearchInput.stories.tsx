@@ -4,7 +4,6 @@ import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { SearchInput } from './SearchInput';
 import { useState, ChangeEvent } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof SearchInput> = {
   title: 'Components / SearchInput',
@@ -98,22 +97,5 @@ export const UsageWithButton: Story = {
         </Flex>
       </Box>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      Loading,
-      UsageWithButton,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

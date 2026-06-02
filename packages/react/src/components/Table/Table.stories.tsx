@@ -9,7 +9,6 @@ import { TableHeaderCell } from './TableHeaderCell';
 import { TablePagination } from './TablePagination';
 import { TableRow } from './TableRow';
 import seedrandom from 'seedrandom';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const variants = [undefined, 'subtle', 'emphasis'] as const;
 
@@ -193,22 +192,6 @@ export const Pagination: Story = {
         </TableBody>
       </Table>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      Pagination,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
 

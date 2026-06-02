@@ -3,7 +3,6 @@ import { Flex } from '../Flex/Flex';
 import { TextInput } from '../TextInput/TextInput';
 import { TextArea } from './TextArea';
 import { useState, ChangeEvent } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof TextArea> = {
   title: 'Components / TextArea',
@@ -116,24 +115,4 @@ export const WithTextInput: Story = {
       <TextArea label="Text area" />
     </Flex>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      Height,
-      DisabledAndReadOnly,
-      Validation,
-      CustomRows,
-      WithTextInput,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

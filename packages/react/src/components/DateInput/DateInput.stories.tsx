@@ -5,7 +5,6 @@ import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import { DateInput } from './DateInput';
 import { useState } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Components / DateInput',
@@ -201,22 +200,4 @@ export const GroupingInputs: Story = {
       </fieldset>
     </Flex>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      Validation,
-      Disabled,
-      FlexibleSegments,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

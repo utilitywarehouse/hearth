@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { InlineLink } from './InlineLink';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof InlineLink> = {
   title: 'Typography / InlineLink',
@@ -143,23 +142,5 @@ export const Color: Story = {
   ),
   args: {
     href: '#',
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      LengthyContent,
-      Color,
-      OpenInNewTab,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

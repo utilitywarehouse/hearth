@@ -6,7 +6,6 @@ import {
   ChevronLeftSmallIcon,
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Link> = {
   title: 'Components / Link',
@@ -100,24 +99,4 @@ export const LengthyContent: Story = {
       <Link {...args}>{args.children}</Link>
     </Flex>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      WithIcons,
-      AsButton,
-      Inverted,
-      LengthyContent,
-      OpenInNewTab,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

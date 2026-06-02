@@ -10,7 +10,6 @@ import { RadioTile } from '../RadioTile/RadioTile';
 import { RadioGroup } from './RadioGroup';
 import { Flex } from '../Flex/Flex';
 import { ThumbsUpSmallIcon, ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components / RadioGroup',
@@ -284,25 +283,4 @@ export const WithGrid: Story = {
     );
   },
   args: { label: 'Using grid', helperText: undefined, validationText: undefined },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      RadioHelperText,
-      ContentWidth,
-      Validation,
-      Wrap,
-      CustomLabel,
-      WithGrid,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

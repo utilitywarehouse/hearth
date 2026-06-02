@@ -6,7 +6,6 @@ import { Box } from '../Box/Box';
 import { CheckboxTile } from '../CheckboxTile/CheckboxTile';
 import { Flex } from '../Flex/Flex';
 import { CheckboxGroup } from './CheckboxGroup';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Components / CheckboxGroup',
@@ -170,24 +169,5 @@ export const Wrap: Story = {
         </CheckboxGroup>
       </Box>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      CheckboxHelperText,
-      Validation,
-      ContentWidth,
-      Wrap,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

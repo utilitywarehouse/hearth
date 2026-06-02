@@ -3,7 +3,6 @@ import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Pagination } from './Pagination';
 import { useState } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Pagination> = {
   title: 'Components / Pagination',
@@ -112,25 +111,5 @@ export const EdgeCases: Story = {
         </Flex>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      Condensed,
-      WithoutSkip,
-      FewPages,
-      ManyPages,
-      EdgeCases,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

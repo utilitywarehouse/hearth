@@ -13,7 +13,6 @@ import {
   MobileMediumIcon,
   InsuranceMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['md', 'lg'] as const;
 
@@ -248,22 +247,5 @@ export const Controlled: Story = {
         <Button onClick={next}>Next Tab</Button>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false, delay: 300 },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Sizes,
-      WithScrolling,
-      WithIcons,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

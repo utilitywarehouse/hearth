@@ -21,7 +21,6 @@ import {
   InfoMediumIcon,
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof List> = {
   title: 'Components / List',
@@ -821,29 +820,5 @@ export const CustomContent: Story = {
         ))}
       </List>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      KitchenSink,
-      LeadingContent,
-      TrailingContent,
-      CustomTrailingContent,
-      AllListItems,
-      ListItemContents,
-      ListActions,
-      CustomContent,
-      PaddingNone,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
