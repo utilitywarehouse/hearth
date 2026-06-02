@@ -27,7 +27,7 @@
     "clean": "rm -rf .turbo node_modules dist *.css storybook-static",
     "build": "pnpm build:css && pnpm build:js",
     "copy:breakpoints": "cp ./src/styles/breakpoints.css ./breakpoints.css",
-    "copy:tokens": "rm -rf ./src/styles/tokens && mkdir -p ./src/styles/tokens && cp -r ../tokens/css/* ./src/styles/tokens",
+    "copy:tokens": "rm -rf ./src/styles/tokens && mkdir -p ./src/styles/tokens && cp -r ../tokens/css/* ./src/styles/tokens && pnpm run copy:tokens:index",
     "copy:tokens:index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
     "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm copy:breakpoints",
     "build:js": "NODE_OPTIONS='--max-old-space-size=6144' tsup && tsc -p tsconfig.build.json",
