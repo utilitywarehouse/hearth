@@ -788,7 +788,7 @@ async function formatWithPrettier(filePath, content) {
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
-  const outputDir = process.argv[2] ?? path.join(PKG_ROOT, 'storybook-static', 'llms');
+  const outputDir = process.argv[2] ?? path.join(PKG_ROOT, 'public', 'llms');
   const llmsTxtPath = path.join(outputDir, '..', 'llms.txt');
 
   const mdxFiles = findMdxFiles(SRC_DIR).sort();
