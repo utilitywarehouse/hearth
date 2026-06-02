@@ -138,6 +138,14 @@ function parseImports(content, mdxDir) {
       continue;
     }
 
+    // Namespace imports: import * as Stories from './Badge.stories'
+    const nsMatch = line.match(/import\s+\*\s+as\s+(\w+)\s+from\s+['"](\.[^'"]+)['"]/);
+    if (nsMatch) {
+      const resolved = resolveFile(path.resolve(mdxDir, nsMatch[2]));
+      if (resolved) importMap.set(nsMatch[1], resolved);
+      continue;
+    }
+
     // Named imports from relative paths: import { Badge } from './Badge'
     const namedMatch = line.match(/import\s+\{([^}]+)\}\s+from\s+['"](\.[^'"]+)['"]/);
     if (namedMatch) {
@@ -247,13 +255,16 @@ function generatePropTable(componentFile) {
   ].join('\n');
 }
 
-// ─── DocExample source extraction ────────────────────────────────────────────
+// ─── Story render extraction ──────────────────────────────────────────────────
 
 /**
- * Parses an .examples.tsx file and extracts the JSX return value of the named
- * exported function component, returned as a dedented string.
+ * Parses a stories file and extracts the JSX return value from the `render`
+ * function of the named story export.
+ *
+ * Handles CSF stories written as:
+ *   export const MyStory: Story = { render: () => <JSX /> }
  */
-function extractExampleSource(filePath, functionName) {
+function extractStoryRender(filePath, storyName) {
   let source;
   try {
     source = fs.readFileSync(filePath, 'utf-8');
@@ -270,23 +281,17 @@ function extractExampleSource(filePath, functionName) {
   );
 
   for (const stmt of sf.statements) {
-    const jsx = _stmtJsx(stmt, functionName, source, sf);
-    if (jsx) return jsx;
-  }
-
-  return null;
-}
-
-function _stmtJsx(node, name, source, sf) {
-  if (typescript.isFunctionDeclaration(node) && node.name?.text === name && _isExported(node)) {
-    return _blockJsx(node.body, source, sf);
-  }
-  if (typescript.isVariableStatement(node) && _isExported(node)) {
-    for (const decl of node.declarationList.declarations) {
-      if (!typescript.isIdentifier(decl.name) || decl.name.text !== name || !decl.initializer) continue;
-      const init = decl.initializer;
-      if (typescript.isArrowFunction(init) || typescript.isFunctionExpression(init)) {
-        return _fnJsx(init, source, sf);
+    if (!typescript.isVariableStatement(stmt) || !_isExported(stmt)) continue;
+    for (const decl of stmt.declarationList.declarations) {
+      if (!typescript.isIdentifier(decl.name) || decl.name.text !== storyName) continue;
+      if (!decl.initializer || !typescript.isObjectLiteralExpression(decl.initializer)) continue;
+      for (const prop of decl.initializer.properties) {
+        if (!typescript.isPropertyAssignment(prop)) continue;
+        if (!typescript.isIdentifier(prop.name) || prop.name.text !== 'render') continue;
+        const fn = prop.initializer;
+        if (typescript.isArrowFunction(fn) || typescript.isFunctionExpression(fn)) {
+          return _fnJsx(fn, source, sf);
+        }
       }
     }
   }
@@ -319,8 +324,20 @@ function _jsxText(node, source, sf) {
   ) {
     return null;
   }
-  const raw = source.slice(inner.getStart(sf), inner.getEnd());
-  return _dedent(raw);
+  const start = inner.getStart(sf);
+  // getStart() skips leading trivia, so line 0 of the raw slice already starts
+  // at column 0. Subsequent lines still carry their absolute file indentation
+  // and need the same number of spaces stripped.
+  let lineStart = start;
+  while (lineStart > 0 && source[lineStart - 1] !== '\n') lineStart--;
+  const indent = start - lineStart;
+
+  const raw = source.slice(start, inner.getEnd());
+  if (indent === 0) return raw;
+  return raw
+    .split('\n')
+    .map((l, i) => (i === 0 ? l : l.slice(indent)))
+    .join('\n');
 }
 
 function _isExported(node) {
@@ -328,16 +345,6 @@ function _isExported(node) {
     typescript.canHaveModifiers(node) &&
     typescript.getModifiers(node)?.some(m => m.kind === typescript.SyntaxKind.ExportKeyword)
   );
-}
-
-function _dedent(str) {
-  const lines = str.split('\n');
-  const minIndent = Math.min(
-    ...lines
-      .filter(l => l.trim().length > 0)
-      .map(l => (l.match(/^(\s*)/) ?? ['', ''])[1].length)
-  );
-  return lines.map(l => l.slice(minIndent)).join('\n');
 }
 
 // ─── MDX line-by-line transformation ─────────────────────────────────────────
@@ -348,8 +355,9 @@ const BLOCK_DROP_RE = /^\s*<(Meta|Canvas|Controls)\b[^>]*\/?>\s*$/;
 // Matches a full line that is an <ArgTypes> element; captures the attribute string
 const ARG_TYPES_RE = /^\s*<ArgTypes\b([^>]*)\/?>\s*$/;
 
-// Matches a full line that is a <DocExample of={X} /> element; captures the attribute string
-const DOC_EXAMPLE_RE = /^\s*<DocExample\b([^>]*)\/?>\s*$/;
+// Matches a Canvas block with a story reference: <Canvas of={Stories.X} ... />
+// Captures the namespace (group 1) and story name (group 2).
+const CANVAS_STORY_RE = /^\s*<Canvas\b[^>]*\bof=\{(\w+)\.(\w+)\}[^>]*\/?>\s*$/;
 
 // Matches inline <StorybookLink ...>text</StorybookLink> — global, may appear multiple times per line
 const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
@@ -378,7 +386,20 @@ function transformContent(content, importMap, exprMap) {
     // Drop import declarations
     if (IMPORT_RE.test(line)) continue;
 
-    // Drop block JSX: Meta, Canvas, Controls
+    // Canvas with a story reference: try to extract the story's render JSX.
+    // Must come before BLOCK_DROP_RE, which would otherwise swallow all Canvas lines.
+    const canvasMatch = line.match(CANVAS_STORY_RE);
+    if (canvasMatch) {
+      const [, ns, storyName] = canvasMatch;
+      const filePath = importMap.get(ns);
+      if (filePath) {
+        const jsx = extractStoryRender(filePath, storyName);
+        if (jsx) output.push('', '```tsx', jsx, '```', '');
+      }
+      continue; // always consume the Canvas line (drop if no render found)
+    }
+
+    // Drop remaining block JSX: Meta, Canvas (no story ref), Controls
     if (BLOCK_DROP_RE.test(line)) continue;
 
     // Replace ArgTypes with generated prop table
@@ -392,24 +413,6 @@ function transformContent(content, importMap, exprMap) {
           const table = generatePropTable(filePath);
           if (table) {
             output.push(table);
-            continue;
-          }
-        }
-      }
-      continue;
-    }
-
-    // Replace DocExample with an extracted tsx code block
-    const docExMatch = line.match(DOC_EXAMPLE_RE);
-    if (docExMatch) {
-      const ofMatch = docExMatch[1].match(/\bof=\{([^}]+)\}/);
-      if (ofMatch) {
-        const componentName = ofMatch[1].trim();
-        const filePath = importMap.get(componentName);
-        if (filePath) {
-          const jsx = extractExampleSource(filePath, componentName);
-          if (jsx) {
-            output.push('', '```tsx', jsx, '```', '');
             continue;
           }
         }
@@ -571,9 +574,30 @@ function categorise(mdxAbsPath) {
   return { category, sub };
 }
 
+// ─── Optional Prettier formatting ────────────────────────────────────────────
+
+/**
+ * Tries to format a markdown file using Prettier.
+ * Silently skips if Prettier is not installed or fails for any reason.
+ */
+async function formatWithPrettier(filePath, content) {
+  try {
+    const prettier = await import('prettier');
+    const config = (await prettier.resolveConfig(filePath)) ?? {};
+    return await prettier.format(content, {
+      ...config,
+      parser: 'markdown',
+      // Format embedded code blocks (TSX, etc.) when the language is recognised
+      embeddedLanguageFormatting: 'auto',
+    });
+  } catch {
+    return content;
+  }
+}
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
-function main() {
+async function main() {
   const outputDir = process.argv[2] ?? path.join(PKG_ROOT, 'storybook-static', 'llms');
   const llmsTxtPath = path.join(outputDir, '..', 'llms.txt');
 
@@ -589,7 +613,8 @@ function main() {
     try {
       const { markdown, title, description } = processMdxFile(mdxFile);
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-      fs.writeFileSync(outputPath, markdown + '\n');
+      const content = await formatWithPrettier(outputPath, markdown + '\n');
+      fs.writeFileSync(outputPath, content);
 
       const { category, sub } = categorise(mdxFile);
       entries.push({ outputPath, title, description, category, sub });
@@ -604,7 +629,8 @@ function main() {
   // Write root llms.txt
   const llmsTxtDir = path.dirname(llmsTxtPath);
   fs.mkdirSync(llmsTxtDir, { recursive: true });
-  fs.writeFileSync(llmsTxtPath, generateLlmsTxt(entries, llmsTxtDir));
+  const llmsTxt = await formatWithPrettier(llmsTxtPath, generateLlmsTxt(entries, llmsTxtDir));
+  fs.writeFileSync(llmsTxtPath, llmsTxt);
   console.log(`  ✓ llms.txt`);
 
   console.log(`\n${ok} file${ok !== 1 ? 's' : ''} written, ${fail} error${fail !== 1 ? 's' : ''}`);

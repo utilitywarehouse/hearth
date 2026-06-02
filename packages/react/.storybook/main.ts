@@ -1,9 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
-import { mergeConfig } from 'vite';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { examplesSourcePlugin } from './examples-source-plugin.js';
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -45,6 +43,5 @@ const config: StorybookConfig = {
       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
-  viteFinal: async config => mergeConfig(config, { plugins: [examplesSourcePlugin()] }),
 };
 export default config;

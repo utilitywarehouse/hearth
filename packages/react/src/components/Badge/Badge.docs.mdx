@@ -1,15 +1,7 @@
-import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Badge.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Badge } from './Badge';
-import { DocExample } from '../../docs/storybook-components/DocExample';
-import {
-  VariantsExample,
-  SizesExample,
-  ColorSchemesExample,
-  FlatBaseExample,
-  IconsExample,
-} from './Badge.examples';
 
 <Meta title="Components / Badge" />
 
@@ -19,23 +11,25 @@ A `Badge` is a visual label or indicator used to convey status or highlight cont
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 
+<Canvas of={Stories.Playground} sourceState="hide" />
+
 ## Variants
 
 The variant prop controls the visual appearance of the Badge.
 
-<DocExample of={VariantsExample} />
+<Canvas of={Stories.Variants} sourceState="none" />
 
 ## Sizes
 
 The size prop controls the size of the Badge. This prop is responsive.
 
-<DocExample of={SizesExample} />
+<Canvas of={Stories.Sizes} sourceState="none" />
 
 ## Color schemes
 
 The `colorScheme` prop will change the Badge colours.
 
-<DocExample of={ColorSchemesExample} />
+<Canvas of={Stories.ColorSchemes} sourceState="none" />
 
 ## Dead prop combinations
 
@@ -46,7 +40,7 @@ Be aware there are some combinations of `colorScheme` & `variant` that do not wo
 
 The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-left-radius`, for use when the badge is positioned on top of another element.
 
-<DocExample of={FlatBaseExample} />
+<Canvas of={Stories.FlatBase} sourceState="none" />
 
 ## Icons
 
@@ -54,7 +48,7 @@ You can enhance the your badge's meaning by adding a small icon to the
 left. This icon is not an interactive icon button; its purpose is to reinforce
 the meaning of the text.
 
-<DocExample of={IconsExample} />
+<Canvas of={Stories.Icons} sourceState="none" />
 
 ## API
 
