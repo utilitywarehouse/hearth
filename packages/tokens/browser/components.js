@@ -26,7 +26,6 @@ export const components = {
     borderRadius: 'var(--h-alert-border-radius)',
     borderWidth: 'var(--h-alert-border-width)',
     contentGap: 'var(--h-alert-content-gap)',
-    focus: 'var(--h-alert-focus)',
     gap: 'var(--h-alert-gap)',
     iconButton: {
       unstyled: {
@@ -154,6 +153,9 @@ export const components = {
       borderWidth: 'var(--h-card-selectable-border-width)',
       borderWidthSelected: 'var(--h-card-selectable-border-width-selected)',
       gap: 'var(--h-card-selectable-gap)',
+      label: {
+        gap: 'var(--h-card-selectable-label-gap)',
+      },
     },
     padding: {
       desktop: 'var(--h-card-padding-desktop)',
@@ -164,6 +166,15 @@ export const components = {
       desktop: 'var(--h-card-padding-none-desktop)',
       mobile: 'var(--h-card-padding-none-mobile)',
       tablet: 'var(--h-card-padding-none-tablet)',
+    },
+  },
+  cardAccordion: {
+    buttonGroup: {
+      gap: 'var(--h-card-accordion-button-group-gap)',
+    },
+    gap: 'var(--h-card-accordion-gap)',
+    item: {
+      gap: 'var(--h-card-accordion-item-gap)',
     },
   },
   cardAction: {
@@ -469,6 +480,9 @@ export const components = {
       },
     },
     gap: 'var(--h-list-gap)',
+    indicator: {
+      padding: 'var(--h-list-indicator-padding)',
+    },
     item: {
       contentGap: 'var(--h-list-item-content-gap)',
       functional: {
@@ -540,12 +554,54 @@ export const components = {
     borderBottom: 'var(--h-navigation-border-bottom)',
     borderRadius: 'var(--h-navigation-border-radius)',
     desktop: {
+      customer: {
+        gap: 'var(--h-navigation-desktop-customer-gap)',
+      },
       height: 'var(--h-navigation-desktop-height)',
+      partner: {
+        gap: 'var(--h-navigation-desktop-partner-gap)',
+        header: {
+          gap: 'var(--h-navigation-desktop-partner-header-gap)',
+        },
+        padding: 'var(--h-navigation-desktop-partner-padding)',
+      },
     },
     dividerBorderColor: 'var(--h-navigation-divider-border-color)',
-    gap: 'var(--h-navigation-gap)',
+    item: {
+      customer: {
+        container: {
+          gap: 'var(--h-navigation-item-customer-container-gap)',
+          paddingHorizontal: 'var(--h-navigation-item-customer-container-padding-horizontal)',
+          paddingVertical: 'var(--h-navigation-item-customer-container-padding-vertical)',
+        },
+        mobile: {
+          container: {
+            paddingHorizontal:
+              'var(--h-navigation-item-customer-mobile-container-padding-horizontal)',
+            paddingVertical: 'var(--h-navigation-item-customer-mobile-container-padding-vertical)',
+          },
+          paddingHorizontal: 'var(--h-navigation-item-customer-mobile-padding-horizontal)',
+          paddingVertical: 'var(--h-navigation-item-customer-mobile-padding-vertical)',
+        },
+        paddingHorizontal: 'var(--h-navigation-item-customer-padding-horizontal)',
+        paddingVertical: 'var(--h-navigation-item-customer-padding-vertical)',
+      },
+      partner: {
+        container: {
+          gap: 'var(--h-navigation-item-partner-container-gap)',
+          padding: 'var(--h-navigation-item-partner-container-padding)',
+        },
+        paddingHorizontal: 'var(--h-navigation-item-partner-padding-horizontal)',
+        sub: {
+          paddingLeft: 'var(--h-navigation-item-partner-sub-padding-left)',
+          paddingRight: 'var(--h-navigation-item-partner-sub-padding-right)',
+        },
+      },
+    },
     mobile: {
+      gap: 'var(--h-navigation-mobile-gap)',
       height: 'var(--h-navigation-mobile-height)',
+      padding: 'var(--h-navigation-mobile-padding)',
     },
   },
   overlay: {
@@ -555,6 +611,7 @@ export const components = {
   pagination: {
     gap: 'var(--h-pagination-gap)',
     item: {
+      gap: 'var(--h-pagination-item-gap)',
       height: 'var(--h-pagination-item-height)',
       radius: 'var(--h-pagination-item-radius)',
       width: 'var(--h-pagination-item-width)',
@@ -821,7 +878,6 @@ export const components = {
   tabs: {
     divider: {
       borderWidth: 'var(--h-tabs-divider-border-width)',
-      color: 'var(--h-tabs-divider-color)',
     },
     gap: 'var(--h-tabs-gap)',
     item: {

@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  borderTopWidth: 2,
+  borderTop: 2,
   gap: 0,
   indicator: {
     borderRadius: 4,

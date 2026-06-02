@@ -12,7 +12,7 @@ declare const _default: {
   };
   readonly gap: 8;
   readonly group: {
-    readonly gap: 16;
+    readonly gap: 12;
     readonly stack: {
       readonly gap: 20;
     };

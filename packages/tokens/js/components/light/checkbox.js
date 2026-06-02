@@ -12,7 +12,7 @@ export default {
   },
   gap: 8,
   group: {
-    gap: 16,
+    gap: 12,
     stack: {
       gap: 20,
     },

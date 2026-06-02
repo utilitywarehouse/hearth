@@ -2,9 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly borderWidth: 1;
-  readonly divider: {
-    readonly borderWidth: 2;
+  readonly buttonGroup: {
+    readonly gap: 12;
+  };
+  readonly gap: 24;
+  readonly item: {
+    readonly gap: 20;
   };
 };
 export default _default;

@@ -26,7 +26,6 @@ export declare const components: {
     readonly borderRadius: 'var(--h-alert-border-radius)';
     readonly borderWidth: 'var(--h-alert-border-width)';
     readonly contentGap: 'var(--h-alert-content-gap)';
-    readonly focus: 'var(--h-alert-focus)';
     readonly gap: 'var(--h-alert-gap)';
     readonly iconButton: {
       readonly unstyled: {
@@ -154,6 +153,9 @@ export declare const components: {
       readonly borderWidth: 'var(--h-card-selectable-border-width)';
       readonly borderWidthSelected: 'var(--h-card-selectable-border-width-selected)';
       readonly gap: 'var(--h-card-selectable-gap)';
+      readonly label: {
+        readonly gap: 'var(--h-card-selectable-label-gap)';
+      };
     };
     readonly padding: {
       readonly desktop: 'var(--h-card-padding-desktop)';
@@ -164,6 +166,15 @@ export declare const components: {
       readonly desktop: 'var(--h-card-padding-none-desktop)';
       readonly mobile: 'var(--h-card-padding-none-mobile)';
       readonly tablet: 'var(--h-card-padding-none-tablet)';
+    };
+  };
+  readonly cardAccordion: {
+    readonly buttonGroup: {
+      readonly gap: 'var(--h-card-accordion-button-group-gap)';
+    };
+    readonly gap: 'var(--h-card-accordion-gap)';
+    readonly item: {
+      readonly gap: 'var(--h-card-accordion-item-gap)';
     };
   };
   readonly cardAction: {
@@ -468,6 +479,9 @@ export declare const components: {
       };
     };
     readonly gap: 'var(--h-list-gap)';
+    readonly indicator: {
+      readonly padding: 'var(--h-list-indicator-padding)';
+    };
     readonly item: {
       readonly contentGap: 'var(--h-list-item-content-gap)';
       readonly functional: {
@@ -539,12 +553,53 @@ export declare const components: {
     readonly borderBottom: 'var(--h-navigation-border-bottom)';
     readonly borderRadius: 'var(--h-navigation-border-radius)';
     readonly desktop: {
+      readonly customer: {
+        readonly gap: 'var(--h-navigation-desktop-customer-gap)';
+      };
       readonly height: 'var(--h-navigation-desktop-height)';
+      readonly partner: {
+        readonly gap: 'var(--h-navigation-desktop-partner-gap)';
+        readonly header: {
+          readonly gap: 'var(--h-navigation-desktop-partner-header-gap)';
+        };
+        readonly padding: 'var(--h-navigation-desktop-partner-padding)';
+      };
     };
     readonly dividerBorderColor: 'var(--h-navigation-divider-border-color)';
-    readonly gap: 'var(--h-navigation-gap)';
+    readonly item: {
+      readonly customer: {
+        readonly container: {
+          readonly gap: 'var(--h-navigation-item-customer-container-gap)';
+          readonly paddingHorizontal: 'var(--h-navigation-item-customer-container-padding-horizontal)';
+          readonly paddingVertical: 'var(--h-navigation-item-customer-container-padding-vertical)';
+        };
+        readonly mobile: {
+          readonly container: {
+            readonly paddingHorizontal: 'var(--h-navigation-item-customer-mobile-container-padding-horizontal)';
+            readonly paddingVertical: 'var(--h-navigation-item-customer-mobile-container-padding-vertical)';
+          };
+          readonly paddingHorizontal: 'var(--h-navigation-item-customer-mobile-padding-horizontal)';
+          readonly paddingVertical: 'var(--h-navigation-item-customer-mobile-padding-vertical)';
+        };
+        readonly paddingHorizontal: 'var(--h-navigation-item-customer-padding-horizontal)';
+        readonly paddingVertical: 'var(--h-navigation-item-customer-padding-vertical)';
+      };
+      readonly partner: {
+        readonly container: {
+          readonly gap: 'var(--h-navigation-item-partner-container-gap)';
+          readonly padding: 'var(--h-navigation-item-partner-container-padding)';
+        };
+        readonly paddingHorizontal: 'var(--h-navigation-item-partner-padding-horizontal)';
+        readonly sub: {
+          readonly paddingLeft: 'var(--h-navigation-item-partner-sub-padding-left)';
+          readonly paddingRight: 'var(--h-navigation-item-partner-sub-padding-right)';
+        };
+      };
+    };
     readonly mobile: {
+      readonly gap: 'var(--h-navigation-mobile-gap)';
       readonly height: 'var(--h-navigation-mobile-height)';
+      readonly padding: 'var(--h-navigation-mobile-padding)';
     };
   };
   readonly overlay: {
@@ -554,6 +609,7 @@ export declare const components: {
   readonly pagination: {
     readonly gap: 'var(--h-pagination-gap)';
     readonly item: {
+      readonly gap: 'var(--h-pagination-item-gap)';
       readonly height: 'var(--h-pagination-item-height)';
       readonly radius: 'var(--h-pagination-item-radius)';
       readonly width: 'var(--h-pagination-item-width)';
@@ -820,7 +876,6 @@ export declare const components: {
   readonly tabs: {
     readonly divider: {
       readonly borderWidth: 'var(--h-tabs-divider-border-width)';
-      readonly color: 'var(--h-tabs-divider-color)';
     };
     readonly gap: 'var(--h-tabs-gap)';
     readonly item: {

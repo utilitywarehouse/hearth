@@ -170,7 +170,7 @@ export const purple = {
   1000: '#26164f',
 };
 export const red = {
-  0: '#fffaf9',
+  0: '#fff6f5',
   50: '#fff3f1',
   100: '#ffe3df',
   200: '#ffccc5',

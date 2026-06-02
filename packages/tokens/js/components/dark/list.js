@@ -23,6 +23,9 @@ export default {
     },
   },
   gap: 12,
+  indicator: {
+    padding: 8,
+  },
   item: {
     contentGap: 2,
     functional: {

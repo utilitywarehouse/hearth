@@ -5,7 +5,6 @@
 export default {
   divider: {
     borderWidth: 2,
-    color: '#ebebeb',
   },
   gap: 12,
   item: {

@@ -170,7 +170,7 @@ export declare const purple: {
   readonly '1000': '#26164f';
 };
 export declare const red: {
-  readonly '0': '#fffaf9';
+  readonly '0': '#fff6f5';
   readonly '50': '#fff3f1';
   readonly '100': '#ffe3df';
   readonly '200': '#ffccc5';
@@ -881,7 +881,7 @@ declare const color: {
     readonly '1000': '#26164f';
   };
   readonly red: {
-    readonly '0': '#fffaf9';
+    readonly '0': '#fff6f5';
     readonly '50': '#fff3f1';
     readonly '100': '#ffe3df';
     readonly '200': '#ffccc5';

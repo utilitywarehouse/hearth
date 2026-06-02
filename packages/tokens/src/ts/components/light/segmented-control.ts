@@ -10,7 +10,7 @@ export default {
     borderWidth: 1,
     gap: 4,
     height: 48,
-    padding: 4,
+    padding: 2,
   },
   height: 40,
   minWidth: 66,
