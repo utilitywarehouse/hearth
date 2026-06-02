@@ -383,6 +383,156 @@ function _isExported(node) {
   );
 }
 
+// ─── Story args-based fallback ────────────────────────────────────────────────
+
+/**
+ * Fallback for stories that have no `render` function.
+ * Reads the meta's `export default` to find the component name and default args,
+ * merges in the story's own args, and emits a JSX usage snippet.
+ *
+ * e.g.  meta.args = { children: 'Hello', disabled: false }
+ *       → <ComponentName>Hello</ComponentName>
+ */
+function extractStoryFromArgs(filePath, storyName) {
+  let source;
+  try {
+    source = fs.readFileSync(filePath, 'utf-8');
+  } catch {
+    return null;
+  }
+
+  const sf = typescript.createSourceFile(
+    path.basename(filePath),
+    source,
+    typescript.ScriptTarget.Latest,
+    true,
+    typescript.ScriptKind.TSX
+  );
+
+  // ── 1. Find the meta object via `export default` ──
+  let componentName = null;
+  let metaArgNodes = {};
+
+  for (const stmt of sf.statements) {
+    if (!typescript.isExportAssignment(stmt) || stmt.isExportEquals) continue;
+    // Resolve `export default metaVar` or `export default { ... }`
+    let obj = stmt.expression;
+    if (typescript.isIdentifier(obj)) obj = _findDeclValue(sf, obj.text) ?? obj;
+    // Unwrap `satisfies` expression: { ... } satisfies Meta<...>
+    if (obj && typescript.isSatisfiesExpression?.(obj)) obj = obj.expression;
+    if (obj && typescript.isObjectLiteralExpression(obj)) {
+      componentName = _objProp(obj, 'component', n =>
+        typescript.isIdentifier(n) ? n.text : null
+      );
+      metaArgNodes = _objArgNodes(obj, source, sf);
+    }
+    break;
+  }
+
+  if (!componentName) return null;
+
+  // ── 2. Find the story's own args ──
+  let storyArgNodes = {};
+  for (const stmt of sf.statements) {
+    if (!typescript.isVariableStatement(stmt) || !_isExported(stmt)) continue;
+    for (const decl of stmt.declarationList.declarations) {
+      if (!typescript.isIdentifier(decl.name) || decl.name.text !== storyName) continue;
+      if (decl.initializer && typescript.isObjectLiteralExpression(decl.initializer)) {
+        storyArgNodes = _objArgNodes(decl.initializer, source, sf);
+      }
+    }
+  }
+
+  // ── 3. Merge and emit JSX ──
+  const args = { ...metaArgNodes, ...storyArgNodes };
+  if (Object.keys(args).length === 0) return null;
+  return _argsToJsx(componentName, args, source, sf);
+}
+
+/** Resolve a named variable declaration's initializer within the source file. */
+function _findDeclValue(sf, name) {
+  for (const stmt of sf.statements) {
+    if (!typescript.isVariableStatement(stmt)) continue;
+    for (const decl of stmt.declarationList.declarations) {
+      if (typescript.isIdentifier(decl.name) && decl.name.text === name) {
+        return decl.initializer ?? null;
+      }
+    }
+  }
+  return null;
+}
+
+/** Extract the value of a named property from an ObjectLiteralExpression via a mapper. */
+function _objProp(obj, propName, mapper) {
+  for (const prop of obj.properties) {
+    if (!typescript.isPropertyAssignment(prop)) continue;
+    if (!typescript.isIdentifier(prop.name) || prop.name.text !== propName) continue;
+    return mapper(prop.initializer);
+  }
+  return null;
+}
+
+/** Extract the `args` property of an ObjectLiteralExpression as a map of name → AST node. */
+function _objArgNodes(obj, source, sf) {
+  const result = {};
+  for (const prop of obj.properties) {
+    if (!typescript.isPropertyAssignment(prop)) continue;
+    if (!typescript.isIdentifier(prop.name) || prop.name.text !== 'args') continue;
+    if (!typescript.isObjectLiteralExpression(prop.initializer)) continue;
+    for (const argProp of prop.initializer.properties) {
+      if (!typescript.isPropertyAssignment(argProp)) continue;
+      const key = typescript.isIdentifier(argProp.name) ? argProp.name.text : null;
+      if (key) result[key] = argProp.initializer;
+    }
+  }
+  return result;
+}
+
+/**
+ * Converts a component name + merged args map into a JSX usage snippet.
+ *
+ * Rules:
+ *   - `false` boolean args are omitted (implicit default)
+ *   - `true` boolean args are emitted as a bare prop name
+ *   - string args → prop="value" (or JSX children if key is `children`)
+ *   - numbers → prop={n}
+ *   - null / undefined identifiers → omitted
+ *   - everything else → prop={raw source text}
+ */
+function _argsToJsx(componentName, args, source, sf) {
+  const { SyntaxKind } = typescript;
+  const childrenNode = args.children;
+  const attrs = [];
+
+  for (const [key, node] of Object.entries(args)) {
+    if (key === 'children') continue;
+    if (node.kind === SyntaxKind.FalseKeyword) continue;
+    if (node.kind === SyntaxKind.NullKeyword) continue;
+    if (typescript.isIdentifier(node) && node.text === 'undefined') continue;
+
+    if (node.kind === SyntaxKind.TrueKeyword) {
+      attrs.push(key);
+    } else if (typescript.isStringLiteral(node)) {
+      attrs.push(`${key}="${node.text}"`);
+    } else if (typescript.isNumericLiteral(node)) {
+      attrs.push(`${key}={${node.text}}`);
+    } else {
+      attrs.push(`${key}={${source.slice(node.getStart(sf), node.getEnd())}}`);
+    }
+  }
+
+  const attrsStr = attrs.length > 0 ? ' ' + attrs.join(' ') : '';
+
+  if (childrenNode) {
+    const childrenStr = typescript.isStringLiteral(childrenNode)
+      ? childrenNode.text
+      : source.slice(childrenNode.getStart(sf), childrenNode.getEnd());
+    return `<${componentName}${attrsStr}>${childrenStr}</${componentName}>`;
+  }
+
+  return `<${componentName}${attrsStr} />`;
+}
+
 // ─── MDX line-by-line transformation ─────────────────────────────────────────
 
 // Matches a line that opens a Storybook block element to drop.
@@ -432,10 +582,11 @@ function transformContent(content, importMap, exprMap) {
       const [, ns, storyName] = canvasMatch;
       const filePath = importMap.get(ns);
       if (filePath) {
-        const jsx = extractStoryRender(filePath, storyName);
+        const jsx = extractStoryRender(filePath, storyName)
+                 ?? extractStoryFromArgs(filePath, storyName);
         if (jsx) output.push('', '```tsx', jsx, '```', '');
       }
-      continue; // always consume the Canvas line (drop if no render found)
+      continue; // always consume the Canvas line
     }
 
     // Drop remaining block JSX: Meta, Canvas (no story ref), Controls
