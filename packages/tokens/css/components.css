@@ -442,7 +442,7 @@
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800)px;
   --h-tabs-md-height: var(--h-space-700)px;
-  --h-time-picker-fade: #ffffff00;
+  --h-time-picker-fade: #fff0;
   --h-time-picker-gap: var(--h-space-75);
   --h-time-picker-gap-container: var(--h-space-50);
   --h-time-picker-min-width: 288px;
