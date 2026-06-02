@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Badge.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Badge } from './Badge';
@@ -9,27 +9,31 @@ import { Badge } from './Badge';
 
 A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.
 
-<Canvas of={Stories.KitchenSink} sourceState="none" />
+<Canvas of={Stories.KitchenSink} sourceState="hide" />
 
-<Canvas of={Stories.Playground} sourceState="hide" />
+<Canvas of={Stories.Playground} sourceState="show" />
 
 ## Variants
 
 The variant prop controls the visual appearance of the Badge.
 
 <Canvas of={Stories.Variants} sourceState="none" />
+<Source
+  of={Stories.Variants}
+  transform={source => source.replace('{\n  render: () => ', '').replace('\n}', '')}
+/>
 
 ## Sizes
 
 The size prop controls the size of the Badge. This prop is responsive.
 
-<Canvas of={Stories.Sizes} sourceState="none" />
+<Canvas of={Stories.Sizes} sourceState="show" />
 
 ## Color schemes
 
 The `colorScheme` prop will change the Badge colours.
 
-<Canvas of={Stories.ColorSchemes} sourceState="none" />
+<Canvas of={Stories.ColorSchemes} sourceState="show" />
 
 ## Dead prop combinations
 
@@ -40,7 +44,7 @@ Be aware there are some combinations of `colorScheme` & `variant` that do not wo
 
 The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-left-radius`, for use when the badge is positioned on top of another element.
 
-<Canvas of={Stories.FlatBase} sourceState="none" />
+<Canvas of={Stories.FlatBase} sourceState="show" />
 
 ## Icons
 
@@ -48,7 +52,7 @@ You can enhance the your badge's meaning by adding a small icon to the
 left. This icon is not an interactive icon button; its purpose is to reinforce
 the meaning of the text.
 
-<Canvas of={Stories.Icons} sourceState="none" />
+<Canvas of={Stories.Icons} sourceState="show" />
 
 ## API
 

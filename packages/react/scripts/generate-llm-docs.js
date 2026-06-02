@@ -84,6 +84,42 @@ function deriveOutputPath(mdxAbsPath, outputDir) {
  *   importMap  — component name → resolved absolute file path
  *   exprMap    — identifier name → resolved string value (for JSON imports like {version})
  */
+
+// Known Storybook block elements that may span multiple lines in MDX.
+const STORYBLOCK_TAG_RE = /^\s*<(Meta|Canvas|Controls|Source|ArgTypes)\b/;
+
+/**
+ * Collapses multi-line Storybook block JSX elements into single lines so they
+ * can be matched by simple single-line regexes later.
+ *
+ * e.g. <Source\n  of={...}\n  transform={...}\n/> → one long line
+ *
+ * Closing is detected by a line whose trimmed value is exactly '/>'.
+ */
+function normaliseJsxBlocks(content) {
+  const lines = content.split('\n');
+  const out = [];
+  let acc = null;
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (acc !== null) {
+      acc += ' ' + trimmed;
+      if (trimmed === '/>') {
+        out.push(acc);
+        acc = null;
+      }
+    } else if (STORYBLOCK_TAG_RE.test(line) && !trimmed.endsWith('/>')) {
+      acc = line; // start of a multi-line block element
+    } else {
+      out.push(line);
+    }
+  }
+
+  if (acc !== null) out.push(acc);
+  return out.join('\n');
+}
+
 /**
  * Joins multi-line import statements into single lines so they can be matched
  * by simple single-line regexes.
@@ -349,8 +385,11 @@ function _isExported(node) {
 
 // ─── MDX line-by-line transformation ─────────────────────────────────────────
 
-// Matches a full line that is purely a self-closing block JSX element to drop
-const BLOCK_DROP_RE = /^\s*<(Meta|Canvas|Controls)\b[^>]*\/?>\s*$/;
+// Matches a line that opens a Storybook block element to drop.
+// Uses a start-anchor only — no '[^>]*' end match — because attribute values
+// may contain '>' (e.g. arrow functions in <Source transform={s => s} />).
+// Multi-line elements are already collapsed to one line by normaliseJsxBlocks().
+const BLOCK_DROP_RE = /^\s*<(Meta|Canvas|Controls|Source)\b/;
 
 // Matches a full line that is an <ArgTypes> element; captures the attribute string
 const ARG_TYPES_RE = /^\s*<ArgTypes\b([^>]*)\/?>\s*$/;
@@ -366,7 +405,7 @@ const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 const IMPORT_RE = /^import\s+/;
 
 function transformContent(content, importMap, exprMap) {
-  const lines = normaliseImports(content).split('\n');
+  const lines = normaliseJsxBlocks(normaliseImports(content)).split('\n');
   const output = [];
   let inCodeFence = false;
 
