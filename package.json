@@ -44,8 +44,7 @@
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
-    "generate:tokens:react": "pnpm run build:tokens && pnpm run copy-tokens:react && turbo run @utilitywarehouse/hearth-react#copy-tokens-index",
-    "copy:tokens:react": "turbo run copy:tokens:index --filter=@utilitywarehouse/hearth-react"
+    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens"
   },
   "workspaces": [
     "packages/*",

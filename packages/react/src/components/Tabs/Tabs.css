@@ -4,7 +4,7 @@
   & :where(.h-TabsList) {
     position: relative;
     width: 100%;
-    border-bottom: var(--h-tabs-divider-border-width) solid var(--h-tabs-divider-color);
+    border-bottom: var(--h-tabs-divider-border-width) solid var(--h-border-strong);
     overflow: hidden;
   }
 
