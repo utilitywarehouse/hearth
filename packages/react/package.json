@@ -45,7 +45,8 @@
     "format": "prettier --write \"src/**/*.{ts*,mdx}\"",
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx}\"",
     "figma:publish": "figma connect publish",
-    "build:storybook": "storybook build",
+    "build:storybook": "storybook build && pnpm generate:llm-docs",
+    "generate:llm-docs": "node scripts/generate-llm-docs.js",
     "copy:changelog": "node ./scripts/copy-changelog.js",
     "test:storybook": "vitest run --project=storybook"
   },
@@ -103,6 +104,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.70.0",
+    "react-docgen-typescript": "^2.2.2",
     "remark-gfm": "^4.0.1",
     "seedrandom": "^3.0.5",
     "storybook": "^10.3.6",
