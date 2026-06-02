@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.28.7
+
+### Patch Changes
+
+- [#1259](https://github.com/utilitywarehouse/hearth/pull/1259) [`782d1e6`](https://github.com/utilitywarehouse/hearth/commit/782d1e6bac63b706aafc537d88433d3f0cd468d4) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Update tokens
+
 ## 0.28.6
 
 ### Patch Changes
