@@ -20,6 +20,7 @@
     "build:css": "postcss css/index.css --dir .",
     "build:js": "tsc --project ./tsconfig.json",
     "build:browser": "tsc --project ./tsconfig.browser.json",
+    "build": "pnpm clean:build && pnpm generate:tokens && turbo run build:css build:js build:browser && pnpm format",
     "generate:tokens": "node ./scripts/generate-tokens.js",
     "generate": "pnpm clean:build && pnpm generate:tokens && turbo run build:css build:js build:browser && pnpm run lint:fix",
     "clean": "rm -rf node_modules .turbo",
