@@ -9,7 +9,7 @@ declare const _default: {
     readonly borderWidth: 1;
     readonly gap: 4;
     readonly height: 48;
-    readonly padding: 4;
+    readonly padding: 2;
   };
   readonly height: 40;
   readonly minWidth: 66;

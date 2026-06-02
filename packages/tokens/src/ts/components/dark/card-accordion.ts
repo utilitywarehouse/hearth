@@ -1,12 +1,13 @@
 /**
  * Do not edit directly, this file was auto-generated.
  */
+
 export default {
-  gap: 8,
-  item: {
-    gap: 2,
-    height: 40,
-    radius: 8,
-    width: 40,
+  buttonGroup: {
+    gap: 12,
   },
-};
+  gap: 24,
+  item: {
+    gap: 20,
+  },
+} as const;

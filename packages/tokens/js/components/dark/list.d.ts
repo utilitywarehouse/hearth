@@ -23,6 +23,9 @@ declare const _default: {
     };
   };
   readonly gap: 12;
+  readonly indicator: {
+    readonly padding: 8;
+  };
   readonly item: {
     readonly contentGap: 2;
     readonly functional: {

@@ -18,6 +18,9 @@ declare const _default: {
     readonly borderWidth: 1;
     readonly borderWidthSelected: 2;
     readonly gap: 16;
+    readonly label: {
+      readonly gap: 12;
+    };
   };
   readonly mobile: {
     readonly padding: 16;

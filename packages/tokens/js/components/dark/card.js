@@ -18,6 +18,9 @@ export default {
     borderWidth: 1,
     borderWidthSelected: 2,
     gap: 16,
+    label: {
+      gap: 12,
+    },
   },
   mobile: {
     padding: 16,

@@ -5,6 +5,5 @@ export default {
   borderWidth: 1,
   divider: {
     borderWidth: 2,
-    color: '#ebebeb',
   },
 };

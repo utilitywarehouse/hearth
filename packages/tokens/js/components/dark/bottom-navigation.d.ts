@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly borderTopWidth: 2;
+  readonly borderTop: 2;
   readonly gap: 0;
   readonly indicator: {
     readonly borderRadius: 4;

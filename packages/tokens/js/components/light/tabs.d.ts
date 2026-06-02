@@ -4,7 +4,6 @@
 declare const _default: {
   readonly divider: {
     readonly borderWidth: 2;
-    readonly color: '#101010';
   };
   readonly gap: 12;
   readonly item: {
