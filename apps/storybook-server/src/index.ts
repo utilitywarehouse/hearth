@@ -10,7 +10,7 @@ const DEBUG_FALLBACK = process.env.DEBUG_FALLBACK === 'true';
 
 // Detect requests that are almost certainly for static assets (should NOT hit SPA fallback)
 const ASSET_EXT_REGEX =
-  /\.(?:js|mjs|cjs|css|map|json|txt|woff2?|ttf|eot|otf|svg|png|jpe?g|gif|webp)$/i;
+  /\.(?:js|mjs|cjs|css|map|json|txt|md|woff2?|ttf|eot|otf|svg|png|jpe?g|gif|webp)$/i;
 
 const projectRoot = path.resolve(__dirname, '..', '..', '..');
 const appsDir = path.join(projectRoot, 'apps');
