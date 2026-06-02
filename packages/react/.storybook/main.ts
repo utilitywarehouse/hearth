@@ -29,6 +29,7 @@ const config: StorybookConfig = {
     },
     getAbsolutePath('@storybook/addon-mcp'),
   ],
+  staticDirs: ['../public'],
   framework: getAbsolutePath('@storybook/react-vite'),
   features: {
     changeDetection: true,

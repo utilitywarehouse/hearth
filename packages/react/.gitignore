@@ -2,3 +2,4 @@
 !src/**/*.css
 *storybook.log
 storybook-static
+public/
