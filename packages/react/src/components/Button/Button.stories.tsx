@@ -9,7 +9,6 @@ import {
   TrashSmallIcon,
   UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -442,27 +441,5 @@ export const PaddingNone: Story = {
         </Button>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      AsLink,
-      FullWidth,
-      DeadPropCombinations,
-      WithIcons,
-      Inverted,
-      Loading,
-      PaddingNone,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

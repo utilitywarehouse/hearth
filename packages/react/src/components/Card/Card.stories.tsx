@@ -43,7 +43,6 @@ import {
   CalendarMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../../docs/storybook-components/Placeholder';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;
@@ -1051,31 +1050,4 @@ export const BannerWithIllustration: Story = {
       </Card>
     </Flex>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      Variant,
-      ColorScheme,
-      ShadowColours,
-      InteractiveCards,
-      SingleCardActionLink,
-      SingleCardActionButton,
-      WithOnlyCardActions,
-      WithCardActions,
-      BannerContent,
-      BannerWithIconContainer,
-      BannerWithImage,
-      BannerWithIllustration,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

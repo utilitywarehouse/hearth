@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { BodyText } from './BodyText';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
@@ -159,24 +158,5 @@ export const ParagraphSpacing: Story = {
         ))}
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      Colours,
-      TextTruncate,
-      InvertedText,
-      ParagraphSpacing,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

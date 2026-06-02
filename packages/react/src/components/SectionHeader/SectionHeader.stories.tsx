@@ -5,7 +5,6 @@ import { Flex } from '../Flex/Flex';
 import { Link } from '../Link/Link';
 import { SectionHeader } from './SectionHeader';
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof SectionHeader> = {
   title: 'Components / SectionHeader',
@@ -125,24 +124,5 @@ export const ValidationText: Story = {
   args: {
     validationStatus: 'invalid',
     validationText: 'Validation text',
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      WithBadge,
-      WithButton,
-      CustomLink,
-      ValidationText,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

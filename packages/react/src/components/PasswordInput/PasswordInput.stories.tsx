@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { PasswordInput } from './PasswordInput';
 import { useState, ChangeEvent } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof PasswordInput> = {
   title: 'Components / PasswordInput',
@@ -99,22 +98,5 @@ export const FormUsage: Story = {
         </Flex>
       </Flex>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      DisabledAndReadOnly,
-      Validation,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

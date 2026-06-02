@@ -4,7 +4,6 @@ import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useState, useDeferredValue, useRef, useCallback, useMemo } from 'react';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components / Combobox',
@@ -298,21 +297,5 @@ export const FilterItemsStartsWith: Story = {
         onValueChange={v => setValue(v as string | null)}
       />
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      DefaultOpen,
-      ScrollArea,
-    };
-    return <StoryGallery meta={meta} stories={stories} direction="row" />;
   },
 };

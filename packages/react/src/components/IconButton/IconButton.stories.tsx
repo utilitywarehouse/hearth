@@ -4,7 +4,6 @@ import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { IconButton } from './IconButton';
 import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -367,21 +366,4 @@ export const Inverted: Story = {
       </IconButton>
     </Flex>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      AsLink,
-      Inverted,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

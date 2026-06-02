@@ -8,7 +8,6 @@ import { AccordionContent } from './AccordionContent';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionItem } from './AccordionItem';
 import { AccordionTrigger } from './AccordionTrigger';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components / Accordion',
@@ -196,22 +195,5 @@ export const HeadingElement: Story = {
         </Accordion>
       </Box>
     );
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Playground,
-      CustomItemHeader,
-      DefaultExpanded,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

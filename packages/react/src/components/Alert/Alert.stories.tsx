@@ -6,7 +6,6 @@ import { Strong } from '../Strong/Strong';
 import { Alert } from './Alert';
 import { AlertIconButton } from './AlertIconButton';
 import { AlertLink } from './AlertLink';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
 
@@ -157,22 +156,4 @@ export const StaticAlert: Story = {
       This alert is completely static with no interactive elements.
     </Alert>
   ),
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      KitchenSink,
-      Dismissable,
-      WithAlertLink,
-      WithAlertButton,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
-  },
 };

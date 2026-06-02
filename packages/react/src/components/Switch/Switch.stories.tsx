@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Switch } from './Switch';
-import { StoryGallery } from '../../docs/storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -65,21 +64,5 @@ export const Labelled: Story = {
 export const ResponsiveSize: Story = {
   args: {
     size: { mobile: 'sm', desktop: 'md' },
-  },
-};
-
-export const Gallery: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => {
-    const stories = {
-      Sizes,
-      Disabled,
-    };
-    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
