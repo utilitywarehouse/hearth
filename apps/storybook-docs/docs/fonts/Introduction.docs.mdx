@@ -1,0 +1,50 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { version } from '../../../../packages/fonts/package.json';
+import * as ComicHamsStories from './ComicHams.stories';
+import * as DMSansStories from './DMSans.stories';
+import * as DMMonoStories from './DMMono.stories';
+
+<Meta title="Hearth Fonts / Introduction" />
+
+# Hearth Fonts
+
+v{version}
+
+Font library for UI development at Utility Warehouse.<br/>
+
+All the font and CSS files you need to self-host the Utility Warehouse font families in your
+application.
+
+Get the performance gains of self-hosting the font, with woff2 & woff formats,
+and the added reliability of versioning, without the hassle of managing font
+assets.
+
+_Add the fonts as a dependency, import into your project, and you're ready to go!_ 🚀
+
+## Included Fonts
+
+This package includes the following font families, styles and weights.
+
+| **Font Family** | **Font Weights** | **Font Styles** |
+| --------------- | ---------------- | --------------- |
+| Comic Hams      | 600, 700, 900    | Normal          |
+| DM Sans         | 400, 600, 700    | Normal, Italic  |
+| DM Mono         | 500              | Normal, Italic  |
+
+### Comic Hams
+
+The Utility Warehouse display typeface, used for headings and emphasis.
+
+<Canvas of={ComicHamsStories.KitchenSink} sourceState="none" />
+
+### DM Sans
+
+The Utility Warehouse primary typeface, used for body text.
+
+<Canvas of={DMSansStories.KitchenSink} sourceState="none" />
+
+### DM Mono
+
+The Utility Warehouse secondary typeface, used for detail text.
+
+<Canvas of={DMMonoStories.KitchenSink} sourceState="none" />

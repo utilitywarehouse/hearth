@@ -16,8 +16,9 @@ const isDev = process.env.NODE_ENV === 'development';
 function getAbsolutePath(value: string) {
   return dirname(require.resolve(join(value, 'package.json')));
 }
+
 const config: StorybookConfig = {
-  stories: ['../docs/**/*.docs.mdx'],
+  stories: ['../docs/**/*.docs.mdx', '../docs/**/*.stories.tsx'],
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),
     {
