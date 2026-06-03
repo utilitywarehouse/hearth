@@ -38,7 +38,17 @@ export default defineConfig({
                 // that switching to a rootless image automatically re-enables the
                 // sandbox without any config change. process.getuid is Unix-only,
                 // so the optional call returns undefined (falsy) on Windows.
-                args: process.getuid?.() === 0 ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+                //
+                // --disable-dev-shm-usage redirects Chromium's shared-memory
+                // writes to /tmp instead of /dev/shm. Without it, 63 sequential
+                // story files each leave allocations in /dev/shm that aren't
+                // released until the browser closes; even with --shm-size=2g that
+                // cap can be breached mid-run, causing "Failed to fetch" errors
+                // and iframe CORS failures for random files.
+                args: [
+                  '--disable-dev-shm-usage',
+                  ...(process.getuid?.() === 0 ? ['--no-sandbox', '--disable-setuid-sandbox'] : []),
+                ],
               },
             }),
             instances: [{ browser: 'chromium' }],
