@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.32.5
+
+### Patch Changes
+
+- [#1261](https://github.com/utilitywarehouse/hearth/pull/1261) [`745df73`](https://github.com/utilitywarehouse/hearth/commit/745df73a245dfe89d07aae5bac14256a4ff89e0a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Update dependencies
+
 ## 0.32.4
 
 ### Patch Changes
