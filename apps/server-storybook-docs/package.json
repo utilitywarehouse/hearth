@@ -1,7 +1,7 @@
 {
-  "name": "storybook-server",
+  "name": "server-storybook-docs",
   "version": "1.0.0",
-  "description": "Serves Storybook static builds from the Hearth monorepo",
+  "description": "Serves Storybook static builds for the Hearth docs",
   "main": "dist/index.js",
   "private": "true",
   "scripts": {
