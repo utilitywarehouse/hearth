@@ -6,7 +6,7 @@ import { Flex } from '../Flex/Flex';
 import { Link } from '../Link/Link';
 import { DescriptionList } from './DescriptionList';
 import { DescriptionListItem } from './DescriptionListItem';
-import { fn } from '@storybook/test';
+import { fn } from 'storybook/test';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Components / DescriptionList',
