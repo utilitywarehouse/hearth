@@ -6,7 +6,6 @@ import { Flex } from '../Flex/Flex';
 import { Link } from '../Link/Link';
 import { DescriptionList } from './DescriptionList';
 import { DescriptionListItem } from './DescriptionListItem';
-import { fn } from 'storybook/test';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Components / DescriptionList',
@@ -38,41 +37,22 @@ export const Playground: Story = {
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link
-              href="#"
-              onClick={fn} // <-- Automatically injects a spy that stops execution bugs
-            >
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
           validationText="Validation text"
           validationStatus="invalid"
         />
@@ -89,98 +69,58 @@ export const Directions: Story = {
         {...args}
         heading="Row"
         direction="row"
-        trailingContent={
-          <Link href="#" onClick={fn}>
-            Link
-          </Link>
-        }
+        trailingContent={<Link href="#">Link</Link>}
       >
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
           validationText="This item is invalid"
           validationStatus="invalid"
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
       </DescriptionList>
       <DescriptionList
         {...args}
         heading="Column"
         direction="column"
-        trailingContent={
-          <Link href="#" onClick={fn}>
-            Link
-          </Link>
-        }
+        trailingContent={<Link href="#">Link</Link>}
       >
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
           validationText="This item is invalid"
           validationStatus="invalid"
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
-          link={
-            <Link href="#" onClick={fn}>
-              Link
-            </Link>
-          }
+          link={<Link href="#">Link</Link>}
         />
       </DescriptionList>
     </Flex>
@@ -196,11 +136,7 @@ export const ResponsiveDirection: Story = {
     <Box width="100%" maxWidth="800px">
       <DescriptionList
         {...args}
-        trailingContent={
-          <Link href="#" onClick={fn}>
-            Edit
-          </Link>
-        }
+        trailingContent={<Link href="#">Edit</Link>}
         direction={{ mobile: 'column', tablet: 'row' }}
       >
         <DescriptionListItem heading="Phone number" description="07123 456789" />
