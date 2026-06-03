@@ -70,7 +70,12 @@ jobs:
           # `retry` option only retries individual test cases, not file-level
           # setup failures, so it cannot catch this class of error.
           pnpm test:react || {
-            echo "First attempt failed — retrying once to handle intermittent CI infrastructure failures"
+            echo "Attempt 1/2 failed — sleeping 15s then retrying"
+            sleep 15
+            pnpm test:react
+          } || {
+            echo "Attempt 2/2 failed — sleeping 30s then retrying"
+            sleep 30
             pnpm test:react
           }
         env:

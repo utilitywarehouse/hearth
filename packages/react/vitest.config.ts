@@ -20,10 +20,31 @@ export default defineConfig({
           // The plugin will run tests for the stories defined in your Storybook config
           // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
           storybookTest({ configDir: path.join(dirname, '.storybook') }),
+          // Pre-warm the project-annotations virtual module as soon as the Vite server
+          // starts listening, so it's already cached before any browser connects.
+          // Without this, the first browser to connect triggers the lazy async load of
+          // generateProjectAnnotationsCode() under full CI resource pressure, which
+          // intermittently fails and surfaces as "Failed to import test file
+          // setup-file-with-project-annotations.js".
+          {
+            name: 'warmup-storybook-annotations',
+            configureServer(server) {
+              server.httpServer?.once('listening', () => {
+                server
+                  .warmupRequest(
+                    '/@id/__x00__virtual:/@storybook/builder-vite/project-annotations.js'
+                  )
+                  .catch(() => {
+                    // Non-fatal: the browser will trigger the load on demand
+                  });
+              });
+            },
+          },
         ],
         test: {
           name: 'storybook',
           fileParallelism: false,
+          retry: 2,
           browser: {
             enabled: true,
             headless: true,
