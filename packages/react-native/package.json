@@ -8,7 +8,7 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "clean": "rm -rf node_modules rm -rf build .turbo",
+    "clean": "rm -rf node_modules build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
     "copyTokens": "node ./scripts/copyTokens.js",
     "copy:changelog": "node ./scripts/copyChangelog.js",
@@ -41,6 +41,7 @@
     "@gluestack-ui/switch": "0.1.22",
     "@gluestack-ui/textarea": "0.1.23",
     "@quidone/react-native-wheel-picker": "^1.6.1",
+    "@react-stately/utils": "^3.12.1",
     "dayjs": "^1.11.13",
     "nanoid": "3.3.11"
   },

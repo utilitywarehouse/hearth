@@ -65,7 +65,6 @@ const config = {
         alias: {
           ...config.resolve?.alias,
           '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
-          '@react-stately/utils': 'react-stately',
         },
       },
       optimizeDeps: {

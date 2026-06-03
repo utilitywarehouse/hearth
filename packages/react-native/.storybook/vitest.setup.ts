@@ -1,4 +1,3 @@
-import { setProjectAnnotations } from '@storybook/react-native-web-vite';
 import { vi } from 'vitest';
 
 // react-native-unistyles/mocks relies on Jest globals.
@@ -30,10 +29,3 @@ StyleSheet.configure({
     adaptiveThemes: false,
   },
 });
-
-const a11yAddonAnnotations = await import('@storybook/addon-a11y/preview');
-const projectAnnotations = await import('./preview');
-
-// This is an important step to apply the right configuration when testing your stories.
-// More info at: https://storybook.js.org/docs/api/portable-stories/portable-stories-vitest#setprojectannotations
-setProjectAnnotations([a11yAddonAnnotations as any, projectAnnotations as any]);

@@ -980,6 +980,9 @@ importers:
       '@quidone/react-native-wheel-picker':
         specifier: ^1.6.1
         version: 1.7.0(react-native@0.80.0(@babel/core@7.29.0)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      '@react-stately/utils':
+        specifier: ^3.12.1
+        version: 3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       dayjs:
         specifier: ^1.11.13
         version: 1.11.20
@@ -4465,6 +4468,12 @@ packages:
 
   '@react-stately/toggle@3.10.0':
     resolution: {integrity: sha512-gb50aVW9y+8gW82KyDJNSCnGtTftUDMuoz0YYlaiUJktQQkZ4eNg+ANKqZiZiKj0dwr9NalLCR/3EuNnO6qYWA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+      react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-stately/utils@3.12.1':
+    resolution: {integrity: sha512-NqKfzrknpfwiewx7R2vk1P+CneClInPDsIhw15+jOcUYSEfej0nta4cJywuKQJ2gsPwqX/ojDNixedCve9FWGw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -17653,6 +17662,13 @@ snapshots:
       react-stately: 3.46.0(react@19.1.0)
 
   '@react-stately/toggle@3.10.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+    dependencies:
+      '@swc/helpers': 0.5.21
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      react-stately: 3.46.0(react@19.1.0)
+
+  '@react-stately/utils@3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@swc/helpers': 0.5.21
       react: 19.1.0
