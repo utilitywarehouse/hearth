@@ -2,7 +2,6 @@ import type { Preview } from '@storybook/react-vite';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../../../shared/storybook/styles/preview.css';
-import '../docs/fonts.css';
 import { config } from '../../../shared/storybook/theme';
 import { create } from 'storybook/theming';
 
@@ -58,7 +57,12 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Introduction', 'Fonts', 'CSS Reset'],
+        order: [
+          'Welcome',
+          'Hearth CSS Reset',
+          'Hearth Fonts',
+          ['Introduction', 'Getting Started', 'CDN Usage', 'Comic Hams', 'DM Sans', 'DM Mono'],
+        ],
       },
     },
     controls: {

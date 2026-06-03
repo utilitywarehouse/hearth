@@ -1,101 +1,13 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { version } from '../../../packages/fonts/package.json';
-import { ComicHams } from '../../storybook-fonts/src/stories/ComicHams.tsx';
-import { DMSans } from '../../storybook-fonts/src/stories/DMSans.tsx';
-import { DMMono } from '../../storybook-fonts/src/stories/DMMono.tsx';
 
-<Meta title="Fonts" />
+<Meta title="Hearth Fonts / CDN Usage" />
 
-# Hearth Fonts
+# CDN Usage
 
-v{version}
+The fonts are available via CDN, allowing you to include the font files in your
+project without having to self-host them.
 
-Font library for UI development at Utility Warehouse.<br/>
-
-All the font and CSS files you need to self-host the Utility Warehouse font families in your
-application.
-
-Get the performance gains of self-hosting the font, with woff2 & woff formats,
-and the added reliability of versioning, without the hassle of managing font
-assets.
-
-_Add the fonts as a dependency, import into your project, and you're ready to go!_ 🚀
-
-- [Included Fonts](#included-fonts)
-  - [Comic Hams](#comic-hams)
-  - [DM Sans](#dm-sans)
-  - [DM Mono](#dm-mono)
-- [Getting Started](#getting-started)
-- [CDN Usage](#cdn-usage)
-
-## Included Fonts
-
-This package includes the following font families, styles and weights.
-
-| **Font Family** | **Font Weights** | **Font Styles** |
-| --------------- | ---------------- | --------------- |
-| Comic Hams      | 600, 700, 900    | Normal          |
-| DM Sans         | 400, 600, 700    | Normal, Italic  |
-| DM Mono         | 500              | Normal, Italic  |
-
-### Comic Hams
-
-The Utility Warehouse display typeface, used for headings and emphasis.
-
-<ComicHams />
-
-### DM Sans
-
-The Utility Warehouse primary typeface, used for body text.
-
-<DMSans />
-
-### DM Mono
-
-The Utility Warehouse secondary typeface, used for detail text.
-
-<DMMono />
-
-## Getting Started
-
-Add the hearth-fonts package to your project dependencies.
-
-```console
-yarn add @utilitywarehouse/hearth-fonts
-# or
-pnpm add @utilitywarehouse/hearth-fonts
-# or
-npm install --save @utilitywarehouse/hearth-fonts
-```
-
-You can then import the CSS within your app entry file or site component. This
-will include all font families, weights & styles.
-
-```js
-import '@utilitywarehouse/hearth-fonts';
-```
-
-Alternatively you can select specific fonts, weights and styles, allowing you to
-cut down on payload sizes to the last byte!
-
-```js
-// Include only DM Sans
-import '@utilitywarehouse/hearth-fonts/dm-sans.css';
-```
-
-Finally, you can reference the font name in a CSS stylesheet, CSS Module, or CSS-in-JS.
-
-```css
-body {
-  font-family: 'DM Sans', sans-serif;
-}
-```
-
-## CDN Usage
-
-You can also use the fonts via CDN.
-
-### Comic Hams
+## Comic Hams
 
 Use the following URLs to include the Comic Hams font family in your project via CDN.
 
@@ -141,7 +53,7 @@ https://assets.ctfassets.net/n7blg68k7mmu/1HvSi9xdK5eqDcnyJ4pT3h/fa38c4e54344afb
 
 This asset is owned by the [Unicom team](https://wiki.uw.systems/posts/adjust-communications-we-send-to-customers-6vcobxs9).
 
-### DM Sans & DM Mono
+## DM Sans & DM Mono
 
 Use the DM Sans and DM Mono font families via the Google Fonts CDN. We
 recommend using the combined DM Sans & DM Mono link to reduce the number of

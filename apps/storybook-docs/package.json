@@ -7,7 +7,7 @@
     "dev:docs": "npx wait-on http://localhost:6001 && npx wait-on http://localhost:6002 && npx wait-on http://localhost:6003 && npx wait-on http://localhost:6004 && npx wait-on http://localhost:6005 && pnpm run dev",
     "lint": "eslint .",
     "clean": "rm -rf node_modules storybook-static .turbo",
-    "dev": "storybook dev -p 6006 --docs",
+    "dev": "storybook dev -p 6006",
     "build:storybook": "storybook build",
     "build:storybook:docs": "storybook build --docs"
   },

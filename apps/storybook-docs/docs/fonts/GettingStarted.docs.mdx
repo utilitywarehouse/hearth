@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Hearth Fonts / Getting Started" />
+
+# Getting Started
+
+## Installation
+
+Add the `hearth-fonts` package to your project dependencies.
+
+```console
+yarn add @utilitywarehouse/hearth-fonts
+```
+
+```console
+pnpm add @utilitywarehouse/hearth-fonts
+```
+
+```console
+npm install --save @utilitywarehouse/hearth-fonts
+```
+
+## Importing the fonts
+
+You can then import the CSS within your app entry file or site component. This
+will include all font families, weights & styles.
+
+```js
+import '@utilitywarehouse/hearth-fonts';
+```
+
+Alternatively you can select specific fonts, weights and styles, allowing you to
+cut down on payload sizes to the last byte!
+
+```js
+// Include only DM Sans
+import '@utilitywarehouse/hearth-fonts/dm-sans.css';
+```
+
+## Using the fonts
+
+Finally, you can reference the font name in a CSS stylesheet, CSS Module, or CSS-in-JS.
+
+```css
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+```
