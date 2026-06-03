@@ -57,7 +57,12 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Introduction', 'Fonts', 'CSS Reset'],
+        order: [
+          'Welcome',
+          'Hearth CSS Reset',
+          'Hearth Fonts',
+          ['Introduction', 'Getting Started', 'CDN Usage'],
+        ],
       },
     },
     controls: {

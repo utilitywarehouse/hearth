@@ -3,14 +3,14 @@ import { Flex, BodyText, Em } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
-  title: 'DM Sans',
+  title: 'Hearth Fonts / DM Sans',
   component: BodyText,
 } satisfies Meta<typeof BodyText>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const KitchenSink: Story = {
+export const DMSans: Story = {
   render: () => (
     <Flex gap="400">
       <Flex direction="column" gap="100">

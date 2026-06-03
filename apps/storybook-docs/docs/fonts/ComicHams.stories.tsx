@@ -3,14 +3,14 @@ import { Flex, Heading } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
-  title: 'Fonts / ComicHams',
+  title: 'Hearth Fonts / Comic Hams',
   component: Heading,
 } satisfies Meta<typeof Heading>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const KitchenSink: Story = {
+export const ComicHams: Story = {
   render: () => (
     <Flex direction="column" gap="100">
       <Heading size="sm">Hamburgefons</Heading>

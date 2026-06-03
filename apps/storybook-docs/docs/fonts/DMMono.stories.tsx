@@ -3,13 +3,14 @@ import { Flex, DetailText, Em } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
+  title: 'Hearth Fonts / DM Mono',
   component: DetailText,
 } satisfies Meta<typeof DetailText>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const KitchenSink: Story = {
+export const DMMono: Story = {
   render: () => (
     <Flex gap="400">
       <Flex direction="column" gap="100">
