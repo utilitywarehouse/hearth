@@ -61,7 +61,7 @@ const preview: Preview = {
           'Welcome',
           'Hearth CSS Reset',
           'Hearth Fonts',
-          ['Introduction', 'Getting Started', 'CDN Usage'],
+          ['Introduction', 'Getting Started', 'CDN Usage', 'Comic Hams', 'DM Sans', 'DM Mono'],
         ],
       },
     },
