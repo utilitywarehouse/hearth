@@ -1,0 +1,119 @@
+# Breakpoints
+
+Each breakpoint matches a fixed screen width. Values are min-width based and
+apply when the screen width is equal or greater.
+
+```tsx
+import { breakpoints } from '@utilitywarehouse/hearth-react';
+```
+
+<Unstyled>
+  <Flex direction="column" gap="100" width="500px" marginBottom="600">
+    {Object.keys(breakpoints).map((bp, i) => (
+      <>
+        <Flex justifyContent="between">
+          <BodyText variant="body" as="span">
+            {`breakpoints.${bp}`}
+          </BodyText>
+          <BodyText variant="body" as="span">
+            {breakpoints[bp]}px
+          </BodyText>
+        </Flex>
+        {i < Object.keys(breakpoints).length - 1 ? <Divider /> : null}
+      </>
+    ))}
+  </Flex>
+</Unstyled>
+
+## Using breakpoints in a Next.js app
+
+Hearth also exposes these breakpoints as **CSS Custom Media Queries** via a
+`breakpoints.css` file in `@utilitywarehouse/hearth-react`. This lets you write
+media queries in plain CSS:
+
+```css
+@media (--h-tablet) {
+  .myComponent {
+    padding: var(--h-space-300);
+  }
+}
+```
+
+### 1. Ensure `breakpoints.css` is available
+
+The React package publishes a raw `breakpoints.css` file alongside `styles.css`, so in your app you can reference:
+
+```css
+@import '@utilitywarehouse/hearth-react/breakpoints.css';
+```
+
+> You typically import this once in your global stylesheet (for example `src/styles/globals.css`).
+
+### 2. Configure PostCSS in your Next.js app
+
+Next.js needs to understand the custom media syntax and load the shared definitions. Install the required plugins in your Next app:
+
+```bash
+pnpm add -D postcss-custom-media @csstools/postcss-global-data autoprefixer
+```
+
+Then create (or update) `postcss.config.js` in the Next.js project root:
+
+```js
+module.exports = {
+  plugins: {
+    '@csstools/postcss-global-data': {
+      files: ['./node_modules/@utilitywarehouse/hearth-react/breakpoints.css'],
+    },
+    'postcss-custom-media': {},
+    autoprefixer: {},
+  },
+};
+```
+
+> **Note:** With this PostCSS setup, the `breakpoints.css` file is only used at
+> build time by PostCSS. You do **not** need to import it in your application
+> CSS for the custom media queries to work.
+
+- `@csstools/postcss-global-data` loads the `@custom-media` rules from `breakpoints.css`.
+- `postcss-custom-media` rewrites `@media (--h-tablet)` into standard `@media (min-width: 740px)` (and similar for other breakpoints).
+
+### 3. Use the custom media queries in your CSS
+
+Once PostCSS is configured, you can use Hearth breakpoints directly in your app
+styles:
+
+```css
+/* src/styles/globals.css */
+.myComponent {
+  padding: var(--h-space-300);
+  background-color: var(--h-color-mobile-rose-50);
+  border: 2px solid var(--h-color-mobile-rose-500);
+}
+
+@media (--h-tablet) {
+  .myComponent {
+    background-color: var(--h-color-orange-50);
+    border-color: var(--h-color-orange-500);
+  }
+}
+
+@media (--h-desktop) {
+  .myComponent {
+    background-color: var(--h-color-green-50);
+    border-color: var(--h-color-green-500);
+  }
+}
+
+@media (--h-wide) {
+  .myComponent {
+    background-color: var(--h-color-blue-50);
+    border-color: var(--h-color-blue-500);
+  }
+}
+```
+
+With this setup, your Next.js app uses the **same breakpoint definitions** as
+Hearth itself, both in React props (via the `breakpoints` object) and in CSS
+(`@media (--h-*)`). This keeps responsive behaviour consistent across component
+library and product code.

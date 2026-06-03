@@ -1,0 +1,236 @@
+# Link
+
+Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.
+
+- [Alternatives](#alternatives)
+- [Semantic HTML](#semantic-html)
+- [Open in new tab](#open-in-new-tab)
+- [Icons](#icons)
+- [Inverted colours](#inverted-colours)
+- [Usage with Next.js](#usage-with-next.js)
+- [API](#api)
+
+```tsx
+<Link href="#">Link</Link>
+```
+
+## Alternatives
+
+- InlineLink - For links within a body of
+  text
+
+## Semantic HTML
+
+> If it goes somewhere it's a link, if it does something it's a button.
+
+A semantic HTML `a` is rendered by default, however you can change the
+underlying HTML element by using the `asChild` prop.
+
+When `asChild` is set to true, we will not render a default DOM element,
+instead cloning the child and passing it the props and behaviour required to
+make it functional.
+
+Read more about this idea in the [Radix UI composition docs](https://www.radix-ui.com/primitives/docs/guides/composition).
+
+```tsx
+<Link asChild>
+  <button type="button" onClick={onClick}>
+    View UW services
+    <ChevronRightSmallIcon />
+  </button>
+</Link>
+```
+
+```tsx
+<Flex direction="column" gap="300">
+  <Link asChild>
+    <button onClick={() => alert('Hello world!')}>
+      View UW services
+      <ChevronRightSmallIcon />
+    </button>
+  </Link>
+  <Link asChild>
+    <button aria-disabled onClick={e => e.preventDefault()}>
+      View UW services
+      <ChevronRightSmallIcon />
+    </button>
+  </Link>
+</Flex>
+```
+
+## Open in new tab
+
+Avoid using `target=_blank` ([When to use target="\_blank"](https://css-tricks.com/use-target_blank/)).
+
+If you do use it, be aware that [browsers now implicitly set rel=noopener for any "target=\_blank" link](https://mathiasbynens.github.io/rel-noopener/).
+
+An icon will also be added to indicate that the link opens in a new tab or
+window, improving accessibility. You can override this behaviour by setting the
+`hideOpenIcon` prop.
+
+```tsx
+<Flex gap="600">
+  <Link {...args}>Visit help pages</Link>
+  <Link {...args} hideOpenIcon>
+    Go to help
+    <ChevronRightSmallIcon />
+  </Link>
+</Flex>
+```
+
+## Icons
+
+Icons can be added to Link to make the action easier to understand. You can add
+an Icon to the left or right of a Link.
+
+You can nest icons directly inside the `Link`. An appropriate gap is provided
+automatically, and the icon will inherit the appropriate colours.
+
+This component is intended to be used with the Hearth Icons packages.
+`Link` should use small, 20px, icons.
+
+```tsx
+<Link>
+  <SettingsSmallIcon />
+  Edit account
+</Link>
+```
+
+```tsx
+<Flex gap="600">
+  <Link {...args}>
+    Download Bill
+    <DownloadSmallIcon />
+  </Link>
+  <Link {...args}>
+    <ChevronLeftSmallIcon />
+    Back to Dashboard
+  </Link>
+</Flex>
+```
+
+Icons from the UW icons packages have `aria-hidden="true"` set by default. If
+you are using an icon, in the `Link` component, from outside these
+packages, and for purely decorative reasons, please ensure it has this
+attribute set so that the icon is hidden from screen readers.
+
+When using anything other than an icon from the Hearth Icons library, you
+should add the `data-icon` attribute to your icon so that it renders the
+appropriate styles.
+
+```tsx
+<Link>
+  <MyFontIcon aria-hidden="true" data-icon />
+  Edit account
+</Link>
+```
+
+```tsx
+import { Link } from "@utilitywarehouse/heart-react";
+import Image from 'next/image';
+
+[...]
+
+<Link>
+  <Image
+    aria-hidden
+    data-icon
+    src="/globe.svg"
+    alt="Globe icon"
+    width={16}
+    height={16}
+  />
+  Edit account
+</Link>
+```
+
+## Inverted colours
+
+The `inverted` prop should be used when using a `Link` on darker surface
+colours, specifically the UW Purple and Dark Purple colours.
+
+```tsx
+<Flex gap="400" backgroundColor="brand" padding="400">
+  <Link {...args} inverted>
+    Inverted Link
+  </Link>
+</Flex>
+```
+
+### Next.js v13 and above
+
+The Next.js `Link` component behaviour has changed in v13, so that an `<a>` is
+no longer required as a child. You can render the Hearth React `Link` component
+as a Next.js `Link` component using `asChild`:
+
+```tsx
+import NextLink from 'next/link';
+import { Link } from '@utilitywarehouse/hearth-react';
+
+[...]
+
+<Link asChild>
+  <NextLink href={href} onClick={onClick}>
+    {title}
+  </NextLink>
+</Link>
+```
+
+You can also use the `legacyBehavior` prop directly on the Next.js Link component:
+
+```tsx
+import NextLink from 'next/link';
+import { Link } from '@utilitywarehouse/hearth-react';
+
+[...]
+
+<NextLink href={href} passHref onClick={onClick} legacyBehavior>
+  <Link>{title}</Link>
+</NextLink>
+```
+
+And if you want to set this behavior globally you can use the following Next.js
+configuration:
+
+```
+{
+  experimental: {
+    newNextLinkBehavior: false
+  }
+}
+```
+
+### Next.js before v13
+
+```tsx
+import NextLink from 'next/link';
+import { Link } from '@utilitywarehouse/hearth-react';
+
+[...]
+
+<NextLink href={href} passHref onClick={onClick}>
+  {/* // eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+  <Link>{title}</Link>
+</NextLink>
+```
+
+## API
+
+This component is based on the `a` element and supports the following common props:
+
+- Margin
+- Text transform
+
+| Prop            | Type                                                                                                                                                                                                       | Default | Description                                                                                          |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| `asChild`       | `boolean`                                                                                                                                                                                                  | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
+| `inverted`      | `boolean`                                                                                                                                                                                                  | —       | Inverts the component colours, for use on darker surface colours.                                    |
+| `hideOpenIcon`  | `boolean`                                                                                                                                                                                                  | —       | Hides the "open in new tab" icon when `target="_blank"` is set.                                      |
+| `margin`        | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginTop`     | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginRight`   | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginBottom`  | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginLeft`    | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginX`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `marginY`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                                                      |
+| `textTransform` | `"none" \| "uppercase" \| "lowercase" \| "capitalize"`                                                                                                                                                     | —       | Set the text-transform on the component.                                                             |

@@ -1,0 +1,97 @@
+# Hearth React
+
+> @utilitywarehouse/hearth-react — React component library for Utility Warehouse products.
+
+## Components
+
+- [Accordion](llms/components/accordion.md): Use `Accordion` to allow users to expand or collapse individual content
+- [Alert](llms/components/alert.md): The `Alert` component displays a short, important message in a way that
+- [Avatar](llms/components/avatar.md): Use `Avatar` to help humanise the product experience by connecting users with the product and to each other.
+- [Badge](llms/components/badge.md): A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.
+- [BodyText](llms/components/body-text.md): ```tsx
+- [Box](llms/components/box.md): ```tsx
+- [Breadcrumbs](llms/components/breadcrumbs.md): Use the `Breadcrumbs` component when you need to help users understand and move between multiple levels of a website.
+- [Button](llms/components/button.md): Trigger an action or event, such as submitting a form or displaying a dialog.
+- [Card](llms/components/card.md): Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.
+- [CardAccordion](llms/components/card-accordion.md): `CardAccordion` breaks a form journey into multiple collapsible cards, allowing
+- [Checkbox](llms/components/checkbox.md): The `Checkbox` component is a dual-state checkbox allowing users to toggle
+- [CheckboxGroup](llms/components/checkbox-group.md): `CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.
+- [CheckboxTile](llms/components/checkbox-tile.md): The `CheckboxTile` component is a dual-state checkbox allowing users to toggle between checked and not checked. `CheckboxTile` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.
+- [Combobox](llms/components/combobox.md): `Combobox` allows users to both type to filter results and select from a predefined list.
+- [Container](llms/components/container.md): ```tsx
+- [CurrencyInput](llms/components/currency-input.md): `CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
+- [DateInput](llms/components/date-input.md): `DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.
+- [DatePicker](llms/components/date-picker.md): `DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.
+- [DescriptionList](llms/components/description-list.md): Use the `DescriptionList` component when you need to present pairs of related information together.
+- [DetailText](llms/components/detail-text.md): ```tsx
+- [Divider](llms/components/divider.md): Used to provide a visual break and semantically divide content. Supports
+- [Em](llms/components/em.md): ```tsx
+- [ExpandableCard](llms/components/expandable-card.md): Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
+- [Flex](llms/components/flex.md): ```tsx
+- [Grid](llms/components/grid.md): ```tsx
+- [Heading](llms/components/heading.md): ```tsx
+- [HelperText](llms/components/helper-text.md): ```tsx
+- [HighlightBanner](llms/components/highlight-banner.md): `HighlightBanner` can be used to highlight key information or marketing messaging.
+- [IconButton](llms/components/icon-button.md): Icon Buttons are used to trigger an action on a page or to complete tasks in other components. Use Icon Buttons when you want to display an action quickly and visually, and when space is limited.
+- [IconContainer](llms/components/icon-container.md): Use the `IconContainer` when using icons that sit within a coloured container.
+- [InlineLink](llms/components/inline-link.md): [Alternatives](#alternatives)
+- [Label](llms/components/label.md): ```tsx
+- [Link](llms/components/link.md): Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.
+- [List](llms/components/list.md): The `List` component is a flexible and customizable component for displaying a
+- [Menu](llms/components/menu.md): Use the `Menu` component to present a short list of actions or options in response to a user’s interaction. Menus are ideal for actions like sorting, filtering, or providing additional options without navigating away from the current screen.
+- [Modal](llms/components/modal.md): A `Modal` overlays content to request a decision or inform users of important information. When
+- [Pagination](llms/components/pagination.md): Use the `Pagination` component to help users navigate through multiple pages of content.
+- [PasswordInput](llms/components/password-input.md): `PasswordInput` is an interactive field that is used to securely collect users passwords.
+- [ProgressBar](llms/components/progress-bar.md): `ProgressBar` displays the progress of a task or process in a linear bar format, with support for different visual states.
+- [ProgressStepper](llms/components/progress-stepper.md): Use the `ProgressStepper` component to show users their progress through a multi-step process.
+- [RadioGroup](llms/components/radio-group.md): `RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.
+- [SearchInput](llms/components/search-input.md): `SearchInput` allows users to enter a specific keyword or phrase and obtain results related to the context in which it is placed.
+- [SectionHeader](llms/components/section-header.md): Use the `SectionHeader` component to help define and separate content within a
+- [Select](llms/components/select.md): `Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.
+- [Skeleton](llms/components/skeleton.md): `Skeleton` is a collection of components that provide visual placeholders while
+- [Spinner](llms/components/spinner.md): Using a Spinner is a common method for indicating that an asynchronous process is ongoing.
+- [Strong](llms/components/strong.md): The `Strong` component is based on the HTML `strong` element and is used to indicate text that is of
+- [Switch](llms/components/switch.md): `Switch` is used to indicate switching between two opposing options. Switches
+- [Table](llms/components/table.md): Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.
+- [Tabs](llms/components/tabs.md): Use Tabs to organize and navigate between content sections within the same context without leaving the page.
+- [TextArea](llms/components/text-area.md): `TextArea` is a multi-line text input field that allows users to enter longer text content.
+- [TextInput](llms/components/text-input.md): `TextInput` is an interactive field that allows users to enter text and data.
+- [Toast](llms/components/toast.md): A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.
+- [ToggleButtonCard](llms/components/toggle-button-card.md): ```tsx
+- [Tooltip](llms/components/tooltip.md): Use `Tooltip` to temporarily display short, contextual text, that
+- [UnstyledIconButton](llms/components/unstyled-icon-button.md): [Icons](#icons)
+- [ValidationText](llms/components/validation-text.md): `ValidationText` should be used with form field components to display validation messages.
+- [VerificationInput](llms/components/verification-input.md): `VerificationInput` allows users to enter a one-time password (OTP) sent via
+
+## Guides
+
+- [Changelog](llms/docs/changelog.md)
+- [Hearth Tokens](llms/docs/design-tokens.md)
+- [Hearth React](llms/docs/getting-started.md)
+- [Layout](llms/docs/layout.md)
+- [Migrating from Web UI](llms/docs/migrating.md)
+
+## Common Props
+
+- [AlignSelf](llms/docs/common-props/align-self.md)
+- [Borders](llms/docs/common-props/border.md)
+- [Colour props](llms/docs/common-props/colour.md)
+- [Flex items](llms/docs/common-props/flex-items.md)
+- [Gap](llms/docs/common-props/gap.md)
+- [Grid items](llms/docs/common-props/grid-items.md)
+- [Margin props](llms/docs/common-props/margin.md)
+- [Opacity](llms/docs/common-props/opacity.md)
+- [Order](llms/docs/common-props/order.md)
+- [Overflow](llms/docs/common-props/overflow.md)
+- [Padding props](llms/docs/common-props/padding.md)
+- [Position](llms/docs/common-props/position.md)
+- [Size](llms/docs/common-props/size.md)
+- [Spacing](llms/docs/common-props/spacing.md)
+- [Text](llms/docs/common-props/text.md)
+- [Z-Index](llms/docs/common-props/z-index.md)
+
+## Responsive Design
+
+- [Breakpoints](llms/docs/responsive-design/breakpoints.md)
+- [Media Queries](llms/docs/responsive-design/media-queries.md)
+- [Responsive props](llms/docs/responsive-design/responsive-props.md)

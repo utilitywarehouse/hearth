@@ -1,0 +1,175 @@
+# UnstyledIconButton
+
+- [Icons](#icons)
+- [Accessibility](#accessibility)
+  - [Disabled buttons](#disabled-buttons)
+- [Size](#size)
+  - [Responsive icon sizes](#responsive-icon-sizes)
+- [Semantic HTML](#semantic-html)
+- [API](#api)
+
+```tsx
+<Flex direction="column">
+  <Box padding="200">
+    <UnstyledIconButton {...args}>
+      {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
+    </UnstyledIconButton>
+  </Box>
+  <Box padding="200" backgroundColor="brand">
+    <UnstyledIconButton {...args} inverted>
+      {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
+    </UnstyledIconButton>
+  </Box>
+</Flex>
+```
+
+## Icons
+
+This button is intended to be used with the Hearth Icons packages (to be released). If you do use
+another icon, please add the `data-icon` attribute to your icon so that it
+renders the appropriate styles.
+
+```tsx
+<UnstyledIconButton>
+  <AddMediumIcon />
+</UnstyledIconButton>
+
+[...]
+
+<UnstyledIconButton>
+  <MyFontIcon aria-hidden="true" data-icon />
+</UnstyledIconButton>
+```
+
+## Accessibility
+
+Follows the [WAI-ARIA Button Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/).
+
+Given the button contains only an icon (i.e. no text content), it is required
+that a label be provided. This will be announced to a screen reader, and should
+reflect the visual icon being used with the button.
+
+Icons from the UW icons packages have `aria-hidden="true"` set by default. If
+you are using an icon from outside these packages, and for purely decorative
+reasons, please ensure it has this attribute set so that the icon is hidden
+from screen readers.
+
+### Disabled buttons
+
+Disabled buttons use `aria-disabled`, rather than `disabled`, so that they are
+still focusable when using the keyboard. This means that screen readers are
+still able to find the button, with the insight that it is disabled and that
+there is perhaps an action which needs to be taken, rather than not knowing
+there is a button there at all. The `onClick` handler will be disabled, however
+you will need to make sure you disable any other expected actions, including
+when using `type="submit"`.
+
+## Size
+
+The size prop controls the size of the `UnstyledIconButton`. This is a responsive prop and
+can be used to display different sizes at different breakpoints.
+
+```tsx
+<UnstyledIconButton
+  size={{
+    mobile: 'md',
+    tablet: 'sm',
+    desktop: 'md',
+    wide: 'sm',
+  }}
+/>
+```
+
+### Responsive icon sizes
+
+If you need to render different sized icons in conjunction with the responsive
+size prop, there are a couple of ways you can do this.
+
+1. Using JS, with the `useMediaQuery` hook.
+
+```tsx
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { UnstyledIconButton, useMediaQuery, media } from '@utilitywarehouse/hearth-react';
+
+const MyComponent = () => {
+  const showDesktopIcon = useMediaQuery(media.above('desktop'));
+
+  return (
+    <UnstyledIconButton size={{ mobile: 'sm', desktop: 'md' }}>
+      {showDesktopIcon ? <AddMediumIcon /> : <AddSmallIcon />}
+    </UnstyledIconButton>
+  );
+};
+```
+
+2. Using CSS, with `Box` and style props.
+
+```tsx
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { UnstyledIconButton, Box } from '@utilitywarehouse/hearth-react';
+
+const MyComponent = () => (
+  <UnstyledIconButton size={{ mobile: 'sm', desktop: 'md' }} label="add">
+    <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+      <AddMediumIcon />
+    </Box>
+    <Box asChild display={{ desktop: 'none' }}>
+      <AddSmallIcon />
+    </Box>
+  </UnstyledIconButton>
+);
+```
+
+## Semantic HTML
+
+> If it goes somewhere it's a link, if it does something it's a button.
+
+A semantic HTML button is rendered by default, however you can change the
+underlying HTML element by using the `asChild` prop.
+
+**NOTE:** Be aware that you cannot currently use `asChild` with the `emphasis` variant.
+
+When `asChild` is set to true, the button will not render a default DOM element,
+instead cloning the child and passing it the props and behaviour required to
+make it functional.
+
+Read more about this idea in the [Radix UI composition docs](https://www.radix-ui.com/primitives/docs/guides/composition).
+
+```tsx
+<Flex gap="200">
+  <UnstyledIconButton {...args} asChild>
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+      <AddMediumIcon />
+    </a>
+  </UnstyledIconButton>
+  <UnstyledIconButton {...args} asChild loading>
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+      <AddMediumIcon />
+    </a>
+  </UnstyledIconButton>
+</Flex>
+```
+
+```tsx
+<UnstyledIconButton asChild>
+  <a href="https://uw.co.uk/services">
+    <AddMediumIcon />
+  </a>
+</UnstyledIconButton>
+```
+
+## API
+
+This component is based on the `button` element and supports the following common props:
+
+- Margin
+
+| Prop       | Type                       | Default | Description                                                                                          |
+| ---------- | -------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| `label`    | `string`                   | —       |                                                                                                      |
+| `loading`  | `boolean`                  | —       | Indicate when the button is in a loading state, will also disable the button.                        |
+| `asChild`  | `boolean`                  | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
+| `size`     | `Responsive<"sm" \| "md">` | `md`    | Sets the button height.                                                                              |
+| `inverted` | `boolean`                  | —       | Inverts the component colours, for use on darker surface colours.                                    |
