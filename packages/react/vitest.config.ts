@@ -23,7 +23,6 @@ export default defineConfig({
         ],
         test: {
           name: 'storybook',
-          retry: 1,
           fileParallelism: false,
           browser: {
             enabled: true,

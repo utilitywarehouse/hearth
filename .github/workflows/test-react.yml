@@ -58,6 +58,20 @@ jobs:
           # Skip the postinstall download so pnpm install doesn't re-fetch them.
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 'true'
       - run: pnpm build
-      - run: pnpm test:react
+      - name: Run storybook tests
+        run: |
+          # 6 GB was too aggressive: ubuntu-latest runners have 7 GB total and
+          # Chromium needs 1–2 GB on top of Node.js/Vite. The OOM killer (or
+          # severe swap pressure) was intermittently killing the Vite dev server
+          # mid-run, causing random "Failed to fetch setup file" failures.
+          # 3 GB is enough for Vite + vitest and leaves headroom for the browser.
+          #
+          # A single CI-level retry handles any residual flakiness — vitest's own
+          # `retry` option only retries individual test cases, not file-level
+          # setup failures, so it cannot catch this class of error.
+          pnpm test:react || {
+            echo "First attempt failed — retrying once to handle intermittent CI infrastructure failures"
+            pnpm test:react
+          }
         env:
-          NODE_OPTIONS: '--max-old-space-size=6144'
+          NODE_OPTIONS: '--max-old-space-size=3072'
