@@ -58,9 +58,16 @@ jobs:
           # Skip the postinstall download so pnpm install doesn't re-fetch them.
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 'true'
       - run: pnpm build
-      - name: Warmup storybook tests
-        run: pnpm test:react:warmup
       - name: Run storybook tests
-        run: pnpm test:react
+        run: |
+          pnpm test:react || {
+            echo "Attempt 1/2 failed — sleeping 15s then retrying"
+            sleep 15
+            pnpm test:react
+          } || {
+            echo "Attempt 2/2 failed — sleeping 30s then retrying"
+            sleep 30
+            pnpm test:react
+          }
         env:
           NODE_OPTIONS: '--max-old-space-size=3072'

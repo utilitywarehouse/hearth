@@ -34,7 +34,6 @@
     "test:react-native": "turbo run test --filter=@utilitywarehouse/hearth-react-native && pnpm test:react-native:storybook",
     "test:react-native:storybook": "pnpm --dir packages/react-native run test:storybook",
     "test:react": "pnpm --dir packages/react run test:storybook",
-    "test:react:warmup": "pnpm test:react || echo 'warmup failed, continuing...'",
     "format": "turbo run format",
     "format:ci": "turbo run format:ci",
     "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
