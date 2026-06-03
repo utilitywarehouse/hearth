@@ -19,10 +19,10 @@
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
     "build:storybook:react": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react -- -o \"./storybook-static\"",
-    "changeset": "changeset",
+    "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
     "lint": "turbo run lint:fix --filter='./packages/*'",
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
-    "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
+    "changeset": "changeset",
     "ci:publish": "pnpm run build:packages && changeset publish",
     "ci:version": "changeset version && turbo run copy:changelog && pnpm install --no-frozen-lockfile",
     "dev:docs": "turbo run dev:docs",
@@ -45,8 +45,8 @@
     "generate:storybook:icons": "turbo run storybook-icons#generate",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
-    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens"
+    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
+    "generate:llm-docs": "turbo run generate:llm-docs"
   },
   "workspaces": [
     "packages/*",

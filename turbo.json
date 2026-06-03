@@ -167,6 +167,9 @@
     "generate:storybook:assets": {
       "cache": false
     },
+    "generate:llm-docs": {
+      "outputs": ["public/**"]
+    },
     "copy:changelog": {
       "cache": false
     },
