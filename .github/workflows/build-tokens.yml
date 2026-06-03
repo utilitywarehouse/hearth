@@ -1,4 +1,4 @@
-name: Build and Commit Design Tokens
+name: Build Tokens
 
 on:
   pull_request:
@@ -38,13 +38,25 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
-      - name: Build Design Tokens
+      - name: Build Tokens
         working-directory: ./packages/tokens
         run: pnpm build:tokens
 
+      - name: Add changeset
+        run: |
+          touch ./.changeset/${{ github.sha }}.md
+          cat > ./.changeset/${{ github.sha }}.md << EOF
+          ---
+          "@utilitywarehouse/hearth-tokens": patch
+          ---
+
+          💅 [ENHANCEMENT]: Generate and build Hearth tokens
+
+          EOF
+
       - name: Commit Built Files
         run: |
-          git config --global user.name 'UW Design Systems Bot'
+          git config --global user.name 'Hearth Design Systems Bot'
           git config --global user.email 'design-systems@uw.co.uk'
           git add -A
           if git diff-index --quiet HEAD --; then
