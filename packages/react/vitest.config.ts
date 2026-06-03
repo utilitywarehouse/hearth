@@ -26,20 +26,6 @@ export default defineConfig({
           // generateProjectAnnotationsCode() under full CI resource pressure, which
           // intermittently fails and surfaces as "Failed to import test file
           // setup-file-with-project-annotations.js".
-          {
-            name: 'warmup-storybook-annotations',
-            configureServer(server) {
-              server.httpServer?.once('listening', () => {
-                server
-                  .warmupRequest(
-                    '/@id/__x00__virtual:/@storybook/builder-vite/project-annotations.js'
-                  )
-                  .catch(() => {
-                    // Non-fatal: the browser will trigger the load on demand
-                  });
-              });
-            },
-          },
         ],
         test: {
           name: 'storybook',
