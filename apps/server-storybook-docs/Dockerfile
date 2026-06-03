@@ -22,7 +22,7 @@ RUN pnpm install --prod=false --frozen-lockfile
 RUN pnpm run build:storybook
 
 FROM builder-base AS prod-deps
-RUN pnpm --filter storybook-server --prod deploy --legacy --frozen-lockfile /out
+RUN pnpm --filter server-storybook-docs --prod deploy --legacy --frozen-lockfile /out
 
 FROM base AS runner
 # Set WORKDIR to /app so everything is relative to the root
@@ -31,13 +31,13 @@ ARG APP_PORT=7337
 ENV PORT=${APP_PORT}
 ENV NODE_ENV=production
 
-# This ensures node_modules is at /app/apps/storybook-server/node_modules
-COPY --from=prod-deps /out ./apps/storybook-server
+# This ensures node_modules is at /app/apps/server-storybook-docs/node_modules
+COPY --from=prod-deps /out ./apps/server-storybook-docs
 
 COPY --from=builder /app/packages ./packages
 
 # Copy the compiled JS into its original subdirectory
-COPY --from=builder /app/apps/storybook-server/dist ./apps/storybook-server/dist
+COPY --from=builder /app/apps/server-storybook-docs/dist ./apps/server-storybook-docs/dist
 
 # Copy static assets
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
@@ -49,4 +49,4 @@ COPY --from=builder /app/packages/react-native/storybook-static ./packages/react
 
 EXPOSE ${APP_PORT}
 
-CMD ["node", "apps/storybook-server/dist/index.js"]
+CMD ["node", "apps/server-storybook-docs/dist/index.js"]
