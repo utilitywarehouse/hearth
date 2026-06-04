@@ -1,6 +1,7 @@
 import { Card, CardBannerContent, CardInteraction, Link } from '@utilitywarehouse/hearth-react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import StorybookLink from '../../../../shared/storybook/StorybookLink';
+import React from 'react';
 
 interface ProjectBannerProps {
   to: string;
@@ -8,7 +9,7 @@ interface ProjectBannerProps {
   description: string;
 }
 
-const ProjectBanner = ({ to, heading, description }: ProjectBannerProps) => {
+export const ProjectBanner = ({ to, heading, description }: ProjectBannerProps) => {
   return (
     <li>
       <Card variant="emphasis" colorScheme="neutralStrong" direction="column" gap="200">
@@ -24,5 +25,3 @@ const ProjectBanner = ({ to, heading, description }: ProjectBannerProps) => {
     </li>
   );
 };
-
-export default ProjectBanner;

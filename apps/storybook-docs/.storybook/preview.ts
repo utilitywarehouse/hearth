@@ -62,6 +62,8 @@ const preview: Preview = {
           'Hearth CSS Reset',
           'Hearth Fonts',
           ['Introduction', 'Getting Started', 'CDN Usage', 'Comic Hams', 'DM Sans', 'DM Mono'],
+          'Hearth Tokens',
+          ['Introduction', 'Getting Started', 'Browser and CSS Tokens', 'JS Tokens', 'Space'],
         ],
       },
     },
