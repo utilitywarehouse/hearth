@@ -12,48 +12,6 @@ This guide explains the different ways you can consume our tokens in your projec
 - [Token Types](#token-types)
 - [Usage Examples](#usage-examples)
 
-## Token Formats
-
-Hearth Tokens are distributed in several formats to accommodate various development environments and use cases:
-
-1.  **Raw JavaScript Values (`/js`)**
-
-    - **What:** Provides the direct, raw values of the tokens (e.g., hex codes for colours, pixel numbers for spacing).
-    - **Path:** `@utilitywarehouse/hearth-tokens/js` or `@utilitywarehouse/hearth-tokens/js/{tokenType}` (e.g., `@utilitywarehouse/hearth-tokens/js/color`, `@utilitywarehouse/hearth-tokens/js/space`)
-    - **Use When:** You need the actual value in any JavaScript/TypeScript environment (Node.js, React Native, Browser JS for calculations, etc.).
-
-2.  **Browser JS - CSS Variable Strings (`/browser`)**
-
-    - **What:** Provides JavaScript objects where the values are strings representing CSS variables (e.g., `'var(--h-color-blue-500)'`, `'var(--h-space-100)'`).
-    - **Path:** `@utilitywarehouse/hearth-tokens/browser` or `@utilitywarehouse/hearth-tokens/browser/{tokenType}` (e.g., `@utilitywarehouse/hearth-tokens/browser/color`, `@utilitywarehouse/hearth-tokens/browser/space`)
-    - **Use When:** You are working in a browser environment (React, Vue, Angular, plain JS) and want to apply styles using CSS variables via JavaScript (e.g., inline styles, CSS-in-JS libraries).
-    - **Dependency:** Requires the corresponding CSS Definitions (`/css`) to be imported into your project for the variables to be defined.
-
-3.  **CSS Definitions (`/css`)**
-    - **What:** Provides CSS files that define the actual CSS custom properties (e.g., `--h-color-blue-500: #41a0ff;`, `--h-space-100: 8px;`).
-    - **Path:** `@utilitywarehouse/hearth-tokens/css` or `@utilitywarehouse/hearth-tokens/css/{tokenType}.css` (e.g., `@utilitywarehouse/hearth-tokens/css/color.css`, `@utilitywarehouse/hearth-tokens/css/space.css`)
-    - **Use When:**
-      - You are using the Browser JS format (this file _must_ be imported).
-      - You want to use the tokens directly within your standard CSS, SCSS, or CSS Modules files.
-
-## Token Types
-
-Hearth provides tokens for various design attributes. Here's a brief overview:
-
-- **Color:** Defines the color palette, including brand colors and common colors, light and dark modes.
-- **Color - Semantic:** Defines semantic colors for specific use cases (e.g., success, error, warning). _**Coming Soon!**_
-- **Space:** Provides consistent spacing values for margins, paddings, and layout gaps.
-- **Font:** Includes font families, sizes, and weights for typography.
-- **Line Height:** Defines line heights corresponding to font sizes for optimal readability.
-- **Letter Spacing:** Specifies tracking values for text.
-- **Border:** Contains tokens for border radius and border width.
-- **Shadow:** Defines elevation levels using box shadows.
-- **Layout:** Tokens related to layout structures, like container widths (may be less commonly used directly).
-- **Primitive:** A single export containing _all_ core token types (Color, Space, Font, Border, etc.) nested within it.
-- **Typography:** **(Internal Use)** Responsive, pre-composed typography styles (combining font family, size, weight, line height, etc.) tailored for different breakpoints (mobile, tablet, desktop). These are primarily used internally within Hearth component libraries (React, React Native) and are generally **not intended for direct consumption** in product applications.
-- **Components:** **(Internal Use)** These tokens are specifically tailored for building Hearth's internal component libraries (React, React Native). While available, they are generally **not intended for direct consumption** in product applications. Use the core tokens (Color, Space, Font, etc.) instead.
-
-Refer to the specific documentation page for each token type for detailed information and available values.
 
 ## Usage Examples
 

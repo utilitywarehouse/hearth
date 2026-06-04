@@ -1,0 +1,145 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Hearth Tokens / Getting Started" />
+
+# Getting Started
+
+## Installation
+
+Add the `hearth-tokens` package to your project dependencies.
+
+```console
+yarn add @utilitywarehouse/hearth-tokens
+```
+
+```console
+pnpm add @utilitywarehouse/hearth-tokens
+```
+
+```console
+npm install --save @utilitywarehouse/hearth-tokens
+```
+
+If you are using the **Hearth React** component library, the tokens are already
+available as CSS variables, so you don't need to install this package
+separately. However, if you want to use the tokens directly in your application
+code (e.g. with CSS-in-JS such as styled-components), you can install the
+`hearth-tokens` package and import the `browser` format.
+
+## Usage
+
+### CSS
+
+Import CSS Definitions, if needed (do this once in your app).
+
+If you are using the CSS tokens in a **Hearth React** project, the CSS
+variables are already included globally when you import the component styles,
+so you can skip this step.
+
+```javascript
+// Import all CSS definitions
+import '@utilitywarehouse/hearth-tokens/css';
+```
+
+Use CSS Variables in your CSS, SCSS or CSS Modules files.
+
+```css
+/* styles.css */
+.alert {
+  padding: var(--h-space-200);
+  background-color: var(--h-color-red-100);
+  color: var(--h-color-red-900);
+  border: 1px solid var(--h-color-red-300);
+  border-radius: var(--h-space-50);
+}
+
+.page-title {
+  color: var(--h-color-purple-700);
+  margin-bottom: var(--h-space-400);
+}
+```
+
+```css
+/* component.module.css */
+.container {
+  padding: var(--h-space-300);
+}
+
+.text {
+  color: var(--h-color-grey-700);
+}
+```
+
+### Browser
+
+First ensure the CSS variables are defined in your project, either by using the
+**Hearth React** library, or by importing the CSS definitions from the
+`hearth-tokens` package directly (as shown in the CSS section above).
+
+Import and use the `browser` format tokens in your JavaScript code.
+
+Either with inline styles:
+
+```tsx
+import React from 'react';
+import { color, space } from '@utilitywarehouse/hearth-tokens/browser';
+
+const MyButton = ({ children }) => (
+  <button
+    style={{
+      backgroundColor: color.blue[500], // 'var(--h-color-blue-500)'
+      color: color.white, // 'var(--h-color-common-white)'
+      padding: `${space[100]} ${space[200]}`, // 'var(--h-space-100) var(--h-space-200)'
+      border: 'none',
+      borderRadius: space[50], // 'var(--h-space-50)'
+    }}
+  >
+    {children}
+  </button>
+);
+```
+
+Or with a CSS-in-JS library such as styled-components:
+
+```tsx
+import styled from 'styled-components';
+import { color, space } from '@utilitywarehouse/hearth-tokens/browser';
+
+const StyledCard = styled.div`
+  background-color: ${color.warmWhite[50]};
+  padding: ${space[300]};
+  border: 1px solid ${color.grey[200]};
+  box-shadow: 0 ${space[25]} ${space[50]} ${color.grey[300]};
+`;
+```
+
+### JS
+
+Once installed, you can import and use the `js` format tokens in any
+JavaScript/TypeScript environment, such as React Native or Node.js. These
+provide the raw token values (e.g. hex codes for colours, pixel numbers for
+spacing) rather than CSS variable references.
+
+For instance, with React Native:
+
+```tsx
+import { StyleSheet } from 'react-native';
+import { space } from '@utilitywarehouse/hearth-tokens/js';
+
+const styles = StyleSheet.create({
+  container: {
+    padding: space[100], // Gets the raw pixel value, e.g. 8
+    margin: space[200], // e.g. 16
+  },
+});
+```
+
+or in a Node.js script:
+
+```jsx
+import { color } from '@utilitywarehouse/hearth-tokens/js';
+
+function logPrimaryColor() {
+  console.log('Primary color (light):', color.light.blue[500]); // Logs the hex code, e.g., '#41a0ff'
+}
+```
