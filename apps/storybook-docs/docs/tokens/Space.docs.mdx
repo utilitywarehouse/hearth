@@ -1,0 +1,23 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { space as browserSpace } from '@utilitywarehouse/hearth-tokens/browser';
+import { space as jsSpace } from '@utilitywarehouse/hearth-tokens/js';
+
+<Meta title="Hearth Tokens / Space" />
+
+# Space
+
+Spacing values for use in layout and component spacing, such as padding,
+margins, and gaps. These tokens should be used to define the _space_ around,
+between or within elements, not the _size_ of elements.
+
+## Import
+
+```js
+import { space } from '@utilitywarehouse/hearth-tokens/browser';
+// or
+import { space } from '@utilitywarehouse/hearth-tokens/js';
+```
+
+|                JS                |                Browser                |                CSS                 | Value |
+| :------------------------------: | :-----------------------------------: | :--------------------------------: | :---: |
+| space[{Object.keys(jsSpace)[0]}] | space[{Object.keys(browserSpace)[0]}] | { Object.values(browserSpace)[0] } |  4px  |
