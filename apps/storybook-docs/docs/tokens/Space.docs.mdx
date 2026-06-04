@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { space as browserSpace } from '@utilitywarehouse/hearth-tokens/browser';
 import { space as jsSpace } from '@utilitywarehouse/hearth-tokens/js';
+import { SpaceTokensTable } from './SpaceTokensTable';
 
 <Meta title="Hearth Tokens / Space" />
 
@@ -18,6 +19,6 @@ import { space } from '@utilitywarehouse/hearth-tokens/browser';
 import { space } from '@utilitywarehouse/hearth-tokens/js';
 ```
 
-|                JS                |                Browser                |                CSS                 | Value |
-| :------------------------------: | :-----------------------------------: | :--------------------------------: | :---: |
-| space[{Object.keys(jsSpace)[0]}] | space[{Object.keys(browserSpace)[0]}] | { Object.values(browserSpace)[0] } |  4px  |
+<div className="sb-unstyled">
+  <SpaceTokensTable />
+</div>
