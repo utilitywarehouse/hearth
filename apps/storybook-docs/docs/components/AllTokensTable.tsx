@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as browserTokens from '@utilitywarehouse/hearth-tokens/browser';
-import { TextInput, Box, BodyText } from '@utilitywarehouse/hearth-react';
-import React from 'react';
+import { Checkbox, TextInput } from '@utilitywarehouse/hearth-react';
 
 interface TokenEntry {
   name: string;
@@ -22,9 +21,12 @@ function flattenTokens(obj: Record<string, unknown>, prefix = ''): TokenEntry[] 
 }
 
 const allTokens = flattenTokens(browserTokens as unknown as Record<string, unknown>);
+const baseTokens = allTokens.filter(({ name }) => !name.startsWith('components.'));
+const componentTokens = allTokens.filter(({ name }) => name.startsWith('components.'));
 
 export function AllTokensTable() {
   const [search, setSearch] = useState('');
+  const [includeComponents, setIncludeComponents] = useState(false);
   const [resolvedValues, setResolvedValues] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -38,24 +40,31 @@ export function AllTokensTable() {
     setResolvedValues(resolved);
   }, []);
 
+  const visibleTokens = includeComponents ? allTokens : baseTokens;
   const query = search.toLowerCase().replaceAll('.', '');
   const filtered = query
-    ? allTokens.filter(
+    ? visibleTokens.filter(
         ({ name, cssVar }) =>
           name.toLowerCase().replaceAll('.', '').includes(query) ||
           cssVar.toLowerCase().includes(query)
       )
-    : allTokens;
+    : visibleTokens;
 
   return (
     <div>
-      <div style={{ marginBottom: '1.5rem', maxWidth: '480px' }}>
+      <div style={{ marginBottom: '1rem', maxWidth: '480px' }}>
         <TextInput
           label="Search tokens"
           placeholder="Filter by name or CSS variable…"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          hideLabel
+        />
+      </div>
+      <div style={{ marginBottom: '1.5rem' }}>
+        <Checkbox
+          label="Include component tokens"
+          checked={includeComponents}
+          onCheckedChange={setIncludeComponents}
         />
       </div>
       <table
@@ -63,29 +72,31 @@ export function AllTokensTable() {
           width: '100%',
           tableLayout: 'fixed',
           borderCollapse: 'collapse',
-          fontSize: browserTokens.font.size[90],
-          fontFamily: browserTokens.font.family.detail,
+          fontSize: '0.8125rem',
+          fontFamily: 'monospace',
         }}
       >
+        <colgroup>
+          <col style={{ width: '34%' }} />
+          <col style={{ width: '40%' }} />
+          <col style={{ width: '26%' }} />
+        </colgroup>
         <thead>
           <tr>
             {(['Name', 'CSS Custom Property', 'Raw Value'] as const).map(heading => (
-              <Box
+              <th
                 key={heading}
-                asChild
-                paddingX="150"
-                paddingY="100"
-                borderBottomColor="subtle"
-                borderBottomWidth="2"
-                textAlign="left"
-                style={{ display: 'table-cell', whiteSpace: 'nowrap' }}
+                style={{
+                  textAlign: 'left',
+                  padding: '8px 12px',
+                  borderBottom: '2px solid #d3d3d3',
+                  fontFamily: 'sans-serif',
+                  fontWeight: 600,
+                  overflow: 'hidden',
+                }}
               >
-                <th>
-                  <BodyText as="span" weight="semibold">
-                    {heading}
-                  </BodyText>
-                </th>
-              </Box>
+                {heading}
+              </th>
             ))}
           </tr>
         </thead>
@@ -139,7 +150,7 @@ export function AllTokensTable() {
             color: '#5b5b5b',
           }}
         >
-          Showing {filtered.length} of {allTokens.length} tokens
+          Showing {filtered.length} of {visibleTokens.length} tokens
         </p>
       )}
     </div>
