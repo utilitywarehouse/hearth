@@ -47,11 +47,6 @@ const config: StorybookConfig = {
       url: isDev ? 'http://localhost:6002' : '/react-native',
       expanded: false,
     },
-    tokens: {
-      title: 'Hearth Tokens',
-      url: isDev ? 'http://localhost:6003' : '/tokens',
-      expanded: false,
-    },
     icons: {
       title: 'Hearth Icons',
       url: isDev ? 'http://localhost:6004' : '/icons',
