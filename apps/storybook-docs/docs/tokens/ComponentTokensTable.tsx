@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { components as browserComponents } from '@utilitywarehouse/hearth-tokens/browser';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { components as browserComponents, semantic } from '@utilitywarehouse/hearth-tokens/browser';
 import { components as jsComponents } from '@utilitywarehouse/hearth-tokens/js';
 import { Box, Flex, HelperText, Select, SelectItem } from '@utilitywarehouse/hearth-react';
 import { TokenSearchInput, cellStyle, rowStyle, tableHeaderStyle, tableStyle, flattenTokens } from './shared';
@@ -74,6 +74,14 @@ export function ComponentTokensTable() {
   const [selectedComponent, setSelectedComponent] = useState<string>('all');
   const [search, setSearch] = useState('');
   const [resolvedValues, setResolvedValues] = useState<Record<string, string>>({});
+  const [showFade, setShowFade] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const updateFade = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setShowFade(el.scrollWidth > el.clientWidth && el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  }, []);
 
   useEffect(() => {
     const styles = getComputedStyle(document.documentElement);
@@ -84,6 +92,12 @@ export function ComponentTokensTable() {
     }
     setResolvedValues(resolved);
   }, []);
+
+  useEffect(() => {
+    updateFade();
+    window.addEventListener('resize', updateFade);
+    return () => window.removeEventListener('resize', updateFade);
+  }, [updateFade, resolvedValues]);
 
   const query = search.toLowerCase();
   const filtered = tokens.filter(t => {
@@ -152,7 +166,9 @@ export function ComponentTokensTable() {
         </Box>
       </Flex>
 
-      <table style={{ ...tableStyle, tableLayout: 'auto' }}>
+      <div style={{ position: 'relative' }}>
+        <div ref={scrollRef} onScroll={updateFade} style={{ overflowX: 'auto' }}>
+        <table style={{ ...tableStyle, tableLayout: 'auto' }}>
         <thead>
           <tr>
             <th style={tableHeaderStyle}>Token</th>
@@ -191,7 +207,22 @@ export function ComponentTokensTable() {
             );
           })}
         </tbody>
-      </table>
+        </table>
+        </div>
+        {showFade && mode === 'browser' && (
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              width: '24px',
+              background: `linear-gradient(to right, transparent, ${semantic.feedback.functional.surface.subtle})`,
+              pointerEvents: 'none',
+            }}
+          />
+        )}
+      </div>
       {filtered.length === 0 && <HelperText>No tokens match &ldquo;{search}&rdquo;</HelperText>}
     </Flex>
   );
