@@ -1,1 +1,7 @@
-export const px = token => (typeof token === number ? token.value + 'px' : token.value);
+export const px = token => {
+  // filter out CSS custom properties
+  if (typeof token.value === 'string' && token.value.includes('var')) {
+    return token.value;
+  }
+  return token.value + 'px';
+};

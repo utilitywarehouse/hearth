@@ -32,13 +32,16 @@
       "outputs": ["src/**", "js/**", "css/**", "browser/**", "index.css"]
     },
     "build:css": {
-      "outputs": ["css"]
+      "outputs": ["css"],
+      "dependsOn": ["generate:tokens"]
     },
     "build:js": {
-      "outputs": ["js"]
+      "outputs": ["js"],
+      "dependsOn": ["generate:tokens"]
     },
     "build:browser": {
-      "outputs": ["browser"]
+      "outputs": ["browser"],
+      "dependsOn": ["generate:tokens"]
     },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
@@ -134,6 +137,9 @@
       "cache": false,
       "persistent": true
     },
+    "clean:build": {
+      "cache": false
+    },
     "dev:docs": {
       "cache": false
     },
@@ -142,6 +148,10 @@
     },
     "generate:icons": {
       "cache": false
+    },
+    "generate:tokens": {
+      "cache": false,
+      "dependsOn": ["clean:build"]
     },
     "generate:svg-icons": {
       "cache": false
