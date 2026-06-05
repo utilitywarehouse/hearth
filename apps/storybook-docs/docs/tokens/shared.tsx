@@ -83,6 +83,27 @@ export const cellStyle: React.CSSProperties = {
   whiteSpace: 'nowrap',
 };
 
+export const rowStyle: React.CSSProperties = {
+  borderBottom: `${browserTokens.border.width[1]} solid ${browserTokens.semantic.border.subtle}`,
+};
+
+export const tableStyle: React.CSSProperties = {
+  width: '100%',
+  tableLayout: 'fixed',
+  borderCollapse: 'collapse',
+  fontSize: browserTokens.font.size[100],
+  fontFamily: browserTokens.font.family.detail,
+};
+
+export const tableHeaderStyle: React.CSSProperties = {
+  textAlign: 'left',
+  padding: `${browserTokens.space[100]} ${browserTokens.space[150]}`,
+  borderBottom: `${browserTokens.border.width[1]} solid ${browserTokens.semantic.border.strong}`,
+  fontFamily: browserTokens.font.family.body,
+  fontWeight: browserTokens.font.weight.semibold,
+  overflow: 'hidden',
+};
+
 export interface ColumnDef {
   heading: string;
   width: string;
@@ -98,15 +119,7 @@ interface TokenTableProps {
 export function TokenTable({ columns, rows, search, totalCount }: TokenTableProps) {
   return (
     <Flex direction="column" gap="100">
-      <table
-        style={{
-          width: '100%',
-          tableLayout: 'fixed',
-          borderCollapse: 'collapse',
-          fontSize: browserTokens.font.size[100],
-          fontFamily: browserTokens.font.family.detail,
-        }}
-      >
+      <table style={tableStyle}>
         <colgroup>
           {columns.map(({ heading, width }) => (
             <col key={heading} style={{ width }} />
@@ -115,17 +128,7 @@ export function TokenTable({ columns, rows, search, totalCount }: TokenTableProp
         <thead>
           <tr>
             {columns.map(({ heading }) => (
-              <th
-                key={heading}
-                style={{
-                  textAlign: 'left',
-                  padding: `${browserTokens.space[100]} ${browserTokens.space[150]}`,
-                  borderBottom: `${browserTokens.border.width[1]} solid ${browserTokens.semantic.border.strong}`,
-                  fontFamily: browserTokens.font.family.body,
-                  fontWeight: browserTokens.font.weight.semibold,
-                  overflow: 'hidden',
-                }}
-              >
+              <th key={heading} style={tableHeaderStyle}>
                 {heading}
               </th>
             ))}
@@ -133,12 +136,7 @@ export function TokenTable({ columns, rows, search, totalCount }: TokenTableProp
         </thead>
         <tbody>
           {rows.map((cells, i) => (
-            <tr
-              key={i}
-              style={{
-                borderBottom: `${browserTokens.border.width[1]} solid ${browserTokens.semantic.border.subtle}`,
-              }}
-            >
+            <tr key={i} style={rowStyle}>
               {cells.map((cell, j) => (
                 <td key={j} style={cellStyle} title={cell}>
                   {cell}

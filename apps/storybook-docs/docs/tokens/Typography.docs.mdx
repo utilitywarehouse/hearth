@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { TypographyTokensTable } from './TypographyTokensTable';
+
+<Meta title="Hearth Tokens / Typography" />
+
+# Typography
+
+Font family, size, weight, letter spacing, and line height tokens used across
+Hearth. In browser environments all groups are available under the `font`
+namespace; in JS/React Native, letter spacing and line height are exported
+separately.
+
+## Import
+
+```js
+// CSS custom properties for use in CSS web projects
+import '@utilitywarehouse/hearth-tokens/css/font.css';
+
+// Browser tokens for use in JavaScript or TypeScript web projects
+import { font } from '@utilitywarehouse/hearth-tokens/browser';
+
+// JS tokens for use in React Native projects
+import { font } from '@utilitywarehouse/hearth-tokens/js';
+import { letterSpacing } from '@utilitywarehouse/hearth-tokens/js';
+import { lineHeight } from '@utilitywarehouse/hearth-tokens/js';
+```
+
+## Typography Tokens
+
+<div className="sb-unstyled">
+  <TypographyTokensTable />
+</div>

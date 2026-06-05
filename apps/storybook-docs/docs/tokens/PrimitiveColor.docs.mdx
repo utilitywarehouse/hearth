@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { PrimitiveColorTokensTable } from './PrimitiveColorTokensTable';
+
+<Meta title="Hearth Tokens / Primitive Color" />
+
+# Primitive Color
+
+Primitive colour palettes used across Hearth. Each palette is a numeric scale
+from `0` (lightest) to `1000` (darkest).
+
+## Import
+
+```js
+// CSS custom properties for use in CSS web projects
+import '@utilitywarehouse/hearth-tokens/css/color.css';
+
+// Browser tokens for use in JavaScript or TypeScript web projects
+import { color } from '@utilitywarehouse/hearth-tokens/browser';
+
+// JS tokens for use in React Native projects
+import { color } from '@utilitywarehouse/hearth-tokens/js';
+// or
+import { blue, green, grey /*, … */ } from '@utilitywarehouse/hearth-tokens/js/color';
+```
+
+## Color Palettes
+
+<div className="sb-unstyled">
+  <PrimitiveColorTokensTable />
+</div>
