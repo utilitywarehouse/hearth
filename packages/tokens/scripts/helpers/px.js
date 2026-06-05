@@ -1,1 +1,1 @@
-export const px = token => token.value + 'px';
+export const px = token => (typeof token === number ? token.value + 'px' : token.value);
