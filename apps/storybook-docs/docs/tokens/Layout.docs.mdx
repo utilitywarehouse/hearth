@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { LayoutSpacingTokensTable, LayoutJsReferenceTable } from './LayoutTokensTable';
+
+<Meta title="Hearth Tokens / Layout" />
+
+# Layout
+
+Layout tokens define spacing, grid, container, and breakpoint values across
+three breakpoints: mobile, tablet, and desktop.
+
+Spacing tokens are available in both browser and JS environments. Breakpoint,
+container, and grid values are JS-only and intended for React Native use.
+
+- [Spacing](#spacing)
+- [Breakpoints, Container & Grid (JS only)](#breakpoints-container--grid-js-only)
+
+## Import
+
+```js
+// CSS custom properties for use in CSS web projects
+import '@utilitywarehouse/hearth-tokens/css/layout.css';
+
+// Browser tokens for use in JavaScript or TypeScript web projects
+import { layout } from '@utilitywarehouse/hearth-tokens/browser';
+
+// JS tokens for use in React Native projects
+import { layout } from '@utilitywarehouse/hearth-tokens/js';
+```
+
+## Spacing
+
+<div className="sb-unstyled">
+  <LayoutSpacingTokensTable />
+</div>
+
+<br />
+<br />
+
+## Breakpoints, Container & Grid (JS only)
+
+<div className="sb-unstyled">
+  <LayoutJsReferenceTable />
+</div>

@@ -24,7 +24,6 @@ const storybookAppsToServe = [
   { name: 'react', dirName: '../packages/react' },
   { name: 'react-native', dirName: '../packages/react-native' },
   { name: 'icons', dirName: 'storybook-icons' },
-  { name: 'tokens', dirName: 'storybook-tokens' },
   { name: 'assets', dirName: 'storybook-assets' },
 ];
 

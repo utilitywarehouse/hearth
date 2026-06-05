@@ -1,0 +1,34 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { ShadowDimensionTokensTable } from './ShadowTokensTable';
+
+<Meta title="Hearth Tokens / Shadow" />
+
+# Shadow
+
+Shadow dimension tokens define the x offset, y offset, blur, and spread for
+`sm` and `md` shadow sizes across breakpoints.
+
+Shadow **colours** are part of the semantic colour tokens — see
+[Semantic Color](?path=/docs/hearth-tokens-semantic-color--docs).
+
+## Import
+
+```js
+// CSS custom properties for use in CSS web projects
+import '@utilitywarehouse/hearth-tokens/css/shadow.css';
+
+// Browser tokens for use in JavaScript or TypeScript web projects
+import { shadow } from '@utilitywarehouse/hearth-tokens/browser';
+
+// JS tokens for use in React Native projects
+import { shadow } from '@utilitywarehouse/hearth-tokens/js';
+```
+
+## Dimensions
+
+In JS mode the path is inverted: `shadow.desktop.sm.x` rather than
+`shadow.sm.x.desktop`.
+
+<div className="sb-unstyled">
+  <ShadowDimensionTokensTable />
+</div>

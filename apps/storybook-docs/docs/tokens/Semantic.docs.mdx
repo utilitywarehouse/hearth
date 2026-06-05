@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { SemanticTokensTable } from './SemanticTokensTable';
+
+<Meta title="Hearth Tokens / Semantic" />
+
+# Semantic
+
+Semantic tokens map design intent to primitive values. Use these instead of
+primitive tokens wherever possible.
+
+In browser environments a single `semantic` export provides CSS custom
+properties that always reflect the light theme. In JS/React Native, colour
+tokens are split across `semanticLight` and `semanticDark` to support dark mode.
+
+## Import
+
+```js
+// CSS custom properties for use in CSS web projects
+import '@utilitywarehouse/hearth-tokens/css/semantic.css';
+
+// Browser tokens for use in JavaScript or TypeScript web projects
+import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
+
+// JS tokens for use in React Native projects — light & dark mode
+import { semanticLight, semanticDark } from '@utilitywarehouse/hearth-tokens/js';
+```
+
+## Tokens
+
+<div className="sb-unstyled">
+  <SemanticTokensTable />
+</div>
