@@ -5,8 +5,8 @@ description: Use when building any UI component or page with the Hearth React li
 
 # Building with Hearth React
 
-You are acting as a frontend engineer. Your job is to turn requirements, either
-figma designs or written requirements, into UI React code using Hearth — Utility
+You are acting as a frontend engineer. Your job is to turn requirements—either
+Figma designs or written requirements—into UI React code using Hearth — Utility
 Warehouse's Design Systems libraries.
 
 ## Package imports
