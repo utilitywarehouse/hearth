@@ -9,11 +9,15 @@ import { AccordionItem } from './AccordionItem';
 import { AccordionContent } from './AccordionContent';
 import { AccordionHeader } from './AccordionHeader';
 import { AccordionTrigger } from './AccordionTrigger';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '../../../../../shared/storybook/StorybookLink';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Accordion" />
 
-# Accordion
+<Flex justifyContent="between" alignItems="baseline">
+  # Accordion
+  <ViewMarkdownLink to="components/accordion" />
+</Flex>
 
 Use `Accordion` to allow users to expand or collapse individual content
 sections, providing a compact way to present a large amount of information

@@ -5,19 +5,20 @@ import { getStoryHref, navigateToStory } from './storybookLinks';
 type StorybookLinkBaseProps = {
   to: string;
   defaultToDocs?: boolean;
+  raw?: boolean;
   onPress?: (...args: Array<unknown>) => void;
 };
 
-type StorybookLinkProps = StorybookLinkBaseProps & {
+export type StorybookLinkProps = StorybookLinkBaseProps & {
   as?: React.ElementType;
   onClick?: React.MouseEventHandler;
 } & Record<string, unknown>;
 
-const StorybookLink = (props: StorybookLinkProps) => {
-  const { as, to, defaultToDocs = true, onClick, onPress, ...rest } = props;
+export const StorybookLink = (props: StorybookLinkProps) => {
+  const { as, to, defaultToDocs = true, raw = false, onClick, onPress, ...rest } = props;
 
   const Component = as ?? 'a';
-  const href = getStoryHref(to, { defaultToDocs });
+  const href = raw ? to : getStoryHref(to, { defaultToDocs });
 
   const handleActivate = (...args: Array<unknown>) => {
     const event = args[0] as
@@ -29,17 +30,16 @@ const StorybookLink = (props: StorybookLinkProps) => {
       return;
     }
     event?.preventDefault?.();
-    navigateToStory(to, { defaultToDocs });
+    if (raw) {
+      const topWindow = typeof window !== 'undefined' ? (window.top ?? window) : null;
+      topWindow?.location.assign(to);
+    } else {
+      navigateToStory(to, { defaultToDocs });
+    }
   };
 
   if (Component === 'a') {
-    return (
-      <a
-        {...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-        href={href}
-        onClick={(event: React.MouseEvent) => handleActivate(event)}
-      />
-    );
+    return <a {...rest} href={href} onClick={(event: React.MouseEvent) => handleActivate(event)} />;
   }
 
   const pressProps = {
