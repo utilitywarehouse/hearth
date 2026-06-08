@@ -203,7 +203,7 @@ using it.
 
 ```tsx
 // ✅ CORRECT
-import { semantic, border, space } "@utilitywarehouse/hearth-tokens/browser";
+import { semantic, border, space } from '@utilitywarehouse/hearth-tokens/browser';
 
 const CardHighlightHeader = styled(Box)({
  backgroundColor: semantic.surface.highlight.subtle,
