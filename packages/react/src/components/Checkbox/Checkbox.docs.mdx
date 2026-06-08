@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Checkbox.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Checkbox } from './Checkbox';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Checkbox" />
 
-# Checkbox
+<Flex justifyContent="between" alignItems="baseline">
+  # Checkbox
+  <ViewMarkdownLink to="components/checkbox" />
+</Flex>
 
 The `Checkbox` component is a dual-state checkbox allowing users to toggle
 between checked and not checked. `Checkbox` can be used independently, however

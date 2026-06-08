@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './VerificationInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { VerificationInput } from './VerificationInput';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / VerificationInput" />
 
-# VerificationInput
+<Flex justifyContent="between" alignItems="baseline">
+  # VerificationInput
+  <ViewMarkdownLink to="components/verification-input" />
+</Flex>
 
 `VerificationInput` allows users to enter a one-time password (OTP) sent via
 SMS, email, or authenticator apps.

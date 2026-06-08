@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DetailText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { DetailText } from './DetailText';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Typography / DetailText" />
 
-# DetailText
+<Flex justifyContent="between" alignItems="baseline">
+  # DetailText
+  <ViewMarkdownLink to="components/detail-text" />
+</Flex>
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

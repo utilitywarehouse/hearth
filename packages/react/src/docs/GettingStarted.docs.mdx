@@ -1,10 +1,14 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { version } from '../../package.json';
 import { Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
+import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
 
 <Meta title="Getting Started" />
 
-# Hearth React
+<Flex justifyContent="between" alignItems="baseline">
+  # Hearth React
+  <ViewMarkdownLink to="docs/getting-started" />
+</Flex>
 
 Current version: v{version}
 

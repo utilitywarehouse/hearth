@@ -2,10 +2,15 @@ import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Badge.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Badge } from './Badge';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Badge" />
 
-# Badge
+<Flex justifyContent="between" alignItems="baseline">
+  # Badge
+  <ViewMarkdownLink to="components/badge" />
+</Flex>
 
 A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.
 

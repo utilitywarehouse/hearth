@@ -1,9 +1,14 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../components/Box/Box';
+import { Flex } from '../../components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Common Props / Grid Items" />
 
-# Grid items
+<Flex justifyContent="between" alignItems="baseline">
+  # Grid items
+  <ViewMarkdownLink to="docs/common-props/grid-items" />
+</Flex>
 
 Grid item props enable styling on components when they are children of a grid
 container.

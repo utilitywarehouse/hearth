@@ -3,10 +3,15 @@ import * as Stories from './Table.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Table } from './Table';
 import { TableHeaderCell } from './TableHeaderCell';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Table" />
 
-# Table
+<Flex justifyContent="between" alignItems="baseline">
+  # Table
+  <ViewMarkdownLink to="components/table" />
+</Flex>
 
 Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.
 

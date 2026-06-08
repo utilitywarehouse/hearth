@@ -3,10 +3,15 @@ import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Alert.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Alert } from './Alert';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Alert" />
 
-# Alert
+<Flex justifyContent="between" alignItems="baseline">
+  # Alert
+  <ViewMarkdownLink to="components/alert" />
+</Flex>
 
 The `Alert` component displays a short, important message in a way that
 attracts the user's attention without interrupting the user's task. This

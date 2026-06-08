@@ -3,10 +3,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Grid.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Grid } from './Grid';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Layout / Grid" />
 
-# Grid
+<Flex justifyContent="between" alignItems="baseline">
+  # Grid
+  <ViewMarkdownLink to="components/grid" />
+</Flex>
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

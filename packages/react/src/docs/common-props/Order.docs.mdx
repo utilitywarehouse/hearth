@@ -1,9 +1,14 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../components/Box/Box';
+import { Flex } from '../../components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Common Props / Order" />
 
-# Order
+<Flex justifyContent="between" alignItems="baseline">
+  # Order
+  <ViewMarkdownLink to="docs/common-props/order" />
+</Flex>
 
 The order prop sets the order for Flex & Grid items, it is responsive and
 accepts any valid string value.

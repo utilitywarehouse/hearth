@@ -1,9 +1,14 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../components/Box/Box';
+import { Flex } from '../../components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Common Props / Size" />
 
-# Size
+<Flex justifyContent="between" alignItems="baseline">
+  # Size
+  <ViewMarkdownLink to="docs/common-props/size" />
+</Flex>
 
 The size props provide height and width styles, they are responsive but do not
 use any token values, instead they accept any valid CSS
