@@ -191,7 +191,7 @@ style props.
 <Box style={{ padding: '16px' }} />
 ```
 
-Token strings map to CSS custom properties: `"200"` → `var(--h-spacing-200)`.
+Token strings map to CSS custom properties: `"200"` → `var(--h-space-200)`.
 
 ## Browser tokens in JS/TS, CSS variables in CSS
 
