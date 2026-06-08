@@ -25,8 +25,14 @@ There are 2 options for discovering existing components and documentation:
 - MCP server: `hearth-react` MCP hosted on a remote URL
 - Raw markdown files: located in the `docs` folder of the `hearth-react` package
 
-Make a decision on which one to use, and if unsure verify with user. Be aware
-that not all users may have the `hearth-react` MCP server set up and available.
+**Default to the raw markdown files.** They are local, always available, and
+version-matched to what the app actually has installed — so the API you read is
+the API you get.
+
+**Use the MCP server for richer exploration** — searching across components,
+fetching story code, or discovering what exists when you're not sure where to
+start. It's worth reaching for when the markdown files don't give you enough
+context, but it requires the server to be configured and reachable.
 
 Whatever source you use, review what is available before writing any code.
 
@@ -50,16 +56,19 @@ You can use the **`hearth-react`** MCP server if available:
 3. `get-documentation-for-story` — get story code and docs for a specific story
 
 
-## Plan, then get agreement
+## Plan before writing
 
-Before writing code, tell the user:
+For anything beyond a trivial change — a new page, a multi-component feature, an
+unfamiliar part of the codebase — share a brief plan before writing code:
 
 - Which Hearth components you'll use and why
-- Any local components you'll use and why
+- Any local components you'll need
 - The output folder/file structure
-- Any decisions where multiple options are reasonable
+- Any decisions where multiple reasonable options exist
 
-Get the user's explicit agreement before proceeding.
+For small, self-contained tasks (adding a button, tweaking a layout) you can
+proceed directly. Use your judgement: if you'd want sign-off as a developer
+pairing with someone, ask for it here too.
 
 ---
 
@@ -306,9 +315,10 @@ reference file before composing. Examples:
 
 ### Accessibility
 
-**DO NOT IGNORE ACCESSIBILITY. IT IS A MUST-HAVE NOT A NICE-TO-HAVE!**.
-
-Hearth wires ARIA where it can — don't add redundant `aria-*` attributes. Do:
+Accessibility is not optional — the UW product is used by customers across a
+wide range of abilities, and assistive technology support is a product
+requirement. Hearth wires ARIA where it can, so in most cases you just need to
+use the components correctly and avoid undermining what they do. Concretely:
 
 - Always set `as` on `Heading` for correct semantic hierarchy
 - Add `title` + `titleId` to standalone icons, not decorative ones
