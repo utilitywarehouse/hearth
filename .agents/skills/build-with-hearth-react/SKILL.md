@@ -163,10 +163,10 @@ components or wrap them in an extra `Box` just for positioning.
 
 ## Use predefined responsive spacing values when specified in design
 
-When layout, padding or margin are defined, in a Figma design, using a `spacing`
-value, use the built-in `spacing` prop, do not replace with responsive `gap`
+When layout, padding, or margin are defined in a Figma design using a `spacing`
+value, use the built-in `spacing` prop; do not replace it with responsive `gap`
 values. If spacing is not explicitly defined in the design, or specified by the
-use, use `gap` for spacing between elements, if unsure check with the user.
+user, use `gap` for spacing between elements; if unsure, check with the user.
 
 ## Use style props first
 
