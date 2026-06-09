@@ -582,7 +582,9 @@ function stripViewMarkdownLinkFlex(content) {
 }
 
 function transformContent(content, importMap, exprMap) {
-  const lines = normaliseJsxBlocks(normaliseImports(stripViewMarkdownLinkFlex(content))).split('\n');
+  const lines = normaliseJsxBlocks(normaliseImports(stripViewMarkdownLinkFlex(content))).split(
+    '\n'
+  );
   const output = [];
   let inCodeFence = false;
 

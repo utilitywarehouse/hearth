@@ -1,4 +1,3 @@
-import React from 'react';
 import { colorPropDefs } from '../../props/color.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { font, space, border, semantic } from '@utilitywarehouse/hearth-tokens/browser';
