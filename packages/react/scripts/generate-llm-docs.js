@@ -563,8 +563,26 @@ const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 // Matches import declarations
 const IMPORT_RE = /^import\s+/;
 
+/**
+ * Strips the <Flex> wrapper added around page titles alongside <ViewMarkdownLink>,
+ * leaving only the bare heading.
+ *
+ * <Flex justifyContent="between" alignItems="baseline">
+ *   # Accordion
+ *   <ViewMarkdownLink to="components/accordion" />
+ * </Flex>
+ *
+ * → # Accordion
+ */
+function stripViewMarkdownLinkFlex(content) {
+  return content.replace(
+    /<Flex[^>]*>\s*\n\s*(#{1,6} [^\n]+)\s*\n\s*<ViewMarkdownLink[^>]*\/>\s*\n<\/Flex>/g,
+    '$1'
+  );
+}
+
 function transformContent(content, importMap, exprMap) {
-  const lines = normaliseJsxBlocks(normaliseImports(content)).split('\n');
+  const lines = normaliseJsxBlocks(normaliseImports(stripViewMarkdownLinkFlex(content))).split('\n');
   const output = [];
   let inCodeFence = false;
 
