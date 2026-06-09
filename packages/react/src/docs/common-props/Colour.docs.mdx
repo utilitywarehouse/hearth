@@ -2,6 +2,10 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../components/Box/Box';
 import { Flex } from '../../components/Flex/Flex';
 import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import {
+  ColorPropsTable,
+  BackgroundColorPropsTable,
+} from '../storybook-components/ColourPropsTable';
 
 <Meta title="Common Props / Colour" />
 
@@ -22,6 +26,8 @@ The `color` prop accepts the following semantic colour values: `primary`,
 <Box color="affirmative" />
 <Box color="inverted" />
 ```
+
+<ColorPropsTable />
 
 You can also pass any of the available Hearth prefixed CSS custom properties
 from the Hearth Tokens library.
@@ -55,6 +61,8 @@ The `backgroundColor` prop accepts the following semantic colour values: `primar
 <Box backgroundColor="secondary" />
 <Box backgroundColor="brand" />
 ```
+
+<BackgroundColorPropsTable />
 
 You can also pass any of the available Hearth prefixed CSS custom properties from the Hearth Tokens library.
 You cannot pass raw strings to the `backgroundColor` prop.
