@@ -23,6 +23,9 @@
   "sideEffects": [
     "*.css"
   ],
+  "bin": {
+    "hearth-react": "./scripts/init-ai.js"
+  },
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css storybook-static",
     "build": "pnpm build:css && pnpm build:js",
@@ -39,10 +42,10 @@
     "lint": "turbo run lint:js lint:css",
     "lint:fix": "turbo run lint:js:fix lint:css:fix format",
     "lint:js": "TIMING=1 eslint --max-warnings 0 \"src/**/*.ts*\"",
-    "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.ts*\"",
+    "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.{js,ts*}\"",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
-    "format": "prettier --write \"{src,public,docs}/**/*.{ts*,md*}\" SKILL.md",
+    "format": "prettier --write \"{src,public,docs,scripts}/**/*.{js,ts*,md*}\" {README,SKILL}.md",
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx}\"",
     "figma:publish": "figma connect publish",
     "build:storybook": "pnpm generate:llm-docs && storybook build",
@@ -55,7 +58,8 @@
   },
   "files": [
     "dist/**",
-    "*.css"
+    "*.css",
+    "SKILL.md"
   ],
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",

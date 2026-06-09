@@ -60,7 +60,7 @@ function toKebabCase(str) {
  */
 function deriveOutputPath(mdxAbsPath, outputDir) {
   const rel = path.relative(SRC_DIR, mdxAbsPath); // e.g. components/Badge/Badge.docs.mdx
-  const noExt = rel.replace(/\.docs\.mdx$/, '');   // components/Badge/Badge
+  const noExt = rel.replace(/\.docs\.mdx$/, ''); // components/Badge/Badge
 
   // De-duplicate consecutive identical segments (Badge/Badge → Badge)
   const parts = noExt.split(path.sep);
@@ -159,7 +159,12 @@ function parseImports(content, mdxDir) {
     // JSON value imports: import { version } from '../../package.json'
     const jsonMatch = line.match(/import\s+\{([^}]+)\}\s+from\s+['"]([^'"]+\.json)['"]/);
     if (jsonMatch) {
-      const names = jsonMatch[1].split(',').map(n => n.trim().split(/\s+as\s+/)[0].trim());
+      const names = jsonMatch[1].split(',').map(n =>
+        n
+          .trim()
+          .split(/\s+as\s+/)[0]
+          .trim()
+      );
       const resolved = path.resolve(mdxDir, jsonMatch[2]);
       if (fs.existsSync(resolved)) {
         try {
@@ -185,7 +190,12 @@ function parseImports(content, mdxDir) {
     // Named imports from relative paths: import { Badge } from './Badge'
     const namedMatch = line.match(/import\s+\{([^}]+)\}\s+from\s+['"](\.[^'"]+)['"]/);
     if (namedMatch) {
-      const names = namedMatch[1].split(',').map(n => n.trim().split(/\s+as\s+/)[0].trim());
+      const names = namedMatch[1].split(',').map(n =>
+        n
+          .trim()
+          .split(/\s+as\s+/)[0]
+          .trim()
+      );
       const resolved = resolveFile(path.resolve(mdxDir, namedMatch[2]));
       if (resolved) {
         for (const name of names) importMap.set(name, resolved);
@@ -219,7 +229,10 @@ function getParser() {
 
   const tsConfigPath = path.join(PKG_ROOT, 'tsconfig.json');
   const { config, error } = typescript.readConfigFile(tsConfigPath, typescript.sys.readFile);
-  if (error) throw new Error(`tsconfig read error: ${typescript.flattenDiagnosticMessageText(error.messageText, '\n')}`);
+  if (error)
+    throw new Error(
+      `tsconfig read error: ${typescript.flattenDiagnosticMessageText(error.messageText, '\n')}`
+    );
 
   const { options } = typescript.parseJsonConfigFileContent(config, typescript.sys, PKG_ROOT);
 
@@ -243,9 +256,7 @@ function formatPropType(prop) {
   // react-docgen-typescript uses name="enum" with a value array for union/enum types
   // when shouldExtractLiteralValuesFromEnum is true
   if (prop.type.name === 'enum' && Array.isArray(prop.type.value)) {
-    const values = prop.type.value
-      .map(v => v.value)
-      .filter(v => v !== 'undefined');
+    const values = prop.type.value.map(v => v.value).filter(v => v !== 'undefined');
 
     if (values.length === 0) return '';
 
@@ -421,9 +432,7 @@ function extractStoryFromArgs(filePath, storyName) {
     // Unwrap `satisfies` expression: { ... } satisfies Meta<...>
     if (obj && typescript.isSatisfiesExpression?.(obj)) obj = obj.expression;
     if (obj && typescript.isObjectLiteralExpression(obj)) {
-      componentName = _objProp(obj, 'component', n =>
-        typescript.isIdentifier(n) ? n.text : null
-      );
+      componentName = _objProp(obj, 'component', n => (typescript.isIdentifier(n) ? n.text : null));
       metaArgNodes = _objArgNodes(obj, source, sf);
     }
     break;
@@ -582,8 +591,8 @@ function transformContent(content, importMap, exprMap) {
       const [, ns, storyName] = canvasMatch;
       const filePath = importMap.get(ns);
       if (filePath) {
-        const jsx = extractStoryRender(filePath, storyName)
-                 ?? extractStoryFromArgs(filePath, storyName);
+        const jsx =
+          extractStoryRender(filePath, storyName) ?? extractStoryFromArgs(filePath, storyName);
         if (jsx) output.push('', '```tsx', jsx, '```', '');
       }
       continue; // always consume the Canvas line
@@ -744,11 +753,21 @@ function generateLlmsTxt(entries, llmsTxtDir) {
   ];
 
   if (commonProps.length) {
-    lines.push('', '## Common Props', '', ...commonProps.map(e => `- [${e.title}](${rel(e.outputPath)})`));
+    lines.push(
+      '',
+      '## Common Props',
+      '',
+      ...commonProps.map(e => `- [${e.title}](${rel(e.outputPath)})`)
+    );
   }
 
   if (responsive.length) {
-    lines.push('', '## Responsive Design', '', ...responsive.map(e => `- [${e.title}](${rel(e.outputPath)})`));
+    lines.push(
+      '',
+      '## Responsive Design',
+      '',
+      ...responsive.map(e => `- [${e.title}](${rel(e.outputPath)})`)
+    );
   }
 
   return lines.join('\n') + '\n';

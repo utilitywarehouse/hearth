@@ -10,34 +10,49 @@ changes per minor release kept to a minimum. All breaking changes will be
 documented with guidelines for how to update your code, and, if necessary,
 will be accompanied by a codemod.
 
-## Preview releases
+## AI Assistant Setup
 
-We're using [pkg-pr-new](https://pkg.pr.new/) to publish preview releases. To
-trigger a preview release, create a pull request and add the `pkg-pr-new` label.
-This will trigger a workflow that will publish a preview release with the
-changes from the pull request.
+`@utilitywarehouse/hearth-react` ships with an AI skill file that gives your
+coding assistant deep knowledge of the component library — including component
+APIs, usage patterns, design tokens, and best practices.
 
-To use the preview release in a `yarn` project you can add the following to your `package.json`:
+## Setup
 
-```json
-"@utilitywarehouse/hearth-react": "https://pkg.pr.new/utilitywarehouse/hearth/@utilitywarehouse/hearth-react@{PR}.tgz",
+After installing the package, run the init command to wire it up for your AI tool:
+
+```bash
+npx @utilitywarehouse/hearth-react init-ai
 ```
 
-Make sure to replace `{PR}` with the pull request number.
+This detects your AI tool's config file and adds the skill reference automatically.
 
-You will also need to tell yarn to properly resolve the package dependencies;
-add the following to your `package.json` also:
+### Manual setup
 
-```json
-"resolutions": {
-    "@utilitywarehouse/hearth-react/@utilitywarehouse/hearth-css-reset": "https://pkg.pr.new/utilitywarehouse/hearth/@utilitywarehouse/hearth-css-reset@{PR}.tgz"
-        },
-```
+If you prefer to add it yourself, append the appropriate line to your project's AI config file:
 
-Make sure to replace `{PR}` with the same pull request number as specified
-previously.
+| Tool                  | Config file                       | Line to add                                                                                |
+| --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Claude Code           | `CLAUDE.md`                       | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+| Cursor                | `.cursorrules`                    | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+| Windsurf              | `.windsurfrules`                  | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+| Codex / OpenAI agents | `AGENTS.md`                       | `See node_modules/@utilitywarehouse/hearth-react/SKILL.md for component usage guidelines.` |
+| GitHub Copilot        | `.github/copilot-instructions.md` | `See node_modules/@utilitywarehouse/hearth-react/SKILL.md for component usage guidelines.` |
+| Cline / Roo           | `.clinerules`                     | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
 
-You can then `yarn install` to install the preview release.
+## What the skill covers
+
+- Component inventory and when to use each one
+- Props, variants, and composition patterns
+- Design token usage and theming
+- Accessibility requirements and patterns
+- Common mistakes and anti-patterns
+- Migration guidance between versions
+
+## Keeping it up to date
+
+The skill file is versioned with the package — upgrading
+`@utilitywarehouse/hearth-react` automatically updates the skill. No changes
+needed to your config file after the initial setup.
 
 ## Figma Code Connect
 
@@ -69,4 +84,3 @@ When you have done this, you can run the following command to publish the compon
 ```bash
 pnpm exec figma connect publish
 ```
-
