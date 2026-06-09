@@ -8,8 +8,9 @@
  * Usage: npx @utilitywarehouse/hearth-react init-ai
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import readline from 'readline';
 const PACKAGE_NAME = '@utilitywarehouse/hearth-react';
 const SKILL_PATH = `node_modules/${PACKAGE_NAME}/SKILL.md`;
 
@@ -105,7 +106,6 @@ function detectAndUpdate(projectRoot) {
 }
 
 function promptCreate(projectRoot) {
-  const readline = require('readline');
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   rl.question('\nNo AI assistant config file detected. Create CLAUDE.md? (Y/n) ', answer => {
     rl.close();
