@@ -1,14 +1,16 @@
-# React
+---
+'@utilitywarehouse/hearth-react': minor
+---
 
-[Storybook](https://hearth.prod.uw.systems/?path=/docs/react_getting-started--docs) (UW VPN required)
+🌟 [FEATURE]: Add `hearth-react` agentic skill
 
-## Releases
-
-Currently all `v0` releases should be considered unstable pre-releases. Any
-breaking change will be made in a minor release, with the number of breaking
-changes per minor release kept to a minimum. All breaking changes will be
-documented with guidelines for how to update your code, and, if necessary,
-will be accompanied by a codemod.
+This release includes a new agentic skill file for
+`@utilitywarehouse/hearth-react`, which provides AI coding assistants with deep
+knowledge of the component library. The skill covers component APIs, usage
+patterns, design tokens, accessibility requirements, common mistakes, and
+migration guidance. It can be easily set up with a single command or manually
+added to your AI tool's config file. Upgrading the package will automatically
+update the skill to keep it current.
 
 ## AI Assistant Setup
 
@@ -53,34 +55,3 @@ If you prefer to add it yourself, append the appropriate line to your project's 
 The skill file is versioned with the package — upgrading
 `@utilitywarehouse/hearth-react` automatically updates the skill. No changes
 needed to your config file after the initial setup.
-
-## Figma Code Connect
-
-We use the Code Connect CLI to generate Figma components from our React
-components.
-
-You will need to make sure you have an appropriate Figma
-[personal access token](https://developers.figma.com/docs/rest-api/authentication/#generate-a-personal-access-token)
-set in your environment as `FIGMA_ACCESS_TOKEN`.
-
-To generate a Figma component file, you will need to copy the link to the
-component selection in the Figma file. You then need to navigate to the relevant
-component directory in the package `src` and run the following command, where
-`{FIGMA_LINK}` is the link you copied:
-
-```bash
-pnpm exec figma connect create {FIGMA_LINK}
-```
-
-This will generate a `{component}.figma.tsx` file in the component directory.
-However we don't keep these files with the components, so you will need to move
-it to the `src/figma` directory and update the import paths accordingly.
-
-You can now update the file as best you can to connect the React component to
-the one in Figma.
-
-When you have done this, you can run the following command to publish the component to Figma:
-
-```bash
-pnpm exec figma connect publish
-```
