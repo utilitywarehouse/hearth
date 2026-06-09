@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.29.1
+
+### Patch Changes
+
+- [#1291](https://github.com/utilitywarehouse/hearth/pull/1291) [`54b36e9`](https://github.com/utilitywarehouse/hearth/commit/54b36e935de82a1cbf9551cbfb725cbe008b0f3c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: convert script to ESM syntax
+
 ## 0.29.0
 
 ### Minor Changes
