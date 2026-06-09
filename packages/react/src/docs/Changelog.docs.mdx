@@ -1,8 +1,13 @@
 import { Meta } from '@storybook/addon-docs/blocks';
+import { Flex } from '../components/Flex/Flex';
+import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
 
 <Meta title="Changelog" />
 
-# Changelog
+<Flex justifyContent="between" alignItems="baseline">
+  # Changelog
+  <ViewMarkdownLink to="docs/changelog" />
+</Flex>
 
 ## 0.28.7
 

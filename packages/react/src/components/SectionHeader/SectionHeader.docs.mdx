@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './SectionHeader.stories';
 import { SectionHeader } from './SectionHeader';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / SectionHeader" />
 
-# SectionHeader
+<Flex justifyContent="between" alignItems="baseline">
+  # SectionHeader
+  <ViewMarkdownLink to="components/section-header" />
+</Flex>
 
 Use the `SectionHeader` component to help define and separate content within a
 screen. It provides structure, clarity, and improves page scannability for

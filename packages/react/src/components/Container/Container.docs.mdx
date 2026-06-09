@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Container.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Container } from './Container';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Layout / Container" />
 
-# Container
+<Flex justifyContent="between" alignItems="baseline">
+  # Container
+  <ViewMarkdownLink to="components/container" />
+</Flex>
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

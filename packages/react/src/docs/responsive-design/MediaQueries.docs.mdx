@@ -1,10 +1,14 @@
 import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
 import { BodyText, Flex, Divider, media } from '@utilitywarehouse/hearth-react';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Responsive Design / Media Queries" />
 
-# Media Queries
+<Flex justifyContent="between" alignItems="baseline">
+  # Media Queries
+  <ViewMarkdownLink to="docs/responsive-design/media-queries" />
+</Flex>
 
 While you should be able to do most things using the responsive style props, if
 you need to you can use the `media` object to help create responsive styles.

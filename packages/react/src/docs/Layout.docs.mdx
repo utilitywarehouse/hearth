@@ -3,10 +3,15 @@ import * as BoxStories from '../components/Box/Box.stories';
 import * as FlexStories from '../components/Flex/Flex.stories';
 import * as GridStories from '../components/Grid/Grid.stories';
 import * as ContainerStories from '../components/Container/Container.stories';
+import { Flex } from '../components/Flex/Flex';
+import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
 
 <Meta title="Layout / Overview" />
 
-# Layout
+<Flex justifyContent="between" alignItems="baseline">
+  # Layout
+  <ViewMarkdownLink to="docs/layout" />
+</Flex>
 
 These components focus on creating layouts and can be used as base building
 blocks for other components and patterns. These layout primitives are built

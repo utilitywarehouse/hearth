@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Avatar.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Avatar } from './Avatar';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Avatar" />
 
-# Avatar
+<Flex justifyContent="between" alignItems="baseline">
+  # Avatar
+  <ViewMarkdownLink to="components/avatar" />
+</Flex>
 
 Use `Avatar` to help humanise the product experience by connecting users with the product and to each other.
 

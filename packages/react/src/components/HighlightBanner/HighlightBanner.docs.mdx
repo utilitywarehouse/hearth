@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './HighlightBanner.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { HighlightBanner } from './HighlightBanner';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / HighlightBanner" />
 
-# HighlightBanner
+<Flex justifyContent="between" alignItems="baseline">
+  # HighlightBanner
+  <ViewMarkdownLink to="components/highlight-banner" />
+</Flex>
 
 `HighlightBanner` can be used to highlight key information or marketing messaging.
 

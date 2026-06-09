@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Combobox.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Combobox } from './Combobox';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Combobox" />
 
-# Combobox
+<Flex justifyContent="between" alignItems="baseline">
+  # Combobox
+  <ViewMarkdownLink to="components/combobox" />
+</Flex>
 
 `Combobox` allows users to both type to filter results and select from a predefined list.
 

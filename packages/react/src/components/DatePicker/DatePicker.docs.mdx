@@ -2,10 +2,15 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './DatePicker.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { DatePicker } from './DatePicker';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / DatePicker" />
 
-# DatePicker
+<Flex justifyContent="between" alignItems="baseline">
+  # DatePicker
+  <ViewMarkdownLink to="components/date-picker" />
+</Flex>
 
 `DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.
 

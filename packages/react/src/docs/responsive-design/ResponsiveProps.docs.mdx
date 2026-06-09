@@ -1,10 +1,14 @@
 import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
 import { BodyText, Flex, Divider, breakpoints } from '@utilitywarehouse/hearth-react';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Responsive Design / Responsive Props" />
 
-# Responsive props
+<Flex justifyContent="between" alignItems="baseline">
+  # Responsive props
+  <ViewMarkdownLink to="docs/responsive-design/responsive-props" />
+</Flex>
 
 Many layout and styling props support a `Responsive` object for applying prop
 values at different breakpoints. The keys of this object reflect the different

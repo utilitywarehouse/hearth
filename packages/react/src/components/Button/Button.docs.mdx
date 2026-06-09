@@ -3,10 +3,15 @@ import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Button.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Button } from './Button';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
 
 <Meta title="Components / Button" />
 
-# Button
+<Flex justifyContent="between" alignItems="baseline">
+  # Button
+  <ViewMarkdownLink to="components/button" />
+</Flex>
 
 Trigger an action or event, such as submitting a form or displaying a dialog.
 

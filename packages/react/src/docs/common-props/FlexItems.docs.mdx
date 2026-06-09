@@ -1,9 +1,14 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../components/Box/Box';
+import { Flex } from '../../components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
 
 <Meta title="Common Props / Flex Items" />
 
-# Flex items
+<Flex justifyContent="between" alignItems="baseline">
+  # Flex items
+  <ViewMarkdownLink to="docs/common-props/flex-items" />
+</Flex>
 
 Flex item props enable styling on components when they are children of a flexbox container.
 
