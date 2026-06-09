@@ -45,8 +45,7 @@
     "generate:storybook:icons": "turbo run storybook-icons#generate",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
-    "generate:llm-docs": "turbo run generate:llm-docs"
+    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens"
   },
   "workspaces": [
     "packages/*",

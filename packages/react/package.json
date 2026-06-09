@@ -49,7 +49,7 @@
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx}\"",
     "figma:publish": "figma connect publish",
     "build:storybook": "pnpm generate:llm-docs && storybook build",
-    "generate:llm-docs": "node scripts/generate-llm-docs.js",
+    "generate:llm-docs": "node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
     "copy:changelog": "node ./scripts/copy-changelog.js",
     "test:storybook": "vitest run --project=storybook"
   },
@@ -59,7 +59,9 @@
   "files": [
     "dist/**",
     "*.css",
-    "SKILL.md"
+    "SKILL.md",
+    "public/llms/**",
+    "public/llms.txt"
   ],
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
