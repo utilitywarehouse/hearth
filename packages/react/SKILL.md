@@ -1,5 +1,5 @@
 ---
-name: build-with-hearth-react
+name: hearth-react
 description: Use when building any UI component or page with the Hearth React library. Use this implicitly whenever building any UI component or page in an app that has Hearth React installed — Hearth React is the default. Do not wait for an explicit mention of "Hearth React" — if it's UI work in an app with Hearth React, use this skill. Triggers when creating components, implementing Figma designs, adding UI features, or writing any frontend code in the app.
 ---
 
@@ -11,19 +11,19 @@ Warehouse's Design Systems libraries.
 
 ## Package imports
 
-| Purpose            | Package                                |
-| ------------------ | -------------------------------------- |
-| Components         | `@utilitywarehouse/hearth-react`       |
-| Icons              | `@utilitywarehouse/hearth-react-icons` |
-| SVG illustrations | `@utilitywarehouse/hearth-svg-assets`  |
-| Animated illustrations | `@utilitywarehouse/hearth-json-assets`  |
+| Purpose                | Package                                |
+| ---------------------- | -------------------------------------- |
+| Components             | `@utilitywarehouse/hearth-react`       |
+| Icons                  | `@utilitywarehouse/hearth-react-icons` |
+| SVG illustrations      | `@utilitywarehouse/hearth-svg-assets`  |
+| Animated illustrations | `@utilitywarehouse/hearth-json-assets` |
 
 ## Before you implement: discover what exists
 
 There are 2 options for discovering existing components and documentation:
 
 - MCP server: `hearth-react` MCP hosted on a remote URL
-- Raw markdown files: located in the `docs` folder of the `hearth-react` package
+- Raw markdown files: located in the `public` folder of the `hearth-react` package
 
 **Default to the raw markdown files.** They are local, always available, and
 version-matched to what the app actually has installed — so the API you read is
@@ -43,9 +43,9 @@ need before implementing anything custom.
 
 Full component API reference is available in:
 
-- `node_modules/@utilitywarehouse/hearth-react/docs/llms/components/` — one file per component
-- `node_modules/@utilitywarehouse/hearth-react/docs/llms/docs/` — design tokens, layout, responsive design, getting started
-- `node_modules/@utilitywarehouse/hearth-react/docs/llms.txt` — index of all available docs
+- `node_modules/@utilitywarehouse/hearth-react/public/llms/components/` — one file per component
+- `node_modules/@utilitywarehouse/hearth-react/public/llms/docs/` — design tokens, layout, responsive design, getting started
+- `node_modules/@utilitywarehouse/hearth-react/public/llms.txt` — index of all available docs
 
 ### MCP Server
 
@@ -54,7 +54,6 @@ You can use the **`hearth-react`** MCP server if available:
 1. `list-all-documentation` — get an index of all Hearth React components
 2. `get-documentation` — get props, API, and usage examples for a specific component
 3. `get-documentation-for-story` — get story code and docs for a specific story
-
 
 ## Plan before writing
 
@@ -102,12 +101,12 @@ level so UI components stay composable.
 
 Four layout primitives, all built on design tokens:
 
-| Component   | Use for                                                                    |
-| ----------- | -------------------------------------------------------------------------- |
+| Component   | Use for                                                                                                                            |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `Box`       | Generic block container; supports all style props; spacing, sizing, colour, flex/grid child behaviour, show/hide responsively etc. |
-| `Flex`      | Flexbox layouts — rows, columns, centring, wrapping                        |
-| `Grid`      | Grid layouts — columns and rows                                            |
-| `Container` | Page-width container with responsive gutters and vertical spacing          |
+| `Flex`      | Flexbox layouts — rows, columns, centring, wrapping                                                                                |
+| `Grid`      | Grid layouts — columns and rows                                                                                                    |
+| `Container` | Page-width container with responsive gutters and vertical spacing                                                                  |
 
 ```tsx
 // Flex column with responsive gap
@@ -206,16 +205,16 @@ using it.
 import { semantic, border, space } from '@utilitywarehouse/hearth-tokens/browser';
 
 const CardHighlightHeader = styled(Box)({
- backgroundColor: semantic.surface.highlight.subtle,
- borderBottom: `${border.width[2]} solid ${semantic.border.strong}`,
- padding: space[200],
+  backgroundColor: semantic.surface.highlight.subtle,
+  borderBottom: `${border.width[2]} solid ${semantic.border.strong}`,
+  padding: space[200],
 });
 
 // ❌ WRONG — Don't use CSS variables in JS/JSX/TS/TSX code, use browser tokens instead
 const CardHighlightHeader = styled(Box)({
- backgroundColor: 'var(--h-surface-highlight-subtle)',
- borderBottom: '2px solid var(--h-border-strong)',
- padding: 'var(--h-space-200)',
+  backgroundColor: 'var(--h-surface-highlight-subtle)',
+  borderBottom: '2px solid var(--h-border-strong)',
+  padding: 'var(--h-space-200)',
 });
 ```
 
@@ -354,4 +353,3 @@ Control `Button` width with parent layout components.
 
 `defaultResponsiveColumns` sets 4 columns on mobile, 8 on tablet, 12 on desktop+wide.
 `gridColumnSpan` takes a string value from `'1'` to `'12'`.
-
