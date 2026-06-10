@@ -307,7 +307,8 @@ export declare const components: {
     };
   };
   readonly divider: {
-    readonly borderWidth: 'var(--h-divider-border-width)';
+    readonly color: 'var(--h-divider-color)';
+    readonly size: 'var(--h-divider-size)';
   };
   readonly drawer: {
     readonly footer: {
