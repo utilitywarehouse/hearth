@@ -3,8 +3,11 @@
  */
 
 export default {
-  borderWidth: 1,
-  divider: {
-    borderWidth: 2,
+  buttonGroup: {
+    gap: 12,
+  },
+  gap: 24,
+  item: {
+    gap: 20,
   },
 } as const;

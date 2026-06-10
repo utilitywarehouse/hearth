@@ -12,6 +12,7 @@ export { default as bottomSheet } from './bottom-sheet';
 export { default as breadcrumb } from './breadcrumb';
 export { default as button } from './button';
 export { default as card } from './card';
+export { default as cardAccordion } from './card-accordion';
 export { default as cardAction } from './card-action';
 export { default as cardContent } from './card-content';
 export { default as carouselControl } from './carousel-control';

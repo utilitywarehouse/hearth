@@ -6,7 +6,6 @@ export default {
   borderRadius: 8,
   borderWidth: 2,
   contentGap: 4,
-  focus: '#101010',
   gap: 8,
   iconButton: {
     unstyled: {
