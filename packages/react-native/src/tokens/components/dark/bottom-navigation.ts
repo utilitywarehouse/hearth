@@ -3,7 +3,7 @@
  */
 
 export default {
-  borderTopWidth: 2,
+  borderTop: 2,
   gap: 0,
   indicator: {
     borderRadius: 4,
