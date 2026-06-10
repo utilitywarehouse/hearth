@@ -18,7 +18,9 @@ function resolveSkillPath(projectRoot) {
   while (dir !== path.parse(dir).root) {
     const candidate = path.join(dir, 'node_modules', PACKAGE_NAME);
     if (fs.existsSync(candidate)) {
-      return path.relative(projectRoot, path.join(candidate, 'SKILL.md'));
+      return path
+        .relative(projectRoot, path.join(candidate, 'SKILL.md'))
+        .replace(/\\/g, '/');
     }
     dir = path.dirname(dir);
   }
