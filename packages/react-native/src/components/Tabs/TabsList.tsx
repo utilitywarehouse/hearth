@@ -148,7 +148,7 @@ const styles = StyleSheet.create(theme => ({
     position: 'relative',
     width: '100%',
     borderBottomWidth: theme.components.tabs.divider.borderWidth,
-    borderColor: theme.components.tabs.divider.color,
+    borderColor: theme.color.border.strong,
   },
   scrollContent: {
     paddingBottom: 0,
