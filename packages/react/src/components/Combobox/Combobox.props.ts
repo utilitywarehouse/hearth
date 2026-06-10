@@ -8,11 +8,7 @@ export interface ComboboxProps<Value, Multiple extends boolean | undefined = fal
   extends
     Omit<
       ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>,
-      | 'openOnInputClick'
-      | 'autoHighlight'
-      | 'highlightItemOnHover'
-      | 'actionsRef'
-      | 'onItemHighlighted'
+      'openOnInputClick' | 'highlightItemOnHover' | 'actionsRef'
     >,
     Pick<ComboboxPrimitive.Trigger.Props, 'disabled'>,
     FormFieldProps,
