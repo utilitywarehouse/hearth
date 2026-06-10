@@ -1,0 +1,119 @@
+{
+  "skill_name": "hearth-react",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "I need to build a billing address form. It should have fields for first name, last name, address line 1, address line 2, city, and postcode. There should be a submit button at the bottom. On mobile the button should be full-width, but on desktop it should just be as wide as it needs to be.",
+      "expected_output": "A React component using hearth-react imports, Flex/Grid/Box layout components for structure, gap on parents not margin on children, responsive props with mobile key, no raw CSS values.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-react",
+          "description": "Imports components from @utilitywarehouse/hearth-react",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react"
+        },
+        {
+          "id": "uses-layout-components",
+          "description": "Uses Flex, Grid, or Box layout components instead of raw div elements for structure",
+          "type": "code_contains_any",
+          "value": ["<Flex", "<Grid", "<Box"]
+        },
+        {
+          "id": "no-raw-px-values",
+          "description": "Does not use raw CSS px values (e.g. style={{ padding: '16px' }})",
+          "type": "code_not_contains",
+          "value": "px'"
+        },
+        {
+          "id": "responsive-button-layout",
+          "description": "Full-width mobile button handled via layout wrapper (alignItems or direction on Flex), not inline styles",
+          "type": "code_contains_any",
+          "value": ["alignItems", "direction="]
+        },
+        {
+          "id": "gap-not-margin-for-spacing",
+          "description": "Uses gap on parent container for spacing fields, not margin on individual sibling elements",
+          "type": "code_contains",
+          "value": "gap="
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Create a user profile card component. It should show an avatar (just use initials), the user's name as a heading, their role as smaller text underneath, and an Edit button in the top-right corner. The card should have a subtle background and some padding.",
+      "expected_output": "A card component using hearth-react Card/Box/Flex primitives with semantic color tokens, Flex with justifyContent for layout, correct heading semantics with 'as' prop.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-react",
+          "description": "Imports components from @utilitywarehouse/hearth-react",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react"
+        },
+        {
+          "id": "uses-layout-components",
+          "description": "Uses Flex, Box, or Card layout primitives, not raw div elements",
+          "type": "code_contains_any",
+          "value": ["<Flex", "<Box", "<Card"]
+        },
+        {
+          "id": "edit-button-via-justifycontent",
+          "description": "Edit button positioned via justifyContent on a Flex, not marginLeft='auto' hack",
+          "type": "code_contains",
+          "value": "justifyContent"
+        },
+        {
+          "id": "heading-has-as-prop",
+          "description": "Heading component has an 'as' prop for semantic HTML hierarchy",
+          "type": "code_contains",
+          "value": "as=\"h"
+        },
+        {
+          "id": "no-raw-color-values",
+          "description": "Does not use raw hex color values in props (semantic tokens used instead)",
+          "type": "code_not_contains",
+          "value": "#f"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a cancel subscription modal. It should be triggered by a 'Cancel subscription' button. The modal should have a title, a short warning message, and two buttons at the bottom: a ghost 'Keep subscription' button and a solid red 'Cancel subscription' button. Make them stack on mobile.",
+      "expected_output": "A Modal using ModalRoot/ModalTrigger/ModalContent compound components, correct asChild usage, Flex layout for buttons with responsive direction prop including mobile key, gap not margin, ghost variant on Keep button.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-react",
+          "description": "Imports components from @utilitywarehouse/hearth-react",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react"
+        },
+        {
+          "id": "uses-modal-compound-components",
+          "description": "Uses ModalRoot (or equivalent compound modal components) from hearth-react",
+          "type": "code_contains_any",
+          "value": ["ModalRoot", "Modal.Root", "<Modal"]
+        },
+        {
+          "id": "responsive-button-stacking",
+          "description": "Responsive button stacking handled via ModalFooter (built-in) or Flex with responsive direction",
+          "type": "code_contains_any",
+          "value": ["ModalFooter", "mobile:"]
+        },
+        {
+          "id": "no-margin-on-buttons",
+          "description": "No margin used directly on Button siblings for spacing (ModalFooter or gap handles it)",
+          "type": "code_not_contains",
+          "value": "marginLeft="
+        },
+        {
+          "id": "ghost-variant-on-keep-button",
+          "description": "Keep subscription button uses variant='ghost'",
+          "type": "code_contains",
+          "value": "variant=\"ghost\""
+        }
+      ]
+    }
+  ]
+}
