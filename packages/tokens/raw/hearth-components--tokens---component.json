@@ -954,8 +954,12 @@
       }
     },
     "divider": {
-      "border-width": {
-        "alias": "{border-width.1}",
+      "color": {
+        "alias": "{color.grey.600}",
+        "type": "color",
+        "value": "#5b5b5b"
+      },
+      "size": {
         "type": "number",
         "value": 1
       }
@@ -3891,8 +3895,12 @@
       }
     },
     "divider": {
-      "border-width": {
-        "alias": "{border-width.1}",
+      "color": {
+        "alias": "{color.warm-white.300}",
+        "type": "color",
+        "value": "#d4d2c0"
+      },
+      "size": {
         "type": "number",
         "value": 1
       }
