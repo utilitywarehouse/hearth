@@ -12,47 +12,62 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 const PACKAGE_NAME = '@utilitywarehouse/hearth-react';
-const SKILL_PATH = `node_modules/${PACKAGE_NAME}/SKILL.md`;
+
+function resolveSkillPath(projectRoot) {
+  let dir = projectRoot;
+  while (dir !== path.parse(dir).root) {
+    const candidate = path.join(dir, 'node_modules', PACKAGE_NAME);
+    if (fs.existsSync(candidate)) {
+      return path
+        .relative(projectRoot, path.join(candidate, 'SKILL.md'))
+        .replace(/\\/g, '/');
+    }
+    dir = path.dirname(dir);
+  }
+  return `node_modules/${PACKAGE_NAME}/SKILL.md`;
+}
 
 // Config files for each tool, in detection priority order
-const AI_TOOLS = [
-  {
-    name: 'Claude Code',
-    files: ['CLAUDE.md'],
-    line: `@${SKILL_PATH}`,
-    supportsAtImport: true,
-  },
-  {
-    name: 'Cursor',
-    files: ['.cursorrules'],
-    line: `@${SKILL_PATH}`,
-    supportsAtImport: true,
-  },
-  {
-    name: 'Windsurf',
-    files: ['.windsurfrules'],
-    line: `@${SKILL_PATH}`,
-    supportsAtImport: true,
-  },
-  {
-    name: 'Cline / Roo',
-    files: ['.clinerules'],
-    line: `@${SKILL_PATH}`,
-    supportsAtImport: true,
-  },
-  {
-    name: 'Codex / OpenAI agents',
-    files: ['AGENTS.md'],
-    line: `See ${SKILL_PATH} for ${PACKAGE_NAME} component usage guidelines.`,
-    supportsAtImport: false,
-  },
-  {
-    name: 'GitHub Copilot',
-    files: ['.github/copilot-instructions.md'],
-    line: `See ${SKILL_PATH} for ${PACKAGE_NAME} component usage guidelines.`,
-    supportsAtImport: false,
-  },
-];
+function buildAiTools(skillPath) {
+  return [
+    {
+      name: 'Claude Code',
+      files: ['CLAUDE.md'],
+      line: `@${skillPath}`,
+      supportsAtImport: true,
+    },
+    {
+      name: 'Cursor',
+      files: ['.cursorrules'],
+      line: `@${skillPath}`,
+      supportsAtImport: true,
+    },
+    {
+      name: 'Windsurf',
+      files: ['.windsurfrules'],
+      line: `@${skillPath}`,
+      supportsAtImport: true,
+    },
+    {
+      name: 'Cline / Roo',
+      files: ['.clinerules'],
+      line: `@${skillPath}`,
+      supportsAtImport: true,
+    },
+    {
+      name: 'Codex / OpenAI agents',
+      files: ['AGENTS.md'],
+      line: `See ${skillPath} for ${PACKAGE_NAME} component usage guidelines.`,
+      supportsAtImport: false,
+    },
+    {
+      name: 'GitHub Copilot',
+      files: ['.github/copilot-instructions.md'],
+      line: `See ${skillPath} for ${PACKAGE_NAME} component usage guidelines.`,
+      supportsAtImport: false,
+    },
+  ];
+}
 
 const COMMENT = `# ${PACKAGE_NAME} — AI skill for component library usage guidance\n# Added by: npx ${PACKAGE_NAME} init-ai`;
 
@@ -105,12 +120,12 @@ function detectAndUpdate(projectRoot) {
   return results;
 }
 
-function promptCreate(projectRoot) {
+function promptCreate(projectRoot, aiTools) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   rl.question('\nNo AI assistant config file detected. Create CLAUDE.md? (Y/n) ', answer => {
     rl.close();
     if (answer.trim().toLowerCase() !== 'n') {
-      const tool = AI_TOOLS.find(t => t.name === 'Claude Code');
+      const tool = aiTools.find(t => t.name === 'Claude Code');
       const filePath = path.join(projectRoot, 'CLAUDE.md');
       appendToFile(filePath, tool.line);
       console.log(`\n✅  Created CLAUDE.md with ${PACKAGE_NAME} skill reference.`);
@@ -123,13 +138,15 @@ function promptCreate(projectRoot) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 
 const projectRoot = findProjectRoot();
+const skillPath = resolveSkillPath(projectRoot);
+const AI_TOOLS = buildAiTools(skillPath);
 
 console.log(`\n🔍  Scanning for AI assistant config files in ${projectRoot}...\n`);
 
 const results = detectAndUpdate(projectRoot);
 
 if (results.length === 0) {
-  promptCreate(projectRoot);
+  promptCreate(projectRoot, AI_TOOLS);
 } else {
   for (const r of results) {
     if (r.alreadyPresent) {

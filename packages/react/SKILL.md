@@ -41,11 +41,15 @@ need before implementing anything custom.
 
 ### Raw markdown files
 
-Full component API reference is available in:
+Full component API reference is available in the installed package. First, resolve where it is installed — in a monorepo the package is typically hoisted to the repo root rather than the app's local `node_modules`:
 
-- `node_modules/@utilitywarehouse/hearth-react/public/llms/components/` — one file per component
-- `node_modules/@utilitywarehouse/hearth-react/public/llms/docs/` — design tokens, layout, responsive design, getting started
-- `node_modules/@utilitywarehouse/hearth-react/public/llms.txt` — index of all available docs
+node -e "const path = require('path'); console.log(path.dirname(require.resolve('@utilitywarehouse/hearth-react/package.json')))"
+
+The docs are then at:
+
+- `<hearth-react-root>/public/llms/components/` — one file per component
+- `<hearth-react-root>/public/llms/docs/` — design tokens, layout, responsive design, getting started
+- `<hearth-react-root>/public/llms.txt` — index of all available docs
 
 ### MCP Server
 
@@ -90,6 +94,13 @@ pairing with someone, ask for it here too.
    import and use JS tokens for UI, only if needed for calculations.
 7. **Space tokens are for spacing only** — do not use tokens like `200` or `400`
    for `width`, `height`, or font sizes
+8. **Typography components should not have custom styles** — use the built-in
+   variants and style props to achieve the desired result. If you find yourself
+   adding custom styles, particularly related to font size, font weight, font
+   family, line height, or letter spacing, to a `Heading`, `BodyText`,
+   `DetailText` or other typography component, check if there's a more
+   appropriate variant or combination of props that achieves the same result
+   without custom styles.
 
 # Critical Rules
 
