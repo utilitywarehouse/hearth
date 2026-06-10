@@ -154,7 +154,8 @@
   --h-description-list-item-row-gap: var(--h-space-100);
   --h-description-list-item-row-heading-width: 180px;
   --h-description-list-stack-gap: var(--h-space-200);
-  --h-divider-border-width: var(--h-border-width-1);
+  --h-divider-color: var(--h-color-warm-white-300);
+  --h-divider-size: 1px;
   --h-drawer-footer-horizontal-gap: var(--h-space-200);
   --h-drawer-footer-padding: var(--h-space-300);
   --h-drawer-footer-vertical-gap: var(--h-space-100);
@@ -442,7 +443,7 @@
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800);
   --h-tabs-md-height: var(--h-space-700);
-  --h-time-picker-fade: #fff0;
+  --h-time-picker-fade: #ffffff00;
   --h-time-picker-gap: var(--h-space-75);
   --h-time-picker-gap-container: var(--h-space-50);
   --h-time-picker-min-width: 288px;

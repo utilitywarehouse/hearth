@@ -308,7 +308,8 @@ export const components = {
     },
   },
   divider: {
-    borderWidth: 'var(--h-divider-border-width)',
+    color: 'var(--h-divider-color)',
+    size: 'var(--h-divider-size)',
   },
   drawer: {
     footer: {

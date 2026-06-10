@@ -3,7 +3,8 @@
  */
 
 export default {
-  borderWidth: 1,
+  color: '#d4d2c0',
+  size: 1,
   divider: {
     borderWidth: 2,
   },
