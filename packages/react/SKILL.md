@@ -43,9 +43,7 @@ need before implementing anything custom.
 
 Full component API reference is available in the installed package. First, resolve where it is installed — in a monorepo the package is typically hoisted to the repo root rather than the app's local `node_modules`:
 
-```sh
-node -e "console.log(require.resolve('@utilitywarehouse/hearth-react/package.json').replace('/package.json', ''))"
-```
+node -e "const path = require('path'); console.log(path.dirname(require.resolve('@utilitywarehouse/hearth-react/package.json')))"
 
 The docs are then at:
 
