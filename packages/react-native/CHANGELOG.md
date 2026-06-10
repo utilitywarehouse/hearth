@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1298](https://github.com/utilitywarehouse/hearth/pull/1298) [`43bf936`](https://github.com/utilitywarehouse/hearth/commit/43bf936fa03db109c669369cac6d0483877ae49a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Remove component color tokens in favour of semantic tokens
+
+  Updated `TabsList` to use `theme.color.border.strong` and removed the
+  `tabs.divider.color` component token (and other unused component color tokens)
+  in favour of semantic tokens.
+
 ## 0.32.5
 
 ### Patch Changes

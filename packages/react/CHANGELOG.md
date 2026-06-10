@@ -1,5 +1,33 @@
 # @utilitywarehouse/hearth-react
 
+## 0.29.3
+
+### Patch Changes
+
+- [#1297](https://github.com/utilitywarehouse/hearth/pull/1297) [`e13a1d1`](https://github.com/utilitywarehouse/hearth/commit/e13a1d1369801e65ef7e7a7b9b7c85fc4f5368c5) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `init-ai` script resolves correct skill path in monorepos
+
+  In monorepos where `@utilitywarehouse/hearth-react` is hoisted to the root
+  `node_modules`, the `init-ai` script was writing an incorrect local path to AI
+  assistant config files.
+
+  The script now walks up the directory tree from the project root to find where
+  the package is actually installed, and writes a path relative to the project
+  root. The SKILL.md documentation has also been updated to guide agents to
+  resolve the package location at runtime rather than assuming a fixed relative
+  path.
+
+  **Developer changes**:
+
+  No changes required. Re-run `npx @utilitywarehouse/hearth-react init-ai` to
+  update your config file with the correct path if you previously ran it from
+  within a monorepo app.
+
+- [#1300](https://github.com/utilitywarehouse/hearth/pull/1300) [`53a14a8`](https://github.com/utilitywarehouse/hearth/commit/53a14a8469b7b6d0a5cc1db3adc844084187d8f8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Move `data-testid` to the outer element in `ToggleGroup`
+
+  `data-testid` was being applied to the inner `ToggleGroupPrimitive.Root` rather
+  than the outer `Flex` wrapper, inconsistent with how other components expose
+  their test IDs.
+
 ## 0.29.2
 
 ### Patch Changes
