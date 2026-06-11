@@ -18,6 +18,16 @@ const headingColors = [
   'cashback',
   'highlight',
 ] as const;
+const shadowColors = [
+  'brand',
+  'energy',
+  'broadband',
+  'mobile',
+  'insurance',
+  'cashback',
+  'pig',
+  'functional',
+] as const;
 
 const meta: Meta<typeof HighlightBanner> = {
   title: 'Components / HighlightBanner',
@@ -104,6 +114,38 @@ export const KitchenSink: Story = {
             </HighlightBannerFooter>
           </HighlightBanner>
         </Flex>
+      ))}
+    </Flex>
+  ),
+};
+
+export const ShadowColours: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    options: { selectedPanel: 'storybook/a11y/panel' },
+  },
+  args: {
+    width: '300px',
+    direction: 'column',
+    gap: '150',
+  },
+  render: args => (
+    <Flex gap="400" padding="400" wrap="wrap">
+      {shadowColors.map(c => (
+        <HighlightBanner
+          key={c}
+          heading="Heading"
+          headingColor={c === 'functional' ? 'highlight' : c === 'brand' ? 'pig' : c}
+          colorScheme="neutralSubtle"
+          shadowColor={c}
+          {...args}
+        >
+          <Box height="100px" width="200px" />
+          <HighlightBannerFooter>
+            <BodyText size="md">Description</BodyText>
+          </HighlightBannerFooter>
+        </HighlightBanner>
       ))}
     </Flex>
   ),
