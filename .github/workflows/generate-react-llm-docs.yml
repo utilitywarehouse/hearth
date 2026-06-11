@@ -1,4 +1,4 @@
-name: Generate React llm Docs
+name: Generate and Commit React llm Docs
 on:
   pull_request:
     types: [opened, synchronize, reopened]
