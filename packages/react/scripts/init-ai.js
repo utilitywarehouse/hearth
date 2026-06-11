@@ -69,7 +69,7 @@ function buildAiTools(skillPath) {
   ];
 }
 
-const COMMENT = `# ${PACKAGE_NAME} — AI skill for component library usage guidance\n# Added by: npx ${PACKAGE_NAME} init-ai`;
+const COMMENT = `<!-- ${PACKAGE_NAME} — AI skill for component library usage guidance -->\n<!-- Added by: npx ${PACKAGE_NAME} init-ai -->`;
 
 function findProjectRoot() {
   let dir = process.cwd();
