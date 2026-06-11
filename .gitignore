@@ -24,3 +24,4 @@ storybook-static
 apps/storybook-rn-expo/.rnstorybook/storybook.requires.js
 .claude/worktrees
 hearth-react-workspace
+.pnpm-store

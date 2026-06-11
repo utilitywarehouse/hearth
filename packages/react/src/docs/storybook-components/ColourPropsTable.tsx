@@ -1,6 +1,7 @@
 import { colorPropDefs } from '../../props/color.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { font, space, border, semantic } from '@utilitywarehouse/hearth-tokens/browser';
+import { toMdTable } from './markdown-table';
 
 const tableStyle: React.CSSProperties = {
   width: '100%',
@@ -77,4 +78,20 @@ export function ColorPropsTable() {
 export function BackgroundColorPropsTable() {
   const tokens = backgroundColorPropDefs.backgroundColor.tokens ?? [];
   return <ColourTable tokens={tokens} cssVarFn={value => `var(--h-background-${value})`} />;
+}
+
+export function colorPropsMarkdown(): string {
+  const tokens = colorPropDefs.color.tokens ?? [];
+  return toMdTable(
+    ['Value', 'CSS custom property'],
+    tokens.map(v => [v, `var(--h-text-${v})`])
+  );
+}
+
+export function backgroundColorPropsMarkdown(): string {
+  const tokens = backgroundColorPropDefs.backgroundColor.tokens ?? [];
+  return toMdTable(
+    ['Value', 'CSS custom property'],
+    tokens.map(v => [v, `var(--h-background-${v})`])
+  );
 }

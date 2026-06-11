@@ -13,7 +13,13 @@ The `color` prop accepts the following semantic colour values: `primary`,
 <Box color="inverted" />
 ```
 
-<ColorPropsTable />
+| Value       | CSS custom property       |
+| ----------- | ------------------------- |
+| primary     | var(--h-text-primary)     |
+| secondary   | var(--h-text-secondary)   |
+| brand       | var(--h-text-brand)       |
+| affirmative | var(--h-text-affirmative) |
+| inverted    | var(--h-text-inverted)    |
 
 You can also pass any of the available Hearth prefixed CSS custom properties
 from the Hearth Tokens library.
@@ -124,7 +130,11 @@ The `backgroundColor` prop accepts the following semantic colour values: `primar
 <Box backgroundColor="brand" />
 ```
 
-<BackgroundColorPropsTable />
+| Value     | CSS custom property           |
+| --------- | ----------------------------- |
+| primary   | var(--h-background-primary)   |
+| secondary | var(--h-background-secondary) |
+| brand     | var(--h-background-brand)     |
 
 You can also pass any of the available Hearth prefixed CSS custom properties from the Hearth Tokens library.
 You cannot pass raw strings to the `backgroundColor` prop.
