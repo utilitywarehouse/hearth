@@ -4,6 +4,19 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.29.4
+
+### Patch Changes
+
+- [#1304](https://github.com/utilitywarehouse/hearth/pull/1304) [`9e9d150`](https://github.com/utilitywarehouse/hearth/commit/9e9d150a3fdfeef8bd443553121e429b1d515373) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `init-ai` script adds h1 headings to markdown config files
+
+  The comment block appended by `npx @utilitywarehouse/hearth-react init-ai` used
+  `#`-prefixed lines, which render as h1 headings in any Markdown renderer. The
+  comments are now written as HTML comments (`<!-- ... -->`) so they remain
+  invisible in rendered output.
+
+- [#1303](https://github.com/utilitywarehouse/hearth/pull/1303) [`2aaa51e`](https://github.com/utilitywarehouse/hearth/commit/2aaa51e4cd77696e62f2b6cf373429e4c31fcb7a) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `shadowColor` prop to `HighlightBanner` component
+
 ## 0.29.3
 
 ### Patch Changes
