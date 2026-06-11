@@ -20,6 +20,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { execFileSync } from 'child_process';
 import typescript from 'typescript';
 import { withCompilerOptions } from 'react-docgen-typescript';
 
@@ -29,6 +30,9 @@ const __dirname = path.dirname(__filename);
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SRC_DIR = path.join(PKG_ROOT, 'src');
 
+// MDX files to exclude from LLM doc generation (relative to SRC_DIR)
+const EXCLUDED_MDX = new Set(['docs/Changelog.docs.mdx']);
+
 // ─── File discovery ───────────────────────────────────────────────────────────
 
 function findMdxFiles(dir, results = []) {
@@ -37,7 +41,8 @@ function findMdxFiles(dir, results = []) {
     if (entry.isDirectory()) {
       findMdxFiles(full, results);
     } else if (entry.name.endsWith('.docs.mdx')) {
-      results.push(full);
+      const rel = path.relative(SRC_DIR, full).split(path.sep).join('/');
+      if (!EXCLUDED_MDX.has(rel)) results.push(full);
     }
   }
   return results;
@@ -563,6 +568,91 @@ const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 // Matches import declarations
 const IMPORT_RE = /^import\s+/;
 
+// Matches a self-closing PascalCase JSX component on its own line: <FooTable />
+const CUSTOM_COMPONENT_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*\/>\s*$/;
+
+// ─── Markdown export runner ───────────────────────────────────────────────────
+
+const RUNNER_SCRIPT = path.join(__dirname, 'run-markdown-export.ts');
+
+function findTsx() {
+  const candidates = [
+    path.join(PKG_ROOT, 'node_modules', '.bin', 'tsx'),
+    path.join(PKG_ROOT, '..', '..', 'node_modules', '.bin', 'tsx'),
+  ];
+  for (const c of candidates) {
+    if (fs.existsSync(c)) return c;
+  }
+  return 'tsx';
+}
+
+const TSX_BIN = findTsx();
+
+/**
+ * Derives the markdown export function name from a component name.
+ * Convention: replace trailing "Table" with "Markdown" and lowercase the first char.
+ * e.g. ColorPropsTable → colorPropsMarkdown
+ */
+function deriveMarkdownFn(componentName) {
+  const base = componentName.replace(/Table$/, '');
+  return base[0].toLowerCase() + base.slice(1) + 'Markdown';
+}
+
+/**
+ * Checks whether a TypeScript file exports a function with the given name.
+ */
+function hasNamedExport(filePath, exportName) {
+  let source;
+  try {
+    source = fs.readFileSync(filePath, 'utf-8');
+  } catch {
+    return false;
+  }
+
+  const sf = typescript.createSourceFile(
+    path.basename(filePath),
+    source,
+    typescript.ScriptTarget.Latest,
+    true,
+    typescript.ScriptKind.TSX
+  );
+
+  for (const stmt of sf.statements) {
+    if (!_isExported(stmt)) continue;
+
+    if (typescript.isFunctionDeclaration(stmt) && stmt.name?.text === exportName) {
+      return true;
+    }
+
+    if (typescript.isVariableStatement(stmt)) {
+      for (const decl of stmt.declarationList.declarations) {
+        if (typescript.isIdentifier(decl.name) && decl.name.text === exportName) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * Calls an exported markdown function in a TypeScript file via tsx and returns its output.
+ * Returns null if the export doesn't exist or execution fails.
+ */
+function callMarkdownExport(filePath, componentName) {
+  const fnName = deriveMarkdownFn(componentName);
+  if (!hasNamedExport(filePath, fnName)) return null;
+
+  try {
+    return execFileSync(TSX_BIN, [RUNNER_SCRIPT, filePath, fnName], {
+      encoding: 'utf-8',
+      cwd: PKG_ROOT,
+    }).trim();
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Strips the <Flex> wrapper added around page titles alongside <ViewMarkdownLink>,
  * leaving only the bare heading.
@@ -637,6 +727,20 @@ function transformContent(content, importMap, exprMap) {
         }
       }
       continue;
+    }
+
+    // Custom PascalCase JSX components: try to resolve a co-located markdown export
+    const customMatch = line.match(CUSTOM_COMPONENT_RE);
+    if (customMatch) {
+      const componentName = customMatch[1];
+      const filePath = importMap.get(componentName);
+      if (filePath) {
+        const markdown = callMarkdownExport(filePath, componentName);
+        if (markdown) {
+          output.push('', markdown, '');
+          continue;
+        }
+      }
     }
 
     // Replace StorybookLink with its text content
