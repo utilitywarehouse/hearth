@@ -1,0 +1,128 @@
+/* Diff highlighting styles for code blocks */
+
+/* Base diff styles */
+.language-diff,
+.language-patch {
+  position: relative !important;
+  white-space: pre !important; /* Keep pre for indentation preservation */
+  overflow-x: auto !important;
+  line-height: 1.4 !important;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Monaco, Inconsolata, 'Roboto Mono',
+    monospace !important;
+}
+
+/* Diff line styles - targeting only direct token classes, prevent nested styling */
+.language-diff > .token.deleted,
+.language-patch > .token.deleted {
+  background-color: #ffeef0 !important;
+  color: #d73a49 !important;
+  display: inline !important; /* Keep inline to preserve whitespace */
+  padding: 0 !important;
+  margin: 0 !important;
+  border-left: 4px solid #d73a49 !important;
+  padding-left: 8px !important;
+  margin-left: -8px !important;
+  line-height: 1.4 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.language-diff > .token.inserted,
+.language-patch > .token.inserted {
+  background-color: #f0fff4 !important;
+  color: #28a745 !important;
+  display: inline !important; /* Keep inline to preserve whitespace */
+  padding: 0 !important;
+  margin: 0 !important;
+  border-left: 4px solid #28a745 !important;
+  padding-left: 8px !important;
+  margin-left: -8px !important;
+  line-height: 1.4 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.language-diff > .token.unchanged,
+.language-patch > .token.unchanged {
+  color: #24292e !important; /* Standard code color instead of muted */
+  display: inline !important; /* Keep inline to preserve whitespace */
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 1.4 !important;
+  background: transparent !important; /* No background for unchanged lines */
+}
+
+/* Dark theme support */
+[data-theme='dark'] .language-diff,
+[data-theme='dark'] .language-patch {
+  background-color: #0d1117 !important;
+  border-color: #30363d !important;
+  color: #f0f6fc !important;
+}
+
+[data-theme='dark'] .language-diff > .token.deleted,
+[data-theme='dark'] .language-patch > .token.deleted {
+  background-color: rgba(248, 81, 73, 0.15) !important;
+  color: #ff7b72 !important;
+  border-left-color: #ff7b72 !important;
+}
+
+[data-theme='dark'] .language-diff > .token.inserted,
+[data-theme='dark'] .language-patch > .token.inserted {
+  background-color: rgba(46, 160, 67, 0.15) !important;
+  color: #7ee787 !important;
+  border-left-color: #7ee787 !important;
+}
+
+[data-theme='dark'] .language-diff > .token.unchanged,
+[data-theme='dark'] .language-patch > .token.unchanged {
+  color: #f0f6fc !important; /* Standard dark theme code color */
+}
+
+/* Support for inline code diffs */
+code.language-diff,
+code.language-patch {
+  padding: 2px 4px !important;
+  border-radius: 3px !important;
+  font-size: 85% !important;
+}
+
+/* Fix for Storybook's default code styling */
+.sbdocs-content code.language-diff,
+.sbdocs-content code.language-patch {
+  background-color: #f6f8fa !important;
+  color: inherit !important;
+  border: 1px solid #d1d9e0 !important;
+}
+
+[data-theme='dark'] .sbdocs-content code.language-diff,
+[data-theme='dark'] .sbdocs-content code.language-patch {
+  background-color: #161b22 !important;
+  border-color: #30363d !important;
+}
+
+/* Ensure proper spacing between lines - only for direct children */
+.language-diff > .token,
+.language-patch > .token {
+  line-height: 1.4 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Hide empty lines properly - only for direct children */
+.language-diff > .token:empty,
+.language-patch > .token:empty {
+  display: none !important;
+}
+
+/* Processing indicator to prevent flash */
+.language-diff:not(.diff-processed),
+.language-patch:not(.diff-processed) {
+  opacity: 0.8;
+}
+
+.language-diff.diff-processed,
+.language-patch.diff-processed {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}

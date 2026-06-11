@@ -1,4 +1,4 @@
-export { default as StorybookLink } from '../../../../shared/storybook/StorybookLink';
+export { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 export { default as AdvancedInputExample } from './AdvancedInputExample';
 export { default as BackToTopButton } from './BackToTopButton';
 export { default as BadgeList } from './BadgeList';
