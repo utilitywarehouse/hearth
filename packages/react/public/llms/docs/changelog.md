@@ -2,6 +2,104 @@
 
 ### Patch Changes
 
+- [#1297](https://github.com/utilitywarehouse/hearth/pull/1297) [`e13a1d1`](https://github.com/utilitywarehouse/hearth/commit/e13a1d1369801e65ef7e7a7b9b7c85fc4f5368c5) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `init-ai` script resolves correct skill path in monorepos
+
+  In monorepos where `@utilitywarehouse/hearth-react` is hoisted to the root
+  `node_modules`, the `init-ai` script was writing an incorrect local path to AI
+  assistant config files.
+
+  The script now walks up the directory tree from the project root to find where
+  the package is actually installed, and writes a path relative to the project
+  root. The SKILL.md documentation has also been updated to guide agents to
+  resolve the package location at runtime rather than assuming a fixed relative
+  path.
+
+  **Developer changes**:
+
+  No changes required. Re-run `npx @utilitywarehouse/hearth-react init-ai` to
+  update your config file with the correct path if you previously ran it from
+  within a monorepo app.
+
+- [#1300](https://github.com/utilitywarehouse/hearth/pull/1300) [`53a14a8`](https://github.com/utilitywarehouse/hearth/commit/53a14a8469b7b6d0a5cc1db3adc844084187d8f8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Move `data-testid` to the outer element in `ToggleGroup`
+
+  `data-testid` was being applied to the inner `ToggleGroupPrimitive.Root` rather
+  than the outer `Flex` wrapper, inconsistent with how other components expose
+  their test IDs.
+
+### Patch Changes
+
+- [#1293](https://github.com/utilitywarehouse/hearth/pull/1293) [`e33a808`](https://github.com/utilitywarehouse/hearth/commit/e33a80837453dba6bb849c8fd62fefe4dcb11d3d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Reinstate `Combobox` props previously removed
+  - `autoHighlight`
+  - `onItemHighlighted`
+
+### Patch Changes
+
+- [#1291](https://github.com/utilitywarehouse/hearth/pull/1291) [`54b36e9`](https://github.com/utilitywarehouse/hearth/commit/54b36e935de82a1cbf9551cbfb725cbe008b0f3c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: convert script to ESM syntax
+
+### Minor Changes
+
+- [#1289](https://github.com/utilitywarehouse/hearth/pull/1289) [`f2cd720`](https://github.com/utilitywarehouse/hearth/commit/f2cd7207bff7b183f70e831e900133615c4bba39) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Include AI agents docs in package
+
+  This change includes documentation for AI agents in the
+  `@utilitywarehouse/hearth-react` package. This documentation provides markdown
+  files that can be referenced be AI agents to give coding assistants deep
+  knowledge of the component library.
+
+- [#1287](https://github.com/utilitywarehouse/hearth/pull/1287) [`6aced2f`](https://github.com/utilitywarehouse/hearth/commit/6aced2f26417d5728593821627609b4ff04acedc) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `hearth-react` agentic skill
+
+  This release includes a new agentic skill file for
+  `@utilitywarehouse/hearth-react`, which provides AI coding assistants with deep
+  knowledge of the component library. The skill covers component APIs, usage
+  patterns, design tokens, accessibility requirements, common mistakes, and
+  migration guidance. It can be easily set up with a single command or manually
+  added to your AI tool's config file. Upgrading the package will automatically
+  update the skill to keep it current.
+
+  ## AI Assistant Setup
+
+  `@utilitywarehouse/hearth-react` ships with an AI skill file that gives your
+  coding assistant deep knowledge of the component library — including component
+  APIs, usage patterns, design tokens, and best practices.
+
+  ## Setup
+
+  After installing the package, run the init command to wire it up for your AI tool:
+
+  ```bash
+  npx @utilitywarehouse/hearth-react init-ai
+  ```
+
+  This detects your AI tool's config file and adds the skill reference automatically.
+
+  ### Manual setup
+
+  If you prefer to add it yourself, append the appropriate line to your project's AI config file:
+
+  | Tool                  | Config file                       | Line to add                                                                                |
+  | --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
+  | Claude Code           | `CLAUDE.md`                       | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+  | Cursor                | `.cursorrules`                    | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+  | Windsurf              | `.windsurfrules`                  | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+  | Codex / OpenAI agents | `AGENTS.md`                       | `See node_modules/@utilitywarehouse/hearth-react/SKILL.md for component usage guidelines.` |
+  | GitHub Copilot        | `.github/copilot-instructions.md` | `See node_modules/@utilitywarehouse/hearth-react/SKILL.md for component usage guidelines.` |
+  | Cline / Roo           | `.clinerules`                     | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
+
+  ## What the skill covers
+  - Component inventory and when to use each one
+  - Props, variants, and composition patterns
+  - Design token usage and theming
+  - Accessibility requirements and patterns
+  - Common mistakes and anti-patterns
+  - Migration guidance between versions
+
+  ## Keeping it up to date
+
+  The skill file is versioned with the package — upgrading
+  `@utilitywarehouse/hearth-react` automatically updates the skill. No changes
+  needed to your config file after the initial setup.
+
+### Patch Changes
+
 - [#1259](https://github.com/utilitywarehouse/hearth/pull/1259) [`782d1e6`](https://github.com/utilitywarehouse/hearth/commit/782d1e6bac63b706aafc537d88433d3f0cd468d4) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Update tokens
 
 ### Patch Changes
