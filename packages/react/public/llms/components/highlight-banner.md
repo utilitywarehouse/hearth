@@ -74,21 +74,51 @@
 </Flex>
 ```
 
+## Shadow colours
+
+You can add a shadows for additional emphasis, using the `shadowColor` prop.
+Ensure the shadow in the same colour family as the Highlight Banner. E.g. Use a
+Pig shadow with a Pig Highlight Banner
+
+Be aware that shadows can denote interactions. It is recommended to only use
+shadows with interactive content.
+
+```tsx
+<Flex gap="400" padding="400" wrap="wrap">
+  {shadowColors.map(c => (
+    <HighlightBanner
+      key={c}
+      heading="Heading"
+      headingColor={c === 'functional' ? 'highlight' : c === 'brand' ? 'pig' : c}
+      colorScheme="neutralSubtle"
+      shadowColor={c}
+      {...args}
+    >
+      <Box height="100px" width="200px" />
+      <HighlightBannerFooter>
+        <BodyText size="md">Description</BodyText>
+      </HighlightBannerFooter>
+    </HighlightBanner>
+  ))}
+</Flex>
+```
+
 ## API
 
 This component is based on the `div` element and supports the following common props:
 
 - Margin
 
-| Prop           | Type                                                                                                                                                                                                       | Default | Description |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------- |
-| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                                                                                                                       | —       |             |
-| `heading`      | `string`                                                                                                                                                                                                   | —       |             |
-| `headingColor` | `"pig" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback" \| "highlight"`                                                                                                                 | —       |             |
-| `margin`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginTop`    | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginRight`  | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginBottom` | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginLeft`   | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginX`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginY`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
+| Prop           | Type                                                                                                                                                                                                       | Default | Description                 |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------- |
+| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"`                                                                                                     | —       | Sets the card shadow colour |
+| `margin`       | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginTop`    | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginRight`  | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginBottom` | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginLeft`   | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginX`      | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `marginY`      | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
+| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                                                                                                                       | —       |                             |
+| `heading`      | `string`                                                                                                                                                                                                   | —       |                             |
+| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`                                                                                                                 | —       |                             |

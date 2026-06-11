@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './HighlightBanner.stories';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '../../../../../shared/storybook/StorybookLink';
 import { HighlightBanner } from './HighlightBanner';
 import { Flex } from '../Flex/Flex';
 import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLink';
@@ -25,6 +25,17 @@ import { ViewMarkdownLink } from '../../docs/storybook-components/ViewMarkdownLi
 ## Heading color
 
 <Canvas of={Stories.KitchenSink} />
+
+## Shadow colours
+
+You can add a shadows for additional emphasis, using the `shadowColor` prop.
+Ensure the shadow in the same colour family as the Highlight Banner. E.g. Use a
+Pig shadow with a Pig Highlight Banner
+
+Be aware that shadows can denote interactions. It is recommended to only use
+shadows with interactive content.
+
+<Canvas of={Stories.ShadowColours} sourceState="hide" />
 
 ## API
 
