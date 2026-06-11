@@ -65,7 +65,6 @@
 
 ## Guides
 
-- [Changelog](llms/docs/changelog.md)
 - [Hearth Tokens](llms/docs/design-tokens.md)
 - [Hearth React](llms/docs/getting-started.md)
 - [Layout](llms/docs/layout.md)
