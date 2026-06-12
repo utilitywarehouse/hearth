@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const MeterSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M8.768 13.21q.5.501 1.261.471.762-.03 1.102-.55l4.485-6.728-6.728 4.485q-.52.36-.57 1.091-.051.731.45 1.232m-4.285 3.605a1.75 1.75 0 0 1-.811-.19 1.43 1.43 0 0 1-.59-.571 9 9 0 0 1-.802-1.952A7.8 7.8 0 0 1 2 12.009a7.8 7.8 0 0 1 .63-3.123 8.1 8.1 0 0 1 1.713-2.543A8.1 8.1 0 0 1 6.886 4.63 7.8 7.8 0 0 1 10.009 4q1.643 0 3.084.62a8.1 8.1 0 0 1 4.245 4.196 7.7 7.7 0 0 1 .66 3.073 7.87 7.87 0 0 1-1.081 4.165 1.43 1.43 0 0 1-.59.57 1.75 1.75 0 0 1-.811.19z" /></svg>;
-});
-MeterSmallIcon.displayName = "MeterSmallIcon";
+export const MeterSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M8.768 13.21q.5.501 1.261.471.762-.03 1.102-.55l4.485-6.728-6.728 4.485q-.52.36-.57 1.091-.051.731.45 1.232m-4.285 3.605a1.75 1.75 0 0 1-.811-.19 1.43 1.43 0 0 1-.59-.571 9 9 0 0 1-.802-1.952A7.8 7.8 0 0 1 2 12.009a7.8 7.8 0 0 1 .63-3.123 8.1 8.1 0 0 1 1.713-2.543A8.1 8.1 0 0 1 6.886 4.63 7.8 7.8 0 0 1 10.009 4q1.643 0 3.084.62a8.1 8.1 0 0 1 4.245 4.196 7.7 7.7 0 0 1 .66 3.073 7.87 7.87 0 0 1-1.081 4.165 1.43 1.43 0 0 1-.59.57 1.75 1.75 0 0 1-.811.19z"
+        />
+      </svg>
+    );
+  }
+);
+MeterSmallIcon.displayName = 'MeterSmallIcon';

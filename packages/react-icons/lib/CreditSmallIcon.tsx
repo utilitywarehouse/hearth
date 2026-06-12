@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const CreditSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M5 16.458q-2.166-.562-3.583-2.333Q0 12.355 0 10t1.417-4.125T5 3.542v1.75a4.8 4.8 0 0 0-2.406 1.791A4.88 4.88 0 0 0 1.667 10a4.88 4.88 0 0 0 .927 2.917A4.8 4.8 0 0 0 5 14.708zm6.667.209q-2.771 0-4.72-1.948Q5 12.77 5 10t1.948-4.719q1.948-1.947 4.719-1.948 1.374 0 2.583.521a6.8 6.8 0 0 1 2.125 1.438l-1.167 1.166a5 5 0 0 0-1.593-1.073A4.9 4.9 0 0 0 11.667 5Q9.582 5 8.125 6.458 6.667 7.917 6.667 10q0 2.084 1.458 3.542T11.667 15q1.04 0 1.948-.385a5 5 0 0 0 1.593-1.073l1.167 1.166a6.8 6.8 0 0 1-2.125 1.438 6.5 6.5 0 0 1-2.583.52m5-3.334L15.5 12.167l1.333-1.334h-6V9.167h6L15.5 7.833l1.167-1.166L20 10z" /></svg>;
-});
-CreditSmallIcon.displayName = "CreditSmallIcon";
+export const CreditSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M5 16.458q-2.166-.562-3.583-2.333Q0 12.355 0 10t1.417-4.125T5 3.542v1.75a4.8 4.8 0 0 0-2.406 1.791A4.88 4.88 0 0 0 1.667 10a4.88 4.88 0 0 0 .927 2.917A4.8 4.8 0 0 0 5 14.708zm6.667.209q-2.771 0-4.72-1.948Q5 12.77 5 10t1.948-4.719q1.948-1.947 4.719-1.948 1.374 0 2.583.521a6.8 6.8 0 0 1 2.125 1.438l-1.167 1.166a5 5 0 0 0-1.593-1.073A4.9 4.9 0 0 0 11.667 5Q9.582 5 8.125 6.458 6.667 7.917 6.667 10q0 2.084 1.458 3.542T11.667 15q1.04 0 1.948-.385a5 5 0 0 0 1.593-1.073l1.167 1.166a6.8 6.8 0 0 1-2.125 1.438 6.5 6.5 0 0 1-2.583.52m5-3.334L15.5 12.167l1.333-1.334h-6V9.167h6L15.5 7.833l1.167-1.166L20 10z"
+        />
+      </svg>
+    );
+  }
+);
+CreditSmallIcon.displayName = 'CreditSmallIcon';

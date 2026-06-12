@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const QrCodeSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M2 8.857V2h6.857v6.857zm1.714-1.714h3.429V3.714H3.714zM2 18v-6.857h6.857V18zm1.714-1.714h3.429v-3.429H3.714zm7.429-7.429V2H18v6.857zm1.714-1.714h3.429V3.714h-3.429zM16.286 18v-1.714H18V18zm-5.143-5.143v-1.714h1.714v1.714zm1.714 1.714v-1.714h1.714v1.714zm-1.714 1.715V14.57h1.714v1.715zM12.857 18v-1.714h1.714V18zm1.714-1.714V14.57h1.715v1.715zm0-3.429v-1.714h1.715v1.714zm1.715 1.714v-1.714H18v1.714z" /></svg>;
-});
-QrCodeSmallIcon.displayName = "QrCodeSmallIcon";
+export const QrCodeSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M2 8.857V2h6.857v6.857zm1.714-1.714h3.429V3.714H3.714zM2 18v-6.857h6.857V18zm1.714-1.714h3.429v-3.429H3.714zm7.429-7.429V2H18v6.857zm1.714-1.714h3.429V3.714h-3.429zM16.286 18v-1.714H18V18zm-5.143-5.143v-1.714h1.714v1.714zm1.714 1.714v-1.714h1.714v1.714zm-1.714 1.715V14.57h1.714v1.715zM12.857 18v-1.714h1.714V18zm1.714-1.714V14.57h1.715v1.715zm0-3.429v-1.714h1.715v1.714zm1.715 1.714v-1.714H18v1.714z"
+        />
+      </svg>
+    );
+  }
+);
+QrCodeSmallIcon.displayName = 'QrCodeSmallIcon';

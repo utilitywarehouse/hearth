@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const HeartSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m10 17.5-1.042-.937a104 104 0 0 1-3.437-3.178q-1.354-1.322-2.136-2.354Q2.605 10 2.302 9.146A5.2 5.2 0 0 1 2 7.396Q2 5.542 3.27 4.27 4.543 3 6.397 3q1.02 0 1.979.438.958.436 1.625 1.229a4.6 4.6 0 0 1 1.625-1.23A4.7 4.7 0 0 1 13.605 3q1.853 0 3.124 1.27Q18 5.543 18 7.397q0 .895-.292 1.729-.291.834-1.073 1.854-.78 1.02-2.145 2.365a112 112 0 0 1-3.49 3.26z" /></svg>;
-});
-HeartSmallIcon.displayName = "HeartSmallIcon";
+export const HeartSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="m10 17.5-1.042-.937a104 104 0 0 1-3.437-3.178q-1.354-1.322-2.136-2.354Q2.605 10 2.302 9.146A5.2 5.2 0 0 1 2 7.396Q2 5.542 3.27 4.27 4.543 3 6.397 3q1.02 0 1.979.438.958.436 1.625 1.229a4.6 4.6 0 0 1 1.625-1.23A4.7 4.7 0 0 1 13.605 3q1.853 0 3.124 1.27Q18 5.543 18 7.397q0 .895-.292 1.729-.291.834-1.073 1.854-.78 1.02-2.145 2.365a112 112 0 0 1-3.49 3.26z"
+        />
+      </svg>
+    );
+  }
+);
+HeartSmallIcon.displayName = 'HeartSmallIcon';

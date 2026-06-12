@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const HomeInsuranceSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M10 1 2 7v12h16V7zm3.84 10.43c-.1.29-.28.62-.54.96-.25.36-.61.75-1.05 1.19q-.66.66-1.68 1.56l-.57.53-.57-.53q-1.02-.9-1.68-1.56c-.44-.44-.8-.83-1.05-1.19-.26-.34-.44-.67-.54-.96-.11-.3-.16-.59-.16-.9 0-.62.21-1.15.64-1.58.41-.41.94-.62 1.56-.62.34 0 .67.07.99.22.31.15.58.36.81.62.23-.26.5-.47.81-.62.32-.15.65-.22.99-.22.62 0 1.15.21 1.56.62.43.43.64.96.64 1.58 0 .31-.05.6-.16.9" /></svg>;
-});
-HomeInsuranceSmallIcon.displayName = "HomeInsuranceSmallIcon";
+export const HomeInsuranceSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M10 1 2 7v12h16V7zm3.84 10.43c-.1.29-.28.62-.54.96-.25.36-.61.75-1.05 1.19q-.66.66-1.68 1.56l-.57.53-.57-.53q-1.02-.9-1.68-1.56c-.44-.44-.8-.83-1.05-1.19-.26-.34-.44-.67-.54-.96-.11-.3-.16-.59-.16-.9 0-.62.21-1.15.64-1.58.41-.41.94-.62 1.56-.62.34 0 .67.07.99.22.31.15.58.36.81.62.23-.26.5-.47.81-.62.32-.15.65-.22.99-.22.62 0 1.15.21 1.56.62.43.43.64.96.64 1.58 0 .31-.05.6-.16.9"
+        />
+      </svg>
+    );
+  }
+);
+HomeInsuranceSmallIcon.displayName = 'HomeInsuranceSmallIcon';

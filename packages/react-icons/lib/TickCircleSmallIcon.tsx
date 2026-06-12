@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const TickCircleSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m8.938 13 4.958-4.937L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063zM10 18a7.8 7.8 0 0 1-3.104-.625 8.1 8.1 0 0 1-2.552-1.719 8.1 8.1 0 0 1-1.719-2.552A7.8 7.8 0 0 1 2 10q0-1.667.625-3.115a8.06 8.06 0 0 1 4.27-4.26A7.8 7.8 0 0 1 10 2q1.667 0 3.115.625a8.1 8.1 0 0 1 4.26 4.26Q18 8.334 18 10a7.8 7.8 0 0 1-.625 3.104 8.06 8.06 0 0 1-4.26 4.271A7.8 7.8 0 0 1 10 18" /></svg>;
-});
-TickCircleSmallIcon.displayName = "TickCircleSmallIcon";
+export const TickCircleSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="m8.938 13 4.958-4.937L12.833 7l-3.895 3.875-1.771-1.75-1.063 1.063zM10 18a7.8 7.8 0 0 1-3.104-.625 8.1 8.1 0 0 1-2.552-1.719 8.1 8.1 0 0 1-1.719-2.552A7.8 7.8 0 0 1 2 10q0-1.667.625-3.115a8.06 8.06 0 0 1 4.27-4.26A7.8 7.8 0 0 1 10 2q1.667 0 3.115.625a8.1 8.1 0 0 1 4.26 4.26Q18 8.334 18 10a7.8 7.8 0 0 1-.625 3.104 8.06 8.06 0 0 1-4.26 4.271A7.8 7.8 0 0 1 10 18"
+        />
+      </svg>
+    );
+  }
+);
+TickCircleSmallIcon.displayName = 'TickCircleSmallIcon';

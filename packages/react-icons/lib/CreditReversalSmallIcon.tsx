@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const CreditReversalSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M15 3.542q2.166.562 3.583 2.333Q20 7.645 20 10t-1.417 4.125T15 16.458v-1.75a4.8 4.8 0 0 0 2.406-1.791A4.88 4.88 0 0 0 18.333 10a4.88 4.88 0 0 0-.927-2.917A4.8 4.8 0 0 0 15 5.292zm-6.667-.209q2.771 0 4.72 1.948Q15 7.23 15 10t-1.948 4.719q-1.947 1.947-4.719 1.948a6.5 6.5 0 0 1-2.583-.521 6.8 6.8 0 0 1-2.125-1.438l1.167-1.166q.688.687 1.593 1.073A4.9 4.9 0 0 0 8.333 15q2.085 0 3.542-1.458 1.458-1.459 1.458-3.542 0-2.084-1.458-3.542T8.333 5q-1.04 0-1.948.385a5 5 0 0 0-1.593 1.073L3.625 5.292A6.8 6.8 0 0 1 5.75 3.854a6.5 6.5 0 0 1 2.583-.52m-5 3.334L4.5 7.833 3.167 9.167h6v1.666h-6L4.5 12.167l-1.167 1.166L0 10z" /></svg>;
-});
-CreditReversalSmallIcon.displayName = "CreditReversalSmallIcon";
+export const CreditReversalSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M15 3.542q2.166.562 3.583 2.333Q20 7.645 20 10t-1.417 4.125T15 16.458v-1.75a4.8 4.8 0 0 0 2.406-1.791A4.88 4.88 0 0 0 18.333 10a4.88 4.88 0 0 0-.927-2.917A4.8 4.8 0 0 0 15 5.292zm-6.667-.209q2.771 0 4.72 1.948Q15 7.23 15 10t-1.948 4.719q-1.947 1.947-4.719 1.948a6.5 6.5 0 0 1-2.583-.521 6.8 6.8 0 0 1-2.125-1.438l1.167-1.166q.688.687 1.593 1.073A4.9 4.9 0 0 0 8.333 15q2.085 0 3.542-1.458 1.458-1.459 1.458-3.542 0-2.084-1.458-3.542T8.333 5q-1.04 0-1.948.385a5 5 0 0 0-1.593 1.073L3.625 5.292A6.8 6.8 0 0 1 5.75 3.854a6.5 6.5 0 0 1 2.583-.52m-5 3.334L4.5 7.833 3.167 9.167h6v1.666h-6L4.5 12.167l-1.167 1.166L0 10z"
+        />
+      </svg>
+    );
+  }
+);
+CreditReversalSmallIcon.displayName = 'CreditReversalSmallIcon';

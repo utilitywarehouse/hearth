@@ -1,11 +1,30 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const BillSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} fillRule="evenodd" d="M3 2.222h14v15.556l-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4zm10.111 10.111a.778.778 0 1 1 1.556 0 .778.778 0 0 1-1.556 0m.778-3.889a.778.778 0 1 0 0 1.556.778.778 0 0 0 0-1.556m-.778-2.333a.778.778 0 1 1 1.556 0 .778.778 0 0 1-1.556 0m-7 5.445a.778.778 0 1 0 0 1.555h4.667a.778.778 0 0 0 0-1.555zm-.778-2.334c0-.43.349-.778.778-.778h4.667a.778.778 0 0 1 0 1.556H6.11a.78.78 0 0 1-.778-.778m.778-3.889a.778.778 0 0 0 0 1.556h4.667a.778.778 0 0 0 0-1.556z" clipRule="evenodd" /></svg>;
-});
-BillSmallIcon.displayName = "BillSmallIcon";
+export const BillSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          fillRule="evenodd"
+          d="M3 2.222h14v15.556l-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4-1.75-1.4-1.75 1.4zm10.111 10.111a.778.778 0 1 1 1.556 0 .778.778 0 0 1-1.556 0m.778-3.889a.778.778 0 1 0 0 1.556.778.778 0 0 0 0-1.556m-.778-2.333a.778.778 0 1 1 1.556 0 .778.778 0 0 1-1.556 0m-7 5.445a.778.778 0 1 0 0 1.555h4.667a.778.778 0 0 0 0-1.555zm-.778-2.334c0-.43.349-.778.778-.778h4.667a.778.778 0 0 1 0 1.556H6.11a.78.78 0 0 1-.778-.778m.778-3.889a.778.778 0 0 0 0 1.556h4.667a.778.778 0 0 0 0-1.556z"
+          clipRule="evenodd"
+        />
+      </svg>
+    );
+  }
+);
+BillSmallIcon.displayName = 'BillSmallIcon';

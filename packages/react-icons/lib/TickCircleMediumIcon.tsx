@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const TickCircleMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m10.35 16.975 7.05-7.05-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4zm1.4 5.4a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175a9.7 9.7 0 0 1-.788-3.9q0-2.075.788-3.9A10.1 10.1 0 0 1 4.675 5.3q1.35-1.35 3.175-2.137a9.7 9.7 0 0 1 3.9-.788q2.075 0 3.9.788A10.1 10.1 0 0 1 18.825 5.3q1.35 1.35 2.137 3.175a9.7 9.7 0 0 1 .788 3.9 9.7 9.7 0 0 1-.788 3.9 10.1 10.1 0 0 1-2.137 3.175q-1.35 1.35-3.175 2.137a9.7 9.7 0 0 1-3.9.788" /></svg>;
-});
-TickCircleMediumIcon.displayName = "TickCircleMediumIcon";
+export const TickCircleMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="m10.35 16.975 7.05-7.05-1.4-1.4-5.65 5.65-2.85-2.85-1.4 1.4zm1.4 5.4a9.7 9.7 0 0 1-3.9-.788 10.1 10.1 0 0 1-3.175-2.137q-1.35-1.35-2.137-3.175a9.7 9.7 0 0 1-.788-3.9q0-2.075.788-3.9A10.1 10.1 0 0 1 4.675 5.3q1.35-1.35 3.175-2.137a9.7 9.7 0 0 1 3.9-.788q2.075 0 3.9.788A10.1 10.1 0 0 1 18.825 5.3q1.35 1.35 2.137 3.175a9.7 9.7 0 0 1 .788 3.9 9.7 9.7 0 0 1-.788 3.9 10.1 10.1 0 0 1-2.137 3.175q-1.35 1.35-3.175 2.137a9.7 9.7 0 0 1-3.9.788"
+        />
+      </svg>
+    );
+  }
+);
+TickCircleMediumIcon.displayName = 'TickCircleMediumIcon';

@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const MoreSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M4 12q-.824 0-1.412-.588A1.93 1.93 0 0 1 2 10q0-.825.587-1.412A1.93 1.93 0 0 1 4 8q.824 0 1.412.588Q6 9.175 6 10t-.588 1.412A1.93 1.93 0 0 1 4 12m6 0q-.825 0-1.412-.588A1.93 1.93 0 0 1 8 10q0-.825.588-1.412A1.93 1.93 0 0 1 10 8q.825 0 1.412.588Q12 9.175 12 10t-.588 1.412A1.93 1.93 0 0 1 10 12m6 0q-.825 0-1.412-.588A1.93 1.93 0 0 1 14 10q0-.825.588-1.412A1.93 1.93 0 0 1 16 8q.824 0 1.413.588Q18 9.175 18 10t-.587 1.412A1.93 1.93 0 0 1 16 12" /></svg>;
-});
-MoreSmallIcon.displayName = "MoreSmallIcon";
+export const MoreSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M4 12q-.824 0-1.412-.588A1.93 1.93 0 0 1 2 10q0-.825.587-1.412A1.93 1.93 0 0 1 4 8q.824 0 1.412.588Q6 9.175 6 10t-.588 1.412A1.93 1.93 0 0 1 4 12m6 0q-.825 0-1.412-.588A1.93 1.93 0 0 1 8 10q0-.825.588-1.412A1.93 1.93 0 0 1 10 8q.825 0 1.412.588Q12 9.175 12 10t-.588 1.412A1.93 1.93 0 0 1 10 12m6 0q-.825 0-1.412-.588A1.93 1.93 0 0 1 14 10q0-.825.588-1.412A1.93 1.93 0 0 1 16 8q.824 0 1.413.588Q18 9.175 18 10t-.587 1.412A1.93 1.93 0 0 1 16 12"
+        />
+      </svg>
+    );
+  }
+);
+MoreSmallIcon.displayName = 'MoreSmallIcon';

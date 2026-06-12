@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ShareMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M18 22a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 15 19q0-.15.075-.7L8.05 14.2A2.97 2.97 0 0 1 6 15a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 3 12q0-1.25.875-2.125A2.9 2.9 0 0 1 6 9a2.97 2.97 0 0 1 2.05.8l7.025-4.1a1.7 1.7 0 0 1-.062-.338A5 5 0 0 1 15 5q0-1.25.875-2.125A2.9 2.9 0 0 1 18 2q1.25 0 2.125.875T21 5t-.875 2.125A2.9 2.9 0 0 1 18 8a2.97 2.97 0 0 1-2.05-.8l-7.025 4.1q.05.176.063.337Q9 11.801 9 12q0 .2-.012.363-.014.162-.063.337l7.025 4.1A2.97 2.97 0 0 1 18 16q1.25 0 2.125.875T21 19t-.875 2.125A2.9 2.9 0 0 1 18 22" /></svg>;
-});
-ShareMediumIcon.displayName = "ShareMediumIcon";
+export const ShareMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M18 22a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 15 19q0-.15.075-.7L8.05 14.2A2.97 2.97 0 0 1 6 15a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 3 12q0-1.25.875-2.125A2.9 2.9 0 0 1 6 9a2.97 2.97 0 0 1 2.05.8l7.025-4.1a1.7 1.7 0 0 1-.062-.338A5 5 0 0 1 15 5q0-1.25.875-2.125A2.9 2.9 0 0 1 18 2q1.25 0 2.125.875T21 5t-.875 2.125A2.9 2.9 0 0 1 18 8a2.97 2.97 0 0 1-2.05-.8l-7.025 4.1q.05.176.063.337Q9 11.801 9 12q0 .2-.012.363-.014.162-.063.337l7.025 4.1A2.97 2.97 0 0 1 18 16q1.25 0 2.125.875T21 19t-.875 2.125A2.9 2.9 0 0 1 18 22"
+        />
+      </svg>
+    );
+  }
+);
+ShareMediumIcon.displayName = 'ShareMediumIcon';

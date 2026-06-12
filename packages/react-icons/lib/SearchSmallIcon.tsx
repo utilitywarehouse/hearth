@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const SearchSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m16.756 18-5.6-5.6a5.4 5.4 0 0 1-3.378 1.156q-2.423 0-4.1-1.678Q2 10.2 2 7.778q0-2.423 1.678-4.1Q5.355 2 7.778 2t4.1 1.678 1.678 4.1a5.4 5.4 0 0 1-1.156 3.378l5.6 5.6zm-8.978-6.222q1.665 0 2.833-1.167 1.167-1.167 1.167-2.833T10.61 4.944Q9.444 3.778 7.778 3.778T4.944 4.944Q3.778 6.111 3.778 7.778q0 1.665 1.166 2.833 1.167 1.167 2.834 1.167" /></svg>;
-});
-SearchSmallIcon.displayName = "SearchSmallIcon";
+export const SearchSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="m16.756 18-5.6-5.6a5.4 5.4 0 0 1-3.378 1.156q-2.423 0-4.1-1.678Q2 10.2 2 7.778q0-2.423 1.678-4.1Q5.355 2 7.778 2t4.1 1.678 1.678 4.1a5.4 5.4 0 0 1-1.156 3.378l5.6 5.6zm-8.978-6.222q1.665 0 2.833-1.167 1.167-1.167 1.167-2.833T10.61 4.944Q9.444 3.778 7.778 3.778T4.944 4.944Q3.778 6.111 3.778 7.778q0 1.665 1.166 2.833 1.167 1.167 2.834 1.167"
+        />
+      </svg>
+    );
+  }
+);
+SearchSmallIcon.displayName = 'SearchSmallIcon';
