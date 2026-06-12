@@ -6,6 +6,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
+      - '.github/workflows/storybook-docker.yml'
       - 'apps/server-storybook-docs/**'
 
 permissions:
