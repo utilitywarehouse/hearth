@@ -40,7 +40,7 @@
     "dev": "pnpm run \"/^dev:.*/\"",
     "ts-types": "tsc",
     "lint": "turbo run lint:js lint:css",
-    "lint:fix": "turbo run lint:js:fix lint:css:fix format",
+    "lint:fix": "turbo run lint:js:fix lint:css:fix",
     "lint:js": "TIMING=1 eslint --max-warnings 0 \"src/**/*.ts*\"",
     "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.{js,ts*}\"",
     "lint:css": "stylelint \"src/**/*.css\"",

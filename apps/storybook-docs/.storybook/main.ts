@@ -18,7 +18,12 @@ function getAbsolutePath(value: string) {
 }
 
 const config: StorybookConfig = {
-  stories: ['../docs/**/*.docs.mdx', '../docs/**/*.stories.tsx'],
+  stories: [
+    '../docs/**/*.docs.mdx',
+    '../docs/**/*.mdx',
+    '../docs/**/*.stories.tsx',
+    '../docs/**/*.stories.ts',
+  ],
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),
     {
@@ -45,11 +50,6 @@ const config: StorybookConfig = {
     'react-native': {
       title: 'Hearth React Native',
       url: isDev ? 'http://localhost:6002' : '/react-native',
-      expanded: false,
-    },
-    icons: {
-      title: 'Hearth Icons',
-      url: isDev ? 'http://localhost:6004' : '/icons',
       expanded: false,
     },
     assets: {
