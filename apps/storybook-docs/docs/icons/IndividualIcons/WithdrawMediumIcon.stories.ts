@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WithdrawMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/WithdrawMediumIcon';
 
 const meta: Meta<typeof WithdrawMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/WithdrawMediumIcon',
+  title: 'Icons / Individual Icons/WithdrawMediumIcon',
   component: WithdrawMediumIcon,
 };
 

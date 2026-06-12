@@ -3,7 +3,7 @@ import { Flex, Heading } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
-  title: 'Hearth Fonts / Comic Hams',
+  title: 'Fonts / Comic Hams',
   component: Heading,
 } satisfies Meta<typeof Heading>;
 

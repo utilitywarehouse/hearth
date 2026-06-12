@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchMediumIcon';
 
 const meta: Meta<typeof SearchMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/SearchMediumIcon',
+  title: 'Icons / Individual Icons/SearchMediumIcon',
   component: SearchMediumIcon,
 };
 

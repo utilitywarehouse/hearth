@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { GreenDealElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GreenDealElectricityMediumIcon';
 
 const meta: Meta<typeof GreenDealElectricityMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/GreenDealElectricityMediumIcon',
+  title: 'Icons / Individual Icons/GreenDealElectricityMediumIcon',
   component: GreenDealElectricityMediumIcon,
 };
 

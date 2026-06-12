@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LockMediumIcon';
 
 const meta: Meta<typeof LockMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/LockMediumIcon',
+  title: 'Icons / Individual Icons/LockMediumIcon',
   component: LockMediumIcon,
 };
 

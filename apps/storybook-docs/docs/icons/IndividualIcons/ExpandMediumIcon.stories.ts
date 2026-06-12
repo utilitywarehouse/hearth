@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ExpandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ExpandMediumIcon';
 
 const meta: Meta<typeof ExpandMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/ExpandMediumIcon',
+  title: 'Icons / Individual Icons/ExpandMediumIcon',
   component: ExpandMediumIcon,
 };
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TimeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeMediumIcon';
 
 const meta: Meta<typeof TimeMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TimeMediumIcon',
+  title: 'Icons / Individual Icons/TimeMediumIcon',
   component: TimeMediumIcon,
 };
 

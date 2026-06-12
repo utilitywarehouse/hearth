@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { IncomeProtectSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncomeProtectSmallIcon';
 
 const meta: Meta<typeof IncomeProtectSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/IncomeProtectSmallIcon',
+  title: 'Icons / Individual Icons/IncomeProtectSmallIcon',
   component: IncomeProtectSmallIcon,
 };
 

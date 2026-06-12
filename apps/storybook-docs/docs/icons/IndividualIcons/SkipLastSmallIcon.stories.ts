@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipLastSmallIcon';
 
 const meta: Meta<typeof SkipLastSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/SkipLastSmallIcon',
+  title: 'Icons / Individual Icons/SkipLastSmallIcon',
   component: SkipLastSmallIcon,
 };
 

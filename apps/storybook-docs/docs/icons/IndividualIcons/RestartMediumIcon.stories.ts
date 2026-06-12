@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RestartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RestartMediumIcon';
 
 const meta: Meta<typeof RestartMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/RestartMediumIcon',
+  title: 'Icons / Individual Icons/RestartMediumIcon',
   component: RestartMediumIcon,
 };
 

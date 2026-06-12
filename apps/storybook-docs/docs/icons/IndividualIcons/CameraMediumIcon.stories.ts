@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CameraMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CameraMediumIcon';
 
 const meta: Meta<typeof CameraMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CameraMediumIcon',
+  title: 'Icons / Individual Icons/CameraMediumIcon',
   component: CameraMediumIcon,
 };
 

@@ -121,6 +121,7 @@ addons.setConfig({
   },
   sidebar: {
     showRoots: true,
+    collapsedRoots: ['icons', 'assets', 'tokens', 'fonts', 'css-reset'],
   },
 });
 

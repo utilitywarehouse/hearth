@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FilterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FilterMediumIcon';
 
 const meta: Meta<typeof FilterMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/FilterMediumIcon',
+  title: 'Icons / Individual Icons/FilterMediumIcon',
   component: FilterMediumIcon,
 };
 

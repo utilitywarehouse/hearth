@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { PlaceholderSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderSmallIcon';
 
 const meta: Meta<typeof PlaceholderSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/PlaceholderSmallIcon',
+  title: 'Icons / Individual Icons/PlaceholderSmallIcon',
   component: PlaceholderSmallIcon,
 };
 

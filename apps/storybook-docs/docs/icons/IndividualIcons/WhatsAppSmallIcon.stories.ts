@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { WhatsAppSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/WhatsAppSmallIcon';
 
 const meta: Meta<typeof WhatsAppSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/WhatsAppSmallIcon',
+  title: 'Icons / Individual Icons/WhatsAppSmallIcon',
   component: WhatsAppSmallIcon,
 };
 

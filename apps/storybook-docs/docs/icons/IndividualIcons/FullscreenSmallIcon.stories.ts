@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FullscreenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenSmallIcon';
 
 const meta: Meta<typeof FullscreenSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/FullscreenSmallIcon',
+  title: 'Icons / Individual Icons/FullscreenSmallIcon',
   component: FullscreenSmallIcon,
 };
 

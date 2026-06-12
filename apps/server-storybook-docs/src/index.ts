@@ -23,7 +23,6 @@ const storybookDocsIndex = path.join(storybookDocsStaticDir, 'index.html');
 const storybookAppsToServe = [
   { name: 'react', dirName: '../packages/react' },
   { name: 'react-native', dirName: '../packages/react-native' },
-  { name: 'assets', dirName: 'storybook-assets' },
 ];
 
 // Setup routes for sub-apps first

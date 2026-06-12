@@ -43,18 +43,13 @@ const config: StorybookConfig = {
   },
   refs: {
     react: {
-      title: 'Hearth React',
+      title: 'React',
       url: isDev ? 'http://localhost:6001' : '/react',
       expanded: false,
     },
     'react-native': {
-      title: 'Hearth React Native',
+      title: 'React Native',
       url: isDev ? 'http://localhost:6002' : '/react-native',
-      expanded: false,
-    },
-    assets: {
-      title: 'Hearth Assets',
-      url: isDev ? 'http://localhost:6005' : '/assets',
       expanded: false,
     },
   },

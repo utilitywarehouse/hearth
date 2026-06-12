@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EmailMediumIcon';
 
 const meta: Meta<typeof EmailMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/EmailMediumIcon',
+  title: 'Icons / Individual Icons/EmailMediumIcon',
   component: EmailMediumIcon,
 };
 

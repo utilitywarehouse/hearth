@@ -3,7 +3,7 @@ import { Flex, DetailText, Em } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
-  title: 'Hearth Fonts / DM Mono',
+  title: 'Fonts / DM Mono',
   component: DetailText,
 } satisfies Meta<typeof DetailText>;
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LaunchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LaunchSmallIcon';
 
 const meta: Meta<typeof LaunchSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/LaunchSmallIcon',
+  title: 'Icons / Individual Icons/LaunchSmallIcon',
   component: LaunchSmallIcon,
 };
 

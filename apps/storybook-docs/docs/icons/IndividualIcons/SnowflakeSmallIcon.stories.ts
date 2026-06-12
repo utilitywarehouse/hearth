@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SnowflakeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SnowflakeSmallIcon';
 
 const meta: Meta<typeof SnowflakeSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/SnowflakeSmallIcon',
+  title: 'Icons / Individual Icons/SnowflakeSmallIcon',
   component: SnowflakeSmallIcon,
 };
 

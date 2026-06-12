@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ThumbsDownSmallIcon';
 
 const meta: Meta<typeof ThumbsDownSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/ThumbsDownSmallIcon',
+  title: 'Icons / Individual Icons/ThumbsDownSmallIcon',
   component: ThumbsDownSmallIcon,
 };
 

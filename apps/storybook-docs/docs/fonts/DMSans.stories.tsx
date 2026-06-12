@@ -3,7 +3,7 @@ import { Flex, BodyText, Em } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta = {
-  title: 'Hearth Fonts / DM Sans',
+  title: 'Fonts / DM Sans',
   component: BodyText,
 } satisfies Meta<typeof BodyText>;
 

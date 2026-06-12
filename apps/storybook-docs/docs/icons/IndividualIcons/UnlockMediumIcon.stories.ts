@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { UnlockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/UnlockMediumIcon';
 
 const meta: Meta<typeof UnlockMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/UnlockMediumIcon',
+  title: 'Icons / Individual Icons/UnlockMediumIcon',
   component: UnlockMediumIcon,
 };
 

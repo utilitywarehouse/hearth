@@ -59,10 +59,10 @@ const preview: Preview = {
       storySort: {
         order: [
           'Welcome',
-          'Hearth CSS Reset',
-          'Hearth Fonts',
+          'CSS Reset',
+          'Fonts',
           ['Introduction', 'Getting Started', 'CDN Usage', 'Comic Hams', 'DM Sans', 'DM Mono'],
-          'Hearth Tokens',
+          'Tokens',
           [
             'Introduction',
             'Getting Started',
@@ -77,7 +77,7 @@ const preview: Preview = {
             'Shadow',
             'Component',
           ],
-          'Hearth Icons',
+          'Icons',
           [
             'Introduction',
             'Search Icons',
@@ -87,6 +87,8 @@ const preview: Preview = {
             'All Icons',
             'Individual Icons',
           ],
+          'Assets',
+          ['Introduction', 'SVG Assets', 'JSON Assets', 'Search Assets', 'Collections'],
         ],
       },
     },

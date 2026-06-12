@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FingerprintMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FingerprintMediumIcon';
 
 const meta: Meta<typeof FingerprintMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/FingerprintMediumIcon',
+  title: 'Icons / Individual Icons/FingerprintMediumIcon',
   component: FingerprintMediumIcon,
 };
 

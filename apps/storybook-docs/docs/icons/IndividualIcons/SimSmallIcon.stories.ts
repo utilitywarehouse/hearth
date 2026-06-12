@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SimSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SimSmallIcon';
 
 const meta: Meta<typeof SimSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/SimSmallIcon',
+  title: 'Icons / Individual Icons/SimSmallIcon',
   component: SimSmallIcon,
 };
 

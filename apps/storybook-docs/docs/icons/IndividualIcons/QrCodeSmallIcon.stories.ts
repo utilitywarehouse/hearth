@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { QrCodeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QrCodeSmallIcon';
 
 const meta: Meta<typeof QrCodeSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/QrCodeSmallIcon',
+  title: 'Icons / Individual Icons/QrCodeSmallIcon',
   component: QrCodeSmallIcon,
 };
 

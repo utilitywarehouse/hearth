@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronRightSmallIcon';
 
 const meta: Meta<typeof ChevronRightSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/ChevronRightSmallIcon',
+  title: 'Icons / Individual Icons/ChevronRightSmallIcon',
   component: ChevronRightSmallIcon,
 };
 

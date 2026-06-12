@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BroadbandSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandSmallIcon';
 
 const meta: Meta<typeof BroadbandSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/BroadbandSmallIcon',
+  title: 'Icons / Individual Icons/BroadbandSmallIcon',
   component: BroadbandSmallIcon,
 };
 

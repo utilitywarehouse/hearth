@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { InstagramMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InstagramMediumIcon';
 
 const meta: Meta<typeof InstagramMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/InstagramMediumIcon',
+  title: 'Icons / Individual Icons/InstagramMediumIcon',
   component: InstagramMediumIcon,
 };
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CreditReversalMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CreditReversalMediumIcon';
 
 const meta: Meta<typeof CreditReversalMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CreditReversalMediumIcon',
+  title: 'Icons / Individual Icons/CreditReversalMediumIcon',
   component: CreditReversalMediumIcon,
 };
 

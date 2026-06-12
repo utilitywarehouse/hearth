@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MoonLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonLargeIcon';
 
 const meta: Meta<typeof MoonLargeIcon> = {
-  title: 'Hearth Icons / Individual Icons/MoonLargeIcon',
+  title: 'Icons / Individual Icons/MoonLargeIcon',
   component: MoonLargeIcon,
 };
 

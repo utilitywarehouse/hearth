@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ContactlessMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ContactlessMediumIcon';
 
 const meta: Meta<typeof ContactlessMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/ContactlessMediumIcon',
+  title: 'Icons / Individual Icons/ContactlessMediumIcon',
   component: ContactlessMediumIcon,
 };
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CreditsAndDebitsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CreditsAndDebitsMediumIcon';
 
 const meta: Meta<typeof CreditsAndDebitsMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CreditsAndDebitsMediumIcon',
+  title: 'Icons / Individual Icons/CreditsAndDebitsMediumIcon',
   component: CreditsAndDebitsMediumIcon,
 };
 
