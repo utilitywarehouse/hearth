@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalDslPowerMicrofilterDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-dark.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalDslPowerMicrofilterDark',
+  title: 'Assets / SVG / TechnicalDslPowerMicrofilterDark',
 };
 
 export default meta;

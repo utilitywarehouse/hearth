@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotErrorLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotErrorLight',
+  title: 'Assets / JSON / AnimatedSpotErrorLight',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SceneMobileLight',
+  title: 'Assets / SVG / SceneMobileLight',
 };
 
 export default meta;

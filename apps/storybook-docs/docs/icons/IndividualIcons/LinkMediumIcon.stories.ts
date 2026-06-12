@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LinkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkMediumIcon';
 
 const meta: Meta<typeof LinkMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/LinkMediumIcon',
+  title: 'Icons / Individual Icons/LinkMediumIcon',
   component: LinkMediumIcon,
 };
 

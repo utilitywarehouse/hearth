@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotNeighboursDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-dark.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotNeighboursDark',
+  title: 'Assets / JSON / AnimatedSpotNeighboursDark',
 };
 
 export default meta;

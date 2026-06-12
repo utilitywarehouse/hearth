@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotKeepTrackLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotKeepTrackLight',
+  title: 'Assets / JSON / AnimatedSpotKeepTrackLight',
 };
 
 export default meta;

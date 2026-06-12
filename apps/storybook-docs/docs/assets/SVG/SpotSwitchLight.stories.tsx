@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotSwitchLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SpotSwitchLight',
+  title: 'Assets / SVG / SpotSwitchLight',
 };
 
 export default meta;

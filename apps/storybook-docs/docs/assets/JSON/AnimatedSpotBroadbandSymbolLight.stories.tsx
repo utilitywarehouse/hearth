@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotBroadbandSymbolLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotBroadbandSymbolLight',
+  title: 'Assets / JSON / AnimatedSpotBroadbandSymbolLight',
 };
 
 export default meta;

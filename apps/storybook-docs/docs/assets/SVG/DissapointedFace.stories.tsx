@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import DissapointedFace from '@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / DissapointedFace',
+  title: 'Assets / SVG / DissapointedFace',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalRouterWithPowerDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-dark.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalRouterWithPowerDark',
+  title: 'Assets / SVG / TechnicalRouterWithPowerDark',
 };
 
 export default meta;

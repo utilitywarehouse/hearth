@@ -14,38 +14,42 @@ Built with accessibility, performance, and scalability in mind, Hearth is the
 shared visual language and central source of truth for designing and
 implementing UI at Utility Warehouse.
 
-<div className="sb-unstyled">
-  <Grid
-    gap="400"
-    paddingY="100"
-    as="ul"
-    role="list"
-    columns={{ mobile: '1', tablet: '1', desktop: '2' }}
-  >
-    <ProjectBanner
-      heading="React"
-      description="UI components for accessible and scalable web application experiences."
-      to="react_getting-started"
-    />
-    <ProjectBanner
-      heading="React Native"
-      description="UI components for accessible and consistent iOS and Android native experiences."
-      to="react-native_introduction"
-    />
-    <ProjectBanner
-      heading="Tokens"
-      description="Platform-agnostic design tokens including spacing, colors & typography."
-      to="hearth-tokens-introduction"
-    />
-    <ProjectBanner
-      heading="Icons"
-      description="Icon libraries for React, React Native and SVG."
-      to="hearth-icons-introduction"
-    />
-    <ProjectBanner
-      heading="Assets"
-      description="Static and animated assets including illustrations and logos."
-      to="hearth-assets-introduction"
-    />
-  </Grid>
-</div>
+<Grid
+  gap="600"
+  as="ul"
+  role="list"
+  columns={{ mobile: '1', tablet: '1', desktop: '2' }}
+  marginTop="600"
+  className="sb-unstyled"
+>
+  <ProjectBanner
+    heading="React"
+    description="UI components for accessible and scalable web application experiences."
+    to="react_getting-started"
+  />
+  <ProjectBanner
+    heading="React Native"
+    description="UI components for accessible and consistent iOS and Android native experiences."
+    to="react-native_introduction"
+  />
+  <ProjectBanner
+    heading="Fonts"
+    description="Custom typefaces for use across platforms, including web and native applications."
+    to="fonts-introduction"
+  />
+  <ProjectBanner
+    heading="Tokens"
+    description="Platform-agnostic design tokens including spacing, colors & typography."
+    to="tokens-introduction"
+  />
+  <ProjectBanner
+    heading="Icons"
+    description="Icon libraries for React, React Native and SVG."
+    to="icons-introduction"
+  />
+  <ProjectBanner
+    heading="Assets"
+    description="Static and animated assets including illustrations and logos."
+    to="assets-introduction"
+  />
+</Grid>

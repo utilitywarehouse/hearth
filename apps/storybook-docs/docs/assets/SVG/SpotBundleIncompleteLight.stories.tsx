@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotBundleIncompleteLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-incomplete-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SpotBundleIncompleteLight',
+  title: 'Assets / SVG / SpotBundleIncompleteLight',
 };
 
 export default meta;

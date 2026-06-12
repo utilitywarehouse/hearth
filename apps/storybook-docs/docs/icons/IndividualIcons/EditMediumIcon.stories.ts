@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EditMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EditMediumIcon';
 
 const meta: Meta<typeof EditMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/EditMediumIcon',
+  title: 'Icons / Individual Icons/EditMediumIcon',
   component: EditMediumIcon,
 };
 

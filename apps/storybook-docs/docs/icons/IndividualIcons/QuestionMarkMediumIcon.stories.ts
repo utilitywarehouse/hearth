@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
 
 const meta: Meta<typeof QuestionMarkMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/QuestionMarkMediumIcon',
+  title: 'Icons / Individual Icons/QuestionMarkMediumIcon',
   component: QuestionMarkMediumIcon,
 };
 

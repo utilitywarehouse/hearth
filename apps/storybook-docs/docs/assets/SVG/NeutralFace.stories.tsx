@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NeutralFace from '@utilitywarehouse/hearth-svg-assets/lib/neutral-face.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / NeutralFace',
+  title: 'Assets / SVG / NeutralFace',
 };
 
 export default meta;

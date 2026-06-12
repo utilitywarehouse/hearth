@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotKeepTrackLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-keep-track-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SpotKeepTrackLight',
+  title: 'Assets / SVG / SpotKeepTrackLight',
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedUWLogoStandardPurpleLight from '@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-standard-purple-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedUWLogoStandardPurpleLight',
+  title: 'Assets / JSON / AnimatedUWLogoStandardPurpleLight',
 };
 
 export default meta;

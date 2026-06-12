@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TopUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpMediumIcon';
 
 const meta: Meta<typeof TopUpMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TopUpMediumIcon',
+  title: 'Icons / Individual Icons/TopUpMediumIcon',
   component: TopUpMediumIcon,
 };
 

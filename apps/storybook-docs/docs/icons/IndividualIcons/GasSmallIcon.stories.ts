@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { GasSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasSmallIcon';
 
 const meta: Meta<typeof GasSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/GasSmallIcon',
+  title: 'Icons / Individual Icons/GasSmallIcon',
   component: GasSmallIcon,
 };
 

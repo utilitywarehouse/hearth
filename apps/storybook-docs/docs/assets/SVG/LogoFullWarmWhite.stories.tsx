@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LogoFullWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-warm-white.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / LogoFullWarmWhite',
+  title: 'Assets / SVG / LogoFullWarmWhite',
 };
 
 export default meta;

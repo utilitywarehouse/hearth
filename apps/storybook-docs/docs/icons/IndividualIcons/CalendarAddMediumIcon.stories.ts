@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CalendarAddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddMediumIcon';
 
 const meta: Meta<typeof CalendarAddMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CalendarAddMediumIcon',
+  title: 'Icons / Individual Icons/CalendarAddMediumIcon',
   component: CalendarAddMediumIcon,
 };
 

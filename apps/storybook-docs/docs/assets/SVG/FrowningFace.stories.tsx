@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FrowningFace from '@utilitywarehouse/hearth-svg-assets/lib/frowning-face.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / FrowningFace',
+  title: 'Assets / SVG / FrowningFace',
 };
 
 export default meta;

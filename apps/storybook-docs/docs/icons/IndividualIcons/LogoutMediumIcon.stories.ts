@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LogoutMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LogoutMediumIcon';
 
 const meta: Meta<typeof LogoutMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/LogoutMediumIcon',
+  title: 'Icons / Individual Icons/LogoutMediumIcon',
   component: LogoutMediumIcon,
 };
 

@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotNotificationLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotNotificationLight',
+  title: 'Assets / JSON / AnimatedSpotNotificationLight',
 };
 
 export default meta;

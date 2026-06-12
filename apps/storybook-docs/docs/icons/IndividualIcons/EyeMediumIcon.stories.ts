@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EyeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EyeMediumIcon';
 
 const meta: Meta<typeof EyeMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/EyeMediumIcon',
+  title: 'Icons / Individual Icons/EyeMediumIcon',
   component: EyeMediumIcon,
 };
 

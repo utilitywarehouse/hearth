@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedUWLogoExtendedOffWhiteLight from '@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-extended-off-white-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedUWLogoExtendedOffWhiteLight',
+  title: 'Assets / JSON / AnimatedUWLogoExtendedOffWhiteLight',
 };
 
 export default meta;

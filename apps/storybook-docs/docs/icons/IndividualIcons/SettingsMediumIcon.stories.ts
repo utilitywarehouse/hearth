@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SettingsMediumIcon';
 
 const meta: Meta<typeof SettingsMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/SettingsMediumIcon',
+  title: 'Icons / Individual Icons/SettingsMediumIcon',
   component: SettingsMediumIcon,
 };
 

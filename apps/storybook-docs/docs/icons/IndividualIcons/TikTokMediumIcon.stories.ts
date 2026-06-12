@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TikTokMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TikTokMediumIcon';
 
 const meta: Meta<typeof TikTokMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TikTokMediumIcon',
+  title: 'Icons / Individual Icons/TikTokMediumIcon',
   component: TikTokMediumIcon,
 };
 

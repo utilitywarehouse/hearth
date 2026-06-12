@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalMorticeDeadlock5LeversDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-mortice-deadlock-5-levers-dark.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalMorticeDeadlock5LeversDark',
+  title: 'Assets / SVG / TechnicalMorticeDeadlock5LeversDark',
 };
 
 export default meta;

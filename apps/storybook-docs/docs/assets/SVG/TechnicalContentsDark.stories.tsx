@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalContentsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-contents-dark.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalContentsDark',
+  title: 'Assets / SVG / TechnicalContentsDark',
 };
 
 export default meta;

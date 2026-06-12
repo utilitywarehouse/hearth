@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalMultipointSystem3BoltsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-multipoint-system-3-bolts-dark.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalMultipointSystem3BoltsDark',
+  title: 'Assets / SVG / TechnicalMultipointSystem3BoltsDark',
 };
 
 export default meta;

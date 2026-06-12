@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalRouterStatusOrangeLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalRouterStatusOrangeLight',
+  title: 'Assets / SVG / TechnicalRouterStatusOrangeLight',
 };
 
 export default meta;

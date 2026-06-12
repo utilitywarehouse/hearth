@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotEmptyState2Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-dark.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotEmptyState2Dark',
+  title: 'Assets / JSON / AnimatedSpotEmptyState2Dark',
 };
 
 export default meta;

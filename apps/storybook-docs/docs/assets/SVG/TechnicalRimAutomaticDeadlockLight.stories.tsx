@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalRimAutomaticDeadlockLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalRimAutomaticDeadlockLight',
+  title: 'Assets / SVG / TechnicalRimAutomaticDeadlockLight',
 };
 
 export default meta;

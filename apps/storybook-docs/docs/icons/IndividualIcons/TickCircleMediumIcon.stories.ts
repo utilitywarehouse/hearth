@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleMediumIcon';
 
 const meta: Meta<typeof TickCircleMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TickCircleMediumIcon',
+  title: 'Icons / Individual Icons/TickCircleMediumIcon',
   component: TickCircleMediumIcon,
 };
 

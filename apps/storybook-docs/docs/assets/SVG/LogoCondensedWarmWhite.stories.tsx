@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import LogoCondensedWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-warm-white.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / LogoCondensedWarmWhite',
+  title: 'Assets / SVG / LogoCondensedWarmWhite',
 };
 
 export default meta;

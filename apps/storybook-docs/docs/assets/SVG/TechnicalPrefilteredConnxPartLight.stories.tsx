@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalPrefilteredConnxPartLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-part-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalPrefilteredConnxPartLight',
+  title: 'Assets / SVG / TechnicalPrefilteredConnxPartLight',
 };
 
 export default meta;

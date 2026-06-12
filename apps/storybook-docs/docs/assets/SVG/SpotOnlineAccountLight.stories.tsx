@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotOnlineAccountLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-online-account-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SpotOnlineAccountLight',
+  title: 'Assets / SVG / SpotOnlineAccountLight',
 };
 
 export default meta;

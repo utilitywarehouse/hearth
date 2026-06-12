@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { EyeOffSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/EyeOffSmallIcon';
 
 const meta: Meta<typeof EyeOffSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/EyeOffSmallIcon',
+  title: 'Icons / Individual Icons/EyeOffSmallIcon',
   component: EyeOffSmallIcon,
 };
 

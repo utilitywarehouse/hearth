@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MenuMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MenuMediumIcon';
 
 const meta: Meta<typeof MenuMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/MenuMediumIcon',
+  title: 'Icons / Individual Icons/MenuMediumIcon',
   component: MenuMediumIcon,
 };
 

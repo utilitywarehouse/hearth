@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ShareMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ShareMediumIcon';
 
 const meta: Meta<typeof ShareMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/ShareMediumIcon',
+  title: 'Icons / Individual Icons/ShareMediumIcon',
   component: ShareMediumIcon,
 };
 

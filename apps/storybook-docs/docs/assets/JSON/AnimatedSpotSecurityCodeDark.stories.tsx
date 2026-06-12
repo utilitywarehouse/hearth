@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotSecurityCodeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-dark.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotSecurityCodeDark',
+  title: 'Assets / JSON / AnimatedSpotSecurityCodeDark',
 };
 
 export default meta;

@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotKeepTrackDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-dark.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotKeepTrackDark',
+  title: 'Assets / JSON / AnimatedSpotKeepTrackDark',
 };
 
 export default meta;

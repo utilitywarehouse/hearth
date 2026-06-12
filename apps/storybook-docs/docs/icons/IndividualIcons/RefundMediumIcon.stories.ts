@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
 
 const meta: Meta<typeof RefundMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/RefundMediumIcon',
+  title: 'Icons / Individual Icons/RefundMediumIcon',
   component: RefundMediumIcon,
 };
 

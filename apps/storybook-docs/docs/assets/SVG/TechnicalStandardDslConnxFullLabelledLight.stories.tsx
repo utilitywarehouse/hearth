@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalStandardDslConnxFullLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalStandardDslConnxFullLabelledLight',
+  title: 'Assets / SVG / TechnicalStandardDslConnxFullLabelledLight',
 };
 
 export default meta;

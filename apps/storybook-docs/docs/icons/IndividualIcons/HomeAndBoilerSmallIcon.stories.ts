@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { HomeAndBoilerSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeAndBoilerSmallIcon';
 
 const meta: Meta<typeof HomeAndBoilerSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/HomeAndBoilerSmallIcon',
+  title: 'Icons / Individual Icons/HomeAndBoilerSmallIcon',
   component: HomeAndBoilerSmallIcon,
 };
 

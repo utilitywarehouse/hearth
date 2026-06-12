@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SceneCashbackLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-cashback-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SceneCashbackLight',
+  title: 'Assets / SVG / SceneCashbackLight',
 };
 
 export default meta;

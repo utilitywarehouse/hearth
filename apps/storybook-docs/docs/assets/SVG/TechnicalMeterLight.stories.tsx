@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalMeterLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalMeterLight',
+  title: 'Assets / SVG / TechnicalMeterLight',
 };
 
 export default meta;

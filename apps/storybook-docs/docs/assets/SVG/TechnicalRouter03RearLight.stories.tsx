@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalRouter03RearLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalRouter03RearLight',
+  title: 'Assets / SVG / TechnicalRouter03RearLight',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BasketMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BasketMediumIcon';
 
 const meta: Meta<typeof BasketMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/BasketMediumIcon',
+  title: 'Icons / Individual Icons/BasketMediumIcon',
   component: BasketMediumIcon,
 };
 

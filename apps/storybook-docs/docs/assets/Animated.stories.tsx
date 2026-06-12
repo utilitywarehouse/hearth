@@ -3,7 +3,7 @@ import { jsonAssets } from '../../utils/json-assets';
 import { AssetsGrid } from './components/AssetsGrid';
 
 const meta: Meta = {
-  title: 'Hearth Assets / Collections / Animated',
+  title: 'Assets / Collections / Animated',
 };
 
 export default meta;

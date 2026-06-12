@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import TechnicalPowerSupply01BRgbLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-power-supply-01-b-rgb-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / TechnicalPowerSupply01BRgbLight',
+  title: 'Assets / SVG / TechnicalPowerSupply01BRgbLight',
 };
 
 export default meta;

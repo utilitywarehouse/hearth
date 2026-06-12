@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BulbMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BulbMediumIcon';
 
 const meta: Meta<typeof BulbMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/BulbMediumIcon',
+  title: 'Icons / Individual Icons/BulbMediumIcon',
   component: BulbMediumIcon,
 };
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SpotNeighboursLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-light.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SpotNeighboursLight',
+  title: 'Assets / SVG / SpotNeighboursLight',
 };
 
 export default meta;

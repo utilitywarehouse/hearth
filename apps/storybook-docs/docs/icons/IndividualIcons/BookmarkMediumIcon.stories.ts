@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BookmarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookmarkMediumIcon';
 
 const meta: Meta<typeof BookmarkMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/BookmarkMediumIcon',
+  title: 'Icons / Individual Icons/BookmarkMediumIcon',
   component: BookmarkMediumIcon,
 };
 

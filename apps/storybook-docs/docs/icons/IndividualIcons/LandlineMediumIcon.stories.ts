@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { LandlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LandlineMediumIcon';
 
 const meta: Meta<typeof LandlineMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/LandlineMediumIcon',
+  title: 'Icons / Individual Icons/LandlineMediumIcon',
   component: LandlineMediumIcon,
 };
 

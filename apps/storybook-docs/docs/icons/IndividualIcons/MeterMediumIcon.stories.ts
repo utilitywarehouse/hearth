@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MeterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterMediumIcon';
 
 const meta: Meta<typeof MeterMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/MeterMediumIcon',
+  title: 'Icons / Individual Icons/MeterMediumIcon',
   component: MeterMediumIcon,
 };
 

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { YoutubeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/YoutubeMediumIcon';
 
 const meta: Meta<typeof YoutubeMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/YoutubeMediumIcon',
+  title: 'Icons / Individual Icons/YoutubeMediumIcon',
   component: YoutubeMediumIcon,
 };
 

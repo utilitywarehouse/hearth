@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CopyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CopyMediumIcon';
 
 const meta: Meta<typeof CopyMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CopyMediumIcon',
+  title: 'Icons / Individual Icons/CopyMediumIcon',
   component: CopyMediumIcon,
 };
 

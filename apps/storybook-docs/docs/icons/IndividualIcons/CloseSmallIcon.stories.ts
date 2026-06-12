@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CloseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CloseSmallIcon';
 
 const meta: Meta<typeof CloseSmallIcon> = {
-  title: 'Hearth Icons / Individual Icons/CloseSmallIcon',
+  title: 'Icons / Individual Icons/CloseSmallIcon',
   component: CloseSmallIcon,
 };
 

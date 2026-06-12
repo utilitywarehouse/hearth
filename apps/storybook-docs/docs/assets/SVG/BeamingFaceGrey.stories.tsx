@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import BeamingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/beaming-face-grey.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / BeamingFaceGrey',
+  title: 'Assets / SVG / BeamingFaceGrey',
 };
 
 export default meta;

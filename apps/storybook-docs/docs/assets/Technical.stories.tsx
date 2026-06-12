@@ -3,7 +3,7 @@ import { svgAssets } from '../../utils/svg-assets';
 import { AssetsGrid } from './components/AssetsGrid';
 
 const meta: Meta = {
-  title: 'Hearth Assets / Collections / Technical',
+  title: 'Assets / Collections / Technical',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoneyMediumIcon';
 
 const meta: Meta<typeof MoneyMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/MoneyMediumIcon',
+  title: 'Icons / Individual Icons/MoneyMediumIcon',
   component: MoneyMediumIcon,
 };
 

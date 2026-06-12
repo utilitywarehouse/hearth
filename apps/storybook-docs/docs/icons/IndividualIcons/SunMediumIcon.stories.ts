@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 
 const meta: Meta<typeof SunMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/SunMediumIcon',
+  title: 'Icons / Individual Icons/SunMediumIcon',
   component: SunMediumIcon,
 };
 

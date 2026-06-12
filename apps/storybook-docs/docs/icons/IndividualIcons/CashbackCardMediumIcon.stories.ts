@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardMediumIcon';
 
 const meta: Meta<typeof CashbackCardMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/CashbackCardMediumIcon',
+  title: 'Icons / Individual Icons/CashbackCardMediumIcon',
   component: CashbackCardMediumIcon,
 };
 

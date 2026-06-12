@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TransferMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TransferMediumIcon';
 
 const meta: Meta<typeof TransferMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TransferMediumIcon',
+  title: 'Icons / Individual Icons/TransferMediumIcon',
   component: TransferMediumIcon,
 };
 

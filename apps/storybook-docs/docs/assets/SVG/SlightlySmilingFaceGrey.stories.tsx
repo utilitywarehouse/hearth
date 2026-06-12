@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import SlightlySmilingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face-grey.svg';
 
 const meta: Meta = {
-  title: 'Hearth Assets / SVG / SlightlySmilingFaceGrey',
+  title: 'Assets / SVG / SlightlySmilingFaceGrey',
 };
 
 export default meta;

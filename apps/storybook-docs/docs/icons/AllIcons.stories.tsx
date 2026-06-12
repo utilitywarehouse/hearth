@@ -6,7 +6,7 @@ import { IconsGrid } from './components';
 import { color as browserColors } from '@utilitywarehouse/hearth-tokens/browser';
 
 const meta: Meta<typeof AddMediumIcon> = {
-  title: 'Hearth Icons / All Icons',
+  title: 'Icons / All Icons',
   component: AddMediumIcon,
 };
 

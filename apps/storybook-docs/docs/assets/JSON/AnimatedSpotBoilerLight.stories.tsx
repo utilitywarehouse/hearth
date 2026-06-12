@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotBoilerLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotBoilerLight',
+  title: 'Assets / JSON / AnimatedSpotBoilerLight',
 };
 
 export default meta;

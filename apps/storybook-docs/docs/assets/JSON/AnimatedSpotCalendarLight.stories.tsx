@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import AnimatedSpotCalendarLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-light.json';
 
 const meta: Meta = {
-  title: 'Hearth Assets / JSON / AnimatedSpotCalendarLight',
+  title: 'Assets / JSON / AnimatedSpotCalendarLight',
 };
 
 export default meta;

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { TwitterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TwitterMediumIcon';
 
 const meta: Meta<typeof TwitterMediumIcon> = {
-  title: 'Hearth Icons / Individual Icons/TwitterMediumIcon',
+  title: 'Icons / Individual Icons/TwitterMediumIcon',
   component: TwitterMediumIcon,
 };
 
