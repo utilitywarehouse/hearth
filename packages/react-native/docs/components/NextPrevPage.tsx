@@ -1,6 +1,6 @@
 import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { StyleSheet, View } from 'react-native';
-import StorybookLink from '../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Card, CardPressHandler, Heading, Link } from '../../src';
 
 type NextPrevPageProps = {

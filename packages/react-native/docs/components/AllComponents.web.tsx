@@ -22,7 +22,7 @@ import { color } from '@utilitywarehouse/hearth-tokens';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
-import { navigateToStory } from '../../../../shared/storybook/storybookLinks';
+import { navigateToStory } from '@utilitywarehouse/hearth-storybook-utils';
 import {
   Accordion,
   AccordionItem,

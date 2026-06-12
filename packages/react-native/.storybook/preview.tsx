@@ -4,11 +4,11 @@ import { color } from '@utilitywarehouse/hearth-tokens';
 import '@utilitywarehouse/hearth-tokens/index.css';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import '../../../shared/storybook/styles/diff-highlighting.css';
-import '../../../shared/storybook/styles/preview.css';
+import '@utilitywarehouse/hearth-storybook-utils/styles/diff-highlighting.css';
+import '@utilitywarehouse/hearth-storybook-utils/styles/preview.css';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
 import { initializePrism } from './prism-setup';
-import { config } from '../../../shared/storybook/theme';
+import { config } from '@utilitywarehouse/hearth-storybook-utils';
 import { create } from 'storybook/theming';
 
 const theme = create(config);

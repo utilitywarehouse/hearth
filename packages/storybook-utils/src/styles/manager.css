@@ -1,0 +1,12 @@
+.sidebar-container {
+  background: var(--h-background-secondary) !important;
+}
+
+.sidebar-header div {
+  margin-top: calc(var(--h-space-200) * -1);
+}
+
+/* selector for data-test-id="sb-preview-toolbar" - brave browser fix */
+[data-testid='sb-preview-toolbar'] {
+  margin-top: 0 !important;
+}

@@ -46,6 +46,7 @@
     "nanoid": "3.3.11"
   },
   "devDependencies": {
+    "@utilitywarehouse/hearth-storybook-utils": "workspace:*",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@gorhom/bottom-sheet": "5.2.6",
     "@storybook/addon-a11y": "^10.2.1",

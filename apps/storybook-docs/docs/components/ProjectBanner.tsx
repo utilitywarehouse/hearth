@@ -1,6 +1,6 @@
 import { Card, CardBannerContent, CardInteraction, Link } from '@utilitywarehouse/hearth-react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import StorybookLink from '../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import React from 'react';
 
 interface ProjectBannerProps {
