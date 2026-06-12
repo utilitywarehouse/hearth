@@ -42,7 +42,7 @@
     "generate:json-assets": "turbo run @utilitywarehouse/hearth-json-assets#generate && pnpm run generate:storybook:assets && pnpm run format && cat ./updated-json-assets.md && rm ./updated-json-assets.md",
     "generate:json-assets:ci": "turbo run @utilitywarehouse/hearth-json-assets#generate && turbo run generate:storybook:assets",
     "generate:storybook:assets": "turbo run storybook-assets#generate",
-    "generate:storybook:icons": "turbo run storybook-icons#generate",
+    "generate:storybook:icons": "turbo run storybook-docs#generate",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens"

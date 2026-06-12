@@ -25,7 +25,7 @@
  * // | --- | --- |
  * // | primary | var(--h-text-primary) |
  */
-export function toMdTable(headers: string[], rows: string[][]): string {
+export function toMdTable(headers: Array<string>, rows: Array<Array<string>>): string {
   const head = `| ${headers.join(' | ')} |`;
   const sep = `| ${headers.map(() => '---').join(' | ')} |`;
   const body = rows.map(row => `| ${row.join(' | ')} |`).join('\n');

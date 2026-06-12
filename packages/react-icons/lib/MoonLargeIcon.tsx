@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const MoonLargeIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={48}
-        height={48}
-        fill="none"
-        viewBox="0 0 48 48"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M24.18 42q-3.78 0-7.087-1.44-3.309-1.44-5.76-3.893-2.453-2.452-3.893-5.76Q6 27.601 6 23.82q0-6.57 4.185-11.587Q14.37 7.215 20.85 6q-.81 4.41.495 8.663 1.305 4.252 4.5 7.447t7.447 4.523q4.253 1.326 8.708.517-1.17 6.48-6.21 10.665T24.18 42"
-        />
-      </svg>
-    );
-  }
-);
-MoonLargeIcon.displayName = 'MoonLargeIcon';
+export const MoonLargeIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={48} height={48} fill="none" viewBox="0 0 48 48" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M24.18 42q-3.78 0-7.087-1.44-3.309-1.44-5.76-3.893-2.453-2.452-3.893-5.76Q6 27.601 6 23.82q0-6.57 4.185-11.587Q14.37 7.215 20.85 6q-.81 4.41.495 8.663 1.305 4.252 4.5 7.447t7.447 4.523q4.253 1.326 8.708.517-1.17 6.48-6.21 10.665T24.18 42" /></svg>;
+});
+MoonLargeIcon.displayName = "MoonLargeIcon";

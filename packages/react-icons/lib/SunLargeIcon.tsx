@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const SunLargeIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={48}
-        height={48}
-        fill="none"
-        viewBox="0 0 48 48"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M22.47 11.099V4h3.06v7.099zm11.719 4.855L32.035 13.8l5.027-5.05 2.154 2.177zm2.712 9.575v-3.058H44v3.058zM22.471 44v-7.099h3.058V44zm-8.705-28.07-4.971-4.98 2.154-2.144 5.016 5.017zm23.341 23.286-5.072-5.027 2.11-2.11 5.105 4.917zM4 25.529v-3.058h7.099v3.058zm6.993 13.676-2.198-2.154 4.982-4.982 1.116 1.038 1.128 1.071zm13.003-4.495q-4.464 0-7.585-3.125t-3.121-7.589 3.125-7.585q3.125-3.12 7.589-3.121t7.585 3.125q3.12 3.125 3.121 7.589t-3.125 7.585q-3.125 3.12-7.589 3.121"
-        />
-      </svg>
-    );
-  }
-);
-SunLargeIcon.displayName = 'SunLargeIcon';
+export const SunLargeIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={48} height={48} fill="none" viewBox="0 0 48 48" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M22.47 11.099V4h3.06v7.099zm11.719 4.855L32.035 13.8l5.027-5.05 2.154 2.177zm2.712 9.575v-3.058H44v3.058zM22.471 44v-7.099h3.058V44zm-8.705-28.07-4.971-4.98 2.154-2.144 5.016 5.017zm23.341 23.286-5.072-5.027 2.11-2.11 5.105 4.917zM4 25.529v-3.058h7.099v3.058zm6.993 13.676-2.198-2.154 4.982-4.982 1.116 1.038 1.128 1.071zm13.003-4.495q-4.464 0-7.585-3.125t-3.121-7.589 3.125-7.585q3.125-3.12 7.589-3.121t7.585 3.125q3.12 3.125 3.121 7.589t-3.125 7.585q-3.125 3.12-7.589 3.121" /></svg>;
+});
+SunLargeIcon.displayName = "SunLargeIcon";

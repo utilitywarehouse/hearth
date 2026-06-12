@@ -1,0 +1,147 @@
+import { icons } from '../../utils/icons';
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './AllIcons.stories';
+import { version } from '../../../../packages/react-icons/package.json';
+
+<Meta title="Hearth Icons / React Icons" />
+
+# Hearth React Icons
+
+Current version: v{version}
+
+Hearth Icons as optimized React components, generated from the `hearth-svg-icons` package.
+
+## Installation
+
+```console
+yarn add @utilitywarehouse/hearth-react-icons
+```
+
+## Usage
+
+```tsx
+import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+
+[...]
+
+<AddMediumIcon title="add new address" titleId="add-new-address">
+```
+
+### Webpack
+
+When using Webpack you may see the following error:
+
+```console
+Module not found: Error: Can't resolve 'react/jsx-runtime' in '[...]/node_modules/@utilitywarehouse/hearth-react-icons/dist'
+Did you mean 'jsx-runtime.js'?
+BREAKING CHANGE: The request 'react/jsx-runtime' failed to resolve only because it was resolved as fully specified
+(probably because the origin is strict EcmaScript Module, e. g. a module with javascript mimetype, a '*.mjs' file, or a '*.js' file where the package.json contains '"type": "module"').
+The extension in the request is mandatory for it to be fully specified.
+```
+
+As we are using ESModules you may need to update your webpack config with the following, under the `module.rules` setting:
+
+```js
+{
+  test: /\.m?js/,
+  resolve: {
+    fullySpecified: false,
+  },
+},
+```
+
+Further information
+
+- [https://webpack.js.org/configuration/module/#resolvefullyspecified]()
+- [https://github.com/webpack/webpack/issues/11467#issuecomment-691873586]()
+- [https://github.com/facebook/create-react-app/issues/11865#issuecomment-1059714419]()
+
+## Accessibility
+
+By default all Icon svg's have the following attributes set:
+
+- `role="img"`
+- `focusable="false"`
+- `aria-hidden="true"`
+
+If an icon is purely decorative then it doesn't need to include a `title`.
+
+However, if you do need to add meaningful descriptive text, then you can pass
+it in via the `title` prop. This will set `aria-hidden` to `"false"`, and
+render a `<title>` element inside the svg. To support older browsers we also
+apply an appropriate `id`, and reference this id via the `aria-labelledby` prop
+on the svg element. You can pass in your own `titleId` if you need to, and it
+will be referenced properly by the svg element.
+
+If you intend to accompany the icon with a visible text label then please make
+use of the `aria-labelledby` prop on the icon component.
+
+## Props
+
+Each icon component supports the full range of [SVG attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg#attributes) as well as the following props.
+
+<ArgTypes of={Stories} />
+
+## Icon sizes
+
+There are 3 sizes of icons:
+
+- Small: 20px
+- Medium: 24px
+- Large: 48px
+
+## Icon colours
+
+The icon components don't have any predefined colours. The rendered SVG fill
+colour is `currentColor` by default. You can change the icon colour using the
+`color` prop, passing in any valid colour string. We recommend using the colour
+values from the `hearth-design-tokens` package.
+
+## Icon naming
+
+The icon names are structured as:
+
+> `[Name][Size]Icon.svg`
+
+- `name` - Name of the icon from [Figma]('https://www.figma.com/file/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=27-230&t=PKen5tLHUHUzchVS-0') that is all lowercased and hyphen separated.
+- `size` - Size of the icon that is one of small (16)/medium (24)/large (48). Note that some icons do not have all sizes available yet. Our designers are working to add missing ones to complete the collection.
+
+## Available Icons
+
+There are currently {icons.length} icons available.
+
+### Small
+
+<ul style={{ display: 'flex', flexDirection: 'column' }}>
+  {icons
+    .filter(({ reactName }) => reactName.includes('Small'))
+    .map(({ reactName }) => reactName)
+    .sort()
+    .map(name => (
+      <li>{name}</li>
+    ))}
+</ul>
+
+### Medium
+
+<ul style={{ display: 'flex', flexDirection: 'column' }}>
+  {icons
+    .filter(({ reactName }) => reactName.includes('Medium'))
+    .map(({ reactName }) => reactName)
+    .sort()
+    .map(name => (
+      <li>{name}</li>
+    ))}
+</ul>
+
+### Large
+
+<ul style={{ display: 'flex', flexDirection: 'column' }}>
+  {icons
+    .filter(({ reactName }) => reactName.includes('Large'))
+    .map(({ reactName }) => reactName)
+    .sort()
+    .map(name => (
+      <li>{name}</li>
+    ))}
+</ul>
