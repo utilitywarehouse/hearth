@@ -87,6 +87,8 @@ const preview: Preview = {
             'All Icons',
             'Individual Icons',
           ],
+          'Hearth Assets',
+          ['Introduction', 'SVG Assets', 'JSON Assets', 'Search Assets', 'Collections'],
         ],
       },
     },

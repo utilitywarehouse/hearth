@@ -52,11 +52,6 @@ const config: StorybookConfig = {
       url: isDev ? 'http://localhost:6002' : '/react-native',
       expanded: false,
     },
-    assets: {
-      title: 'Hearth Assets',
-      url: isDev ? 'http://localhost:6005' : '/assets',
-      expanded: false,
-    },
   },
 };
 

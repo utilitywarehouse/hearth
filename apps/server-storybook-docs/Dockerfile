@@ -41,7 +41,6 @@ COPY --from=builder /app/apps/server-storybook-docs/dist ./apps/server-storybook
 
 # Copy static assets
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
-COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
 COPY --from=builder /app/packages/react/storybook-static ./packages/react/storybook-static
 COPY --from=builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
 
