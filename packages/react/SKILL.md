@@ -41,7 +41,9 @@ need before implementing anything custom.
 
 ### Raw markdown files
 
-Full component API reference is available in the installed package. First, resolve where it is installed — in a monorepo the package is typically hoisted to the repo root rather than the app's local `node_modules`:
+Full component API reference is available in the installed package. First,
+resolve where it is installed — in a monorepo the package is typically hoisted
+to the repo root rather than the app's local `node_modules`:
 
 node -e "const path = require('path'); console.log(path.dirname(require.resolve('@utilitywarehouse/hearth-react/package.json')))"
 
@@ -170,6 +172,25 @@ components or wrap them in an extra `Box` just for positioning.
   <Button variant="ghost" colorScheme="functional">Edit</Button>
 </Flex>
 ```
+
+## Choosing a typography component
+
+Hearth uses three font families. Match the Figma font-family to the component:
+
+| Figma font-family token                        | Component              |
+| ---------------------------------------------- | ---------------------- |
+| `var(--typography/heading/font-family)`         | `Heading`              |
+| `var(--typography/body-text/font-family)`       | `BodyText` |
+| `var(--typography/detail-text/font-family)`       | `DetailText` |
+
+**When implementing from Figma:** before picking a typography component, check
+the font-family on the element. Do not choose based on available size options
+alone — `DetailText` has larger size variants than `Heading`, but that doesn't
+make it correct for heading-font elements.
+
+There are also a number of semantic typography components available in code that
+do not exist in Figma. Check the typography reference files for available
+components before creating a new one.
 
 ## Use predefined responsive spacing values when specified in design
 
