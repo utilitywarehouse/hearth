@@ -177,11 +177,11 @@ components or wrap them in an extra `Box` just for positioning.
 
 Hearth uses three font families. Match the Figma font-family to the component:
 
-| Figma font-family token                        | Component              |
-| ---------------------------------------------- | ---------------------- |
-| `var(--typography/heading/font-family)`         | `Heading`              |
-| `var(--typography/body-text/font-family)`       | `BodyText` |
-| `var(--typography/detail-text/font-family)`       | `DetailText` |
+| Figma font-family token                     | Component    |
+| ------------------------------------------- | ------------ |
+| `var(--typography/heading/font-family)`     | `Heading`    |
+| `var(--typography/body-text/font-family)`   | `BodyText`   |
+| `var(--typography/detail-text/font-family)` | `DetailText` |
 
 **When implementing from Figma:** before picking a typography component, check
 the font-family on the element. Do not choose based on available size options
