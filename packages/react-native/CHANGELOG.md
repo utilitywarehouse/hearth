@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1311](https://github.com/utilitywarehouse/hearth/pull/1311) [`3d286c9`](https://github.com/utilitywarehouse/hearth/commit/3d286c97710a1483a054e4b19c2453920cda4598) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Update token usage for Divider
+
 ## 0.33.0
 
 ### Minor Changes

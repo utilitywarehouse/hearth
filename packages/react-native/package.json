@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.33.0",
+  "version": "0.33.1",
   "description": "Utility Warehouse React Native UI library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
