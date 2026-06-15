@@ -48,8 +48,7 @@ const preview = {
       try {
         canAccessParent = window.parent.location.hostname === window.location.hostname;
       } catch {
-        // CORS error, can't access parent domain
-        canAccessParent = false;
+        // CORS error, can't access parent domain — canAccessParent stays false
       }
 
       if (canAccessParent) {
@@ -116,8 +115,7 @@ const preview = {
         try {
           canAccessParent = window.parent.location.hostname === window.location.hostname;
         } catch {
-          // CORS error, can't access parent domain
-          canAccessParent = false;
+          // CORS error, can't access parent domain — canAccessParent stays false
         }
 
         if (canAccessParent) {
