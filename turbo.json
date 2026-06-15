@@ -57,11 +57,11 @@
     },
     "lint": {
       "outputs": [],
-      "dependsOn": ["format", "lint:fix"]
+      "dependsOn": ["lint:fix"]
     },
     "lint:ci": {
       "outputs": [],
-      "dependsOn": ["format:ci", "lint:fix"]
+      "dependsOn": ["lint:fix"]
     },
     "lint:css": {
       "outputs": []
@@ -82,10 +82,10 @@
       "dependsOn": ["^build"]
     },
     "format": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["lint:fix"]
     },
     "format:ci": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["lint:ci"]
     },
     "test": {
       "cache": false,

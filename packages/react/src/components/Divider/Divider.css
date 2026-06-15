@@ -3,15 +3,15 @@
   display: block; /* explicitly set this so horizontal dividers show inside block elements */
   align-self: stretch;
   flex-shrink: 0;
-  background-color: var(--h-border-subtle);
+  background-color: var(--h-divider-color);
 
   &:where([data-orientation='horizontal']) {
-    height: var(--h-divider-border-width);
+    height: var(--h-divider-size);
     width: auto;
   }
 
   &:where([data-orientation='vertical']) {
     height: auto;
-    width: var(--h-divider-border-width);
+    width: var(--h-divider-size);
   }
 }
