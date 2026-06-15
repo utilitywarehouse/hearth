@@ -4,9 +4,6 @@ on:
     types: [opened, synchronize, reopened]
     paths:
       - '.github/workflows/test-react-native.yml'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-      - 'pnpm-workspace.yaml'
       - 'packages/react-native/**'
 
 permissions:
