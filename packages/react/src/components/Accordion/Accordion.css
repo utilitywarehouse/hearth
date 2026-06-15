@@ -4,7 +4,7 @@
   gap: var(--h-accordion-gap);
 
   & :where(.h-AccordionItem) {
-    border-bottom: var(--h-divider-border-width) solid var(--h-border-subtle);
+    border-bottom: var(--h-divider-size) solid var(--h-divider-color);
 
     & :where(.h-AccordionItemHeader) {
       display: flex;
