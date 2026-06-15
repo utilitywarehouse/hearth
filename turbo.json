@@ -82,10 +82,10 @@
       "dependsOn": ["^build"]
     },
     "format": {
-      "dependsOn": ["lint:fix"]
+      "dependsOn": ["^build"]
     },
     "format:ci": {
-      "dependsOn": ["lint:ci"]
+      "dependsOn": ["^build"]
     },
     "test": {
       "cache": false,

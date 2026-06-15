@@ -12,6 +12,8 @@ permissions:
 jobs:
   checks:
     name: Build and Test
+    # Don't run on Versioning PRs (changeset-release/main)
+    if: ${{ ! startsWith(github.ref, 'changeset-release/main') }}
     runs-on: ubuntu-latest
     container:
       # Make sure to grab the latest version of the Playwright image
