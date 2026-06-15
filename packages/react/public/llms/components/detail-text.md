@@ -2,11 +2,13 @@
 
 ```tsx
 <Flex direction="column" gap="100">
-  {sizes.map(size => (
-    <DetailText key={size} size={size}>
-      Hamburgefons ({size})
-    </DetailText>
-  ))}
+  <DetailText size="sm">Hamburgefons (sm)</DetailText>
+  <DetailText size="md">Hamburgefons (md)</DetailText>
+  <DetailText size="lg">Hamburgefons (lg)</DetailText>
+  <DetailText size="xl">Hamburgefons (xl)</DetailText>
+  <DetailText size="2xl">Hamburgefons (2xl)</DetailText>
+  <DetailText size="3xl">Hamburgefons (3xl)</DetailText>
+  <DetailText size="4xl">Hamburgefons (4xl)</DetailText>
 </Flex>
 ```
 
@@ -30,6 +32,16 @@ The size prop is responsive, so you can render different sizes at different brea
 ```tsx
 <DetailText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg'}}>{...}</DetailText>
 ```
+
+| Size | Font-size | Line-height | Letter-spacing |
+| ---- | --------- | ----------- | -------------- |
+| sm   | 14px      | 18px        | -0.42px        |
+| md   | 16px      | 24px        | -0.48px        |
+| lg   | 18px      | 22px        | -0.54px        |
+| xl   | 20px      | 22px        | -0.60px        |
+| 2xl  | 24px      | 32px        | -0.72px        |
+| 3xl  | 30px      | 36px        | -0.90px        |
+| 4xl  | 36px      | 36px        | -1.08px        |
 
 ```tsx
 <Flex direction="column" gap="100">

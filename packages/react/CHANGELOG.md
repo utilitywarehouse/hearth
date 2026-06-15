@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.29.6
+
+### Patch Changes
+
+- [#1316](https://github.com/utilitywarehouse/hearth/pull/1316) [`179fa89`](https://github.com/utilitywarehouse/hearth/commit/179fa8971bc87a08cbac53478e0ff679031a6411) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Improve Typography documentation
+
+## 0.29.5
+
+### Patch Changes
+
+- [#1310](https://github.com/utilitywarehouse/hearth/pull/1310) [`e84d2f0`](https://github.com/utilitywarehouse/hearth/commit/e84d2f088e235e1e07e503fa4ca8cdd3798a99d2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Update token usage for `Divider`
+
 ## 0.29.4
 
 ### Patch Changes

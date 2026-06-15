@@ -1,0 +1,104 @@
+# Typography
+
+Hearth provides three typography components for general content: `Heading`, `BodyText`,
+and `DetailText`, each corresponding to a distinct font-family in Figma.
+
+Additional semantic components cover inline text (`Strong`, `Em`) and form UI
+(`Label`, `HelperText`, `ValidationText`).
+
+## Heading
+
+```tsx
+<Heading size="md">The five boxing wizards jump quickly.</Heading>
+```
+
+`Heading` uses the heading font family and should be used for any text element
+using the `var(--typography/heading/font-family)` token in Figma.
+
+Sizes (`sm`, `md`, `lg`, `xl`, `2xl`) are not responsive props - they are already
+internally responsive where necessary. Use `as` to set the correct heading level
+in the document outline; it defaults to `h2`.
+
+```tsx
+<Heading as="h1" size="xl">Page title</Heading>
+<Heading size="md">Section heading</Heading>
+```
+
+## BodyText
+
+```tsx
+<BodyText size="md">The five boxing wizards jump quickly.</BodyText>
+```
+
+`BodyText` uses the body-text font family, and should be used for any text
+using the `var(--typography/body-text/font-family)` token in Figma.
+
+`size` (`sm`, `md`, `lg`) and `weight` (`regular`, `semibold`, `bold`) are
+responsive props. The default element is `p`; use `as="span"` or `as="div"` for
+inline or block contexts, or `asChild` for other elements.
+
+```tsx
+<BodyText size="md">Body paragraph</BodyText>
+<BodyText size={{ mobile: 'sm', desktop: 'md' }} weight="semibold">
+  Responsive body text
+</BodyText>
+```
+
+## DetailText
+
+```tsx
+<DetailText size="md" color="text">
+  The five boxing wizards jump quickly.
+</DetailText>
+```
+
+`DetailText` uses the detail-text font family, and should be used for any text
+using the `var(--typography/detail-text/font-family)` token in Figma.
+
+`size` ranges from `sm` to `4xl` and is a responsive prop. Note that this size
+range overlaps with and exceeds `Heading` - always match the Figma font-family
+token, not the size, when choosing between components.
+
+```tsx
+<DetailText size="sm">Supporting detail</DetailText>
+<DetailText size={{ mobile: 'sm', desktop: 'md' }}>Responsive detail</DetailText>
+```
+
+## Strong
+
+`Strong` is used for text of strong importance, seriousness, or urgency. It must
+be used inside a `BodyText` component and inherits its styles from the parent.
+
+```tsx
+<BodyText>
+  The most important thing to remember is, <Strong>stay positive</Strong>.
+</BodyText>
+```
+
+## Em
+
+`Em` is used for emphatic stress. It must be used inside a `BodyText` component
+and inherits its styles from the parent.
+
+```tsx
+<BodyText>
+  We <Em>had</Em> to do something about it.
+</BodyText>
+```
+
+## Label, HelperText and ValidationText
+
+These are primarily used internally by Hearth form components. Prefer using a
+Hearth form component that already composes them before reaching for these
+directly — only use them if no existing component meets the needs of your design.
+
+`Label` renders a `label` element for form inputs, with `body` and `heading`
+variants. `HelperText` displays hint text beneath inputs. `ValidationText`
+displays validation messages and requires a `status` of `"valid"` or
+`"invalid"`.
+
+```tsx
+<Label htmlFor="email">Email address</Label>
+<HelperText>We'll only use this to contact you about your account.</HelperText>
+<ValidationText status="invalid">Enter a valid email address.</ValidationText>
+```

@@ -15,8 +15,6 @@ permissions:
 jobs:
   generate_and_commit:
     name: Generate and Commit llm docs
-    # Don't run on Versioning PRs (changeset-release/main)
-    if: ${{ ! startsWith(github.ref, 'changeset-release/main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)

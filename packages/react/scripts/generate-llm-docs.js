@@ -861,15 +861,7 @@ function generateLlmsTxt(entries, llmsTxtDir) {
   const lines = [
     '# Hearth React',
     '',
-    '> @utilitywarehouse/hearth-react — React component library for Utility Warehouse products.',
-    '',
-    '## Components',
-    '',
-    ...components.map(e =>
-      e.description
-        ? `- [${e.title}](${rel(e.outputPath)}): ${e.description}`
-        : `- [${e.title}](${rel(e.outputPath)})`
-    ),
+    '> @utilitywarehouse/hearth-react - React component library for Utility Warehouse products.',
     '',
     '## Guides',
     '',
@@ -893,6 +885,17 @@ function generateLlmsTxt(entries, llmsTxtDir) {
       ...responsive.map(e => `- [${e.title}](${rel(e.outputPath)})`)
     );
   }
+
+  lines.push(
+    '',
+    '## Components',
+    '',
+    ...components.map(e =>
+      e.description
+        ? `- [${e.title}](${rel(e.outputPath)}): ${e.description}`
+        : `- [${e.title}](${rel(e.outputPath)})`
+    )
+  );
 
   return lines.join('\n') + '\n';
 }

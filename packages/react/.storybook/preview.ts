@@ -66,6 +66,7 @@ const preview: Preview = {
           'Layout',
           ['Overview'],
           'Typography',
+          ['Overview'],
           'Components',
           'Stories',
         ],

@@ -31,11 +31,13 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="100">
-        {sizes.map(size => (
-          <DetailText key={size} size={size}>
-            Hamburgefons ({size})
-          </DetailText>
-        ))}
+        <DetailText size="sm">Hamburgefons (sm)</DetailText>
+        <DetailText size="md">Hamburgefons (md)</DetailText>
+        <DetailText size="lg">Hamburgefons (lg)</DetailText>
+        <DetailText size="xl">Hamburgefons (xl)</DetailText>
+        <DetailText size="2xl">Hamburgefons (2xl)</DetailText>
+        <DetailText size="3xl">Hamburgefons (3xl)</DetailText>
+        <DetailText size="4xl">Hamburgefons (4xl)</DetailText>
       </Flex>
     );
   },

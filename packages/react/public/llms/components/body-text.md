@@ -2,13 +2,33 @@
 
 ```tsx
 <Flex direction="column" gap="100">
-  {sizes.map(size =>
-    weights.map(weight => (
-      <BodyText key={`${size}${weight}`} size={size} weight={weight}>
-        Hamburgefons ({size}, {weight})
-      </BodyText>
-    ))
-  )}
+  <BodyText size="sm" weight="regular">
+    Hamburgefons (sm, regular)
+  </BodyText>
+  <BodyText size="sm" weight="semibold">
+    Hamburgefons (sm, semibold)
+  </BodyText>
+  <BodyText size="sm" weight="bold">
+    Hamburgefons (sm, bold)
+  </BodyText>
+  <BodyText size="md" weight="regular">
+    Hamburgefons (md, regular)
+  </BodyText>
+  <BodyText size="md" weight="semibold">
+    Hamburgefons (md, semibold)
+  </BodyText>
+  <BodyText size="md" weight="bold">
+    Hamburgefons (md, bold)
+  </BodyText>
+  <BodyText size="lg" weight="regular">
+    Hamburgefons (lg, regular)
+  </BodyText>
+  <BodyText size="lg" weight="semibold">
+    Hamburgefons (lg, semibold)
+  </BodyText>
+  <BodyText size="lg" weight="bold">
+    Hamburgefons (lg, bold)
+  </BodyText>
 </Flex>
 ```
 
@@ -50,6 +70,12 @@ The size prop is responsive, so you can render different sizes at different brea
 ```tsx
 <BodyText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg'}}>{...}</BodyText>
 ```
+
+| Size | Font-size | Line-height |
+| ---- | --------- | ----------- |
+| sm   | 14px      | 20px        |
+| md   | 16px      | 24px        |
+| lg   | 18px      | 24px        |
 
 ```tsx
 <Flex direction="column" gap="100">

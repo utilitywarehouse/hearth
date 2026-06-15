@@ -1,6 +1,39 @@
 # Hearth React
 
-> @utilitywarehouse/hearth-react — React component library for Utility Warehouse products.
+> @utilitywarehouse/hearth-react - React component library for Utility Warehouse products.
+
+## Guides
+
+- [Hearth Tokens](llms/docs/design-tokens.md)
+- [Hearth React](llms/docs/getting-started.md)
+- [Layout](llms/docs/layout.md)
+- [Migrating from Web UI](llms/docs/migrating.md)
+- [Typography](llms/docs/typography.md)
+
+## Common Props
+
+- [AlignSelf](llms/docs/common-props/align-self.md)
+- [Borders](llms/docs/common-props/border.md)
+- [Colour props](llms/docs/common-props/colour.md)
+- [Flex items](llms/docs/common-props/flex-items.md)
+- [Gap](llms/docs/common-props/gap.md)
+- [Grid items](llms/docs/common-props/grid-items.md)
+- [Margin props](llms/docs/common-props/margin.md)
+- [Opacity](llms/docs/common-props/opacity.md)
+- [Order](llms/docs/common-props/order.md)
+- [Overflow](llms/docs/common-props/overflow.md)
+- [Padding props](llms/docs/common-props/padding.md)
+- [Position](llms/docs/common-props/position.md)
+- [Size](llms/docs/common-props/size.md)
+- [Spacing](llms/docs/common-props/spacing.md)
+- [Text](llms/docs/common-props/text.md)
+- [Z-Index](llms/docs/common-props/z-index.md)
+
+## Responsive Design
+
+- [Breakpoints](llms/docs/responsive-design/breakpoints.md)
+- [Media Queries](llms/docs/responsive-design/media-queries.md)
+- [Responsive props](llms/docs/responsive-design/responsive-props.md)
 
 ## Components
 
@@ -62,35 +95,3 @@
 - [UnstyledIconButton](llms/components/unstyled-icon-button.md): [Icons](#icons)
 - [ValidationText](llms/components/validation-text.md): `ValidationText` should be used with form field components to display validation messages.
 - [VerificationInput](llms/components/verification-input.md): `VerificationInput` allows users to enter a one-time password (OTP) sent via
-
-## Guides
-
-- [Hearth Tokens](llms/docs/design-tokens.md)
-- [Hearth React](llms/docs/getting-started.md)
-- [Layout](llms/docs/layout.md)
-- [Migrating from Web UI](llms/docs/migrating.md)
-
-## Common Props
-
-- [AlignSelf](llms/docs/common-props/align-self.md)
-- [Borders](llms/docs/common-props/border.md)
-- [Colour props](llms/docs/common-props/colour.md)
-- [Flex items](llms/docs/common-props/flex-items.md)
-- [Gap](llms/docs/common-props/gap.md)
-- [Grid items](llms/docs/common-props/grid-items.md)
-- [Margin props](llms/docs/common-props/margin.md)
-- [Opacity](llms/docs/common-props/opacity.md)
-- [Order](llms/docs/common-props/order.md)
-- [Overflow](llms/docs/common-props/overflow.md)
-- [Padding props](llms/docs/common-props/padding.md)
-- [Position](llms/docs/common-props/position.md)
-- [Size](llms/docs/common-props/size.md)
-- [Spacing](llms/docs/common-props/spacing.md)
-- [Text](llms/docs/common-props/text.md)
-- [Z-Index](llms/docs/common-props/z-index.md)
-
-## Responsive Design
-
-- [Breakpoints](llms/docs/responsive-design/breakpoints.md)
-- [Media Queries](llms/docs/responsive-design/media-queries.md)
-- [Responsive props](llms/docs/responsive-design/responsive-props.md)

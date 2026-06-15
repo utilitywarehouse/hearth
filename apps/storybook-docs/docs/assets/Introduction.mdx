@@ -1,18 +1,35 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+import { ProjectBanner } from '../components/ProjectBanner';
+import { Grid } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Assets / Introduction" />
 
 # Hearth Assets
 
-Hearth Assets is a collection of static and animated assets including
-illustrations and logos that can be used across platforms. It currently
-includes two packages:
+Hearth Assets is a collection of static and animated assets, including
+illustrations and logos, that can be used across platforms. It currently
+includes two packages.
 
-- <StorybookLink to="assets-svg-assets">Hearth SVG Assets</StorybookLink>: A collection of SVG icons
-  and illustrations for use in web and native applications.
-- <StorybookLink to="assets-json-assets">Hearth JSON Assets</StorybookLink>: A collection of Lottie
-  JSON animations for use in web and native applications.
+<Grid
+  gap="600"
+  as="ul"
+  role="list"
+  columns={{ mobile: '1', tablet: '1', desktop: '2' }}
+  marginBottom="600"
+  className="sb-unstyled"
+>
+  <ProjectBanner
+    heading="SVG Assets"
+    description="A collection of SVG icons and illustrations for use in web and native applications."
+    to="assets-svg-assets"
+  />
+  <ProjectBanner
+    heading="JSON Assets"
+    description="A collection of Lottie JSON animations for use in web and native applications."
+    to="assets-json-assets"
+  />
+</Grid>
 
 ## Photography
 
