@@ -31,16 +31,16 @@ Divider.displayName = 'Divider';
 
 const styles = StyleSheet.create(theme => ({
   divider: {
-    backgroundColor: theme.color.border.subtle,
+    backgroundColor: theme.components.divider.color,
     variants: {
       orientation: {
         horizontal: {
           width: '100%',
-          height: theme.components.divider.borderWidth,
+          height: theme.components.divider.size,
         },
         vertical: {
           height: '100%',
-          width: theme.components.divider.borderWidth,
+          width: theme.components.divider.size,
         },
       },
       spacing: {

@@ -19,8 +19,8 @@ AccordionItem.displayName = 'AccordionItemRoot';
 
 const styles = StyleSheet.create(theme => ({
   item: {
-    borderBottomWidth: theme.components.divider.borderWidth,
-    borderBottomColor: theme.color.border.subtle,
+    borderBottomWidth: theme.components.divider.size,
+    borderBottomColor: theme.components.divider.color,
   },
 }));
 
