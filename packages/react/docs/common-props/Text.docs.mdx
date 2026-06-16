@@ -1,0 +1,26 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { BodyText } from '../../src/components/BodyText/BodyText';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Text" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Text
+  <ViewMarkdownLink to="docs/common-props/text" />
+</Flex>
+
+The text props can exist on components independently of each other, and each
+reflect their own relevant CSS usage.
+
+```tsx
+<BodyText textAlign="left" />
+<BodyText textAlign={{ mobile: 'center', desktop: 'left' }}/>
+
+<BodyText textTransform="capitalize" />
+
+<BodyText textWrap="pretty" />
+<BodyText textWrap={{ mobile: 'wrap', desktop: 'nowrap' }}/>
+```
+
+<ArgTypes of={BodyText} include={'text*|wrap'} sort="requiredFirst" />

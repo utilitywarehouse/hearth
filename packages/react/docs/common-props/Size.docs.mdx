@@ -1,0 +1,26 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../src/components/Box/Box';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Size" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Size
+  <ViewMarkdownLink to="docs/common-props/size" />
+</Flex>
+
+The size props provide height and width styles, they are responsive but do not
+use any token values, instead they accept any valid CSS
+[height](https://developer.mozilla.org/en-US/docs/Web/CSS/height) or
+[width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) value.
+
+This also means you can use the Hearth browser tokens as values.
+
+```tsx
+<Box width="200px" />
+<Box height={{ mobile: "100%", desktop: "600px" }}/>
+<Box maxWidth={container.width}/>
+```
+
+<ArgTypes of={Box} include={'width|maxWidth|minWidth|height|maxHeight|minHeight'} sort="none" />

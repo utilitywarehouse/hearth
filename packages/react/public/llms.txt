@@ -4,6 +4,7 @@
 
 ## Guides
 
+- [AI Tools](llms/docs/a-i-tools.md)
 - [Hearth Tokens](llms/docs/design-tokens.md)
 - [Hearth React](llms/docs/getting-started.md)
 - [Layout](llms/docs/layout.md)

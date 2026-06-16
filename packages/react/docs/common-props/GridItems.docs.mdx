@@ -1,0 +1,29 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../src/components/Box/Box';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Grid Items" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Grid items
+  <ViewMarkdownLink to="docs/common-props/grid-items" />
+</Flex>
+
+Grid item props enable styling on components when they are children of a grid
+container.
+
+The `gridColumnSpan` prop accepts one of a predefined set of grid
+column span steps, the other grid item props accept any valid CSS grid value
+for the relevant prop.
+
+```tsx
+<Grid>
+  <Box gridColumnSpan="4" />
+  <Box gridColumn="1 / 3" />
+  <Box gridRowStart="2" />
+  <Box gridColumnEnd={{ mobile: '-1', tablet: '3', desktop: 'auto' }} />
+</Grid>
+```
+
+<ArgTypes of={Box} include={'grid*'} sort="requiredFirst" />

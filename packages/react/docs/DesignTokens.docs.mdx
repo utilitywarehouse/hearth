@@ -1,0 +1,81 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Flex } from '../src/components/Flex/Flex';
+import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
+
+<Meta title="Design Tokens" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Hearth Tokens
+  <ViewMarkdownLink to="docs/design-tokens" />
+</Flex>
+
+Hearth Tokens is a Design Tokens library providing an easy way to access
+predefined values for spacing, colour, typography, borders, components, radii,
+and more.
+
+It is used to apply consistent styling across our React components, via CSS custom
+properties. These properties are included in the CSS for Hearth React, and can
+be used in your own stylesheets, as well as in CSS-in-JS via the browser
+specific tokens.
+
+While the Hearth React components try to meet all your styling needs, there may
+be times you need to access specific values for your own custom styles or
+design overrides. In these cases, the Hearth tokens can be a useful resource to
+ensure you are using the correct values, and to keep your styles consistent
+with the components.
+
+## CSS Usage
+
+As the CSS custom properties are included in the CSS for Hearth React, you can
+use them directly in your stylesheets without needing to install the tokens
+package.
+
+```css
+.my-component {
+  color: var(--h-text-primary);
+  background-color: var(--h-background-primary);
+  padding: var(--h-space-300);
+}
+```
+
+## JavaScript Usage
+
+To use the Hearth Tokens in JavaScript or TypeScript files you will need to
+install it separately.
+
+```console
+npm install @utilitywarehouse/hearth-tokens
+```
+
+When importing the tokens, make sure you specifically import the browser
+tokens, and **not** the JS tokens. These tokens reference the CSS custom
+properties already included with Hearth React, rather than raw values.
+
+```tsx
+import {
+  border,
+  space,
+  color,
+  components,
+  semantic,
+  font,
+} from '@utilitywarehouse/hearth-tokens/browser';
+```
+
+You can then reference them in your code.
+
+```tsx
+// Usage in CSS-in-JS
+<Component
+  sx={{
+    color: semantic.feedback.positive.foreground.subtle, // color: var(--h-color); & --h-color: var(--h-feedback-positive-foreground-subtle);
+  }}
+>
+{...}
+</Component>
+
+// Some, but not all, style props will accept the browser tokens as values
+<Box color={semantic.feedback.positive.foreground.subtle}>
+{...}
+</Box>
+```

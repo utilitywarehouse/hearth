@@ -1,0 +1,21 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../src/components/Box/Box';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Z-Index" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Z-Index
+  <ViewMarkdownLink to="docs/common-props/z-index" />
+</Flex>
+
+The `zIndex` prop sets the `z-index` value, it is responsive but does not
+use any token values.
+
+```tsx
+<Box zIndex="1" />
+<Box zIndex={{ mobile: "1", desktop: "-1" }}/>
+```
+
+<ArgTypes of={Box} include={'zIndex'} sort="requiredFirst" />

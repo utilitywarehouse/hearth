@@ -4,7 +4,7 @@ import { Flex } from '../Flex/Flex';
 import { Box } from './Box';
 import { BoxProps } from './Box.props';
 import { useRef } from 'react';
-import { Placeholder } from '../../docs/storybook-components/Placeholder';
+import { Placeholder } from '../../../docs/storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
