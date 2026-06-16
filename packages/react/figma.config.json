@@ -1,6 +1,6 @@
 {
   "codeConnect": {
-    "include": ["src/components/**/*", "src/figma/**/*"],
+    "include": ["figma/**/*"],
     "parser": "react",
     "exclude": [],
     "label": "React",
