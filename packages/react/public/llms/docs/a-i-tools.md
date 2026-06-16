@@ -1,13 +1,4 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import { Flex } from '../src/components/Flex/Flex';
-import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
-
-<Meta title="AI Tools" />
-
-<Flex justifyContent="between" alignItems="baseline">
-  # AI Tools
-  <ViewMarkdownLink to="docs/a-i-tools" />
-</Flex>
+# AI Tools
 
 The Hearth React AI Tools are intended to help your AI agents use Hearth React
 components to build Utility Warehouse UIs. They provide access to APIs,

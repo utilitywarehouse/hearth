@@ -1,7 +1,7 @@
 /**
  * Generates AI-friendly markdown documentation from .docs.mdx source files.
  *
- * For each .docs.mdx file in src/:
+ * For each .docs.mdx file in src/ and docs/:
  *   - Strips Storybook JSX (Meta, Canvas, Controls) and import declarations
  *   - Replaces <ArgTypes> with a full prop table via react-docgen-typescript
  *   - Replaces <StorybookLink> with plain text
@@ -29,9 +29,24 @@ const __dirname = path.dirname(__filename);
 
 const PKG_ROOT = path.resolve(__dirname, '..');
 const SRC_DIR = path.join(PKG_ROOT, 'src');
+const DOCS_DIR = path.join(PKG_ROOT, 'docs');
 
-// MDX files to exclude from LLM doc generation (relative to SRC_DIR)
+// MDX files to exclude from LLM doc generation (relative to SRC_DIR / DOCS_DIR)
 const EXCLUDED_MDX = new Set(['docs/Changelog.docs.mdx']);
+
+/**
+ * Returns a logical relative path for a .docs.mdx file, regardless of whether
+ * it lives under src/ or the top-level docs/ directory.
+ *
+ * docs/GettingStarted.docs.mdx     → 'docs/GettingStarted.docs.mdx'
+ * src/components/Badge/Badge.docs.mdx → 'components/Badge/Badge.docs.mdx'
+ */
+function relPath(absPath) {
+  if (absPath.startsWith(DOCS_DIR + path.sep) || absPath === DOCS_DIR) {
+    return 'docs/' + path.relative(DOCS_DIR, absPath).split(path.sep).join('/');
+  }
+  return path.relative(SRC_DIR, absPath).split(path.sep).join('/');
+}
 
 // ─── File discovery ───────────────────────────────────────────────────────────
 
@@ -41,8 +56,7 @@ function findMdxFiles(dir, results = []) {
     if (entry.isDirectory()) {
       findMdxFiles(full, results);
     } else if (entry.name.endsWith('.docs.mdx')) {
-      const rel = path.relative(SRC_DIR, full).split(path.sep).join('/');
-      if (!EXCLUDED_MDX.has(rel)) results.push(full);
+      if (!EXCLUDED_MDX.has(relPath(full))) results.push(full);
     }
   }
   return results;
@@ -59,12 +73,12 @@ function toKebabCase(str) {
 /**
  * Maps an absolute .docs.mdx path to its output .md path.
  *
- * src/components/Badge/Badge.docs.mdx  → <outputDir>/components/badge.md
- * src/docs/GettingStarted.docs.mdx     → <outputDir>/docs/getting-started.md
- * src/docs/common-props/Text.docs.mdx  → <outputDir>/docs/common-props/text.md
+ * src/components/Badge/Badge.docs.mdx → <outputDir>/components/badge.md
+ * docs/GettingStarted.docs.mdx        → <outputDir>/docs/getting-started.md
+ * docs/common-props/Text.docs.mdx     → <outputDir>/docs/common-props/text.md
  */
 function deriveOutputPath(mdxAbsPath, outputDir) {
-  const rel = path.relative(SRC_DIR, mdxAbsPath); // e.g. components/Badge/Badge.docs.mdx
+  const rel = relPath(mdxAbsPath); // e.g. components/Badge/Badge.docs.mdx
   const noExt = rel.replace(/\.docs\.mdx$/, ''); // components/Badge/Badge
 
   // De-duplicate consecutive identical segments (Badge/Badge → Badge)
@@ -903,8 +917,8 @@ function generateLlmsTxt(entries, llmsTxtDir) {
 // ─── Category detection ───────────────────────────────────────────────────────
 
 function categorise(mdxAbsPath) {
-  const rel = path.relative(SRC_DIR, mdxAbsPath);
-  const parts = rel.split(path.sep);
+  const rel = relPath(mdxAbsPath);
+  const parts = rel.split('/');
   const category = parts[0]; // 'components' or 'docs'
   const sub = category === 'docs' && parts.length > 2 ? parts[1] : null;
   return { category, sub };
@@ -937,7 +951,7 @@ async function main() {
   const outputDir = process.argv[2] ?? path.join(PKG_ROOT, 'public', 'llms');
   const llmsTxtPath = path.join(outputDir, '..', 'llms.txt');
 
-  const mdxFiles = findMdxFiles(SRC_DIR).sort();
+  const mdxFiles = [...findMdxFiles(SRC_DIR), ...findMdxFiles(DOCS_DIR)].sort();
   const entries = [];
   let ok = 0;
   let fail = 0;
