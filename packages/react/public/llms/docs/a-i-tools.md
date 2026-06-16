@@ -26,8 +26,16 @@ this is via the Hearth React Agent Skill.
 The [Hearth React Agent Skill](https://github.com/utilitywarehouse/hearth/blob/main/packages/react/SKILL.md)
 is a skill for your AI agent to use when building any React UI.
 
-The skill is packaged with the Hearth React package, so your agent can access it locally if you have the package installed.
-To ensure your agent has access to the skill, you can add an entry to your local `AGENTS.md` or `CLAUDE.md` file.
+This skill is focused on usage of the Hearth React component library, and
+doesn't attempt to cover any other aspects of building a React application, or
+local custom components. If you have local custom components, for instance
+Hearth components integrated with the Next.js `Link` component, you should
+document this in your agents file, or a custom skill.
+
+The skill is packaged with the Hearth React package, so your agent can access
+it locally if you have the package installed. To ensure your agent has access
+to the skill, you can add an entry to your local `AGENTS.md` or `CLAUDE.md`
+file.
 
 You can do this by using the `init-ai` tool:
 
@@ -35,9 +43,11 @@ You can do this by using the `init-ai` tool:
 npx @utilitywarehouse/hearth-react init-ai
 ```
 
-This will add an entry to your `AGENTS.md` or `CLAUDE.md` file pointing to the local skill file.
+This will add an entry to your `AGENTS.md` or `CLAUDE.md` file pointing to the
+skill file.
 
-Allternatively, you can add an entry manually to your `AGENTS.md` or `CLAUDE.md` file like this:
+Alternatively, you can add an entry manually to your `AGENTS.md` or `CLAUDE.md`
+file like this:
 
 ```markdown
 <!-- @utilitywarehouse/hearth-react — AI skill for component library usage guidance -->
@@ -45,7 +55,8 @@ Allternatively, you can add an entry manually to your `AGENTS.md` or `CLAUDE.md`
 @node_modules/@utilitywarehouse/hearth-react/SKILL.md
 ```
 
-or if you are using a monorepo with the Hearth React package in a subdirectory, you can add an entry like this:
+or if you are using a monorepo with the Hearth React package in a subdirectory,
+you can add an entry like this:
 
 ```markdown
 <!-- @utilitywarehouse/hearth-react — AI skill for component library usage guidance -->
