@@ -21,7 +21,7 @@ import { CardBannerContent } from './CardBannerContent';
 import { CardBannerImage } from './CardBannerImage';
 import { CardContent } from './CardContent';
 import { CardInteraction } from './CardInteraction';
-import piggies from '../../docs/assets/piggies.png';
+import piggies from '../../../docs/assets/piggies.png';
 import SpotSmartMeter from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg';
 import SpotSavings from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg';
 import {
@@ -42,7 +42,7 @@ import {
   InfoMediumIcon,
   CalendarMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { Placeholder } from '../../docs/storybook-components/Placeholder';
+import { Placeholder } from '../../../docs/storybook-components/Placeholder';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;

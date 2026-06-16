@@ -12,7 +12,7 @@ import { InlineLink } from '../InlineLink/InlineLink';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 import { ToggleButtonCard } from './ToggleButtonCard';
 import { useState } from 'react';
-import { Placeholder } from '../../docs/storybook-components/Placeholder';
+import { Placeholder } from '../../../docs/storybook-components/Placeholder';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof ToggleGroup> = {

@@ -6,7 +6,7 @@ import { Link } from '../Link/Link';
 import { HighlightBanner } from './HighlightBanner';
 import { HighlightBannerContent } from './HighlightBannerContent';
 import { HighlightBannerFooter } from './HighlightBannerFooter';
-import piggies from '../../docs/assets/piggies.png';
+import piggies from '../../../docs/assets/piggies.png';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const headingColors = [

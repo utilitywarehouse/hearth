@@ -5,8 +5,8 @@ import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { RadioTile } from './RadioTile';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import mastercard from '../../docs/assets/mastercard.png';
-import visa from '../../docs/assets/visa.png';
+import mastercard from '../../../docs/assets/mastercard.png';
+import visa from '../../../docs/assets/visa.png';
 
 const meta: Meta<typeof RadioTile> = {
   title: 'Components / RadioGroup / RadioTile',

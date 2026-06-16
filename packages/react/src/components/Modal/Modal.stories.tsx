@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import SpotSavings from '../../docs/assets/spot-savings.svg';
+import SpotSavings from '../../../docs/assets/spot-savings.svg';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
 import { Card } from '../Card/Card';
