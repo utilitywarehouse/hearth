@@ -1,5 +1,5 @@
-import { colorPropDefs } from '../../props/color.props';
-import { backgroundColorPropDefs } from '../../props/background-color.props';
+import { colorPropDefs } from '../../src/props/color.props';
+import { backgroundColorPropDefs } from '../../src/props/background-color.props';
 import { font, space, border, semantic } from '@utilitywarehouse/hearth-tokens/browser';
 import { toMdTable } from './markdown-table';
 

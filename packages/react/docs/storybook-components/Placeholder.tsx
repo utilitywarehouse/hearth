@@ -1,5 +1,5 @@
-import { Flex } from '../../components/Flex/Flex';
-import type { FlexProps } from '../../components/Flex/Flex.props';
+import { Flex } from '../../src/components/Flex/Flex';
+import type { FlexProps } from '../../src/components/Flex/Flex.props';
 
 export const Placeholder = (props: FlexProps) => {
   return (

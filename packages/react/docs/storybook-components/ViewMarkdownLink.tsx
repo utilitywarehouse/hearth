@@ -1,5 +1,5 @@
 import { StorybookLink, type StorybookLinkProps } from '@utilitywarehouse/hearth-storybook-utils';
-import { Link } from '../../components/Link/Link';
+import { Link } from '../../src/components/Link/Link';
 
 export const MarkdownIcon = () => (
   <svg
