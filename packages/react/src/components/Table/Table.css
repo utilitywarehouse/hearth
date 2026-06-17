@@ -18,7 +18,7 @@
   & :where(.h-TableRow) {
     border-bottom: var(--h-table-cell-border-width) solid var(--h-border-subtle);
 
-    &:where(.h-Card:not(:has(.h-TablePagination)) &):last-child {
+    &:where([data-table-container='card']:not(:has(.h-TablePagination)) &):last-child {
       border-bottom: none;
     }
   }
@@ -27,7 +27,7 @@
     border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
     background-color: var(--h-surface-neutral-strong);
 
-    &:where(.h-Card &) {
+    &:where([data-table-container='card'] &) {
       background-color: var(--h-surface-brand-default);
       color: var(--h-text-inverted);
       border-bottom-color: var(--h-border-strong);

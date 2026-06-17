@@ -9,6 +9,7 @@ import { TableHeaderCell } from './TableHeaderCell';
 import { TablePagination } from './TablePagination';
 import { TableRow } from './TableRow';
 import seedrandom from 'seedrandom';
+import { Card } from '../Card/Card';
 
 const variants = [undefined, 'subtle', 'emphasis'] as const;
 
@@ -76,6 +77,33 @@ export const KitchenSink: Story = {
           </Table>
         ))}
       </Flex>
+    );
+  },
+};
+
+export const InsideCard: Story = {
+  render: () => {
+    return (
+      <Card colorScheme="neutralStrong" variant="subtle" paddingNone>
+        <Table>
+          <TableHeader>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>City</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            {personalDetails.slice(0, 3).map(person => (
+              <TableRow key={person.id}>
+                <TableCell>{person.name}</TableCell>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{person.phone}</TableCell>
+                <TableCell>{person.city}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Card>
     );
   },
 };
