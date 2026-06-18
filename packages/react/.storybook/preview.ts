@@ -58,6 +58,7 @@ const preview: Preview = {
         order: [
           'Getting Started',
           'Design Tokens',
+          'AI Tools',
           'Changelog',
           'Migrating from Web UI',
           'Common Props',

@@ -4,7 +4,7 @@ import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { Radio } from './Radio';
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import visa from '../../docs/assets/visa.png';
+import visa from '../../../docs/assets/visa.png';
 
 const meta: Meta<typeof Radio> = {
   title: 'Components / RadioGroup / Radio',

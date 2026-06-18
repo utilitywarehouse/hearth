@@ -1,0 +1,313 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Flex } from '../src/components/Flex/Flex';
+import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
+
+<Meta title="Migrating from Web UI" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Migrating from Web UI
+  <ViewMarkdownLink to="docs/migrating" />
+</Flex>
+
+- [Components](#components)
+  - [Stack](#stack)
+  - [Grid](#grid)
+  - [Spacer](#spacer)
+  - [CheckboxGridGroup and RadioGridGroup](#checkboxgridgroup-and-radiogridgroup)
+  - [Typography](#typography)
+  - [Button](#button)
+  - [Link](#link)
+  - [Badge](#badge)
+  - [Inputs](#inputs)
+- [Polymorphism](#polymorphism)
+- [Styling](#styling)
+  - [Interoperability](#interoperability)
+  - [ThemeProvider](#themeprovider)
+  - [Portals](#portals)
+  - [The sx prop and styled method API](#the-sx-prop-and-styled-method-api)
+  - [Tokens](#tokens)
+  - [Responsive props](#responsive-props)
+  - [Common props](#common-props)
+  - [Contextual colours](#contextual-colours)
+
+## Components
+
+### Stack
+
+This component from Web UI has not been implemented in **Hearth React**. We
+felt it was now redundant with what is available in modern CSS, and that the
+`Flex` component meets all the needs we have for stacked and inline layouts.
+
+```tsx
+<Flex direction="column" gap="400" alignItems="start">
+  {...}
+</Flex>
+```
+
+### Grid
+
+This component is not the same as the `Grid` component in Web UI. The previous
+version of this built on the Material UI `Grid` component, which used `flexbox`
+under the hood. The **Hearth React** `Grid` component is based on CSS Grid,
+providing useful shortcuts to building grid layouts.
+
+Please see the `Grid` component docs for further details about its usage.
+
+```tsx
+<Grid
+  defaultResponsiveColumns // columns={{ mobile: '4', tablet: '8', desktop: '12' }}
+  width={{ mobile: '360px', tablet: '744px', desktop: '1096px' }}
+  padding={{ mobile: '200', tablet: '400' }}
+  gap="200"
+>
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }} padding="400" />
+</Grid>
+```
+
+### Spacer
+
+This component has not been brought over from Web UI. There was concern that it
+was being unnecessarily overused. If you really need to implement something
+similar you could do so using the `Box` component, however we recommend using
+the `Flex` and `Grid` layout primitives instead.
+
+### CheckboxGridGroup and RadioGridGroup
+
+These components are not currently available in **Hearth React**. At this time
+we don't believe the new designs require any layout beyond what you can achieve
+with the `CheckboxGroup` and `RadioGroup` components. If you need to you can
+compose the `RadioGroup` and `CheckboxGroup` components with the `Grid`
+component.
+
+Please discuss this with your designer, or reach out to us, so that we can
+ensure this is the correct usage for the UI.
+
+```tsx
+<RadioGroup label="Grid layout">
+  <Grid columns="3" gap="150">
+    <RadioTile value="1" label="One" />
+    <RadioTile value="2" label="Two" />
+    <RadioTile value="3" label="Three" />
+    <RadioTile value="4" label="Four" />
+    <RadioTile value="5" label="Five" />
+    <RadioTile value="6" label="Six" />
+  </Grid>
+</RadioGroup>
+```
+
+### Typography
+
+We still have the `Heading` component, however the props have significantly changed.
+There is no longer a `variant` prop, instead we have a `size` prop which
+determines the font size of the text. This prop is not responsive as any needed
+responsiveness is handled internally. There is also no `color` prop as this
+shouldn't be needed.
+
+The `Text` component has been replaced with the `BodyText` component. Again the
+previous `variant` prop has been replaced with a `size` prop.
+
+There is also an additional `DetailText` component, which renders the monospace font.
+
+The other typography components; `Em`, `Strong`, `Label` and `HelperText` are
+mostly the same, with an additional `ValidationText` component.
+
+Please see individual component documentation for details.
+
+### Button
+
+The `Button` component has the same variants as before; `solid`, `outline` &
+`ghost`, with an additional `emphasis` variant. The `colorSchemes` are more
+restricted than before.
+
+### Link
+
+There is no longer a `size` prop on the `Link` component, and the `TextLink`
+component has been replaced with the `InlineLink` component.
+
+### Badge
+
+The `Badge` variants have changed from `soft`, `strong` & `outline` to `solid`
+& `outline`, and the `colorScheme` values have changed to reflect the new
+brand. The `bottomRadiusZero` prop is now called `flatBase`.
+
+### Inputs
+
+There is no longer a `TextField` component, and it's replacements have a completely updated API. We currently have the following inputs:
+
+- `TextInput`
+- `TextArea`
+- `PasswordInput`
+- `SearchInput`
+- `CurrencyInput`
+
+There are plans to add further inputs, such as a `DateInput` and
+`ValidationInput`. Please refer to the specific component documentation pages
+for more in depth usage and API information.
+
+## Polymorphism
+
+We are not attempting to recreate the polymorphism of the Material UI
+`component` prop. This is tricky, and comes with unnecessary overhead.
+
+Some components will have an `as` prop, which works similarly to the
+`component` prop, but with a very specific set of elements it can be set to.
+
+We also include the `asChild` prop where it makes sense, so that you can render
+other elements and have the ability to pass appropriate props without the
+problems inherent in the previous approach.
+
+```tsx
+// render a span element instead of a div
+<Box as="span" />
+
+[...]
+
+// render a section element, with token based padding applied
+<Flex asChild padding="400">
+  <section>{...}</section>
+</Flex>
+
+[...]
+
+// render a link that is visually a button, applying element specific props to each element
+<Button asChild onClick={handleClick}>
+  <a href="https://uw.co.uk/services">View UW services</a>
+</Button>
+```
+
+You can also use `asChild` as a way of applying small styling changes to
+components that don't support specific style props.
+
+```tsx
+<Box asChild width="100%" maxWidth="680px">
+  <Alert colorScheme="danger">
+    {...}
+  </Alert>
+</Box>
+```
+
+## Styling
+
+One of the main aims of the new approach taken with **Hearth React** was to not
+prescribe the CSS-in-JS styling solution that was used with Material UI. We
+want the components to _"get out of the way"_, and for teams to be able to
+decide their own styling solution.
+
+Components do still have styling props available on them, mostly based on the
+new, more extensive, design tokens. However these are implemented using CSS and
+do not require any additional dependencies. The `style` and `className` props
+are available by default, but beyond these, and the common style props, it is up to
+consumers to choose how to implement any custom CSS they may require.
+
+### Interoperability
+
+The CSS only approach we have taken means that there shouldn't be any
+interoperability problems with any additional styling solution you choose to
+implement. Please reach out if you do run into any issues.
+
+### ThemeProvider
+
+The new styling approach does not require any `ThemeProvider` component.
+However you will probably want to properly handle portals.
+
+### Portals
+
+Hearth React uses portals for components that render popups, such as `Dialog`.
+To make portalled components always appear on top of the entire page, add the
+following style to your application layout root.
+
+```html
+<body>
+  <div className="root">{children}</div>
+</body>
+```
+
+```css
+.root {
+  isolation: isolate;
+}
+```
+
+This style creates a separate stacking context for your application’s `.root`
+element. This way, popups will always appear above the page contents, and any
+`z-index` property in your styles won’t interfere with them.
+
+### The sx prop and styled method API
+
+The `sx` prop and `styled` method you are familiar with from Web UI, and
+Material UI, are not available in **Hearth React**. You can, however, install
+and use these from Material UI, or any other library which offers a similar
+API.
+
+```tsx
+import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
+import { styled } from '@mui/material';
+
+export const StyledBox = styled(HearthBox)({});
+
+[...]
+
+<StyledBox padding="200" sx={{ ... }} />
+```
+
+In this example, we're wrapping the `Box` component from **Hearth React** with
+the Material UI `styled` method. This means that on the new `StyledBox`
+component we can make use of the **Hearth React** style props, and also have
+access to Material UI's custom `sx` prop. We could also pass in additional
+styles with the `styled` method.
+
+### Tokens
+
+We no longer export any tokens from the component libraries, you should access
+these from the **Hearth Tokens** package instead.
+
+### Responsive props
+
+The new **Hearth React** styling props are still responsive where it makes
+sense, for instance on `padding` and `margin` props. However, it is only with
+the object syntax, the array syntax that you may have used previously is no
+longer used.
+
+```tsx
+<Box padding={{ mobile: '100', tablet: '200', desktop: '300', wide: '400' }} />
+```
+
+### Common props
+
+There are a number of style props common to multiple components, though not all
+components share all of these props. Individual component documentation will
+indicate which common props are available.
+
+The common props are intended to resolve the majority of styling needs,
+including padding, margin, border, colours, width, and height, as well as
+flexbox and grid layouts. These common props do not mirror the system props
+from Material UI that we used in Web UI.
+
+The values of these common props are based on the design tokens where possible and
+will differ from what you will be used to in Web UI. For example in Web UI the
+padding was based on multiple of 8px, whereas in **Hearth React** it is a scale
+of string values which correspond to the tokens space scale.
+
+```tsx
+// Web UI
+<Box padding={2} />
+
+// Hearth React
+<Box padding="200" />
+```
+
+You can learn more about these props on the Common Props documentation pages.
+
+### Contextual colours
+
+Previously some component colours, mainly typography, have changed depending on
+the context of the background; ie. white text on darker brand backgrounds.
+
+We are not currently taking this approach in **Hearth React**, instead
+including an `inverted` prop where necessary.
+
+This may change as we get a deeper understanding of real world usage of the new
+UI. In the meantime, please reach out to us if you are experiencing issues with
+this approach, or have a valid use case for including contextual colours.

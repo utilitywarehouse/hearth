@@ -6,8 +6,8 @@ import { Flex } from '../Flex/Flex';
 import { Grid } from '../Grid/Grid';
 import { CheckboxTile } from './CheckboxTile';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import mastercard from '../../docs/assets/mastercard.png';
-import visa from '../../docs/assets/visa.png';
+import mastercard from '../../../docs/assets/mastercard.png';
+import visa from '../../../docs/assets/visa.png';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Components / CheckboxTile',

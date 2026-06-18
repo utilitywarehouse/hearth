@@ -35,6 +35,7 @@ export const Table = forwardRef<TableElement, TableProps>((props, ref) => {
   return (
     <Card
       className={cn(componentClassName, className)}
+      data-table-container="card"
       data-testid={componentClassName}
       style={style}
       variant={variant}

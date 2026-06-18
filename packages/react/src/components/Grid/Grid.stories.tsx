@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { spaceTokens } from '../../tokens/space';
 import { Grid } from './Grid';
-import { Placeholder } from '../../docs/storybook-components/Placeholder';
+import { Placeholder } from '../../../docs/storybook-components/Placeholder';
 
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;

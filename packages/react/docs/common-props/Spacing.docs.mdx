@@ -1,0 +1,20 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Spacing" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Spacing
+  <ViewMarkdownLink to="docs/common-props/spacing" />
+</Flex>
+
+The `spacing` prop is not responsive, instead it provides a predetermined set
+of responsive steps for spacing _between_ elements. These will be overridden by
+any usage of the `Flex` or `Grid` gap props.
+
+```tsx
+<Flex spacing="lg" />
+```
+
+<ArgTypes of={Flex} include={'spacing'} sort="requiredFirst" />

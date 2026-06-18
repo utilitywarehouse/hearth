@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { spaceTokens } from '../../tokens/space';
 import { Container } from './Container';
-import { Placeholder } from '../../docs/storybook-components/Placeholder';
+import { Placeholder } from '../../../docs/storybook-components/Placeholder';
 
 const meta: Meta<typeof Container> = {
   title: 'Layout / Container',

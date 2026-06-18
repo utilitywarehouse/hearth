@@ -1,0 +1,22 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Box } from '../../src/components/Box/Box';
+import { Flex } from '../../src/components/Flex/Flex';
+import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+
+<Meta title="Common Props / Overflow" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # Overflow
+  <ViewMarkdownLink to="docs/common-props/overflow" />
+</Flex>
+
+The overflow props are responsive, and are available for the shorthand as well as both X and Y axis.
+
+```tsx
+<Box overflow="hidden" />
+<Box overflow={{ mobile: "hidden", desktop: "scroll"}} />
+<Box overflowX="auto" />
+<Box overflowY="auto" />
+```
+
+<ArgTypes of={Box} include={'overflow*'} sort="requiredFirst" />

@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 // Define paths
 const sourceFile = path.resolve(__dirname, '../CHANGELOG.md');
-const targetFile = path.resolve(__dirname, '../src/docs/Changelog.docs.mdx');
+const targetFile = path.resolve(__dirname, '../docs/Changelog.docs.mdx');
 
 // Read the changelog content
 console.log('Reading CHANGELOG.md...');
