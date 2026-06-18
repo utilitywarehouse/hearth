@@ -61,7 +61,7 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
       // Rendering CardAccordion without any CardAccordionItem children can cause runtime errors.
       // This guard ensures we fail fast in development and avoid crashing in production.
       // Make sure to pass at least one <CardAccordionItem value="..."> as a child of <CardAccordion>.
-      // eslint-disable-next-line no-console
+
       console.error(
         '[CardAccordion]: No CardAccordionItem children with a "value" prop were found. ' +
           'CardAccordion requires at least one CardAccordionItem child.'

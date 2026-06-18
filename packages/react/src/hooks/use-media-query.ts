@@ -35,22 +35,22 @@ export interface UseMediaQueryOptions {
 export function useMediaQuery(query: string, options: UseMediaQueryOptions = {}): boolean {
   const { defaultValue = false, initializeWithDefaultValue = false } = options;
 
-  query = query.replace(/^@media( ?)/m, '');
+  const normalizedQuery = query.replace(/^@media( ?)/m, '');
 
   const getDefaultSnapshot = useCallback(() => defaultValue, [defaultValue]);
   const getServerSnapshot = useMemo(() => {
     if (initializeWithDefaultValue) {
       return getDefaultSnapshot;
     }
-    return () => window.matchMedia(query).matches;
-  }, [getDefaultSnapshot, query, initializeWithDefaultValue]);
+    return () => window.matchMedia(normalizedQuery).matches;
+  }, [getDefaultSnapshot, normalizedQuery, initializeWithDefaultValue]);
 
   const [getSnapshot, subscribe] = useMemo(() => {
     if (window.matchMedia === null) {
       return [getDefaultSnapshot, () => () => {}];
     }
 
-    const mediaQueryList = window.matchMedia(query);
+    const mediaQueryList = window.matchMedia(normalizedQuery);
 
     return [
       () => mediaQueryList.matches,
@@ -61,13 +61,13 @@ export function useMediaQuery(query: string, options: UseMediaQueryOptions = {})
         };
       },
     ];
-  }, [getDefaultSnapshot, query]);
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
+  }, [getDefaultSnapshot, normalizedQuery]);
+
   const match = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    useDebugValue({ query, match });
+    useDebugValue({ query: normalizedQuery, match });
   }
 
   return match;
