@@ -280,12 +280,13 @@ return (
 
 This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop             | Type       | Default | Description                                                                                                                                      |
-| ---------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `viewportLabel`  | `string`   | —       |                                                                                                                                                  |
-| `viewportHotkey` | `string[]` | —       |                                                                                                                                                  |
-| `label`          | `string`   | —       | An author-localized label for each toast. Used to help screen reader users associate the interruption with a toast. @defaultValue 'Notification' |
-| `duration`       | `number`   | `5000`  | Time in milliseconds that each toast should remain visible for. @defaultValue 5000                                                               |
+| Prop                 | Type                          | Default | Description                                                                                                                                                                                       |
+| -------------------- | ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `viewportLabel`      | `string`                      | —       |                                                                                                                                                                                                   |
+| `viewportHotkey`     | `string[]`                    | —       |                                                                                                                                                                                                   |
+| `label`              | `string`                      | —       | An author-localized label for each toast. Used to help screen reader users associate the interruption with a toast. @defaultValue 'Notification'                                                  |
+| `duration`           | `number`                      | `5000`  | Time in milliseconds that each toast should remain visible for. @defaultValue 5000                                                                                                                |
+| `announcerContainer` | `Element \| DocumentFragment` | —       | An optional container where the toast announcements should be appended. This is useful when working with focus traps or modal dialogs that make other elements inert. @defaultValue document.body |
 
 ### Toast
 
