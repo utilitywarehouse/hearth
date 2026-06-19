@@ -28,6 +28,7 @@ export const icons = [
   { reactName: 'EyeSmallIcon', svgName: 'eye-small-icon.svg' },
   { reactName: 'EyeOffSmallIcon', svgName: 'eye-off-small-icon.svg' },
   { reactName: 'FilterSmallIcon', svgName: 'filter-small-icon.svg' },
+  { reactName: 'FlameSmallIcon', svgName: 'flame-small-icon.svg' },
   { reactName: 'FullscreenSmallIcon', svgName: 'fullscreen-small-icon.svg' },
   { reactName: 'GasSmallIcon', svgName: 'gas-small-icon.svg' },
   { reactName: 'HeartSmallIcon', svgName: 'heart-small-icon.svg' },
@@ -122,6 +123,7 @@ export const icons = [
   { reactName: 'FilterMediumIcon', svgName: 'filter-medium-icon.svg' },
   { reactName: 'FingerprintMediumIcon', svgName: 'fingerprint-medium-icon.svg' },
   { reactName: 'FitEnergyMediumIcon', svgName: 'fit-energy-medium-icon.svg' },
+  { reactName: 'FlameMediumIcon', svgName: 'flame-medium-icon.svg' },
   { reactName: 'FullscreenMediumIcon', svgName: 'fullscreen-medium-icon.svg' },
   { reactName: 'GasMediumIcon', svgName: 'gas-medium-icon.svg' },
   {

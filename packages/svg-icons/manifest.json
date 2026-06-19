@@ -141,6 +141,11 @@
       "hash": "e38ce10b86db2080ffd9e0581cb4ff14b2c57eb628aeec26f5cde55c275ef1fa"
     },
     {
+      "name": "FlameSmallIcon",
+      "path": "flame-small-icon.svg",
+      "hash": "c6bfd9019b723e80781cd8122421f94c733b712fbd33f09526b2152275574366"
+    },
+    {
       "name": "FullscreenSmallIcon",
       "path": "fullscreen-small-icon.svg",
       "hash": "ac8cac3c501134e7832badeec77bd4a2803d6d357c3bc205de75a93f8f0cb2d2"
@@ -609,6 +614,11 @@
       "name": "FitEnergyMediumIcon",
       "path": "fit-energy-medium-icon.svg",
       "hash": "0b80720bd11d13b78316a0f448a05daf8c0eea3e8a808f1cab5c73b0aa335f11"
+    },
+    {
+      "name": "FlameMediumIcon",
+      "path": "flame-medium-icon.svg",
+      "hash": "d351ca01002c9225402b3f2b7298626ee56de3db8d78a52b9a8ef0ad581685c0"
     },
     {
       "name": "FullscreenMediumIcon",

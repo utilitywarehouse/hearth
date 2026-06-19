@@ -69,6 +69,8 @@ import { FilterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Filte
 import { FilterSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FilterSmallIcon';
 import { FingerprintMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FingerprintMediumIcon';
 import { FitEnergyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FitEnergyMediumIcon';
+import { FlameMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FlameMediumIcon';
+import { FlameSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FlameSmallIcon';
 import { FullscreenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenMediumIcon';
 import { FullscreenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenSmallIcon';
 import { GasMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasMediumIcon';
@@ -261,6 +263,8 @@ export const reactIcons = [
   FilterSmallIcon,
   FingerprintMediumIcon,
   FitEnergyMediumIcon,
+  FlameMediumIcon,
+  FlameSmallIcon,
   FullscreenMediumIcon,
   FullscreenSmallIcon,
   GasMediumIcon,
