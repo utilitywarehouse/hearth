@@ -18,8 +18,9 @@ This applies to all of the available border colour values:
 - `borderBottomColor`
 - `borderLeftColor`
 
-You can also pass any of the available Hearth prefixed CSS custom properties from the Hearth Tokens library.
-You cannot pass raw strings to the border colour props.
+You can also pass any of the available Hearth prefixed CSS custom properties
+from the Hearth Tokens library. You cannot pass raw strings to the border
+colour props.
 
 ```tsx
 import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@utilitywarehouse/hearth-tokens/browser';
@@ -67,11 +68,11 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 | `borderRightStyle`            | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderBottomStyle`           | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderLeftStyle`             | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
-| `borderWidth`                 | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderTopWidth`              | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderRightWidth`            | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderBottomWidth`           | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderLeftWidth`             | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
+| `borderWidth`                 | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderTopWidth`              | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderRightWidth`            | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderBottomWidth`           | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderLeftWidth`             | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
 | `color`                       | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})``                                                                                                               | —       |                                          |
 | `flex`                        | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
 | `flexBasis`                   | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
@@ -129,10 +130,19 @@ radius props, can be used to control the appearance of component borders.
 The border-style is implicitly set when applying a border-color, so you usually
 won't need it.
 
+You can also pass any of the available Hearth prefixed CSS custom properties
+from the Hearth Tokens library. You cannot pass raw strings to the border
+colour props.
+
 ```tsx
 <Box borderColor="strong"  borderWidth="1" />
 <Box borderWidth="2" borderColor="subtle" borderStyle={{ mobile: 'none', desktop: 'solid' }} />
 <Box borderTopColor="subtle" borderTopWidth={{ mobile: '1', desktop: '2'}} borderRadius="full" />
+
+// using Hearth browser tokens
+import { components } from '@utilitywarehouse/hearth-tokens/browser';
+
+<Box borderWidth={components.alert.borderWidth} />
 ```
 
 | Prop                          | Type                                                                                                                                                                                                       | Default | Description                              |
@@ -160,11 +170,11 @@ won't need it.
 | `borderRightStyle`            | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderBottomStyle`           | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderLeftStyle`             | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
-| `borderWidth`                 | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderTopWidth`              | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderRightWidth`            | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderBottomWidth`           | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderLeftWidth`             | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
+| `borderWidth`                 | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderTopWidth`              | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderRightWidth`            | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderBottomWidth`           | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderLeftWidth`             | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
 | `color`                       | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})``                                                                                                               | —       |                                          |
 | `flex`                        | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
 | `flexBasis`                   | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
@@ -253,11 +263,11 @@ You can also override the `borderRadius` for individual corners and sides.
 | `borderRightStyle`            | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderBottomStyle`           | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
 | `borderLeftStyle`             | `Responsive<"none" \| "solid">`                                                                                                                                                                            | —       |                                          |
-| `borderWidth`                 | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderTopWidth`              | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderRightWidth`            | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderBottomWidth`           | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
-| `borderLeftWidth`             | `Responsive<"0" \| "1" \| "2">`                                                                                                                                                                            | —       |                                          |
+| `borderWidth`                 | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderTopWidth`              | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderRightWidth`            | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderBottomWidth`           | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
+| `borderLeftWidth`             | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">`                                                                                                                                                    | —       |                                          |
 | `color`                       | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})``                                                                                                               | —       |                                          |
 | `flex`                        | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
 | `flexBasis`                   | `Responsive<string>`                                                                                                                                                                                       | —       |                                          |
