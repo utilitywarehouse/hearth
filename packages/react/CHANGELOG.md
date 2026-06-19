@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.29.8
+
+### Patch Changes
+
+- [#1331](https://github.com/utilitywarehouse/hearth/pull/1331) [`2cd55ea`](https://github.com/utilitywarehouse/hearth/commit/2cd55eaa143079d46eed2130629c7f5b6576e4f9) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Accept token values in the `borderWidth` prop
+
 ## 0.29.7
 
 ### Patch Changes
