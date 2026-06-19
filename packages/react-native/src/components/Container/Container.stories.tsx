@@ -277,7 +277,7 @@ export const LayoutTokens: Story = {
     return (
       <Box backgroundColor={color.red['100']}>
         <Container backgroundColor="secondary">
-          <Box bg={color.blue['100']} p="200" borderRadius="md">
+          <Box bg={color.blue['200']} p="200" borderRadius="md">
             <BodyText>
               This Container uses the responsive layout tokens from the design system. It will
               automatically adjust margin and padding based on the current breakpoint.
