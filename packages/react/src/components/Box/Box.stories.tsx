@@ -85,7 +85,7 @@ export const Playground: Story = {
     padding: '400',
     children: 'Box',
     borderRadius: 'xs',
-    borderWidth: '1',
+    borderWidth: 'var(--h-alert-border-width)',
     borderColor: 'subtle',
   },
   render: args => <Box {...args} />,
