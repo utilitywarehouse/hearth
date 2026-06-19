@@ -5,8 +5,6 @@ export declare const font: {
     readonly heading: 'var(--h-font-family-heading)';
   };
   readonly size: {
-    readonly '50': 'var(--h-font-size-50)';
-    readonly '75': 'var(--h-font-size-75)';
     readonly '90': 'var(--h-font-size-90)';
     readonly '100': 'var(--h-font-size-100)';
     readonly '150': 'var(--h-font-size-150)';
@@ -16,24 +14,15 @@ export declare const font: {
     readonly '500': 'var(--h-font-size-500)';
     readonly '550': 'var(--h-font-size-550)';
     readonly '575': 'var(--h-font-size-575)';
-    readonly '600': 'var(--h-font-size-600)';
     readonly '650': 'var(--h-font-size-650)';
-    readonly '700': 'var(--h-font-size-700)';
-    readonly '800': 'var(--h-font-size-800)';
-    readonly '900': 'var(--h-font-size-900)';
-    readonly '1000': 'var(--h-font-size-1000)';
   };
   readonly weight: {
     readonly bold: 'var(--h-font-weight-bold)';
-    readonly heavy: 'var(--h-font-weight-heavy)';
     readonly medium: 'var(--h-font-weight-medium)';
     readonly regular: 'var(--h-font-weight-regular)';
     readonly semibold: 'var(--h-font-weight-semibold)';
   };
   readonly letterSpacing: {
-    readonly '0': 'var(--h-letter-spacing-0)';
-    readonly '50': 'var(--h-letter-spacing-50)';
-    readonly '75': 'var(--h-letter-spacing-75)';
     readonly '90': 'var(--h-letter-spacing-90)';
     readonly '100': 'var(--h-letter-spacing-100)';
     readonly '150': 'var(--h-letter-spacing-150)';
@@ -41,17 +30,8 @@ export declare const font: {
     readonly '300': 'var(--h-letter-spacing-300)';
     readonly '400': 'var(--h-letter-spacing-400)';
     readonly '500': 'var(--h-letter-spacing-500)';
-    readonly '550': 'var(--h-letter-spacing-550)';
-    readonly '600': 'var(--h-letter-spacing-600)';
-    readonly '700': 'var(--h-letter-spacing-700)';
-    readonly '800': 'var(--h-letter-spacing-800)';
-    readonly '900': 'var(--h-letter-spacing-900)';
-    readonly '1000': 'var(--h-letter-spacing-1000)';
   };
   readonly lineHeight: {
-    readonly '50': 'var(--h-line-height-50)';
-    readonly '75': 'var(--h-line-height-75)';
-    readonly '100': 'var(--h-line-height-100)';
     readonly '200': 'var(--h-line-height-200)';
     readonly '300': 'var(--h-line-height-300)';
     readonly '400': 'var(--h-line-height-400)';
@@ -59,12 +39,8 @@ export declare const font: {
     readonly '600': 'var(--h-line-height-600)';
     readonly '700': 'var(--h-line-height-700)';
     readonly '800': 'var(--h-line-height-800)';
-    readonly '900': 'var(--h-line-height-900)';
     readonly '950': 'var(--h-line-height-950)';
     readonly '975': 'var(--h-line-height-975)';
-    readonly '1000': 'var(--h-line-height-1000)';
     readonly '1050': 'var(--h-line-height-1050)';
-    readonly '1100': 'var(--h-line-height-1100)';
-    readonly '1200': 'var(--h-line-height-1200)';
   };
 };

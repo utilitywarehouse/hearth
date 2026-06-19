@@ -22,6 +22,11 @@ export declare const mobile: {
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
     };
+    readonly xl: {
+      readonly fontSize: 20;
+      readonly lineHeight: 28;
+      readonly paragraphSpacing: 20;
+    };
   };
   readonly detailText: {
     readonly '2xl': {
@@ -113,6 +118,11 @@ export declare const tablet: {
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
     };
+    readonly xl: {
+      readonly fontSize: 20;
+      readonly lineHeight: 28;
+      readonly paragraphSpacing: 20;
+    };
   };
   readonly detailText: {
     readonly '2xl': {
@@ -203,6 +213,11 @@ export declare const desktop: {
       readonly fontSize: 14;
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
+    };
+    readonly xl: {
+      readonly fontSize: 20;
+      readonly lineHeight: 28;
+      readonly paragraphSpacing: 20;
     };
   };
   readonly detailText: {
@@ -296,6 +311,11 @@ declare const typography: {
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
       };
+      readonly xl: {
+        readonly fontSize: 20;
+        readonly lineHeight: 28;
+        readonly paragraphSpacing: 20;
+      };
     };
     readonly detailText: {
       readonly '2xl': {
@@ -387,6 +407,11 @@ declare const typography: {
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
       };
+      readonly xl: {
+        readonly fontSize: 20;
+        readonly lineHeight: 28;
+        readonly paragraphSpacing: 20;
+      };
     };
     readonly detailText: {
       readonly '2xl': {
@@ -477,6 +502,11 @@ declare const typography: {
         readonly fontSize: 14;
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
+      };
+      readonly xl: {
+        readonly fontSize: 20;
+        readonly lineHeight: 28;
+        readonly paragraphSpacing: 20;
       };
     };
     readonly detailText: {

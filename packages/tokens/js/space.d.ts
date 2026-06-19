@@ -19,6 +19,5 @@ declare const _default: {
   readonly '700': 56;
   readonly '800': 64;
   readonly '900': 72;
-  readonly '1000': 80;
 };
 export default _default;
