@@ -28,6 +28,7 @@ import ErrorCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/error-c
 import EyeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-small-icon.svg';
 import EyeOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-off-small-icon.svg';
 import FilterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/filter-small-icon.svg';
+import FlameSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/flame-small-icon.svg';
 import FullscreenSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/fullscreen-small-icon.svg';
 import GasSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-small-icon.svg';
 import HeartSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-small-icon.svg';
@@ -122,6 +123,7 @@ import FacebookMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/facebook-
 import FilterMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/filter-medium-icon.svg';
 import FingerprintMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fingerprint-medium-icon.svg';
 import FitEnergyMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fit-energy-medium-icon.svg';
+import FlameMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/flame-medium-icon.svg';
 import FullscreenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fullscreen-medium-icon.svg';
 import GasMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-medium-icon.svg';
 import GreenDealElectricityMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/green-deal-electricity-medium-icon.svg';
@@ -220,6 +222,7 @@ export const svgIcons = [
   EyeSmallIcon,
   EyeOffSmallIcon,
   FilterSmallIcon,
+  FlameSmallIcon,
   FullscreenSmallIcon,
   GasSmallIcon,
   HeartSmallIcon,
@@ -314,6 +317,7 @@ export const svgIcons = [
   FilterMediumIcon,
   FingerprintMediumIcon,
   FitEnergyMediumIcon,
+  FlameMediumIcon,
   FullscreenMediumIcon,
   GasMediumIcon,
   GreenDealElectricityMediumIcon,

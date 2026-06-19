@@ -112,6 +112,10 @@
     "name": "FilterSmallIcon"
   },
   {
+    "id": "2674:33",
+    "name": "FlameSmallIcon"
+  },
+  {
     "id": "4:38",
     "name": "FullscreenSmallIcon"
   },
@@ -486,6 +490,10 @@
   {
     "id": "15:259",
     "name": "FitEnergyMediumIcon"
+  },
+  {
+    "id": "2675:19",
+    "name": "FlameMediumIcon"
   },
   {
     "id": "6:677",

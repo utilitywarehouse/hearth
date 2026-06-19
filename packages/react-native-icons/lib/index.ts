@@ -68,6 +68,8 @@ export { default as FilterMediumIcon } from './FilterMediumIcon';
 export { default as FilterSmallIcon } from './FilterSmallIcon';
 export { default as FingerprintMediumIcon } from './FingerprintMediumIcon';
 export { default as FitEnergyMediumIcon } from './FitEnergyMediumIcon';
+export { default as FlameMediumIcon } from './FlameMediumIcon';
+export { default as FlameSmallIcon } from './FlameSmallIcon';
 export { default as FullscreenMediumIcon } from './FullscreenMediumIcon';
 export { default as FullscreenSmallIcon } from './FullscreenSmallIcon';
 export { default as GasMediumIcon } from './GasMediumIcon';
