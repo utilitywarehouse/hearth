@@ -1,6 +1,6 @@
 # Hearth React
 
-Current version: v0.29.7
+Current version: v0.29.8
 
 - [Install Hearth](#install-hearth)
 - [Import CSS](#import-css)
