@@ -191,24 +191,17 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop                              | Type                                                                                                                                                                                                       | Default | Description |
-| --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------- |
-| `heading`                         | `string`                                                                                                                                                                                                   | —       |             |
-| `helperText`                      | `string`                                                                                                                                                                                                   | —       |             |
-| `leadingIcon`                     | `ReactNode`                                                                                                                                                                                                | —       |             |
-| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`                                                                                                                 | —       |             |
-| `badge`                           | `ReactNode`                                                                                                                                                                                                | —       |             |
-| `numericValue`                    | `string`                                                                                                                                                                                                   | —       |             |
-| `open`                            | `boolean`                                                                                                                                                                                                  | —       |             |
-| `defaultOpen`                     | `boolean`                                                                                                                                                                                                  | —       |             |
-| `onOpenChange`                    | `((open: boolean) => void)`                                                                                                                                                                                | —       |             |
-| `margin`                          | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginTop`                       | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginRight`                     | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginBottom`                    | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginLeft`                      | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginX`                         | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
-| `marginY`                         | `Responsive<"0" \| "auto" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |             |
+| Prop                              | Type                                                                                       | Default | Description |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ------- | ----------- |
+| `heading`                         | `string`                                                                                   | —       |             |
+| `helperText`                      | `string`                                                                                   | —       |             |
+| `leadingIcon`                     | `ReactNode`                                                                                | —       |             |
+| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —       |             |
+| `badge`                           | `ReactNode`                                                                                | —       |             |
+| `numericValue`                    | `string`                                                                                   | —       |             |
+| `open`                            | `boolean`                                                                                  | —       |             |
+| `defaultOpen`                     | `boolean`                                                                                  | —       |             |
+| `onOpenChange`                    | `((open: boolean) => void)`                                                                | —       |             |
 
 ### ExpandableCardGroup API
 
@@ -216,16 +209,9 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop              | Type                                                                                                                                                                                                       | Default | Description                                                         |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------- |
-| `heading`         | `string`                                                                                                                                                                                                   | —       | Actual string to display as section header                          |
-| `helperText`      | `string`                                                                                                                                                                                                   | —       | Optional helper text to provide additional context or instructions. |
-| `trailingContent` | `ReactNode`                                                                                                                                                                                                | —       | Optional trailing content element                                   |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"`                                                                                                                                                                             | —       |                                                                     |
-| `margin`          | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginTop`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginRight`     | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginBottom`    | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginLeft`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginX`         | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
-| `marginY`         | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       |                                                                     |
+| Prop              | Type                           | Default | Description                                                         |
+| ----------------- | ------------------------------ | ------- | ------------------------------------------------------------------- |
+| `heading`         | `string`                       | —       | Actual string to display as section header                          |
+| `helperText`      | `string`                       | —       | Optional helper text to provide additional context or instructions. |
+| `trailingContent` | `ReactNode`                    | —       | Optional trailing content element                                   |
+| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` | —       |                                                                     |

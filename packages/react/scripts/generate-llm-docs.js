@@ -291,7 +291,19 @@ function formatPropType(prop) {
   return (prop.type.name ?? '').replace(/\s*\|\s*undefined$/, '');
 }
 
-function generatePropTable(componentFile) {
+/**
+ * Converts a Storybook include/exclude pattern string to a RegExp.
+ * Patterns use glob-style `*` (match any chars) and `|` as OR separator.
+ * e.g. 'margin*' → /^(margin.*)$/  'border*Width|border*Style' → /^(border.*Width|border.*Style)$/
+ */
+function patternToRegExp(pattern) {
+  const alts = pattern
+    .split('|')
+    .map(p => p.replace(/[.+^${}()[\]\\]/g, '\\$&').replace(/\*/g, '.*'));
+  return new RegExp(`^(${alts.join('|')})$`);
+}
+
+function generatePropTable(componentFile, { include, exclude } = {}) {
   let docs;
   try {
     docs = getParser().parse(componentFile);
@@ -301,7 +313,18 @@ function generatePropTable(componentFile) {
 
   if (!docs?.length) return null;
 
-  const props = Object.values(docs[0].props);
+  let props = Object.values(docs[0].props);
+  if (!props.length) return null;
+
+  if (include) {
+    const re = patternToRegExp(include);
+    props = props.filter(p => re.test(p.name));
+  }
+  if (exclude) {
+    const re = patternToRegExp(exclude);
+    props = props.filter(p => !re.test(p.name));
+  }
+
   if (!props.length) return null;
 
   const rows = props.map(prop => {
@@ -728,12 +751,19 @@ function transformContent(content, importMap, exprMap) {
     // Replace ArgTypes with generated prop table
     const argMatch = line.match(ARG_TYPES_RE);
     if (argMatch) {
-      const ofMatch = argMatch[1].match(/\bof=\{([^}]+)\}/);
+      const attrsStr = argMatch[1];
+      const ofMatch = attrsStr.match(/\bof=\{([^}]+)\}/);
       if (ofMatch) {
         const componentName = ofMatch[1].trim();
         const filePath = importMap.get(componentName);
         if (filePath) {
-          const table = generatePropTable(filePath);
+          const includeMatch = attrsStr.match(/\binclude=\{'([^']+)'\}/);
+          const excludeMatch = attrsStr.match(/\bexclude=\{'([^']+)'\}/);
+          const filters = {
+            include: includeMatch?.[1],
+            exclude: excludeMatch?.[1],
+          };
+          const table = generatePropTable(filePath, filters);
           if (table) {
             output.push(table);
             continue;
