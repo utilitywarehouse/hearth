@@ -62,7 +62,7 @@ jobs:
         run: pnpm generate:storybook:icons
 
       - name: Format files
-      - run: pnpm format
+        run: pnpm format
 
       - name: Set output variables
         id: vars
