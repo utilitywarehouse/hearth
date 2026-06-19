@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.8.2
+
+### Patch Changes
+
+- [#1327](https://github.com/utilitywarehouse/hearth/pull/1327) [`568d6a1`](https://github.com/utilitywarehouse/hearth/commit/568d6a16f9789d26052281cca75bc98ac00355f8) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - FlameSmallIcon
+  - FlameMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.8.1
 
 ### Patch Changes
