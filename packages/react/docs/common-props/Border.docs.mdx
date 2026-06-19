@@ -28,8 +28,9 @@ This applies to all of the available border colour values:
 - `borderBottomColor`
 - `borderLeftColor`
 
-You can also pass any of the available Hearth prefixed CSS custom properties from the Hearth Tokens library.
-You cannot pass raw strings to the border colour props.
+You can also pass any of the available Hearth prefixed CSS custom properties
+from the Hearth Tokens library. You cannot pass raw strings to the border
+colour props.
 
 ```tsx
 import { Box } from '@utilitywarehouse/hearth-react'
@@ -63,10 +64,19 @@ radius props, can be used to control the appearance of component borders.
 The border-style is implicitly set when applying a border-color, so you usually
 won't need it.
 
+You can also pass any of the available Hearth prefixed CSS custom properties
+from the Hearth Tokens library. You cannot pass raw strings to the border
+colour props.
+
 ```tsx
 <Box borderColor="strong"  borderWidth="1" />
 <Box borderWidth="2" borderColor="subtle" borderStyle={{ mobile: 'none', desktop: 'solid' }} />
 <Box borderTopColor="subtle" borderTopWidth={{ mobile: '1', desktop: '2'}} borderRadius="full" />
+
+// using Hearth browser tokens
+import { components } from '@utilitywarehouse/hearth-tokens/browser';
+
+<Box borderWidth={components.alert.borderWidth} />
 ```
 
 <ArgTypes of={Box} include={'border*Width|border*Style'} sort="requiredFirst" />
