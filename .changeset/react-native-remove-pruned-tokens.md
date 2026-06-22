@@ -15,7 +15,7 @@ to align with the updated design token set.
 - `font.weight.heavy`
 - `letterSpacing`: `0`, `50`, `75`, `550`, `600`, `700`, `800`, `900`, `1000`
 - `lineHeight`: `50`, `75`, `100`, `900`, `1000`, `1100`, `1200`
-- `space.1000`
+- `space['1000']`
 
 **Developer changes**:
 
