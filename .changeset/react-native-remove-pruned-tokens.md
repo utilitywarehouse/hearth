@@ -30,8 +30,8 @@ For example:
 ```
 
 ```diff
-- fontSize: tokens.font.size[50],
-+ fontSize: tokens.font.size[90],
+- fontSize: tokens.font.size['50'],
++ fontSize: tokens.font.size['90'],
 ```
 
 ```diff
