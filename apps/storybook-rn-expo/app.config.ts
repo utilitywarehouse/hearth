@@ -40,7 +40,6 @@ export default ({ config }) => ({
           name: 'Comic Hams',
           folder: './assets/fonts',
           variants: [
-            { fontFile: 'comichams_heavyflare', fontWeight: 900 },
             { fontFile: 'comichams_boldflare', fontWeight: 700 },
             { fontFile: 'comichams_semiboldflare', fontWeight: 600 },
           ],

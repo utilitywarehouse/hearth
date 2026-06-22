@@ -26,8 +26,6 @@ import dmMonoMediumItalic from '../../../../packages/fonts/files/woff2/DMMono-Me
 import comicHamsSemiBold from '../../../../packages/fonts/files/woff2/ComicHams-SemiBoldFlare.woff2';
 // @ts-expect-error - No type definitions for font files
 import comicHamsBold from '../../../../packages/fonts/files/woff2/ComicHams-BoldFlare.woff2';
-// @ts-expect-error - No type definitions for font files
-import comicHamsHeavy from '../../../../packages/fonts/files/woff2/ComicHams-HeavyFlare.woff2';
 
 import '@utilitywarehouse/hearth-css-reset';
 import {
@@ -115,12 +113,6 @@ function App() {
         font-style: normal;
         font-weight: 700;
         src: url('${comicHamsBold}') format('woff2');
-      }
-      @font-face {
-        font-family: 'Comic Hams';
-        font-style: normal;
-        font-weight: 900;
-        src: url('${comicHamsHeavy}') format('woff2');
       }
     `;
     document.head.appendChild(style);

@@ -34,10 +34,6 @@
             "folder": "./assets/fonts",
             "variants": [
               {
-                "fontFile": "comichams_heavyflare",
-                "fontWeight": 900
-              },
-              {
                 "fontFile": "comichams_boldflare",
                 "fontWeight": 700
               },

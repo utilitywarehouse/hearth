@@ -10,7 +10,6 @@ const App = () => {
   const [loaded] = useFonts({
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
     'ComicHams-BoldFlare': require('./assets/fonts/comichams_boldflare.ttf'),
-    'ComicHams-HeavyFlare': require('./assets/fonts/comichams_heavyflare.ttf'),
     'ComicHams-SemiBoldFlare': require('./assets/fonts/comichams_semiboldflare.ttf'),
     'DM Mono': require('./assets/fonts/dmmono_medium.ttf'),
     'DMMono-MediumItalic': require('./assets/fonts/dmmono_mediumitalic.ttf'),
