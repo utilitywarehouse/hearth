@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-fonts",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Fonts for the UW Hearth Design System",
   "main": "index.css",
   "type": "commonjs",
