@@ -4,7 +4,6 @@
 
 export default {
   full: 9999,
-  lg: 12,
   md: 8,
   none: 0,
   sm: 6,
