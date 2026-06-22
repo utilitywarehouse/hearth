@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.29.9
+
+### Patch Changes
+
+- [#1334](https://github.com/utilitywarehouse/hearth/pull/1334) [`7808f9d`](https://github.com/utilitywarehouse/hearth/commit/7808f9df12b33d28b399c885ba71531969ecbc08) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Regenerate fixed llms docs
+
 ## 0.29.8
 
 ### Patch Changes
