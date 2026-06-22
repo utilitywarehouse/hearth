@@ -95,10 +95,6 @@
   .h-r-p-900 {
     padding: var(--h-space-900);
   }
-
-  .h-r-p-1000 {
-    padding: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -168,10 +164,6 @@
 
   .h-r-px-900 {
     padding-inline: var(--h-space-900);
-  }
-
-  .h-r-px-1000 {
-    padding-inline: var(--h-space-1000);
   }
 }
 
@@ -243,10 +235,6 @@
   .h-r-py-900 {
     padding-block: var(--h-space-900);
   }
-
-  .h-r-py-1000 {
-    padding-block: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -316,10 +304,6 @@
 
   .h-r-pt-900 {
     padding-top: var(--h-space-900);
-  }
-
-  .h-r-pt-1000 {
-    padding-top: var(--h-space-1000);
   }
 }
 
@@ -391,10 +375,6 @@
   .h-r-pr-900 {
     padding-right: var(--h-space-900);
   }
-
-  .h-r-pr-1000 {
-    padding-right: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -465,10 +445,6 @@
   .h-r-pb-900 {
     padding-bottom: var(--h-space-900);
   }
-
-  .h-r-pb-1000 {
-    padding-bottom: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -538,9 +514,5 @@
 
   .h-r-pl-900 {
     padding-left: var(--h-space-900);
-  }
-
-  .h-r-pl-1000 {
-    padding-left: var(--h-space-1000);
   }
 }

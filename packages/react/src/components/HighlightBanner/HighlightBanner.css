@@ -1,12 +1,7 @@
 .h-HighlightBanner {
   width: fit-content;
 
-  &
-    :where(
-      .h-HighlightBannerHeading,
-      .h-HighlightBannerFooter,
-      .h-HighlightBannerContent
-    ) {
+  & :where(.h-HighlightBannerHeading, .h-HighlightBannerFooter, .h-HighlightBannerContent) {
     display: flex;
     flex-direction: column;
     align-items: center;

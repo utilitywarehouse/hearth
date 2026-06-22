@@ -3,9 +3,9 @@
  */
 
 :root {
-  --h-font-family-body: DM Sans;
-  --h-font-family-detail: DM Mono;
-  --h-font-family-heading: Comic Hams;
+  --h-font-family-body: dm sans;
+  --h-font-family-detail: dm mono;
+  --h-font-family-heading: comic hams;
   --h-font-size-90: 0.875rem;
   --h-font-size-100: 1rem;
   --h-font-size-150: 1.125rem;
@@ -23,9 +23,9 @@
   --h-letter-spacing-90: -0.42px;
   --h-letter-spacing-100: -0.48px;
   --h-letter-spacing-150: -0.54px;
-  --h-letter-spacing-200: -0.60px;
+  --h-letter-spacing-200: -0.6px;
   --h-letter-spacing-300: -0.72px;
-  --h-letter-spacing-400: -0.90px;
+  --h-letter-spacing-400: -0.9px;
   --h-letter-spacing-500: -1.08px;
   --h-line-height-200: 1.125rem;
   --h-line-height-300: 1.25rem;

@@ -25,7 +25,7 @@
     "clean": "rm -rf node_modules .turbo",
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",
-    "format": "prettier --write \"./**/*.{ts,js}\"",
+    "format": "prettier --write \"./**/*.{ts,js,css}\" \"!./index.css\"",
     "lint:fix": "pnpm run lint:css && pnpm run format"
   },
   "keywords": [],

@@ -14,8 +14,4 @@
   .h-r-fw-bold {
     font-weight: var(--h-font-weight-bold);
   }
-
-  .h-r-fw-heavy {
-    font-weight: var(--h-font-weight-heavy);
-  }
 }
