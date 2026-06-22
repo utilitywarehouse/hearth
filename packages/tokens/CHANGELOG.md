@@ -1,5 +1,56 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.4.0
+
+### Minor Changes
+
+- [#1330](https://github.com/utilitywarehouse/hearth/pull/1330) [`8a6b5f8`](https://github.com/utilitywarehouse/hearth/commit/8a6b5f869ef8f9f815f7070ae40d0151f5e2fba3) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING_CHANGE]: Prune unused tokens from Hearth Tokens package.
+
+  The following tokens have been removed:
+
+  **Colors**
+
+  - `blue`: 0, 50, 100, 300, 500, 800, 950, 1000
+  - `broadbandGreen`: 0, 50, 100, 400, 500, 600, 700, 950, 1000
+  - `cashbackLilac`: 0, 50, 100, 200, 400, 600, 800, 950, 1000
+  - `energyBlue`: 0, 50, 100, 400, 500, 600, 800, 950, 1000
+  - `green`: 0, 300
+  - `insuranceOrange`: 0, 50, 100, 200, 500, 600, 700, 950, 1000
+  - `mobileRose`: 0, 50, 100, 300, 500, 600, 700, 950, 1000
+  - `orange`: 0, 50, 100, 300, 800, 950, 1000
+  - `piggyPink`: 0, 50, 100, 400, 500, 600, 700, 950, 1000
+  - `purple`: 0, 50, 500, 600, 950
+  - `red`: 0, 200
+  - `warmWhite`: 0, 400, 500, 600, 700, 975
+  - `yellow`: 0, 50, 100, 700, 800, 950, 1000
+
+  **Border**
+
+  - `borderRadius.lg`
+
+  **Font**
+
+  - `fontSize`: 50, 75, 600, 700, 800, 900, 1000
+  - `fontWeight.heavy`
+
+  **Letter spacing**
+
+  - `letterSpacing`: 0, 50, 75, 550, 600, 700, 800, 900, 1000
+
+  **Line height**
+
+  - `lineHeight`: 50, 75, 100, 900, 1000, 1100, 1200
+
+  **Space**
+
+  - `space[1000]`
+
+### Patch Changes
+
+- [#1330](https://github.com/utilitywarehouse/hearth/pull/1330) [`8a6b5f8`](https://github.com/utilitywarehouse/hearth/commit/8a6b5f869ef8f9f815f7070ae40d0151f5e2fba3) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Generate and build Hearth tokens
+
+- [#1330](https://github.com/utilitywarehouse/hearth/pull/1330) [`8a6b5f8`](https://github.com/utilitywarehouse/hearth/commit/8a6b5f869ef8f9f815f7070ae40d0151f5e2fba3) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `xl` variant to `BodyText` tokens
+
 ## 0.3.1
 
 ### Patch Changes
