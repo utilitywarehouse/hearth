@@ -9,6 +9,60 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.34.0
+
+### Minor Changes
+
+- [#1338](https://github.com/utilitywarehouse/hearth/pull/1338) [`fe9767f`](https://github.com/utilitywarehouse/hearth/commit/fe9767f916975ba2e0ba8aea585858d8ea00a147) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING_CHANGE]: Remove pruned design tokens from React Native token exports
+
+  Several unused design tokens have been removed from the React Native token exports
+  to align with the updated design token set.
+
+  **Tokens removed**:
+
+  - `borderRadius.lg`
+  - `color`: multiple shades pruned across all colour palettes (`blue`, `broadbandGreen`, `cashbackLilac`, `energyBlue`, `green`, `insuranceOrange`, `mobileRose`, `orange`, `piggyPink`, `purple`, `red`, `warmWhite`, `yellow`)
+  - `font.size`: `50`, `75`, `600`, `700`, `800`, `900`, `1000`
+  - `font.weight.heavy`
+  - `letterSpacing`: `0`, `50`, `75`, `550`, `600`, `700`, `800`, `900`, `1000`
+  - `lineHeight`: `50`, `75`, `100`, `900`, `1000`, `1100`, `1200`
+  - `space['1000']`
+
+  **Developer changes**:
+
+  If you are referencing any of the removed tokens directly, replace them with the
+  nearest available equivalent or remove the usage.
+
+  For example:
+
+  ```diff
+  - borderRadius: tokens.borderRadius.lg,
+  + borderRadius: tokens.borderRadius.md,
+  ```
+
+  ```diff
+  - fontSize: tokens.font.size['50'],
+  + fontSize: tokens.font.size['90'],
+  ```
+
+  ```diff
+  - fontWeight: tokens.font.weight.heavy,
+  + fontWeight: tokens.font.weight.bold,
+  ```
+
+### Patch Changes
+
+- [#1338](https://github.com/utilitywarehouse/hearth/pull/1338) [`fe9767f`](https://github.com/utilitywarehouse/hearth/commit/fe9767f916975ba2e0ba8aea585858d8ea00a147) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `xl` variant to `bodyText` typography tokens
+
+  The `bodyText` typography scale now includes an `xl` variant across mobile,
+  tablet, and desktop breakpoints.
+
+  | Property           | Value |
+  | ------------------ | ----- |
+  | `fontSize`         | `20`  |
+  | `lineHeight`       | `28`  |
+  | `paragraphSpacing` | `20`  |
+
 ## 0.33.1
 
 ### Patch Changes

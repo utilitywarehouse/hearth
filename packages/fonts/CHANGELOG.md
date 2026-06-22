@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-fonts
 
+## 0.1.0
+
+### Minor Changes
+
+- [#1339](https://github.com/utilitywarehouse/hearth/pull/1339) [`79fa79d`](https://github.com/utilitywarehouse/hearth/commit/79fa79d029dbd493ee5149f5013b5b152c6e55de) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING_CHANGE]: Remove Comic Hams Heavy (900) font weight
+
+  The Comic Hams Heavy font weight (900) has been removed from the Hearth design
+  system as it is no longer used in any components and is not part of the current
+  design language.
+
+  **Packages affected**:
+
+  - `@utilitywarehouse/hearth-fonts` — the `ComicHams-HeavyFlare` font files and
+    the `font-weight: 900` `@font-face` declaration have been removed
+
 ## 0.0.4
 
 ### Patch Changes
