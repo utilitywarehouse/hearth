@@ -1,4 +1,4 @@
-[![Lint](https://github.com/utilitywarehouse/hearth/actions/workflows/lint.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/lint.yml)
+[![Checks](https://github.com/utilitywarehouse/hearth/actions/workflows/checks.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/checks.yml)
 [![Build](https://github.com/utilitywarehouse/hearth/actions/workflows/build.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/build.yml)
 [![Build Storybook](https://github.com/utilitywarehouse/hearth/actions/workflows/build-storybook.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/build-storybook.yml)
 [![Figma Code Connect publish](https://github.com/utilitywarehouse/hearth/actions/workflows/figma-code-connect.yml/badge.svg)](https://github.com/utilitywarehouse/hearth/actions/workflows/figma-code-connect.yml)
