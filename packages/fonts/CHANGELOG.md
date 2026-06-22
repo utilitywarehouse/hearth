@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-fonts
 
+## 0.1.1
+
+### Patch Changes
+
+- [#1341](https://github.com/utilitywarehouse/hearth/pull/1341) [`2165fd8`](https://github.com/utilitywarehouse/hearth/commit/2165fd820cc879fe169df878944b41e337a06c89) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Make all packages public
+
 ## 0.1.0
 
 ### Minor Changes
