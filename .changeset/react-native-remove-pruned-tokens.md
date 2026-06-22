@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react-native': minor
 ---
 
-💔 [BREAKING CHANGE]: Remove pruned design tokens from React Native token exports
+💔 [BREAKING_CHANGE]: Remove pruned design tokens from React Native token exports
 
 Several unused design tokens have been removed from the React Native token exports
 to align with the updated design token set.
