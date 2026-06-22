@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-css-reset",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A bare-bones CSS reset for UW web development",
   "main": "./index.css",
   "exports": {
