@@ -4,7 +4,6 @@
 declare const _default: {
   readonly borderRadius: {
     readonly full: 9999;
-    readonly lg: 12;
     readonly md: 8;
     readonly none: 0;
     readonly sm: 6;
@@ -22,8 +21,6 @@ declare const _default: {
       readonly heading: 'Comic Hams';
     };
     readonly size: {
-      readonly '50': 10;
-      readonly '75': 12;
       readonly '90': 14;
       readonly '100': 16;
       readonly '150': 18;
@@ -33,25 +30,16 @@ declare const _default: {
       readonly '500': 36;
       readonly '550': 40;
       readonly '575': 44;
-      readonly '600': 48;
       readonly '650': 54;
-      readonly '700': 60;
-      readonly '800': 72;
-      readonly '900': 96;
-      readonly '1000': 128;
     };
     readonly weight: {
       readonly bold: 700;
-      readonly heavy: 900;
       readonly medium: 500;
       readonly regular: 400;
       readonly semibold: 600;
     };
   };
   readonly letterSpacing: {
-    readonly '0': 0;
-    readonly '50': -0.30000001192092896;
-    readonly '75': -0.36000001430511475;
     readonly '90': -0.41999998688697815;
     readonly '100': -0.47999998927116394;
     readonly '150': -0.5400000214576721;
@@ -59,17 +47,8 @@ declare const _default: {
     readonly '300': -0.7200000286102295;
     readonly '400': -0.8999999761581421;
     readonly '500': -1.0800000429153442;
-    readonly '550': -1.2000000476837158;
-    readonly '600': -1.440000057220459;
-    readonly '700': -1.7999999523162842;
-    readonly '800': -2.1600000858306885;
-    readonly '900': -2.880000114440918;
-    readonly '1000': -3.8399999141693115;
   };
   readonly lineHeight: {
-    readonly '50': 12;
-    readonly '75': 14;
-    readonly '100': 16;
     readonly '200': 18;
     readonly '300': 20;
     readonly '400': 22;
@@ -77,13 +56,9 @@ declare const _default: {
     readonly '600': 28;
     readonly '700': 32;
     readonly '800': 36;
-    readonly '900': 40;
     readonly '950': 48;
     readonly '975': 52;
-    readonly '1000': 56;
     readonly '1050': 62;
-    readonly '1100': 72;
-    readonly '1200': 90;
   };
   readonly motion: {
     readonly duration: {
@@ -122,7 +97,6 @@ declare const _default: {
     readonly '700': 56;
     readonly '800': 64;
     readonly '900': 72;
-    readonly '1000': 80;
   };
 };
 export default _default;

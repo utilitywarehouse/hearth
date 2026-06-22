@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   blueBackground: {
-    backgroundColor: color.blue[500],
+    backgroundColor: color.blue[400],
   },
   grayBackground: {
     backgroundColor: color.grey[500],

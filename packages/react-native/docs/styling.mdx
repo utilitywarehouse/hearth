@@ -117,8 +117,8 @@ The theme provides a comprehensive color palette organized by semantic meaning:
 const styles = StyleSheet.create(theme => ({
   // Primary colors
   primaryButton: {
-    backgroundColor: theme.color.purple[500],
-    borderColor: theme.color.purple[600],
+    backgroundColor: theme.color.purple[400],
+    borderColor: theme.color.purple[700],
   },
 
   // Secondary colors
@@ -136,7 +136,7 @@ const styles = StyleSheet.create(theme => ({
 
   errorMessage: {
     backgroundColor: theme.color.red[50],
-    borderColor: theme.color.red[200],
+    borderColor: theme.color.red[300],
     color: theme.color.red[800],
   },
 }));
@@ -226,7 +226,7 @@ const styles = StyleSheet.create(theme => ({
 
   floatingButton: {
     ...theme.shadow.lg,
-    backgroundColor: theme.color.purple[500],
+    backgroundColor: theme.color.purple[400],
   },
 }));
 ```
@@ -379,8 +379,8 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       variant: {
         primary: {
-          backgroundColor: theme.color.purple[500],
-          borderColor: theme.color.purple[600],
+          backgroundColor: theme.color.purple[400],
+          borderColor: theme.color.purple[700],
           borderWidth: 1,
         },
         secondary: {
@@ -425,7 +425,7 @@ const styles = StyleSheet.create(theme => ({
           color: theme.color.grey[700],
         },
         ghost: {
-          color: theme.color.purple[600],
+          color: theme.color.purple[700],
         },
       },
       size: {
@@ -477,11 +477,11 @@ const styles = StyleSheet.create(theme => ({
       isError: {
         true: {
           backgroundColor: theme.color.red[50],
-          borderColor: theme.color.red[200],
+          borderColor: theme.color.red[300],
           borderWidth: 1,
         },
         false: {
-          backgroundColor: theme.color.blue[50],
+          backgroundColor: theme.color.blue[200],
           borderColor: theme.color.blue[200],
           borderWidth: 1,
         },
@@ -502,7 +502,7 @@ const styles = StyleSheet.create(theme => ({
           color: theme.color.red[800],
         },
         false: {
-          color: theme.color.blue[800],
+          color: theme.color.blue[700],
         },
       },
     },
@@ -593,7 +593,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'solid',
         color: 'purple',
         styles: {
-          backgroundColor: theme.color.purple[500],
+          backgroundColor: theme.color.purple[400],
         },
       },
       {
@@ -616,7 +616,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'outline',
         color: 'purple',
         styles: {
-          borderColor: theme.color.purple[500],
+          borderColor: theme.color.purple[400],
           backgroundColor: 'transparent',
         },
       },
@@ -706,7 +706,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'outline',
         color: 'purple',
         styles: {
-          color: theme.color.purple[600],
+          color: theme.color.purple[700],
         },
       },
       {
@@ -749,7 +749,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       variant: {
         primary: {
-          backgroundColor: theme.color.purple[500],
+          backgroundColor: theme.color.purple[400],
         },
         secondary: {
           backgroundColor: theme.color.grey[100],

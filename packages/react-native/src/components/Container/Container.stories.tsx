@@ -197,7 +197,7 @@ export const Playground: Story = {
           <Box bg={color.purple['400']} p="200" borderRadius="md">
             <BodyText>Container content 2</BodyText>
           </Box>
-          <Box bg={color.piggyPink['400']} p="200" borderRadius="md">
+          <Box bg={color.piggyPink['300']} p="200" borderRadius="md">
             <BodyText>Container content 3</BodyText>
           </Box>
         </Container>
@@ -259,7 +259,7 @@ export const WithCustomSpacing: Story = {
           <Box bg={color.purple['400']} p="200" borderRadius="md">
             <BodyText>Item 2</BodyText>
           </Box>
-          <Box bg={color.piggyPink['400']} p="200" borderRadius="md">
+          <Box bg={color.piggyPink['300']} p="200" borderRadius="md">
             <BodyText>Item 3</BodyText>
           </Box>
           <Box bg={color.orange['400']} p="200" borderRadius="md">
@@ -277,7 +277,7 @@ export const LayoutTokens: Story = {
     return (
       <Box backgroundColor={color.red['100']}>
         <Container backgroundColor="secondary">
-          <Box bg={color.blue['100']} p="200" borderRadius="md">
+          <Box bg={color.blue['200']} p="200" borderRadius="md">
             <BodyText>
               This Container uses the responsive layout tokens from the design system. It will
               automatically adjust margin and padding based on the current breakpoint.

@@ -1090,6 +1090,11 @@ export const components = {
       lineHeight: 'var(--h-body-text-sm-line-height)',
       paragraphSpacing: 'var(--h-body-text-sm-paragraph-spacing)',
     },
+    xl: {
+      fontSize: 'var(--h-body-text-xl-font-size)',
+      lineHeight: 'var(--h-body-text-xl-line-height)',
+      paragraphSpacing: 'var(--h-body-text-xl-paragraph-spacing)',
+    },
   },
   detailText: {
     '2xl': {

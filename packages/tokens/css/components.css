@@ -443,7 +443,7 @@
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800);
   --h-tabs-md-height: var(--h-space-700);
-  --h-time-picker-fade: #fff0;
+  --h-time-picker-fade: #ffffff00;
   --h-time-picker-gap: var(--h-space-75);
   --h-time-picker-gap-container: var(--h-space-50);
   --h-time-picker-min-width: 288px;
@@ -528,6 +528,9 @@
   --h-body-text-sm-font-size: var(--h-font-size-90);
   --h-body-text-sm-line-height: var(--h-line-height-300);
   --h-body-text-sm-paragraph-spacing: var(--h-font-size-90);
+  --h-body-text-xl-font-size: var(--h-font-size-200);
+  --h-body-text-xl-line-height: var(--h-line-height-600);
+  --h-body-text-xl-paragraph-spacing: var(--h-font-size-200);
   --h-detail-text-2xl-font-size: var(--h-font-size-300);
   --h-detail-text-2xl-letter-spacing: var(--h-letter-spacing-300);
   --h-detail-text-2xl-line-height: var(--h-line-height-700);

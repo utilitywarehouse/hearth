@@ -94,7 +94,7 @@ export const Colourful: Story = {
             <IndicatorIconButton
               {...args}
               icon={icon}
-              iconStyle={{ color: theme.color.energyBlue[500] }}
+              iconStyle={{ color: theme.color.energyBlue[300] }}
             />
           </Box>
           <Box>

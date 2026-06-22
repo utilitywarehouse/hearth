@@ -117,12 +117,12 @@ const items = [
     title: '3333',
   },
   {
-    color: color.blue['800'],
+    color: color.blue['700'],
     key: 4,
     title: '4444',
   },
   {
-    color: color.piggyPink['700'],
+    color: color.piggyPink['800'],
     key: 5,
     title: '5555',
   },

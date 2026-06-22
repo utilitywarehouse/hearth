@@ -2,71 +2,34 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const blue: {
-  readonly '0': '#f8fbff';
-  readonly '50': '#eef7ff';
-  readonly '100': '#d9ecff';
   readonly '200': '#bcddff';
-  readonly '300': '#93c1ff';
   readonly '400': '#6bb0ff';
-  readonly '500': '#41a0ff';
   readonly '600': '#2786f1';
   readonly '700': '#1c6cd4';
-  readonly '800': '#2354a4';
   readonly '900': '#0b3375';
-  readonly '950': '#042455';
-  readonly '1000': '#001433';
 };
 export declare const broadbandGreen: {
-  readonly '0': '#f8faf6';
-  readonly '50': '#f2f6ed';
-  readonly '100': '#e7efdc';
   readonly '200': '#d2e6b0';
   readonly '300': '#8cba3b';
-  readonly '400': '#7aa031';
-  readonly '500': '#6e932b';
-  readonly '600': '#64862a';
-  readonly '700': '#5a7926';
   readonly '800': '#506c21';
   readonly '900': '#4f6b20';
-  readonly '950': '#35421c';
-  readonly '1000': '#252d16';
 };
 export declare const cashbackLilac: {
-  readonly '0': '#f7f5f8';
-  readonly '50': '#f5f2f6';
-  readonly '100': '#ebdef5';
-  readonly '200': '#e4caf5';
   readonly '300': '#dfbdf5';
-  readonly '400': '#ce9cf0';
   readonly '500': '#be7aeb';
-  readonly '600': '#9f3be2';
   readonly '700': '#8b2bc9';
-  readonly '800': '#7821b8';
   readonly '900': '#7429b5';
-  readonly '950': '#522270';
-  readonly '1000': '#3a1f52';
 };
 export declare const energyBlue: {
-  readonly '0': '#f7f9fa';
-  readonly '50': '#edf4f6';
-  readonly '100': '#d4e5e9';
   readonly '200': '#bddee4';
   readonly '300': '#6db5c3';
-  readonly '400': '#579daa';
-  readonly '500': '#4c8a97';
-  readonly '600': '#367683';
   readonly '700': '#326e7a';
-  readonly '800': '#2d6571';
   readonly '900': '#2c6370';
-  readonly '950': '#254348';
-  readonly '1000': '#1a2f35';
 };
 export declare const green: {
-  readonly '0': '#f8fdf9';
   readonly '50': '#e7f9f0';
   readonly '100': '#c5edda';
   readonly '200': '#a2e2c3';
-  readonly '300': '#74d6a0';
   readonly '400': '#58ca93';
   readonly '500': '#36bf7d';
   readonly '600': '#19a660';
@@ -94,86 +57,45 @@ export declare const grey: {
   readonly '1000': '#101010';
 };
 export declare const insuranceOrange: {
-  readonly '0': '#fefcf9';
-  readonly '50': '#fdf5eb';
-  readonly '100': '#fcecd6';
-  readonly '200': '#ffcda0';
   readonly '300': '#ffb46d';
   readonly '400': '#ff7b00';
-  readonly '500': '#f06b00';
-  readonly '600': '#e26400';
-  readonly '700': '#cb5b00';
   readonly '800': '#9b4c0e';
   readonly '900': '#7f4518';
-  readonly '950': '#5a3213';
-  readonly '1000': '#3f2616';
 };
 export declare const mobileRose: {
-  readonly '0': '#fffaf9';
-  readonly '50': '#fdf2f6';
-  readonly '100': '#faeaf2';
   readonly '200': '#fad0e9';
-  readonly '300': '#f49fd2';
   readonly '400': '#ee6dbb';
-  readonly '500': '#e652aa';
-  readonly '600': '#de379a';
-  readonly '700': '#d61c89';
   readonly '800': '#a7266d';
   readonly '900': '#8a3260';
-  readonly '950': '#601f42';
-  readonly '1000': '#421a32';
 };
 export declare const orange: {
-  readonly '0': '#fffdf8';
-  readonly '50': '#fff5ed';
-  readonly '100': '#ffe6d4';
   readonly '200': '#ffcca8';
-  readonly '300': '#ffab70';
   readonly '400': '#ff9639';
   readonly '500': '#ff8010';
   readonly '600': '#f56e00';
   readonly '700': '#cf5d00';
   readonly '750': '#be5400';
-  readonly '800': '#ad4b00';
   readonly '900': '#893900';
-  readonly '950': '#6b2d00';
-  readonly '1000': '#4a1f00';
 };
 export declare const piggyPink: {
-  readonly '0': '#faf5fa';
-  readonly '50': '#f6f1f7';
-  readonly '100': '#f9eafa';
   readonly '200': '#f9ceff';
   readonly '300': '#f295ff';
-  readonly '400': '#ed66ff';
-  readonly '500': '#d052c8';
-  readonly '600': '#bc48b4';
-  readonly '700': '#a53fa5';
   readonly '800': '#8f358f';
   readonly '900': '#7a1f7e';
-  readonly '950': '#5d2167';
-  readonly '1000': '#3f1448';
 };
 export declare const purple: {
-  readonly '0': '#f7f6f9';
-  readonly '50': '#eeebf4';
   readonly '100': '#ddd5eb';
   readonly '200': '#c6b5e2';
   readonly '300': '#af90de';
   readonly '400': '#996cda';
-  readonly '500': '#8851d6';
-  readonly '600': '#8149ce';
   readonly '700': '#7a42c8';
   readonly '800': '#5c2ca9';
   readonly '900': '#442484';
-  readonly '950': '#331c68';
   readonly '1000': '#26164f';
 };
 export declare const red: {
-  readonly '0': '#fff6f5';
   readonly '50': '#fff3f1';
   readonly '100': '#ffe3df';
-  readonly '200': '#ffccc5';
   readonly '300': '#ffa89d';
   readonly '400': '#ff7964';
   readonly '500': '#ff634a';
@@ -185,35 +107,22 @@ export declare const red: {
   readonly '1000': '#3b1512';
 };
 export declare const warmWhite: {
-  readonly '0': '#fdfcfa';
   readonly '50': '#fcfbf2';
   readonly '100': '#f7f6eb';
   readonly '200': '#f1efe4';
   readonly '300': '#d4d2c0';
-  readonly '400': '#bfb9a9';
-  readonly '500': '#a99f8b';
-  readonly '600': '#89816e';
-  readonly '700': '#6a6354';
   readonly '800': '#4c473d';
   readonly '900': '#30302c';
   readonly '950': '#282825';
-  readonly '975': '#20201d';
   readonly '1000': '#191917';
 };
 export declare const yellow: {
-  readonly '0': '#fffef9';
-  readonly '50': '#fff8ea';
-  readonly '100': '#ffe8b8';
   readonly '200': '#ffd885';
   readonly '300': '#ffc852';
   readonly '400': '#ffb921';
   readonly '500': '#eba400';
   readonly '600': '#d1950b';
-  readonly '700': '#b78715';
-  readonly '800': '#9c7820';
   readonly '900': '#82692b';
-  readonly '950': '#756230';
-  readonly '1000': '#4c401f';
 };
 export declare const light: {
   readonly background: {
@@ -713,71 +622,34 @@ export declare const dark: {
 };
 declare const color: {
   readonly blue: {
-    readonly '0': '#f8fbff';
-    readonly '50': '#eef7ff';
-    readonly '100': '#d9ecff';
     readonly '200': '#bcddff';
-    readonly '300': '#93c1ff';
     readonly '400': '#6bb0ff';
-    readonly '500': '#41a0ff';
     readonly '600': '#2786f1';
     readonly '700': '#1c6cd4';
-    readonly '800': '#2354a4';
     readonly '900': '#0b3375';
-    readonly '950': '#042455';
-    readonly '1000': '#001433';
   };
   readonly broadbandGreen: {
-    readonly '0': '#f8faf6';
-    readonly '50': '#f2f6ed';
-    readonly '100': '#e7efdc';
     readonly '200': '#d2e6b0';
     readonly '300': '#8cba3b';
-    readonly '400': '#7aa031';
-    readonly '500': '#6e932b';
-    readonly '600': '#64862a';
-    readonly '700': '#5a7926';
     readonly '800': '#506c21';
     readonly '900': '#4f6b20';
-    readonly '950': '#35421c';
-    readonly '1000': '#252d16';
   };
   readonly cashbackLilac: {
-    readonly '0': '#f7f5f8';
-    readonly '50': '#f5f2f6';
-    readonly '100': '#ebdef5';
-    readonly '200': '#e4caf5';
     readonly '300': '#dfbdf5';
-    readonly '400': '#ce9cf0';
     readonly '500': '#be7aeb';
-    readonly '600': '#9f3be2';
     readonly '700': '#8b2bc9';
-    readonly '800': '#7821b8';
     readonly '900': '#7429b5';
-    readonly '950': '#522270';
-    readonly '1000': '#3a1f52';
   };
   readonly energyBlue: {
-    readonly '0': '#f7f9fa';
-    readonly '50': '#edf4f6';
-    readonly '100': '#d4e5e9';
     readonly '200': '#bddee4';
     readonly '300': '#6db5c3';
-    readonly '400': '#579daa';
-    readonly '500': '#4c8a97';
-    readonly '600': '#367683';
     readonly '700': '#326e7a';
-    readonly '800': '#2d6571';
     readonly '900': '#2c6370';
-    readonly '950': '#254348';
-    readonly '1000': '#1a2f35';
   };
   readonly green: {
-    readonly '0': '#f8fdf9';
     readonly '50': '#e7f9f0';
     readonly '100': '#c5edda';
     readonly '200': '#a2e2c3';
-    readonly '300': '#74d6a0';
     readonly '400': '#58ca93';
     readonly '500': '#36bf7d';
     readonly '600': '#19a660';
@@ -805,86 +677,45 @@ declare const color: {
     readonly '1000': '#101010';
   };
   readonly insuranceOrange: {
-    readonly '0': '#fefcf9';
-    readonly '50': '#fdf5eb';
-    readonly '100': '#fcecd6';
-    readonly '200': '#ffcda0';
     readonly '300': '#ffb46d';
     readonly '400': '#ff7b00';
-    readonly '500': '#f06b00';
-    readonly '600': '#e26400';
-    readonly '700': '#cb5b00';
     readonly '800': '#9b4c0e';
     readonly '900': '#7f4518';
-    readonly '950': '#5a3213';
-    readonly '1000': '#3f2616';
   };
   readonly mobileRose: {
-    readonly '0': '#fffaf9';
-    readonly '50': '#fdf2f6';
-    readonly '100': '#faeaf2';
     readonly '200': '#fad0e9';
-    readonly '300': '#f49fd2';
     readonly '400': '#ee6dbb';
-    readonly '500': '#e652aa';
-    readonly '600': '#de379a';
-    readonly '700': '#d61c89';
     readonly '800': '#a7266d';
     readonly '900': '#8a3260';
-    readonly '950': '#601f42';
-    readonly '1000': '#421a32';
   };
   readonly orange: {
-    readonly '0': '#fffdf8';
-    readonly '50': '#fff5ed';
-    readonly '100': '#ffe6d4';
     readonly '200': '#ffcca8';
-    readonly '300': '#ffab70';
     readonly '400': '#ff9639';
     readonly '500': '#ff8010';
     readonly '600': '#f56e00';
     readonly '700': '#cf5d00';
     readonly '750': '#be5400';
-    readonly '800': '#ad4b00';
     readonly '900': '#893900';
-    readonly '950': '#6b2d00';
-    readonly '1000': '#4a1f00';
   };
   readonly piggyPink: {
-    readonly '0': '#faf5fa';
-    readonly '50': '#f6f1f7';
-    readonly '100': '#f9eafa';
     readonly '200': '#f9ceff';
     readonly '300': '#f295ff';
-    readonly '400': '#ed66ff';
-    readonly '500': '#d052c8';
-    readonly '600': '#bc48b4';
-    readonly '700': '#a53fa5';
     readonly '800': '#8f358f';
     readonly '900': '#7a1f7e';
-    readonly '950': '#5d2167';
-    readonly '1000': '#3f1448';
   };
   readonly purple: {
-    readonly '0': '#f7f6f9';
-    readonly '50': '#eeebf4';
     readonly '100': '#ddd5eb';
     readonly '200': '#c6b5e2';
     readonly '300': '#af90de';
     readonly '400': '#996cda';
-    readonly '500': '#8851d6';
-    readonly '600': '#8149ce';
     readonly '700': '#7a42c8';
     readonly '800': '#5c2ca9';
     readonly '900': '#442484';
-    readonly '950': '#331c68';
     readonly '1000': '#26164f';
   };
   readonly red: {
-    readonly '0': '#fff6f5';
     readonly '50': '#fff3f1';
     readonly '100': '#ffe3df';
-    readonly '200': '#ffccc5';
     readonly '300': '#ffa89d';
     readonly '400': '#ff7964';
     readonly '500': '#ff634a';
@@ -896,35 +727,22 @@ declare const color: {
     readonly '1000': '#3b1512';
   };
   readonly warmWhite: {
-    readonly '0': '#fdfcfa';
     readonly '50': '#fcfbf2';
     readonly '100': '#f7f6eb';
     readonly '200': '#f1efe4';
     readonly '300': '#d4d2c0';
-    readonly '400': '#bfb9a9';
-    readonly '500': '#a99f8b';
-    readonly '600': '#89816e';
-    readonly '700': '#6a6354';
     readonly '800': '#4c473d';
     readonly '900': '#30302c';
     readonly '950': '#282825';
-    readonly '975': '#20201d';
     readonly '1000': '#191917';
   };
   readonly yellow: {
-    readonly '0': '#fffef9';
-    readonly '50': '#fff8ea';
-    readonly '100': '#ffe8b8';
     readonly '200': '#ffd885';
     readonly '300': '#ffc852';
     readonly '400': '#ffb921';
     readonly '500': '#eba400';
     readonly '600': '#d1950b';
-    readonly '700': '#b78715';
-    readonly '800': '#9c7820';
     readonly '900': '#82692b';
-    readonly '950': '#756230';
-    readonly '1000': '#4c401f';
   };
   readonly light: {
     readonly background: {

@@ -3,11 +3,9 @@
  */
 
 :root {
-  --h-font-family-body: dm sans;
-  --h-font-family-detail: dm mono;
-  --h-font-family-heading: comic hams;
-  --h-font-size-50: 0.625rem;
-  --h-font-size-75: 0.75rem;
+  --h-font-family-body: DM Sans;
+  --h-font-family-detail: DM Mono;
+  --h-font-family-heading: Comic Hams;
   --h-font-size-90: 0.875rem;
   --h-font-size-100: 1rem;
   --h-font-size-150: 1.125rem;
@@ -17,20 +15,11 @@
   --h-font-size-500: 2.25rem;
   --h-font-size-550: 2.5rem;
   --h-font-size-575: 2.75rem;
-  --h-font-size-600: 3rem;
   --h-font-size-650: 3.375rem;
-  --h-font-size-700: 3.75rem;
-  --h-font-size-800: 4.5rem;
-  --h-font-size-900: 6rem;
-  --h-font-size-1000: 8rem;
   --h-font-weight-bold: 700;
-  --h-font-weight-heavy: 900;
   --h-font-weight-medium: 500;
   --h-font-weight-regular: 400;
   --h-font-weight-semibold: 600;
-  --h-letter-spacing-0: 0.00px;
-  --h-letter-spacing-50: -0.30px;
-  --h-letter-spacing-75: -0.36px;
   --h-letter-spacing-90: -0.42px;
   --h-letter-spacing-100: -0.48px;
   --h-letter-spacing-150: -0.54px;
@@ -38,15 +27,6 @@
   --h-letter-spacing-300: -0.72px;
   --h-letter-spacing-400: -0.90px;
   --h-letter-spacing-500: -1.08px;
-  --h-letter-spacing-550: -1.20px;
-  --h-letter-spacing-600: -1.44px;
-  --h-letter-spacing-700: -1.80px;
-  --h-letter-spacing-800: -2.16px;
-  --h-letter-spacing-900: -2.88px;
-  --h-letter-spacing-1000: -3.84px;
-  --h-line-height-50: 0.75rem;
-  --h-line-height-75: 0.875rem;
-  --h-line-height-100: 1rem;
   --h-line-height-200: 1.125rem;
   --h-line-height-300: 1.25rem;
   --h-line-height-400: 1.375rem;
@@ -54,11 +34,7 @@
   --h-line-height-600: 1.75rem;
   --h-line-height-700: 2rem;
   --h-line-height-800: 2.25rem;
-  --h-line-height-900: 2.5rem;
   --h-line-height-950: 3rem;
   --h-line-height-975: 3.25rem;
-  --h-line-height-1000: 3.5rem;
   --h-line-height-1050: 3.875rem;
-  --h-line-height-1100: 4.5rem;
-  --h-line-height-1200: 5.625rem;
 }

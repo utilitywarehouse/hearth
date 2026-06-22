@@ -107,8 +107,8 @@ styles:
 
 @media (--h-wide) {
   .myComponent {
-    background-color: var(--h-color-blue-50);
-    border-color: var(--h-color-blue-500);
+    background-color: var(--h-color-blue-200);
+    border-color: var(--h-color-blue-400);
   }
 }
 ```

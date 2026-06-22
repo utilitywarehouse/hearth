@@ -22,6 +22,11 @@ export const mobile = {
       lineHeight: 20,
       paragraphSpacing: 14,
     },
+    xl: {
+      fontSize: 20,
+      lineHeight: 28,
+      paragraphSpacing: 20,
+    },
   },
   detailText: {
     '2xl': {
@@ -113,6 +118,11 @@ export const tablet = {
       lineHeight: 20,
       paragraphSpacing: 14,
     },
+    xl: {
+      fontSize: 20,
+      lineHeight: 28,
+      paragraphSpacing: 20,
+    },
   },
   detailText: {
     '2xl': {
@@ -203,6 +213,11 @@ export const desktop = {
       fontSize: 14,
       lineHeight: 20,
       paragraphSpacing: 14,
+    },
+    xl: {
+      fontSize: 20,
+      lineHeight: 28,
+      paragraphSpacing: 20,
     },
   },
   detailText: {

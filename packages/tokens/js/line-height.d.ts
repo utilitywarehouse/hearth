@@ -2,9 +2,6 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly '50': 12;
-  readonly '75': 14;
-  readonly '100': 16;
   readonly '200': 18;
   readonly '300': 20;
   readonly '400': 22;
@@ -12,12 +9,8 @@ declare const _default: {
   readonly '600': 28;
   readonly '700': 32;
   readonly '800': 36;
-  readonly '900': 40;
   readonly '950': 48;
   readonly '975': 52;
-  readonly '1000': 56;
   readonly '1050': 62;
-  readonly '1100': 72;
-  readonly '1200': 90;
 };
 export default _default;

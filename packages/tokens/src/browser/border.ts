@@ -1,7 +1,6 @@
 export const border = {
   radius: {
     full: 'var(--h-border-radius-full)',
-    lg: 'var(--h-border-radius-lg)',
     md: 'var(--h-border-radius-md)',
     none: 'var(--h-border-radius-none)',
     sm: 'var(--h-border-radius-sm)',

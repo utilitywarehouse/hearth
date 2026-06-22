@@ -3,7 +3,6 @@
  */
 declare const _default: {
   readonly full: 9999;
-  readonly lg: 12;
   readonly md: 8;
   readonly none: 0;
   readonly sm: 6;

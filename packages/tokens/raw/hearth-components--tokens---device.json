@@ -258,6 +258,23 @@
             "type": "number",
             "value": 14
           }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
+          },
+          "line-height": {
+            "alias": "{line-height.600}",
+            "type": "number",
+            "value": 28
+          },
+          "paragraph-spacing": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
+          }
         }
       },
       "detail-text": {
@@ -749,6 +766,23 @@
             "type": "number",
             "value": 14
           }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
+          },
+          "line-height": {
+            "alias": "{line-height.600}",
+            "type": "number",
+            "value": 28
+          },
+          "paragraph-spacing": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
+          }
         }
       },
       "detail-text": {
@@ -1239,6 +1273,23 @@
             "alias": "{font.size.90}",
             "type": "number",
             "value": 14
+          }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
+          },
+          "line-height": {
+            "alias": "{line-height.600}",
+            "type": "number",
+            "value": 28
+          },
+          "paragraph-spacing": {
+            "alias": "{font.size.200}",
+            "type": "number",
+            "value": 20
           }
         }
       },

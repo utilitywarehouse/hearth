@@ -28,13 +28,13 @@ These can each be imported from the `hearth-tokens` package via the relevant sub
 
 ### CSS
 
-- Provides CSS files that define the actual CSS custom properties (e.g. `--h-color-blue-500: #41a0ff;`, `--h-space-100: 8px;`).
+- Provides CSS files that define the actual CSS custom properties (e.g. `--h-color-blue-400: #6bb0ff;`, `--h-space-100: 8px;`).
 - Use these when you want to use the tokens directly within your standard CSS, SCSS, or CSS Modules files.
 - Use the `css` subpath to import: `@utilitywarehouse/hearth-tokens/css` or `@utilitywarehouse/hearth-tokens/css/{token-type}.css` (e.g., `@utilitywarehouse/hearth-tokens/css/color.css`, `@utilitywarehouse/hearth-tokens/css/space.css`)
 
 ### Browser
 
-- Provides JavaScript objects which reference CSS variables (e.g. `'var(--h-color-blue-500)'`, `'var(--h-space-100)'`).
+- Provides JavaScript objects which reference CSS variables (e.g. `'var(--h-color-blue-400)'`, `'var(--h-space-100)'`).
 - Use these when you are working in a browser environment and want to apply styles using JavaScript (e.g. inline styles, CSS-in-JS libraries).
 - Use the `browser` subpath to import: `@utilitywarehouse/hearth-tokens/browser` or `@utilitywarehouse/hearth-tokens/browser/{tokenType}` (e.g., `@utilitywarehouse/hearth-tokens/browser/color`, `@utilitywarehouse/hearth-tokens/browser/space`)
 - **IMPORTANT** These require the CSS custom properties to exist in your project, either via the **Hearth React** library, or by importing the CSS definitions from the `hearth-tokens` package directly.

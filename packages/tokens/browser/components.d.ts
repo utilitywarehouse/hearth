@@ -1088,6 +1088,11 @@ export declare const components: {
       readonly lineHeight: 'var(--h-body-text-sm-line-height)';
       readonly paragraphSpacing: 'var(--h-body-text-sm-paragraph-spacing)';
     };
+    readonly xl: {
+      readonly fontSize: 'var(--h-body-text-xl-font-size)';
+      readonly lineHeight: 'var(--h-body-text-xl-line-height)';
+      readonly paragraphSpacing: 'var(--h-body-text-xl-paragraph-spacing)';
+    };
   };
   readonly detailText: {
     readonly '2xl': {
