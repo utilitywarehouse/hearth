@@ -109,16 +109,9 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop           | Type                                                                                                                                                                                                       | Default | Description                 |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------- |
-| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"`                                                                                                     | —       | Sets the card shadow colour |
-| `margin`       | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginTop`    | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginRight`  | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginBottom` | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginLeft`   | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginX`      | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `marginY`      | `Responsive<`var(--h-${string})` \| "auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000">` | —       |                             |
-| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                                                                                                                       | —       |                             |
-| `heading`      | `string`                                                                                                                                                                                                   | —       |                             |
-| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`                                                                                                                 | —       |                             |
+| Prop           | Type                                                                                                   | Default | Description                 |
+| -------------- | ------------------------------------------------------------------------------------------------------ | ------- | --------------------------- |
+| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"` | —       | Sets the card shadow colour |
+| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                   | —       |                             |
+| `heading`      | `string`                                                                                               | —       |                             |
+| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`             | —       |                             |

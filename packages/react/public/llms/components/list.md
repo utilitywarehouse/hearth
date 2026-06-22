@@ -539,26 +539,19 @@ This component is based on the `ul` element and supports the following common pr
 
 - Margin
 
-| Prop               | Type                                                                                                                                                                                                       | Default     | Description                                                                                       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
-| `heading`          | `string`                                                                                                                                                                                                   | —           | Actual string to display as section header                                                        |
-| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"`                                                                                                                                                                    | `h2`        |                                                                                                   |
-| `helperText`       | `string`                                                                                                                                                                                                   | —           | Optional helper text to provide additional context or instructions.                               |
-| `trailingContent`  | `ReactNode`                                                                                                                                                                                                | —           | Optional trailing content element                                                                 |
-| `validationStatus` | `"invalid"`                                                                                                                                                                                                | —           | Indicates the validation state                                                                    |
-| `validationText`   | `string`                                                                                                                                                                                                   | —           | Text to display when the `validationStatus` is set.                                               |
-| `direction`        | `Responsive<"row" \| "column">`                                                                                                                                                                            | —           | Responsive direction of the section header content. By default, the content is laid out in a row. |
-| `margin`           | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginTop`        | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginRight`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginBottom`     | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginLeft`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginX`          | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `marginY`          | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —           |                                                                                                   |
-| `variant`          | `"emphasis" \| "subtle"`                                                                                                                                                                                   | `undefined` | Sets the visual variant of the list.                                                              |
-| `colorScheme`      | `"neutralStrong" \| "neutralSubtle"`                                                                                                                                                                       | —           | Sets the color scheme of the list.                                                                |
-| `as`               | `"ol" \| "ul"`                                                                                                                                                                                             | `ul`        | Shorthand for changing the default rendered element into a semantically appropriate alternative.  |
-| `paddingNone`      | `boolean`                                                                                                                                                                                                  | —           | Remove the inline padding for better alignment with other elements.                               |
+| Prop               | Type                                    | Default     | Description                                                                                       |
+| ------------------ | --------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
+| `heading`          | `string`                                | —           | Actual string to display as section header                                                        |
+| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `h2`        |                                                                                                   |
+| `helperText`       | `string`                                | —           | Optional helper text to provide additional context or instructions.                               |
+| `trailingContent`  | `ReactNode`                             | —           | Optional trailing content element                                                                 |
+| `validationStatus` | `"invalid"`                             | —           | Indicates the validation state                                                                    |
+| `validationText`   | `string`                                | —           | Text to display when the `validationStatus` is set.                                               |
+| `direction`        | `Responsive<"row" \| "column">`         | —           | Responsive direction of the section header content. By default, the content is laid out in a row. |
+| `variant`          | `"emphasis" \| "subtle"`                | `undefined` | Sets the visual variant of the list.                                                              |
+| `colorScheme`      | `"neutralStrong" \| "neutralSubtle"`    | —           | Sets the color scheme of the list.                                                                |
+| `as`               | `"ol" \| "ul"`                          | `ul`        | Shorthand for changing the default rendered element into a semantically appropriate alternative.  |
+| `paddingNone`      | `boolean`                               | —           | Remove the inline padding for better alignment with other elements.                               |
 
 ## ListItem
 
@@ -690,15 +683,9 @@ This component is base on the `a` element and extends the `ListItemContent`
 component, so it supports all the same props, as well as the following
 additional props:
 
-| Prop              | Type                | Default    | Description                                                                                          |
-| ----------------- | ------------------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| `heading`         | `string`            | —          |                                                                                                      |
-| `helperText`      | `ReactNode`         | —          | Optional helper text to provide additional context or instructions.                                  |
-| `leadingContent`  | `ReactNode`         | —          |                                                                                                      |
-| `trailingContent` | `ReactNode`         | —          |                                                                                                      |
-| `badge`           | `ReactNode`         | —          |                                                                                                      |
-| `badgePlacement`  | `"top" \| "bottom"` | `'bottom'` | Placement of the badge element                                                                       |
-| `asChild`         | `boolean`           | —          | Change the default rendered element for the one passed as a child, merging their props and behavior. |
+| Prop      | Type      | Default | Description                                                                                          |
+| --------- | --------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| `asChild` | `boolean` | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
 
 ## ListActionLink
 
