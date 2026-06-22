@@ -122,7 +122,7 @@ const items = [
     title: '4444',
   },
   {
-    color: color.piggyPink['700'],
+    color: color.piggyPink['800'],
     key: 5,
     title: '5555',
   },

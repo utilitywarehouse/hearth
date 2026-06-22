@@ -87,7 +87,7 @@ import { color, space } from '@utilitywarehouse/hearth-tokens/browser';
 const MyButton = ({ children }) => (
   <button
     style={{
-      backgroundColor: color.blue[500], // 'var(--h-color-blue-500)'
+      backgroundColor: color.blue[400], // 'var(--h-color-blue-400)'
       color: color.white, // 'var(--h-color-common-white)'
       padding: `${space[100]} ${space[200]}`, // 'var(--h-space-100) var(--h-space-200)'
       border: 'none',
@@ -140,6 +140,6 @@ or in a Node.js script:
 import { color } from '@utilitywarehouse/hearth-tokens/js';
 
 function logPrimaryColor() {
-  console.log('Primary color (light):', color.light.blue[500]); // Logs the hex code, e.g., '#41a0ff'
+  console.log('Primary color:', color.blue[400]); // Logs the hex code, e.g., '#6bb0ff'
 }
 ```

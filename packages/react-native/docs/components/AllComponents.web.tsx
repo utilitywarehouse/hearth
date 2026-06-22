@@ -381,9 +381,9 @@ const AllComponents: React.FC = () => {
             </ComponentWrapper>
             <ComponentWrapper name="Container" link="primitives-container">
               <Container spacing="md" backgroundColor="secondary">
-                <Box h={20} bg={color.blue[300]} />
+                <Box h={20} bg={color.blue[200]} />
                 <Box h={20} bg={color.blue[400]} />
-                <Box h={20} bg={color.blue[500]} />
+                <Box h={20} bg={color.blue[600]} />
               </Container>
             </ComponentWrapper>
             <ComponentWrapper name="Currency Input" link="forms-currency-input">
@@ -474,10 +474,10 @@ const AllComponents: React.FC = () => {
             <ComponentWrapper name="Flex" link="primitives-flex">
               <Center flex={1}>
                 <Flex direction="row" spacing="md">
-                  <Box w={40} h={40} bg={color.blue[300]} />
+                  <Box w={40} h={40} bg={color.blue[200]} />
                   <Box w={40} h={40} bg={color.blue[400]} />
-                  <Box w={40} h={40} bg={color.blue[500]} />
                   <Box w={40} h={40} bg={color.blue[600]} />
+                  <Box w={40} h={40} bg={color.blue[700]} />
                 </Flex>
               </Center>
             </ComponentWrapper>
@@ -497,10 +497,10 @@ const AllComponents: React.FC = () => {
               <Center flex={1}>
                 <Box width={100}>
                   <Grid columns={2} spacing="md">
-                    <Box w={40} h={40} bg={color.blue[300]} />
+                    <Box w={40} h={40} bg={color.blue[200]} />
                     <Box w={40} h={40} bg={color.blue[400]} />
-                    <Box w={40} h={40} bg={color.blue[500]} />
                     <Box w={40} h={40} bg={color.blue[600]} />
+                    <Box w={40} h={40} bg={color.blue[700]} />
                   </Grid>
                 </Box>
               </Center>
