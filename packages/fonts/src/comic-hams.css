@@ -12,10 +12,3 @@
   font-weight: 700;
   src: url('./files/woff2/ComicHams-BoldFlare.woff2') format('woff2');
 }
-@font-face {
-  font-family: 'Comic Hams';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 900;
-  src: url('./files/woff2/ComicHams-HeavyFlare.woff2') format('woff2');
-}
