@@ -3,8 +3,8 @@
  * unless the children also have data-disabled, or aria-disabled="true"
  */
 :where([data-disabled], [data-disabled] &, [aria-disabled='true']):not(
-    [data-disabled] [data-disabled],
-    [aria-disabled='true'] [aria-disabled='true']
-  ) {
+  [data-disabled] [data-disabled],
+  [aria-disabled='true'] [aria-disabled='true']
+) {
   opacity: var(--h-opacity-disabled);
 }

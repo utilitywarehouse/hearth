@@ -93,10 +93,6 @@
   .h-r-inset-900 {
     inset: var(--h-space-900);
   }
-
-  .h-r-inset-1000 {
-    inset: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -170,10 +166,6 @@
 
   .h-r-top-900 {
     top: var(--h-space-900);
-  }
-
-  .h-r-top-1000 {
-    top: var(--h-space-1000);
   }
 }
 
@@ -249,10 +241,6 @@
   .h-r-right-900 {
     right: var(--h-space-900);
   }
-
-  .h-r-right-1000 {
-    right: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -327,10 +315,6 @@
   .h-r-bottom-900 {
     bottom: var(--h-space-900);
   }
-
-  .h-r-bottom-1000 {
-    bottom: var(--h-space-1000);
-  }
 }
 
 @breakpoints {
@@ -404,9 +388,5 @@
 
   .h-r-left-900 {
     left: var(--h-space-900);
-  }
-
-  .h-r-left-1000 {
-    left: var(--h-space-1000);
   }
 }

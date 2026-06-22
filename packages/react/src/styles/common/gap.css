@@ -72,10 +72,6 @@
     gap: var(--h-space-900);
   }
 
-  .h-r-gap-1000 {
-    gap: var(--h-space-1000);
-  }
-
   .h-r-row-gap {
     row-gap: var(--h-r-gap);
   }
@@ -148,10 +144,6 @@
     row-gap: var(--h-space-900);
   }
 
-  .h-r-row-gap-1000 {
-    row-gap: var(--h-space-1000);
-  }
-
   .h-r-column-gap {
     column-gap: var(--h-r-gap);
   }
@@ -222,9 +214,5 @@
 
   .h-r-column-gap-900 {
     column-gap: var(--h-space-900);
-  }
-
-  .h-r-column-gap-1000 {
-    column-gap: var(--h-space-1000);
   }
 }
