@@ -1,6 +1,6 @@
 # @utilitywarehouse/hearth-react
 
-## 1.0.0
+## 0.30.0
 
 ### Minor Changes
 
