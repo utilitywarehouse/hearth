@@ -4,6 +4,6 @@ import type { FlexItemProps } from '../../props/flex-item.props';
 
 export type ToggleButtonProps = Omit<
   ComponentPropsWithRef<typeof ToggleGroupPrimitive.Item>,
-  'disabled'
+  'asChild' | 'disabled'
 > &
   FlexItemProps;
