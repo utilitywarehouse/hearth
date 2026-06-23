@@ -199,15 +199,15 @@ The most common mistake is adding a `<div className={`${componentClassName}Conte
 <Flex gap={8} style={{ padding: '16px' }} />
 ```
 
-**Use `data-*` attributes for CSS state, not className variants:**
+**Use PropDef/extractProps classes (e.g. `.h-variant-subtle`) and `data-*` attributes for state — avoid custom variant className patterns:**
 
-```tsx
-// ✅ CORRECT — data attributes, CSS targets [data-variant="subtle"]
-<span data-variant={variant} data-colorscheme={colorScheme} />
+~~~tsx
+// ✅ CORRECT — variants via PropDef/extractProps classes; other state via data-*
+<span className="h-MyComponent h-variant-subtle" data-colorscheme="info" />
 
-// ❌ WRONG
+// ❌ WRONG — custom className patterns for variants/state
 <span className={`${componentClassName}--${variant}`} />
-```
+~~~
 
 Always include `data-testid={componentClassName}` on the root element.
 
