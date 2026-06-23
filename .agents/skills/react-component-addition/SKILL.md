@@ -301,8 +301,8 @@ Add an `@import` to `src/components/index.css`. The comment at the top of that f
 
 ```tsx
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Flex } from '../Flex/Flex';
 import { MyComponent } from './MyComponent';
-
 const variants = ['subtle', 'emphasis'] as const;
 const sizes = ['sm', 'md'] as const;
 
