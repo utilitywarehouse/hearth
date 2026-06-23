@@ -1,0 +1,23 @@
+{
+  "skill_name": "react-component-addition",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Create a new StatusBadge component in packages/react. It should wrap a native span, accept a 'status' prop with values 'active', 'inactive', 'pending', and support margin props. Include the props file, component file, and show me where to add the export in index.ts.",
+      "expected_output": "Well-formed props file using PropDef system (status -> .h-status-* class), component using forwardRef/extractProps/withGlobalPrefix, correct interface extending pattern with MarginProps after Pick, data-testid, displayName, and export at bottom of index.ts with empty line separator.",
+      "files": []
+    },
+    {
+      "id": 1,
+      "prompt": "I'm adding a new ExpandableSection component to packages/react that wraps the Radix UI Collapsible primitive. It needs 'open', 'defaultOpen', 'onOpenChange', and 'disabled' props from Collapsible.Root, plus a required 'heading' string prop. Show me the props file and component implementation.",
+      "expected_output": "Radix import uses 'Collapsible as CollapsiblePrimitive', no extra named type alias for CollapsibleRootProps, inline Pick in the interface, MarginProps after the Pick, Heading component used for the heading text, Flex for layout.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a new AlertBanner component to the Hearth React package. It should have 'variant' (info, warning, error, success), support an optional icon, a title, and a description. Give me the full set of files: props, component, stories, and docs.",
+      "expected_output": "Complete file set: props file with PropDef for variants, component using forwardRef/extractProps, Heading/BodyText for title/description rather than styled divs, Flex for internal layout, stories with KitchenSink+Playground+Variants, docs mdx with Canvas and ArgTypes, index.ts export snippet at bottom.",
+      "files": []
+    }
+  ]
+}
