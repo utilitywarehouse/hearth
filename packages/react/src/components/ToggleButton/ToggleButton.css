@@ -39,6 +39,11 @@
     background-color: var(--h-interactive-neutral-surface-subtle-active);
   }
 
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+  }
+
   &::after {
     z-index: 0;
     content: '';
