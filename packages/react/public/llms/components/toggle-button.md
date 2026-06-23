@@ -144,7 +144,6 @@ This component is based on the `button` element and supports the following commo
 | Prop         | Type                 | Default | Description                                                                                          |
 | ------------ | -------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
 | `value`      | `string`             | —       | A string value for the toggle group item. All items within a toggle group should use a unique value. |
-| `asChild`    | `boolean`            | —       |                                                                                                      |
 | `flex`       | `Responsive<string>` | —       |                                                                                                      |
 | `flexBasis`  | `Responsive<string>` | —       |                                                                                                      |
 | `flexShrink` | `Responsive<string>` | —       |                                                                                                      |
