@@ -1,0 +1,85 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './ToggleButton.stories';
+import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
+import { Divider } from '../Divider/Divider';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
+import { ToggleButton } from './ToggleButton';
+import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+<Meta title="Components / ToggleButton" />
+
+<Flex justifyContent="between" alignItems="baseline">
+  # ToggleButton
+  <ViewMarkdownLink to="components/toggle-button" />
+</Flex>
+
+A standalone toggle button for use with `ToggleGroup`. Unlike `ToggleButtonCard`, `ToggleButton` is just the button itself — it has no card wrapper — making it suitable for layouts where the toggle controls live inside a custom container such as a comparison table.
+
+<Canvas of={Stories.KitchenSink} sourceState="hide" />
+<Canvas of={Stories.Playground} sourceState="show" />
+
+- [Usage](#usage)
+- [ToggleGroup type](#togglegroup-type)
+- [Tariff comparison pattern](#tariff-comparison-pattern)
+- [Accessibility](#accessibility)
+- [ToggleGroup API](#togglegroup-api)
+- [ToggleButton API](#togglebutton-api)
+
+## Usage
+
+Wrap `ToggleButton` components in a `ToggleGroup`. The `value` prop on each button is required and must be unique within the group.
+
+```tsx
+<ToggleGroup type="single">
+  <ToggleButton value="fixed">Select plan</ToggleButton>
+  <ToggleButton value="variable">Select plan</ToggleButton>
+</ToggleGroup>
+```
+
+## ToggleGroup type
+
+`ToggleGroup` supports `single` (one item selected at a time) and `multiple` (any number of items can be selected simultaneously).
+
+<Canvas of={Stories.Single} />
+<Canvas of={Stories.Multiple} />
+
+## Tariff comparison pattern
+
+When individual toggle buttons need to live inside a custom layout — such as a comparison table where each column has its own `ToggleButton` — wrap all buttons in a single `ToggleGroup` and place the `ToggleButton` inside each column independently.
+
+```tsx
+<ToggleGroup type="single" value={selected} onValueChange={...} gap="300">
+  {tariffs.map(tariff => (
+    <Flex key={tariff.id} direction="column" gap="200" flex="1">
+      {/* tariff details */}
+      <Divider />
+      <ToggleButton value={tariff.id}>
+        {selected === tariff.id ? 'Selected plan' : 'Select plan'}
+      </ToggleButton>
+    </Flex>
+  ))}
+</ToggleGroup>
+```
+
+<Canvas of={Stories.TariffComparison} />
+
+## Accessibility
+
+`ToggleButton` is built on the Radix UI `ToggleGroup.Item` primitive and uses [roving tabindex](https://www.w3.org/TR/wai-aria-practices-1.2/examples/radio/radio.html) for keyboard navigation.
+
+When the button label alone is not descriptive enough (e.g. "Select plan"), use `aria-label` or `aria-labelledby`/`aria-describedby` to associate it with surrounding context.
+
+## ToggleGroup API
+
+This component is based on the `Flex` component.
+
+## ToggleButton API
+
+This component is based on the `button` element and supports the following common props:
+
+- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
+
+<ArgTypes of={ToggleButton} />

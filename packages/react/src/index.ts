@@ -207,6 +207,8 @@ export { SelectItem } from './components/Select/SelectItem';
 
 export { ToggleGroup } from './components/ToggleGroup/ToggleGroup';
 export type { ToggleGroupProps } from './components/ToggleGroup/ToggleGroup.props';
+export { ToggleButton } from './components/ToggleButton/ToggleButton';
+export type { ToggleButtonProps } from './components/ToggleButton/ToggleButton.props';
 export { ToggleButtonCard } from './components/ToggleButtonCard/ToggleButtonCard';
 export type { ToggleButtonCardProps } from './components/ToggleButtonCard/ToggleButtonCard.props';
 
