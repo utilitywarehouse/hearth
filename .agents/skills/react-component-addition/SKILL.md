@@ -44,6 +44,7 @@ Use the `PropDef` system to describe how props map to CSS classes. This drives `
 import type { ComponentPropsWithRef } from 'react';
 import type { PropDef } from '../../props/prop-def';
 import type { MarginProps } from '../../props/margin.props';
+import type { Responsive } from '../../types/responsive';
 
 // Define allowed tokens as const tuples for type inference
 const variants = ['subtle', 'emphasis', 'outline'] as const;
