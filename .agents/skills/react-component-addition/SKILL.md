@@ -357,7 +357,10 @@ export const Variants: Story = {
 ```mdx
 import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './MyComponent.stories';
-
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { MyComponent } from './MyComponent';
+import { Flex } from '../Flex/Flex';
+import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
 <Meta title="Components / MyComponent" />
 
 <Flex justifyContent="between" alignItems="baseline">
