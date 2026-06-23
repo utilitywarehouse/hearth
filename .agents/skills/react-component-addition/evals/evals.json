@@ -4,7 +4,7 @@
     {
       "id": 0,
       "prompt": "Create a new StatusBadge component in packages/react. It should wrap a native span, accept a 'status' prop with values 'active', 'inactive', 'pending', and support margin props. Include the props file, component file, and show me where to add the export in index.ts.",
-      "expected_output": "Well-formed props file using PropDef system, component using forwardRef/extractProps/withGlobalPrefix, correct interface extending pattern with MarginProps after Pick, data-status attribute for CSS, data-testid, displayName, and export at bottom of index.ts with empty line separator.",
+      "expected_output": "Well-formed props file using PropDef system (status -> .h-status-* class), component using forwardRef/extractProps/withGlobalPrefix, correct interface extending pattern with MarginProps after Pick, data-testid, displayName, and export at bottom of index.ts with empty line separator.",
       "files": []
     },
     {
