@@ -382,7 +382,7 @@ The `variant` prop controls the visual style.
 This component supports the following common props:
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-<ArgTypes of={MyComponent} exclude="margin*" />
+<ArgTypes of={MyComponent} exclude={'margin*'} />
 ```
 
 ---
