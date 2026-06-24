@@ -1,5 +1,53 @@
 # @utilitywarehouse/hearth-react
 
+## 0.30.2
+
+### Patch Changes
+
+- [#1347](https://github.com/utilitywarehouse/hearth/pull/1347) [`ddf92fc`](https://github.com/utilitywarehouse/hearth/commit/ddf92fccf8e5c5e20ca9a318311c9ba6a26947ac) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `BodyText` `xl` size (20px / 28px line-height)
+
+  The `xl` size is now available on the `BodyText` component, making `Body Text XL` and `Body Text XL SemiBold` (`size="xl" weight="semibold"`) usable in
+  React.
+
+  **Developer changes**:
+
+  No migration required. Use the new size alongside the existing `weight` prop:
+
+  ```tsx
+  <BodyText size="xl">Body Text XL</BodyText>
+  <BodyText size="xl" weight="semibold">Body Text XL SemiBold</BodyText>
+  ```
+
+  The `xl` size is fully responsive:
+
+  ```tsx
+  <BodyText size={{ mobile: 'lg', desktop: 'xl' }}>Responsive</BodyText>
+  ```
+
+- [#1345](https://github.com/utilitywarehouse/hearth/pull/1345) [`fea4e6f`](https://github.com/utilitywarehouse/hearth/commit/fea4e6fd110e2a44e0762fd3f05deaef86e9eff0) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `ToggleButton` component
+
+  A new standalone `ToggleButton` component is now available for use with
+  `ToggleGroup`. Unlike `ToggleButtonCard`, `ToggleButton` is just the button
+  itself — it has no card wrapper — making it suitable for layouts where the
+  toggle controls need to live inside a custom container, such as a tariff
+  comparison table.
+
+  `ToggleButtonCard` has been updated to use `ToggleButton` internally, so its
+  visual appearance and behaviour are unchanged.
+
+  **Developer changes**:
+
+  ```tsx
+  import { ToggleButton, ToggleGroup } from '@utilitywarehouse/hearth-react';
+
+  <ToggleGroup type="single" gap="200">
+    <ToggleButton value="fixed">Select plan</ToggleButton>
+    <ToggleButton value="variable">Select plan</ToggleButton>
+  </ToggleGroup>;
+  ```
+
+  No changes are required if you are already using `ToggleButtonCard`.
+
 ## 0.30.1
 
 ### Patch Changes
