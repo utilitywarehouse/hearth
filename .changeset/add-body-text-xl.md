@@ -4,8 +4,7 @@
 
 🌟 [FEATURE]: `BodyText` `xl` size (20px / 28px line-height)
 
-The `xl` size is now available on the `BodyText` component, making `Body Text
-XL` and `Body Text XL SemiBold` (`size="xl" weight="semibold"`) usable in
+The `xl` size is now available on the `BodyText` component, making `Body Text XL` and `Body Text XL SemiBold` (`size="xl" weight="semibold"`) usable in
 React.
 
 **Developer changes**:
