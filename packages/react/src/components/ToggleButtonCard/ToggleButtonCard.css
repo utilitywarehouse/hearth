@@ -13,5 +13,4 @@
   &:has(button[data-state='on']) {
     box-shadow: inset 0 0 0 var(--h-card-brand-border-width) var(--h-border-strong);
   }
-
 }
