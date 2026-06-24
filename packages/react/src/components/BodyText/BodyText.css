@@ -21,5 +21,10 @@
       font-size: var(--h-body-text-lg-font-size);
       line-height: var(--h-body-text-lg-line-height);
     }
+
+    &:where(.h-r-size-xl) {
+      font-size: var(--h-body-text-xl-font-size);
+      line-height: var(--h-body-text-xl-line-height);
+    }
   }
 }
