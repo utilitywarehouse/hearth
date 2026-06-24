@@ -16,7 +16,7 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     size: {
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'xl'],
       control: 'select',
       description: 'The size of the text.',
     },
@@ -120,6 +120,11 @@ export const KitchenSink: Story = {
       </VariantTitle>
       <VariantTitle title="LG">
         <BodyText {...args} size="lg">
+          Hello there, I'm some body text!
+        </BodyText>
+      </VariantTitle>
+      <VariantTitle title="XL">
+        <BodyText {...args} size="xl">
           Hello there, I'm some body text!
         </BodyText>
       </VariantTitle>
