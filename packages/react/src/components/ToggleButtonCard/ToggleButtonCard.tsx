@@ -2,18 +2,18 @@
 
 import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import { ToggleGroup as RadixToggleGroup } from 'radix-ui';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ToggleButtonCardProps } from './ToggleButtonCard.props';
 import { Card } from '../Card/Card';
-import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { ToggleButton } from '../ToggleButton/ToggleButton';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { extractProps } from '../../helpers/extract-props';
 import { flexPropDefs } from '../Flex/Flex.props';
 import { alignItemsPropDefs } from '../../props/align-items.props';
 import { alignContentPropDefs } from '../../props/align-content.props';
 import { justifyContentPropDefs } from '../../props/justify-content.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'ToggleButtonCard';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -37,7 +37,8 @@ export const ToggleButtonCard = forwardRef<ToggleButtonCardElement, ToggleButton
       flexPropDefs,
       alignItemsPropDefs,
       alignContentPropDefs,
-      justifyContentPropDefs
+      justifyContentPropDefs,
+      marginPropDefs
     );
     return (
       <Card
@@ -47,17 +48,15 @@ export const ToggleButtonCard = forwardRef<ToggleButtonCardElement, ToggleButton
         style={style}
       >
         {children}
-        <RadixToggleGroup.Item
+        <ToggleButton
           ref={ref}
-          {...toggleButtonCardProps}
-          className={`${componentClassName}Item`}
           aria-label={ariaLabel}
           aria-labelledby={ariaLabelledBy}
           aria-describedby={ariaDescribedBy}
+          {...toggleButtonCardProps}
         >
-          <TickSmallIcon />
           {label}
-        </RadixToggleGroup.Item>
+        </ToggleButton>
       </Card>
     );
   }

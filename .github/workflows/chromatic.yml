@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'packages/react/**'
-      - 'apps/storybook-react/**'
 
 jobs:
   chromatic:
@@ -32,7 +31,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
       - name: Run Chromatic
-        uses: chromaui/action@8ad69a40dea06755a3c6db290f300a39e011433b # latest
+        uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build:storybook:react

@@ -91,6 +91,7 @@
 - [TextArea](llms/components/text-area.md): `TextArea` is a multi-line text input field that allows users to enter longer text content.
 - [TextInput](llms/components/text-input.md): `TextInput` is an interactive field that allows users to enter text and data.
 - [Toast](llms/components/toast.md): A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.
+- [ToggleButton](llms/components/toggle-button.md): A standalone toggle button for use with `ToggleGroup`. Unlike
 - [ToggleButtonCard](llms/components/toggle-button-card.md): ```tsx
 - [Tooltip](llms/components/tooltip.md): Use `Tooltip` to temporarily display short, contextual text, that
 - [UnstyledIconButton](llms/components/unstyled-icon-button.md): [Icons](#icons)

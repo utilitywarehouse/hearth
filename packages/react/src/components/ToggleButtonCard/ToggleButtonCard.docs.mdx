@@ -4,7 +4,7 @@ import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { BodyText } from '../BodyText/BodyText';
 import { Divider } from '../Divider/Divider';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 import { ToggleButtonCard } from './ToggleButtonCard';
 import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
@@ -23,8 +23,8 @@ import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdow
 - [Layout](#layout)
 - [Interactive content](#interactive-content)
 - [Accessibility](#accessibility)
-- [ToggleGroup API](#togglegroup-api)
 - [ToggleButtonCard API](#togglebuttoncard-api)
+- [ToggleGroup API](#togglegroup-api)
 
 ## Usage
 
@@ -40,7 +40,8 @@ Use the `ToggleGroup` to wrap `ToggleButtonCard` components.
 
 ## ToggleGroup type
 
-`ToggleGroup` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
+`ToggleGroup` can be rendered as one of two types; `single` or `multiple`. The
+`type` prop is required.
 
 When `type` is set to `multiple`, then multiple items can be selected at once.
 
@@ -219,14 +220,22 @@ Uses [roving tabindex](https://www.w3.org/TR/wai-aria-practices-1.2/examples/rad
   ))}
 </Flex>
 
+## ToggleButtonCard API
+
+This component is based on the `button` element and `Flex` component and
+supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
+
+<ArgTypes of={ToggleButtonCard} include={'value|label'} exclude={'aria-*'} />
+
 ## ToggleGroup API
 
 This component is based on the `Flex` component.
 
-## ToggleButtonCard API
-
-This component is based on the `button` element and `Flex` component and supports the following common props:
-
-- <StorybookLink to="common-props-flex-items">Flex item</StorybookLink>
-
-<ArgTypes of={ToggleButtonCard} include={'label|aria*'} />
+<ArgTypes
+  of={ToggleGroup}
+  include={'type|value|onValueChange|defaultValue|label'}
+  exclude={'aria-*|datatype|typeof'}
+/>
