@@ -75,6 +75,10 @@ const styles = StyleSheet.create(theme => ({
     fontStyle: 'normal',
     variants: {
       size: {
+        xl: {
+          fontSize: theme.typography.mobile.bodyText.xl.fontSize,
+          lineHeight: theme.typography.mobile.bodyText.xl.lineHeight,
+        },
         lg: {
           fontSize: theme.typography.mobile.bodyText.lg.fontSize,
           lineHeight: theme.typography.mobile.bodyText.lg.lineHeight,
