@@ -13,6 +13,7 @@ import { flexPropDefs } from '../Flex/Flex.props';
 import { alignItemsPropDefs } from '../../props/align-items.props';
 import { alignContentPropDefs } from '../../props/align-content.props';
 import { justifyContentPropDefs } from '../../props/justify-content.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'ToggleButtonCard';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -36,7 +37,8 @@ export const ToggleButtonCard = forwardRef<ToggleButtonCardElement, ToggleButton
       flexPropDefs,
       alignItemsPropDefs,
       alignContentPropDefs,
-      justifyContentPropDefs
+      justifyContentPropDefs,
+      marginPropDefs
     );
     return (
       <Card

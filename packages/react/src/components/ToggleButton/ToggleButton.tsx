@@ -9,6 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import type { ToggleButtonProps } from './ToggleButton.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'ToggleButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -16,7 +17,11 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ToggleButtonElement = ComponentRef<'button'>;
 
 export const ToggleButton = forwardRef<ToggleButtonElement, ToggleButtonProps>((props, ref) => {
-  const { className, children, ...toggleButtonProps } = extractProps(props, flexItemPropDefs);
+  const { className, children, ...toggleButtonProps } = extractProps(
+    props,
+    flexItemPropDefs,
+    marginPropDefs
+  );
 
   return (
     <RadixToggleGroup.Item
