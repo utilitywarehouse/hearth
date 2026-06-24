@@ -63,8 +63,8 @@
 - [Layout](#layout)
 - [Interactive content](#interactive-content)
 - [Accessibility](#accessibility)
-- [ToggleGroup API](#togglegroup-api)
 - [ToggleButtonCard API](#togglebuttoncard-api)
+- [ToggleGroup API](#togglegroup-api)
 
 ## Usage
 
@@ -413,16 +413,25 @@ Uses [roving tabindex](https://www.w3.org/TR/wai-aria-practices-1.2/examples/rad
   ))}
 </Flex>
 
+## ToggleButtonCard API
+
+This component is based on the `button` element and `Flex` component and
+supports the following common props:
+
+- Margin
+- Flex item
+
+| Prop    | Type     | Default | Description                                                                                          |
+| ------- | -------- | ------- | ---------------------------------------------------------------------------------------------------- |
+| `label` | `string` | —       |                                                                                                      |
+| `value` | `string` | —       | A string value for the toggle group item. All items within a toggle group should use a unique value. |
+
 ## ToggleGroup API
 
 This component is based on the `Flex` component.
 
-## ToggleButtonCard API
-
-This component is based on the `button` element and `Flex` component and supports the following common props:
-
-- Flex item
-
-| Prop    | Type     | Default | Description |
-| ------- | -------- | ------- | ----------- |
-| `label` | `string` | —       |             |
+| Prop            | Type                                                       | Default    | Description                                                                                                                             |
+| --------------- | ---------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `type`          | `"single" \| "multiple"`                                   | `multiple` |                                                                                                                                         |
+| `value`         | `string \| string[]`                                       | —          | The controlled stateful value of the item that is pressed. The controlled stateful value of the items that are pressed.                 |
+| `onValueChange` | `((value: string) => void) \| ((value: string[]) => void)` | —          | The callback that fires when the value of the toggle group changes. The callback that fires when the state of the toggle group changes. |
