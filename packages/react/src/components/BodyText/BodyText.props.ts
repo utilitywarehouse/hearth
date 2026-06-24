@@ -7,7 +7,7 @@ import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
 import type { Responsive } from '../../types/responsive';
 
-const sizes = ['sm', 'md', 'lg'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const bodyTextPropDefs = {

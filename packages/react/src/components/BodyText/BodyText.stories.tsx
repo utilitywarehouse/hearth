@@ -3,7 +3,7 @@ import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { BodyText } from './BodyText';
 
-const sizes = ['sm', 'md', 'lg'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
 const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
@@ -60,6 +60,15 @@ export const KitchenSink: Story = {
         </BodyText>
         <BodyText size="lg" weight="bold">
           Hamburgefons (lg, bold)
+        </BodyText>
+        <BodyText size="xl" weight="regular">
+          Hamburgefons (xl, regular)
+        </BodyText>
+        <BodyText size="xl" weight="semibold">
+          Hamburgefons (xl, semibold)
+        </BodyText>
+        <BodyText size="xl" weight="bold">
+          Hamburgefons (xl, bold)
         </BodyText>
       </Flex>
     );
