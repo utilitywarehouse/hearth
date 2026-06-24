@@ -80,7 +80,8 @@ Use the `ToggleGroup` to wrap `ToggleButtonCard` components.
 
 ## ToggleGroup type
 
-`ToggleGroup` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
+`ToggleGroup` can be rendered as one of two types; `single` or `multiple`. The
+`type` prop is required.
 
 When `type` is set to `multiple`, then multiple items can be selected at once.
 
