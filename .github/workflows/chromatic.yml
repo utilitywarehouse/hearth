@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - 'packages/react/**'
-      - 'apps/storybook-react/**'
 
 jobs:
   chromatic:
