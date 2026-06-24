@@ -29,6 +29,15 @@
   <BodyText size="lg" weight="bold">
     Hamburgefons (lg, bold)
   </BodyText>
+  <BodyText size="xl" weight="regular">
+    Hamburgefons (xl, regular)
+  </BodyText>
+  <BodyText size="xl" weight="semibold">
+    Hamburgefons (xl, semibold)
+  </BodyText>
+  <BodyText size="xl" weight="bold">
+    Hamburgefons (xl, bold)
+  </BodyText>
 </Flex>
 ```
 
@@ -76,6 +85,7 @@ The size prop is responsive, so you can render different sizes at different brea
 | sm   | 14px      | 20px        |
 | md   | 16px      | 24px        |
 | lg   | 18px      | 24px        |
+| xl   | 20px      | 28px        |
 
 ```tsx
 <Flex direction="column" gap="100">
@@ -208,7 +218,7 @@ This component is based on the `p` element and supports the following common pro
 | ------------------ | ----------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `as`               | `"span" \| "div" \| "label" \| "p"`             | `p`       | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`.                                                                                        |
 | `asChild`          | `boolean`                                       | —         | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                                                                                  |
-| `size`             | `Responsive<"sm" \| "md" \| "lg">`              | `md`      | Set the text size styles.                                                                                                                                                                                                             |
+| `size`             | `Responsive<"sm" \| "md" \| "lg" \| "xl">`      | `md`      | Set the text size styles.                                                                                                                                                                                                             |
 | `weight`           | `Responsive<"regular" \| "semibold" \| "bold">` | `regular` | Set the font-weight                                                                                                                                                                                                                   |
 | `truncate`         | `boolean`                                       | —         | If true, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow). |
 | `paragraphSpacing` | `boolean`                                       | —         | If true, the text will have a bottom margin.                                                                                                                                                                                          |
