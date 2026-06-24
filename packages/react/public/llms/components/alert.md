@@ -154,10 +154,44 @@ the alert in your component.
 
 ## Accessibility
 
-- Alerts use the `alert` role by default for screen readers
-- `AlertIconButton` components support keyboard navigation
-- Icons are marked as `aria-hidden="true"` to avoid redundant announcements
-- Proper ARIA attributes are applied for live regions
+The `Alert` component uses `role="alert"` by default. This tells screen readers
+the element is an alert region and carries two implicit behaviours defined by
+the ARIA spec:
+
+- **Assertive live region**: when an alert is dynamically injected into the DOM (e.g. after a form submission), screen readers will interrupt whatever they are currently announcing and read the alert immediately.
+- **Atomic announcement**: the entire alert content is read as a single unit when it is announced.
+
+### Static vs dynamic alerts
+
+Live region behaviour only fires when content _changes_. If an `Alert` is
+already present in the DOM when the page first loads, `role="alert"` has no
+live-region effect and no special handling is required.
+
+### Overriding the role
+
+Because `role="alert"` causes an immediate, interruptive announcement, it
+should be reserved for genuinely time-sensitive or critical messages. For less
+urgent messages you should override the role:
+
+**Polite announcement**: use `role="status"` when the message is informational
+and should not interrupt the user (e.g. a save confirmation or a
+background-process update):
+
+```tsx
+<Alert role="status" colorScheme="positive" title="Changes saved" />
+```
+
+**No live region**: if the alert is already present on page load, or its
+content is described through other means, you can suppress live-region
+behaviour entirely:
+
+```tsx
+<Alert role={undefined} colorScheme="info" title="Your plan includes..." />
+```
+
+### Icons
+
+The icon is marked `aria-hidden="true"` because it is decorative.
 
 ### AlertLink
 
