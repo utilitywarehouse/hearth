@@ -8,13 +8,13 @@
  *   - Resolves simple JSX expressions (e.g. {version} from package.json imports)
  *   - Prunes headings whose entire section became empty after stripping Canvas blocks
  *
- * Writes output to storybook-static/llms/ (configurable via first CLI arg).
- * Also writes a root storybook-static/llms.txt index.
+ * Writes output to public/llms/ (configurable via first CLI arg).
+ * Also writes a root public/llms.txt index.
  *
  * Usage:
  *   node scripts/generate-llm-docs.js [output-dir]
  *
- * Default output-dir: ./storybook-static/llms
+ * Default output-dir: ./public/llms
  */
 
 import fs from 'fs';
