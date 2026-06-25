@@ -80,7 +80,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                       <div className={`${componentClassName}Header`}>
                         <Box asChild>
                           <DialogPrimitive.Title asChild>
-                            <Heading size="lg" wrap="wrap">
+                            <Heading size="lg" textWrap="wrap">
                               {heading}
                             </Heading>
                           </DialogPrimitive.Title>

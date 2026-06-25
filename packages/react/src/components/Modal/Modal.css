@@ -62,10 +62,12 @@
     flex-direction: column;
     gap: var(--h-modal-content-gap);
     overflow: auto;
-    padding: var(--h-bottom-sheet-padding);
+    padding-top: var(--h-bottom-sheet-padding);
+    padding-bottom: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
-      padding: var(--h-modal-padding);
+      padding-top: var(--h-modal-padding);
+      padding-bottom: var(--h-modal-padding);
     }
 
     &:where([data-contains-image] &, [data-full-screen] &) {
@@ -134,8 +136,12 @@
     gap: var(--h-modal-content-gap);
     align-items: start;
     text-align: center;
+    padding-left: var(--h-bottom-sheet-padding);
+    padding-right: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
+      padding-left: var(--h-modal-padding);
+      padding-right: var(--h-modal-padding);
       &:not([data-contains-image] &) {
         text-align: left;
       }
@@ -179,11 +185,52 @@
     & :where(.h-ModalContentScrollAreaRoot) {
       width: 100%;
       height: 100%;
+      border-radius: var(--h-modal-border-radius);
+      --scrollbar-size: 12px;
+    }
+
+    & :where(.h-ModalContentScrollAreaScrollbar) {
+      --scrollbar-padding: 2px;
+      display: flex;
+      /* ensures no selection */
+      user-select: none;
+      /* disable browser handling of all panning and zooming gestures on touch devices */
+      touch-action: none;
+      padding: var(--scrollbar-padding);
+      background: var(--h-feedback-functional-surface-subtle);
+      width: var(--scrollbar-size);
+      border-radius: calc(var(--scrollbar-size) + var(--scrollbar-padding));
+    }
+
+    & :where(.h-ModalContentScrollAreaThumb) {
+      flex: 1;
+      background: var(--h-feedback-functional-surface-default);
+      border-radius: var(--scrollbar-size);
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        min-width: 44px;
+        min-height: 44px;
+      }
     }
 
     & :where(.h-ModalContentScrollAreaViewport) {
       width: 100%;
       height: 100%;
+      padding-right: var(--h-bottom-sheet-padding);
+      padding-left: var(--h-bottom-sheet-padding);
+
+      @media (--h-tablet) {
+        padding-left: var(--h-modal-padding);
+        padding-right: var(--h-modal-padding);
+      }
 
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
@@ -203,10 +250,14 @@
     flex-direction: column-reverse;
     width: 100%;
     margin-top: calc(var(--h-modal-gap) - var(--h-modal-content-gap));
+    padding-right: var(--h-bottom-sheet-padding);
+    padding-left: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
+      padding-left: var(--h-modal-padding);
+      padding-right: var(--h-modal-padding);
     }
 
     &:where([data-contains-image] &) {
