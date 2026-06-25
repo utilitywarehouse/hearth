@@ -179,6 +179,53 @@
     & :where(.h-ModalContentScrollAreaRoot) {
       width: 100%;
       height: 100%;
+      border-radius: var(--h-modal-border-radius);
+
+      --h-scrollbar-size: 12px;
+    }
+
+    & :where(.h-ModalContentScrollAreaScrollbar) {
+      --h-scrollbar-padding: 2px;
+
+      display: flex;
+
+      /* ensures no selection */
+      user-select: none;
+
+      /* disable browser handling of all panning and zooming gestures on touch devices */
+      touch-action: none;
+      padding: var(--h-scrollbar-padding);
+      background: var(--h-feedback-functional-surface-subtle);
+      width: var(--h-scrollbar-size);
+      border-radius: calc(var(--h-scrollbar-size) + var(--h-scrollbar-padding));
+
+      /* Pull the scrollbar to the edge of the Modal */
+      margin-right: calc(-1 * var(--h-bottom-sheet-padding));
+      @media (--h-tablet) {
+        margin-right: calc(-1 * var(--h-modal-padding));
+      }
+      &:where([data-contains-image] &) {
+        margin-right: calc(-1 * var(--h-modal-padding));
+      }
+    }
+
+    & :where(.h-ModalContentScrollAreaThumb) {
+      flex: 1;
+      background: var(--h-feedback-functional-surface-default);
+      border-radius: var(--h-scrollbar-size);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        min-width: 44px;
+        min-height: 44px;
+      }
     }
 
     & :where(.h-ModalContentScrollAreaViewport) {

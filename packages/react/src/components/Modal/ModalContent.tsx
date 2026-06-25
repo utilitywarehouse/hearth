@@ -13,7 +13,12 @@ export const ModalContent = ({ className, children, ...props }: ComponentPropsWi
         <ScrollAreaPrimitive.Viewport className={`${componentClassName}ScrollAreaViewport`}>
           {children}
         </ScrollAreaPrimitive.Viewport>
-        <ScrollAreaPrimitive.Scrollbar orientation="vertical" />
+        <ScrollAreaPrimitive.Scrollbar
+          orientation="vertical"
+          className={`${componentClassName}ScrollAreaScrollbar`}
+        >
+          <ScrollAreaPrimitive.Thumb className={`${componentClassName}ScrollAreaThumb`} />
+        </ScrollAreaPrimitive.Scrollbar>
       </ScrollAreaPrimitive.Root>
     </div>
   );
