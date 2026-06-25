@@ -62,12 +62,10 @@
     flex-direction: column;
     gap: var(--h-modal-content-gap);
     overflow: auto;
-    padding-top: var(--h-bottom-sheet-padding);
-    padding-bottom: var(--h-bottom-sheet-padding);
+    padding: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
-      padding-top: var(--h-modal-padding);
-      padding-bottom: var(--h-modal-padding);
+      padding: var(--h-modal-padding);
     }
 
     &:where([data-contains-image] &, [data-full-screen] &) {
@@ -136,13 +134,8 @@
     gap: var(--h-modal-content-gap);
     align-items: start;
     text-align: center;
-    padding-left: var(--h-bottom-sheet-padding);
-    padding-right: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
-      padding-left: var(--h-modal-padding);
-      padding-right: var(--h-modal-padding);
-
       &:not([data-contains-image] &) {
         text-align: left;
       }
@@ -205,6 +198,15 @@
       background: var(--h-feedback-functional-surface-subtle);
       width: var(--h-scrollbar-size);
       border-radius: calc(var(--h-scrollbar-size) + var(--h-scrollbar-padding));
+
+      /* Pull the scrollbar to the edge of the Modal */
+      margin-right: calc(-1 * var(--h-bottom-sheet-padding));
+      @media (--h-tablet) {
+        margin-right: calc(-1 * var(--h-modal-padding));
+      }
+      &:where([data-contains-image] &) {
+        margin-right: calc(-1 * var(--h-modal-padding));
+      }
     }
 
     & :where(.h-ModalContentScrollAreaThumb) {
@@ -229,13 +231,6 @@
     & :where(.h-ModalContentScrollAreaViewport) {
       width: 100%;
       height: 100%;
-      padding-right: var(--h-bottom-sheet-padding);
-      padding-left: var(--h-bottom-sheet-padding);
-
-      @media (--h-tablet) {
-        padding-left: var(--h-modal-padding);
-        padding-right: var(--h-modal-padding);
-      }
 
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
@@ -255,14 +250,10 @@
     flex-direction: column-reverse;
     width: 100%;
     margin-top: calc(var(--h-modal-gap) - var(--h-modal-content-gap));
-    padding-right: var(--h-bottom-sheet-padding);
-    padding-left: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
-      padding-left: var(--h-modal-padding);
-      padding-right: var(--h-modal-padding);
     }
 
     &:where([data-contains-image] &) {
