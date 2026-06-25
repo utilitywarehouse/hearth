@@ -35,7 +35,7 @@ Requires `nvm` and `npm`.
 
 ```sh
 nvm use                 # set correct Node version
-npm run setup           # corepack enable + pnpm install + build all packages
+npm run setup           # corepack enable + pnpm install
 ```
 
 To fully reset dependencies and rebuild:
