@@ -118,7 +118,7 @@ library). It activates implicitly for any UI work in an app that has
 Component API reference is available locally once built:
 
 ```sh
-node -e "const path = require('path'); sh.log(path.dirname(require.resolve('@utilitywarehouse/hearth-react/package.json')))"
+node -e "const path = require('path'); console.log(path.dirname(require.resolve('@utilitywarehouse/hearth-react/package.json')))"
 # → <root>/node_modules/@utilitywarehouse/hearth-react
 # Docs: <root>/public/llms/components/<Component>.md
 ```
