@@ -108,7 +108,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                       <div className={`${componentClassName}LoadingHeader`}>
                         <Box asChild>
                           <DialogPrimitive.Title asChild>
-                            <Heading size="lg" textAlign="center" wrap="wrap">
+                            <Heading size="lg" textAlign="center" textWrap="wrap">
                               {loadingHeading || loadingText || 'Loading'}
                             </Heading>
                           </DialogPrimitive.Title>
