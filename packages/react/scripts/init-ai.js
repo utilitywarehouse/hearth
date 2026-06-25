@@ -25,45 +25,31 @@ function resolveSkillPath(projectRoot) {
   return `node_modules/${PACKAGE_NAME}/SKILL.md`;
 }
 
-function resolveDocsIndexPath(projectRoot) {
-  let dir = projectRoot;
-  while (dir !== path.parse(dir).root) {
-    const candidate = path.join(dir, 'node_modules', PACKAGE_NAME);
-    if (fs.existsSync(candidate)) {
-      return path
-        .relative(projectRoot, path.join(candidate, 'public', 'llms.txt'))
-        .replace(/\\/g, '/');
-    }
-    dir = path.dirname(dir);
-  }
-  return `node_modules/${PACKAGE_NAME}/public/llms.txt`;
-}
-
 // Config files for each tool, in detection priority order
-function buildAiTools(skillPath, docsIndexPath) {
+function buildAiTools(skillPath) {
   return [
     {
       name: 'Claude Code',
       files: ['CLAUDE.md'],
-      line: `@${skillPath}\n@${docsIndexPath}`,
+      line: `@${skillPath}`,
       supportsAtImport: true,
     },
     {
       name: 'Cursor',
       files: ['.cursorrules'],
-      line: `@${skillPath}\n@${docsIndexPath}`,
+      line: `@${skillPath}`,
       supportsAtImport: true,
     },
     {
       name: 'Windsurf',
       files: ['.windsurfrules'],
-      line: `@${skillPath}\n@${docsIndexPath}`,
+      line: `@${skillPath}`,
       supportsAtImport: true,
     },
     {
       name: 'Cline / Roo',
       files: ['.clinerules'],
-      line: `@${skillPath}\n@${docsIndexPath}`,
+      line: `@${skillPath}`,
       supportsAtImport: true,
     },
     {
@@ -151,8 +137,7 @@ function promptCreate(projectRoot, aiTools) {
 
 const projectRoot = findProjectRoot();
 const skillPath = resolveSkillPath(projectRoot);
-const docsIndexPath = resolveDocsIndexPath(projectRoot);
-const AI_TOOLS = buildAiTools(skillPath, docsIndexPath);
+const AI_TOOLS = buildAiTools(skillPath);
 
 console.log(`\n🔍  Scanning for AI assistant config files in ${projectRoot}...\n`);
 
