@@ -45,9 +45,14 @@ pnpm dev:react-native    # React Native Storybook
 pnpm build               # Build all packages (via Turbo)
 pnpm checks              # Run all quality checks
 pnpm changeset           # Create a changeset file — include in your PR
+pnpm generate:llm-docs   # Regenerate LLM docs for hearth-react
 ```
 
 For a full list of commands see `package.json` scripts.
+
+**After making changes:**
+- Always run `pnpm checks` to verify types, linting, and formatting pass.
+- When you change a public component API (props or JSDoc) in `packages/react`, run `pnpm generate:llm-docs`.
 
 ---
 
