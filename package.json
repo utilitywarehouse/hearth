@@ -26,7 +26,7 @@
     "checks:ci": "pnpm run lint:ci && pnpm run format:ci",
     "changeset": "changeset",
     "ci:publish": "pnpm run build:packages && changeset publish",
-    "ci:version": "changeset version && turbo run copy:changelog && pnpm --dir packages/react run generate:llm-docs && pnpm install --no-frozen-lockfile",
+    "ci:version": "changeset version && turbo run copy:changelog generate:llm-docs && pnpm install --no-frozen-lockfile",
     "dev:docs": "turbo run dev:docs",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
     "dev:react": "turbo run dev --filter=@utilitywarehouse/hearth-react",
@@ -47,7 +47,8 @@
     "generate:storybook:icons": "turbo run storybook-docs#generate:icons",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-docs#generate:assets",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens"
+    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
+    "generate:llm-docs": "pnpm --dir packages/react run generate:llm-docs"
   },
   "type": "module",
   "workspaces": [
