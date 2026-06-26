@@ -77,7 +77,7 @@ for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
 
 **Always check the component API before touching component code.**
 
-- Local docs (once built): `public/llms/components/<Component>.md`
+- Local docs (in this repo, once generated): `packages/react/public/llms/components/<Component>.md`
 - Via MCP (if configured): `list-all-documentation`, `get-documentation`, `get-storybook-story-instructions`
 
 **Critical rules:**
