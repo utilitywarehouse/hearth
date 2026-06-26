@@ -100,10 +100,3 @@ for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
 ## Releases
 
 Hearth uses [Changesets](https://github.com/changesets/changesets). Run `pnpm changeset`, commit the generated file with your changes, and a release PR is created automatically on merge to `main`. Use the `add-changeset` skill for guidance.
-
----
-
-## Figma integration
-
-- **Code Connect** — `.figma.tsx` files map Figma components to code; run via `pnpm figma:connect`.
-- **Figma MCP** — use the `figma-use` skill to push/pull designs.
