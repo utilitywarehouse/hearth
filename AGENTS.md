@@ -78,6 +78,7 @@ for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
 **Critical rules:**
 - Never assume a prop exists — always verify against the docs.
 - A story name may not match the prop name — check the docs, not just the story title.
+- Only touch the files the task requires — don't improve adjacent components, stories, or utilities in `packages/react` or `packages/react-native` unless explicitly asked.
 
 ---
 
