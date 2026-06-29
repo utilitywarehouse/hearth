@@ -89,7 +89,7 @@ For both React and React Native components, the source of truth is the co-locate
 
 ## Design tokens
 
-`hearth-tokens` is **not** a runtime dependency of `hearth-react` or `hearth-react-native` — tokens are copied into each package at build time via the `generate:tokens:*` scripts. If you change tokens, run the relevant generate script before building.
+`hearth-tokens` is **not** a runtime dependency of `hearth-react` or `hearth-react-native` — tokens are vendored into each package via scripts (`pnpm generate:tokens:react` for React, `pnpm --dir packages/react-native run copyTokens` for React Native). If you change tokens, run the relevant script before building.
 
 For usage guidance:
 - **React** — see the `react-component-addition` skill.
