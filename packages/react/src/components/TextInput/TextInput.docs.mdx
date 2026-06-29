@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './TextInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { TextInput } from './TextInput';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / TextInput" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # TextInput
-  <ViewMarkdownLink to="components/text-input" />
-</Flex>
+<MarkdownDocHeader title="TextInput" to="components/text-input" />
 
 `TextInput` is an interactive field that allows users to enter text and data.
 

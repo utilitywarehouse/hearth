@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './HelperText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { HelperText } from './HelperText';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / HelperText" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # HelperText
-  <ViewMarkdownLink to="components/helper-text" />
-</Flex>
+<MarkdownDocHeader title="HelperText" to="components/helper-text" />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

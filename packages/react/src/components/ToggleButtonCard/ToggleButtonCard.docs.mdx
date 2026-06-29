@@ -7,14 +7,12 @@ import { Divider } from '../Divider/Divider';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { ToggleGroup } from '../ToggleGroup/ToggleGroup';
 import { ToggleButtonCard } from './ToggleButtonCard';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / ToggleButtonCard" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # ToggleButtonCard
-  <ViewMarkdownLink to="components/toggle-button-card" />
-</Flex>
+<MarkdownDocHeader title="ToggleButtonCard" to="components/toggle-button-card" />
 
 <Canvas of={Stories.Playground} />
 

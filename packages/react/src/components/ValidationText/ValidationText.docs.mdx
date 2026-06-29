@@ -2,15 +2,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ValidationText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { ValidationText } from './ValidationText';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / ValidationText" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # ValidationText
-  <ViewMarkdownLink to="components/validation-text" />
-</Flex>
+<MarkdownDocHeader title="ValidationText" to="components/validation-text" />
 
 `ValidationText` should be used with form field components to display validation messages.
 

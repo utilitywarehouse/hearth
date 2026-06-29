@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Spinner.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Spinner } from './Spinner';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Spinner" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Spinner
-  <ViewMarkdownLink to="components/spinner" />
-</Flex>
+<MarkdownDocHeader title="Spinner" to="components/spinner" />
 
 Using a Spinner is a common method for indicating that an asynchronous process is ongoing.
 

@@ -2,15 +2,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Divider.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Divider } from './Divider';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Divider" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Divider
-  <ViewMarkdownLink to="components/divider" />
-</Flex>
+<MarkdownDocHeader title="Divider" to="components/divider" />
 
 Used to provide a visual break and semantically divide content. Supports
 vertical and horizontal orientations. Vertical dividers will only be visible

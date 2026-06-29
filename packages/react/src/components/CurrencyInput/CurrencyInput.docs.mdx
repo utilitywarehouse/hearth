@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './CurrencyInput.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { CurrencyInput } from './CurrencyInput';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / CurrencyInput" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # CurrencyInput
-  <ViewMarkdownLink to="components/currency-input" />
-</Flex>
+<MarkdownDocHeader title="CurrencyInput" to="components/currency-input" />
 
 `CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
 

@@ -2,15 +2,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './BodyText.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BodyText } from './BodyText';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / BodyText" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # BodyText
-  <ViewMarkdownLink to="components/body-text" />
-</Flex>
+<MarkdownDocHeader title="BodyText" to="components/body-text" />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

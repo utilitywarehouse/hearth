@@ -3,15 +3,12 @@ import * as Stories from './Modal.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { ModalRoot } from './ModalRoot';
 import { Modal } from './Modal';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Modal" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Modal
-  <ViewMarkdownLink to="components/modal" />
-</Flex>
+<MarkdownDocHeader title="Modal" to="components/modal" />
 
 A `Modal` overlays content to request a decision or inform users of important information. When
 users need to interact with the application without navigating to a new page or disrupting their

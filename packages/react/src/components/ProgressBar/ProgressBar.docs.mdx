@@ -1,19 +1,16 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './ProgressBar.stories';
 import { Box } from '../Box/Box';
-import { Flex } from '../Flex/Flex';
 import { BodyText } from '../BodyText/BodyText';
 import { Divider } from '../Divider/Divider';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { ProgressBar } from './ProgressBar';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / ProgressBar" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # ProgressBar
-  <ViewMarkdownLink to="components/progress-bar" />
-</Flex>
+<MarkdownDocHeader title="ProgressBar" to="components/progress-bar" />
 
 `ProgressBar` displays the progress of a task or process in a linear bar format, with support for different visual states.
 
