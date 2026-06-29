@@ -599,6 +599,9 @@ const ARG_TYPES_RE = /^\s*<ArgTypes\b([^>]*)\/?>\s*$/;
 // Captures the namespace (group 1) and story name (group 2).
 const CANVAS_STORY_RE = /^\s*<Canvas\b[^>]*\bof=\{(\w+)\.(\w+)\}[^>]*\/?>\s*$/;
 
+// Matches <MarkdownDocHeader title="Foo" to="..." /> — replaced with # Foo
+const MARKDOWN_DOC_HEADER_RE = /^\s*<MarkdownDocHeader\b[^>]*\btitle="([^"]+)"[^>]*\/>\s*$/;
+
 // Matches inline <StorybookLink ...>text</StorybookLink> — global, may appear multiple times per line
 const STORYBOOK_LINK_RE = /<StorybookLink[^>]*>([^<]*)<\/StorybookLink>/g;
 
@@ -770,6 +773,13 @@ function transformContent(content, importMap, exprMap) {
           }
         }
       }
+      continue;
+    }
+
+    // Replace MarkdownDocHeader with a plain h1 title
+    const headerMatch = line.match(MARKDOWN_DOC_HEADER_RE);
+    if (headerMatch) {
+      output.push(`# ${headerMatch[1]}`);
       continue;
     }
 
