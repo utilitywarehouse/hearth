@@ -1,5 +1,24 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.34.3
+
+### Patch Changes
+
+- [#1359](https://github.com/utilitywarehouse/hearth/pull/1359) [`60c5940`](https://github.com/utilitywarehouse/hearth/commit/60c59401f6a46821884002187601191f78bdf423) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - 🐛 [FIX]: `UnorderedList` and `OrderedList` layout when inside a centred flex container
+
+  Both list components now render correctly when their parent uses
+  `alignItems="center"`. Previously, the list would collapse to the width of the
+  bullet/number, leaving text invisible or clipped beside each list item.
+
+  **Before**: wrapping `UL` or `OL` in a `Box` with `alignItems="center"` caused
+  bullets and numbers to appear without any adjacent text.
+
+  **After**: both components always stretch to fill their parent's width via
+  `alignSelf: 'stretch'`, regardless of the parent's `alignItems` setting.
+
+- Updated dependencies [[`fd31bf8`](https://github.com/utilitywarehouse/hearth/commit/fd31bf8208278a580f8039d09f4e8e78aac2b477)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.8.4
+
 ## 0.34.2
 
 ### Patch Changes
