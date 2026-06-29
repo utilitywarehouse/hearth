@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.8.4
+
+### Patch Changes
+
+- [#1363](https://github.com/utilitywarehouse/hearth/pull/1363) [`fd31bf8`](https://github.com/utilitywarehouse/hearth/commit/fd31bf8208278a580f8039d09f4e8e78aac2b477) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Bump lodash deps to latest
+
+  **Developer changes**:
+
+  No changes required.
+
 ## 0.8.3
 
 ### Patch Changes
