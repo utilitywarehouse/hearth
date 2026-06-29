@@ -31,6 +31,7 @@
     "@types/react": "~19.1.11",
     "@utilitywarehouse/hearth-react-native": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",
+    "@utilitywarehouse/hearth-storybook-utils": "workspace:*",
     "@utilitywarehouse/hearth-svg-assets": "workspace:^",
     "@utilitywarehouse/hearth-tokens": "workspace:^",
     "expo": "54.0.22",
