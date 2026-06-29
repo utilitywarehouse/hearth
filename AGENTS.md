@@ -73,27 +73,27 @@ for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
 
 ---
 
-## Working with React components
+## Working with components
 
-**Always check the component API before touching component code.**
+**Always verify the component API before touching component code — never assume a prop exists.**
 
-- Local docs (in this repo, once generated): `packages/react/public/llms/components/<Component>.md`
-- Via MCP (if configured): `list-all-documentation`, `get-documentation`, `get-storybook-story-instructions`
+For both React and React Native components, the source of truth is the co-located files alongside the component:
+- `<Component>.props.ts` — prop definitions and types
+- `<Component>.docs.mdx` — usage docs and examples
 
-**Critical rules:**
-- Never assume a prop exists — always verify against the docs.
-- A story name may not match the prop name — check the docs, not just the story title.
-- Only touch the files the task requires — don't improve adjacent components, stories, or utilities in `packages/react` or `packages/react-native` unless explicitly asked.
+**Rules that apply everywhere:**
+- A story name may not match the prop name — check the source files, not just the story title.
+- Only touch the files the task requires — don't improve adjacent components, stories, or utilities unless explicitly asked.
 
 ---
 
 ## Design tokens
 
-`hearth-tokens` is **not** a runtime dependency of `hearth-react` — tokens are copied in at build time via `pnpm generate:tokens:react`.
+`hearth-tokens` is **not** a runtime dependency of `hearth-react` or `hearth-react-native` — tokens are vendored into each package via scripts (`pnpm generate:tokens:react` for React, `pnpm --dir packages/react-native run copyTokens` for React Native). If you change tokens, run the relevant script before building.
 
-- **CSS files** — use CSS custom properties: `var(--h-space-200)`
-- **JS/TS/TSX files** — use browser tokens: `import { semantic } from '@utilitywarehouse/hearth-tokens/browser'`
-- **Never** use raw values — always go through the token system.
+For usage guidance:
+- **React** — see the `react-component-addition` skill.
+- **React Native** — see the `react-native-component-addition` skill.
 
 ---
 
