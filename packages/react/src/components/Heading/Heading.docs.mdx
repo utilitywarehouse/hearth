@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Heading.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Heading } from './Heading';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / Heading" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Heading
-  <ViewMarkdownLink to="components/heading" />
-</Flex>
+<MarkdownDocHeader title="Heading" to="components/heading" />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

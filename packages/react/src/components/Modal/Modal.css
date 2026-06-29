@@ -201,9 +201,11 @@
 
       /* Pull the scrollbar to the edge of the Modal */
       margin-right: calc(-1 * var(--h-bottom-sheet-padding));
+
       @media (--h-tablet) {
         margin-right: calc(-1 * var(--h-modal-padding));
       }
+
       &:where([data-contains-image] &) {
         margin-right: calc(-1 * var(--h-modal-padding));
       }

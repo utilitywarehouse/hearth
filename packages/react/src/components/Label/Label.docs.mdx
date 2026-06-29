@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Label.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Label } from './Label';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / Label" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Label
-  <ViewMarkdownLink to="components/label" />
-</Flex>
+<MarkdownDocHeader title="Label" to="components/label" />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

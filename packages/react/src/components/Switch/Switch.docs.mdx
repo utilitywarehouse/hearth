@@ -3,15 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Switch.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Switch } from './Switch';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Switch" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Switch
-  <ViewMarkdownLink to="components/switch" />
-</Flex>
+<MarkdownDocHeader title="Switch" to="components/switch" />
 
 `Switch` is used to indicate switching between two opposing options. Switches
 allow users to turn an individual option on or off. They are usually used to

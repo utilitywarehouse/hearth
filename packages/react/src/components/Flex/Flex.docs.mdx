@@ -3,14 +3,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Flex.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Flex } from './Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Layout / Flex" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Flex
-  <ViewMarkdownLink to="components/flex" />
-</Flex>
+<MarkdownDocHeader title="Flex" to="components/flex" />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

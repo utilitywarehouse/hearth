@@ -2,15 +2,12 @@ import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Breadcrumbs.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BreadcrumbItem } from './BreadcrumbItem';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Breadcrumbs" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Breadcrumbs
-  <ViewMarkdownLink to="components/breadcrumbs" />
-</Flex>
+<MarkdownDocHeader title="Breadcrumbs" to="components/breadcrumbs" />
 
 Use the `Breadcrumbs` component when you need to help users understand and move between multiple levels of a website.
 

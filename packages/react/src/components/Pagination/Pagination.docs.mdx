@@ -2,15 +2,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Pagination.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { Pagination } from './Pagination';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / Pagination" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Pagination
-  <ViewMarkdownLink to="components/pagination" />
-</Flex>
+<MarkdownDocHeader title="Pagination" to="components/pagination" />
 
 Use the `Pagination` component to help users navigate through multiple pages of content.
 

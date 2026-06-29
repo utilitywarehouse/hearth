@@ -2,15 +2,12 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './TextArea.stories';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { TextArea } from './TextArea';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
 <Meta title="Components / TextArea" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # TextArea
-  <ViewMarkdownLink to="components/text-area" />
-</Flex>
+<MarkdownDocHeader title="TextArea" to="components/text-area" />
 
 `TextArea` is a multi-line text input field that allows users to enter longer text content.
 
