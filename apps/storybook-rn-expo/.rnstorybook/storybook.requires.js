@@ -42,7 +42,7 @@ globalThis.STORIES = normalizedStories;
 
 module?.hot?.accept?.();
 
-const options = {}
+const options = {};
 
 if (!globalThis.view) {
   globalThis.view = start({

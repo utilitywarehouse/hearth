@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-react-native': minor
+'@utilitywarehouse/hearth-react-native': patch
 ---
 
 🐛 [FIX]: `UnorderedList` and `OrderedList` layout when inside a centred flex container
