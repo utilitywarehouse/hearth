@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CopySmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { Button } from '../../src/components/Button/Button';
+import React from 'react';
 
 export const CopyMarkdownButton = ({ to }: { to: string }) => {
   const [copied, setCopied] = useState(false);
@@ -31,7 +32,7 @@ export const CopyMarkdownButton = ({ to }: { to: string }) => {
   return (
     <Button variant="ghost" size="sm" onClick={handleCopy}>
       {copied ? <TickSmallIcon /> : <CopySmallIcon />}
-      {copied ? 'Copied' : 'Copy Markdown'}
+      'Copy Markdown'
     </Button>
   );
 };
