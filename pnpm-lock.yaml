@@ -397,6 +397,9 @@ importers:
       '@utilitywarehouse/hearth-react-native-icons':
         specifier: workspace:^
         version: link:../../packages/react-native-icons
+      '@utilitywarehouse/hearth-storybook-utils':
+        specifier: workspace:*
+        version: link:../../packages/storybook-utils
       '@utilitywarehouse/hearth-svg-assets':
         specifier: workspace:^
         version: link:../../packages/svg-assets

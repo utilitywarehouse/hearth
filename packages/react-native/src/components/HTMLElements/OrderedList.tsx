@@ -28,7 +28,7 @@ const OrderedList = ({
   let itemNumber = 0;
 
   return (
-    <View style={[computedStyles, style]} {...rest}>
+    <View style={[styles.container, computedStyles, style]} {...rest}>
       {React.Children.map(children, child => {
         if (React.isValidElement(child)) {
           itemNumber++;
@@ -82,6 +82,9 @@ const OrderedList = ({
 OrderedList.displayName = 'OrderedList';
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+  },
   listItemContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',

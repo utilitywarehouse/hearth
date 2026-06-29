@@ -27,7 +27,7 @@ const UnorderedList = ({
   const theme = useTheme();
 
   return (
-    <View style={[computedStyles, style]} {...rest}>
+    <View style={[styles.container, computedStyles, style]} {...rest}>
       {React.Children.map(children, child => {
         if (React.isValidElement(child)) {
           const childProps = child.props as ListItemProps;
@@ -76,6 +76,9 @@ const UnorderedList = ({
 UnorderedList.displayName = 'UnorderedList';
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: 'stretch',
+  },
   listItemContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
