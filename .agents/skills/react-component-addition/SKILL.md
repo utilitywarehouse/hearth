@@ -357,16 +357,12 @@ export const Variants: Story = {
 ```mdx
 import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './MyComponent.stories';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { MyComponent } from './MyComponent';
-import { Flex } from '../Flex/Flex';
-import { ViewMarkdownLink } from '../../../docs/storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+
 <Meta title="Components / MyComponent" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # MyComponent
-  <ViewMarkdownLink to="components/my-component" />
-</Flex>
+<MarkdownDocHeader title="MyComponent" to="components/my-component" />
 
 Brief description of what the component is and when to use it.
 
@@ -379,8 +375,6 @@ The `variant` prop controls the visual style.
 <Source of={Stories.Variants} />
 
 ## API
-This component supports the following common props:
-- <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
 <ArgTypes of={MyComponent} exclude={'margin*'} />
 ```

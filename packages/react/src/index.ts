@@ -317,5 +317,10 @@ export type { TooltipProviderProps } from './components/Tooltip/TooltipProvider.
 export { Tooltip } from './components/Tooltip/Tooltip';
 export type { TooltipProps } from './components/Tooltip/Tooltip.props';
 
+export { SegmentedControl } from './components/SegmentedControl/SegmentedControl';
+export type { SegmentedControlProps } from './components/SegmentedControl/SegmentedControl.props';
+export { SegmentedControlOption } from './components/SegmentedControl/SegmentedControlOption';
+export type { SegmentedControlOptionProps } from './components/SegmentedControl/SegmentedControlOption.props';
+
 export { HearthProvider } from './components/HearthProvider/HearthProvider';
 export type { HearthProviderProps } from './components/HearthProvider/HearthProvider.props';
