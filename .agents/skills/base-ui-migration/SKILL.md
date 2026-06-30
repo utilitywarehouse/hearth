@@ -73,7 +73,7 @@ Apply these rules when deciding how to handle each change:
 
 | Situation | Action |
 |-----------|--------|
-| Single prop rename, one-to-one equivalent | Deprecation shim — keep old name, add new name, `@deprecated` JSDoc, dev `console.warn` |
+| Single prop rename, one-to-one equivalent | Deprecation shim — keep old name, add new name, `@deprecated` JSDoc, dev `warn()` |
 | Multiple related props removed together | Commit to breaking change — avoids long-term shim churn; document clearly |
 | Sub-component part rename (e.g. `Content` → `Popup`) and Hearth does not re-export that type | Internal change only — no consumer impact, no shim needed |
 | Sub-component part rename and Hearth re-exports the sub-component's props type | Breaking — update the exported type name or add a type alias with `@deprecated` |
