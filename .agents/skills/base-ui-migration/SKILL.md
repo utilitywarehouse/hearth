@@ -314,7 +314,7 @@ Use these as a starting point. Always verify against the live base-ui docs — A
 
 - [ ] API diff table produced and approved before any code written
 - [ ] All `radix-ui` imports in the component folder replaced with `@base-ui/react`
-- [ ] Deprecated props have `@deprecated` JSDoc + dev-mode `console.warn`
+- [ ] Deprecated props have `@deprecated` JSDoc + dev-mode `warn()`
 - [ ] Public prop interface name unchanged (no consumer TypeScript breakage)
 - [ ] `asChild` preserved on public API where it existed
 - [ ] Internal `asChild` usage on primitives replaced with base-ui `render` prop
