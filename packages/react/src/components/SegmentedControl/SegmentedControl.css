@@ -1,5 +1,6 @@
 .h-SegmentedControl {
   display: inline-flex;
+  position: relative;
   width: fit-content;
   align-items: stretch;
   padding: var(--h-segmented-control-group-padding);
@@ -18,12 +19,28 @@
   }
 }
 
+.h-SegmentedControlIndicator {
+  position: absolute;
+  inset-block: var(--h-segmented-control-group-padding);
+  left: 0;
+  width: 0;
+  opacity: 0;
+  background-color: var(--h-interactive-brand-surface-strong-default);
+  border-radius: var(--h-segmented-control-border-radius);
+  pointer-events: none;
+  transition:
+    transform 200ms ease,
+    width 200ms ease,
+    opacity 150ms ease;
+}
+
 .h-SegmentedControlOption {
   all: unset;
   outline: transparent;
   appearance: none;
   box-sizing: border-box;
   position: relative;
+  z-index: 1;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -33,7 +50,7 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   touch-action: manipulation;
-  transition: background-color 150ms ease-out;
+  transition: background-color 200ms ease-out;
   border-radius: var(--h-segmented-control-border-radius);
   gap: var(--h-segmented-control-gap);
   padding-inline: var(--h-segmented-control-padding-horizontal);
@@ -52,8 +69,8 @@
   /*
    * display: grid stacks the real text and the semibold ghost ::after in the
    * same grid cell. The column is sized to the wider (bold) text, preventing
-   * layout shift when font-weight changes. height: 0 + overflow: hidden on
-   * ::after ensures it contributes zero to the row height.
+   * layout shift when font-weight changes on selection. height: 0 + overflow:
+   * hidden on ::after ensures it contributes zero to the row height.
    */
   & :where(.h-SegmentedControlOptionLabel) {
     display: grid;
@@ -71,12 +88,12 @@
   }
 
   @media (hover: hover) {
-    &:where(:not([data-disabled]):hover) {
+    &:where(:not([data-disabled], [data-pressed]):hover) {
       background-color: var(--h-interactive-neutral-surface-subtle-hover);
     }
   }
 
-  &:where(:not([data-disabled]):active) {
+  &:where(:not([data-disabled], [data-pressed]):active) {
     background-color: var(--h-interactive-neutral-surface-subtle-active);
   }
 
@@ -85,24 +102,15 @@
     outline-offset: 1px;
   }
 
+  /* Applied by JS when the indicator finishes arriving, removed when it departs.
+   * Keeps colour and weight changes in sync with the indicator rather than
+   * changing immediately when Base UI toggles [data-pressed]. */
   &:where([data-pressed]) {
-    background-color: var(--h-interactive-brand-surface-strong-default);
     color: var(--h-interactive-brand-foreground-strong);
     font-weight: var(--h-font-weight-semibold);
-
-    @media (hover: hover) {
-      &:where(:not([data-disabled]):hover) {
-        background-color: var(--h-interactive-brand-surface-strong-hover);
-      }
-    }
-
-    &:where(:not([data-disabled]):active) {
-      background-color: var(--h-interactive-brand-surface-strong-active);
-    }
   }
 
   &:where([data-disabled]) {
     cursor: not-allowed;
-    opacity: 0.38;
   }
 }
