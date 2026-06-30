@@ -1,13 +1,10 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / Gap" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Gap
-  <ViewMarkdownLink to="docs/common-props/gap" />
-</Flex>
+<MarkdownDocHeader title="Gap" to="docs/common-props/gap" />
 
 The `gap` prop is responsive, and accepts [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens),
 as well as Hearth prefixed CSS custom properties from the Hearth Tokens library. You cannot pass raw strings.

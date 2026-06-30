@@ -1,7 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../src/components/Box/Box';
-import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 import {
   ColorPropsTable,
   BackgroundColorPropsTable,
@@ -9,10 +8,7 @@ import {
 
 <Meta title="Common Props / Colour" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Colour props
-  <ViewMarkdownLink to="docs/common-props/colour" />
-</Flex>
+<MarkdownDocHeader title="Colour props" to="docs/common-props/colour" />
 
 ## Color
 

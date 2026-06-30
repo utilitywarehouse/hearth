@@ -1,13 +1,10 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / Spacing" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Spacing
-  <ViewMarkdownLink to="docs/common-props/spacing" />
-</Flex>
+<MarkdownDocHeader title="Spacing" to="docs/common-props/spacing" />
 
 The `spacing` prop is not responsive, instead it provides a predetermined set
 of responsive steps for spacing _between_ elements. These will be overridden by

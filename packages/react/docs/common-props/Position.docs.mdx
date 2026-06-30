@@ -1,14 +1,10 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../src/components/Box/Box';
-import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / Position" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Position
-  <ViewMarkdownLink to="docs/common-props/position" />
-</Flex>
+<MarkdownDocHeader title="Position" to="docs/common-props/position" />
 
 The position props are responsive, and accept [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens),
 as well as raw string values.

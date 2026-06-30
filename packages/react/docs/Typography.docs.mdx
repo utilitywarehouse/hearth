@@ -2,15 +2,11 @@ import { Meta, Canvas } from '@storybook/addon-docs/blocks';
 import * as HeadingStories from '../src/components/Heading/Heading.stories';
 import * as BodyTextStories from '../src/components/BodyText/BodyText.stories';
 import * as DetailTextStories from '../src/components/DetailText/DetailText.stories';
-import { Flex } from '../src/components/Flex/Flex';
-import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from './storybook-components/MarkdownDocHeader';
 
 <Meta title="Typography / Overview" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Typography
-  <ViewMarkdownLink to="docs/typography" />
-</Flex>
+<MarkdownDocHeader title="Typography" to="docs/typography" />
 
 Hearth provides three typography components for general content: `Heading`, `BodyText`,
 and `DetailText`, each corresponding to a distinct font-family in Figma.

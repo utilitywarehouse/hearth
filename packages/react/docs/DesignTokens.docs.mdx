@@ -1,13 +1,9 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { Flex } from '../src/components/Flex/Flex';
-import { ViewMarkdownLink } from './storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from './storybook-components/MarkdownDocHeader';
 
 <Meta title="Design Tokens" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Hearth Tokens
-  <ViewMarkdownLink to="docs/design-tokens" />
-</Flex>
+<MarkdownDocHeader title="Hearth Tokens" to="docs/design-tokens" />
 
 Hearth Tokens is a Design Tokens library providing an easy way to access
 predefined values for spacing, colour, typography, borders, components, radii,

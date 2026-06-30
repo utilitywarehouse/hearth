@@ -1,14 +1,11 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../src/components/Box/Box';
 import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / AlignSelf" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # AlignSelf
-  <ViewMarkdownLink to="docs/common-props/align-self" />
-</Flex>
+<MarkdownDocHeader title="AlignSelf" to="docs/common-props/align-self" />
 
 The align-self CSS property overrides a grid or flex item's align-items value.
 

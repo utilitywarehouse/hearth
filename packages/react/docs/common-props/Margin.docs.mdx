@@ -1,14 +1,10 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../src/components/Box/Box';
-import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / Margin" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Margin props
-  <ViewMarkdownLink to="docs/common-props/margin" />
-</Flex>
+<MarkdownDocHeader title="Margin props" to="docs/common-props/margin" />
 
 Margin props are responsive, and accept [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens),
 as well as Hearth prefixed CSS custom properties from the Hearth Tokens library.
