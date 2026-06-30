@@ -1,14 +1,11 @@
 import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
 import { BodyText, Flex, Divider, breakpoints } from '@utilitywarehouse/hearth-react';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Responsive Design / Breakpoints" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Breakpoints
-  <ViewMarkdownLink to="docs/responsive-design/breakpoints" />
-</Flex>
+<MarkdownDocHeader title="Breakpoints" to="docs/responsive-design/breakpoints" />
 
 Each breakpoint matches a fixed screen width. Values are min-width based and
 apply when the screen width is equal or greater.

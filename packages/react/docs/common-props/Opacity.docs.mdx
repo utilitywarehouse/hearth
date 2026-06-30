@@ -1,14 +1,11 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import { Box } from '../../src/components/Box/Box';
 import { Flex } from '../../src/components/Flex/Flex';
-import { ViewMarkdownLink } from '../storybook-components/ViewMarkdownLink';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
 
 <Meta title="Common Props / Opacity" />
 
-<Flex justifyContent="between" alignItems="baseline">
-  # Opacity
-  <ViewMarkdownLink to="docs/common-props/opacity" />
-</Flex>
+<MarkdownDocHeader title="Opacity" to="docs/common-props/opacity" />
 
 The opacity prop provides opacity styles, it is responsive and accepts any
 valid string value.

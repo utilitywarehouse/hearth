@@ -32,7 +32,7 @@ export const CopyMarkdownButton = ({ to }: { to: string }) => {
   return (
     <Button variant="ghost" size="sm" onClick={handleCopy}>
       {copied ? <TickSmallIcon /> : <CopySmallIcon />}
-      'Copy Markdown'
+      Copy Markdown
     </Button>
   );
 };
