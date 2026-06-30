@@ -113,14 +113,13 @@ keepMounted?: boolean;
 ```
 
 **In the component file:**
-```tsx
-if (process.env.NODE_ENV !== 'production' && forceMount !== undefined) {
-  console.warn(
-    '[Hearth] <ComponentName>: the `forceMount` prop is deprecated. Use `keepMounted` instead.'
-  );
-}
-const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
-```
+    import { warn } from '../../helpers/logger';
+
+    warn(
+      forceMount !== undefined,
+      '<ComponentName>: the `forceMount` prop is deprecated. Use `keepMounted` instead.'
+    );
+    const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
 
 ---
 
