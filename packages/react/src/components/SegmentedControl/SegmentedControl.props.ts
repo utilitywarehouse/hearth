@@ -49,6 +49,12 @@ export type SegmentedControlProps = {
    * @default sm
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * When true, a sliding pill indicator animates between selected options.
+   * Set to false to use a static background transition instead.
+   * @default true
+   */
+  indicator?: boolean;
   children?: ReactNode;
 } & Omit<ComponentPropsWithRef<'div'>, 'onChange'> &
   MarginProps;

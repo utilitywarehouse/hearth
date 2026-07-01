@@ -19,8 +19,9 @@ type SegmentedControlElement = ComponentRef<'div'>;
 
 export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedControlProps>(
   (props, ref) => {
+    const { indicator = true, ...rest } = props;
     const { className, children, onValueChange, ...segmentedControlProps } = extractProps(
-      props,
+      rest,
       segmentedControlPropDefs,
       marginPropDefs
     );
@@ -28,13 +29,13 @@ export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedCon
     const indicatorRef = useRef<HTMLSpanElement>(null);
 
     const moveIndicator = useCallback((animate: boolean = true) => {
-      const indicator = indicatorRef.current;
-      const container = indicator?.parentElement;
-      if (!container || !indicator) return;
+      const indicatorEl = indicatorRef.current;
+      const container = indicatorEl?.parentElement;
+      if (!container || !indicatorEl) return;
 
       const pressed = container.querySelector<HTMLElement>('[data-pressed]');
       if (!pressed) {
-        indicator.style.opacity = '0';
+        indicatorEl.style.opacity = '0';
         return;
       }
 
@@ -44,14 +45,14 @@ export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedCon
       const left = pressedRect.left - containerRect.left - container.clientLeft;
 
       if (!animate) {
-        indicator.style.transition = 'none';
+        indicatorEl.style.transition = 'none';
       }
-      indicator.style.transform = `translateX(${left}px)`;
-      indicator.style.width = `${pressedRect.width}px`;
-      indicator.style.opacity = '1';
+      indicatorEl.style.transform = `translateX(${left}px)`;
+      indicatorEl.style.width = `${pressedRect.width}px`;
+      indicatorEl.style.opacity = '1';
       if (!animate) {
-        indicator.getBoundingClientRect(); // force reflow
-        indicator.style.transition = '';
+        indicatorEl.getBoundingClientRect(); // force reflow
+        indicatorEl.style.transition = '';
         // Sync text styling immediately on initial render — no animation to wait for
         pressed.setAttribute(DATA_ACTIVE, '');
       }
@@ -66,20 +67,20 @@ export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedCon
     // This keeps the colour/weight change in sync with the indicator's arrival rather than
     // changing immediately when [data-pressed] is applied by Base UI.
     useEffect(() => {
-      const indicator = indicatorRef.current;
-      if (!indicator) return;
+      const indicatorEl = indicatorRef.current;
+      if (!indicatorEl) return;
 
       const handleTransitionEnd = (e: TransitionEvent) => {
         if (e.propertyName !== 'transform') return;
-        const container = indicator.parentElement;
+        const container = indicatorEl.parentElement;
         if (!container) return;
 
         container.querySelectorAll(`[${DATA_ACTIVE}]`).forEach(el => el.removeAttribute(DATA_ACTIVE));
         container.querySelector<HTMLElement>('[data-pressed]')?.setAttribute(DATA_ACTIVE, '');
       };
 
-      indicator.addEventListener('transitionend', handleTransitionEnd);
-      return () => indicator.removeEventListener('transitionend', handleTransitionEnd);
+      indicatorEl.addEventListener('transitionend', handleTransitionEnd);
+      return () => indicatorEl.removeEventListener('transitionend', handleTransitionEnd);
     }, []);
 
     const handleValueChange = useCallback(
@@ -95,10 +96,11 @@ export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedCon
         ref={ref}
         className={cn(componentClassName, className)}
         data-testid={componentClassName}
+        data-no-indicator={!indicator ? '' : undefined}
         onValueChange={handleValueChange}
         {...segmentedControlProps}
       >
-        <span ref={indicatorRef} className={indicatorClassName} aria-hidden="true" />
+        {indicator && <span ref={indicatorRef} className={indicatorClassName} aria-hidden="true" />}
         {children}
       </ToggleGroupPrimitive>
     );

@@ -113,3 +113,24 @@
     cursor: not-allowed;
   }
 }
+
+/* Static (no indicator) mode — [data-pressed] gets the brand background directly */
+.h-SegmentedControl:where([data-no-indicator]) {
+  & .h-SegmentedControlOption {
+    transition: background-color 150ms ease-out;
+
+    &:where([data-pressed]) {
+      background-color: var(--h-interactive-brand-surface-strong-default);
+    }
+
+    @media (hover: hover) {
+      &:where([data-pressed]:not([data-disabled]):hover) {
+        background-color: var(--h-interactive-brand-surface-strong-hover);
+      }
+    }
+
+    &:where([data-pressed]:not([data-disabled]):active) {
+      background-color: var(--h-interactive-brand-surface-strong-active);
+    }
+  }
+}
