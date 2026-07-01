@@ -1,4 +1,4 @@
 import type { ComponentPropsWithRef } from 'react';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 
-export type MenuProps = Omit<ComponentPropsWithRef<typeof MenuPrimitive.Root>, 'dir'>;
+export type MenuProps = ComponentPropsWithRef<typeof MenuPrimitive.Root>;

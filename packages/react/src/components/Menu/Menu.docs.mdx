@@ -70,9 +70,6 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
-If a `MenuItem` is navigating to another page, you can use the `asChild` prop to
-render a semantic `<a>` element.
-
 ```tsx
 <MenuContent>
   <MenuItem>Item</MenuItem>
@@ -80,13 +77,6 @@ render a semantic `<a>` element.
   <MenuItem colorScheme="destructive">
     Destructive item
     <TrashSmallIcon />
-  </MenuItem>
-  {/* render a link element if navigating to somewhere else */}
-  <MenuItem asChild>
-    <a href="/another-page">
-      Navigation Item
-      <OpenSmallIcon />
-    </a>
   </MenuItem>
   <MenuItem disabled>Disabled item</MenuItem>
 </MenuContent>
@@ -154,17 +144,37 @@ to manage focus movement among menu items.
 
 By default, `MenuContent` is removed from the DOM when the menu is closed, which
 means search engines may not index its content. If the menu items are important
-for SEO — for example, primary navigation links — use the `forceMount` prop on
+for SEO — for example, primary navigation links — use the `keepMounted` prop on
 `MenuContent` to keep them in the DOM at all times.
 
-When `forceMount` is set, the closed menu is hidden from view and the
-accessibility tree using the `hidden` attribute, so it has no impact on the
-visual layout or screen reader experience.
-
 ```tsx
-<MenuContent forceMount>
+<MenuContent keepMounted>
   <MenuItem>Item</MenuItem>
 </MenuContent>
+```
+
+## Migration
+
+### Migrating from a previous major version
+
+**`MenuItem` breaking changes:**
+
+- `onSelect` has been removed. Use the standard `onClick` prop instead — it fires for both mouse and keyboard activation.
+- `textValue` has been removed. No replacement is needed.
+- `asChild` has been removed. It was previously accepted by the type but was never functional on `MenuItem`.
+
+**`MenuContent` deprecation:**
+
+- `forceMount` is deprecated. Use `keepMounted` instead.
+
+```tsx
+{/* Before */}
+<MenuItem onSelect={handleSelect} textValue="label">Item</MenuItem>
+<MenuContent forceMount>...</MenuContent>
+
+{/* After */}
+<MenuItem onClick={handleSelect}>Item</MenuItem>
+<MenuContent keepMounted>...</MenuContent>
 ```
 
 ## Menu API

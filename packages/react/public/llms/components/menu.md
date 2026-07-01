@@ -13,7 +13,7 @@ Use the `Menu` component to present a short list of actions or options in respon
   <MenuContent>
     <MenuItem>Item</MenuItem>
     <MenuItem>Item</MenuItem>
-    <MenuItem asChild>
+    <MenuItem>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a href="#">
         Navigation Item
@@ -143,9 +143,6 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
-If a `MenuItem` is navigating to another page, you can use the `asChild` prop to
-render a semantic `<a>` element.
-
 ```tsx
 <MenuContent>
   <MenuItem>Item</MenuItem>
@@ -153,13 +150,6 @@ render a semantic `<a>` element.
   <MenuItem colorScheme="destructive">
     Destructive item
     <TrashSmallIcon />
-  </MenuItem>
-  {/* render a link element if navigating to somewhere else */}
-  <MenuItem asChild>
-    <a href="/another-page">
-      Navigation Item
-      <OpenSmallIcon />
-    </a>
   </MenuItem>
   <MenuItem disabled>Disabled item</MenuItem>
 </MenuContent>
@@ -227,44 +217,82 @@ to manage focus movement among menu items.
 
 By default, `MenuContent` is removed from the DOM when the menu is closed, which
 means search engines may not index its content. If the menu items are important
-for SEO — for example, primary navigation links — use the `forceMount` prop on
+for SEO — for example, primary navigation links — use the `keepMounted` prop on
 `MenuContent` to keep them in the DOM at all times.
 
-When `forceMount` is set, the closed menu is hidden from view and the
-accessibility tree using the `hidden` attribute, so it has no impact on the
-visual layout or screen reader experience.
-
 ```tsx
-<MenuContent forceMount>
+<MenuContent keepMounted>
   <MenuItem>Item</MenuItem>
 </MenuContent>
 ```
 
+### Migrating from a previous major version
+
+**`MenuItem` breaking changes:**
+
+- `onSelect` has been removed. Use the standard `onClick` prop instead — it fires for both mouse and keyboard activation.
+- `textValue` has been removed. No replacement is needed.
+- `asChild` has been removed. It was previously accepted by the type but was never functional on `MenuItem`.
+
+**`MenuContent` deprecation:**
+
+- `forceMount` is deprecated. Use `keepMounted` instead.
+
+```tsx
+{/* Before */}
+<MenuItem onSelect={handleSelect} textValue="label">Item</MenuItem>
+<MenuContent forceMount>...</MenuContent>
+
+{/* After */}
+<MenuItem onClick={handleSelect}>Item</MenuItem>
+<MenuContent keepMounted>...</MenuContent>
+```
+
 ## Menu API
 
-| Prop           | Type                        | Default | Description |
-| -------------- | --------------------------- | ------- | ----------- |
-| `open`         | `boolean`                   | —       |             |
-| `defaultOpen`  | `boolean`                   | —       |             |
-| `onOpenChange` | `((open: boolean) => void)` | —       |             |
-| `modal`        | `boolean`                   | —       |             |
+| Prop                   | Type                                                                  | Default      | Description                                                                                                                                                                                                                                                                                                               |
+| ---------------------- | --------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `defaultOpen`          | `boolean`                                                             | `false`      | Whether the menu is initially open. To render a controlled menu, use the `open` prop instead.                                                                                                                                                                                                                             |
+| `loopFocus`            | `boolean`                                                             | `true`       | Whether to loop keyboard focus back to the first item when the end of the list is reached while using the arrow keys.                                                                                                                                                                                                     |
+| `highlightItemOnHover` | `boolean`                                                             | `true`       | Whether moving the pointer over items should highlight them. Disabling this prop allows CSS `:hover` to be differentiated from the `:focus` (`data-highlighted`) state.                                                                                                                                                   |
+| `modal`                | `boolean`                                                             | `true`       | Determines if the menu enters a modal state when open. - `true`: user interaction is limited to the menu: document page scroll is locked and pointer interactions on outside elements are disabled. - `false`: user interaction with the rest of the document is allowed.                                                 |
+| `onOpenChange`         | `((open: boolean, eventDetails: MenuRootChangeEventDetails) => void)` | —            | Event handler called when the menu is opened or closed.                                                                                                                                                                                                                                                                   |
+| `onOpenChangeComplete` | `((open: boolean) => void)`                                           | —            | Event handler called after any animations complete when the menu is closed.                                                                                                                                                                                                                                               |
+| `open`                 | `boolean`                                                             | —            | Whether the menu is currently open.                                                                                                                                                                                                                                                                                       |
+| `orientation`          | `"horizontal" \| "vertical"`                                          | `'vertical'` | The visual orientation of the menu. Controls whether roving focus uses up/down or left/right arrow keys.                                                                                                                                                                                                                  |
+| `disabled`             | `boolean`                                                             | `false`      | Whether the component should ignore user interaction.                                                                                                                                                                                                                                                                     |
+| `closeParentOnEsc`     | `boolean`                                                             | `false`      | When in a submenu, determines whether pressing the Escape key closes the entire menu, or only the current child menu.                                                                                                                                                                                                     |
+| `actionsRef`           | `RefObject<MenuRootActions \| null>`                                  | —            | A ref to imperative actions. - `unmount`: When specified, the menu will not be unmounted when closed. Instead, the `unmount` function must be called to unmount the menu manually. Useful when the menu's animation is controlled by an external library. - `close`: When specified, the menu can be closed imperatively. |
+| `triggerId`            | `string \| null`                                                      | —            | ID of the trigger that the popover is associated with. This is useful in conjunction with the `open` prop to create a controlled popover. There's no need to specify this prop when the popover is uncontrolled (that is, when the `open` prop is not set).                                                               |
+| `defaultTriggerId`     | `string \| null`                                                      | —            | ID of the trigger that the popover is associated with. This is useful in conjunction with the `defaultOpen` prop to create an initially open popover.                                                                                                                                                                     |
+| `handle`               | `MenuHandle<unknown>`                                                 | —            | A handle to associate the menu with a trigger. If specified, allows external triggers to control the menu's open state.                                                                                                                                                                                                   |
+| `children`             | `ReactNode \| PayloadChildRenderFunction<unknown>`                    | —            | The content of the popover. This can be a regular React node or a render function that receives the `payload` of the active trigger.                                                                                                                                                                                      |
 
 ## MenuContent API
 
-| Prop                     | Type                                                       | Default      | Description                                                                                                           |
-| ------------------------ | ---------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| `forceMount`             | `true`                                                     | —            | Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. |
-| `updatePositionStrategy` | `"optimized" \| "always"`                                  | —            |                                                                                                                       |
-| `placement`              | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` | `bottomLeft` |                                                                                                                       |
+| Prop          | Type                                                                                                                    | Default      | Description                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `style`       | `CSSProperties \| ((state: MenuPopupState) => CSSProperties \| undefined)`                                              | —            | Style applied to the element, or a function that returns a style object based on the component's state.                                                                                                                                                                                                                                                                                                                         |
+| `className`   | `string`                                                                                                                | —            |                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `id`          | `string`                                                                                                                | —            | @ignore                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `finalFocus`  | `boolean \| RefObject<HTMLElement \| null> \| ((closeType: InteractionType) => boolean \| void \| HTMLElement \| null)` | —            | Determines the element to focus when the menu is closed. - `false`: Do not move focus. - `true`: Move focus based on the default behavior (trigger or previously focused element). - `RefObject`: Move focus to the ref element. - `function`: Called with the interaction type (`mouse`, `touch`, `pen`, or `keyboard`). Return an element to focus, `true` to use the default behavior, or `false`/`undefined` to do nothing. |
+| `placement`   | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"`                                                              | `bottomLeft` |                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `keepMounted` | `boolean`                                                                                                               | —            |                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `forceMount`  | `true`                                                                                                                  | —            | @deprecated Use `keepMounted` instead. Will be removed in next major.                                                                                                                                                                                                                                                                                                                                                           |
 
 ### MenuItem API
 
 This component is based on the `div` element.
 
-| Prop          | Type                            | Default      | Description |
-| ------------- | ------------------------------- | ------------ | ----------- |
-| `onSelect`    | `((event: Event) => void)`      | —            |             |
-| `asChild`     | `boolean`                       | —            |             |
-| `disabled`    | `boolean`                       | —            |             |
-| `textValue`   | `string`                        | —            |             |
-| `colorScheme` | `"functional" \| "destructive"` | `functional` |             |
+| Prop           | Type                                                                                                         | Default      | Description                                                                                                                                                                               |
+| -------------- | ------------------------------------------------------------------------------------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`        | `string`                                                                                                     | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                                                                 |
+| `style`        | `CSSProperties \| ((state: MenuItemState) => CSSProperties \| undefined)`                                    | —            | Style applied to the element, or a function that returns a style object based on the component's state.                                                                                   |
+| `className`    | `string`                                                                                                     | —            |                                                                                                                                                                                           |
+| `id`           | `string`                                                                                                     | —            | @ignore                                                                                                                                                                                   |
+| `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)`                                     | —            | The click handler for the menu item.                                                                                                                                                      |
+| `disabled`     | `boolean`                                                                                                    | `false`      | Whether the component should ignore user interaction.                                                                                                                                     |
+| `closeOnClick` | `boolean`                                                                                                    | `true`       | Whether to close the menu when the item is clicked.                                                                                                                                       |
+| `nativeButton` | `boolean`                                                                                                    | `false`      | Whether the component renders a native `<button>` element when replacing it via the `render` prop. Set to `true` if the rendered element is a native button.                              |
+| `render`       | `ReactElement<unknown, string \| JSXElementConstructor<any>> \| ComponentRenderFn<HTMLProps, MenuItemState>` | —            | Allows you to replace the component's HTML element with a different tag, or compose it with another component. Accepts a `ReactElement` or a function that returns the element to render. |
+| `colorScheme`  | `"functional" \| "destructive"`                                                                              | `functional` |                                                                                                                                                                                           |

@@ -3,7 +3,7 @@
 import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 import type { MenuItemProps } from './MenuItem.props';
 import type { ComponentRef } from 'react';
 
@@ -15,7 +15,7 @@ type MenuItemElement = ComponentRef<'div'>;
 export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
   ({ className, colorScheme = 'functional', ...props }, ref) => {
     return (
-      <MenuPrimitive.DropdownMenuItem
+      <MenuPrimitive.Item
         ref={ref}
         className={cn(componentClassName, className)}
         data-colorscheme={colorScheme}

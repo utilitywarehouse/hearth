@@ -36,7 +36,7 @@ export const Playground: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
-          <MenuItem asChild>
+          <MenuItem>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#">
               Navigation Item
@@ -70,7 +70,7 @@ export const DefaultOpen: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
-          <MenuItem asChild>
+          <MenuItem>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#">
               Navigation Item
@@ -217,7 +217,7 @@ export const Modality: Story = {
           <MenuContent>
             <MenuItem>Item</MenuItem>
             <MenuItem>Item</MenuItem>
-            <MenuItem asChild>
+            <MenuItem>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#">
                 Navigation Item
@@ -243,7 +243,7 @@ export const Modality: Story = {
           <MenuContent>
             <MenuItem>Item</MenuItem>
             <MenuItem>Item</MenuItem>
-            <MenuItem asChild>
+            <MenuItem>
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
               <a href="#">
                 Navigation Item

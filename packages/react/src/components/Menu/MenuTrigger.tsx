@@ -3,7 +3,7 @@
 import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 import type { MenuTriggerProps } from './MenuTrigger.props';
 import type { ComponentRef } from 'react';
 
@@ -13,12 +13,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type MenuTriggerElement = ComponentRef<'button'>;
 
 export const MenuTrigger = forwardRef<MenuTriggerElement, MenuTriggerProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
-      <MenuPrimitive.DropdownMenuTrigger
+      <MenuPrimitive.Trigger
         ref={ref}
         className={cn(componentClassName, className)}
-        asChild
+        render={children as React.ReactElement}
         {...props}
       />
     );

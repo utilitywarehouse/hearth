@@ -1,29 +1,13 @@
 import type { ComponentPropsWithRef } from 'react';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 
 export type MenuContentProps = Omit<
-  ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuPortal>,
-  'container'
-> &
-  Omit<
-    ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuContent>,
-    | 'asChild'
-    | 'loop'
-    | 'side'
-    | 'sideOffset'
-    | 'align'
-    | 'alignOffset'
-    | 'avoidCollisions'
-    | 'collisionBoundary'
-    | 'collisionPadding'
-    | 'arrowPadding'
-    | 'sticky'
-    | 'hideWhenDetached'
-    | 'onCloseAutoFocus'
-    | 'onEscapeKeyDown'
-    | 'onPointerDownOutside'
-    | 'onFocusOutside'
-    | 'onInteractOutside'
-  > & {
-    placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
-  };
+  ComponentPropsWithRef<typeof MenuPrimitive.Popup>,
+  'render' | 'className'
+> & {
+  className?: string;
+  placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+  keepMounted?: boolean;
+  /** @deprecated Use `keepMounted` instead. Will be removed in next major. */
+  forceMount?: true;
+};

@@ -1,6 +1,10 @@
 import type { ComponentPropsWithRef } from 'react';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 
-export interface MenuItemProps extends ComponentPropsWithRef<typeof MenuPrimitive.Item> {
+export interface MenuItemProps extends Omit<
+  ComponentPropsWithRef<typeof MenuPrimitive.Item>,
+  'className'
+> {
+  className?: string;
   colorScheme?: 'functional' | 'destructive';
 }
