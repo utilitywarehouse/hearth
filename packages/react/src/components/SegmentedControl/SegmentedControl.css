@@ -90,7 +90,6 @@
     background-color: var(--h-interactive-brand-surface-strong-default);
     color: var(--h-interactive-brand-foreground-strong);
     font-weight: var(--h-font-weight-semibold);
-    transition-duration: all 200ms ease-out;
   }
 
   &:where([data-disabled]) {
