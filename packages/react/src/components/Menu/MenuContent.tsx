@@ -3,7 +3,7 @@
 import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { Menu as MenuPrimitive } from '@base-ui/react';
+import { Menu as MenuPrimitive, ScrollArea as ScrollAreaPrimitive } from '@base-ui/react';
 import type { MenuContentProps } from './MenuContent.props';
 import type { ComponentRef } from 'react';
 
@@ -34,9 +34,19 @@ export const MenuContent = forwardRef<MenuContentElement, MenuContentProps>(
           collisionPadding={8}
         >
           <MenuPrimitive.Popup ref={ref} className={cn(componentClassName, className)} {...props}>
-            <MenuPrimitive.Viewport className={`${componentClassName}List`}>
-              {children}
-            </MenuPrimitive.Viewport>
+            <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')}>
+              <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
+                <ScrollAreaPrimitive.Content className={`${componentClassName}List`}>
+                  {children}
+                </ScrollAreaPrimitive.Content>
+              </ScrollAreaPrimitive.Viewport>
+              <ScrollAreaPrimitive.Scrollbar
+                className={withGlobalPrefix('ScrollAreaScrollbar')}
+                orientation="vertical"
+              >
+                <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
+              </ScrollAreaPrimitive.Scrollbar>
+            </ScrollAreaPrimitive.Root>
           </MenuPrimitive.Popup>
         </MenuPrimitive.Positioner>
       </MenuPrimitive.Portal>
