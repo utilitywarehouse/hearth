@@ -50,7 +50,6 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   touch-action: manipulation;
-  transition: background-color 200ms ease-out;
   border-radius: var(--h-segmented-control-border-radius);
   gap: var(--h-segmented-control-gap);
   padding-inline: var(--h-segmented-control-padding-horizontal);

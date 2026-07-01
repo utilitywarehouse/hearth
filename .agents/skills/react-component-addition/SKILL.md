@@ -279,6 +279,9 @@ Every component needs a CSS file. The root selector uses the `h-` prefixed class
 - For one-off values that won't be themed, use global tokens directly: `var(--h-space-200)`, `var(--h-border-radius-md)`, `var(--h-border-subtle)`.
 - Never use raw values (`16px`, `#fff`) — always go through the token system.
 
+**Disabled opacity is handled globally — do not add it to component CSS:**
+`src/styles/utilities/disabled.css` applies `opacity: var(--h-opacity-disabled)` to any element with `[data-disabled]` or `[aria-disabled="true"]`. Do not add `opacity` rules for disabled state in component CSS. You may still add `cursor: not-allowed` in component CSS since that is not covered globally.
+
 **Radix UI custom properties** (e.g. `--radix-collapsible-content-height`) require a stylelint-disable comment:
 
 ```css

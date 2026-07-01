@@ -40,7 +40,8 @@ export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedCon
 
       const containerRect = container.getBoundingClientRect();
       const pressedRect = pressed.getBoundingClientRect();
-      const left = pressedRect.left - containerRect.left;
+      // Subtract clientLeft so the offset is relative to the padding box, not the border edge
+      const left = pressedRect.left - containerRect.left - container.clientLeft;
 
       if (!animate) {
         indicator.style.transition = 'none';

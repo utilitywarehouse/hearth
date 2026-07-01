@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   BroadbandMediumIcon,
@@ -11,6 +12,7 @@ import {
 } from '@utilitywarehouse/hearth-react-icons';
 import { Box } from '../Box/Box';
 import { BodyText } from '../BodyText/BodyText';
+import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOption } from './SegmentedControlOption';
@@ -142,6 +144,70 @@ export const WithIcons: Story = {
       </SegmentedControl>
     </Flex>
   ),
+};
+
+const ALL_OPTIONS = [
+  { value: 'option-1', label: 'Option 1' },
+  { value: 'option-2', label: 'Option 2' },
+  { value: 'option-3', label: 'Option 3' },
+  { value: 'option-4', label: 'Option 4' },
+  { value: 'option-5', label: 'Option 5' },
+  { value: 'option-6', label: 'Option 6' },
+  { value: 'option-7', label: 'Option 7' },
+  { value: 'option-8', label: 'Option 8' },
+  { value: 'option-9', label: 'Option 9' },
+  { value: 'option-10', label: 'Option 10' },
+  { value: 'option-11', label: 'Option 11' },
+  { value: 'option-12', label: 'Option 12' },
+  { value: 'option-13', label: 'Option 13' },
+];
+
+export const DynamicOptions: Story = {
+  render: () => {
+    const [options, setOptions] = useState(ALL_OPTIONS.slice(0, 3));
+    const [value, setValue] = useState(['option-1']);
+
+    const addOption = () => {
+      if (options.length < ALL_OPTIONS.length) {
+        setOptions(ALL_OPTIONS.slice(0, options.length + 1));
+      }
+    };
+
+    const removeOption = () => {
+      if (options.length > 1) {
+        const next = options.slice(0, options.length - 1);
+        setOptions(next);
+        if (!next.find(o => o.value === value[0])) {
+          setValue([next[next.length - 1].value]);
+        }
+      }
+    };
+
+    return (
+      <Flex direction="column" gap="400" alignItems="start">
+        <SegmentedControl value={value} onValueChange={setValue} size="sm">
+          {options.map(o => (
+            <SegmentedControlOption key={o.value} value={o.value}>
+              {o.label}
+            </SegmentedControlOption>
+          ))}
+        </SegmentedControl>
+        <Flex gap="200">
+          <Button size="sm" variant="outline" onClick={removeOption} disabled={options.length <= 1}>
+            Remove option
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={addOption}
+            disabled={options.length >= ALL_OPTIONS.length}
+          >
+            Add option
+          </Button>
+        </Flex>
+      </Flex>
+    );
+  },
 };
 
 export const WithResponsiveIcons: Story = {
