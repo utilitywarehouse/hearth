@@ -5,6 +5,7 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Menu as MenuPrimitive, ScrollArea as ScrollAreaPrimitive } from '@base-ui/react';
 import type { MenuContentProps } from './MenuContent.props';
+import { warn } from '../../helpers/logger';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'MenuContent';
@@ -21,9 +22,10 @@ const placementTranslation: Record<string, { side: 'bottom' | 'top'; align: 'sta
 
 export const MenuContent = forwardRef<MenuContentElement, MenuContentProps>(
   ({ className, children, forceMount, keepMounted, placement = 'bottomLeft', ...props }, ref) => {
-    if (process.env.NODE_ENV !== 'production' && forceMount !== undefined) {
-      console.warn('[Hearth] MenuContent: `forceMount` is deprecated. Use `keepMounted` instead.');
-    }
+    warn(
+      forceMount !== undefined,
+      'MenuContent: `forceMount` is deprecated. Use `keepMounted` instead.'
+    );
     const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
 
     return (

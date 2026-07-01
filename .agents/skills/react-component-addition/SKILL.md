@@ -211,6 +211,19 @@ The most common mistake is adding a `<div className={`${componentClassName}Conte
 
 Always include `data-testid={componentClassName}` on the root element.
 
+**Use the `warn` helper for dev-mode warnings — never `console.warn` directly:**
+
+A logger helper lives at `src/helpers/logger.ts`. Use it for deprecated props or any condition that should surface a warning in development but be silent in production.
+
+```ts
+import { warn } from '../../helpers/logger';
+
+// warn(condition, message) — fires only in non-production
+warn(legacyProp !== undefined, 'MyComponent: `legacyProp` is deprecated. Use `newProp` instead.');
+```
+
+The message is automatically prefixed with `[Hearth React Warning]:`.
+
 ---
 
 ## CSS File (`<Component>.css`)

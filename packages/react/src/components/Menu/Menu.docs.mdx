@@ -70,6 +70,9 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
+If a `MenuItem` is navigating to another page, use the `asChild` prop to render a
+semantic `<a>` element — all accessible attributes are merged onto the child.
+
 ```tsx
 <MenuContent>
   <MenuItem>Item</MenuItem>
@@ -77,6 +80,12 @@ The `MenuItem` can be either `functional` or `destructive`, and can also contain
   <MenuItem colorScheme="destructive">
     Destructive item
     <TrashSmallIcon />
+  </MenuItem>
+  <MenuItem asChild>
+    <a href="/another-page">
+      Navigation Item
+      <OpenSmallIcon />
+    </a>
   </MenuItem>
   <MenuItem disabled>Disabled item</MenuItem>
 </MenuContent>
@@ -157,11 +166,10 @@ for SEO — for example, primary navigation links — use the `keepMounted` prop
 
 ### Migrating from a previous major version
 
-**`MenuItem` breaking changes:**
+**`MenuItem` deprecations:**
 
-- `onSelect` has been removed. Use the standard `onClick` prop instead — it fires for both mouse and keyboard activation.
+- `onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation.
 - `textValue` has been removed. No replacement is needed.
-- `asChild` has been removed. It was previously accepted by the type but was never functional on `MenuItem`.
 
 **`MenuContent` deprecation:**
 

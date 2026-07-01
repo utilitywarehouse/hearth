@@ -36,7 +36,7 @@ export const Playground: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
-          <MenuItem>
+          <MenuItem asChild>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#">
               Navigation Item
@@ -70,7 +70,7 @@ export const DefaultOpen: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
-          <MenuItem>
+          <MenuItem asChild>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a href="#">
               Navigation Item

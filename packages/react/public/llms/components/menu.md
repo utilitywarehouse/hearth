@@ -13,7 +13,7 @@ Use the `Menu` component to present a short list of actions or options in respon
   <MenuContent>
     <MenuItem>Item</MenuItem>
     <MenuItem>Item</MenuItem>
-    <MenuItem>
+    <MenuItem asChild>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a href="#">
         Navigation Item
@@ -143,6 +143,9 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
+If a `MenuItem` is navigating to another page, use the `asChild` prop to render a
+semantic `<a>` element — all accessible attributes are merged onto the child.
+
 ```tsx
 <MenuContent>
   <MenuItem>Item</MenuItem>
@@ -150,6 +153,12 @@ The `MenuItem` can be either `functional` or `destructive`, and can also contain
   <MenuItem colorScheme="destructive">
     Destructive item
     <TrashSmallIcon />
+  </MenuItem>
+  <MenuItem asChild>
+    <a href="/another-page">
+      Navigation Item
+      <OpenSmallIcon />
+    </a>
   </MenuItem>
   <MenuItem disabled>Disabled item</MenuItem>
 </MenuContent>
@@ -228,11 +237,10 @@ for SEO — for example, primary navigation links — use the `keepMounted` prop
 
 ### Migrating from a previous major version
 
-**`MenuItem` breaking changes:**
+**`MenuItem` deprecations:**
 
-- `onSelect` has been removed. Use the standard `onClick` prop instead — it fires for both mouse and keyboard activation.
+- `onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation.
 - `textValue` has been removed. No replacement is needed.
-- `asChild` has been removed. It was previously accepted by the type but was never functional on `MenuItem`.
 
 **`MenuContent` deprecation:**
 
@@ -284,15 +292,15 @@ for SEO — for example, primary navigation links — use the `keepMounted` prop
 
 This component is based on the `div` element.
 
-| Prop           | Type                                                                                                         | Default      | Description                                                                                                                                                                               |
-| -------------- | ------------------------------------------------------------------------------------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `label`        | `string`                                                                                                     | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                                                                 |
-| `style`        | `CSSProperties \| ((state: MenuItemState) => CSSProperties \| undefined)`                                    | —            | Style applied to the element, or a function that returns a style object based on the component's state.                                                                                   |
-| `className`    | `string`                                                                                                     | —            |                                                                                                                                                                                           |
-| `id`           | `string`                                                                                                     | —            | @ignore                                                                                                                                                                                   |
-| `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)`                                     | —            | The click handler for the menu item.                                                                                                                                                      |
-| `disabled`     | `boolean`                                                                                                    | `false`      | Whether the component should ignore user interaction.                                                                                                                                     |
-| `closeOnClick` | `boolean`                                                                                                    | `true`       | Whether to close the menu when the item is clicked.                                                                                                                                       |
-| `nativeButton` | `boolean`                                                                                                    | `false`      | Whether the component renders a native `<button>` element when replacing it via the `render` prop. Set to `true` if the rendered element is a native button.                              |
-| `render`       | `ReactElement<unknown, string \| JSXElementConstructor<any>> \| ComponentRenderFn<HTMLProps, MenuItemState>` | —            | Allows you to replace the component's HTML element with a different tag, or compose it with another component. Accepts a `ReactElement` or a function that returns the element to render. |
-| `colorScheme`  | `"functional" \| "destructive"`                                                                              | `functional` |                                                                                                                                                                                           |
+| Prop           | Type                                                                      | Default      | Description                                                                                                                                                  |
+| -------------- | ------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `label`        | `string`                                                                  | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                                    |
+| `style`        | `CSSProperties \| ((state: MenuItemState) => CSSProperties \| undefined)` | —            | Style applied to the element, or a function that returns a style object based on the component's state.                                                      |
+| `className`    | `string`                                                                  | —            |                                                                                                                                                              |
+| `id`           | `string`                                                                  | —            | @ignore                                                                                                                                                      |
+| `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)`  | —            | The click handler for the menu item.                                                                                                                         |
+| `disabled`     | `boolean`                                                                 | `false`      | Whether the component should ignore user interaction.                                                                                                        |
+| `closeOnClick` | `boolean`                                                                 | `true`       | Whether to close the menu when the item is clicked.                                                                                                          |
+| `nativeButton` | `boolean`                                                                 | `false`      | Whether the component renders a native `<button>` element when replacing it via the `render` prop. Set to `true` if the rendered element is a native button. |
+| `colorScheme`  | `"functional" \| "destructive"`                                           | `functional` |                                                                                                                                                              |
+| `asChild`      | `boolean`                                                                 | —            | Change the default rendered element for the one passed as a child, merging their props and behaviour. Useful for rendering MenuItem as a link.               |
