@@ -48,8 +48,12 @@ Use the `icon` prop to display an icon before the label. Use the Small icon vari
 
 ```tsx
 <SegmentedControl defaultValue={['gas']} size="sm">
-  <SegmentedControlOption value="gas" icon={<GasSmallIcon />}>Gas</SegmentedControlOption>
-  <SegmentedControlOption value="electricity" icon={<ElectricitySmallIcon />}>Electricity</SegmentedControlOption>
+  <SegmentedControlOption value="gas" icon={<GasSmallIcon />}>
+    Gas
+  </SegmentedControlOption>
+  <SegmentedControlOption value="electricity" icon={<ElectricitySmallIcon />}>
+    Electricity
+  </SegmentedControlOption>
 </SegmentedControl>
 ```
 
@@ -79,7 +83,7 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
   >
     Gas
   </SegmentedControlOption>
-</SegmentedControl>
+</SegmentedControl>;
 ```
 
 <Canvas of={Stories.WithResponsiveIcons} sourceState="show" />
@@ -108,7 +112,10 @@ By default only one option can be selected at a time. Set `multiple` to allow mu
 
 ## SegmentedControl API
 
-<ArgTypes of={Stories.Playground} include={'size|value|defaultValue|onValueChange|multiple|disabled|loopFocus|orientation'} />
+<ArgTypes
+  of={Stories.Playground}
+  include={'size|value|defaultValue|onValueChange|multiple|disabled|loopFocus|orientation'}
+/>
 
 ## SegmentedControlOption API
 

@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
-  BroadbandMediumIcon,
   BroadbandSmallIcon,
   ElectricityMediumIcon,
   ElectricitySmallIcon,
   GasMediumIcon,
   GasSmallIcon,
-  MobileMediumIcon,
   MobileSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Box } from '../Box/Box';
@@ -164,88 +162,47 @@ const ALL_OPTIONS = [
 
 export const DynamicOptions: Story = {
   render: () => {
-    const [optionsA, setOptionsA] = useState(ALL_OPTIONS.slice(0, 3));
-    const [valueA, setValueA] = useState(['option-1']);
-    const [optionsB, setOptionsB] = useState(ALL_OPTIONS.slice(0, 3));
-    const [valueB, setValueB] = useState(['option-1']);
+    const [options, setOptions] = useState(ALL_OPTIONS.slice(0, 3));
+    const [value, setValue] = useState(['option-1']);
 
-    const makeHandlers = (
-      options: typeof ALL_OPTIONS,
-      setOptions: (o: typeof ALL_OPTIONS) => void,
-      value: string[],
-      setValue: (v: string[]) => void
-    ) => ({
-      add: () => {
-        if (options.length < ALL_OPTIONS.length) {
-          setOptions(ALL_OPTIONS.slice(0, options.length + 1));
-        }
-      },
-      remove: () => {
-        if (options.length > 1) {
-          const next = options.slice(0, options.length - 1);
-          setOptions(next);
-          const last = next[next.length - 1];
-          if (last && !next.find(o => o.value === value[0])) {
-            setValue([last.value]);
-          }
-        }
-      },
-    });
+    const addOption = () => {
+      if (options.length < ALL_OPTIONS.length) {
+        setOptions(ALL_OPTIONS.slice(0, options.length + 1));
+      }
+    };
 
-    const a = makeHandlers(optionsA, setOptionsA, valueA, setValueA);
-    const b = makeHandlers(optionsB, setOptionsB, valueB, setValueB);
+    const removeOption = () => {
+      if (options.length > 1) {
+        const next = options.slice(0, options.length - 1);
+        setOptions(next);
+        const last = next[next.length - 1];
+        if (last && !next.find(o => o.value === value[0])) {
+          setValue([last.value]);
+        }
+      }
+    };
 
     return (
-      <Flex direction="column" gap="500" alignItems="start">
-        <Flex direction="column" gap="200" alignItems="start">
-          <BodyText as="p" size="md" weight="semibold">
-            With sliding indicator
-          </BodyText>
-          <SegmentedControl value={valueA} onValueChange={setValueA} size="sm">
-            {optionsA.map(o => (
-              <SegmentedControlOption key={o.value} value={o.value}>
-                {o.label}
-              </SegmentedControlOption>
-            ))}
-          </SegmentedControl>
-          <Flex gap="200">
-            <Button size="sm" variant="outline" onClick={a.remove} disabled={optionsA.length <= 1}>
-              Remove option
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={a.add}
-              disabled={optionsA.length >= ALL_OPTIONS.length}
-            >
-              Add option
-            </Button>
-          </Flex>
-        </Flex>
-        <Flex direction="column" gap="200" alignItems="start">
-          <BodyText as="p" size="md" weight="semibold">
-            Without sliding indicator
-          </BodyText>
-          <SegmentedControl value={valueB} onValueChange={setValueB} size="sm" indicator={false}>
-            {optionsB.map(o => (
-              <SegmentedControlOption key={o.value} value={o.value}>
-                {o.label}
-              </SegmentedControlOption>
-            ))}
-          </SegmentedControl>
-          <Flex gap="200">
-            <Button size="sm" variant="outline" onClick={b.remove} disabled={optionsB.length <= 1}>
-              Remove option
-            </Button>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={b.add}
-              disabled={optionsB.length >= ALL_OPTIONS.length}
-            >
-              Add option
-            </Button>
-          </Flex>
+      <Flex direction="column" gap="400" alignItems="start">
+        <SegmentedControl value={value} onValueChange={setValue} size="sm">
+          {options.map(o => (
+            <SegmentedControlOption key={o.value} value={o.value}>
+              {o.label}
+            </SegmentedControlOption>
+          ))}
+        </SegmentedControl>
+        <Flex gap="200">
+          <Button size="sm" variant="outline" onClick={removeOption} disabled={options.length <= 1}>
+            Remove option
+          </Button>
+          <Button
+            size="sm"
+            variant="outline"
+            onClick={addOption}
+            disabled={options.length >= ALL_OPTIONS.length}
+          >
+            Add option
+          </Button>
         </Flex>
       </Flex>
     );

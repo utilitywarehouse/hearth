@@ -16,15 +16,15 @@ export type SegmentedControlProps = {
   /**
    * The value of the selected option(s). Use with `onValueChange` for controlled mode.
    */
-  value?: string[];
+  value?: Array<string>;
   /**
    * The default selected value in uncontrolled mode.
    */
-  defaultValue?: string[];
+  defaultValue?: Array<string>;
   /**
    * Callback fired when the selected value changes.
    */
-  onValueChange?: (value: string[]) => void;
+  onValueChange?: (value: Array<string>) => void;
   /**
    * When true, multiple options can be selected simultaneously.
    * @default false
@@ -49,12 +49,6 @@ export type SegmentedControlProps = {
    * @default sm
    */
   size?: Responsive<(typeof sizes)[number]>;
-  /**
-   * When true, a sliding pill indicator animates between selected options.
-   * Set to false to use a static background transition instead.
-   * @default true
-   */
-  indicator?: boolean;
   children?: ReactNode;
 } & Omit<ComponentPropsWithRef<'div'>, 'onChange'> &
   MarginProps;

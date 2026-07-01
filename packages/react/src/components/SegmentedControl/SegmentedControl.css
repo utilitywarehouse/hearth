@@ -19,21 +19,6 @@
   }
 }
 
-.h-SegmentedControlIndicator {
-  position: absolute;
-  inset-block: var(--h-segmented-control-group-padding);
-  left: 0;
-  width: 0;
-  opacity: 0;
-  background-color: var(--h-interactive-brand-surface-strong-default);
-  border-radius: var(--h-segmented-control-border-radius);
-  pointer-events: none;
-  transition:
-    transform 200ms ease,
-    width 200ms ease,
-    opacity 150ms ease;
-}
-
 .h-SegmentedControlOption {
   all: unset;
   outline: transparent;
@@ -57,7 +42,7 @@
   font-size: var(--h-body-text-md-font-size);
   font-weight: var(--h-font-weight-regular);
   line-height: var(--h-body-text-md-line-height);
-  color: var(--h-interactive-neutral-foreground-strong);
+  color: var(--h-interactive-neutral-foreground-subtle);
   white-space: nowrap;
   min-width: var(--h-segmented-control-min-width);
 
@@ -101,36 +86,14 @@
     outline-offset: 1px;
   }
 
-  /* Applied by JS when the indicator finishes arriving, removed when it departs.
-   * Keeps colour and weight changes in sync with the indicator rather than
-   * changing immediately when Base UI toggles [data-pressed]. */
   &:where([data-pressed]) {
+    background-color: var(--h-interactive-brand-surface-strong-default);
     color: var(--h-interactive-brand-foreground-strong);
     font-weight: var(--h-font-weight-semibold);
+    transition-duration: all 200ms ease-out;
   }
 
   &:where([data-disabled]) {
     cursor: not-allowed;
-  }
-}
-
-/* Static (no indicator) mode — [data-pressed] gets the brand background directly */
-.h-SegmentedControl:where([data-no-indicator]) {
-  & .h-SegmentedControlOption {
-    transition: background-color 150ms ease-out;
-
-    &:where([data-pressed]) {
-      background-color: var(--h-interactive-brand-surface-strong-default);
-    }
-
-    @media (hover: hover) {
-      &:where([data-pressed]:not([data-disabled]):hover) {
-        background-color: var(--h-interactive-brand-surface-strong-hover);
-      }
-    }
-
-    &:where([data-pressed]:not([data-disabled]):active) {
-      background-color: var(--h-interactive-brand-surface-strong-active);
-    }
   }
 }

@@ -27,7 +27,10 @@ export const SegmentedControlOption = forwardRef<
       {...props}
     >
       {icon}
-      <span className={labelClassName} data-text={typeof children === 'string' ? children : undefined}>
+      <span
+        className={labelClassName}
+        data-text={typeof children === 'string' ? children : undefined}
+      >
         {children}
       </span>
     </TogglePrimitive>
