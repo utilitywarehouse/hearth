@@ -93,7 +93,25 @@ export type MyComponentProps = {
 };
 ```
 
-**Consider whether to extend the primitive's Props type or the underlying HTML element type.** Base UI and Radix primitives expose implementation details in their Props types — Base UI's `Toggle.Props`, for example, adds `render` (slot customisation), `className`/`style` as state callbacks, and `preventBaseUIHandler` on every event handler. Extending the primitive gives consumers access to those features; extending the HTML element type (`ComponentPropsWithRef<'button'>`) keeps the API simpler and consistent with the rest of the library. Either is valid — weigh the trade-offs for the component at hand, and add a comment on the type documenting which approach was chosen and why.
+**Consider how to incorporate props from the underlying primitive.** Base UI and Radix primitives expose implementation details in their Props types — Base UI's `Toggle.Props`, for example, adds `render` (slot customisation), `className`/`style` as state callbacks, and `preventBaseUIHandler` on every event handler. The preferred pattern is to use the HTML element type as the base and `Pick` only the behavioural props from the primitive that consumers genuinely need:
+
+```ts
+// ✅ PREFERRED — HTML element as base, Pick specific behavioural props from the primitive
+export type SegmentedControlOptionProps = Omit<ComponentPropsWithRef<'button'>, 'value' | 'children'>
+  & Pick<Toggle.Props, 'pressed' | 'defaultPressed' | 'onPressedChange'>
+  & { value: string; label: string; }
+
+// also valid for group-style components — Pick from the primitive, HTML element for the rest
+export type SegmentedControlProps = Pick<ToggleGroup.Props, 'value' | 'defaultValue' | 'onValueChange' | 'disabled' | 'loopFocus' | 'orientation' | 'children'>
+  & Omit<ComponentPropsWithRef<'div'>, 'onChange'>
+  & { size?: Responsive<'sm' | 'md'> }
+  & MarginProps
+
+// ❌ AVOID — leaks Base UI internals (render, className callbacks, preventBaseUIHandler)
+export type SegmentedControlOptionProps = Toggle.Props & { ... }
+```
+
+Add a comment on the type explaining the approach taken and what was deliberately excluded.
 
 **Do not create extra named types for primitive props.** Use `Pick` inline:
 
@@ -445,10 +463,11 @@ export const Variants: Story = {
 ## Docs (`<Component>.docs.mdx`)
 
 ```mdx
-import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './MyComponent.stories';
 import { MyComponent } from './MyComponent';
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 
 <Meta title="Components / MyComponent" />
 
@@ -456,17 +475,69 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 Brief description of what the component is and when to use it.
 
-<Canvas of={Stories.KitchenSink} sourceState="hide" />
+- [Usage](#usage)
+- [Variants](#variants)
+- [API](#api)
+
+<Canvas of={Stories.KitchenSink} sourceState="show" />
+
+## Usage
+
+Brief usage description with a code example.
+
+```tsx
+<MyComponent variant="subtle">Label</MyComponent>
+\```
+
 <Canvas of={Stories.Playground} sourceState="show" />
 
 ## Variants
+
 The `variant` prop controls the visual style.
-<Canvas of={Stories.Variants} sourceState="none" />
-<Source of={Stories.Variants} />
+
+<Canvas of={Stories.Variants} sourceState="show" />
 
 ## API
 
-<ArgTypes of={MyComponent} exclude={'margin*'} />
+This component is based on the [Base UI X primitive](https://base-ui.com/react/components/x)
+and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes
+  of={MyComponent}
+  include={'variant|size|disabled'}
+  exclude={'aria-*'}
+/>
+```
+
+### API section rules
+
+- **Import components directly** for `ArgTypes` (e.g. `import { MyComponent } from './MyComponent'`) — not via `Stories.*`. `of={MyComponent}` gives accurate prop types; `of={Stories.Playground}` can show incorrect or missing props.
+- **Use `include` to explicitly list props** shown in the API table rather than relying on the default. This prevents internal or inherited HTML props from cluttering the docs.
+- **Always add `exclude={'aria-*'}`** — aria props are inherited from the HTML element and not worth documenting per-component.
+- **Note the underlying primitive or element** at the top of the API section — e.g. "This component is based on the [Base UI ToggleGroup primitive](https://base-ui.com/react/components/toggle-group)" or "This component is based on the `button` element." Link to the Base UI docs when wrapping a Base UI primitive.
+- **Import `StorybookLink` from `@utilitywarehouse/hearth-storybook-utils`** — not from a relative path.
+
+### Compound component API
+
+For compound components, use a single `## API` section with a `###` subsection per sub-component — not separate top-level sections:
+
+```mdx
+## API
+
+This component is based on the [Base UI X primitive](https://base-ui.com/react/components/x)
+and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={MyComponent} include={'size|disabled'} exclude={'aria-*'} />
+
+### MyComponentItem API
+
+This component is based on the `button` element.
+
+<ArgTypes of={MyComponentItem} include={'value|label|icon|disabled'} exclude={'aria-*'} />
 ```
 
 ---

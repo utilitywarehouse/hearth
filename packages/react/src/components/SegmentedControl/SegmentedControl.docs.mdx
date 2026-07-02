@@ -1,6 +1,9 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './SegmentedControl.stories';
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+import { SegmentedControl } from './SegmentedControl';
+import { SegmentedControlOption } from './SegmentedControlOption';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 
 <Meta title="Components / SegmentedControl" />
 
@@ -8,15 +11,12 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 Use a Segmented Control to switch between alternative views of closely related content.
 
-<Canvas of={Stories.KitchenSink} sourceState="show" />
-
 - [Usage](#usage)
 - [Sizes](#sizes)
 - [Icons](#icons)
-  - [Responsive icon sizes](#responsive-icon-sizes)
-- [When to use](#when-to-use)
-- [SegmentedControl API](#segmentedcontrol-api)
-- [SegmentedControlOption API](#segmentedcontroloption-api)
+- [API](#api)
+
+<Canvas of={Stories.KitchenSink} sourceState="show" />
 
 ## Usage
 
@@ -82,23 +82,27 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
 
 <Canvas of={Stories.WithResponsiveIcons} sourceState="show" />
 
-## When to use
+## API
 
-✅ Use Segmented Control to switch between alternative views of closely related content.
+This component is based on the [Base UI ToggleGroup primitive](https://base-ui.com/react/components/toggle-group)
+and supports the following common props:
 
-✅ Use when updating or changing a view of content.
-
-❌ Do not use to navigate between content — use [Tabs](/docs/components-tabs--docs) instead.
-
-❌ Do not use as a replacement for [Switch](/docs/components-switch--docs) within forms or settings.
-
-## SegmentedControl API
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
 <ArgTypes
-  of={Stories.Playground}
-  include={'size|value|defaultValue|onValueChange|disabled|loopFocus|orientation'}
+  of={SegmentedControl}
+  include={'size|value|defaultValue|onValueChange|disabled|pressed|defaultPressed|onPressedChange'}
+  exclude={'aria-*'}
 />
 
-## SegmentedControlOption API
+### SegmentedControlOption API
 
-<ArgTypes of={Stories.WithIcons} />
+This component is based on the `button` element.
+
+<ArgTypes
+  of={SegmentedControlOption}
+  include={
+    'label|icon|value|defaultValue|onValueChange|disabled|pressed|defaultPressed|onPressedChange'
+  }
+  exclude={'aria-*'}
+/>

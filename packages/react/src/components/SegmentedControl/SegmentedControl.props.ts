@@ -1,8 +1,8 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react';
+import type { ComponentPropsWithRef } from 'react';
+import type { ToggleGroup as ToggleGroupPrimitive } from '@base-ui/react/toggle-group';
 import type { PropDef } from '../../props/prop-def';
 import type { Responsive } from '../../types/responsive';
 import type { MarginProps } from '../../props/margin.props';
-import { marginPropDefs } from '../../props/margin.props';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -12,42 +12,19 @@ export const segmentedControlPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export type SegmentedControlProps = {
-  /**
-   * The value of the selected option(s). Use with `onValueChange` for controlled mode.
-   */
-  value?: Array<string>;
-  /**
-   * The default selected value in uncontrolled mode.
-   */
-  defaultValue?: Array<string>;
-  /**
-   * Callback fired when the selected value changes.
-   */
-  onValueChange?: (value: Array<string>) => void;
-  /**
-   * Disables all options in the control.
-   */
-  disabled?: boolean;
-  /**
-   * Whether keyboard focus loops from the last item back to the first.
-   * @default true
-   */
-  loopFocus?: boolean;
-  /**
-   * The layout direction of the options.
-   * @default horizontal
-   */
-  orientation?: 'horizontal' | 'vertical';
+// ToggleGroup.Props extends BaseUIComponentProps<'div'> which adds Base UI-specific surface
+// (render, className/style as state callbacks, preventBaseUIHandler on event handlers). We Pick
+// only the props we want to expose rather than extending the full primitive type, and keep the
+// underlying HTML element props via ComponentPropsWithRef<'div'>.
+export type SegmentedControlProps = Pick<
+  ToggleGroupPrimitive.Props,
+  'value' | 'defaultValue' | 'onValueChange' | 'disabled' |  'children'
+> & {
   /**
    * Sets the height of the control. `sm` is 32px and `md` is 48px.
    * Accepts a responsive value to display different sizes at different breakpoints.
    * @default sm
    */
   size?: Responsive<(typeof sizes)[number]>;
-  /** The `SegmentedControlOption` elements to render inside the control. */
-  children?: ReactNode;
 } & Omit<ComponentPropsWithRef<'div'>, 'onChange'> &
   MarginProps;
-
-export { marginPropDefs };
