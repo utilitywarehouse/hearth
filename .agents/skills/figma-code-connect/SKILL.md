@@ -20,7 +20,7 @@ packages/react/figma/
   MyComponentItem.figma.ts   # one file per connected Figma component
 ```
 
-`figma.config.json` in `packages/react` already includes this directory via `"include": ["figma/**/*"]` and maps import paths via `"importPaths"`.
+`figma.config.json` in `packages/react` includes these directories via `"include": ["figma/**/*", "src/**/*"]` and maps import paths via `"importPaths"`.
 
 ## Template structure
 
