@@ -18,7 +18,7 @@ export const segmentedControlPropDefs = {
 // underlying HTML element props via ComponentPropsWithRef<'div'>.
 export type SegmentedControlProps = Pick<
   ToggleGroupPrimitive.Props,
-  'value' | 'defaultValue' | 'onValueChange' | 'disabled' |  'children'
+  'value' | 'defaultValue' | 'onValueChange' | 'disabled' | 'children'
 > & {
   /**
    * Sets the height of the control. `sm` is 32px and `md` is 48px.
