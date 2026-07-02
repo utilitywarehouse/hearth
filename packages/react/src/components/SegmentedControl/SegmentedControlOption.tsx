@@ -22,7 +22,7 @@ type SegmentedControlOptionElement = ComponentRef<'button'>;
 export const SegmentedControlOption = forwardRef<
   SegmentedControlOptionElement,
   SegmentedControlOptionProps
->(({ className, children, icon, value, disabled, ...props }, ref) => {
+>(({ className, label, icon, value, disabled, ...props }, ref) => {
   return (
     <TogglePrimitive
       ref={ref}
@@ -33,11 +33,8 @@ export const SegmentedControlOption = forwardRef<
       {...props}
     >
       {icon}
-      <span
-        className={labelClassName}
-        data-text={typeof children === 'string' ? children : undefined}
-      >
-        {children}
+      <span className={labelClassName} data-text={label}>
+        {label}
       </span>
     </TogglePrimitive>
   );

@@ -24,8 +24,8 @@ Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option re
 
 ```tsx
 <SegmentedControl defaultValue={['gas']}>
-  <SegmentedControlOption value="gas">Gas</SegmentedControlOption>
-  <SegmentedControlOption value="electricity">Electricity</SegmentedControlOption>
+  <SegmentedControlOption value="gas" label="Gas" />
+  <SegmentedControlOption value="electricity" label="Electricity" />
 </SegmentedControl>
 ```
 
@@ -47,12 +47,8 @@ Use the `icon` prop to display an icon before the label. Use the Small icon vari
 
 ```tsx
 <SegmentedControl defaultValue={['gas']} size="sm">
-  <SegmentedControlOption value="gas" icon={<GasSmallIcon />}>
-    Gas
-  </SegmentedControlOption>
-  <SegmentedControlOption value="electricity" icon={<ElectricitySmallIcon />}>
-    Electricity
-  </SegmentedControlOption>
+  <SegmentedControlOption value="gas" label="Gas" icon={<GasSmallIcon />} />
+  <SegmentedControlOption value="electricity" label="Electricity" icon={<ElectricitySmallIcon />} />
 </SegmentedControl>
 ```
 
@@ -69,6 +65,7 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
 <SegmentedControl defaultValue={['gas']} size={{ mobile: 'sm', desktop: 'md' }}>
   <SegmentedControlOption
     value="gas"
+    label="Gas"
     icon={
       <>
         <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
@@ -79,9 +76,7 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
         </Box>
       </>
     }
-  >
-    Gas
-  </SegmentedControlOption>
+  />
 </SegmentedControl>;
 ```
 

@@ -13,7 +13,7 @@ if (iconInstance && iconInstance.type === 'INSTANCE') {
 }
 
 export default {
-  example: figma.code`<SegmentedControlOption${iconCode ? figma.code` icon={${iconCode}}` : ''}>${label}</SegmentedControlOption>`,
+  example: figma.code`<SegmentedControlOption label="${label}"${iconCode ? figma.code` icon={${iconCode}}` : ''} />`,
   imports: ['import { SegmentedControlOption } from "@utilitywarehouse/hearth-react"'],
   id: 'segmented-control-option',
   metadata: { nestable: true },
