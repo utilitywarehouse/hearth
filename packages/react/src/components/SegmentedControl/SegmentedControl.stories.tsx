@@ -133,7 +133,7 @@ export const KitchenSink: Story = {
   ),
 };
 
-/** Interactive sandbox — use the controls panel to explore props such as size, multiple, and disabled. */
+/** Interactive sandbox — use the controls panel to explore props such as size and disabled. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: (args: Story['args']) => (
