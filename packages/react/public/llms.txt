@@ -81,6 +81,7 @@
 - [RadioGroup](llms/components/radio-group.md): `RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.
 - [SearchInput](llms/components/search-input.md): `SearchInput` allows users to enter a specific keyword or phrase and obtain results related to the context in which it is placed.
 - [SectionHeader](llms/components/section-header.md): Use the `SectionHeader` component to help define and separate content within a
+- [SegmentedControl](llms/components/segmented-control.md): Use a Segmented Control to switch between alternative views of closely related content.
 - [Select](llms/components/select.md): `Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.
 - [Skeleton](llms/components/skeleton.md): `Skeleton` is a collection of components that provide visual placeholders while
 - [Spinner](llms/components/spinner.md): Using a Spinner is a common method for indicating that an asynchronous process is ongoing.

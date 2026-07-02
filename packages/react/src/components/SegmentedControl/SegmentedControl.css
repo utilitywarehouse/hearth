@@ -1,0 +1,97 @@
+.h-SegmentedControl {
+  display: inline-flex;
+  position: relative;
+  width: fit-content;
+  align-items: stretch;
+  padding: var(--h-segmented-control-group-padding);
+  gap: var(--h-segmented-control-group-gap);
+  border: var(--h-segmented-control-group-border-width) solid var(--h-border-strong);
+  border-radius: var(--h-segmented-control-group-border-radius);
+
+  @breakpoints {
+    &:where(.h-r-size-sm) {
+      height: 32px;
+    }
+
+    &:where(.h-r-size-md) {
+      height: 48px;
+    }
+  }
+}
+
+.h-SegmentedControlOption {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+  border-radius: var(--h-segmented-control-border-radius);
+  gap: var(--h-segmented-control-gap);
+  padding-inline: var(--h-segmented-control-padding-horizontal);
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-body-text-md-font-size);
+  font-weight: var(--h-font-weight-regular);
+  line-height: var(--h-body-text-md-line-height);
+  color: var(--h-interactive-neutral-foreground-subtle);
+  white-space: nowrap;
+  min-width: var(--h-segmented-control-min-width);
+
+  & svg {
+    flex-shrink: 0;
+  }
+
+  /*
+   * display: grid stacks the real text and the semibold ghost ::after in the
+   * same grid cell. The column is sized to the wider (bold) text, preventing
+   * layout shift when font-weight changes on selection. height: 0 + overflow:
+   * hidden on ::after ensures it contributes zero to the row height.
+   */
+  & :where(.h-SegmentedControlOptionLabel) {
+    display: grid;
+
+    &::after {
+      content: attr(data-text);
+      grid-area: 1 / 1;
+      font-weight: var(--h-font-weight-semibold);
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  @media (hover: hover) {
+    &:where(:not([data-disabled], [data-pressed]):hover) {
+      background-color: var(--h-interactive-neutral-surface-subtle-hover);
+    }
+  }
+
+  &:where(:not([data-disabled], [data-pressed]):active) {
+    background-color: var(--h-interactive-neutral-surface-subtle-active);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+  }
+
+  &:where([data-pressed]) {
+    background-color: var(--h-interactive-brand-surface-strong-default);
+    color: var(--h-interactive-brand-foreground-strong);
+    font-weight: var(--h-font-weight-semibold);
+  }
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+  }
+}

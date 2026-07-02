@@ -1,0 +1,106 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './SegmentedControl.stories';
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+import { SegmentedControl } from './SegmentedControl';
+import { SegmentedControlOption } from './SegmentedControlOption';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+
+<Meta title="Components / SegmentedControl" />
+
+<MarkdownDocHeader title="SegmentedControl" to="components/segmented-control" />
+
+Use a Segmented Control to switch between alternative views of closely related content.
+
+- [Usage](#usage)
+- [Sizes](#sizes)
+- [Icons](#icons)
+- [API](#api)
+
+<Canvas of={Stories.KitchenSink} sourceState="show" />
+
+## Usage
+
+Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option requires a unique `value`. Always provide a `defaultValue` — a Segmented Control cannot be used without a selected option.
+
+```tsx
+<SegmentedControl defaultValue={['gas']}>
+  <SegmentedControlOption value="gas" label="Gas" />
+  <SegmentedControlOption value="electricity" label="Electricity" />
+</SegmentedControl>
+```
+
+<Canvas of={Stories.Playground} sourceState="show" />
+
+## Sizes
+
+Two sizes are available: `sm` (32px, default) and `md` (48px). The `size` prop is responsive and can be used to display different sizes at different breakpoints.
+
+```tsx
+<SegmentedControl size={{ mobile: 'sm', desktop: 'md' }} defaultValue={['gas']}>
+  ...
+</SegmentedControl>
+```
+
+## Icons
+
+Use the `icon` prop to display an icon before the label. Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`. Either add icons to all options or none — do not mix.
+
+```tsx
+<SegmentedControl defaultValue={['gas']} size="sm">
+  <SegmentedControlOption value="gas" label="Gas" icon={<GasSmallIcon />} />
+  <SegmentedControlOption value="electricity" label="Electricity" icon={<ElectricitySmallIcon />} />
+</SegmentedControl>
+```
+
+<Canvas of={Stories.WithIcons} sourceState="show" />
+
+### Responsive icon sizes
+
+If you need to render different sized icons in conjunction with the responsive `size` prop, use `Box` with display props to show the appropriate icon at each breakpoint.
+
+```tsx
+import { GasMediumIcon, GasSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react';
+
+<SegmentedControl defaultValue={['gas']} size={{ mobile: 'sm', desktop: 'md' }}>
+  <SegmentedControlOption
+    value="gas"
+    label="Gas"
+    icon={
+      <>
+        <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+          <GasMediumIcon />
+        </Box>
+        <Box asChild display={{ desktop: 'none' }}>
+          <GasSmallIcon />
+        </Box>
+      </>
+    }
+  />
+</SegmentedControl>;
+```
+
+<Canvas of={Stories.WithResponsiveIcons} sourceState="show" />
+
+## API
+
+This component is based on the [Base UI ToggleGroup primitive](https://base-ui.com/react/components/toggle-group)
+and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes
+  of={SegmentedControl}
+  include={'size|value|defaultValue|onValueChange|disabled'}
+  exclude={'aria-*'}
+/>
+
+### SegmentedControlOption API
+
+This component is based on the `button` element.
+
+<ArgTypes
+  of={SegmentedControlOption}
+  include={'label|icon|value|disabled|pressed|defaultPressed|onPressedChange'}
+  exclude={'aria-*'}
+/>

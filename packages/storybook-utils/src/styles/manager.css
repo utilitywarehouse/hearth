@@ -3,7 +3,7 @@
 }
 
 .sidebar-header div {
-  margin-top: calc(var(--h-space-200) * -1);
+  margin-top: -20px;
 }
 
 /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */
