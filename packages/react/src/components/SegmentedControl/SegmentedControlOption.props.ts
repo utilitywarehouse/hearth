@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 import type { Toggle as TogglePrimitive } from '@base-ui/react/toggle';
 
-// Base on ComponentPropsWithRef<'button'> for the underlying HTML surface, and Pick specific
+// Based on ComponentPropsWithRef<'button'> for the underlying HTML surface, and Pick specific
 // behavioural props from Toggle.Props rather than extending it wholesale. Toggle.Props also adds
 // render (slot customisation), className/style as state callbacks, and preventBaseUIHandler on
 // every event handler — none of which Hearth exposes on any other component.
