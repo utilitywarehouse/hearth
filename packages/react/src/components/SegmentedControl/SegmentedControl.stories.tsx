@@ -1,16 +1,20 @@
-import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
+  BroadbandMediumIcon,
   BroadbandSmallIcon,
+  CashbackCardMediumIcon,
+  CashbackCardSmallIcon,
   ElectricityMediumIcon,
   ElectricitySmallIcon,
   GasMediumIcon,
   GasSmallIcon,
+  InsuranceMediumIcon,
+  InsuranceSmallIcon,
+  MobileMediumIcon,
   MobileSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Box } from '../Box/Box';
 import { BodyText } from '../BodyText/BodyText';
-import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOption } from './SegmentedControlOption';
@@ -32,7 +36,12 @@ const meta: Meta<typeof SegmentedControl> = {
 export default meta;
 type Story = StoryObj<typeof SegmentedControl>;
 
+/**
+ * Visual matrix of all size and state combinations used for snapshot testing and docs.
+ * Each variation is labelled. Not intended as a usage reference — see individual stories instead.
+ */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: { controls: { hideNoControlsWarning: true }, chromatic: { disableSnapshot: false } },
   render: () => (
     <Flex direction="column" gap="400">
@@ -72,6 +81,12 @@ export const KitchenSink: Story = {
         <SegmentedControlOption value="broadband" icon={<BroadbandSmallIcon />}>
           Broadband
         </SegmentedControlOption>
+        <SegmentedControlOption value="insurance" icon={<InsuranceSmallIcon />}>
+          Insurance
+        </SegmentedControlOption>
+        <SegmentedControlOption value="cashback" icon={<CashbackCardSmallIcon />}>
+          Cashback
+        </SegmentedControlOption>
       </SegmentedControl>
 
       <BodyText as="p" size="md" weight="semibold">
@@ -83,6 +98,18 @@ export const KitchenSink: Story = {
         </SegmentedControlOption>
         <SegmentedControlOption value="electricity" icon={<ElectricityMediumIcon />}>
           Electricity
+        </SegmentedControlOption>
+        <SegmentedControlOption value="mobile" icon={<MobileMediumIcon />}>
+          Mobile
+        </SegmentedControlOption>
+        <SegmentedControlOption value="broadband" icon={<BroadbandMediumIcon />}>
+          Broadband
+        </SegmentedControlOption>
+        <SegmentedControlOption value="insurance" icon={<InsuranceMediumIcon />}>
+          Insurance
+        </SegmentedControlOption>
+        <SegmentedControlOption value="cashback" icon={<CashbackCardMediumIcon />}>
+          Cashback
         </SegmentedControlOption>
       </SegmentedControl>
 
@@ -109,10 +136,11 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore props such as size, multiple, and disabled. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: (args: Story['args']) => (
-    <SegmentedControl {...args} defaultValue={['option-1']}>
+    <SegmentedControl {...args}>
       <SegmentedControlOption value="option-1">Option 1</SegmentedControlOption>
       <SegmentedControlOption value="option-2">Option 2</SegmentedControlOption>
       <SegmentedControlOption value="option-3">Option 3</SegmentedControlOption>
@@ -121,15 +149,53 @@ export const Playground: Story = {
   ),
 };
 
+/**
+ * Two sizes are available: `sm` (32px, default) and `md` (48px).
+ * The `size` prop is responsive and accepts breakpoint-keyed values.
+ */
+export const Sizes: Story = {
+  render: () => (
+    <Flex direction="column" gap="300" alignItems="start">
+      <SegmentedControl defaultValue={['option-1']} size="sm">
+        <SegmentedControlOption value="option-1">Option 1</SegmentedControlOption>
+        <SegmentedControlOption value="option-2">Option 2</SegmentedControlOption>
+        <SegmentedControlOption value="option-3">Option 3</SegmentedControlOption>
+      </SegmentedControl>
+      <SegmentedControl defaultValue={['option-1']} size="md">
+        <SegmentedControlOption value="option-1">Option 1</SegmentedControlOption>
+        <SegmentedControlOption value="option-2">Option 2</SegmentedControlOption>
+        <SegmentedControlOption value="option-3">Option 3</SegmentedControlOption>
+      </SegmentedControl>
+    </Flex>
+  ),
+};
+
+/**
+ * Use the `icon` prop to display an icon before the label.
+ * Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`.
+ * Either add icons to all options or none — do not mix.
+ */
 export const WithIcons: Story = {
   render: () => (
-    <Flex direction="column" gap="300">
+    <Flex direction="column" gap="300" alignItems="start">
       <SegmentedControl defaultValue={['gas']} size="sm">
         <SegmentedControlOption value="gas" icon={<GasSmallIcon />}>
           Gas
         </SegmentedControlOption>
         <SegmentedControlOption value="electricity" icon={<ElectricitySmallIcon />}>
           Electricity
+        </SegmentedControlOption>
+        <SegmentedControlOption value="mobile" icon={<MobileSmallIcon />}>
+          Mobile
+        </SegmentedControlOption>
+        <SegmentedControlOption value="broadband" icon={<BroadbandSmallIcon />}>
+          Broadband
+        </SegmentedControlOption>
+        <SegmentedControlOption value="insurance" icon={<InsuranceSmallIcon />}>
+          Insurance
+        </SegmentedControlOption>
+        <SegmentedControlOption value="cashback" icon={<CashbackCardSmallIcon />}>
+          Cashback
         </SegmentedControlOption>
       </SegmentedControl>
       <SegmentedControl defaultValue={['gas']} size="md">
@@ -139,76 +205,27 @@ export const WithIcons: Story = {
         <SegmentedControlOption value="electricity" icon={<ElectricityMediumIcon />}>
           Electricity
         </SegmentedControlOption>
+        <SegmentedControlOption value="mobile" icon={<MobileMediumIcon />}>
+          Mobile
+        </SegmentedControlOption>
+        <SegmentedControlOption value="broadband" icon={<BroadbandMediumIcon />}>
+          Broadband
+        </SegmentedControlOption>
+        <SegmentedControlOption value="insurance" icon={<InsuranceMediumIcon />}>
+          Insurance
+        </SegmentedControlOption>
+        <SegmentedControlOption value="cashback" icon={<CashbackCardMediumIcon />}>
+          Cashback
+        </SegmentedControlOption>
       </SegmentedControl>
     </Flex>
   ),
 };
 
-const ALL_OPTIONS = [
-  { value: 'option-1', label: 'Option 1' },
-  { value: 'option-2', label: 'Option 2' },
-  { value: 'option-3', label: 'Option 3' },
-  { value: 'option-4', label: 'Option 4' },
-  { value: 'option-5', label: 'Option 5' },
-  { value: 'option-6', label: 'Option 6' },
-  { value: 'option-7', label: 'Option 7' },
-  { value: 'option-8', label: 'Option 8' },
-  { value: 'option-9', label: 'Option 9' },
-  { value: 'option-10', label: 'Option 10' },
-  { value: 'option-11', label: 'Option 11' },
-  { value: 'option-12', label: 'Option 12' },
-  { value: 'option-13', label: 'Option 13' },
-];
-
-export const DynamicOptions: Story = {
-  render: () => {
-    const [options, setOptions] = useState(ALL_OPTIONS.slice(0, 3));
-    const [value, setValue] = useState(['option-1']);
-
-    const addOption = () => {
-      if (options.length < ALL_OPTIONS.length) {
-        setOptions(ALL_OPTIONS.slice(0, options.length + 1));
-      }
-    };
-
-    const removeOption = () => {
-      if (options.length > 1) {
-        const next = options.slice(0, options.length - 1);
-        setOptions(next);
-        const last = next[next.length - 1];
-        if (last && !next.find(o => o.value === value[0])) {
-          setValue([last.value]);
-        }
-      }
-    };
-
-    return (
-      <Flex direction="column" gap="400" alignItems="start">
-        <SegmentedControl value={value} onValueChange={setValue} size="sm">
-          {options.map(o => (
-            <SegmentedControlOption key={o.value} value={o.value}>
-              {o.label}
-            </SegmentedControlOption>
-          ))}
-        </SegmentedControl>
-        <Flex gap="200">
-          <Button size="sm" variant="outline" onClick={removeOption} disabled={options.length <= 1}>
-            Remove option
-          </Button>
-          <Button
-            size="sm"
-            variant="outline"
-            onClick={addOption}
-            disabled={options.length >= ALL_OPTIONS.length}
-          >
-            Add option
-          </Button>
-        </Flex>
-      </Flex>
-    );
-  },
-};
-
+/**
+ * When using a responsive `size` prop, swap icon sizes at breakpoints using
+ * `Box` display props to show the correct Small or Medium icon at each viewport width.
+ */
 export const WithResponsiveIcons: Story = {
   render: () => (
     <SegmentedControl defaultValue={['gas']} size={{ mobile: 'sm', desktop: 'md' }}>
@@ -242,6 +259,106 @@ export const WithResponsiveIcons: Story = {
       >
         Electricity
       </SegmentedControlOption>
+      <SegmentedControlOption
+        value="mobile"
+        icon={
+          <>
+            <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+              <MobileMediumIcon />
+            </Box>
+            <Box asChild display={{ desktop: 'none' }}>
+              <MobileSmallIcon />
+            </Box>
+          </>
+        }
+      >
+        Mobile
+      </SegmentedControlOption>
+      <SegmentedControlOption
+        value="broadband"
+        icon={
+          <>
+            <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+              <BroadbandMediumIcon />
+            </Box>
+            <Box asChild display={{ desktop: 'none' }}>
+              <BroadbandSmallIcon />
+            </Box>
+          </>
+        }
+      >
+        Broadband
+      </SegmentedControlOption>
+      <SegmentedControlOption
+        value="insurance"
+        icon={
+          <>
+            <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+              <InsuranceMediumIcon />
+            </Box>
+            <Box asChild display={{ desktop: 'none' }}>
+              <InsuranceSmallIcon />
+            </Box>
+          </>
+        }
+      >
+        Insurance
+      </SegmentedControlOption>
+      <SegmentedControlOption
+        value="cashback"
+        icon={
+          <>
+            <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+              <CashbackCardMediumIcon />
+            </Box>
+            <Box asChild display={{ desktop: 'none' }}>
+              <CashbackCardSmallIcon />
+            </Box>
+          </>
+        }
+      >
+        Cashback
+      </SegmentedControlOption>
     </SegmentedControl>
+  ),
+};
+
+/**
+ * Set `multiple` to allow more than one option to be selected simultaneously.
+ * Provide a `defaultValue` array containing all initially selected values.
+ */
+export const MultipleSelection: Story = {
+  render: () => (
+    <SegmentedControl defaultValue={['gas', 'electricity']} multiple size="sm">
+      <SegmentedControlOption value="gas">Gas</SegmentedControlOption>
+      <SegmentedControlOption value="electricity">Electricity</SegmentedControlOption>
+      <SegmentedControlOption value="mobile">Mobile</SegmentedControlOption>
+      <SegmentedControlOption value="broadband">Broadband</SegmentedControlOption>
+      <SegmentedControlOption value="insurance">Insurance</SegmentedControlOption>
+      <SegmentedControlOption value="cashback">Cashback</SegmentedControlOption>
+    </SegmentedControl>
+  ),
+};
+
+/**
+ * The entire control can be disabled via the `disabled` prop on `SegmentedControl`,
+ * or individual options can be disabled independently via `disabled` on `SegmentedControlOption`.
+ */
+export const Disabled: Story = {
+  render: () => (
+    <Flex direction="column" gap="300" alignItems="start">
+      <SegmentedControl defaultValue={['option-1']} size="sm" disabled>
+        <SegmentedControlOption value="option-1">Option 1</SegmentedControlOption>
+        <SegmentedControlOption value="option-2">Option 2</SegmentedControlOption>
+        <SegmentedControlOption value="option-3">Option 3</SegmentedControlOption>
+      </SegmentedControl>
+      <SegmentedControl defaultValue={['option-1']} size="sm">
+        <SegmentedControlOption value="option-1">Option 1</SegmentedControlOption>
+        <SegmentedControlOption value="option-2" disabled>
+          Option 2
+        </SegmentedControlOption>
+        <SegmentedControlOption value="option-3">Option 3</SegmentedControlOption>
+      </SegmentedControl>
+    </Flex>
   ),
 };

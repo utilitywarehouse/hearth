@@ -302,6 +302,21 @@ Add an `@import` to `src/components/index.css`. The comment at the top of that f
 
 ## Storybook Stories (`<Component>.stories.tsx`)
 
+See [Storybook best practices](https://storybook.js.org/docs/ai/best-practices.md) for full guidance.
+
+### Using service options in stories
+
+When a story needs realistic multi-option examples, use the full set of UW services — each has a paired icon in `@utilitywarehouse/hearth-react-icons`. Never use a subset; always use all six so the story reflects real usage.
+
+| Service | Small icon | Medium icon |
+|---------|-----------|-------------|
+| Gas | `GasSmallIcon` | `GasMediumIcon` |
+| Electricity | `ElectricitySmallIcon` | `ElectricityMediumIcon` |
+| Mobile | `MobileSmallIcon` | `MobileMediumIcon` |
+| Broadband | `BroadbandSmallIcon` | `BroadbandMediumIcon` |
+| Insurance | `InsuranceSmallIcon` | `InsuranceMediumIcon` |
+| Cashback | `CashbackCardSmallIcon` | `CashbackCardMediumIcon` |
+
 ```tsx
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
@@ -327,8 +342,12 @@ const meta: Meta<typeof MyComponent> = {
 export default meta;
 type Story = StoryObj<typeof MyComponent>;
 
-// Comprehensive matrix of all combinations — used in docs, hidden source
+/**
+ * Visual matrix of all combinations — used in docs and Chromatic snapshot testing.
+ * Not a usage reference; excluded from AI manifests via the !manifest tag.
+ */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => (
     <Flex gap="200" wrap="wrap">
@@ -339,10 +358,12 @@ export const KitchenSink: Story = {
   ),
 };
 
-// Interactive sandbox — empty render (uses args/argTypes)
-export const Playground: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  render: args => <MyComponent {...args} />,
+};
 
-// One story per notable feature
+/** One story per notable feature, each demonstrating a single concept. */
 export const Variants: Story = {
   render: () => (
     <Flex gap="200">
@@ -352,6 +373,18 @@ export const Variants: Story = {
   ),
 };
 ```
+
+### Story best practices
+
+**One concept per story**: each feature story should demonstrate a single concept or usage pattern. Avoid stories that combine multiple unrelated concerns (e.g. "SizesAndVariants"). If a matrix of combinations is needed for visual testing, put it in `KitchenSink` and tag it `['!manifest']`.
+
+**JSDoc on every export**: add a `/** ... */` JSDoc comment above each story export explaining the *why* — what the story demonstrates and when a developer should use that pattern. This is used by Storybook's AI manifest system to describe the story to agents.
+
+**Tag `KitchenSink` with `['!manifest']`**: the comprehensive matrix mixes too many concepts to be useful as an AI reference. The tag excludes it from Storybook's AI manifest while keeping it in docs and Chromatic.
+
+**One story per variant/state**: add dedicated stories for each meaningful feature — sizes, icons, disabled, multiple selection — rather than relying solely on `KitchenSink`. This makes docs more navigable and gives agents clear, focused examples.
+
+**Use meta-level `args` for defaults**: set shared defaults (size, defaultValue, etc.) in `meta.args` rather than hardcoding them in each story's `render`. Stories can override individual args when they need to demonstrate a specific state.
 
 ---
 
@@ -424,3 +457,4 @@ Rules:
 - [ ] `<Component>.stories.tsx` — `KitchenSink`, `Playground`, and at least one feature story
 - [ ] `<Component>.docs.mdx` — description, KitchenSink canvas, Playground canvas, feature sections, ArgTypes
 - [ ] `src/index.ts` updated at the bottom with an empty line separating from previous exports
+- [ ] TypeScript passes — run `npx --node-options="" tsc --noEmit -p packages/react/tsconfig.json 2>&1 | grep "<ComponentName>"` and confirm no errors (stories are excluded from `tsconfig.json` so no output means clean)
