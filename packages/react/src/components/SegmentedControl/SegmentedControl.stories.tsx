@@ -18,7 +18,6 @@ import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOption } from './SegmentedControlOption';
-import React from 'react';
 
 const meta: Meta<typeof SegmentedControl> = {
   title: 'Components / SegmentedControl',
