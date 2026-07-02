@@ -73,6 +73,26 @@ export interface MyComponentProps
 
 ### Critical rules for props
 
+**Every prop must have a JSDoc comment.** This drives Storybook's controls panel and the generated LLM docs — undocumented props show up blank in both. Include what the prop does, any constraints or pairing rules, and a `@default` tag where applicable:
+
+```ts
+export type MyComponentProps = {
+  /**
+   * The visual style of the component.
+   * @default subtle
+   */
+  variant?: 'subtle' | 'emphasis';
+  /**
+   * Sets the height of the component. Accepts a responsive value to display
+   * different sizes at different breakpoints.
+   * @default md
+   */
+  size?: Responsive<'sm' | 'md'>;
+  /** The content to render inside the component. */
+  children?: ReactNode;
+};
+```
+
 **Do not create extra named types for primitive props.** Use `Pick` inline:
 
 ```ts
@@ -146,6 +166,24 @@ export const MyComponent = forwardRef<MyComponentElement, MyComponentProps>((pro
 });
 
 MyComponent.displayName = COMPONENT_NAME;
+```
+
+**Always add a JSDoc comment on the component export.** Follow the [Storybook documenting guidance](https://storybook.js.org/docs/ai/best-practices#documenting-your-components):
+
+- Start with *when* to use this component (not just what it is)
+- Call out what to use *instead* when it doesn't apply (e.g. "For navigation, use Tabs instead")
+- Add non-obvious constraints (required props, compound component parent requirements)
+- Add a short `@summary` tag — a one-liner used by the AI manifest separately from the full description
+
+```tsx
+/**
+ * Use MyComponent to [do X].
+ * For [related use case], use [OtherComponent] instead.
+ * [Any non-obvious constraint — e.g. "Must be a direct child of ParentComponent".]
+ *
+ * @summary [one-line description of when to reach for this component]
+ */
+export const MyComponent = forwardRef<...>(...);
 ```
 
 ### Critical rules for implementation
@@ -302,7 +340,21 @@ Add an `@import` to `src/components/index.css`. The comment at the top of that f
 
 ## Storybook Stories (`<Component>.stories.tsx`)
 
-See [Storybook best practices](https://storybook.js.org/docs/ai/best-practices.md) for full guidance.
+See [Storybook best practices](https://storybook.js.org/docs/ai/best-practices.md) for full guidance. Key rules from the [documenting your components](https://storybook.js.org/docs/ai/best-practices#documenting-your-components) section:
+
+- **Each story demonstrates one concept** — do not mix unrelated variations (e.g. sizes AND icons AND disabled all in one story). The `KitchenSink` is the only exception; tag it with `tags: ['!manifest']` to exclude it from AI manifests.
+- **JSDoc on every story export** — describe *why* you would use whatever is demonstrated, not just *what* it shows. A description that restates the story name adds no value.
+- **`KitchenSink` always gets `tags: ['!manifest']`** — it mixes too many concepts to be a useful AI reference.
+
+```tsx
+// ✅ CORRECT — describes why, not what
+/** Use the `icon` prop to pair an icon with each label. Match Small icons to size="sm" and Medium icons to size="md". */
+export const WithIcons: Story = { ... };
+
+// ❌ WRONG — just restates the story name
+/** Shows the component with icons. */
+export const WithIcons: Story = { ... };
+```
 
 ### Using service options in stories
 
@@ -448,7 +500,8 @@ Rules:
 - [ ] `'use client'` directive at top of `.tsx` if the component wraps a Radix UI or Base UI primitive
 - [ ] `<Component>.css` — `.h-ComponentName` root selector; variant classes (`h-variant-*`), responsive classes (`h-r-size-*`), data attribute selectors; sub-elements nested under root; token custom properties only (no raw values)
 - [ ] CSS registered in `src/components/index.css` via `@import url('./ComponentName/ComponentName.css')`
-- [ ] `<Component>.props.ts` — PropDef object + TypeScript interface; no extra type aliases for primitive props; common props after Picks
+- [ ] `<Component>.props.ts` — PropDef object + TypeScript interface; no extra type aliases for primitive props; common props after Picks; **every prop has a JSDoc comment** with `@default` where applicable
+- [ ] Component export has a JSDoc comment describing what it is and any non-obvious usage constraints
 - [ ] Radix/Base UI imports use `...Primitive` suffix
 - [ ] Layout uses `Flex`/`Box`/`Grid`, not extra CSS classnames
 - [ ] Typography uses `Heading`, `BodyText`, or `DetailText` — not custom styled elements

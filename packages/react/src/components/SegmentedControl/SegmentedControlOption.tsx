@@ -13,6 +13,12 @@ const labelClassName = withGlobalPrefix(`${COMPONENT_NAME}Label`);
 
 type SegmentedControlOptionElement = ComponentRef<'button'>;
 
+/**
+ * A single selectable option within a `SegmentedControl`. Must be used as a
+ * direct child of `SegmentedControl`. Each option requires a unique `value`.
+ *
+ * @summary a selectable option inside a SegmentedControl
+ */
 export const SegmentedControlOption = forwardRef<
   SegmentedControlOptionElement,
   SegmentedControlOptionProps

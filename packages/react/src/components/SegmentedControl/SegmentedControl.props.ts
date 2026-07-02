@@ -40,10 +40,12 @@ export type SegmentedControlProps = {
    */
   orientation?: 'horizontal' | 'vertical';
   /**
-   * Sets the height of the control.
+   * Sets the height of the control. `sm` is 32px and `md` is 48px.
+   * Accepts a responsive value to display different sizes at different breakpoints.
    * @default sm
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /** The `SegmentedControlOption` elements to render inside the control. */
   children?: ReactNode;
 } & Omit<ComponentPropsWithRef<'div'>, 'onChange'> &
   MarginProps;

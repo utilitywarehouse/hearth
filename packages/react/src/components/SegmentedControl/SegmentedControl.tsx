@@ -15,6 +15,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SegmentedControlElement = ComponentRef<'div'>;
 
+/**
+ * Use SegmentedControl to switch between alternative views of closely related content.
+ * Always provide a `defaultValue` or controlled `value` — a SegmentedControl cannot
+ * be used without a selection.
+ *
+ * For navigation between pages or sections, use Tabs instead.
+ * For binary on/off settings, use Switch instead.
+ *
+ * @summary for switching between alternative views of closely related content
+ */
 export const SegmentedControl = forwardRef<SegmentedControlElement, SegmentedControlProps>(
   (props, ref) => {
     const { className, children, ...segmentedControlProps } = extractProps(
