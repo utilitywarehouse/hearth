@@ -93,6 +93,8 @@ export type MyComponentProps = {
 };
 ```
 
+**Consider whether to extend the primitive's Props type or the underlying HTML element type.** Base UI and Radix primitives expose implementation details in their Props types — Base UI's `Toggle.Props`, for example, adds `render` (slot customisation), `className`/`style` as state callbacks, and `preventBaseUIHandler` on every event handler. Extending the primitive gives consumers access to those features; extending the HTML element type (`ComponentPropsWithRef<'button'>`) keeps the API simpler and consistent with the rest of the library. Either is valid — weigh the trade-offs for the component at hand, and add a comment on the type documenting which approach was chosen and why.
+
 **Do not create extra named types for primitive props.** Use `Pick` inline:
 
 ```ts
