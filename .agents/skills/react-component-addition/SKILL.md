@@ -510,4 +510,4 @@ Rules:
 - [ ] `<Component>.stories.tsx` — `KitchenSink`, `Playground`, and at least one feature story
 - [ ] `<Component>.docs.mdx` — description, KitchenSink canvas, Playground canvas, feature sections, ArgTypes
 - [ ] `src/index.ts` updated at the bottom with an empty line separating from previous exports
-- [ ] TypeScript passes — run `npx --node-options="" tsc --noEmit -p packages/react/tsconfig.json 2>&1 | grep "<ComponentName>"` and confirm no errors (stories are excluded from `tsconfig.json` so no output means clean)
+- [ ] TypeScript passes — run `npx --node-options="" tsc --noEmit -p packages/react/tsconfig.json 2>&1 | grep "<ComponentName>"` and confirm no errors beyond the pre-existing `@storybook/react-vite` module declaration error

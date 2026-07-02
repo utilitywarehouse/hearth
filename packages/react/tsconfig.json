@@ -34,8 +34,7 @@
   },
   "exclude": [
     "dist",
-    "node_modules",
-    "src/**/*.stories.tsx"
+    "node_modules"
   ],
   "include": [
     "src/**/*"
