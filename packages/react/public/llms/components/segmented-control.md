@@ -2,6 +2,11 @@
 
 Use a Segmented Control to switch between alternative views of closely related content.
 
+- [Usage](#usage)
+- [Sizes](#sizes)
+- [Icons](#icons)
+- [API](#api)
+
 ```tsx
 <Flex direction="column" gap="400">
   <BodyText as="p" size="md" weight="semibold">
@@ -75,14 +80,6 @@ Use a Segmented Control to switch between alternative views of closely related c
   </SegmentedControl>
 </Flex>
 ```
-
-- [Usage](#usage)
-- [Sizes](#sizes)
-- [Icons](#icons)
-  - [Responsive icon sizes](#responsive-icon-sizes)
-- [When to use](#when-to-use)
-- [SegmentedControl API](#segmentedcontrol-api)
-- [SegmentedControlOption API](#segmentedcontroloption-api)
 
 ## Usage
 
@@ -269,12 +266,30 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
 </SegmentedControl>
 ```
 
-## When to use
+## API
 
-✅ Use Segmented Control to switch between alternative views of closely related content.
+This component is based on the [Base UI ToggleGroup primitive](https://base-ui.com/react/components/toggle-group)
+and supports the following common props:
 
-✅ Use when updating or changing a view of content.
+- Margin
 
-❌ Do not use to navigate between content — use [Tabs](/docs/components-tabs--docs) instead.
+| Prop            | Type                                                                                                                                                                                                                     | Default | Description                                                                                                                                                      |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `value`         | `readonly string[]`                                                                                                                                                                                                      | —       | The pressed state of the toggle group represented by an array of the values of all pressed toggle buttons. This is the controlled counterpart of `defaultValue`. |
+| `defaultValue`  | `(readonly string[] & (string \| number \| readonly string[]))`                                                                                                                                                          | —       | The pressed state of the toggle group represented by an array of the values of all pressed toggle buttons. This is the uncontrolled counterpart of `value`.      |
+| `onValueChange` | `((groupValue: string[], eventDetails: { reason: "none"; event: Event; cancel: () => void; allowPropagation: () => void; isCanceled: boolean; isPropagationAllowed: boolean; trigger: Element \| undefined; }) => void)` | —       | Callback fired when the pressed states of the toggle group changes.                                                                                              |
+| `disabled`      | `boolean`                                                                                                                                                                                                                | `false` | Whether the toggle group should ignore user interaction.                                                                                                         |
+| `size`          | `Responsive<"sm" \| "md">`                                                                                                                                                                                               | `sm`    | Sets the height of the control. `sm` is 32px and `md` is 48px. Accepts a responsive value to display different sizes at different breakpoints.                   |
 
-❌ Do not use as a replacement for [Switch](/docs/components-switch--docs) within forms or settings.
+### SegmentedControlOption API
+
+This component is based on the `button` element.
+
+| Prop              | Type                                                                                                                                                                                                                 | Default | Description                                                                                                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`           | `string`                                                                                                                                                                                                             | —       | The text label displayed inside the option.                                                                                                                                                                                  |
+| `value`           | `string`                                                                                                                                                                                                             | —       | The value that identifies this option within the SegmentedControl.                                                                                                                                                           |
+| `pressed`         | `boolean`                                                                                                                                                                                                            | —       | Whether the toggle button is currently pressed. This is the controlled counterpart of `defaultPressed`.                                                                                                                      |
+| `defaultPressed`  | `boolean`                                                                                                                                                                                                            | `false` | Whether the toggle button is currently pressed. This is the uncontrolled counterpart of `pressed`.                                                                                                                           |
+| `onPressedChange` | `((pressed: boolean, eventDetails: { reason: "none"; event: Event; cancel: () => void; allowPropagation: () => void; isCanceled: boolean; isPropagationAllowed: boolean; trigger: Element \| undefined; }) => void)` | —       | Callback fired when the pressed state is changed.                                                                                                                                                                            |
+| `icon`            | `ReactNode`                                                                                                                                                                                                          | —       | An icon to display before the label. Use the Small icon variant for `size="sm"` and the Medium icon variant for `size="md"`. When using the responsive `size` prop, see the docs for guidance on rendering responsive icons. |
