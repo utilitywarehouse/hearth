@@ -14,7 +14,6 @@ Use a Segmented Control to switch between alternative views of closely related c
 - [Sizes](#sizes)
 - [Icons](#icons)
   - [Responsive icon sizes](#responsive-icon-sizes)
-- [Multiple selection](#multiple-selection)
 - [When to use](#when-to-use)
 - [SegmentedControl API](#segmentedcontrol-api)
 - [SegmentedControlOption API](#segmentedcontroloption-api)
@@ -88,18 +87,6 @@ import { Box, SegmentedControl, SegmentedControlOption } from '@utilitywarehouse
 
 <Canvas of={Stories.WithResponsiveIcons} sourceState="show" />
 
-## Multiple selection
-
-By default only one option can be selected at a time. Set `multiple` to allow multiple simultaneous selections.
-
-```tsx
-<SegmentedControl defaultValue={['gas', 'electricity']} multiple>
-  <SegmentedControlOption value="gas">Gas</SegmentedControlOption>
-  <SegmentedControlOption value="electricity">Electricity</SegmentedControlOption>
-  <SegmentedControlOption value="mobile">Mobile</SegmentedControlOption>
-</SegmentedControl>
-```
-
 ## When to use
 
 ✅ Use Segmented Control to switch between alternative views of closely related content.
@@ -114,7 +101,7 @@ By default only one option can be selected at a time. Set `multiple` to allow mu
 
 <ArgTypes
   of={Stories.Playground}
-  include={'size|value|defaultValue|onValueChange|multiple|disabled|loopFocus|orientation'}
+  include={'size|value|defaultValue|onValueChange|disabled|loopFocus|orientation'}
 />
 
 ## SegmentedControlOption API

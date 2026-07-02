@@ -26,11 +26,6 @@ export type SegmentedControlProps = {
    */
   onValueChange?: (value: Array<string>) => void;
   /**
-   * When true, multiple options can be selected simultaneously.
-   * @default false
-   */
-  multiple?: boolean;
-  /**
    * Disables all options in the control.
    */
   disabled?: boolean;

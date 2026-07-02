@@ -18,13 +18,13 @@ import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { SegmentedControl } from './SegmentedControl';
 import { SegmentedControlOption } from './SegmentedControlOption';
+import React from 'react';
 
 const meta: Meta<typeof SegmentedControl> = {
   title: 'Components / SegmentedControl',
   component: SegmentedControl,
   argTypes: {
     size: { control: { type: 'radio' }, options: ['sm', 'md'] },
-    multiple: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
   },
   args: {
@@ -319,23 +319,6 @@ export const WithResponsiveIcons: Story = {
       >
         Cashback
       </SegmentedControlOption>
-    </SegmentedControl>
-  ),
-};
-
-/**
- * Set `multiple` to allow more than one option to be selected simultaneously.
- * Provide a `defaultValue` array containing all initially selected values.
- */
-export const MultipleSelection: Story = {
-  render: () => (
-    <SegmentedControl defaultValue={['gas', 'electricity']} multiple size="sm">
-      <SegmentedControlOption value="gas">Gas</SegmentedControlOption>
-      <SegmentedControlOption value="electricity">Electricity</SegmentedControlOption>
-      <SegmentedControlOption value="mobile">Mobile</SegmentedControlOption>
-      <SegmentedControlOption value="broadband">Broadband</SegmentedControlOption>
-      <SegmentedControlOption value="insurance">Insurance</SegmentedControlOption>
-      <SegmentedControlOption value="cashback">Cashback</SegmentedControlOption>
     </SegmentedControl>
   ),
 };
