@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, isValidElement } from 'react';
 import type { ComponentRef, ReactElement } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -41,17 +41,23 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
           }
         : onClick;
 
+    const isElementChild = asChild && isValidElement(children);
+    warn(
+      asChild === true && !isValidElement(children),
+      'MenuItem: `asChild` requires a single React element as children. Falling back to normal rendering.'
+    );
+
     return (
       <MenuPrimitive.Item
         ref={ref}
         className={cn(componentClassName, className)}
         data-colorscheme={colorScheme}
-        render={asChild ? (children as ReactElement) : undefined}
+        render={isElementChild ? (children as ReactElement) : undefined}
         onClick={handleClick}
         label={resolvedlabel}
         {...props}
       >
-        {asChild ? undefined : children}
+        {isElementChild ? undefined : children}
       </MenuPrimitive.Item>
     );
   }
