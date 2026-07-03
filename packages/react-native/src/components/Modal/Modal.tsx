@@ -363,7 +363,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   imageContainer: {
     alignItems: 'center',
-    flex: 1,
+    gap: theme.components.modal.content.gap,
   },
   textContent: {
     gap: theme.components.modal.content.gap,
