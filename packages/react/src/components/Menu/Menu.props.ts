@@ -1,4 +1,20 @@
-import type { ComponentPropsWithRef } from 'react';
-import { DropdownMenu as MenuPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
+import { Menu as MenuPrimitive } from '@base-ui/react';
 
-export type MenuProps = Omit<ComponentPropsWithRef<typeof MenuPrimitive.Root>, 'dir'>;
+export interface MenuProps extends Pick<
+  ComponentPropsWithRef<typeof MenuPrimitive.Root>,
+  | 'open'
+  | 'defaultOpen'
+  | 'onOpenChange'
+  | 'actionsRef'
+  | 'triggerId'
+  | 'defaultTriggerId'
+  | 'handle'
+  | 'modal'
+  | 'disabled'
+> {
+  /**
+   * The content of the Menu. Should contain `MenuTrigger` and `MenuContent`.
+   */
+  children: ReactNode;
+}

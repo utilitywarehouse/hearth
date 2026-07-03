@@ -13,6 +13,8 @@ import {
   TrashSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 
+const detachedHandle = Menu.createHandle();
+
 const meta: Meta<typeof Menu> = {
   title: 'Components / Menu',
   component: Menu,
@@ -99,7 +101,7 @@ export const SEOFriendly: Story = {
             <ExpandSmallIcon />
           </Button>
         </MenuTrigger>
-        <MenuContent forceMount>
+        <MenuContent keepMounted>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
@@ -129,6 +131,30 @@ export const IconButtonTrigger: Story = {
   },
 };
 
+export const DetachedTrigger: Story = {
+  render: () => {
+    return (
+      <Flex gap="300" alignItems="center">
+        {/* MenuTrigger lives outside Menu — connected via handle */}
+        <MenuTrigger handle={detachedHandle}>
+          <Button variant="outline" colorScheme="functional">
+            Open menu
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        {/* Menu has no MenuTrigger child — it opens via the handle above */}
+        <Menu handle={detachedHandle}>
+          <MenuContent>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+          </MenuContent>
+        </Menu>
+      </Flex>
+    );
+  },
+};
+
 export const ScrollArea: Story = {
   render: args => {
     return (
@@ -150,6 +176,7 @@ export const ScrollArea: Story = {
 };
 
 export const Placement: Story = {
+  args: { modal: false },
   render: args => {
     return (
       <Flex height="400px" width="800px" alignItems="center" justifyContent="center" gap="200">

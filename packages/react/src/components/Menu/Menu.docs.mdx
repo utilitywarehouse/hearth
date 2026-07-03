@@ -7,6 +7,7 @@ import { Divider } from '../Divider/Divider';
 import { Menu } from './Menu';
 import { MenuContent } from './MenuContent';
 import { MenuItem } from './MenuItem';
+import { MenuTrigger } from './MenuTrigger';
 
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
@@ -14,7 +15,19 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Menu" to="components/menu" />
 
-Use the `Menu` component to present a short list of actions or options in response to a user’s interaction. Menus are ideal for actions like sorting, filtering, or providing additional options without navigating away from the current screen.
+Use the `Menu` component to present a short list of actions or options in
+response to a user’s interaction. Menus are ideal for actions like sorting,
+filtering, or providing additional options without navigating away from the
+current screen.
+
+- [Usage](#usage)
+- [MenuTrigger](#menutrigger)
+- [Placement](#placement)
+- [MenuItem](#menuitem)
+- [Accessibility](#accessibility)
+- [SEO](#seo)
+- [Migration](#migration)
+- [API](#api)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
@@ -54,24 +67,56 @@ outside of the first `Menu` to close it.
 <Menu modal={false}>
 ```
 
-## Menu trigger
+## MenuTrigger
 
 You must render either a `Button` or `IconButton` component as a child of the `MenuTrigger`.
 
 <Canvas of={Stories.IconButtonTrigger} />
 
-## Menu content placement
+### Detached trigger
+
+By default the `MenuTrigger` lives inside `Menu`. When the trigger needs to exist in a
+different part of the component tree — for example in a toolbar while the menu state is
+managed elsewhere — use `Menu.createHandle()` to connect them.
+
+Create the handle once at module level (outside any component), then pass it to both
+`MenuTrigger` and `Menu` via the `handle` prop. `Menu` no longer needs a `MenuTrigger`
+child in this pattern.
+
+<Canvas of={Stories.DetachedTrigger} />
+
+```tsx
+const menuHandle = Menu.createHandle();
+
+// Somewhere in the tree:
+<MenuTrigger handle={menuHandle}>
+  <Button variant="outline" colorScheme="functional">
+    Open menu
+    <ExpandSmallIcon />
+  </Button>
+</MenuTrigger>
+
+// Elsewhere in the tree:
+<Menu handle={menuHandle}>
+  <MenuContent>
+    <MenuItem>Item</MenuItem>
+    <MenuItem>Item</MenuItem>
+  </MenuContent>
+</Menu>
+```
+
+## Placement
 
 You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 <Canvas of={Stories.Placement} />
 
-## Menu item
+## MenuItem
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
-If a `MenuItem` is navigating to another page, you can use the `asChild` prop to
-render a semantic `<a>` element.
+If a `MenuItem` is navigating to another page, use the `asChild` prop to render a
+semantic `<a>` element — all accessible attributes are merged onto the child.
 
 ```tsx
 <MenuContent>
@@ -81,7 +126,6 @@ render a semantic `<a>` element.
     Destructive item
     <TrashSmallIcon />
   </MenuItem>
-  {/* render a link element if navigating to somewhere else */}
   <MenuItem asChild>
     <a href="/another-page">
       Navigation Item
@@ -154,29 +198,87 @@ to manage focus movement among menu items.
 
 By default, `MenuContent` is removed from the DOM when the menu is closed, which
 means search engines may not index its content. If the menu items are important
-for SEO — for example, primary navigation links — use the `forceMount` prop on
+for SEO — for example, primary navigation links — use the `keepMounted` prop on
 `MenuContent` to keep them in the DOM at all times.
 
-When `forceMount` is set, the closed menu is hidden from view and the
-accessibility tree using the `hidden` attribute, so it has no impact on the
-visual layout or screen reader experience.
-
 ```tsx
-<MenuContent forceMount>
+<MenuContent keepMounted>
   <MenuItem>Item</MenuItem>
 </MenuContent>
 ```
 
-## Menu API
+## Migration
+
+### Migrating from `v0.30.x`
+
+**`MenuItem` deprecations:**
+
+- `onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation.
+- `textValue` is deprecated. Use `label` instead — it is used for accessibility and keyboard navigation.
+
+**`MenuContent` deprecation:**
+
+- `forceMount` is deprecated. Use `keepMounted` instead.
+
+```tsx
+{/* Before */}
+<MenuItem onSelect={handleSelect} textValue="label">Item</MenuItem>
+<MenuContent forceMount>...</MenuContent>
+
+{/* After */}
+<MenuItem onClick={handleSelect} label="label">Item</MenuItem>
+<MenuContent keepMounted>...</MenuContent>
+```
+
+### Consumer migration prompt
+
+Paste the following into an agent to update all Menu usages in your codebase:
+
+```
+I'm upgrading @utilitywarehouse/hearth-react. The Menu component has migrated
+from Radix UI to Base UI internally. The following prop changes affect consumers:
+
+RENAMED (deprecated — old name still works but logs a dev-mode warning):
+  - `MenuItem: onSelect` → `onClick`: Base UI uses standard React onClick for
+    both mouse and keyboard activation.
+  - `MenuItem: textValue` → `label`: used for keyboard text navigation and
+    accessibility.
+  - `MenuContent: forceMount` → `keepMounted`: aligned with Base UI's API.
+
+Please search this codebase for all usages of MenuItem and MenuContent imported
+from '@utilitywarehouse/hearth-react' and apply the following changes:
+  - Replace every `onSelect=` on MenuItem with `onClick=`
+  - Replace every `textValue=` on MenuItem with `label=`
+  - Replace every `forceMount` on MenuContent with `keepMounted`
+
+Do not change any other logic, styling, or structure. After making changes,
+run TypeScript to confirm no type errors remain.
+```
+
+## API
 
 <ArgTypes of={Menu} />
 
-## MenuContent API
+### MenuTrigger API
 
-<ArgTypes of={MenuContent} />
+<ArgTypes
+  of={MenuTrigger}
+  include={'children|className|style|handle|disabled|openOnHover|delay|closeDelay|ref'}
+  exclude={'aria-*'}
+/>
+
+### MenuContent API
+
+<ArgTypes of={MenuContent} include={'className|style|placement|keepMounted|forceMount|ref'} />
 
 ### MenuItem API
 
 This component is based on the `div` element.
 
-<ArgTypes of={MenuItem} />
+<ArgTypes
+  of={MenuItem}
+  include={
+    'className|style|asChild|children|colorScheme|onSelect|textValue|onClick|label|closeOnClick|disabled|ref'
+  }
+  exclude={'aria-*|onClickCapture|onSelectCapture'}
+/>

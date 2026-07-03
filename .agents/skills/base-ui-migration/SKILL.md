@@ -81,6 +81,7 @@ Apply these rules when deciding how to handle each change:
 | `asChild` only used internally on a primitive sub-part | Remove, switch to base-ui `render` prop |
 | `forceMount` | Always rename to `keepMounted`; deprecation shim |
 | Positioning props (`side`, `align`, `sideOffset`, etc.) moved from `Content` to `Positioner` | Internal structural change — absorb in Hearth's opaque component; no consumer impact |
+| Radix prop appears absent from Base UI at first glance | **Check carefully before marking as removed** — Base UI often renames rather than drops (e.g. `textValue` → `label`). Always fetch the live Base UI docs and search for synonyms before deciding to break. |
 
 ---
 
@@ -104,13 +105,27 @@ Check which style the codebase already uses for components already on base-ui an
 
 ### Deprecation shim (single renamed prop)
 
+**Type the deprecated prop by referencing the new prop's type from the Base UI primitive** — do not manually specify a type like `MouseEventHandler<HTMLElement>`. This keeps the deprecated prop automatically in sync with the real prop it maps to:
+
+```ts
+// ✅ CORRECT — deprecated prop type derived from the new prop
+/** @deprecated Use `onClick` instead. */
+onSelect?: ComponentPropsWithoutRef<typeof MenuPrimitive.Item>['onClick'];
+
+// ❌ AVOID — manually-specified type that can drift
+/** @deprecated Use `onClick` instead. */
+onSelect?: MouseEventHandler<HTMLElement>;
+```
+
 **In the props file:**
 ```ts
 /** @deprecated Use `keepMounted` instead. Will be removed in the next major version. */
 forceMount?: true;
 /** Keep the panel mounted in the DOM even when closed. */
-keepMounted?: boolean;
+keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted'];
 ```
+
+Note: always pull `keepMounted`'s type from the primitive sub-part that actually owns it (e.g. `Portal`, not `Popup`).
 
 **In the component file:**
     import { warn } from '../../helpers/logger';
@@ -181,6 +196,29 @@ Example:
 - Replace with base-ui equivalent types or explicit prop declarations
 - Add `@deprecated` JSDoc to shim props
 - Keep the same exported interface/type names — consumers' TypeScript must not break
+
+**For opaque popup/content components, write a fully explicit interface** rather than inheriting from the Base UI `Popup` type and `Omit`-ing things. Base UI's `Popup` type carries internals (`render`, `style` callbacks, `nativeButton`, etc.) that leak into the public API. Instead, declare only what consumers actually need:
+
+```ts
+// ✅ CORRECT — explicit interface, only consumer-facing props
+export interface MenuContentProps {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+  placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+  keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted'];
+  /** @deprecated Use `keepMounted` instead. */
+  forceMount?: true;
+}
+
+// ❌ AVOID — inherits internals (render, style callbacks, nativeButton…)
+export type MenuContentProps = Omit<
+  ComponentPropsWithRef<typeof MenuPrimitive.Popup>,
+  'render' | 'className'
+> & { ... };
+```
+
+Similarly, when inheriting from a Base UI item/trigger type, omit internal props consumers should never see: `'render' | 'children' | 'nativeButton' | 'style'` (Base UI uses `style` as a state callback — redeclare it as `CSSProperties` if needed).
 
 ---
 
