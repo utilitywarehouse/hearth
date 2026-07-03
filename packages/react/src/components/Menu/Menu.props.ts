@@ -1,4 +1,20 @@
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react';
 
-export type MenuProps = ComponentPropsWithRef<typeof MenuPrimitive.Root>;
+export interface MenuProps extends Pick<
+  ComponentPropsWithRef<typeof MenuPrimitive.Root>,
+  | 'open'
+  | 'defaultOpen'
+  | 'onOpenChange'
+  | 'actionsRef'
+  | 'triggerId'
+  | 'defaultTriggerId'
+  | 'handle'
+  | 'modal'
+  | 'disabled'
+> {
+  /**
+   * The content of the Menu. Should contain `MenuTrigger` and `MenuContent`.
+   */
+  children: ReactNode;
+}

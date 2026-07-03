@@ -73,6 +73,23 @@ export interface MyComponentProps
 
 ### Critical rules for props
 
+**Prefer `interface` over `type` for props declarations.** Interfaces produce clearer error messages, are open for extension, and are the established convention in this codebase. Use `type` only when the shape cannot be expressed as an interface — for example, a union of two object types or a pure type alias with `&` intersection that involves primitives:
+
+```ts
+// ✅ CORRECT — interface for the main props shape
+export interface MyComponentProps extends Pick<ComponentPropsWithRef<'div'>, 'className' | 'children'> {
+  variant?: 'subtle' | 'emphasis';
+}
+
+// ✅ CORRECT — type alias is fine when an interface cannot express it
+export type MyComponentVariant = 'subtle' | 'emphasis';
+
+// ❌ AVOID — type alias where an interface would work
+export type MyComponentProps = {
+  variant?: 'subtle' | 'emphasis';
+};
+```
+
 **Every prop must have a JSDoc comment.** This drives Storybook's controls panel and the generated LLM docs — undocumented props show up blank in both. Include what the prop does, any constraints or pairing rules, and a `@default` tag where applicable:
 
 ```ts

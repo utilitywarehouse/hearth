@@ -36,7 +36,7 @@
     "build:js": "NODE_OPTIONS='--max-old-space-size=6144' tsup && tsc -p tsconfig.build.json",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
-    "dev:storybook": "storybook dev -p 6007",
+    "dev:storybook": "storybook dev -p 6006",
     "dev": "pnpm run \"/^dev:.*/\"",
     "ts-types": "tsc",
     "lint": "turbo run lint:js lint:css",

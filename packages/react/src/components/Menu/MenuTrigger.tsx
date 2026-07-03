@@ -18,7 +18,7 @@ export const MenuTrigger = forwardRef<MenuTriggerElement, MenuTriggerProps>(
       <MenuPrimitive.Trigger
         ref={ref}
         className={cn(componentClassName, className)}
-        render={children as React.ReactElement}
+        render={children}
         {...props}
       />
     );

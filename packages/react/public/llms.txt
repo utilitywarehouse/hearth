@@ -72,7 +72,7 @@
 - [Label](llms/components/label.md): ```tsx
 - [Link](llms/components/link.md): Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.
 - [List](llms/components/list.md): The `List` component is a flexible and customizable component for displaying a
-- [Menu](llms/components/menu.md): Use the `Menu` component to present a short list of actions or options in response to a user’s interaction. Menus are ideal for actions like sorting, filtering, or providing additional options without navigating away from the current screen.
+- [Menu](llms/components/menu.md): Use the `Menu` component to present a short list of actions or options in
 - [Modal](llms/components/modal.md): A `Modal` overlays content to request a decision or inform users of important information. When
 - [Pagination](llms/components/pagination.md): Use the `Pagination` component to help users navigate through multiple pages of content.
 - [PasswordInput](llms/components/password-input.md): `PasswordInput` is an interactive field that is used to securely collect users passwords.

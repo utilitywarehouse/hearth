@@ -35,7 +35,12 @@ export const MenuContent = forwardRef<MenuContentElement, MenuContentProps>(
           sideOffset={4}
           collisionPadding={8}
         >
-          <MenuPrimitive.Popup ref={ref} className={cn(componentClassName, className)} {...props}>
+          <MenuPrimitive.Popup
+            ref={ref}
+            finalFocus
+            className={cn(componentClassName, className)}
+            {...props}
+          >
             <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')}>
               <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
                 <ScrollAreaPrimitive.Content className={`${componentClassName}List`}>

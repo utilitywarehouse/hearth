@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'packages/react/**'
+    branches:
+      - '*'
+      - '!main'
 
 jobs:
   chromatic:
