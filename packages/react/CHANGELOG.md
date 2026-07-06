@@ -45,7 +45,7 @@
   - `MenuItem: textValue` is deprecated. Use `label` instead — it is used for accessibility and keyboard navigation. `textValue` continues to work with a dev-mode warning.
   - `MenuContent: forceMount` is deprecated. Use `keepMounted` instead. `forceMount` continues to work with a dev-mode warning.
 
-  ## Consumer migration prompt
+  **Consumer migration prompt**
 
   Paste the following into an agent to update all Menu usages in your codebase:
 
