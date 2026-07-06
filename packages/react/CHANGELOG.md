@@ -1,5 +1,75 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.0
+
+### Minor Changes
+
+- [#1370](https://github.com/utilitywarehouse/hearth/pull/1370) [`2b60a81`](https://github.com/utilitywarehouse/hearth/commit/2b60a818022068d957aefef65cb112a79a5166ef) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `SegmentedControl` component for switching between alternative views
+
+  A new `SegmentedControl` compound component is now available. Use it to switch
+  between alternative views of closely related content — distinct from `Tabs`
+  (navigation) and `Switch` (settings).
+
+  **Components affected**:
+
+  - `SegmentedControl`
+  - `SegmentedControlOption`
+
+  **Developer changes**:
+
+  ```tsx
+  import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react';
+  import { GasSmallIcon, ElectricitySmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+  <SegmentedControl defaultValue={['gas']} size="sm">
+    <SegmentedControlOption value="gas" label="Gas" icon={<GasSmallIcon />} />
+    <SegmentedControlOption
+      value="electricity"
+      label="Electricity"
+      icon={<ElectricitySmallIcon />}
+    />
+  </SegmentedControl>;
+  ```
+
+  Two sizes are available: `sm` (32px, default) and `md` (48px). The `size` prop
+  accepts a responsive value for breakpoint-specific sizing.
+
+  Use the `icon` prop to display an icon before the label — either add icons to
+  all options or none.
+
+- [#1374](https://github.com/utilitywarehouse/hearth/pull/1374) [`ee6fdd9`](https://github.com/utilitywarehouse/hearth/commit/ee6fdd958222f155e54901a8129d6afd39fa1f4b) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Migrate `Menu` from Radix UI to Base UI.
+
+  **Deprecations:**
+
+  - `MenuItem: onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation. `onSelect` continues to work with a dev-mode warning.
+  - `MenuItem: textValue` is deprecated. Use `label` instead — it is used for accessibility and keyboard navigation. `textValue` continues to work with a dev-mode warning.
+  - `MenuContent: forceMount` is deprecated. Use `keepMounted` instead. `forceMount` continues to work with a dev-mode warning.
+
+  **Consumer migration prompt**
+
+  Paste the following into an agent to update all Menu usages in your codebase:
+
+  ```
+  I'm upgrading @utilitywarehouse/hearth-react. The Menu component has migrated
+  from Radix UI to Base UI internally. The following prop changes affect consumers:
+
+  RENAMED (deprecated — old name still works but logs a dev-mode warning):
+    - `MenuItem: onSelect` → `onClick`: Base UI uses standard React onClick for
+      both mouse and keyboard activation.
+    - `MenuItem: textValue` → `label`: used for keyboard text navigation and
+      accessibility.
+    - `MenuContent: forceMount` → `keepMounted`: aligned with Base UI's API.
+
+  Please search this codebase for all usages of MenuItem and MenuContent imported
+  from '@utilitywarehouse/hearth-react' and apply the following changes:
+    - Replace every `onSelect=` on MenuItem with `onClick=`
+    - Replace every `textValue=` on MenuItem with `label=`
+    - Replace every `forceMount` on MenuContent with `keepMounted`
+
+  Do not change any other logic, styling, or structure. After making changes,
+  run TypeScript to confirm no type errors remain.
+  ```
+
 ## 0.30.3
 
 ### Patch Changes
