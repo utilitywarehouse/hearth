@@ -34,6 +34,8 @@ export function SymbolPage() {
   );
 
   if (index.loading || snap.loading) return <Loading />;
+  if (index.error) return <ErrorBox error={index.error} />;
+  if (snap.error) return <ErrorBox error={snap.error} />;
   if (!snap.data) return <ErrorBox error="No snapshot found." />;
 
   const usage = snap.data.packages[pkg]?.symbols[name];
