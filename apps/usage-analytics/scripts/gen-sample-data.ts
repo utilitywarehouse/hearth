@@ -98,7 +98,7 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
   for (const pkg of chosen) {
     const type = ctx.packages.get(pkg)?.type ?? 'asset';
     const allSymbols = symbolsFor(pkg);
-    const symbols: Record<string, number> = {};
+    const symbols: RepoParseResult['packages'][string]['symbols'] = {};
     let refCount = 0;
     let fileCount = 0;
 
@@ -110,7 +110,10 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
       const used = pick(rng, allSymbols, Math.min(count, allSymbols.length));
       for (const sym of used) {
         const refs = 1 + Math.floor(rng() * 30 * growth);
-        symbols[sym] = refs;
+        // Distinct files referencing this symbol — always <= refs (a file can
+        // reference the same symbol more than once).
+        const symFiles = 1 + Math.floor(rng() * Math.min(refs - 1, 5));
+        symbols[sym] = { refCount: refs, fileCount: symFiles };
         refCount += refs;
       }
       fileCount = Math.max(1, Math.floor(used.length * (0.4 + rng() * 0.6)));

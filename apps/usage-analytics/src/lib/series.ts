@@ -41,16 +41,29 @@ export function symbolTrend(snapshots: Snapshot[], pkg: string, symbol: string):
     .map(s => ({ date: s.date, refs: s.packages[pkg]?.symbols[symbol]?.refCount ?? 0 }));
 }
 
-/** Repos that use a given symbol, with ref counts, sorted desc. */
+/** Repos that use a given symbol, with file + ref counts, sorted desc. */
 export function reposUsingSymbol(
   snapshot: Snapshot,
   pkg: string,
   symbol: string
-): { repo: string; refs: number }[] {
-  const out: { repo: string; refs: number }[] = [];
+): { repo: string; refs: number; files: number }[] {
+  const out: { repo: string; refs: number; files: number }[] = [];
   for (const [repo, usage] of Object.entries(snapshot.repos)) {
-    const refs = usage.packages[pkg]?.symbols[symbol];
-    if (refs) out.push({ repo, refs });
+    const s = usage.packages[pkg]?.symbols[symbol];
+    if (s) out.push({ repo, refs: s.refCount, files: s.fileCount });
+  }
+  return out.sort((a, b) => b.refs - a.refs);
+}
+
+/** Repos that use a given package at all, with file/ref counts, sorted desc. */
+export function reposUsingPackage(
+  snapshot: Snapshot,
+  pkg: string
+): { repo: string; refs: number; files: number; symbolCount: number }[] {
+  const out: { repo: string; refs: number; files: number; symbolCount: number }[] = [];
+  for (const [repo, usage] of Object.entries(snapshot.repos)) {
+    const p = usage.packages[pkg];
+    if (p) out.push({ repo, refs: p.refCount, files: p.fileCount, symbolCount: Object.keys(p.symbols).length });
   }
   return out.sort((a, b) => b.refs - a.refs);
 }

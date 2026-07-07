@@ -9,6 +9,7 @@
     "build": "pnpm run copy-data && tsc --noEmit && tsc --noEmit -p tsconfig.node.json && vite build",
     "preview": "vite preview",
     "copy-data": "node ./scripts/copy-data.js",
+    "clear-data": "node ./scripts/clear-data.js",
     "collect": "tsx collector/index.ts",
     "gen:manifests": "tsx collector/parse/build-manifests.ts",
     "gen:sample": "tsx scripts/gen-sample-data.ts",

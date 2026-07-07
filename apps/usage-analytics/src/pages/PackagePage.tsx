@@ -4,10 +4,18 @@ import { useIndex, useSnapshot, latestDate } from '../data/hooks';
 import { ErrorBox, Empty, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile } from '../components/cards';
 import { CoverageDonut, TrendChart } from '../components/charts';
-import { RankingTable, type RankRow } from '../components/RankingTable';
+import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num } from '../lib/format';
-import { packageTrend } from '../lib/series';
+import { packageTrend, reposUsingPackage } from '../lib/series';
 import { packageColor, pkgFromSlug, pkgSlug, RANK_UNIT, shortName, TYPE_LABELS } from '../lib/packages';
+
+// Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
+// symbols that repo uses from this package.
+const REPO_COLUMNS: RankColumn[] = [
+  { key: 'refCount', label: 'Refs' },
+  { key: 'fileCount', label: 'Files' },
+  { key: 'repoCount', label: 'Symbols' },
+];
 
 export function PackagePage() {
   const { slug = '' } = useParams();
@@ -35,6 +43,14 @@ export function PackagePage() {
   }));
   const unit = RANK_UNIT[usage.type];
   const isAsset = usage.type === 'asset';
+
+  const repoUsage = reposUsingPackage(snap.data, pkg);
+  const repoRows: RankRow[] = repoUsage.map(r => ({
+    name: r.repo,
+    refCount: r.refs,
+    repoCount: r.symbolCount,
+    fileCount: r.files,
+  }));
 
   return (
     <div>
@@ -91,6 +107,19 @@ export function PackagePage() {
             onSelect={name => navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)}
           />
         )}
+      </Section>
+
+      <Section
+        title="Repositories using this package"
+        aside={<span className="muted">{repoRows.length} repos</span>}
+      >
+        <RankingTable
+          rows={repoRows}
+          unit="Repository"
+          color={color}
+          columns={REPO_COLUMNS}
+          onSelect={repo => navigate(`/repo/${repo}`)}
+        />
       </Section>
     </div>
   );

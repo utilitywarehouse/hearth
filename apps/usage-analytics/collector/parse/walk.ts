@@ -3,11 +3,18 @@ import path from 'node:path';
 import { IGNORED_DIRS, MAX_FILE_BYTES, SOURCE_EXTENSIONS } from '../config.ts';
 import { analyzeFile, type AnalyzeContext, type PackageMeta } from './imports.ts';
 
+/** Usage of a single symbol, aggregated across a repo's files. */
+export interface RepoSymbolResult {
+  /** Distinct files in this repo that reference the symbol. */
+  fileCount: number;
+  refCount: number;
+}
+
 /** What a single repo uses of a single package, aggregated across its files. */
 export interface RepoPackageResult {
   fileCount: number;
   refCount: number;
-  symbols: Record<string, number>;
+  symbols: Record<string, RepoSymbolResult>;
 }
 
 export interface RepoParseResult {
@@ -72,8 +79,12 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
       // to counting import statements so they still register references.
       agg.refCount += symbolRefSum > 0 ? symbolRefSum : u.importStatements;
 
+      // Each symbol here is guaranteed >=1 occurrence in THIS file, so bump its
+      // file count by exactly 1 (not by ref count) — distinct files, not refs.
       for (const [sym, count] of Object.entries(u.symbols)) {
-        agg.symbols[sym] = (agg.symbols[sym] ?? 0) + count;
+        const entry = (agg.symbols[sym] ??= { fileCount: 0, refCount: 0 });
+        entry.fileCount += 1;
+        entry.refCount += count;
       }
     }
   }

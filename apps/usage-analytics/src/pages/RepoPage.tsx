@@ -2,9 +2,16 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useIndex, useSnapshot, latestDate } from '../data/hooks';
 import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile } from '../components/cards';
-import { RankingTable, type RankRow } from '../components/RankingTable';
+import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num, repoLabel } from '../lib/format';
 import { packageColor, pkgSlug, shortName } from '../lib/packages';
+
+// Within a single repo "repos used" is always 1 and not meaningful — show
+// files + refs only.
+const SYMBOL_COLUMNS: RankColumn[] = [
+  { key: 'refCount', label: 'Refs' },
+  { key: 'fileCount', label: 'Files' },
+];
 
 export function RepoPage() {
   const params = useParams();
@@ -46,11 +53,11 @@ export function RepoPage() {
       </div>
 
       {pkgEntries.map(([pkg, u]) => {
-        const rows: RankRow[] = Object.entries(u.symbols).map(([name, refs]) => ({
+        const rows: RankRow[] = Object.entries(u.symbols).map(([name, s]) => ({
           name,
-          refCount: refs,
+          refCount: s.refCount,
           repoCount: 1,
-          fileCount: 0,
+          fileCount: s.fileCount,
         }));
         return (
           <Section
@@ -67,6 +74,7 @@ export function RepoPage() {
                 rows={rows}
                 unit="Symbol"
                 color={packageColor(pkg)}
+                columns={SYMBOL_COLUMNS}
                 onSelect={name =>
                   navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)
                 }

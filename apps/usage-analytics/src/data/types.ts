@@ -39,12 +39,20 @@ export interface PackageUsage {
   coverage?: Coverage;
 }
 
+/** Usage of a single symbol within one repo. */
+export interface RepoSymbolUsage {
+  /** Distinct files in this repo that reference the symbol. */
+  fileCount: number;
+  /** Total references to the symbol within this repo. */
+  refCount: number;
+}
+
 /** What a single repo uses of a single package. */
 export interface RepoPackageUsage {
   fileCount: number;
   refCount: number;
-  /** Symbol name -> reference count within this repo. */
-  symbols: Record<string, number>;
+  /** Symbol name -> usage within this repo. */
+  symbols: Record<string, RepoSymbolUsage>;
 }
 
 /** Per-repo breakdown in a snapshot. */

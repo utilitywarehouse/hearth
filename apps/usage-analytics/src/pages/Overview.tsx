@@ -4,12 +4,20 @@ import { useIndex, useSnapshot, latestDate } from '../data/hooks';
 import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile, PackageCard } from '../components/cards';
 import { TrendChart } from '../components/charts';
-import { RankingTable, type RankRow } from '../components/RankingTable';
+import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, formatDate, num } from '../lib/format';
 import { orgTrend } from '../lib/series';
 import { packageColor, pkgSlug } from '../lib/packages';
 
 const HEARTH_REACT = '@utilitywarehouse/hearth-react';
+
+// Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
+// hearth packages that repo uses, so relabel it rather than call it "Repos".
+const REPO_ROW_COLUMNS: RankColumn[] = [
+  { key: 'refCount', label: 'Refs' },
+  { key: 'fileCount', label: 'Files' },
+  { key: 'repoCount', label: 'Packages' },
+];
 
 export function Overview() {
   const index = useIndex();
@@ -93,6 +101,7 @@ export function Overview() {
             rows={repoRows}
             unit="Repository"
             color="var(--h-color-green-600)"
+            columns={REPO_ROW_COLUMNS}
             onSelect={repo => navigate(`/repo/${repo}`)}
           />
         </Section>

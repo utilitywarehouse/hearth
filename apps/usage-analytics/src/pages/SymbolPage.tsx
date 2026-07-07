@@ -4,10 +4,16 @@ import { useIndex, useSnapshot, useAllSnapshots, latestDate } from '../data/hook
 import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile } from '../components/cards';
 import { TrendChart } from '../components/charts';
-import { RankingTable, type RankRow } from '../components/RankingTable';
+import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num } from '../lib/format';
 import { reposUsingSymbol, symbolTrend } from '../lib/series';
 import { packageColor, pkgFromSlug, shortName } from '../lib/packages';
+
+// Each row here IS a repo, so a "repos" column is meaningless — show files + refs.
+const REPO_COLUMNS: RankColumn[] = [
+  { key: 'refCount', label: 'Refs' },
+  { key: 'fileCount', label: 'Files' },
+];
 
 export function SymbolPage() {
   const { slug = '', symbol = '' } = useParams();
@@ -35,7 +41,7 @@ export function SymbolPage() {
     name: r.repo,
     refCount: r.refs,
     repoCount: 1,
-    fileCount: 0,
+    fileCount: r.files,
   }));
 
   return (
@@ -67,6 +73,7 @@ export function SymbolPage() {
           rows={repoRows}
           unit="Repository"
           color={color}
+          columns={REPO_COLUMNS}
           onSelect={repo => navigate(`/repo/${repo}`)}
         />
       </Section>

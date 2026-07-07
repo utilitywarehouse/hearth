@@ -46,9 +46,9 @@ export function buildSnapshot(
       inc(pkgFileCount, pkg, agg.fileCount);
       inc(pkgRefCount, pkg, agg.refCount);
 
-      for (const [sym, count] of Object.entries(agg.symbols)) {
-        incNested(symFileCount, pkg, sym, 1); // file-level: repo contributes ≥1 file
-        incNested(symRefCount, pkg, sym, count);
+      for (const [sym, s] of Object.entries(agg.symbols)) {
+        incNested(symFileCount, pkg, sym, s.fileCount);
+        incNested(symRefCount, pkg, sym, s.refCount);
         addToNestedSet(symRepoSet, pkg, sym, fullName);
       }
     }

@@ -27,10 +27,11 @@ PR with the new snapshot.
 
 | Script | What it does |
 | --- | --- |
-| `pnpm --filter usage-analytics dev` | Run the dashboard locally (port 4319). |
+| `pnpm --filter usage-analytics dev` | Run the dashboard locally (port 4321, or `$PORT` if set). |
 | `pnpm --filter usage-analytics build` | Typecheck + production build. |
 | `pnpm --filter usage-analytics gen:manifests` | Rebuild the per-package symbol allow-list from hearth's own exports. Commit `collector/symbol-manifests/symbols.json`. |
 | `pnpm --filter usage-analytics gen:sample` | Regenerate the seed sample dataset in `data/`. |
+| `pnpm --filter usage-analytics clear-data` | Remove all snapshots and reset `data/index.json`, e.g. to drop the sample dataset before a real collection run. |
 | `pnpm --filter usage-analytics collect` | Run the collector (needs `GITHUB_PAT_TOKEN`). |
 | `pnpm --filter usage-analytics test` | Parser unit tests. |
 

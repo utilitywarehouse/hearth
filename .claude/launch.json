@@ -5,7 +5,8 @@
       "name": "usage-analytics",
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["--filter", "usage-analytics", "dev"],
-      "port": 4319
+      "port": 4321,
+      "autoPort": true
     }
   ]
 }
