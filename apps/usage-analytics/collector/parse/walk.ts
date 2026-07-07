@@ -1,0 +1,93 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { IGNORED_DIRS, MAX_FILE_BYTES, SOURCE_EXTENSIONS } from '../config.ts';
+import { analyzeFile, type AnalyzeContext, type PackageMeta } from './imports.ts';
+
+/** What a single repo uses of a single package, aggregated across its files. */
+export interface RepoPackageResult {
+  fileCount: number;
+  refCount: number;
+  symbols: Record<string, number>;
+}
+
+export interface RepoParseResult {
+  packages: Record<string, RepoPackageResult>;
+  filesScanned: number;
+  filesParsed: number;
+}
+
+/** Cheap substring gate — only files mentioning hearth are worth parsing. */
+const PREFILTER = '@utilitywarehouse/hearth';
+
+function* walkFiles(dir: string): Generator<string> {
+  let entries: fs.Dirent[];
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  for (const entry of entries) {
+    if (entry.isSymbolicLink()) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (IGNORED_DIRS.has(entry.name)) continue;
+      yield* walkFiles(full);
+    } else if (entry.isFile() && SOURCE_EXTENSIONS.includes(path.extname(entry.name))) {
+      yield full;
+    }
+  }
+}
+
+/**
+ * Walk a checked-out repo directory and aggregate hearth usage across all of
+ * its source files. `ctx` carries the tracked packages + allow-lists.
+ */
+export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult {
+  const result: RepoParseResult = { packages: {}, filesScanned: 0, filesParsed: 0 };
+
+  for (const file of walkFiles(rootDir)) {
+    result.filesScanned++;
+    let code: string;
+    try {
+      const stat = fs.statSync(file);
+      if (stat.size > MAX_FILE_BYTES) continue;
+      code = fs.readFileSync(file, 'utf8');
+    } catch {
+      continue;
+    }
+    if (!code.includes(PREFILTER)) continue;
+    result.filesParsed++;
+
+    const usage = analyzeFile(code, ctx);
+    for (const [pkg, u] of usage) {
+      const meta = ctx.packages.get(pkg);
+      if (!meta) continue;
+      if (u.importStatements === 0 && Object.keys(u.symbols).length === 0) continue;
+
+      const agg = (result.packages[pkg] ??= { fileCount: 0, refCount: 0, symbols: {} });
+      agg.fileCount += 1;
+
+      const symbolRefSum = Object.values(u.symbols).reduce((a, b) => a + b, 0);
+      // Asset packages (and side-effect-only imports) have no symbols: fall back
+      // to counting import statements so they still register references.
+      agg.refCount += symbolRefSum > 0 ? symbolRefSum : u.importStatements;
+
+      for (const [sym, count] of Object.entries(u.symbols)) {
+        agg.symbols[sym] = (agg.symbols[sym] ?? 0) + count;
+      }
+    }
+  }
+
+  return result;
+}
+
+/** Build the analyze context (package meta + allow-lists) from a symbol manifest. */
+export function buildContext(manifest: {
+  packages: Record<string, { type: PackageMeta['type']; symbols: string[] }>;
+}): AnalyzeContext {
+  const packages = new Map<string, PackageMeta>();
+  for (const [name, m] of Object.entries(manifest.packages)) {
+    packages.set(name, { type: m.type, symbols: new Set(m.symbols) });
+  }
+  return { packages };
+}
