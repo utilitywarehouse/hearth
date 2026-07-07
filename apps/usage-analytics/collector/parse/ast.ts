@@ -34,7 +34,7 @@ export function parseModule(code: string): File | null {
  * Default and bare `export *` (re-export all) are ignored since they carry no
  * enumerable symbol name.
  */
-export function collectNamedExports(ast: File): string[] {
+export function collectNamedExports(ast: File): Array<string> {
   const names = new Set<string>();
   for (const node of ast.program.body) {
     if (node.type === 'ExportNamedDeclaration') {
@@ -88,7 +88,7 @@ function resolveModuleFile(fromDir: string, spec: string): string | null {
  * `export * from './x'` barrel re-exports recursively. Used at manifest-build
  * time against the local hearth workspace (so relative paths resolve on disk).
  */
-export function collectExportSurface(absFile: string, seen = new Set<string>()): string[] {
+export function collectExportSurface(absFile: string, seen = new Set<string>()): Array<string> {
   if (seen.has(absFile)) return [];
   seen.add(absFile);
   let code: string;

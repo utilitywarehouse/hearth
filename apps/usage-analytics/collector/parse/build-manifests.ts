@@ -13,7 +13,7 @@ import { collectExportSurface } from './ast.ts';
 
 export interface PackageManifest {
   type: PackageType;
-  symbols: string[];
+  symbols: Array<string>;
 }
 
 export interface SymbolManifest {
@@ -27,7 +27,7 @@ function readWorkspaceVersion(): string {
   try {
     const pkg = JSON.parse(
       fs.readFileSync(path.join(REPO_ROOT, 'packages/react/package.json'), 'utf8')
-    );
+    ) as { version?: unknown };
     return typeof pkg.version === 'string' ? pkg.version : 'unknown';
   } catch {
     return 'unknown';
@@ -43,7 +43,7 @@ export function buildManifest(): SymbolManifest {
       continue;
     }
     const abs = path.join(REPO_ROOT, pkg.manifest.file);
-    let symbols: string[] = [];
+    let symbols: Array<string> = [];
     if (fs.existsSync(abs)) {
       symbols = collectExportSurface(abs).sort();
     } else {

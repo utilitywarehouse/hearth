@@ -33,8 +33,8 @@ export function TrendChart({
   series,
   height = 280,
 }: {
-  data: TrendPoint[];
-  series: Series[];
+  data: Array<TrendPoint>;
+  series: Array<Series>;
   height?: number;
 }) {
   if (data.length < 2) {

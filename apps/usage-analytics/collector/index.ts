@@ -31,7 +31,7 @@ import { readJson, writeJson } from './util/json.ts';
 import type { SymbolManifest } from './parse/build-manifests.ts';
 
 interface Args {
-  repos?: string[];
+  repos?: Array<string>;
   limit?: number;
   date?: string;
   /** Local directory to treat as a single already-checked-out repo (offline testing). */
@@ -40,7 +40,7 @@ interface Args {
   localName?: string;
 }
 
-function parseArgs(argv: string[]): Args {
+function parseArgs(argv: Array<string>): Args {
   const args: Args = {};
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
@@ -156,7 +156,7 @@ async function main() {
   console.log(`\nCollecting ${pending.length} repos…`);
 
   fs.mkdirSync(CLONES_DIR, { recursive: true });
-  const results: RepoResult[] = [];
+  const results: Array<RepoResult> = [];
   let reposFailed = 0;
 
   for (const fullName of pending) {

@@ -11,7 +11,7 @@ import { packageColor, pkgFromSlug, pkgSlug, RANK_UNIT, shortName, TYPE_LABELS }
 
 // Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
 // symbols that repo uses from this package.
-const REPO_COLUMNS: RankColumn[] = [
+const REPO_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
   { key: 'repoCount', label: 'Symbols' },
@@ -35,17 +35,25 @@ export function PackagePage() {
   if (!usage) return <ErrorBox error={`Unknown package: ${pkg}`} />;
 
   const color = packageColor(pkg);
-  const rows: RankRow[] = Object.entries(usage.symbols).map(([name, s]) => ({
-    name,
-    refCount: s.refCount,
-    repoCount: s.repoCount,
-    fileCount: s.fileCount,
-  }));
+  const usedNames = new Set(Object.keys(usage.symbols));
+  const rows: Array<RankRow> = [
+    ...Object.entries(usage.symbols).map(([name, s]) => ({
+      name,
+      refCount: s.refCount,
+      repoCount: s.repoCount,
+      fileCount: s.fileCount,
+    })),
+    // Exported but never observed in use — shown as zero-value rows so they
+    // surface in the same ranking (sorted to the bottom by default).
+    ...(usage.coverage?.unusedExports ?? [])
+      .filter(name => !usedNames.has(name))
+      .map(name => ({ name, refCount: 0, repoCount: 0, fileCount: 0 })),
+  ];
   const unit = RANK_UNIT[usage.type];
   const isAsset = usage.type === 'asset';
 
   const repoUsage = reposUsingPackage(snap.data, pkg);
-  const repoRows: RankRow[] = repoUsage.map(r => ({
+  const repoRows: Array<RankRow> = repoUsage.map(r => ({
     name: r.repo,
     refCount: r.refs,
     repoCount: r.symbolCount,
@@ -86,13 +94,6 @@ export function PackagePage() {
             <p className="muted" style={{ textAlign: 'center' }}>
               {usage.coverage.unusedExports.length} exported symbols unused across the org
             </p>
-            {usage.coverage.unusedExports.length > 0 ? (
-              <div className="chip-list">
-                {usage.coverage.unusedExports.map(name => (
-                  <code key={name}>{name}</code>
-                ))}
-              </div>
-            ) : null}
           </Section>
         ) : null}
       </div>
@@ -111,7 +112,7 @@ export function PackagePage() {
             rows={rows}
             unit={unit}
             color={color}
-            onSelect={name => navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)}
+            onSelect={name => void navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)}
           />
         )}
       </Section>
@@ -125,7 +126,7 @@ export function PackagePage() {
           unit="Repository"
           color={color}
           columns={REPO_COLUMNS}
-          onSelect={repo => navigate(`/repo/${repo}`)}
+          onSelect={repo => void navigate(`/repo/${repo}`)}
         />
       </Section>
     </div>

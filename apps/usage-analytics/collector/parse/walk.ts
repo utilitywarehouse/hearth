@@ -29,7 +29,7 @@ export interface RepoParseResult {
 const PREFILTER = '@utilitywarehouse/hearth';
 
 function* walkFiles(dir: string): Generator<string> {
-  let entries: fs.Dirent[];
+  let entries: Array<fs.Dirent>;
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true });
   } catch {
@@ -104,7 +104,7 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
 
 /** Build the analyze context (package meta + allow-lists) from a symbol manifest. */
 export function buildContext(manifest: {
-  packages: Record<string, { type: PackageMeta['type']; symbols: string[] }>;
+  packages: Record<string, { type: PackageMeta['type']; symbols: Array<string> }>;
 }): AnalyzeContext {
   const packages = new Map<string, PackageMeta>();
   for (const [name, m] of Object.entries(manifest.packages)) {

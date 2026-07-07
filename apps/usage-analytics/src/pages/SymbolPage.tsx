@@ -6,14 +6,17 @@ import { StatTile } from '../components/cards';
 import { TrendChart } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num } from '../lib/format';
-import { reposUsingSymbol, symbolTrend } from '../lib/series';
+import { propsForSymbol, reposUsingSymbol, symbolTrend } from '../lib/series';
 import { packageColor, pkgFromSlug, shortName } from '../lib/packages';
 
 // Each row here IS a repo, so a "repos" column is meaningless — show files + refs.
-const REPO_COLUMNS: RankColumn[] = [
+const REPO_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
 ];
+
+// Each row here IS a prop name — "Times passed" is the only meaningful count.
+const PROP_COLUMNS: Array<RankColumn> = [{ key: 'refCount', label: 'Times passed' }];
 
 export function SymbolPage() {
   const { slug = '', symbol = '' } = useParams();
@@ -35,13 +38,21 @@ export function SymbolPage() {
 
   const usage = snap.data.packages[pkg]?.symbols[name];
   const repos = reposUsingSymbol(snap.data, pkg, name);
+  const props = propsForSymbol(snap.data, pkg, name);
   const color = packageColor(pkg);
 
-  const repoRows: RankRow[] = repos.map(r => ({
+  const repoRows: Array<RankRow> = repos.map(r => ({
     name: r.repo,
     refCount: r.refs,
     repoCount: 1,
     fileCount: r.files,
+  }));
+
+  const propRows: Array<RankRow> = props.map(p => ({
+    name: p.name,
+    refCount: p.count,
+    repoCount: 0,
+    fileCount: 0,
   }));
 
   return (
@@ -68,13 +79,19 @@ export function SymbolPage() {
         <TrendChart data={trend} series={[{ key: 'refs', label: `${name} references`, color }]} />
       </Section>
 
+      {propRows.length > 0 ? (
+        <Section title="Props used">
+          <RankingTable rows={propRows} unit="Prop" color={color} columns={PROP_COLUMNS} />
+        </Section>
+      ) : null}
+
       <Section title="Repositories using it">
         <RankingTable
           rows={repoRows}
           unit="Repository"
           color={color}
           columns={REPO_COLUMNS}
-          onSelect={repo => navigate(`/repo/${repo}`)}
+          onSelect={repo => void navigate(`/repo/${repo}`)}
         />
       </Section>
     </div>

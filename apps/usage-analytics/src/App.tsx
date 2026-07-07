@@ -1,5 +1,6 @@
 import { HashRouter, NavLink, Route, Routes } from 'react-router-dom';
 import type { ReactNode } from 'react';
+import logo from '../../../shared/storybook/assets/logo.svg';
 import { useIndex, latestDate } from './data/hooks';
 import { Overview } from './pages/Overview';
 import { PackagePage } from './pages/PackagePage';
@@ -19,11 +20,8 @@ function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="brand">
-        <span className="brand__mark" aria-hidden />
-        <div>
-          <div className="brand__title">Hearth</div>
-          <div className="brand__sub">Usage analytics</div>
-        </div>
+        <img src={logo} alt="Hearth" className="brand__logo" />
+        <div className="brand__sub">Usage analytics</div>
       </div>
 
       <nav className="nav">

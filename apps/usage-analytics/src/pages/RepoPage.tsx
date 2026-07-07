@@ -8,7 +8,7 @@ import { packageColor, pkgSlug, shortName } from '../lib/packages';
 
 // Within a single repo "repos used" is always 1 and not meaningful — show
 // files + refs only.
-const SYMBOL_COLUMNS: RankColumn[] = [
+const SYMBOL_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
 ];
@@ -53,7 +53,7 @@ export function RepoPage() {
       </div>
 
       {pkgEntries.map(([pkg, u]) => {
-        const rows: RankRow[] = Object.entries(u.symbols).map(([name, s]) => ({
+        const rows: Array<RankRow> = Object.entries(u.symbols).map(([name, s]) => ({
           name,
           refCount: s.refCount,
           repoCount: 1,
@@ -76,7 +76,7 @@ export function RepoPage() {
                 color={packageColor(pkg)}
                 columns={SYMBOL_COLUMNS}
                 onSelect={name =>
-                  navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)
+                  void navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)
                 }
               />
             ) : (

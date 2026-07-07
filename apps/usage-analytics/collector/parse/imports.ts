@@ -12,7 +12,7 @@ import { parseModule } from './ast.ts';
 // @babel/traverse ships CJS; under ESM/tsx the callable lives on `.default`.
 const traverse = (
   typeof _traverse === 'function' ? _traverse : (_traverse as { default: typeof _traverse }).default
-) as typeof _traverse;
+);
 
 /** Per-package usage extracted from a single file. */
 export interface FilePackageUsage {
@@ -85,7 +85,7 @@ function bumpProp(usage: FilePackageUsage, symbol: string, propName: string) {
  */
 function tokenGroup(root: NodePath<MemberExpression>, namespace: boolean, canonical?: string): string | null {
   // Walk up to the outermost member expression to read the first two segments.
-  const path: string[] = [];
+  const path: Array<string> = [];
   const obj = root.node.object;
   // The immediate property after the binding.
   const prop = root.node.property;
@@ -239,7 +239,7 @@ export function analyzeFile(code: string, ctx: AnalyzeContext): FileUsage {
           for (const ref of refs) {
             const parent = ref.parentPath;
             if (parent?.isMemberExpression() && parent.node.object === ref.node) {
-              const group = tokenGroup(parent as NodePath<MemberExpression>, binding.namespace, binding.canonical);
+              const group = tokenGroup(parent, binding.namespace, binding.canonical);
               if (group && (meta.symbols.size === 0 || meta.symbols.has(group.split('.')[0]!))) {
                 bump(u, group);
               }

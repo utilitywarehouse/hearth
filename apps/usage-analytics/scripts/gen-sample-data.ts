@@ -6,13 +6,12 @@
  *
  * Run: pnpm --filter usage-analytics exec tsx scripts/gen-sample-data.ts
  */
-import { MANIFEST_FILE } from '../collector/config.ts';
+import { INDEX_FILE, MANIFEST_FILE, SNAPSHOTS_DIR } from '../collector/config.ts';
 import { buildContext } from '../collector/parse/walk.ts';
 import { buildSnapshot, updateIndex, type RepoResult } from '../collector/aggregate/rollup.ts';
 import type { RepoParseResult } from '../collector/parse/walk.ts';
 import type { SymbolManifest } from '../collector/parse/build-manifests.ts';
 import type { CollectionMeta, Snapshot, UsageIndex } from '../src/data/types.ts';
-import { INDEX_FILE, SNAPSHOTS_DIR } from '../collector/config.ts';
 import { readJson, writeJson } from '../collector/util/json.ts';
 
 // Deterministic PRNG (mulberry32) so committed sample data is stable.
@@ -45,15 +44,15 @@ if (!manifest) throw new Error('Run `pnpm gen:manifests` first.');
 const ctx = buildContext(manifest);
 
 /** Token group names (root.sub) synthesized from token namespaces. */
-function tokenGroups(): string[] {
+function tokenGroups(): Array<string> {
   const roots = manifest!.packages['@utilitywarehouse/hearth-tokens']?.symbols ?? [];
-  const subs: Record<string, string[]> = {
+  const subs: Record<string, Array<string>> = {
     color: ['blue', 'red', 'green', 'grey', 'purple', 'cyan'],
     space: [],
     typography: ['body', 'heading', 'display'],
     semantic: ['action', 'surface', 'border'],
   };
-  const groups: string[] = [];
+  const groups: Array<string> = [];
   for (const root of roots) {
     const s = subs[root];
     if (s && s.length) for (const sub of s) groups.push(`${root}.${sub}`);
@@ -62,16 +61,37 @@ function tokenGroups(): string[] {
   return groups;
 }
 
-function pick<T>(rng: () => number, arr: T[], n: number): T[] {
+/**
+ * Plausible JSX prop names to sprinkle onto fabricated component-lib usages.
+ * Not meant to reflect any single component's real prop surface — just gives
+ * the sample dataset something to render in the props view before a real
+ * collector run backfills actual prop names.
+ */
+const SAMPLE_PROPS = [
+  'variant',
+  'size',
+  'color',
+  'disabled',
+  'onClick',
+  'onChange',
+  'className',
+  'children',
+  'label',
+  'icon',
+  'fullWidth',
+  'loading',
+];
+
+function pick<T>(rng: () => number, arr: Array<T>, n: number): Array<T> {
   const copy = [...arr];
-  const out: T[] = [];
+  const out: Array<T> = [];
   for (let i = 0; i < n && copy.length; i++) {
     out.push(copy.splice(Math.floor(rng() * copy.length), 1)[0]!);
   }
   return out;
 }
 
-function symbolsFor(pkg: string): string[] {
+function symbolsFor(pkg: string): Array<string> {
   if (pkg === '@utilitywarehouse/hearth-tokens') return tokenGroups();
   return manifest!.packages[pkg]?.symbols ?? [];
 }
@@ -100,7 +120,7 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
     const allSymbols = symbolsFor(pkg);
     const symbols: RepoParseResult['packages'][string]['symbols'] = {};
     let refCount = 0;
-    let fileCount = 0;
+    let fileCount: number;
 
     if (type === 'asset' || allSymbols.length === 0) {
       fileCount = 1 + Math.floor(rng() * 6 * growth);
@@ -115,6 +135,15 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
         const symFiles = 1 + Math.floor(rng() * Math.min(refs - 1, 5));
         symbols[sym] = { refCount: refs, fileCount: symFiles };
         refCount += refs;
+
+        if (type === 'component-lib' && !sym.endsWith('Props')) {
+          const propNames = pick(rng, SAMPLE_PROPS, 2 + Math.floor(rng() * 5));
+          const props: Record<string, number> = {};
+          for (const p of propNames) {
+            props[p] = 1 + Math.floor(rng() * refs);
+          }
+          symbols[sym].props = props;
+        }
       }
       fileCount = Math.max(1, Math.floor(used.length * (0.4 + rng() * 0.6)));
     }
@@ -139,7 +168,7 @@ function main() {
   WEEKS.forEach((date, weekIndex) => {
     // A couple of repos only adopt hearth partway through the timeline.
     const activeRepos = REPOS.slice(0, weekIndex === 0 ? 5 : weekIndex === 1 ? 7 : 8);
-    const results: RepoResult[] = activeRepos.map(fullName => ({
+    const results: Array<RepoResult> = activeRepos.map(fullName => ({
       fullName,
       sha: `sample-${weekIndex}`,
       parse: repoParse(fullName, weekIndex),

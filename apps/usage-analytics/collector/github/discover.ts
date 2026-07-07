@@ -3,7 +3,7 @@ import { ORG, SELF_REPO } from '../config.ts';
 
 export interface DiscoverResult {
   /** Distinct dependent repo full names (owner/repo). */
-  repos: string[];
+  repos: Array<string>;
   /** Code-search requests consumed. */
   requestsUsed: number;
   /** True if we stopped early because the search budget ran out / was throttled. */

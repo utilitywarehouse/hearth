@@ -15,7 +15,10 @@ of references), the collector is deliberately two-phase:
 2. **Collect** by shallow-cloning each dependent repo and parsing locally
    (`collector/github/clone.ts` + `collector/parse/*`) — no code-search cap, no
    per-file API limits, and it counts *actual references* (imports, JSX usages,
-   token member-access), not just file matches.
+   token member-access), not just file matches. For `component-lib` packages
+   (`hearth-react`, `hearth-react-native`), the same JSX pass also records which
+   **prop names** are passed to each component, so a symbol's usage breaks down
+   into e.g. `variant` (30), `onClick` (25) — not just a single ref count.
 
 The hearth repo itself is excluded (external adopters only). Results are written
 as diff-friendly, dated JSON snapshots under `data/`, rolled up into
@@ -63,3 +66,11 @@ for testing and offline runs.
   `manifestVersion` in each snapshot); older downstream versions may differ.
 - `repoCount` (adoption breadth) and `refCount`/`fileCount` (depth) are both
   reported so a single monorepo doesn't distort the adoption story.
+- Prop usage tracks **prop names only**, never literal values — we record that
+  `variant` was passed, not that it was passed `"primary"`. It's scoped to
+  `component-lib` packages (`hearth-react`, `hearth-react-native`); tokens and
+  icons have no prop concept. `{...spread}` props carry no static name and are
+  not counted, so heavily-spread call sites will under-report. `props` is an
+  optional field on `SymbolUsage`/`RepoSymbolUsage` — snapshots collected before
+  this was added simply have no `props` key, and the dashboard treats that the
+  same as "no prop data yet" rather than an error.

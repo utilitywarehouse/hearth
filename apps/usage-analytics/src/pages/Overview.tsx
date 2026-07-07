@@ -7,13 +7,15 @@ import { TrendChart } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, formatDate, num } from '../lib/format';
 import { orgTrend } from '../lib/series';
-import { packageColor, pkgSlug } from '../lib/packages';
+import { packageColor, pkgSlug, shortName } from '../lib/packages';
 
-const HEARTH_REACT = '@utilitywarehouse/hearth-react';
+// Package types whose symbols are visual components a user drops into a UI —
+// combining them gives one "what do people actually render" ranking.
+const COMPONENT_TYPES = new Set(['component-lib', 'icons']);
 
 // Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
 // hearth packages that repo uses, so relabel it rather than call it "Repos".
-const REPO_ROW_COLUMNS: RankColumn[] = [
+const REPO_ROW_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
   { key: 'repoCount', label: 'Packages' },
@@ -37,7 +39,7 @@ export function Overview() {
   const inUse = packages.filter(([, p]) => p.repoCount > 0).length;
 
   // Repo -> usage count (sorted desc), the requested summary table.
-  const repoRows: RankRow[] = Object.entries(snapshot.repos)
+  const repoRows: Array<RankRow> = Object.entries(snapshot.repos)
     .map(([repo, u]) => ({
       name: repo,
       refCount: u.totalRefs,
@@ -46,16 +48,20 @@ export function Overview() {
     }))
     .sort((a, b) => b.refCount - a.refCount);
 
-  // Component -> usage count across the org (from hearth-react).
-  const reactPkg = snapshot.packages[HEARTH_REACT];
-  const componentRows: RankRow[] = reactPkg
-    ? Object.entries(reactPkg.symbols).map(([name, s]) => ({
-        name,
-        refCount: s.refCount,
-        repoCount: s.repoCount,
-        fileCount: s.fileCount,
-      }))
-    : [];
+  // Component -> usage count across the org, combined from every component
+  // library AND icon package so one ranking answers "what's actually rendered".
+  const componentPackages = packages.filter(([, p]) => COMPONENT_TYPES.has(p.type));
+  const componentRows: Array<RankRow> = componentPackages.flatMap(([pkg, usage]) =>
+    Object.entries(usage.symbols).map(([name, s]) => ({
+      name,
+      refCount: s.refCount,
+      repoCount: s.repoCount,
+      fileCount: s.fileCount,
+      color: packageColor(pkg),
+      pkg,
+    }))
+  );
+  const componentLegend = componentPackages.filter(([, p]) => p.repoCount > 0);
 
   return (
     <div>
@@ -102,22 +108,27 @@ export function Overview() {
             unit="Repository"
             color="var(--h-color-green-600)"
             columns={REPO_ROW_COLUMNS}
-            onSelect={repo => navigate(`/repo/${repo}`)}
+            onSelect={repo => void navigate(`/repo/${repo}`)}
           />
         </Section>
         <Section
           title="Top components"
           aside={
-            <a className="link" href={`#/package/${pkgSlug(HEARTH_REACT)}`}>
-              hearth-react →
-            </a>
+            <span className="legend">
+              {componentLegend.map(([pkg]) => (
+                <span key={pkg} className="legend__item">
+                  <span className="legend__dot" style={{ background: packageColor(pkg) }} />
+                  {shortName(pkg).replace('hearth-', '')}
+                </span>
+              ))}
+            </span>
           }
         >
           <RankingTable
             rows={componentRows}
-            unit="Component"
-            color={packageColor(HEARTH_REACT)}
-            onSelect={name => navigate(`/symbol/${pkgSlug(HEARTH_REACT)}/${encodeURIComponent(name)}`)}
+            unit="Component / icon"
+            color={packageColor('@utilitywarehouse/hearth-react')}
+            onSelect={(name, row) => void navigate(`/symbol/${pkgSlug(row.pkg!)}/${encodeURIComponent(name)}`)}
           />
         </Section>
       </div>
@@ -125,7 +136,8 @@ export function Overview() {
       <p className="muted footnote">
         Counts reflect direct dependents (declared in <code>package.json</code>); the hearth repo
         itself is excluded. Ranked by references — {repoRows.length} repos, showing{' '}
-        {compact(componentRows.length)} distinct components. Repos with heavy monorepo usage inflate
+        {compact(componentRows.length)} distinct components/icons across {componentLegend.length}{' '}
+        packages. Repos with heavy monorepo usage inflate
         file/ref counts; repo counts show adoption breadth.
       </p>
     </div>

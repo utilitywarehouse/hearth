@@ -39,7 +39,7 @@ export interface PackageConfig {
 }
 
 /** The 11 published @utilitywarehouse/hearth-* packages, in display order. */
-export const PACKAGES: PackageConfig[] = [
+export const PACKAGES: Array<PackageConfig> = [
   {
     name: '@utilitywarehouse/hearth-react',
     type: 'component-lib',

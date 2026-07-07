@@ -8,7 +8,7 @@ export interface AsyncState<T> {
   error: string | null;
 }
 
-function useAsync<T>(fn: () => Promise<T>, deps: unknown[]): AsyncState<T> {
+function useAsync<T>(fn: () => Promise<T>, deps: Array<unknown>): AsyncState<T> {
   const [state, setState] = useState<AsyncState<T>>({ data: null, loading: true, error: null });
   useEffect(() => {
     let cancelled = false;
@@ -33,7 +33,7 @@ export function useSnapshot(date: string | null) {
 }
 
 export function useAllSnapshots(index: UsageIndex | null) {
-  return useAsync<Snapshot[]>(
+  return useAsync<Array<Snapshot>>(
     () => (index ? fetchAllSnapshots(index) : Promise.resolve([])),
     [index]
   );

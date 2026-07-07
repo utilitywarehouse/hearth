@@ -8,6 +8,10 @@ export interface RankRow {
   refCount: number;
   repoCount: number;
   fileCount: number;
+  /** Overrides `color` for this row — lets a combined table colour-code rows by source package. */
+  color?: string;
+  /** Source package name, when rows are combined from more than one package. Disambiguates same-named rows. */
+  pkg?: string;
 }
 
 type SortKey = 'refCount' | 'repoCount' | 'fileCount';
@@ -17,7 +21,7 @@ export interface RankColumn {
   label: string;
 }
 
-const DEFAULT_COLUMNS: RankColumn[] = [
+const DEFAULT_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'repoCount', label: 'Repos' },
   { key: 'fileCount', label: 'Files' },
@@ -37,11 +41,11 @@ export function RankingTable({
   onSelect,
   columns = DEFAULT_COLUMNS,
 }: {
-  rows: RankRow[];
+  rows: Array<RankRow>;
   unit: string;
   color: string;
-  onSelect?: (name: string) => void;
-  columns?: RankColumn[];
+  onSelect?: (name: string, row: RankRow) => void;
+  columns?: Array<RankColumn>;
 }) {
   const [sort, setSort] = useState<SortKey>(columns[0]?.key ?? 'refCount');
   const parentRef = useRef<HTMLDivElement>(null);
@@ -88,18 +92,30 @@ export function RankingTable({
           {rowVirtualizer.getVirtualItems().map(vi => {
             const row = sorted[vi.index]!;
             const width = max ? `${Math.max(2, (row.refCount / max) * 100)}%` : '0%';
+            const rowColor = row.color ?? color;
             return (
               <div
-                key={row.name}
+                key={row.pkg ? `${row.pkg}::${row.name}` : row.name}
                 className={`rt__row ${onSelect ? 'rt__row--link' : ''}`}
                 style={{ ...gridStyle(columns.length), transform: `translateY(${vi.start}px)`, height: vi.size }}
-                onClick={onSelect ? () => onSelect(row.name) : undefined}
+                onClick={onSelect ? () => onSelect(row.name, row) : undefined}
+                onKeyDown={
+                  onSelect
+                    ? e => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          onSelect(row.name, row);
+                        }
+                      }
+                    : undefined
+                }
                 role={onSelect ? 'button' : undefined}
                 tabIndex={onSelect ? 0 : undefined}
               >
                 <span className="rt__rank">{vi.index + 1}</span>
                 <span className="rt__name" title={row.name}>
-                  <span className="rt__bar" style={{ width, background: color }} />
+                  <span className="rt__bar" style={{ width, background: rowColor }} />
+                  {row.color ? <span className="rt__dot" style={{ background: rowColor }} /> : null}
                   <span className="rt__label">{row.name}</span>
                 </span>
                 {columns.map((col, i) => (

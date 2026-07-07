@@ -21,7 +21,7 @@ export function buildSnapshot(
   date: string,
   generatedAt: string,
   collection: CollectionMeta,
-  repoResults: RepoResult[],
+  repoResults: Array<RepoResult>,
   meta: Map<string, PackageMeta>
 ): Snapshot {
   const repos: Record<string, RepoUsage> = {};
@@ -150,7 +150,7 @@ function inc(map: Map<string, number>, key: string, by: number) {
 }
 function incNested(map: Map<string, Map<string, number>>, k1: string, k2: string, by: number) {
   let inner = map.get(k1);
-  if (!inner) map.set(k1, (inner = new Map()));
+  if (!inner) map.set(k1, (inner = new Map<string, number>()));
   inner.set(k2, (inner.get(k2) ?? 0) + by);
 }
 function addToSet(map: Map<string, Set<string>>, key: string, value: string) {
@@ -160,7 +160,7 @@ function addToSet(map: Map<string, Set<string>>, key: string, value: string) {
 }
 function addToNestedSet(map: Map<string, Map<string, Set<string>>>, k1: string, k2: string, value: string) {
   let inner = map.get(k1);
-  if (!inner) map.set(k1, (inner = new Map()));
+  if (!inner) map.set(k1, (inner = new Map<string, Set<string>>()));
   let set = inner.get(k2);
   if (!set) inner.set(k2, (set = new Set()));
   set.add(value);

@@ -30,7 +30,7 @@ export interface Coverage {
   totalExported: number;
   used: number;
   /** Exported symbol names with zero observed usage across the org, sorted. */
-  unusedExports: string[];
+  unusedExports: Array<string>;
 }
 
 /** Org-wide aggregate for one package in a snapshot. */
@@ -126,7 +126,7 @@ export interface IndexEntry {
 /** The rolled-up time-series index — small, powers all trend charts. */
 export interface UsageIndex {
   schemaVersion: number;
-  snapshots: IndexEntry[];
+  snapshots: Array<IndexEntry>;
 }
 
 /** Resume state persisted between collector runs. */
@@ -135,13 +135,13 @@ export interface Checkpoint {
   phase: 'discovery' | 'collect' | 'done';
   discovery: {
     /** Package names still to run a discovery search for. */
-    queue: string[];
+    queue: Array<string>;
     /** package name -> repos found depending on it. */
-    found: Record<string, string[]>;
+    found: Record<string, Array<string>>;
     searchRequestsUsed: number;
   };
   /** owner/repo of dependent repos still awaiting clone+parse. */
-  pendingRepos: string[];
+  pendingRepos: Array<string>;
   reposParsed: number;
   startedAt: string;
   lastUpdatedAt: string;

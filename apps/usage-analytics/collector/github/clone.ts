@@ -29,7 +29,7 @@ export async function cloneRepo(fullName: string, token: string): Promise<CloneR
     });
   } catch (err) {
     // Re-throw with the token stripped from any message.
-    throw new Error(`clone failed for ${fullName}: ${scrub(String(err), token)}`);
+    throw new Error(`clone failed for ${fullName}: ${scrub(String(err), token)}`, { cause: err });
   }
 
   const { stdout } = await exec('git', ['-C', dir, 'rev-parse', 'HEAD']);

@@ -25,6 +25,6 @@ export function fetchSnapshot(date: string): Promise<Snapshot> {
 }
 
 /** Load every snapshot referenced by the index (used for symbol-level trends). */
-export async function fetchAllSnapshots(index: UsageIndex): Promise<Snapshot[]> {
+export async function fetchAllSnapshots(index: UsageIndex): Promise<Array<Snapshot>> {
   return Promise.all(index.snapshots.map(s => fetchSnapshot(s.date)));
 }
