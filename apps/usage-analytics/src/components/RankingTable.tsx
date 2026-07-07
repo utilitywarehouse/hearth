@@ -74,7 +74,7 @@ export function RankingTable({
     </button>
   );
 
-  if (!rows.length) return <p className="muted">No symbols recorded.</p>;
+  if (!rows.length) return <p className="muted">No data recorded.</p>;
 
   return (
     <div className="rt">
