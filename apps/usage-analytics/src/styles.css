@@ -85,8 +85,11 @@ body {
 }
 .nav__link.active {
   background: var(--h-background-brand, #e8eefc);
-  color: var(--h-text-brand, #1c40b5);
+  color: var(--h-text-inverted, #1c40b5);
   font-weight: 600;
+}
+.nav__link.active .nav__count {
+  color: var(--h-text-inverted, #1c40b5);
 }
 .nav__dot {
   width: 9px;
@@ -204,7 +207,9 @@ body {
   text-decoration: none;
   color: inherit;
   overflow: hidden;
-  transition: border-color 0.15s, transform 0.15s;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
 }
 .pkg-card:hover {
   border-color: var(--h-border-strong, #bbb);
@@ -416,6 +421,11 @@ code {
   background: var(--h-background-secondary, #f0f0f0);
   padding: 1px 5px;
   border-radius: 4px;
+}
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 @media (max-width: 900px) {

@@ -16,12 +16,21 @@ export interface SymbolUsage {
   repoCount: number;
   /** Total references (imports + JSX usages / member accesses). */
   refCount: number;
+  /**
+   * JSX prop name -> total times passed to this symbol, org-wide. Only present
+   * for `component-lib` symbols (hearth-react / hearth-react-native). Tracks
+   * prop *names*, not literal values; `{...spread}` props are unresolvable
+   * statically and are not counted.
+   */
+  props?: Record<string, number>;
 }
 
 /** Coverage of a package's exported surface (how much of it is actually used). */
 export interface Coverage {
   totalExported: number;
   used: number;
+  /** Exported symbol names with zero observed usage across the org, sorted. */
+  unusedExports: string[];
 }
 
 /** Org-wide aggregate for one package in a snapshot. */
@@ -45,6 +54,8 @@ export interface RepoSymbolUsage {
   fileCount: number;
   /** Total references to the symbol within this repo. */
   refCount: number;
+  /** JSX prop name -> times passed to this symbol within this repo. See {@link SymbolUsage.props}. */
+  props?: Record<string, number>;
 }
 
 /** What a single repo uses of a single package. */

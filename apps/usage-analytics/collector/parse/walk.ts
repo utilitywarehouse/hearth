@@ -8,6 +8,8 @@ export interface RepoSymbolResult {
   /** Distinct files in this repo that reference the symbol. */
   fileCount: number;
   refCount: number;
+  /** prop name -> times passed to this symbol across the repo. component-lib only. */
+  props?: Record<string, number>;
 }
 
 /** What a single repo uses of a single package, aggregated across its files. */
@@ -85,6 +87,14 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
         const entry = (agg.symbols[sym] ??= { fileCount: 0, refCount: 0 });
         entry.fileCount += 1;
         entry.refCount += count;
+      }
+
+      for (const [sym, propCounts] of Object.entries(u.props)) {
+        const entry = (agg.symbols[sym] ??= { fileCount: 0, refCount: 0 });
+        const props = (entry.props ??= {});
+        for (const [propName, count] of Object.entries(propCounts)) {
+          props[propName] = (props[propName] ?? 0) + count;
+        }
       }
     }
   }

@@ -84,8 +84,15 @@ export function PackagePage() {
           <Section title="Coverage">
             <CoverageDonut used={usage.coverage.used} total={usage.coverage.totalExported} color={color} />
             <p className="muted" style={{ textAlign: 'center' }}>
-              {usage.coverage.totalExported - usage.coverage.used} exported symbols unused across the org
+              {usage.coverage.unusedExports.length} exported symbols unused across the org
             </p>
+            {usage.coverage.unusedExports.length > 0 ? (
+              <div className="chip-list">
+                {usage.coverage.unusedExports.map(name => (
+                  <code key={name}>{name}</code>
+                ))}
+              </div>
+            ) : null}
           </Section>
         ) : null}
       </div>

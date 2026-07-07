@@ -33,6 +33,8 @@ export function buildSnapshot(
   const symFileCount = new Map<string, Map<string, number>>();
   const symRepoSet = new Map<string, Map<string, Set<string>>>();
   const symRefCount = new Map<string, Map<string, number>>();
+  // package -> symbol -> prop name -> count, org-wide.
+  const symProps = new Map<string, Map<string, Record<string, number>>>();
 
   for (const { fullName, sha, parse } of repoResults) {
     const repoPkgs: RepoUsage['packages'] = {};
@@ -50,6 +52,15 @@ export function buildSnapshot(
         incNested(symFileCount, pkg, sym, s.fileCount);
         incNested(symRefCount, pkg, sym, s.refCount);
         addToNestedSet(symRepoSet, pkg, sym, fullName);
+        if (s.props) {
+          const pkgProps = symProps.get(pkg) ?? new Map<string, Record<string, number>>();
+          symProps.set(pkg, pkgProps);
+          const props = pkgProps.get(sym) ?? {};
+          pkgProps.set(sym, props);
+          for (const [propName, count] of Object.entries(s.props)) {
+            props[propName] = (props[propName] ?? 0) + count;
+          }
+        }
       }
     }
 
@@ -64,10 +75,12 @@ export function buildSnapshot(
     const symFiles = symFileCount.get(name);
     if (symFiles) {
       for (const [sym, fileCount] of symFiles) {
+        const props = symProps.get(name)?.get(sym);
         symbols[sym] = {
           fileCount,
           repoCount: symRepoSet.get(name)?.get(sym)?.size ?? 0,
           refCount: symRefCount.get(name)?.get(sym) ?? 0,
+          ...(props ? { props } : {}),
         };
       }
     }
@@ -87,7 +100,8 @@ export function buildSnapshot(
         const root = sym.split('.')[0]!;
         if (m.symbols.has(root)) usedRoots.add(root);
       }
-      usage.coverage = { totalExported: m.symbols.size, used: usedRoots.size };
+      const unusedExports = [...m.symbols].filter(s => !usedRoots.has(s)).sort();
+      usage.coverage = { totalExported: m.symbols.size, used: usedRoots.size, unusedExports };
     }
 
     packages[name] = usage;

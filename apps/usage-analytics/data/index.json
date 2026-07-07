@@ -1,4 +1,66 @@
 {
   "schemaVersion": 1,
-  "snapshots": []
+  "snapshots": [
+    {
+      "date": "2026-07-07",
+      "file": "snapshots/2026-07-07.json",
+      "orgTotals": {
+        "reposUsingAnyHearth": 17,
+        "totalHearthFiles": 3054,
+        "totalHearthRefs": 37817
+      },
+      "packages": {
+        "@utilitywarehouse/hearth-css-reset": {
+          "fileCount": 0,
+          "refCount": 0,
+          "repoCount": 0
+        },
+        "@utilitywarehouse/hearth-fonts": {
+          "fileCount": 15,
+          "refCount": 15,
+          "repoCount": 12
+        },
+        "@utilitywarehouse/hearth-json-assets": {
+          "fileCount": 13,
+          "refCount": 15,
+          "repoCount": 3
+        },
+        "@utilitywarehouse/hearth-react": {
+          "fileCount": 1332,
+          "refCount": 23990,
+          "repoCount": 13
+        },
+        "@utilitywarehouse/hearth-react-icons": {
+          "fileCount": 263,
+          "refCount": 909,
+          "repoCount": 10
+        },
+        "@utilitywarehouse/hearth-react-native": {
+          "fileCount": 743,
+          "refCount": 10894,
+          "repoCount": 3
+        },
+        "@utilitywarehouse/hearth-react-native-icons": {
+          "fileCount": 197,
+          "refCount": 813,
+          "repoCount": 2
+        },
+        "@utilitywarehouse/hearth-svg-assets": {
+          "fileCount": 270,
+          "refCount": 428,
+          "repoCount": 8
+        },
+        "@utilitywarehouse/hearth-svg-icons": {
+          "fileCount": 0,
+          "refCount": 0,
+          "repoCount": 0
+        },
+        "@utilitywarehouse/hearth-tokens": {
+          "fileCount": 221,
+          "refCount": 753,
+          "repoCount": 12
+        }
+      }
+    }
+  ]
 }

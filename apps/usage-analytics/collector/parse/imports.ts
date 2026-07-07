@@ -20,6 +20,8 @@ export interface FilePackageUsage {
   importStatements: number;
   /** canonical symbol name -> reference count within this file. */
   symbols: Record<string, number>;
+  /** canonical symbol name -> (prop name -> count) within this file. component-lib only. */
+  props: Record<string, Record<string, number>>;
 }
 
 export type FileUsage = Map<string, FilePackageUsage>;
@@ -61,7 +63,7 @@ function resolvePackage(source: string, tracked: Map<string, PackageMeta>): stri
 function ensure(usage: FileUsage, pkg: string): FilePackageUsage {
   let u = usage.get(pkg);
   if (!u) {
-    u = { importStatements: 0, symbols: {} };
+    u = { importStatements: 0, symbols: {}, props: {} };
     usage.set(pkg, u);
   }
   return u;
@@ -69,6 +71,11 @@ function ensure(usage: FileUsage, pkg: string): FilePackageUsage {
 
 function bump(usage: FilePackageUsage, symbol: string, by = 1) {
   usage.symbols[symbol] = (usage.symbols[symbol] ?? 0) + by;
+}
+
+function bumpProp(usage: FilePackageUsage, symbol: string, propName: string) {
+  const props = (usage.props[symbol] ??= {});
+  props[propName] = (props[propName] ?? 0) + 1;
 }
 
 /**
@@ -106,6 +113,22 @@ function tokenGroup(root: NodePath<MemberExpression>, namespace: boolean, canoni
   path.push(base);
   if (propName) path.push(propName);
   return path.join('.');
+}
+
+/**
+ * If `ref` is the tag name of a JSX opening element (i.e. this reference is a
+ * `<Component ...>` usage, not e.g. a plain function call), record every named
+ * attribute passed to it. `{...spread}` attributes carry no static name and are
+ * skipped — see the "Accuracy caveats" section of the README.
+ */
+function collectJsxProps(usage: FilePackageUsage, canonical: string, ref: NodePath) {
+  const parent = ref.parentPath;
+  if (!parent?.isJSXOpeningElement() || parent.node.name !== ref.node) return;
+  for (const attr of parent.node.attributes) {
+    if (attr.type === 'JSXAttribute' && attr.name.type === 'JSXIdentifier') {
+      bumpProp(usage, canonical, attr.name.name);
+    }
+  }
 }
 
 /**
@@ -233,6 +256,9 @@ export function analyzeFile(code: string, ctx: AnalyzeContext): FileUsage {
           // component-lib / icons: count import + every reference (incl. JSX).
           if (meta.symbols.size === 0 || meta.symbols.has(binding.canonical)) {
             bump(u, binding.canonical, refs.length + 1);
+            if (meta.type === 'component-lib') {
+              for (const ref of refs) collectJsxProps(u, binding.canonical, ref);
+            }
           }
         }
       }
