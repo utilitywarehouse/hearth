@@ -5,29 +5,29 @@ import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile, PackageCard } from '../components/cards';
 import { TrendChart } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
-import { compact, formatDate, num } from '../lib/format';
-import { orgTrend, reposUsingHearth } from '../lib/series';
+import { compact, num } from '../lib/format';
+import { legacyTrend, reposUsingLegacy } from '../lib/series';
 import { packageColor, pkgSlug, shortName } from '../lib/packages';
 
-// Package types whose symbols are visual components a user drops into a UI —
-// combining them gives one "what do people actually render" ranking.
 const COMPONENT_TYPES = new Set(['component-lib', 'icons']);
 
+const LEGACY_TREND_COLOR = 'var(--h-color-red-500)';
+
 // Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
-// hearth packages that repo uses, so relabel it rather than call it "Repos".
+// legacy packages that repo still uses, so relabel it rather than call it "Repos".
 const REPO_ROW_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
   { key: 'repoCount', label: 'Packages' },
 ];
 
-export function Overview() {
+export function LegacyOverview() {
   const index = useIndex();
   const date = latestDate(index.data);
   const snap = useSnapshot(date);
   const navigate = useNavigate();
 
-  const orgData = useMemo(() => (index.data ? orgTrend(index.data) : []), [index.data]);
+  const trend = useMemo(() => (index.data ? legacyTrend(index.data) : []), [index.data]);
 
   if (index.loading || snap.loading) return <Loading />;
   if (index.error) return <ErrorBox error={index.error} />;
@@ -35,23 +35,19 @@ export function Overview() {
   if (!index.data || !snap.data) return <ErrorBox error="No snapshots found." />;
 
   const snapshot = snap.data;
-  // Legacy predecessor packages get their own section/page (see LegacyOverview)
-  // so they don't dilute "current hearth adoption" here.
   const packages = Object.entries(snapshot.packages)
-    .filter(([, p]) => !p.legacy)
+    .filter(([, p]) => p.legacy)
     .sort((a, b) => b[1].refCount - a[1].refCount);
-  const inUse = packages.filter(([, p]) => p.repoCount > 0).length;
+  const stillActive = packages.filter(([, p]) => p.repoCount > 0).length;
 
-  // Repo -> hearth usage count (sorted desc), the requested summary table.
-  const repoRows: Array<RankRow> = reposUsingHearth(snapshot).map(r => ({
+  const repoUsage = reposUsingLegacy(snapshot);
+  const repoRows: Array<RankRow> = repoUsage.map(r => ({
     name: r.repo,
     refCount: r.refs,
     repoCount: r.pkgCount,
     fileCount: r.files,
   }));
 
-  // Component -> usage count across the org, combined from every component
-  // library AND icon package so one ranking answers "what's actually rendered".
   const componentPackages = packages.filter(([, p]) => COMPONENT_TYPES.has(p.type));
   const componentRows: Array<RankRow> = componentPackages.flatMap(([pkg, usage]) =>
     Object.entries(usage.symbols).map(([name, s]) => ({
@@ -68,34 +64,48 @@ export function Overview() {
   return (
     <div>
       <PageHeader
-        title="Hearth usage across the org"
+        title="Legacy packages"
         subtitle={
           <>
-            External adopters of <code>@utilitywarehouse/hearth-*</code> in the{' '}
-            <code>utilitywarehouse</code> org. Snapshot {formatDate(snapshot.date)} · manifest v
-            {snapshot.collection.manifestVersion} · {snapshot.collection.reposCloned} repos scanned
-            {snapshot.collection.reposFailed ? ` · ${snapshot.collection.reposFailed} failed` : ''}.
+            Predecessor packages from{' '}
+            <a
+              className="link"
+              href="https://github.com/utilitywarehouse/icons"
+              target="_blank"
+              rel="noreferrer"
+            >
+              utilitywarehouse/icons
+            </a>{' '}
+            and{' '}
+            <a
+              className="link"
+              href="https://github.com/utilitywarehouse/design-systems"
+              target="_blank"
+              rel="noreferrer"
+            >
+              utilitywarehouse/design-systems
+            </a>
+            , tracked here so we can watch adoption fall to zero as repos finish migrating to
+            hearth — not to measure hearth adoption itself.
           </>
         }
       />
 
       <div className="tiles">
-        <StatTile label="Repos using hearth" value={num(repoRows.length)} />
+        <StatTile label="Repos still on legacy" value={num(repoRows.length)} />
         <StatTile label="Total references" value={compact(sumRefs(packages))} />
         <StatTile label="File imports" value={compact(totalFiles(packages))} />
-        <StatTile label="Packages in use" value={`${inUse} / ${packages.length}`} />
+        <StatTile label="Packages still active" value={`${stillActive} / ${packages.length}`} />
       </div>
 
-      <Section title="Adoption over time">
+      <Section title="Adoption over time" aside={<span className="muted">watch this go to zero</span>}>
         <TrendChart
-          data={orgData}
-          series={[
-            { key: 'repos', label: 'Repos using hearth', color: 'var(--h-color-blue-600)' },
-          ]}
+          data={trend}
+          series={[{ key: 'repos', label: 'Repos still on legacy', color: LEGACY_TREND_COLOR }]}
         />
       </Section>
 
-      <Section title="Packages" aside={<span className="muted">click a package for detail</span>}>
+      <Section title="Legacy packages" aside={<span className="muted">click a package for detail</span>}>
         <div className="pkg-grid">
           {packages.map(([name, usage]) => (
             <PackageCard key={name} name={name} usage={usage} />
@@ -104,23 +114,23 @@ export function Overview() {
       </Section>
 
       <div className="two-col">
-        <Section title="Repositories by usage">
+        <Section title="Repositories still on legacy">
           <RankingTable
             rows={repoRows}
             unit="Repository"
-            color="var(--h-color-green-600)"
+            color={LEGACY_TREND_COLOR}
             columns={REPO_ROW_COLUMNS}
             onSelect={repo => void navigate(`/repo/${repo}`)}
           />
         </Section>
         <Section
-          title="Top components"
+          title="Components/icons still in use"
           aside={
             <span className="legend">
               {componentLegend.map(([pkg]) => (
                 <span key={pkg} className="legend__item">
                   <span className="legend__dot" style={{ background: packageColor(pkg) }} />
-                  {shortName(pkg).replace('hearth-', '')}
+                  {shortName(pkg)}
                 </span>
               ))}
             </span>
@@ -129,18 +139,17 @@ export function Overview() {
           <RankingTable
             rows={componentRows}
             unit="Component / icon"
-            color={packageColor('@utilitywarehouse/hearth-react')}
+            color={LEGACY_TREND_COLOR}
             onSelect={(name, row) => void navigate(`/symbol/${pkgSlug(row.pkg!)}/${encodeURIComponent(name)}`)}
           />
         </Section>
       </div>
 
       <p className="muted footnote">
-        Counts reflect direct dependents (declared in <code>package.json</code>); the hearth repo
-        itself is excluded. Ranked by references — {repoRows.length} repos, showing{' '}
-        {compact(componentRows.length)} distinct components/icons across {componentLegend.length}{' '}
-        packages. Repos with heavy monorepo usage inflate
-        file/ref counts; repo counts show adoption breadth.
+        Counts reflect direct dependents (declared in <code>package.json</code>) of the 8 legacy
+        packages above; the hearth repo itself is excluded. A repo can appear both here and on the
+        main Overview when mid-migration — {repoRows.length} repos still reference at least one
+        legacy package.
       </p>
     </div>
   );

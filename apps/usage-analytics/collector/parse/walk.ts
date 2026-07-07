@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { IGNORED_DIRS, MAX_FILE_BYTES, SOURCE_EXTENSIONS } from '../config.ts';
+import { DISCOVERY_TERMS, IGNORED_DIRS, MAX_FILE_BYTES, SOURCE_EXTENSIONS } from '../config.ts';
 import { analyzeFile, type AnalyzeContext, type PackageMeta } from './imports.ts';
 
 /** Usage of a single symbol, aggregated across a repo's files. */
@@ -25,8 +25,14 @@ export interface RepoParseResult {
   filesParsed: number;
 }
 
-/** Cheap substring gate — only files mentioning hearth are worth parsing. */
-const PREFILTER = '@utilitywarehouse/hearth';
+/**
+ * Cheap substring gate — only files mentioning a tracked package (hearth or a
+ * legacy predecessor) are worth parsing. Legacy package names don't share a
+ * common substring with "hearth", so this checks each individually.
+ */
+function mentionsTrackedPackage(code: string): boolean {
+  return DISCOVERY_TERMS.some(term => code.includes(term));
+}
 
 function* walkFiles(dir: string): Generator<string> {
   let entries: Array<fs.Dirent>;
@@ -64,7 +70,7 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
     } catch {
       continue;
     }
-    if (!code.includes(PREFILTER)) continue;
+    if (!mentionsTrackedPackage(code)) continue;
     result.filesParsed++;
 
     const usage = analyzeFile(code, ctx);
@@ -104,11 +110,14 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
 
 /** Build the analyze context (package meta + allow-lists) from a symbol manifest. */
 export function buildContext(manifest: {
-  packages: Record<string, { type: PackageMeta['type']; symbols: Array<string> }>;
+  packages: Record<
+    string,
+    { type: PackageMeta['type']; symbols: Array<string>; legacy?: boolean }
+  >;
 }): AnalyzeContext {
   const packages = new Map<string, PackageMeta>();
   for (const [name, m] of Object.entries(manifest.packages)) {
-    packages.set(name, { type: m.type, symbols: new Set(m.symbols) });
+    packages.set(name, { type: m.type, symbols: new Set(m.symbols), legacy: m.legacy ?? false });
   }
   return { packages };
 }

@@ -20,6 +20,23 @@ of references), the collector is deliberately two-phase:
    **prop names** are passed to each component, so a symbol's usage breaks down
    into e.g. `variant` (30), `onClick` (25) — not just a single ref count.
 
+**Legacy tracking:** alongside the 10 hearth packages, the collector also tracks
+8 predecessor packages from
+[utilitywarehouse/icons](https://github.com/utilitywarehouse/icons) and
+[utilitywarehouse/design-systems](https://github.com/utilitywarehouse/design-systems)
+(`react-icons`, `react-native-icons`, `svg-icons`, `colour-system`, `css-reset`,
+`design-tokens`, `native-ui`, `web-ui`) — not to measure hearth adoption, but to
+watch their usage fall to zero as repos finish migrating. They have no local
+source in this workspace, so there's no symbol allow-list for them (any imported
+name is accepted, same as an `asset` package with no manifest) and no coverage
+stat. Discovery costs one extra code-search query per legacy package name (they
+don't share a substring the way `@utilitywarehouse/hearth-*` does, and GitHub's
+code-search API has no OR operator) — 9 queries total per run, still well within
+the 10/hr budget for a weekly collector. See `LEGACY_PACKAGE_NAMES` /
+`DISCOVERY_TERMS` in `collector/config.ts`. The dashboard surfaces them in their
+own sidebar section and a `/legacy` overview page, separate from the main
+Overview so they don't distort current hearth-adoption numbers.
+
 The hearth repo itself is excluded (external adopters only). Results are written
 as diff-friendly, dated JSON snapshots under `data/`, rolled up into
 `data/index.json` for time-series. A weekly GitHub Action
@@ -66,6 +83,9 @@ for testing and offline runs.
   `manifestVersion` in each snapshot); older downstream versions may differ.
 - `repoCount` (adoption breadth) and `refCount`/`fileCount` (depth) are both
   reported so a single monorepo doesn't distort the adoption story.
+- Legacy packages have no symbol allow-list (no local source to build one from),
+  so unlike hearth packages any imported name is counted at face value — a typo'd
+  or shadowed import of the same package name would still register.
 - Prop usage tracks **prop names only**, never literal values — we record that
   `variant` was passed, not that it was passed `"primary"`. It's scoped to
   `component-lib` packages (`hearth-react`, `hearth-react-native`); tokens and

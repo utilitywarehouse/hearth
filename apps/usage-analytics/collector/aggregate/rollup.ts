@@ -91,6 +91,7 @@ export function buildSnapshot(
       fileCount: pkgFileCount.get(name) ?? 0,
       refCount: pkgRefCount.get(name) ?? 0,
       symbols,
+      legacy: m.legacy,
     };
 
     if (m.symbols.size > 0) {
@@ -123,20 +124,31 @@ export function updateIndex(existing: UsageIndex | null, snapshot: Snapshot): Us
     date: snapshot.date,
     file: `snapshots/${snapshot.date}.json`,
     packages: {},
-    orgTotals: {
-      reposUsingAnyHearth: Object.keys(snapshot.repos).length,
-      totalHearthFiles: 0,
-      totalHearthRefs: 0,
-    },
+    orgTotals: { reposUsingAnyHearth: 0, totalHearthFiles: 0, totalHearthRefs: 0 },
+    legacyTotals: { reposUsingAnyLegacy: 0, totalLegacyFiles: 0, totalLegacyRefs: 0 },
   };
   for (const [name, pkg] of Object.entries(snapshot.packages)) {
     entry.packages[name] = {
       repoCount: pkg.repoCount,
       fileCount: pkg.fileCount,
       refCount: pkg.refCount,
+      legacy: pkg.legacy,
     };
-    entry.orgTotals.totalHearthFiles += pkg.fileCount;
-    entry.orgTotals.totalHearthRefs += pkg.refCount;
+    if (pkg.legacy) {
+      entry.legacyTotals.totalLegacyFiles += pkg.fileCount;
+      entry.legacyTotals.totalLegacyRefs += pkg.refCount;
+    } else {
+      entry.orgTotals.totalHearthFiles += pkg.fileCount;
+      entry.orgTotals.totalHearthRefs += pkg.refCount;
+    }
+  }
+
+  // A repo can use legacy packages, hearth packages, or both — count each
+  // repo under every bucket it actually touches, not just "uses anything".
+  for (const repo of Object.values(snapshot.repos)) {
+    const pkgNames = Object.keys(repo.packages);
+    if (pkgNames.some(n => !snapshot.packages[n]?.legacy)) entry.orgTotals.reposUsingAnyHearth += 1;
+    if (pkgNames.some(n => snapshot.packages[n]?.legacy)) entry.legacyTotals.reposUsingAnyLegacy += 1;
   }
 
   const snapshots = (existing?.snapshots ?? []).filter(s => s.date !== snapshot.date);

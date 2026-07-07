@@ -11,6 +11,16 @@ export function orgTrend(index: UsageIndex): Array<TrendPoint> {
   }));
 }
 
+/** Legacy predecessor packages' totals over time — watch this trend to zero. */
+export function legacyTrend(index: UsageIndex): Array<TrendPoint> {
+  return index.snapshots.map(s => ({
+    date: s.date,
+    repos: s.legacyTotals.reposUsingAnyLegacy,
+    files: s.legacyTotals.totalLegacyFiles,
+    refs: s.legacyTotals.totalLegacyRefs,
+  }));
+}
+
 /** One package's totals over time. */
 export function packageTrend(index: UsageIndex, pkg: string): Array<TrendPoint> {
   return index.snapshots.map(s => {
@@ -83,4 +93,42 @@ export function reposUsingPackage(
     if (p) out.push({ repo, refs: p.refCount, files: p.fileCount, symbolCount: Object.keys(p.symbols).length });
   }
   return out.sort((a, b) => b.refs - a.refs);
+}
+
+/**
+ * Repos ranked by their usage of either the current (hearth) or legacy package
+ * set, with per-repo refs/files/package-count restricted to that set — so a
+ * repo mid-migration shows up correctly in both rankings, scoped to what it
+ * actually uses from each side.
+ */
+function reposByLegacyStatus(
+  snapshot: Snapshot,
+  wantLegacy: boolean
+): Array<{ repo: string; refs: number; files: number; pkgCount: number }> {
+  const out: Array<{ repo: string; refs: number; files: number; pkgCount: number }> = [];
+  for (const [repo, usage] of Object.entries(snapshot.repos)) {
+    let refs = 0;
+    let files = 0;
+    let pkgCount = 0;
+    for (const [name, p] of Object.entries(usage.packages)) {
+      if ((snapshot.packages[name]?.legacy ?? false) !== wantLegacy) continue;
+      refs += p.refCount;
+      files += p.fileCount;
+      pkgCount += 1;
+    }
+    if (pkgCount > 0) out.push({ repo, refs, files, pkgCount });
+  }
+  return out.sort((a, b) => b.refs - a.refs);
+}
+
+export function reposUsingHearth(
+  snapshot: Snapshot
+): Array<{ repo: string; refs: number; files: number; pkgCount: number }> {
+  return reposByLegacyStatus(snapshot, false);
+}
+
+export function reposUsingLegacy(
+  snapshot: Snapshot
+): Array<{ repo: string; refs: number; files: number; pkgCount: number }> {
+  return reposByLegacyStatus(snapshot, true);
 }

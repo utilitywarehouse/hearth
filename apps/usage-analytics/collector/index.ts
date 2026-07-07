@@ -22,7 +22,7 @@ import {
 } from './config.ts';
 import type { CollectionMeta, Snapshot, UsageIndex } from '../src/data/types.ts';
 import { createClient, getToken, searchRemaining } from './github/client.ts';
-import { discoverAllDependents, type SearchBudget } from './github/discover.ts';
+import { discoverForTerm, type SearchBudget } from './github/discover.ts';
 import { cloneRepo, removeDir } from './github/clone.ts';
 import { buildContext, walkRepo } from './parse/walk.ts';
 import { buildSnapshot, updateIndex, type RepoResult } from './aggregate/rollup.ts';
@@ -112,7 +112,8 @@ async function main() {
 
   const cp = loadCheckpoint(date, nowIso);
 
-  // ---- Phase A: discovery (a single combined code search) ----
+  // ---- Phase A: discovery (one query per search term — the combined hearth
+  // term, plus one per legacy package; see DISCOVERY_TERMS) ----
   if (args.repos && args.repos.length > 0) {
     // Test / targeted mode — skip discovery entirely.
     cp.pendingRepos = args.repos;
@@ -127,25 +128,48 @@ async function main() {
     }
 
     const budget: SearchBudget = { remaining };
-    const result = await discoverAllDependents(octokit, budget);
-    cp.discovery.found = { '*': result.repos };
-    cp.discovery.searchRequestsUsed += result.requestsUsed;
+    const totalTerms = cp.discovery.queue.length;
+    let stoppedEarly = false;
+
+    while (cp.discovery.queue.length > 0 && budget.remaining > 0) {
+      const term = cp.discovery.queue[0]!;
+      const result = await discoverForTerm(octokit, budget, term);
+      cp.discovery.found[term] = result.repos;
+      cp.discovery.searchRequestsUsed += result.requestsUsed;
+      console.log(`  "${term}": ${result.repos.length} repos (${result.requestsUsed} search req)`);
+      if (result.exhausted) {
+        stoppedEarly = true;
+        break;
+      }
+      cp.discovery.queue.shift();
+    }
+    if (cp.discovery.queue.length > 0) stoppedEarly = true;
+
+    const allFound = new Set(Object.values(cp.discovery.found).flat());
     console.log(
-      `Discovered ${result.repos.length} dependent repos (${result.requestsUsed} search req).`
+      `Discovered ${allFound.size} dependent repos across ` +
+        `${totalTerms - cp.discovery.queue.length}/${totalTerms} search terms.`
     );
 
-    if (result.exhausted && result.repos.length === 0) {
+    if (stoppedEarly && allFound.size === 0) {
       // Throttled before finding anything — resume next run rather than write an
       // empty snapshot that would look like "nobody uses hearth".
       console.log('Search throttled before any results — checkpointing to resume next run.');
       saveCheckpoint(cp, new Date().toISOString());
       return; // exit 0
     }
-    if (result.exhausted) {
-      console.warn('! Search throttled mid-pagination — repo list may be incomplete this cycle.');
+    if (stoppedEarly) {
+      // Some terms are still unqueried — resume the rest next run rather than
+      // write a snapshot that would misreport those packages as unused.
+      console.warn(
+        `! Search throttled — ${cp.discovery.queue.length} term(s) still pending, ` +
+          `will resume next run: ${cp.discovery.queue.join(', ')}`
+      );
+      saveCheckpoint(cp, new Date().toISOString());
+      return; // exit 0
     }
 
-    cp.pendingRepos = result.repos.filter(r => r !== SELF_REPO).sort();
+    cp.pendingRepos = [...allFound].filter(r => r !== SELF_REPO).sort();
     cp.phase = 'collect';
     saveCheckpoint(cp, new Date().toISOString());
   }

@@ -46,6 +46,8 @@ export interface PackageUsage {
   symbols: Record<string, SymbolUsage>;
   /** Present for packages with an exported symbol surface. */
   coverage?: Coverage;
+  /** A pre-hearth predecessor package, tracked to watch its usage fall to zero. */
+  legacy: boolean;
 }
 
 /** Usage of a single symbol within one repo. */
@@ -109,6 +111,7 @@ export interface IndexPackageTotals {
   repoCount: number;
   fileCount: number;
   refCount: number;
+  legacy: boolean;
 }
 
 /** One weekly entry in the rolled-up time-series index. */
@@ -116,10 +119,17 @@ export interface IndexEntry {
   date: string;
   file: string;
   packages: Record<string, IndexPackageTotals>;
+  /** Totals across current (non-legacy) hearth packages only. */
   orgTotals: {
     reposUsingAnyHearth: number;
     totalHearthFiles: number;
     totalHearthRefs: number;
+  };
+  /** Totals across legacy predecessor packages only — watch these fall to zero. */
+  legacyTotals: {
+    reposUsingAnyLegacy: number;
+    totalLegacyFiles: number;
+    totalLegacyRefs: number;
   };
 }
 
@@ -134,9 +144,9 @@ export interface Checkpoint {
   runId: string;
   phase: 'discovery' | 'collect' | 'done';
   discovery: {
-    /** Package names still to run a discovery search for. */
+    /** Search terms (the combined hearth term, plus one per legacy package) still to query. */
     queue: Array<string>;
-    /** package name -> repos found depending on it. */
+    /** search term -> repos found matching it. */
     found: Record<string, Array<string>>;
     searchRequestsUsed: number;
   };

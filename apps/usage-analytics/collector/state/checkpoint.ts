@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import { CHECKPOINT_FILE, PACKAGE_NAMES } from '../config.ts';
+import { CHECKPOINT_FILE, DISCOVERY_TERMS } from '../config.ts';
 import type { Checkpoint } from '../../src/data/types.ts';
 import { readJson, writeJson } from '../util/json.ts';
 
@@ -14,7 +14,7 @@ export function freshCheckpoint(runId: string, nowIso: string): Checkpoint {
   return {
     runId,
     phase: 'discovery',
-    discovery: { queue: [...PACKAGE_NAMES], found: {}, searchRequestsUsed: 0 },
+    discovery: { queue: [...DISCOVERY_TERMS], found: {}, searchRequestsUsed: 0 },
     pendingRepos: [],
     reposParsed: 0,
     startedAt: nowIso,

@@ -20,6 +20,15 @@ const COLORS: Record<string, string> = {
   '@utilitywarehouse/hearth-json-assets': 'var(--h-color-green-400)',
   '@utilitywarehouse/hearth-fonts': 'var(--h-color-grey-600)',
   '@utilitywarehouse/hearth-css-reset': 'var(--h-color-grey-400)',
+  // Legacy predecessor packages — muted tones, distinct from the active set above.
+  '@utilitywarehouse/react-icons': 'var(--h-color-grey-300)',
+  '@utilitywarehouse/react-native-icons': 'var(--h-color-grey-500)',
+  '@utilitywarehouse/svg-icons': 'var(--h-color-grey-700)',
+  '@utilitywarehouse/colour-system': 'var(--h-color-orange-400)',
+  '@utilitywarehouse/css-reset': 'var(--h-color-grey-800)',
+  '@utilitywarehouse/design-tokens': 'var(--h-color-orange-700)',
+  '@utilitywarehouse/native-ui': 'var(--h-color-red-300)',
+  '@utilitywarehouse/web-ui': 'var(--h-color-red-400)',
 };
 
 const FALLBACK = 'var(--h-color-grey-500)';

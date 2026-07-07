@@ -91,15 +91,32 @@ function pick<T>(rng: () => number, arr: Array<T>, n: number): Array<T> {
   return out;
 }
 
+/**
+ * Legacy packages have no local source (they live in different repos), so
+ * there's no real manifest to draw symbol names from — fabricate a plausible
+ * handful so the sample data demonstrates "which legacy components are still
+ * in use" rather than only package-level counts.
+ */
+const LEGACY_SYMBOLS: Record<string, Array<string>> = {
+  '@utilitywarehouse/web-ui': ['Button', 'Card', 'Modal', 'TextInput', 'Alert', 'Badge', 'Tabs', 'Tooltip'],
+  '@utilitywarehouse/native-ui': ['Button', 'Card', 'Modal', 'TextInput', 'Alert'],
+  '@utilitywarehouse/react-icons': ['AddIcon', 'CloseIcon', 'InfoIcon', 'WarningIcon', 'CheckIcon'],
+  '@utilitywarehouse/colour-system': ['primary', 'secondary', 'success', 'danger', 'warning'],
+};
+
 function symbolsFor(pkg: string): Array<string> {
   if (pkg === '@utilitywarehouse/hearth-tokens') return tokenGroups();
+  if (LEGACY_SYMBOLS[pkg]) return LEGACY_SYMBOLS[pkg];
   return manifest!.packages[pkg]?.symbols ?? [];
 }
 
 /** Build a plausible parse result for one repo in one week. */
 function repoParse(repo: string, weekIndex: number): RepoParseResult {
   const rng = makeRng(hash(repo) + weekIndex * 7919);
-  const growth = 1 + weekIndex * 0.18; // usage grows ~18%/week
+  const growth = 1 + weekIndex * 0.18; // hearth usage grows ~18%/week
+  // Legacy usage shrinks each sample week — repos migrating off the
+  // predecessor packages toward hearth.
+  const decline = Math.max(0.1, 1 - weekIndex * 0.4);
   const packages: RepoParseResult['packages'] = {};
 
   // Every repo uses tokens + react; some use icons / native / assets.
@@ -113,23 +130,30 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
       : []),
     ...(rng() < 0.5 ? ['@utilitywarehouse/hearth-fonts'] : []),
     ...(rng() < 0.4 ? ['@utilitywarehouse/hearth-css-reset'] : []),
+    // Legacy predecessors — present less often, and less heavily, each week.
+    ...(rng() < 0.5 * decline ? ['@utilitywarehouse/web-ui'] : []),
+    ...(rng() < 0.45 * decline ? ['@utilitywarehouse/react-icons'] : []),
+    ...(rng() < 0.2 * decline ? ['@utilitywarehouse/colour-system'] : []),
+    ...(rng() < 0.15 * decline ? ['@utilitywarehouse/native-ui'] : []),
   ];
 
   for (const pkg of chosen) {
-    const type = ctx.packages.get(pkg)?.type ?? 'asset';
+    const meta = ctx.packages.get(pkg);
+    const type = meta?.type ?? 'asset';
+    const trend = meta?.legacy ? decline : growth;
     const allSymbols = symbolsFor(pkg);
     const symbols: RepoParseResult['packages'][string]['symbols'] = {};
     let refCount = 0;
     let fileCount: number;
 
     if (type === 'asset' || allSymbols.length === 0) {
-      fileCount = 1 + Math.floor(rng() * 6 * growth);
-      refCount = fileCount + Math.floor(rng() * 10 * growth);
+      fileCount = 1 + Math.floor(rng() * 6 * trend);
+      refCount = fileCount + Math.floor(rng() * 10 * trend);
     } else {
       const count = Math.max(3, Math.floor((6 + rng() * 24) * (type === 'icons' ? 1.5 : 1)));
       const used = pick(rng, allSymbols, Math.min(count, allSymbols.length));
       for (const sym of used) {
-        const refs = 1 + Math.floor(rng() * 30 * growth);
+        const refs = 1 + Math.floor(rng() * 30 * trend);
         // Distinct files referencing this symbol — always <= refs (a file can
         // reference the same symbol more than once).
         const symFiles = 1 + Math.floor(rng() * Math.min(refs - 1, 5));

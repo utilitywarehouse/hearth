@@ -40,7 +40,7 @@ export function RepoPage() {
             <a className="link" href={`https://github.com/${fullName}`} target="_blank" rel="noreferrer">
               {fullName} ↗
             </a>{' '}
-            · {pkgEntries.length} hearth packages · commit{' '}
+            · {pkgEntries.length} tracked packages · commit{' '}
             <code>{repo.clonedSha.slice(0, 7)}</code>
           </>
         }

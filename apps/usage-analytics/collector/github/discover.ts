@@ -27,20 +27,25 @@ export function isRateLimit(err: unknown): boolean {
 }
 
 /**
- * Discover every org repo that declares a dependency on ANY @utilitywarehouse/hearth-*
- * package, via a SINGLE code-search query over `package.json` manifests. We only
- * need the set of dependent repos — cloning + parsing determines exactly which
- * packages/symbols each repo uses — so one query (plus pagination) suffices and
- * stays well within the 10/hr code-search budget. The hearth repo is excluded.
+ * Discover every org repo whose `package.json` mentions the given search term,
+ * via a SINGLE code-search query (plus pagination). We only need the set of
+ * dependent repos — cloning + parsing determines exactly which packages/symbols
+ * each repo uses — so one query per term suffices. The hearth repo is excluded.
+ *
+ * `term` is either the shared "@utilitywarehouse/hearth" substring (covers all
+ * current hearth packages in one query) or one exact legacy package name —
+ * legacy names don't share a substring, and GitHub's code-search API doesn't
+ * support OR, so each needs its own query. See `DISCOVERY_TERMS` in config.ts.
  *
  * On a rate-limit rejection we return what we have with `exhausted: true` rather
  * than throwing, so the caller can checkpoint and resume next run.
  */
-export async function discoverAllDependents(
+export async function discoverForTerm(
   octokit: Octokit,
-  budget: SearchBudget
+  budget: SearchBudget,
+  term: string
 ): Promise<DiscoverResult> {
-  const q = `org:${ORG} "@utilitywarehouse/hearth" in:file filename:package.json -repo:${SELF_REPO}`;
+  const q = `org:${ORG} "${term}" in:file filename:package.json -repo:${SELF_REPO}`;
   const repos = new Set<string>();
   let requestsUsed = 0;
   let page = 1;

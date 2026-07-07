@@ -36,6 +36,13 @@ export interface PackageConfig {
    * namespaces all share this shape). `none`: no symbol surface (asset packages).
    */
   manifest: { kind: 'exports'; file: string } | { kind: 'none' };
+  /**
+   * A predecessor package hearth superseded, tracked so we can watch adoption
+   * fall to zero rather than to measure hearth adoption itself. Lives in a
+   * different repo, so there's no local source for a symbol allow-list —
+   * always `manifest: { kind: 'none' }`.
+   */
+  legacy?: boolean;
 }
 
 /** The 11 published @utilitywarehouse/hearth-* packages, in display order. */
@@ -90,10 +97,57 @@ export const PACKAGES: Array<PackageConfig> = [
     type: 'asset',
     manifest: { kind: 'none' },
   },
+
+  // Predecessor packages from the pre-hearth design systems, kept in scope so
+  // the dashboard can track their usage declining to zero as repos migrate.
+  // https://github.com/utilitywarehouse/icons
+  { name: '@utilitywarehouse/react-icons', type: 'icons', manifest: { kind: 'none' }, legacy: true },
+  {
+    name: '@utilitywarehouse/react-native-icons',
+    type: 'icons',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
+  { name: '@utilitywarehouse/svg-icons', type: 'icons', manifest: { kind: 'none' }, legacy: true },
+  // https://github.com/utilitywarehouse/design-systems
+  {
+    name: '@utilitywarehouse/colour-system',
+    type: 'tokens',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
+  { name: '@utilitywarehouse/css-reset', type: 'asset', manifest: { kind: 'none' }, legacy: true },
+  {
+    name: '@utilitywarehouse/design-tokens',
+    type: 'tokens',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
+  {
+    name: '@utilitywarehouse/native-ui',
+    type: 'component-lib',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
+  { name: '@utilitywarehouse/web-ui', type: 'component-lib', manifest: { kind: 'none' }, legacy: true },
 ];
 
 /** Unique package names (config above may repeat generated packages). */
 export const PACKAGE_NAMES = Array.from(new Set(PACKAGES.map(p => p.name)));
+
+/** The subset of `PACKAGES` being tracked only to watch their usage decline. */
+export const LEGACY_PACKAGE_NAMES = PACKAGES.filter(p => p.legacy).map(p => p.name);
+
+/**
+ * Code-search terms for discovery, each intended to run as its own query.
+ * `HEARTH_SEARCH_TERM` is a substring shared by all `@utilitywarehouse/hearth-*`
+ * names, so one query covers all of them. Legacy packages don't share a
+ * substring (and GitHub's code-search API doesn't support OR), so each gets
+ * its own term — still just 1 + 8 = 9 requests, well within the 10/hr budget
+ * for a weekly run.
+ */
+export const HEARTH_SEARCH_TERM = '@utilitywarehouse/hearth';
+export const DISCOVERY_TERMS = [HEARTH_SEARCH_TERM, ...LEGACY_PACKAGE_NAMES];
 
 export function getPackageConfig(name: string): PackageConfig | undefined {
   return PACKAGES.find(p => p.name === name);

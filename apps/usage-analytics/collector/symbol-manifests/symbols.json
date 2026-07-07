@@ -1,6 +1,6 @@
 {
   "manifestVersion": "0.31.0",
-  "generatedAt": "2026-07-07T10:30:22.993Z",
+  "generatedAt": "2026-07-07T17:37:55.888Z",
   "packages": {
     "@utilitywarehouse/hearth-react": {
       "type": "component-lib",
@@ -248,7 +248,8 @@
         "spaceTokens",
         "useComboboxFilter",
         "useMediaQuery"
-      ]
+      ],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-react-native": {
       "type": "component-lib",
@@ -620,7 +621,8 @@
         "useToken",
         "useUnistyles",
         "withUnistyles"
-      ]
+      ],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-tokens": {
       "type": "tokens",
@@ -641,7 +643,8 @@
         "shadow",
         "space",
         "typography"
-      ]
+      ],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-react-icons": {
       "type": "icons",
@@ -839,7 +842,8 @@
         "WithdrawMediumIcon",
         "WithdrawSmallIcon",
         "YoutubeMediumIcon"
-      ]
+      ],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-react-native-icons": {
       "type": "icons",
@@ -1036,27 +1040,73 @@
         "WithdrawMediumIcon",
         "WithdrawSmallIcon",
         "YoutubeMediumIcon"
-      ]
+      ],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-svg-icons": {
       "type": "icons",
-      "symbols": []
+      "symbols": [],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-svg-assets": {
       "type": "asset",
-      "symbols": []
+      "symbols": [],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-json-assets": {
       "type": "asset",
-      "symbols": []
+      "symbols": [],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-fonts": {
       "type": "asset",
-      "symbols": []
+      "symbols": [],
+      "legacy": false
     },
     "@utilitywarehouse/hearth-css-reset": {
       "type": "asset",
-      "symbols": []
+      "symbols": [],
+      "legacy": false
+    },
+    "@utilitywarehouse/react-icons": {
+      "type": "icons",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/react-native-icons": {
+      "type": "icons",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/svg-icons": {
+      "type": "icons",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/colour-system": {
+      "type": "tokens",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/css-reset": {
+      "type": "asset",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/design-tokens": {
+      "type": "tokens",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/native-ui": {
+      "type": "component-lib",
+      "symbols": [],
+      "legacy": true
+    },
+    "@utilitywarehouse/web-ui": {
+      "type": "component-lib",
+      "symbols": [],
+      "legacy": true
     }
   }
 }

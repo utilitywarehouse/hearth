@@ -14,6 +14,7 @@ import { collectExportSurface } from './ast.ts';
 export interface PackageManifest {
   type: PackageType;
   symbols: Array<string>;
+  legacy: boolean;
 }
 
 export interface SymbolManifest {
@@ -39,7 +40,7 @@ export function buildManifest(): SymbolManifest {
 
   for (const pkg of PACKAGES) {
     if (pkg.manifest.kind === 'none') {
-      packages[pkg.name] = { type: pkg.type, symbols: [] };
+      packages[pkg.name] = { type: pkg.type, symbols: [], legacy: pkg.legacy ?? false };
       continue;
     }
     const abs = path.join(REPO_ROOT, pkg.manifest.file);
@@ -49,7 +50,7 @@ export function buildManifest(): SymbolManifest {
     } else {
       console.warn(`  ! ${pkg.manifest.file} not found for ${pkg.name} (build packages first?)`);
     }
-    packages[pkg.name] = { type: pkg.type, symbols };
+    packages[pkg.name] = { type: pkg.type, symbols, legacy: pkg.legacy ?? false };
     console.log(`  ${pkg.name}: ${symbols.length} symbols`);
   }
 

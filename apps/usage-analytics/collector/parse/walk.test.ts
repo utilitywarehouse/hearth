@@ -11,6 +11,11 @@ const manifest = {
       type: 'component-lib' as const,
       symbols: ['Button', 'Card'],
     },
+    '@utilitywarehouse/web-ui': {
+      type: 'component-lib' as const,
+      symbols: [],
+      legacy: true,
+    },
   },
 };
 
@@ -60,6 +65,27 @@ void test('prop usage is aggregated across a repo\'s files', () => {
 
     assert.equal(button.props?.['variant'], 2);
     assert.equal(button.props?.['onClick'], 1);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+void test('files using only a legacy package (no hearth import) are still parsed', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
+  try {
+    // No "@utilitywarehouse/hearth" substring anywhere in this file — a repo
+    // that hasn't migrated at all yet must not be silently skipped.
+    fs.writeFileSync(
+      path.join(dir, 'a.tsx'),
+      `import { Button } from '@utilitywarehouse/web-ui';\nconst a = <Button />;`
+    );
+
+    const ctx = buildContext(manifest);
+    const result = walkRepo(dir, ctx);
+    const webUi = result.packages['@utilitywarehouse/web-ui'];
+
+    assert.ok(webUi, 'expected legacy-only file to be parsed');
+    assert.equal(webUi.symbols['Button']!.refCount, 2);
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }

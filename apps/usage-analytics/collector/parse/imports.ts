@@ -30,6 +30,7 @@ export interface PackageMeta {
   type: PackageType;
   /** Allow-list of exported symbol names; empty means "accept anything". */
   symbols: Set<string>;
+  legacy: boolean;
 }
 
 export interface AnalyzeContext {

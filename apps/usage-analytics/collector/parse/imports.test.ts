@@ -6,17 +6,17 @@ const ctx: AnalyzeContext = {
   packages: new Map([
     [
       '@utilitywarehouse/hearth-react',
-      { type: 'component-lib', symbols: new Set(['Button', 'Card', 'Box']) },
+      { type: 'component-lib', symbols: new Set(['Button', 'Card', 'Box']), legacy: false },
     ],
     [
       '@utilitywarehouse/hearth-tokens',
-      { type: 'tokens', symbols: new Set(['color', 'space', 'typography']) },
+      { type: 'tokens', symbols: new Set(['color', 'space', 'typography']), legacy: false },
     ],
     [
       '@utilitywarehouse/hearth-react-icons',
-      { type: 'icons', symbols: new Set(['AddMediumIcon']) },
+      { type: 'icons', symbols: new Set(['AddMediumIcon']), legacy: false },
     ],
-    ['@utilitywarehouse/hearth-css-reset', { type: 'asset', symbols: new Set() }],
+    ['@utilitywarehouse/hearth-css-reset', { type: 'asset', symbols: new Set(), legacy: false }],
   ]),
 };
 
