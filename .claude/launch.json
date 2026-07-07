@@ -7,6 +7,13 @@
       "runtimeArgs": ["--filter", "usage-analytics", "dev"],
       "port": 4321,
       "autoPort": true
+    },
+    {
+      "name": "server-storybook-docs",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "server-storybook-docs", "start"],
+      "port": 7337,
+      "autoPort": true
     }
   ]
 }

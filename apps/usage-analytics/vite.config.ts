@@ -6,6 +6,10 @@ import react from '@vitejs/plugin-react';
 // fetched at runtime, so they stay out of the JS bundle.
 export default defineConfig({
   plugins: [react()],
+  // Relative base so the built bundle works whether it's served from the root
+  // (local dev/preview) or mounted under a sub-path, e.g. /analytics in
+  // server-storybook-docs's Express server.
+  base: './',
   server: {
     port: Number(process.env.PORT) || 4321,
   },
