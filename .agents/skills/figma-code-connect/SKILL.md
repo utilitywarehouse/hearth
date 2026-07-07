@@ -76,4 +76,14 @@ export default {
 };
 ```
 
+## Publishing
+
+Once the template file is ready, publish it to Figma with:
+
+```sh
+npx figma connect publish --file figma/MyComponent.figma.ts
+```
+
+Run this from `packages/react`. Always ask the user for permission before publishing.
+
 For the full API reference and advanced patterns, invoke `/anthropic-skills:figma-code-connect`.
