@@ -26,6 +26,7 @@ import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib
 import { CashbackCardSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardSmallIcon';
 import { CelebrationMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CelebrationMediumIcon';
 import { CelebrationSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CelebrationSmallIcon';
+import { ChatMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChatMediumIcon';
 import { ChevronDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownMediumIcon';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownSmallIcon';
 import { ChevronLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronLeftMediumIcon';
@@ -75,6 +76,7 @@ import { FullscreenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/F
 import { FullscreenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenSmallIcon';
 import { GasMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasMediumIcon';
 import { GasSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasSmallIcon';
+import { GoalMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GoalMediumIcon';
 import { GreenDealElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GreenDealElectricityMediumIcon';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartMediumIcon';
 import { HeartOutlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartOutlineMediumIcon';
@@ -220,6 +222,7 @@ export const reactIcons = [
   CashbackCardSmallIcon,
   CelebrationMediumIcon,
   CelebrationSmallIcon,
+  ChatMediumIcon,
   ChevronDownMediumIcon,
   ChevronDownSmallIcon,
   ChevronLeftMediumIcon,
@@ -269,6 +272,7 @@ export const reactIcons = [
   FullscreenSmallIcon,
   GasMediumIcon,
   GasSmallIcon,
+  GoalMediumIcon,
   GreenDealElectricityMediumIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,

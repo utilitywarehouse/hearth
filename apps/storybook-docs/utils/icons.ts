@@ -102,6 +102,7 @@ export const icons = [
   { reactName: 'CameraMediumIcon', svgName: 'camera-medium-icon.svg' },
   { reactName: 'CashbackCardMediumIcon', svgName: 'cashback-card-medium-icon.svg' },
   { reactName: 'CelebrationMediumIcon', svgName: 'celebration-medium-icon.svg' },
+  { reactName: 'ChatMediumIcon', svgName: 'chat-medium-icon.svg' },
   { reactName: 'CloseMediumIcon', svgName: 'close-medium-icon.svg' },
   { reactName: 'ContactlessMediumIcon', svgName: 'contactless-medium-icon.svg' },
   { reactName: 'CopyMediumIcon', svgName: 'copy-medium-icon.svg' },
@@ -126,6 +127,7 @@ export const icons = [
   { reactName: 'FlameMediumIcon', svgName: 'flame-medium-icon.svg' },
   { reactName: 'FullscreenMediumIcon', svgName: 'fullscreen-medium-icon.svg' },
   { reactName: 'GasMediumIcon', svgName: 'gas-medium-icon.svg' },
+  { reactName: 'GoalMediumIcon', svgName: 'goal-medium-icon.svg' },
   {
     reactName: 'GreenDealElectricityMediumIcon',
     svgName: 'green-deal-electricity-medium-icon.svg',
