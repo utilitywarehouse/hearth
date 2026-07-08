@@ -1,0 +1,77 @@
+name: Collect Hearth Usage Analytics
+
+# Weekly sweep of the utilitywarehouse org for @utilitywarehouse/hearth-* usage.
+# Discovers dependent repos via code search, shallow-clones + parses each, and
+# opens a PR with the new dated snapshot under apps/usage-analytics/data.
+#
+# Required secrets:
+#   USAGE_ANALYTICS_PAT  PAT with org-wide read of private repo Contents + Metadata
+#                        and code-search access (fine-grained read-only preferred).
+#                        Used for code search AND to git-clone private repos.
+#   PAT                  Existing token used to open the pull request.
+
+on:
+  schedule:
+    - cron: '0 3 * * 1' # Mondays 03:00 UTC
+  workflow_dispatch: {}
+
+# Never overlap runs — the discovery checkpoint must not be raced.
+concurrency:
+  group: usage-analytics
+  cancel-in-progress: false
+
+env:
+  CI: true
+
+permissions:
+  contents: read
+
+jobs:
+  collect:
+    name: Collect usage snapshot
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        with:
+          egress-policy: audit # allows github.com clones + api.github.com
+
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 10.28.2
+
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+      # Collector self-limits on the 10/hr code-search budget and exits 0 if it
+      # runs out mid-discovery, checkpointing so the next run resumes. Cloning +
+      # parsing is not rate-limited, so a run finishes the sweep once discovered.
+      - name: Collect usage snapshot
+        run: pnpm --filter usage-analytics collect
+        env:
+          GITHUB_PAT_TOKEN: ${{ secrets.USAGE_ANALYTICS_PAT }}
+
+      - name: Open pull request with snapshot
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.PAT }}
+          branch: usage-analytics/weekly-snapshot
+          title: 'chore(usage-analytics): weekly hearth usage snapshot'
+          commit-message: 'chore(usage-analytics): weekly hearth usage snapshot'
+          delete-branch: true
+          base: main
+          add-paths: apps/usage-analytics/data
+          body: |
+            Automated weekly snapshot of `@utilitywarehouse/hearth-*` usage across the org.
+
+            Review the diff under `apps/usage-analytics/data/` and merge to update the dashboard.
