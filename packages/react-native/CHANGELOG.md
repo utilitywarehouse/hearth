@@ -1,5 +1,36 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.34.5
+
+### Patch Changes
+
+- [#1384](https://github.com/utilitywarehouse/hearth/pull/1384) [`be839e2`](https://github.com/utilitywarehouse/hearth/commit/be839e2ca46f079a0fe867f976044f4f31cca551) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: `NavModal` and `Modal` `description` prop accepts JSX
+
+  `description` now accepts `ReactNode` in addition to a string, so you can pass
+  custom content such as links or styled text alongside the default text
+  styling.
+
+  **Components affected**:
+
+  - `NavModal`
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required for existing usage. To pass custom content, provide JSX
+  instead of a string:
+
+  ```tsx
+  <Modal
+    heading="Update available"
+    description={
+      <BodyText>
+        Read the <InlineLink onPress={() => {}}>release notes</InlineLink> before updating.
+      </BodyText>
+    }
+  />
+  ```
+
 ## 0.34.4
 
 ### Patch Changes
