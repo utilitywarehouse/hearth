@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native-icons",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "description": "Hearth React Native Icons",
   "author": "Rob Phoenix",
   "license": "UNLICENSED",
@@ -21,7 +21,7 @@
     "figma:publish": "figma connect publish"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "peerDependencies": {
     "react": ">=18.1.0 || ^19.0.0",

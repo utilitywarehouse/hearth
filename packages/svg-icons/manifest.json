@@ -511,6 +511,11 @@
       "hash": "5ebdfc5addfb323c32f5771464a3a9fbd8e6382ba48a5c8daf63aa73985ba1ab"
     },
     {
+      "name": "ChatMediumIcon",
+      "path": "chat-medium-icon.svg",
+      "hash": "903df6a9916988e745e06b247a9099b535867c1c8b05c4cf8070265fe573a3c4"
+    },
+    {
       "name": "CloseMediumIcon",
       "path": "close-medium-icon.svg",
       "hash": "ef820be07e63bbdaef608235a7eeb7185d2d60ccd6faa877534960d1b4e3cfeb"
@@ -613,7 +618,7 @@
     {
       "name": "FitEnergyMediumIcon",
       "path": "fit-energy-medium-icon.svg",
-      "hash": "0b80720bd11d13b78316a0f448a05daf8c0eea3e8a808f1cab5c73b0aa335f11"
+      "hash": "828bd99192a0ece62c76b7222f4fc70dad99a52f10a6a731de70d8bcf44dc7a9"
     },
     {
       "name": "FlameMediumIcon",
@@ -629,6 +634,11 @@
       "name": "GasMediumIcon",
       "path": "gas-medium-icon.svg",
       "hash": "ed8e655d9efde1906a3557223113b286c920cf03f2b895ecaf6b0ac276bb77c2"
+    },
+    {
+      "name": "GoalMediumIcon",
+      "path": "goal-medium-icon.svg",
+      "hash": "429ecaca5b9a19fdcaa21f7e5687380c386770d9c23d4a730df4a439e29bbeaa"
     },
     {
       "name": "GreenDealElectricityMediumIcon",
@@ -823,7 +833,7 @@
     {
       "name": "SettingsMediumIcon",
       "path": "settings-medium-icon.svg",
-      "hash": "b48b281f233ac4337081ce3c8d569ae2f55e467d19ac897a5a3e899c814e5b6f"
+      "hash": "55e6469b7cc052424de4297748b49befa447060c55df489a3884c390a397b12c"
     },
     {
       "name": "ShareMediumIcon",

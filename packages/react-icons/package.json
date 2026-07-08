@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-icons",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "Hearth React icons",
   "author": "Rob Phoenix",
   "license": "UNLICENSED",
@@ -23,7 +23,7 @@
     "figma:publish": "figma connect publish"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0 "

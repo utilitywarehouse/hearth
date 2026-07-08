@@ -39,7 +39,13 @@ export default tseslint.config(
       globals: { ...globals.browser, module: 'readonly' },
       parserOptions: {
         ecmaFeatures: { jsx: true },
-        project: ['./packages/*/tsconfig.json', './apps/*/tsconfig.json', './shared/tsconfig.json'],
+        project: ['./packages/*/tsconfig.json', './apps/*/tsconfig*.json', './shared/tsconfig.json'],
+        // storybook-docs' tsconfig `include` doesn't match its actual source
+        // layout (docs/, utils/, .storybook/, not src/), so its "project" has
+        // no inputs — that breaks type-aware linting for every apps/* file, not
+        // just its own, since typescript-eslint globs each `project` pattern
+        // independently (array-level negation doesn't exclude across patterns).
+        projectFolderIgnoreList: ['**/node_modules/**', '**/apps/storybook-docs/**'],
         tsconfigRootDir: __dirname,
       },
     },

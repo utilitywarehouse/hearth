@@ -80,6 +80,42 @@ storybookAppsToServe.forEach(sbApp => {
   }
 });
 
+// Serve the usage-analytics dashboard under /analytics. Unlike the Storybook
+// sub-apps above, this is a plain Vite SPA (built with a relative base so its
+// asset URLs resolve correctly under this sub-path) with no stories/metadata
+// JSON siblings, so it gets its own block rather than joining the loop above.
+const analyticsStaticDir = path.join(appsDir, 'usage-analytics', 'dist');
+const analyticsIndex = path.join(analyticsStaticDir, 'index.html');
+const ANALYTICS_ROUTE = '/analytics';
+
+if (fs.existsSync(analyticsStaticDir)) {
+  app.use(ANALYTICS_ROUTE, express.static(analyticsStaticDir));
+  console.log(`Serving usage-analytics from: ${analyticsStaticDir} at ${ANALYTICS_ROUTE}`);
+
+  if (fs.existsSync(analyticsIndex)) {
+    app.get([ANALYTICS_ROUTE, `${ANALYTICS_ROUTE}/*`], (req, res, next) => {
+      if (ASSET_EXT_REGEX.test(req.path)) {
+        if (DEBUG_FALLBACK) {
+          console.warn(`[fallback-skip][analytics] asset-like request not intercepted: ${req.path}`);
+        }
+        return next();
+      }
+      if (DEBUG_FALLBACK) {
+        console.log(`[fallback][analytics] serving index.html for: ${req.path}`);
+      }
+      res.sendFile(analyticsIndex);
+    });
+  } else {
+    console.warn(
+      `Warning: index.html not found in ${analyticsStaticDir} for SPA fallback for usage-analytics. Deep links may not work.`
+    );
+  }
+} else {
+  console.warn(
+    `Warning: Directory not found for usage-analytics: ${analyticsStaticDir}. Route ${ANALYTICS_ROUTE} will not serve content.`
+  );
+}
+
 // Then, setup routes for the root app (storybook-docs)
 if (fs.existsSync(storybookDocsStaticDir)) {
   app.use(express.static(storybookDocsStaticDir)); // Serve static files for the root
@@ -96,11 +132,14 @@ if (fs.existsSync(storybookDocsStaticDir)) {
 
       // Safeguard: ensure this doesn't incorrectly catch a base path of a sub-app
       // if that sub-app's static dir or index.html was missing, leading to its routes not being fully handled.
-      const isSubAppPath = storybookAppsToServe.some(appConfig => {
-        const appBasePath = `/${appConfig.name}`;
-        // Check if the request path starts with a known sub-app base path
-        return req.path === appBasePath || req.path.startsWith(appBasePath + '/');
-      });
+      const isSubAppPath =
+        storybookAppsToServe.some(appConfig => {
+          const appBasePath = `/${appConfig.name}`;
+          // Check if the request path starts with a known sub-app base path
+          return req.path === appBasePath || req.path.startsWith(appBasePath + '/');
+        }) ||
+        req.path === ANALYTICS_ROUTE ||
+        req.path.startsWith(ANALYTICS_ROUTE + '/');
 
       // Avoid hijacking asset-like requests; let them 404 so we see real missing chunks
       if (ASSET_EXT_REGEX.test(req.path)) {
@@ -139,6 +178,9 @@ app.listen(PORT, () => {
   console.log(`Storybook Aggregator Server listening on http://localhost:${PORT}`);
   if (fs.existsSync(storybookDocsStaticDir)) {
     console.log(`- Main Storybook (docs) available at: http://localhost:${PORT}/`);
+  }
+  if (fs.existsSync(analyticsStaticDir)) {
+    console.log(`- usage-analytics available at: http://localhost:${PORT}${ANALYTICS_ROUTE}/`);
   }
   storybookAppsToServe.forEach(sbApp => {
     const appStaticDir = path.join(appsDir, sbApp.dirName, 'storybook-static');

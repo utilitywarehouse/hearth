@@ -19,7 +19,7 @@
     "format:ci": "prettier --list-different --parser=scss \"src/index.css\""
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "devDependencies": {
     "cssnano": "^5.1.13",

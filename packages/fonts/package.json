@@ -16,7 +16,7 @@
     "clean": "rm -rf *.css node_modules .turbo"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "devDependencies": {
     "cssnano": "^5.1.15",
