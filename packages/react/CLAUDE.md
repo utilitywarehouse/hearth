@@ -76,7 +76,9 @@ Each user-facing component under `src/components/<Name>/` follows a fixed file s
 ```
 
 Figma Code Connect files live in the **package-level `figma/` directory** (not in `src/`):
+
 ```
+figma/<Name>.figma.ts
 figma/<Name>.figma.tsx
 ```
 

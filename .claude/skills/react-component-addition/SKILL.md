@@ -15,7 +15,7 @@ argument-hint: "Component name and any Radix/Base UI primitives it wraps"
 - Check whether a similar component already exists in the library.
 - Identify whether the component wraps a Radix/Base UI primitive or a native HTML element.
 - Confirm any variant/size tokens required for the component's CSS.
-- For architectural context — styling pipeline, token pipeline, build system, testing setup — see [`packages/react/CLAUDE.md`](../../packages/react/CLAUDE.md).
+- For architectural context — styling pipeline, token pipeline, build system, testing setup — see [`packages/react/CLAUDE.md`](../../../packages/react/CLAUDE.md).
 
 ---
 
