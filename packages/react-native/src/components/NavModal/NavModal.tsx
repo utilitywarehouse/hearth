@@ -116,6 +116,7 @@ const NavModal = ({
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
   const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
   const descriptionIsText = typeof description === 'string' || typeof description === 'number';
+  const hasDescription = description !== undefined && description !== null;
 
   styles.useVariants({
     loading,
@@ -202,7 +203,7 @@ const NavModal = ({
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? (
+              {hasDescription && !image ? (
                 descriptionIsText ? (
                   <BodyText accessible inverted={isBrandBackground}>
                     {description}
@@ -231,7 +232,7 @@ const NavModal = ({
                     {heading}
                   </Heading>
                 ) : null}
-                {description ? (
+                {hasDescription ? (
                   descriptionIsText ? (
                     <BodyText textAlign="center" accessible inverted={isBrandBackground}>
                       {description}

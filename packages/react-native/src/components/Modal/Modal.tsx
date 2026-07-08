@@ -118,6 +118,7 @@ const Modal = ({
   const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
   const shouldShowFooter = !loading && hasFooter;
   const descriptionIsText = typeof description === 'string' || typeof description === 'number';
+  const hasDescription = description !== undefined && description !== null;
 
   styles.useVariants({
     loading,
@@ -198,7 +199,7 @@ const Modal = ({
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? (
+              {hasDescription && !image ? (
                 descriptionIsText ? (
                   <BodyText accessible>{description}</BodyText>
                 ) : (
@@ -224,7 +225,7 @@ const Modal = ({
                     {heading}
                   </Heading>
                 ) : null}
-                {description ? (
+                {hasDescription ? (
                   descriptionIsText ? (
                     <BodyText textAlign="center" accessible>
                       {description}
