@@ -102,6 +102,7 @@ import CalendarAddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/calend
 import CameraMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/camera-medium-icon.svg';
 import CashbackCardMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/cashback-card-medium-icon.svg';
 import CelebrationMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/celebration-medium-icon.svg';
+import ChatMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chat-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import ContactlessMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/contactless-medium-icon.svg';
 import CopyMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/copy-medium-icon.svg';
@@ -126,6 +127,7 @@ import FitEnergyMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fit-ener
 import FlameMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/flame-medium-icon.svg';
 import FullscreenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fullscreen-medium-icon.svg';
 import GasMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-medium-icon.svg';
+import GoalMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/goal-medium-icon.svg';
 import GreenDealElectricityMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/green-deal-electricity-medium-icon.svg';
 import HeartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-medium-icon.svg';
 import HeartOutlineMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-outline-medium-icon.svg';
@@ -296,6 +298,7 @@ export const svgIcons = [
   CameraMediumIcon,
   CashbackCardMediumIcon,
   CelebrationMediumIcon,
+  ChatMediumIcon,
   CloseMediumIcon,
   ContactlessMediumIcon,
   CopyMediumIcon,
@@ -320,6 +323,7 @@ export const svgIcons = [
   FlameMediumIcon,
   FullscreenMediumIcon,
   GasMediumIcon,
+  GoalMediumIcon,
   GreenDealElectricityMediumIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
