@@ -27,9 +27,9 @@ pnpm figma:publish          # publish Figma Code Connect mappings
 ```
 
 Run after changing `packages/tokens` to vendor tokens into this package:
-```sh
-pnpm --filter @utilitywarehouse/hearth-react copy:tokens
-```
+
+    pnpm copy:tokens                               # from packages/react
+    pnpm --filter @utilitywarehouse/hearth-react copy:tokens  # from repo root
 
 Root-level equivalents (from repo root):
 ```sh
