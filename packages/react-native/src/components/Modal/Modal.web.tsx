@@ -96,6 +96,8 @@ const Modal = ({
   const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
   const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
+  const descriptionIsText = typeof description === 'string' || typeof description === 'number';
+  const hasDescription = description !== undefined && description !== null;
 
   const footerContent = footer ?? (
     <View style={styles.footer}>
@@ -150,7 +152,13 @@ const Modal = ({
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? <BodyText accessible>{description}</BodyText> : null}
+              {hasDescription && !image ? (
+                descriptionIsText ? (
+                  <BodyText accessible>{description}</BodyText>
+                ) : (
+                  description
+                )
+              ) : null}
             </View>
             {showCloseButton ? (
               <UnstyledIconButton
@@ -170,10 +178,14 @@ const Modal = ({
                     {heading}
                   </Heading>
                 ) : null}
-                {description ? (
-                  <BodyText textAlign="center" accessible>
-                    {description}
-                  </BodyText>
+                {hasDescription ? (
+                  descriptionIsText ? (
+                    <BodyText textAlign="center" accessible>
+                      {description}
+                    </BodyText>
+                  ) : (
+                    description
+                  )
                 ) : null}
               </View>
             </View>

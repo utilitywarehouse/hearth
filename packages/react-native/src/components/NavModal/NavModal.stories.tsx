@@ -4,6 +4,7 @@ import { BodyText } from '../BodyText';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
+import { LI, UL } from '../HTMLElements';
 import NavModal from './NavModal';
 
 const meta = {
@@ -153,6 +154,45 @@ export const StickyCustomFooter: Story = {
         <Box gap="200">
           <BodyText>This sticky footer stays pinned while the body content scrolls.</BodyText>
           <BodyText>Use the footer prop when you need custom layouts or custom buttons.</BodyText>
+        </Box>
+      </NavModal>
+    </View>
+  ),
+};
+
+export const WithJSXDescription: Story = {
+  render: () => (
+    <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
+      <NavModal
+        heading="Confirm changes"
+        description={
+          <>
+            <BodyText>
+              This example uses a JSX element for the description prop. You can use any React
+              component here, including links, lists, and other text components.
+            </BodyText>
+            <UL>
+              <LI>
+                <BodyText>Item 1</BodyText>
+              </LI>
+            </UL>
+            <UL>
+              <LI>
+                <BodyText>Item 2</BodyText>
+              </LI>
+            </UL>
+            <UL>
+              <LI>
+                <BodyText>Item 3</BodyText>
+              </LI>
+            </UL>
+          </>
+        }
+      >
+        <Box gap="200">
+          <BodyText>
+            Use the description prop to provide additional context or instructions.
+          </BodyText>
         </Box>
       </NavModal>
     </View>

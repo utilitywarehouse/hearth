@@ -1,5 +1,15 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
-import { BodyText, BottomSheetModal, Box, Button, Center, Flex, Heading, Modal } from '../../';
+import {
+  BodyText,
+  BottomSheetModal,
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  InlineLink,
+  Modal,
+} from '../../';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Modal.stories';
@@ -31,6 +41,7 @@ If you need a modal layout inside a React Navigation modal screen, use <Storyboo
   - [Modal with Image](#modal-with-image)
   - [Fullscreen Modal](#fullscreen-modal)
   - [Modal with Custom Content](#modal-with-custom-content)
+  - [JSX Description](#jsx-description)
   - [Sticky Custom Footer](#sticky-custom-footer)
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
@@ -93,30 +104,30 @@ const MyComponent = () => {
 
 The Modal component extends the `BottomSheetModal` component and accepts all of its props, plus the following additional props:
 
-| Property                      | Type                                                               | Description                                                                                                        | Default        |
-| ----------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | -------------- |
-| `heading`                     | `string`                                                           | The heading text displayed at the top of the modal                                                                 | -              |
-| `description`                 | `string`                                                           | The description text displayed below the heading                                                                   | -              |
-| `showCloseButton`             | `boolean`                                                          | Whether to show the close button in the top-right corner                                                           | `true`         |
-| `primaryButtonText`           | `string`                                                           | Text for the primary action button                                                                                 | -              |
-| `secondaryButtonText`         | `string`                                                           | Text for the secondary action button                                                                               | -              |
-| `onPressPrimaryButton`        | `() => void`                                                       | Callback function called when the primary button is pressed                                                        | -              |
-| `onPressSecondaryButton`      | `() => void`                                                       | Callback function called when the secondary button is pressed                                                      | -              |
-| `onPressCloseButton`          | `() => void`                                                       | Callback function called when the close button is pressed                                                          | -              |
-| `closeOnPrimaryButtonPress`   | `boolean`                                                          | Whether to automatically close the modal when the primary button is pressed                                        | `true`         |
-| `closeOnSecondaryButtonPress` | `boolean`                                                          | Whether to automatically close the modal when the secondary button is pressed                                      | `true`         |
-| `onChange`                    | `(index: number, position: number, `<br />` type: number) => void` | Callback function called when the modal's position changes \*                                                      | -              |
-| `loading`                     | `boolean`                                                          | Whether to show a loading state with spinner                                                                       | `false`        |
-| `loadingHeading`              | `string`                                                           | The heading text to be displayed when loading is true. If not provided, the regular heading will be shown.         | `'Loading...'` |
-| `loadingDescription`          | `string`                                                           | The description text to be displayed when loading is true. If not provided, the regular description will be shown. | -              |
-| `image`                       | `ImageProps`                                                       | Image to display in the modal (shows as centered content with text below)                                          | -              |
-| `children`                    | `ReactNode`                                                        | Custom content to display in the modal body                                                                        | -              |
-| `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')           | -              |
-| `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline')      | -              |
-| `footer`                      | `ReactNode`                                                        | Custom footer content that replaces the built-in action buttons                                                    | -              |
-| `footerStyle`                 | `StyleProp<ViewStyle>`                                             | Styles applied to the footer container, useful for sticky footer shadows or custom spacing                         | -              |
-| `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                       | -              |
-| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                            | `false`        |
+| Property                      | Type                                                               | Description                                                                                                            | Default        |
+| ----------------------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `heading`                     | `string`                                                           | The heading text displayed at the top of the modal                                                                     | -              |
+| `description`                 | `ReactNode`                                                        | The description content displayed below the heading. Pass a string for the default styling, or JSX for custom content. | -              |
+| `showCloseButton`             | `boolean`                                                          | Whether to show the close button in the top-right corner                                                               | `true`         |
+| `primaryButtonText`           | `string`                                                           | Text for the primary action button                                                                                     | -              |
+| `secondaryButtonText`         | `string`                                                           | Text for the secondary action button                                                                                   | -              |
+| `onPressPrimaryButton`        | `() => void`                                                       | Callback function called when the primary button is pressed                                                            | -              |
+| `onPressSecondaryButton`      | `() => void`                                                       | Callback function called when the secondary button is pressed                                                          | -              |
+| `onPressCloseButton`          | `() => void`                                                       | Callback function called when the close button is pressed                                                              | -              |
+| `closeOnPrimaryButtonPress`   | `boolean`                                                          | Whether to automatically close the modal when the primary button is pressed                                            | `true`         |
+| `closeOnSecondaryButtonPress` | `boolean`                                                          | Whether to automatically close the modal when the secondary button is pressed                                          | `true`         |
+| `onChange`                    | `(index: number, position: number, `<br />` type: number) => void` | Callback function called when the modal's position changes \*                                                          | -              |
+| `loading`                     | `boolean`                                                          | Whether to show a loading state with spinner                                                                           | `false`        |
+| `loadingHeading`              | `string`                                                           | The heading text to be displayed when loading is true. If not provided, the regular heading will be shown.             | `'Loading...'` |
+| `loadingDescription`          | `string`                                                           | The description text to be displayed when loading is true. If not provided, the regular description will be shown.     | -              |
+| `image`                       | `ImageProps`                                                       | Image to display in the modal (shows as centered content with text below)                                              | -              |
+| `children`                    | `ReactNode`                                                        | Custom content to display in the modal body                                                                            | -              |
+| `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')               | -              |
+| `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline')          | -              |
+| `footer`                      | `ReactNode`                                                        | Custom footer content that replaces the built-in action buttons                                                        | -              |
+| `footerStyle`                 | `StyleProp<ViewStyle>`                                             | Styles applied to the footer container, useful for sticky footer shadows or custom spacing                             | -              |
+| `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                           | -              |
+| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                                | `false`        |
 
 When `footer` is provided, the primary and secondary button props are not available. Build your footer actions directly inside the custom footer content instead.
 
@@ -379,6 +390,22 @@ const CustomContentModal = () => {
     </>
   );
 };
+```
+
+### JSX Description
+
+`description` accepts a string for the default text styling, or JSX when you need custom content such as a link:
+
+```tsx
+<Modal
+  ref={modalRef}
+  heading="Update available"
+  description={
+    <BodyText>
+      Read the <InlineLink onPress={() => {}}>release notes</InlineLink> before updating.
+    </BodyText>
+  }
+/>
 ```
 
 ### Sticky Custom Footer

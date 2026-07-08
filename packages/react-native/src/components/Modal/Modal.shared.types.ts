@@ -10,7 +10,7 @@ export interface ModalCommonBaseProps {
   heading?: string;
   loadingHeading?: string;
   loadingDescription?: string;
-  description?: string;
+  description?: ReactNode;
   stickyFooter?: boolean;
   children?: ViewProps['children'];
   onPressCloseButton?: () => void;

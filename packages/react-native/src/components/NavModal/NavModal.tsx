@@ -115,6 +115,8 @@ const NavModal = ({
   const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
   const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
+  const descriptionIsText = typeof description === 'string' || typeof description === 'number';
+  const hasDescription = description !== undefined && description !== null;
 
   styles.useVariants({
     loading,
@@ -201,10 +203,14 @@ const NavModal = ({
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? (
-                <BodyText accessible inverted={isBrandBackground}>
-                  {description}
-                </BodyText>
+              {hasDescription && !image ? (
+                descriptionIsText ? (
+                  <BodyText accessible inverted={isBrandBackground}>
+                    {description}
+                  </BodyText>
+                ) : (
+                  description
+                )
               ) : null}
             </View>
             {showCloseButton ? (
@@ -226,10 +232,14 @@ const NavModal = ({
                     {heading}
                   </Heading>
                 ) : null}
-                {description ? (
-                  <BodyText textAlign="center" accessible inverted={isBrandBackground}>
-                    {description}
-                  </BodyText>
+                {hasDescription ? (
+                  descriptionIsText ? (
+                    <BodyText textAlign="center" accessible inverted={isBrandBackground}>
+                      {description}
+                    </BodyText>
+                  ) : (
+                    description
+                  )
                 ) : null}
               </View>
             </View>
