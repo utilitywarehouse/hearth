@@ -4,7 +4,7 @@
   "description": "Fonts for the UW Hearth Design System",
   "main": "index.css",
   "type": "commonjs",
-  "author": "Rob Phoenix <rphoenix@uw.co.uk>",
+  "author": "Design Systems <design-systems@uw.co.uk>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/utilitywarehouse/hearth.git",

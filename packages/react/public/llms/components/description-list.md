@@ -48,7 +48,7 @@ elements, where the `DescriptionListItem` heading is the `description term
 ```tsx
 <DescriptionList heading="Contact details">
   <DescriptionListItem heading="Phone number" description="07123 456789" />
-  <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+  <DescriptionListItem heading="Email address" description="design-systems@uw.co.uk" />
   <DescriptionListItem heading="Password" description="***************" />
 </DescriptionList>
 ```
@@ -67,7 +67,7 @@ heading. This is important for maintaining semantic structure in your document.
 ```tsx
 <DescriptionList heading="Contact details" headingElement="h2">
   <DescriptionListItem heading="Phone number" description="07123 456789" />
-  <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+  <DescriptionListItem heading="Email address" description="design-systems@uw.co.uk" />
 </DescriptionList>
 ```
 
@@ -103,7 +103,7 @@ per breakpoint.
     direction={{ mobile: 'column', tablet: 'row' }}
   >
     <DescriptionListItem heading="Phone number" description="07123 456789" />
-    <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+    <DescriptionListItem heading="Email address" description="design-systems@uw.co.uk" />
     <DescriptionListItem heading="Password" description="***************" />
   </DescriptionList>
 </Box>

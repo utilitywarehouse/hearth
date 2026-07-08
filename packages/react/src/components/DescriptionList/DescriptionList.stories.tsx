@@ -140,7 +140,7 @@ export const ResponsiveDirection: Story = {
         direction={{ mobile: 'column', tablet: 'row' }}
       >
         <DescriptionListItem heading="Phone number" description="07123 456789" />
-        <DescriptionListItem heading="Email address" description="emailname@uw.co.uk" />
+        <DescriptionListItem heading="Email address" description="design-systems@uw.co.uk" />
         <DescriptionListItem heading="Password" description="***************" />
       </DescriptionList>
     </Box>
