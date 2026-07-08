@@ -2,6 +2,7 @@
   "name": "@utilitywarehouse/hearth-css-reset",
   "version": "0.1.5",
   "description": "A bare-bones CSS reset for UW web development",
+  "license": "Apache-2.0",
   "main": "./index.css",
   "exports": {
     ".": "./index.css"

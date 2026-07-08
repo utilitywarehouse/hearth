@@ -2,6 +2,7 @@
   "name": "playground-expo",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "license": "Apache-2.0",
   "scripts": {
     "build:preview:android": "eas build --profile preview -p android --local --output './build/hearth-react-native.apk' --local",
     "build:development:android": "eas build --profile development -p android --local",

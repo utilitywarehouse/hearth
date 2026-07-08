@@ -2,6 +2,7 @@
   "name": "@utilitywarehouse/hearth-react-native",
   "version": "0.34.5",
   "description": "Utility Warehouse React Native UI library",
+  "license": "Apache-2.0",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "module": "build/index",

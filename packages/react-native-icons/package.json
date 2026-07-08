@@ -3,7 +3,7 @@
   "version": "0.8.5",
   "description": "Hearth React Native Icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "sideEffects": false,

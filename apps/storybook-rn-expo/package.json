@@ -2,6 +2,7 @@
   "name": "hearth-react-native-expo",
   "version": "0.0.1",
   "private": true,
+  "license": "Apache-2.0",
   "main": "index.js",
   "scripts": {
     "build:preview:android": "eas build --profile preview -p android --local --output './build/hearth-react-native.apk' --local",

@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "Design Systems <design-systems@uw.co.uk>",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "express": "^4.17.1"
   },

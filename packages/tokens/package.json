@@ -30,7 +30,7 @@
   },
   "keywords": [],
   "author": "Design Systems <design-systems@uw.co.uk>",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "prettier": "@utilitywarehouse/prettier-config",
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",

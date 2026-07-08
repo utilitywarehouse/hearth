@@ -3,7 +3,7 @@
   "version": "0.8.5",
   "description": "Hearth SVG icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "scripts": {
     "clean:lib": "rm -rf lib",
     "format": "prettier --log-level=silent --write --parser=html \"lib/*.svg\"",

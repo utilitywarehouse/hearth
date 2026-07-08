@@ -3,7 +3,7 @@
   "version": "0.8.6",
   "description": "Hearth React icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

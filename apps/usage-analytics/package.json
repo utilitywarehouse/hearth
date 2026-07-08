@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "description": "Org-wide usage analytics dashboard for @utilitywarehouse/hearth-* packages.",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "pnpm run copy-data && vite",
     "build": "pnpm run copy-data && tsc --noEmit && tsc --noEmit -p tsconfig.node.json && vite build",
