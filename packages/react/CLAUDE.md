@@ -15,7 +15,7 @@ pnpm dev:storybook          # Storybook on :6006 — primary dev loop for this p
 
 pnpm build                  # build:css && build:js
 pnpm build:js               # tsup bundle + tsc declarations
-pnpm build:css              # PostCSS: src/styles/index.css → styles.css + breakpoints.css
+pnpm build:css              # PostCSS: src/styles/index.css → styles.css && copy src/styles/breakpoints.css → breakpoints.css
 
 pnpm lint:js                # eslint src/**/*.ts* --max-warnings 0
 pnpm lint:css               # stylelint src/**/*.css
