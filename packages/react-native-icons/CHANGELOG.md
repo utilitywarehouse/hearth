@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.8.5
+
+### Patch Changes
+
+- [#1381](https://github.com/utilitywarehouse/hearth/pull/1381) [`0b68448`](https://github.com/utilitywarehouse/hearth/commit/0b68448e558aa67e9ca6b4537d7f56932e4a660f) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - ChatMediumIcon
+  - GoalMediumIcon
+
+  ## CHANGED ICONS
+  - FitEnergyMediumIcon
+  - SettingsMediumIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.8.4
 
 ### Patch Changes

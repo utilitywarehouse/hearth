@@ -498,7 +498,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.8.0
+        specifier: workspace:^0.8.6
         version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
