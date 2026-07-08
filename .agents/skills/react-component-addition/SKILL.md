@@ -15,6 +15,7 @@ argument-hint: "Component name and any Radix/Base UI primitives it wraps"
 - Check whether a similar component already exists in the library.
 - Identify whether the component wraps a Radix/Base UI primitive or a native HTML element.
 - Confirm any variant/size tokens required for the component's CSS.
+- For architectural context — styling pipeline, token pipeline, build system, testing setup — see [`packages/react/CLAUDE.md`](../../packages/react/CLAUDE.md).
 
 ---
 
@@ -337,6 +338,8 @@ See [Storybook best practices](https://storybook.js.org/docs/ai/best-practices.m
 - **Each story demonstrates one concept** — do not mix unrelated variations (e.g. sizes AND icons AND disabled all in one story). The `KitchenSink` is the only exception; tag it with `tags: ['!manifest']` to exclude it from AI manifests.
 - **JSDoc on every story export** — describe *why* you would use whatever is demonstrated, not just *what* it shows. A description that restates the story name adds no value.
 - **`KitchenSink` always gets `tags: ['!manifest']`** — it mixes too many concepts to be a useful AI reference.
+- **One story per variant/state** — add dedicated stories for each meaningful feature (sizes, icons, disabled, multiple selection) rather than relying solely on `KitchenSink`. This makes docs more navigable and gives agents clear, focused examples.
+- **Use meta-level `args` for defaults** — set shared defaults (`size`, `defaultValue`, etc.) in `meta.args` rather than hardcoding them in each story's `render`. Stories can override individual args when demonstrating a specific state.
 
 ```tsx
 // ✅ CORRECT — describes why, not what
@@ -417,18 +420,6 @@ export const Variants: Story = {
   ),
 };
 ```
-
-### Story best practices
-
-**One concept per story**: each feature story should demonstrate a single concept or usage pattern. Avoid stories that combine multiple unrelated concerns (e.g. "SizesAndVariants"). If a matrix of combinations is needed for visual testing, put it in `KitchenSink` and tag it `['!manifest']`.
-
-**JSDoc on every export**: add a `/** ... */` JSDoc comment above each story export explaining the *why* — what the story demonstrates and when a developer should use that pattern. This is used by Storybook's AI manifest system to describe the story to agents.
-
-**Tag `KitchenSink` with `['!manifest']`**: the comprehensive matrix mixes too many concepts to be useful as an AI reference. The tag excludes it from Storybook's AI manifest while keeping it in docs and Chromatic.
-
-**One story per variant/state**: add dedicated stories for each meaningful feature — sizes, icons, disabled, multiple selection — rather than relying solely on `KitchenSink`. This makes docs more navigable and gives agents clear, focused examples.
-
-**Use meta-level `args` for defaults**: set shared defaults (size, defaultValue, etc.) in `meta.args` rather than hardcoding them in each story's `render`. Stories can override individual args when they need to demonstrate a specific state.
 
 ---
 
