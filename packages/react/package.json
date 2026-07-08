@@ -54,7 +54,7 @@
     "test:storybook": "vitest run --project=storybook"
   },
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "files": [
     "dist/**",
