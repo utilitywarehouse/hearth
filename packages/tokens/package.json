@@ -29,7 +29,7 @@
     "lint:fix": "pnpm run lint:css && pnpm run format"
   },
   "keywords": [],
-  "author": "",
+  "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "ISC",
   "prettier": "@utilitywarehouse/prettier-config",
   "devDependencies": {

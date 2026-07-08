@@ -2,7 +2,7 @@
   "name": "@utilitywarehouse/hearth-react-native-icons",
   "version": "0.8.5",
   "description": "Hearth React Native Icons",
-  "author": "Rob Phoenix",
+  "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "UNLICENSED",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

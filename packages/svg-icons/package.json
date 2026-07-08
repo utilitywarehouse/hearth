@@ -2,7 +2,7 @@
   "name": "@utilitywarehouse/hearth-svg-icons",
   "version": "0.8.5",
   "description": "Hearth SVG icons",
-  "author": "Rob Phoenix",
+  "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "UNLICENSED",
   "scripts": {
     "clean:lib": "rm -rf lib",
