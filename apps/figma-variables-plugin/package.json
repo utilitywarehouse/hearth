@@ -2,7 +2,7 @@
   "name": "@utilitywarehouse/figma-variables-plugin",
   "version": "0.1.2",
   "description": "UW Figma variables plugin",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "private": "true",
   "scripts": {
     "build:app": "webpack --mode=production",

@@ -2,6 +2,7 @@
   "name": "@utilitywarehouse/hearth-react",
   "version": "0.31.0",
   "description": "React components",
+  "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

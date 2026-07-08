@@ -75,7 +75,7 @@ explain the reason for the status.
     {...args}
     label="Email"
     type="email"
-    defaultValue="rphoenix@uw.co.uk"
+    defaultValue="design-systems@uw.co.uk"
     validationStatus="valid"
     validationText="Valid email address"
     required
