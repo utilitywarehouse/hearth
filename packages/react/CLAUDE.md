@@ -123,7 +123,7 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 
 ### Figma Code Connect
 
-- Code Connect files live in `figma/<Name>.figma.tsx` at the package root, **not** inside `src/`.
+- Code Connect files live in `figma/<Name>.figma.ts` **or** `figma/<Name>.figma.tsx` at the package root, **not** inside `src/`.
 - Config: `figma.config.json`.
 - Publish: `pnpm figma:publish`.
-- Use the `figma-code-connect` skill for guidance on authoring Code Connect files.
+- For `.figma.ts`, use the `figma-code-connect` skill; for `.figma.tsx`, follow existing `figma.connect(...)` mappings in `packages/react/figma/`.
