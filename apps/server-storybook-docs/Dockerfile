@@ -43,6 +43,7 @@ COPY --from=builder /app/apps/server-storybook-docs/dist ./apps/server-storybook
 COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
 COPY --from=builder /app/packages/react/storybook-static ./packages/react/storybook-static
 COPY --from=builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
+COPY --from=builder /app/apps/usage-analytics/dist ./apps/usage-analytics/dist
 
 EXPOSE ${APP_PORT}
 

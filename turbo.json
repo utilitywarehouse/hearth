@@ -99,6 +99,15 @@
       "cache": false,
       "persistent": true
     },
+    "collect": {
+      "cache": false
+    },
+    "copy-data": {
+      "cache": false
+    },
+    "gen:manifests": {
+      "cache": false
+    },
     "sb": {
       "cache": false,
       "persistent": true,
