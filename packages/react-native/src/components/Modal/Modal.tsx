@@ -117,6 +117,7 @@ const Modal = ({
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
   const hasFooter = !!footer || hasPrimaryButton || hasSecondaryButton;
   const shouldShowFooter = !loading && hasFooter;
+  const descriptionIsText = typeof description === 'string' || typeof description === 'number';
 
   styles.useVariants({
     loading,
@@ -197,7 +198,13 @@ const Modal = ({
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? <BodyText accessible>{description}</BodyText> : null}
+              {description && !image ? (
+                descriptionIsText ? (
+                  <BodyText accessible>{description}</BodyText>
+                ) : (
+                  description
+                )
+              ) : null}
             </View>
             {showCloseButton ? (
               <UnstyledIconButton
@@ -218,9 +225,13 @@ const Modal = ({
                   </Heading>
                 ) : null}
                 {description ? (
-                  <BodyText textAlign="center" accessible>
-                    {description}
-                  </BodyText>
+                  descriptionIsText ? (
+                    <BodyText textAlign="center" accessible>
+                      {description}
+                    </BodyText>
+                  ) : (
+                    description
+                  )
                 ) : null}
               </View>
             </View>

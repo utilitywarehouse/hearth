@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { BodyText, Button, Flex } from '../../';
+import { BodyText, Button, Flex, InlineLink } from '../../';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import modalAndroidVideo from '../../../docs/assets/modal-android.mp4';
 import modaliOSVideo from '../../../docs/assets/modal-ios.mp4';
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 | Property                 | Type                                                                                                             | Description                                                                                                                                                                                      | Default        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------- |
 | `heading`                | `string`                                                                                                         | Heading text shown at the top of the modal when no `image` is provided.                                                                                                                          | -              |
-| `description`            | `string`                                                                                                         | Supporting text shown below the heading when no `image` is provided.                                                                                                                             | -              |
+| `description`            | `ReactNode`                                                                                                      | Supporting text shown below the heading when no `image` is provided. Pass a string for the default styling, or JSX for custom content.                                                           | -              |
 | `showCloseButton`        | `boolean`                                                                                                        | Whether to render the close button in the top-right corner.                                                                                                                                      | `true`         |
 | `primaryButtonText`      | `string`                                                                                                         | Label for the primary action button.                                                                                                                                                             | -              |
 | `secondaryButtonText`    | `string`                                                                                                         | Label for the secondary action button.                                                                                                                                                           | -              |
@@ -205,4 +205,19 @@ When `footer` is provided, the primary and secondary button props are not availa
 >
   <BodyText>This sticky footer stays pinned while the content scrolls.</BodyText>
 </NavModal>
+```
+
+### JSX Description
+
+`description` accepts a string for the default text styling, or JSX when you need custom content such as a link.
+
+```tsx
+<NavModal
+  heading="Update available"
+  description={
+    <BodyText>
+      Read the <InlineLink onPress={() => {}}>release notes</InlineLink> before updating.
+    </BodyText>
+  }
+/>
 ```
