@@ -104,7 +104,7 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 ### Build system
 
 - **JS**: `tsup` bundles all `src/**/*.ts?(x)` (excluding figma, stories, docs, scripts) to CJS + ESM, adds a `"use client";\n` banner, and uses `tsconfig.build.json`.
-- **CSS**: PostCSS processes `src/styles/index.css` → `styles.css` + `breakpoints.css`.
+- **CSS**: PostCSS processes `src/styles/index.css` → `styles.css`; `breakpoints.css` is copied from `src/styles/breakpoints.css`.
 - **Declarations**: `tsc -p tsconfig.build.json` (`emitDeclarationOnly`) runs alongside tsup.
 - `tsconfig.build.json` excludes stories, docs, figma files, and scripts. Use `tsconfig.json` for IDE/dev; use `tsconfig.build.json` only for production output.
 
