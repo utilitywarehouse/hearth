@@ -28,13 +28,23 @@ Before writing any code, gather the following:
    grep -r "radix-ui\|@radix-ui" packages/react/src/components/<Component>/
    ```
 
-3. **Fetch the base-ui API docs** for the equivalent component:
+3. **Confirm the full subcomponent inventory**
+   List every sub-component used in the target component folder (e.g. `ScrollArea`, `Viewport`, `ScrollUpButton`). Every sub-component on the Radix import must have a Base UI equivalent identified before implementation begins. Do not leave any sub-primitive on the old library.
+
+4. **Fetch the base-ui API docs** for the equivalent component:
    ```
    https://base-ui.com/react/components/<component-slug>.md
    ```
    (slug is lowercase kebab-case, e.g. `toggle-group`, `scroll-area`)
 
-4. **Determine the scope of consumer impact**: which radix props are forwarded through the Hearth props interface vs. used only internally.
+5. **Enumerate all props before removing anything**
+   For every prop on every sub-component of the target component, record:
+   - The prop name
+   - Where it is handled: **library-internal** (Radix/Base UI owns it) or **Hearth code** (our JSX or props file references it)
+
+   Do not remove any prop that Radix or Base UI handles internally, even if it appears unused in Hearth's own code — the library may rely on it for accessibility, state management, or event wiring.
+
+6. **Determine the scope of consumer impact**: which radix props are forwarded through the Hearth props interface vs. used only internally.
 
 ---
 
@@ -50,6 +60,8 @@ Produce an API diff table as the primary output of the plan. The user must appro
 | `forceMount` | `keepMounted` | renamed | yes | deprecated shim |
 | `type='single'\|'multiple'` | `multiple: boolean` | prop change | yes | breaking |
 | `delayDuration` on Provider | `delay` on Provider | renamed | yes | deprecated shim |
+
+**Rule:** Props handled internally by the library (Radix or Base UI) must not be removed even if Hearth's code does not reference them directly. Mark these as `internal` in the "Exposed in Hearth props?" column and leave them in place or map them to their Base UI equivalent.
 
 **Change types:**
 - `renamed` — same behaviour, different name; use a deprecation shim
@@ -361,3 +373,5 @@ Use these as a starting point. Always verify against the live base-ui docs — A
 - [ ] `pnpm generate:llm-docs` run if public API changed
 - [ ] Changeset created with correct semver bump
 - [ ] Consumer migration prompt included in PR description (or note that none is needed)
+- [ ] Every prop enumerated and classified (library-internal vs. Hearth code) before any prop was removed
+- [ ] Every subcomponent (ScrollArea, Viewport, etc.) confirmed migrated — no sub-primitive left on radix-ui
