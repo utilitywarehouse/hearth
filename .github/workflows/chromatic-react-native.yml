@@ -1,9 +1,9 @@
-name: 'Chromatic'
+name: 'Chromatic - React Native'
 
 on:
   push:
     paths:
-      - 'packages/react/**'
+      - 'packages/react-native/**'
     branches:
       - '*'
       - '!main'
@@ -36,9 +36,9 @@ jobs:
       - name: Run Chromatic
         uses: chromaui/action@98132da0fca2211fb41b3af7b49ce85176007851 # latest
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          buildScriptName: build:storybook:react
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE }}
+          buildScriptName: build:storybook:react-native
           exitOnceUploaded: true
           onlyChanged: true
           zip: true
-          storybookBaseDir: packages/react
+          storybookBaseDir: packages/react-native

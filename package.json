@@ -19,6 +19,7 @@
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
     "build:storybook:react": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react -- -o \"./storybook-static\"",
+    "build:storybook:react-native": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react-native -- -o \"./storybook-static\"",
     "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
     "lint": "turbo run lint:fix --filter='./packages/*'",
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
@@ -95,4 +96,3 @@
     "typescript-eslint": "^8.61.0"
   }
 }
-
