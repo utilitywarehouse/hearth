@@ -20,9 +20,8 @@ Run this audit against `packages/react/src/`. The full list of exported componen
 |-----------|--------|
 | Layout primitives: `Box`, `Flex`, `Grid`, `Container` | Code-level abstractions — no dedicated Figma component node |
 | Typography primitives: `BodyText`, `DetailText`, `Heading`, `Strong`, `Em`, `SectionHeader` | Same |
-| `RadioCard.docs.mdx` | Documented inside `RadioGroup.docs.mdx` |
-| Base/internal components: `ButtonBase`, `InputBase`, `FormField`, `FormGroupBase` | Not public-facing; skip stories and docs |
-| `ToggleGroup` standalone stories/docs | Already documented inside `ToggleButton.docs.mdx` |
+| RadioCard | Documented inside `RadioGroup.docs.mdx` |
+| ToggleGroup | Documented inside `ToggleButton.docs.mdx` |
 
 ---
 
