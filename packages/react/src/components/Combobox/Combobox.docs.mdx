@@ -1,6 +1,6 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Combobox.stories';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Combobox } from './Combobox';
 
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
@@ -90,12 +90,12 @@ const { contains } = useComboboxFilter({ value });
 <Combobox label="Fruit" items={fruits} filter={contains} value={value} onValueChange={setValue} />;
 ```
 
-<Canvas of={Stories.FilterItems} sourceState="hidden" />
+<Canvas of={Stories.FilterItems} sourceState="hide" />
 
 The `startsWith` and `endsWith` functions work the same way but match only from
 the beginning or end of each item's label respectively.
 
-<Canvas of={Stories.FilterItemsStartsWith} sourceState="hidden" />
+<Canvas of={Stories.FilterItemsStartsWith} sourceState="hide" />
 
 For more advanced scenarios, such as virtualised lists where you need to manage
 the filtered items yourself, you can call the filter functions directly:
@@ -112,7 +112,7 @@ const filteredItems = React.useMemo(() => {
 
 Efficiently handle large datasets using a virtualization library like `@tanstack/react-virtual`.
 
-<Canvas of={Stories.Virtualised} sourceState="hidden" />
+<Canvas of={Stories.Virtualised} sourceState="hide" />
 
 ```tsx
 import { Combobox, ComboboxItem, useComboboxFilter } from '@utilitywarehouse/hearth-react';

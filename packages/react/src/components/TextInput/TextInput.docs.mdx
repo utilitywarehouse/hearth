@@ -1,7 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './TextInput.stories';
-import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { TextInput } from './TextInput';
 
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
@@ -41,7 +41,7 @@ The `hideLabel` prop will visually hide the label but keep it available for scre
 
 ## Required
 
-In it's default state the `TextInput` is optional, and is indicated as such
+In its default state the `TextInput` is optional, and is indicated as such
 with the `(optional)` text following the label.
 
 When using online forms, most users assume all fields are required by default,

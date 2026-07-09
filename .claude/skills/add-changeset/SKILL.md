@@ -423,11 +423,7 @@ When running `pnpm changeset`, you'll be asked which packages to include:
 
 ## Semver Guidelines
 
-- **Patch** (0.0.X): Bug fixes, performance improvements, no API changes
-- **Minor** (0.X.0): New features, new props, backward-compatible changes
-- **Major** (X.0.0): Breaking changes, removed features, renamed APIs
-
-When in doubt, prefer a more conservative approach (e.g., minor over patch) to avoid surprising consumers.
+Standard semver does not apply while the packages are pre-v1. Follow the bump-level rules in "Create a New Changeset" above, which take precedence. In particular: **do not use `major`** at this time.
 
 ## Review Checklist
 
