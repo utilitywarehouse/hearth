@@ -36,7 +36,7 @@ jobs:
       - name: Run Chromatic
         uses: chromaui/action@98132da0fca2211fb41b3af7b49ce85176007851 # latest
         with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT }}
           buildScriptName: build:storybook:react
           exitOnceUploaded: true
           onlyChanged: true
