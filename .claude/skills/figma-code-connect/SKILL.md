@@ -70,7 +70,7 @@ const disabled = instance.getBoolean('Disabled?');  // boolean toggle
 
 #### Conditional instance swap (icon, avatar, badge slots)
 
-Use `getBoolean` to check if a slot is shown, then `getInstanceSwap` to retrieve the nested component. Reference `ExpandableCard.figma.ts` for the complete pattern:
+ Use `getBoolean` to check if a slot is shown, then `getInstanceSwap` to retrieve the nested component. Reference `SegmentedControlOption.figma.ts` for the complete pattern:
 
 ```ts
 const showIcon = instance.getBoolean('Leading Content');
