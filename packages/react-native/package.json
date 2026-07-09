@@ -24,8 +24,7 @@
     "dev": "storybook dev -p 6006",
     "dev:docs": "storybook dev -p 6002 --no-open",
     "build:storybook": "storybook build",
-    "build:storybook:docs": "storybook build --docs",
-    "chromatic": "npx chromatic --project-token=chpt_cce0fb1ebd95d2a --build-script-name build:storybook"
+    "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
     "@gluestack-ui/accordion": "1.0.14",
