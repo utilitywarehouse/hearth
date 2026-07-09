@@ -91,13 +91,13 @@ Run from `packages/react` unless noted:
 pnpm checks
 
 # Find all .docs.mdx files with invalid sourceState values
-grep -rn 'sourceState="shown"\|sourceState="hidden"' packages/react/src/
+grep -rnE 'sourceState="(shown|hidden)"' src/
 
 # Find all .docs.mdx files using relative StorybookLink imports
-grep -rn "from '.*shared/storybook/StorybookLink'" packages/react/src/
+grep -rn "from '.*shared/storybook/StorybookLink'" src/
 
 # List all components in the figma/ directory
-ls packages/react/figma/*.figma.ts packages/react/figma/*.figma.tsx 2>/dev/null
+ls figma/*.figma.ts figma/*.figma.tsx 2>/dev/null
 
 # Preview a Code Connect file output
 npx figma connect print --file figma/<Name>.figma.ts
