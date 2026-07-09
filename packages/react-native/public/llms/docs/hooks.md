@@ -1,0 +1,513 @@
+# Hooks
+
+Hearth React Native provides a set of powerful hooks that help you build responsive, themeable, and accessible applications. These hooks integrate seamlessly with the Unistyles theming system and provide utilities for responsive design, color mode management, and design token access.
+
+- [useTheme](#usetheme)
+- [useToken](#usetoken)
+- [useColorMode](#usecolormode)
+- [useBreakpointValue](#usebreakpointvalue)
+- [useMedia](#usemedia)
+
+## useTheme
+
+`useTheme` is a custom hook that returns the current theme object with all design tokens and theme values. This is the primary way to access theme values in your components.
+
+```tsx
+import { useTheme } from '@utilitywarehouse/hearth-react-native';
+```
+
+### Basic Usage
+
+```tsx
+import { View, Text } from 'react-native';
+import { useTheme } from '@utilitywarehouse/hearth-react-native';
+
+function ThemedComponent() {
+  const theme = useTheme();
+
+  return (
+    <View
+      style={{
+        backgroundColor: theme.color.background.primary,
+        padding: theme.space[200],
+        borderRadius: theme.borderRadius.lg,
+      }}
+    >
+      <Text
+        style={{
+          color: theme.color.text.primary,
+          fontSize: theme.font.size[200],
+          fontFamily: theme.font.family.body,
+        }}
+      >
+        Themed Component
+      </Text>
+    </View>
+  );
+}
+```
+
+### Accessing Different Token Categories
+
+```tsx
+function ExampleComponent() {
+  const theme = useTheme();
+
+  // Colors
+  const backgroundColor = theme.color.surface.brand.default;
+  const textColor = theme.color.text.primary;
+
+  // Spacing
+  const padding = theme.space[300];
+  const margin = theme.space[150];
+
+  // Typography
+  const fontSize = theme.font.size[200];
+  const fontWeight = theme.font.weight.bold;
+  const fontFamily = theme.font.family.heading;
+
+  // Border
+  const borderRadius = theme.borderRadius.md;
+  const borderWidth = theme.borderWidth[1];
+
+  // Shadows
+  const shadow = theme.shadow.md;
+
+  return (
+    <View
+      style={{
+        backgroundColor,
+        padding,
+        margin,
+        borderRadius,
+        borderWidth,
+        ...shadow,
+      }}
+    >
+      <Text
+        style={{
+          color: textColor,
+          fontSize,
+          fontWeight,
+          fontFamily,
+        }}
+      >
+        Complete theme access
+      </Text>
+    </View>
+  );
+}
+```
+
+## useToken
+
+`useToken` is a custom hook that resolves specific design tokens from the theme. It provides a convenient way to access individual token values without importing the entire theme.
+
+```tsx
+import { useToken } from '@utilitywarehouse/hearth-react-native';
+```
+
+### Basic Usage
+
+```tsx
+import { View, Text } from 'react-native';
+import { useToken } from '@utilitywarehouse/hearth-react-native';
+
+function TokenExample() {
+  const primaryColor = useToken('colors', 'purple500');
+  const mediumSpacing = useToken('space', '200');
+  const headingFont = useToken('fonts', 'heading');
+
+  return (
+    <View
+      style={{
+        backgroundColor: primaryColor,
+        padding: mediumSpacing,
+      }}
+    >
+      <Text
+        style={{
+          fontFamily: headingFont,
+          color: 'white',
+        }}
+      >
+        Token-based styling
+      </Text>
+    </View>
+  );
+}
+```
+
+## useColorMode
+
+`useColorMode` is a custom hook that provides access to the current color mode and allows you to programmatically change between light and dark themes.
+
+```tsx
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
+```
+
+### Basic Usage
+
+```tsx
+import { View, Text, TouchableOpacity } from 'react-native';
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
+
+function ColorModeToggle() {
+  const [colorMode, setColorMode] = useColorMode();
+
+  const toggleColorMode = () => {
+    setColorMode(colorMode === 'light' ? 'dark' : 'light');
+  };
+
+  return (
+    <View
+      style={{
+        backgroundColor: colorMode === 'light' ? '#ffffff' : '#222222',
+        padding: 20,
+      }}
+    >
+      <Text
+        style={{
+          color: colorMode === 'light' ? '#000000' : '#ffffff',
+          marginBottom: 10,
+        }}
+      >
+        Current mode: {colorMode}
+      </Text>
+      <TouchableOpacity
+        onPress={toggleColorMode}
+        style={{
+          backgroundColor: colorMode === 'light' ? '#7a42c8' : '#a782db',
+          padding: 10,
+          borderRadius: 8,
+        }}
+      >
+        <Text style={{ color: 'white', textAlign: 'center' }}>
+          Switch to {colorMode === 'light' ? 'dark' : 'light'} mode
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+```
+
+### Conditional Styling Based on Color Mode
+
+```tsx
+function AdaptiveComponent() {
+  const [colorMode] = useColorMode();
+
+  const isDark = colorMode === 'dark';
+
+  return (
+    <View
+      style={{
+        backgroundColor: isDark ? '#222222' : '#ffffff',
+        borderColor: isDark ? '#464444' : '#d1d0d0',
+        borderWidth: 1,
+        padding: 16,
+        borderRadius: 8,
+      }}
+    >
+      <Text
+        style={{
+          color: isDark ? '#e7e6e6' : '#101010',
+          fontSize: 16,
+        }}
+      >
+        This component adapts to {colorMode} mode
+      </Text>
+
+      {/* Status indicator */}
+      <View
+        style={{
+          width: 12,
+          height: 12,
+          borderRadius: 6,
+          backgroundColor: isDark ? '#58ca93' : '#0f834a',
+          marginTop: 8,
+        }}
+      />
+    </View>
+  );
+}
+```
+
+## useBreakpointValue
+
+`useBreakpointValue` is a custom hook that returns different values based on the current screen breakpoint. It's perfect for creating responsive designs that adapt to different screen sizes.
+
+```tsx
+import { useBreakpointValue } from '@utilitywarehouse/hearth-react-native';
+```
+
+### Basic Usage
+
+```tsx
+import { View, Text } from 'react-native';
+import { useBreakpointValue } from '@utilitywarehouse/hearth-react-native';
+
+function ResponsiveLayout() {
+  const flexDirection = useBreakpointValue({
+    default: 'column',
+    md: 'row',
+  });
+
+  const padding = useBreakpointValue({
+    default: 16,
+    md: 24,
+    lg: 32,
+  });
+
+  return (
+    <View
+      style={{
+        flexDirection,
+        padding,
+        gap: 12,
+      }}
+    >
+      <View style={{ flex: 1, backgroundColor: '#7a42c8', padding: 16 }}>
+        <Text style={{ color: 'white' }}>Item 1</Text>
+      </View>
+      <View style={{ flex: 1, backgroundColor: '#0f834a', padding: 16 }}>
+        <Text style={{ color: 'white' }}>Item 2</Text>
+      </View>
+      <View style={{ flex: 1, backgroundColor: '#de2612', padding: 16 }}>
+        <Text style={{ color: 'white' }}>Item 3</Text>
+      </View>
+    </View>
+  );
+}
+```
+
+### Responsive Typography
+
+```tsx
+function ResponsiveText() {
+  const fontSize = useBreakpointValue({
+    default: 16,
+    md: 20,
+    lg: 24,
+    xl: 28,
+  });
+
+  const lineHeight = useBreakpointValue({
+    default: 22,
+    md: 28,
+    lg: 32,
+    xl: 36,
+  });
+
+  return (
+    <Text
+      style={{
+        fontSize,
+        lineHeight,
+        textAlign: 'center',
+        padding: 16,
+      }}
+    >
+      This text scales with screen size
+    </Text>
+  );
+}
+```
+
+### Complex Responsive Values
+
+```tsx
+function ResponsiveCard() {
+  const cardStyle = useBreakpointValue({
+    default: {
+      width: '100%',
+      margin: 8,
+    },
+    md: {
+      width: '48%',
+      margin: 12,
+    },
+    lg: {
+      width: '31%',
+      margin: 16,
+    },
+  });
+
+  const imageHeight = useBreakpointValue({
+    default: 150,
+    md: 200,
+    lg: 250,
+  });
+
+  return (
+    <View style={cardStyle}>
+      <View
+        style={{
+          height: imageHeight,
+          backgroundColor: '#d1d0d0',
+          borderRadius: 8,
+          marginBottom: 12,
+        }}
+      />
+      <Text style={{ fontSize: 16, fontWeight: 'bold' }}>Card Title</Text>
+      <Text style={{ fontSize: 14, color: '#6f6c6b', marginTop: 4 }}>
+        Card description that adapts to screen size
+      </Text>
+    </View>
+  );
+}
+```
+
+## useMedia
+
+`useMedia` is a custom hook that returns an object with boolean values for each breakpoint, indicating whether the current screen size matches that breakpoint. It's useful for conditional rendering based on screen size.
+
+```tsx
+import { useMedia } from '@utilitywarehouse/hearth-react-native';
+```
+
+### Basic Usage
+
+```tsx
+import { View, Text } from 'react-native';
+import { useMedia } from '@utilitywarehouse/hearth-react-native';
+
+function MediaExample() {
+  const media = useMedia();
+
+  return (
+    <View style={{ padding: 16 }}>
+      <Text style={{ fontSize: 18, fontWeight: 'bold', marginBottom: 12 }}>
+        Current Breakpoints:
+      </Text>
+
+      {Object.entries(media).map(([breakpoint, isActive]) => (
+        <Text
+          key={breakpoint}
+          style={{
+            color: isActive ? '#0f834a' : '#6f6c6b',
+            fontSize: 14,
+            marginBottom: 4,
+          }}
+        >
+          {breakpoint}: {isActive ? '✅ Active' : '❌ Inactive'}
+        </Text>
+      ))}
+    </View>
+  );
+}
+```
+
+### Conditional Components
+
+```tsx
+function ConditionalLayout() {
+  const media = useMedia();
+
+  return (
+    <View style={{ flex: 1, padding: 16 }}>
+      {/* Mobile-only sidebar */}
+      {media.base && (
+        <View
+          style={{
+            backgroundColor: '#7a42c8',
+            padding: 16,
+            marginBottom: 16,
+            borderRadius: 8,
+          }}
+        >
+          <Text style={{ color: 'white', textAlign: 'center' }}>Mobile Navigation</Text>
+        </View>
+      )}
+
+      <View style={{ flexDirection: media.md ? 'row' : 'column', flex: 1 }}>
+        {/* Desktop sidebar */}
+        {media.md && (
+          <View
+            style={{
+              width: 250,
+              backgroundColor: '#f6f5f5',
+              padding: 16,
+              marginRight: 16,
+              borderRadius: 8,
+            }}
+          >
+            <Text style={{ fontWeight: 'bold', marginBottom: 8 }}>Desktop Sidebar</Text>
+            <Text style={{ fontSize: 14, color: '#6f6c6b' }}>
+              This only appears on medium screens and above
+            </Text>
+          </View>
+        )}
+
+        {/* Main content */}
+        <View style={{ flex: 1, backgroundColor: '#ffffff', padding: 16, borderRadius: 8 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Main Content</Text>
+          <Text style={{ marginTop: 8, color: '#6f6c6b' }}>
+            Layout changes based on screen size
+          </Text>
+        </View>
+      </View>
+
+      {/* Large screen only footer */}
+      {media.lg && (
+        <View
+          style={{
+            backgroundColor: '#0f834a',
+            padding: 16,
+            marginTop: 16,
+            borderRadius: 8,
+          }}
+        >
+          <Text style={{ color: 'white', textAlign: 'center' }}>Large Screen Footer</Text>
+        </View>
+      )}
+    </View>
+  );
+}
+```
+
+### Responsive Grid
+
+```tsx
+function ResponsiveGrid({ items }) {
+  const media = useMedia();
+
+  const getColumns = () => {
+    if (media.xl) return 4;
+    if (media.lg) return 3;
+    if (media.md) return 2;
+    return 1;
+  };
+
+  const columns = getColumns();
+  const itemWidth = `${100 / columns - 2}%`;
+
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding: 16,
+      }}
+    >
+      {items.map((item, index) => (
+        <View
+          key={index}
+          style={{
+            width: itemWidth,
+            backgroundColor: '#ffffff',
+            padding: 16,
+            marginBottom: 16,
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: '#d1d0d0',
+          }}
+        >
+          <Text>{item.title}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+```

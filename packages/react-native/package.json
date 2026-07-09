@@ -13,6 +13,7 @@
     "generateColours": "node ./scripts/generateColours.js",
     "copyTokens": "node ./scripts/copyTokens.js",
     "copy:changelog": "node ./scripts/copyChangelog.js",
+    "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
     "lint:fix": "TIMING=1 eslint --fix .",
     "lint": "TIMING=1 eslint .",
     "build": "tsc",
