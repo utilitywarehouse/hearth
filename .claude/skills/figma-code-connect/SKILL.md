@@ -42,6 +42,46 @@ export default {
 };
 ```
 
+## Prop mapping patterns
+
+### String and enum props
+
+```ts
+const label = instance.getString('Label');           // text content
+const size = instance.getEnum('Size', { 'SM-32': 'sm', 'MD-48': 'md' });  // Figma variant → React prop value
+const disabled = instance.getBoolean('Disabled?');  // boolean toggle
+```
+
+### Conditional instance swap (icon, avatar, badge slots)
+
+Use `getBoolean` to check if a slot is shown, then `getInstanceSwap` to retrieve the nested component. Reference `ExpandableCard.figma.ts` for the complete pattern:
+
+```ts
+const showIcon = instance.getBoolean('Leading Content');
+const iconInstance = showIcon ? instance.getInstanceSwap('Icon-20') : null;
+let iconCode;
+if (iconInstance && iconInstance.type === 'INSTANCE') {
+  iconCode = iconInstance.executeTemplate().example;
+}
+
+export default {
+  example: figma.code`<MyComponent${iconCode ? figma.code` icon={${iconCode}}` : ''} />`,
+  ...
+};
+```
+
+### Conditional string props
+
+```ts
+const showHelper = instance.getBoolean('Helper text?');
+const helperText = instance.getString('Helper text');
+
+export default {
+  example: figma.code`<MyComponent${showHelper ? figma.code` helperText="${helperText}"` : ''} />`,
+  ...
+};
+```
+
 ## Compound components (parent + children)
 
 For compound components where the parent renders configurable child instances:
@@ -78,12 +118,20 @@ export default {
 
 ## Publishing
 
-Once the template file is ready, publish it to Figma with:
+> **Always get explicit user approval before running any publish command.** Publishing pushes live to Figma and affects what all designers see in Dev Mode — it cannot be undone by reverting a file.
+
+Once the template file is ready, preview the output locally first:
+
+```sh
+npx figma connect print --file figma/MyComponent.figma.ts
+```
+
+Run this from `packages/react`. Review the printed snippet before publishing.
+
+When the user has approved, publish with:
 
 ```sh
 npx figma connect publish --file figma/MyComponent.figma.ts
 ```
-
-Run this from `packages/react`. Always ask the user for permission before publishing.
 
 For the full API reference and advanced patterns, invoke `/anthropic-skills:figma-code-connect`.

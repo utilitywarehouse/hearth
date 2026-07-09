@@ -474,6 +474,24 @@ and supports the following common props:
 />
 ```
 
+### Section headings
+
+`## Usage` in the template above is a starting point. Prefer feature-specific headings that match the component's props — `## Variants`, `## Sizes`, `## Label`, `## Disabled`, `## Read-only`, etc. Reserve `## Usage` for genuinely generic guidance that doesn't fit a more specific heading.
+
+Include a table of contents (anchor link list) when the docs page has **4 or more sections**.
+
+### `sourceState` valid values
+
+Valid values for the `sourceState` attribute on `<Canvas>`:
+
+| Value | Effect |
+|-------|--------|
+| `'show'` | Shows the code panel expanded |
+| `'hide'` | Shows the code panel collapsed |
+| `'none'` | Hides the code panel entirely |
+
+**Never use `'shown'` or `'hidden'`** — these are silently invalid and fall back to the default.
+
 ### API section rules
 
 - **Import components directly** for `ArgTypes` (e.g. `import { MyComponent } from './MyComponent'`) — not via `Stories.*`. `of={MyComponent}` gives accurate prop types; `of={Stories.Playground}` can show incorrect or missing props.
@@ -502,6 +520,13 @@ This component is based on the `button` element.
 
 <ArgTypes of={MyComponentItem} include={'value|label|icon|disabled'} exclude={'aria-*'} />
 ```
+
+### Optional sections
+
+Include these sections when applicable — do not add them to every component's docs:
+
+- **`## Alternatives`**: include when 2 or more other components serve overlapping use cases (e.g., TextInput / PasswordInput / CurrencyInput / SearchInput family). Cross-link peers with `<StorybookLink>`.
+- **`## Accessibility`**: required for interactive components with keyboard interactions, ARIA roles, focus management, or non-obvious screen reader behaviour (e.g., modals with focus traps, roving tabindex groups, components with `role="search"`). Optional for purely visual components.
 
 ---
 
@@ -553,6 +578,8 @@ For the full API reference and advanced patterns, invoke `/anthropic-skills:figm
 - [ ] `data-*` attributes used for CSS state selectors
 - [ ] `<Component>.stories.tsx` — `KitchenSink`, `Playground`, and at least one feature story
 - [ ] `<Component>.docs.mdx` — description, KitchenSink canvas, Playground canvas, feature sections, ArgTypes
+- [ ] All `<Canvas>` blocks use valid `sourceState` values: `'show'`, `'hide'`, or `'none'` — not `'shown'`/`'hidden'`
+- [ ] StorybookLink imports use `import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils'` (not a relative path)
 - [ ] `src/index.ts` updated at the bottom with an empty line separating from previous exports
 - [ ] Figma Code Connect template(s) added in `packages/react/figma/`. See [`/figma-code-connect`](./../figma-code-connect/SKILL.md).
 - [ ] TypeScript passes — run `npx --node-options="" tsc --noEmit -p packages/react/tsconfig.json 2>&1 | grep "<ComponentName>"` and confirm no errors beyond the pre-existing `@storybook/react-vite` module declaration error
