@@ -19,7 +19,7 @@
     "build:storybook": "turbo build build:storybook",
     "build:storybook:docs": "turbo build:storybook:docs",
     "build:storybook:react": "turbo run build:storybook --filter=@utilitywarehouse/hearth-react -- -o \"./storybook-static\"",
-    "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
+    "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens && pnpm run generate:design-md",
     "lint": "turbo run lint:fix --filter='./packages/*'",
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
     "checks": "pnpm run lint && pnpm run format",
@@ -47,7 +47,8 @@
     "generate:storybook:icons": "turbo run storybook-docs#generate:icons",
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-docs#generate:assets",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
+    "generate:tokens:react": "pnpm run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
+    "generate:design-md": "pnpm --dir packages/tokens run generate:design-md",
     "generate:llm-docs": "pnpm --dir packages/react run generate:llm-docs"
   },
   "type": "module",

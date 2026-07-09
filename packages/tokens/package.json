@@ -22,6 +22,7 @@
     "build:browser": "tsc --project ./tsconfig.browser.json",
     "build:tokens": "turbo run build:css build:js build:browser && pnpm format",
     "generate:tokens": "node ./scripts/generate-tokens.js",
+    "generate:design-md": "node ./scripts/generate-design-md.js",
     "clean": "rm -rf node_modules .turbo",
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",

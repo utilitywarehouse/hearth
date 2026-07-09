@@ -3,111 +3,206 @@ version: alpha
 name: Hearth
 description: Utility Warehouse design system — React components, tokens, icons, and SVG illustration assets.
 colors:
-  # Brand
-  primary: "#7a42c8"
-  on-primary: "#fcfbf2"
-  primary-hover: "#5c2ca9"
-  primary-active: "#442484"
-  # Backgrounds & surfaces
-  background: "#fcfbf2"
-  surface: "#ffffff"
-  surface-subtle: "#fcfbf2"
-  # Text
+  background-brand: "#7a42c8"
+  background-loading: "#f1efe4"
+  background-primary: "#fcfbf2"
+  background-secondary: "#ffffff"
+  border-strong: "#101010"
+  border-subtle: "#d4d2c0"
+  feedback-danger-border: "#de2612"
+  feedback-danger-foreground-default: "#101010"
+  feedback-danger-foreground-subtle: "#de2612"
+  feedback-danger-surface-default: "#ff634a"
+  feedback-danger-surface-subtle: "#ffa89d"
+  feedback-functional-border: "#5b5b5b"
+  feedback-functional-foreground-default: "#101010"
+  feedback-functional-foreground-subtle: "#5b5b5b"
+  feedback-functional-surface-default: "#919191"
+  feedback-functional-surface-subtle: "#d3d3d3"
+  feedback-info-border: "#1c6cd4"
+  feedback-info-foreground-default: "#101010"
+  feedback-info-foreground-subtle: "#1c6cd4"
+  feedback-info-surface-default: "#6bb0ff"
+  feedback-info-surface-subtle: "#bcddff"
+  feedback-positive-border: "#0f834a"
+  feedback-positive-foreground-default: "#101010"
+  feedback-positive-foreground-subtle: "#0f834a"
+  feedback-positive-surface-default: "#36bf7d"
+  feedback-positive-surface-subtle: "#a2e2c3"
+  feedback-warning-border: "#be5400"
+  feedback-warning-foreground-default: "#101010"
+  feedback-warning-foreground-subtle: "#be5400"
+  feedback-warning-surface-default: "#ff8010"
+  feedback-warning-surface-subtle: "#ffcca8"
+  focus-inverted: "#fcfbf2"
+  focus-primary: "#101010"
+  icon-inverted: "#fcfbf2"
+  icon-primary: "#101010"
+  interactive-affirmative-border-strong: "#101010"
+  interactive-affirmative-border-subtle: "#04663a"
+  interactive-affirmative-foreground-strong: "#fcfbf2"
+  interactive-affirmative-foreground-subtle: "#04663a"
+  interactive-affirmative-surface-strong-active: "#074b2a"
+  interactive-affirmative-surface-strong-default: "#0f834a"
+  interactive-affirmative-surface-strong-hover: "#04663a"
+  interactive-affirmative-surface-subtle-active: "#c5edda"
+  interactive-affirmative-surface-subtle-hover: "#e7f9f0"
+  interactive-brand-border-strong: "#101010"
+  interactive-brand-foreground-strong: "#fcfbf2"
+  interactive-brand-surface-strong-active: "#442484"
+  interactive-brand-surface-strong-default: "#7a42c8"
+  interactive-brand-surface-strong-hover: "#5c2ca9"
+  interactive-destructive-border-strong: "#101010"
+  interactive-destructive-border-subtle: "#a4281e"
+  interactive-destructive-foreground-strong: "#fcfbf2"
+  interactive-destructive-foreground-subtle: "#a4281e"
+  interactive-destructive-surface-strong-active: "#6b1f1a"
+  interactive-destructive-surface-strong-default: "#de2612"
+  interactive-destructive-surface-strong-hover: "#a4281e"
+  interactive-destructive-surface-subtle-active: "#ffe3df"
+  interactive-destructive-surface-subtle-hover: "#fff3f1"
+  interactive-functional-border-inverted: "#f7f7f7"
+  interactive-functional-border-strong: "#101010"
+  interactive-functional-border-subtle: "#101010"
+  interactive-functional-foreground-inverted: "#f7f7f7"
+  interactive-functional-foreground-strong: "#fcfbf2"
+  interactive-functional-foreground-subtle: "#101010"
+  interactive-functional-surface-strong-active: "#4c4c4c"
+  interactive-functional-surface-strong-default: "#888888"
+  interactive-functional-surface-strong-hover: "#5b5b5b"
+  interactive-functional-surface-subtle-active: "#d3d3d3"
+  interactive-functional-surface-subtle-hover: "#ebebeb"
+  interactive-functional-surface-subtle-inverted-active: "#3a3837"
+  interactive-functional-surface-subtle-inverted-hover: "#3f3f3f"
+  interactive-highlight-border-strong: "#101010"
+  interactive-highlight-foreground-strong: "#101010"
+  interactive-highlight-surface-strong-active: "#d1950b"
+  interactive-highlight-surface-strong-default: "#ffb921"
+  interactive-highlight-surface-strong-hover: "#eba400"
+  interactive-neutral-border-subtle: "#101010"
+  interactive-neutral-foreground-subtle: "#101010"
+  interactive-neutral-surface-subtle-active: "#f1efe4"
+  interactive-neutral-surface-subtle-hover: "#f7f6eb"
+  shadow-brand: "#7a42c8"
+  shadow-broadband: "#8cba3b"
+  shadow-cashback: "#be7aeb"
+  shadow-default: "#101010"
+  shadow-energy: "#6db5c3"
+  shadow-insurance: "#ff7b00"
+  shadow-mobile: "#ee6dbb"
+  shadow-pig: "#f295ff"
+  surface-brand-default: "#7a42c8"
+  surface-brand-strong: "#26164f"
+  surface-brand-subtle: "#af90de"
+  surface-broadband-default: "#8cba3b"
+  surface-broadband-subtle: "#d2e6b0"
+  surface-cashback-default: "#be7aeb"
+  surface-cashback-subtle: "#dfbdf5"
+  surface-energy-default: "#6db5c3"
+  surface-energy-subtle: "#bddee4"
+  surface-highlight-default: "#ffb921"
+  surface-highlight-subtle: "#ffd885"
+  surface-insurance-default: "#ff7b00"
+  surface-insurance-subtle: "#ffb46d"
+  surface-mobile-default: "#ee6dbb"
+  surface-mobile-subtle: "#fad0e9"
+  surface-neutral-strong: "#ffffff"
+  surface-neutral-subtle: "#fcfbf2"
+  surface-pig-default: "#f295ff"
+  surface-pig-subtle: "#f9ceff"
+  text-affirmative: "#0f834a"
+  text-brand: "#7a42c8"
+  text-inverted: "#fcfbf2"
   text-primary: "#101010"
   text-secondary: "#5b5b5b"
-  text-brand: "#7a42c8"
-  text-affirmative: "#0f834a"
-  text-inverted: "#fcfbf2"
-  # Feedback
-  danger: "#de2612"
-  danger-surface: "#ff634a"
-  danger-surface-subtle: "#ffa89d"
-  positive: "#0f834a"
-  positive-surface: "#36bf7d"
-  positive-surface-subtle: "#a2e2c3"
-  warning: "#be5400"
-  warning-surface: "#ff8010"
-  warning-surface-subtle: "#ffcca8"
-  info: "#1c6cd4"
-  info-surface: "#6bb0ff"
-  info-surface-subtle: "#bcddff"
-  # Highlight (yellow)
-  highlight: "#ffb921"
-  highlight-subtle: "#ffd885"
-  # UW service palette
-  energy: "#6db5c3"
-  energy-subtle: "#bddee4"
-  broadband: "#8cba3b"
-  broadband-subtle: "#d2e6b0"
-  insurance: "#ff7b00"
-  insurance-subtle: "#ffb46d"
-  mobile: "#ee6dbb"
-  mobile-subtle: "#fad0e9"
-  cashback: "#be7aeb"
-  cashback-subtle: "#dfbdf5"
-  pig: "#f295ff"
-  pig-subtle: "#f9ceff"
 typography:
   heading-2xl:
     fontFamily: Comic Hams
-    fontSize: 54px
+    fontSize: 3.375rem
     fontWeight: 700
-    lineHeight: 62px
-    letterSpacing: -1.08px
+    lineHeight: 3.875rem
   heading-xl:
     fontFamily: Comic Hams
-    fontSize: 40px
+    fontSize: 2.5rem
     fontWeight: 700
-    lineHeight: 48px
-    letterSpacing: -0.90px
+    lineHeight: 3rem
   heading-lg:
     fontFamily: Comic Hams
-    fontSize: 30px
+    fontSize: 1.875rem
     fontWeight: 600
-    lineHeight: 36px
-    letterSpacing: -0.72px
+    lineHeight: 2.25rem
   heading-md:
     fontFamily: Comic Hams
-    fontSize: 24px
+    fontSize: 1.5rem
     fontWeight: 600
-    lineHeight: 28px
-    letterSpacing: -0.60px
+    lineHeight: 1.75rem
   heading-sm:
     fontFamily: Comic Hams
-    fontSize: 18px
+    fontSize: 1.125rem
     fontWeight: 600
-    lineHeight: 22px
-    letterSpacing: -0.54px
+    lineHeight: 1.375rem
   body-xl:
     fontFamily: DM Sans
-    fontSize: 20px
+    fontSize: 1.25rem
     fontWeight: 400
-    lineHeight: 28px
+    lineHeight: 1.75rem
   body-lg:
     fontFamily: DM Sans
-    fontSize: 18px
+    fontSize: 1.125rem
     fontWeight: 400
-    lineHeight: 24px
+    lineHeight: 1.5rem
   body-md:
     fontFamily: DM Sans
-    fontSize: 16px
+    fontSize: 1rem
     fontWeight: 400
-    lineHeight: 24px
+    lineHeight: 1.5rem
   body-sm:
     fontFamily: DM Sans
-    fontSize: 14px
+    fontSize: 0.875rem
     fontWeight: 400
-    lineHeight: 20px
+    lineHeight: 1.25rem
+  detail-4xl:
+    fontFamily: DM Mono
+    fontSize: 2.25rem
+    fontWeight: 500
+    lineHeight: 2.25rem
+    letterSpacing: -1.08px
+  detail-3xl:
+    fontFamily: DM Mono
+    fontSize: 1.875rem
+    fontWeight: 500
+    lineHeight: 2.25rem
+    letterSpacing: -0.9px
+  detail-2xl:
+    fontFamily: DM Mono
+    fontSize: 1.5rem
+    fontWeight: 500
+    lineHeight: 2rem
+    letterSpacing: -0.72px
+  detail-xl:
+    fontFamily: DM Mono
+    fontSize: 1.25rem
+    fontWeight: 500
+    lineHeight: 1.375rem
+    letterSpacing: -0.6px
+  detail-lg:
+    fontFamily: DM Mono
+    fontSize: 1.125rem
+    fontWeight: 500
+    lineHeight: 1.375rem
+    letterSpacing: -0.54px
   detail-md:
     fontFamily: DM Mono
-    fontSize: 16px
-    fontWeight: 400
-    lineHeight: 24px
+    fontSize: 1rem
+    fontWeight: 500
+    lineHeight: 1.5rem
+    letterSpacing: -0.48px
   detail-sm:
     fontFamily: DM Mono
-    fontSize: 14px
-    fontWeight: 400
-    lineHeight: 20px
+    fontSize: 0.875rem
+    fontWeight: 500
+    lineHeight: 1.125rem
+    letterSpacing: -0.42px
 spacing:
   0: 0px
   25: 2px
@@ -127,167 +222,167 @@ spacing:
   800: 64px
   900: 72px
 rounded:
-  none: 0px
-  xs: 4px
-  sm: 6px
-  md: 8px
-  xl: 16px
   full: 9999px
+  md: 8px
+  none: 0px
+  sm: 6px
+  xl: 16px
+  xs: 4px
 components:
   button-emphasis:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.background-brand}"
+    textColor: "{colors.background-primary}"
     typography: "{typography.body-md}"
     rounded: "{rounded.full}"
     padding: 16px
   button-emphasis-hover:
-    backgroundColor: "{colors.primary-hover}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.interactive-brand-surface-strong-hover}"
+    textColor: "{colors.background-primary}"
   button-emphasis-active:
-    backgroundColor: "{colors.primary-active}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.interactive-brand-surface-strong-active}"
+    textColor: "{colors.background-primary}"
   button-solid-highlight:
-    backgroundColor: "{colors.highlight}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.interactive-highlight-surface-strong-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
     padding: 16px
   button-solid-affirmative:
-    backgroundColor: "{colors.positive}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.feedback-positive-border}"
+    textColor: "{colors.background-primary}"
     rounded: "{rounded.full}"
     padding: 16px
   button-solid-destructive:
-    backgroundColor: "{colors.danger}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.feedback-danger-border}"
+    textColor: "{colors.background-primary}"
     rounded: "{rounded.full}"
     padding: 16px
   button-outline:
-    textColor: "{colors.text-primary}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
     padding: 16px
   button-ghost:
-    textColor: "{colors.text-primary}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
   input:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.background-secondary}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
     padding: 12px
   input-invalid:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.background-secondary}"
+    textColor: "{colors.border-strong}"
   badge-danger:
-    backgroundColor: "{colors.danger-surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-danger-surface-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
   badge-positive:
-    backgroundColor: "{colors.positive-surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-positive-surface-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
   badge-warning:
-    backgroundColor: "{colors.warning-surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-warning-surface-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
   badge-info:
-    backgroundColor: "{colors.info-surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-info-surface-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.full}"
   card:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.background-secondary}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-brand:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.on-primary}"
+    backgroundColor: "{colors.background-brand}"
+    textColor: "{colors.background-primary}"
     rounded: "{rounded.xl}"
   card-energy:
-    backgroundColor: "{colors.energy}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-energy}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-broadband:
-    backgroundColor: "{colors.broadband}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-broadband}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-insurance:
-    backgroundColor: "{colors.insurance}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-insurance}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-mobile:
-    backgroundColor: "{colors.mobile}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-mobile}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-cashback:
-    backgroundColor: "{colors.cashback}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-cashback}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-pig:
-    backgroundColor: "{colors.pig}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.shadow-pig}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-highlight:
-    backgroundColor: "{colors.highlight}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.interactive-highlight-surface-strong-default}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   alert-danger:
-    backgroundColor: "{colors.danger-surface-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-danger-surface-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
   alert-positive:
-    backgroundColor: "{colors.positive-surface-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-positive-surface-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
   alert-warning:
-    backgroundColor: "{colors.warning-surface-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-warning-surface-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
   alert-info:
-    backgroundColor: "{colors.info-surface-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.feedback-info-surface-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
   card-neutral-subtle:
-    backgroundColor: "{colors.surface-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.background-primary}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-highlight-subtle:
-    backgroundColor: "{colors.highlight-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-highlight-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-energy-subtle:
-    backgroundColor: "{colors.energy-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-energy-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-broadband-subtle:
-    backgroundColor: "{colors.broadband-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-broadband-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-insurance-subtle:
-    backgroundColor: "{colors.insurance-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-insurance-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-mobile-subtle:
-    backgroundColor: "{colors.mobile-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-mobile-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-cashback-subtle:
-    backgroundColor: "{colors.cashback-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-cashback-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-pig-subtle:
-    backgroundColor: "{colors.pig-subtle}"
-    textColor: "{colors.text-primary}"
+    backgroundColor: "{colors.surface-pig-subtle}"
+    textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   link:
-    textColor: "{colors.text-brand}"
+    textColor: "{colors.background-brand}"
   link-affirmative:
-    textColor: "{colors.text-affirmative}"
+    textColor: "{colors.feedback-positive-border}"
   link-inverted:
-    textColor: "{colors.text-inverted}"
+    textColor: "{colors.background-primary}"
   helper-text:
-    textColor: "{colors.text-secondary}"
+    textColor: "{colors.feedback-functional-border}"
   feedback-warning-text:
-    textColor: "{colors.warning}"
+    textColor: "{colors.feedback-warning-border}"
   feedback-info-text:
-    textColor: "{colors.info}"
+    textColor: "{colors.feedback-info-border}"
 ---
 
 # Hearth Design System
