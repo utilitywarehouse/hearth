@@ -19,7 +19,14 @@ Wrap an icon with the `IconContainer` to apply sizing + background styles withou
 
 ```jsx
 import { IconContainer } from '@utilitywarehouse/hearth-react-native';
-import { ElectricityMediumIcon, BroadbandMediumIcon, MobileMediumIcon, InsuranceMediumIcon, CashbackCardMediumIcon, , } from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  ElectricityMediumIcon,
+  BroadbandMediumIcon,
+  MobileMediumIcon,
+  InsuranceMediumIcon,
+  CashbackCardMediumIcon,
+  EmailMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => (
   <>

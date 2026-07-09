@@ -27,7 +27,7 @@ The Alert offers different colour schemes, the colour scheme is mapped to an ico
 ## Usage
 
 ```tsx
-import { Alert } from '@utilitywarehouse/native-ui';
+import { Alert } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   return (
@@ -104,7 +104,7 @@ import {
   AlertIconButton,
   AlertCloseButton,
   AlertContent,
-} from '@utilitywarehouse/native-ui';
+} from '@utilitywarehouse/hearth-react-native';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {

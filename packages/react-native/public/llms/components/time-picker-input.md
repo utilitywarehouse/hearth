@@ -46,7 +46,7 @@ const BookingTimeField = () => {
 
 ## Props
 
-`TimePickerInput` inherits all React of the `Input` component props props (except `children`) and adds the following:
+`TimePickerInput` inherits all of the `Input` component's props (except `children`) and adds the following:
 
 | Prop                | Type                                                   | Default              | Description                                                                                               |
 | ------------------- | ------------------------------------------------------ | -------------------- | --------------------------------------------------------------------------------------------------------- |

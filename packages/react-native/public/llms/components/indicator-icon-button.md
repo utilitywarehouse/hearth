@@ -94,7 +94,7 @@ It does not work on Storybook on web, only mobile.
 </Flex>
 ```
 
-### Adding accessability label
+### Adding accessibility label
 
 ```tsx
 <Flex direction="column" spacing="xl">

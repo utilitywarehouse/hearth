@@ -43,7 +43,12 @@ The Radio component presents users with predefined choices and enables them to s
 - `RadioGroup` is the building block for `Radio`
 
 ```tsx
-import { Radio, RadioGroup, RadioLabel, RadioIndicator } from '@utilitywarehouse/native-ui';
+import {
+  Radio,
+  RadioGroup,
+  RadioLabel,
+  RadioIndicator,
+} from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');
@@ -199,7 +204,7 @@ import {
   RadioIndicator,
   RadioIcon,
   RadioImage,
-} from '@utilitywarehouse/native-ui';
+} from '@utilitywarehouse/hearth-react-native';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import visaLogo from '../../assets/bank-logo1.png';
 import mastercardLogo from '../../assets/bank-logo.png';
@@ -259,7 +264,7 @@ The `RadioTile` component is a variant of the `Radio` component that displays th
 It is used to present options in a more visually appealing way.
 
 ```tsx
-import { RadioTile, RadioGroup } from '@utilitywarehouse/native-ui';
+import { RadioTile, RadioGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('option-1');
@@ -316,7 +321,7 @@ The `RadioImage` component is used to display an image next to the radio button.
 ```
 
 ```tsx
-import { Radio, RadioGroup, RadioImage } from '@utilitywarehouse/native-ui';
+import { Radio, RadioGroup, RadioImage } from '@utilitywarehouse/hearth-react-native';
 import visaLogo from './visa-logo.png';
 import mastercardLogo from './mastercard-logo.png';
 
@@ -354,7 +359,7 @@ The `RadioGroup` component is used to group multiple `Radio` components together
 You can pass props like `label` and `helperText` to the `RadioGroup` component to provide context for the group of radios.
 
 ```tsx
-import { Radio, RadioGroup } from '@utilitywarehouse/native-ui';
+import { Radio, RadioGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('option-1');

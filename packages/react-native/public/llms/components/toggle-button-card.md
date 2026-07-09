@@ -49,7 +49,7 @@ import {
   Heading,
   BodyText,
   DetailText,
-} from '@utilitywarehouse/native-ui';
+} from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');

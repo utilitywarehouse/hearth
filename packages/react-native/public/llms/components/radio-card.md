@@ -27,7 +27,7 @@ with other `RadioCard`s to create a `RadioCardGroup`, providing a cohesive and o
 ## Usage
 
 ```tsx
-import { RadioCard, RadioCardGroup, UL, LI } from '@utilitywarehouse/native-ui';
+import { RadioCard, RadioCardGroup, UL, LI } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');

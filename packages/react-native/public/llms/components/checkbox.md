@@ -302,7 +302,7 @@ The `CheckboxTile` component is a variant of the `Checkbox` component that displ
 It is used to present options in a more visually appealing way.
 
 ```tsx
-import { CheckboxTile, CheckboxGroup } from '@utilitywarehouse/native-ui';
+import { CheckboxTile, CheckboxGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState(['option-1']);
@@ -394,7 +394,7 @@ The `CheckboxGroup` component is used to group multiple `Checkbox` components to
 You can pass props like `label` and `helperText` to the `CheckboxGroup` component to provide context for the group of radios.
 
 ```tsx
-import { Checkbox, CheckboxGroup } from '@utilitywarehouse/native-ui';
+import { Checkbox, CheckboxGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState(['option-1']);

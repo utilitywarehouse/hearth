@@ -164,9 +164,9 @@ When `footer` is provided, the primary and secondary button props are not availa
 
 ## Examples
 
-| ios                                                                            | android                                                                            |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
-| <video src={modaliOSVideo} width={300} height="auto" controls loop autoPlay /> | <video src={modalAndroidVideo} width={300} height="auto" controls loop autoPlay /> |
+| ios | android |
+| --- | ------- |
+|     |         |
 
 ### Brand Background
 

@@ -134,7 +134,7 @@ import {
   AccordionTitleText,
   AccordionTrigger,
   SectionHeader,
-} from '@utilitywarehouse/native-ui';
+} from '@utilitywarehouse/hearth-react-native';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,

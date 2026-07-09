@@ -20,7 +20,7 @@ to turn an individual option on or off. They are usually used to activate or dea
 ## Usage
 
 ```tsx
-import { Switch } from '@utilitywarehouse/native-ui';
+import { Switch } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [settings, setSettings] = useState(false);
@@ -77,7 +77,12 @@ When the Switch is not placed in a List Item, you should use the `Label` compone
 the `FormField` documentation for more information.
 
 ```tsx
-import { Switch, FormField, FormFieldLabel, FormFieldLabelText } from '@utilitywarehouse/native-ui';
+import {
+  Switch,
+  FormField,
+  FormFieldLabel,
+  FormFieldLabelText,
+} from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [notifications, setNotifications] = useState(false);
@@ -105,7 +110,7 @@ for more information.
 
 ```tsx
 import React, { useState } from 'react';
-import { Card, List, ListItem, ListItemIcon, Switch } from '@utilitywarehouse/native-ui';
+import { Card, List, ListItem, ListItemIcon, Switch } from '@utilitywarehouse/hearth-react-native';
 import {
   BellMediumIcon,
   LockMediumIcon,

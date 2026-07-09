@@ -221,19 +221,31 @@ function parseImports(content, mdxDir) {
       if (resolved) {
         for (const name of names) importMap.set(name, resolved);
       }
+      continue;
+    }
+
+    // Default imports from relative paths: import AllComponents from './components/AllComponents'
+    const defaultMatch = line.match(/import\s+(\w+)\s+from\s+['"](\.[^'"]+)['"]/);
+    if (defaultMatch) {
+      const resolved = resolveFile(path.resolve(mdxDir, defaultMatch[2]));
+      if (resolved) importMap.set(defaultMatch[1], resolved);
     }
   }
 
   return { importMap, exprMap };
 }
 
+// Storybook targets react-native-web, so a bare import resolves to a `.web.*` file
+// (platform-specific extension) before the plain extension if both exist.
+const RESOLVABLE_EXTS = ['.web.tsx', '.web.ts', '.web.jsx', '.web.js', '.tsx', '.ts', '.jsx', '.js'];
+
 function resolveFile(base) {
-  for (const ext of ['.tsx', '.ts', '.jsx', '.js']) {
+  for (const ext of RESOLVABLE_EXTS) {
     const candidate = base + ext;
     if (fs.existsSync(candidate)) return candidate;
   }
   if (fs.existsSync(base) && fs.statSync(base).isDirectory()) {
-    for (const ext of ['.tsx', '.ts', '.jsx', '.js']) {
+    for (const ext of RESOLVABLE_EXTS) {
       const idx = path.join(base, 'index' + ext);
       if (fs.existsSync(idx)) return idx;
     }
@@ -505,8 +517,28 @@ const CUSTOM_SELF_CLOSING_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*\/>\s*$/;
 // Matches an opening (non-self-closing) PascalCase JSX component on its own line: <FooBar ...>
 const CUSTOM_OPEN_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*>\s*$/;
 
+// Matches a self-closing <video ... /> element (e.g. embedded demo clips), which may appear
+// inline (including inside a markdown table cell) rather than alone on its own line.
+const VIDEO_TAG_RE = /<video\b[^>]*\/>/g;
+
+// Some older .docs.mdx example snippets reference package names from before this library was
+// renamed/published under its current scope — rewrite them so generated code samples are correct.
+const LEGACY_PACKAGE_ALIASES = {
+  '@utilitywarehouse/native-ui': '@utilitywarehouse/hearth-react-native',
+  '@hearth/react-native': '@utilitywarehouse/hearth-react-native',
+};
+
+function rewriteLegacyPackageNames(content) {
+  return Object.entries(LEGACY_PACKAGE_ALIASES).reduce(
+    (acc, [from, to]) => acc.split(from).join(to),
+    content
+  );
+}
+
 function transformContent(content, importMap, exprMap) {
-  const lines = normaliseJsxBlocks(normaliseImports(content)).split('\n');
+  const lines = normaliseJsxBlocks(normaliseImports(rewriteLegacyPackageNames(content))).split(
+    '\n'
+  );
   const output = [];
   let inCodeFence = false;
   let skipUntilCloseTag = null;
@@ -566,6 +598,10 @@ function transformContent(content, importMap, exprMap) {
 
     // Replace StorybookLink with its text content
     let transformed = line.replace(STORYBOOK_LINK_RE, '$1');
+
+    // Drop embedded <video> demo clips — they reference JSX asset expressions (e.g.
+    // {toastiOSVideo}) that don't resolve to static text and aren't playable in markdown anyway.
+    transformed = transformed.replace(VIDEO_TAG_RE, '');
 
     // Resolve simple JSX expressions like {version} from known imports
     transformed = transformed.replace(/\{([a-zA-Z_$][a-zA-Z0-9_$]*)\}/g, (match, name) =>

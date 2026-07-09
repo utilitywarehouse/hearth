@@ -11,7 +11,7 @@ The `UL` (Unordered List) and `OL` (Ordered List) components are used to display
 ### Unordered List (UL)
 
 ```tsx
-import { UL, LI } from '@utilitywarehouse/native-ui';
+import { UL, LI } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   return (
@@ -27,7 +27,7 @@ const MyComponent = () => {
 ### Ordered List (OL)
 
 ```tsx
-import { OL, LI } from '@utilitywarehouse/native-ui';
+import { OL, LI } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   return (
@@ -59,7 +59,7 @@ You can customise the appearance of list markers using props like `listStyleIcon
 ```
 
 ```tsx
-import { UL, LI } from '@utilitywarehouse/native-ui';
+import { UL, LI } from '@utilitywarehouse/hearth-react-native';
 import { TickMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Image } from 'react-native';
 

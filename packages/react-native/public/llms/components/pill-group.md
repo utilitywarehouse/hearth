@@ -25,7 +25,7 @@ The `PillGroup` component is a controlled component that manages the selection s
 ### Basic Usage
 
 ```tsx
-import { Pill, PillGroup } from '@hearth/react-native';
+import { Pill, PillGroup } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
 const [selectedTags, setSelectedTags] = useState(['ui']);

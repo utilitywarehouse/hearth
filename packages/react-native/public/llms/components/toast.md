@@ -93,10 +93,6 @@ Returns an object with:
 - **Icons:** Add visual context by including an icon component. Icons are positioned at the start of the toast message.
 - **Action Links:** Include interactive action links (like "Undo" or "View") as secondary actions within the toast using the `actionText` prop. When `onPress` is provided, the entire toast becomes tappable, allowing users to trigger the action by tapping anywhere on the toast.
 
-### Native iOS Toast Animation
-
-<video src={toastiOSVideo} width={400} height="auto" controls loop autoPlay />
-
 ### Basic Toast
 
 A simple text-only toast:

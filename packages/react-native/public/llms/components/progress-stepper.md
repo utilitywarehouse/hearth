@@ -16,7 +16,7 @@ The `ProgressStepper` component uses a compound component pattern, making it eas
 ### Basic Usage
 
 ```tsx
-import { ProgressStepper, ProgressStep } from '@hearth/react-native';
+import { ProgressStepper, ProgressStep } from '@utilitywarehouse/hearth-react-native';
 
 <ProgressStepper>
   <ProgressStep id={'1'} status="complete" />
