@@ -1,12 +1,12 @@
 ---
 version: alpha
 name: Hearth
-description: Utility Warehouse design system — React components, tokens, icons, and SVG illustration assets.
+description: Utility Warehouse Design Systems - the UK provider that bundles energy, broadband, mobile, and insurance into one account, one bill, and one app.
 colors:
   background-brand: "#7a42c8"
   background-loading: "#f1efe4"
   background-primary: "#fcfbf2"
-  background-secondary: "#ffffff"
+  background-secondary: "#fff"
   border-strong: "#101010"
   border-subtle: "#d4d2c0"
   feedback-danger-border: "#de2612"
@@ -68,7 +68,7 @@ colors:
   interactive-functional-foreground-strong: "#fcfbf2"
   interactive-functional-foreground-subtle: "#101010"
   interactive-functional-surface-strong-active: "#4c4c4c"
-  interactive-functional-surface-strong-default: "#888888"
+  interactive-functional-surface-strong-default: "#888"
   interactive-functional-surface-strong-hover: "#5b5b5b"
   interactive-functional-surface-subtle-active: "#d3d3d3"
   interactive-functional-surface-subtle-hover: "#ebebeb"
@@ -106,7 +106,7 @@ colors:
   surface-insurance-subtle: "#ffb46d"
   surface-mobile-default: "#ee6dbb"
   surface-mobile-subtle: "#fad0e9"
-  surface-neutral-strong: "#ffffff"
+  surface-neutral-strong: "#fff"
   surface-neutral-subtle: "#fcfbf2"
   surface-pig-default: "#f295ff"
   surface-pig-subtle: "#f9ceff"
@@ -117,88 +117,88 @@ colors:
   text-secondary: "#5b5b5b"
 typography:
   heading-2xl:
-    fontFamily: Comic Hams
+    fontFamily: comic hams
     fontSize: 3.375rem
     fontWeight: 700
     lineHeight: 3.875rem
   heading-xl:
-    fontFamily: Comic Hams
+    fontFamily: comic hams
     fontSize: 2.5rem
     fontWeight: 700
     lineHeight: 3rem
   heading-lg:
-    fontFamily: Comic Hams
+    fontFamily: comic hams
     fontSize: 1.875rem
     fontWeight: 600
     lineHeight: 2.25rem
   heading-md:
-    fontFamily: Comic Hams
+    fontFamily: comic hams
     fontSize: 1.5rem
     fontWeight: 600
     lineHeight: 1.75rem
   heading-sm:
-    fontFamily: Comic Hams
+    fontFamily: comic hams
     fontSize: 1.125rem
     fontWeight: 600
     lineHeight: 1.375rem
   body-xl:
-    fontFamily: DM Sans
+    fontFamily: dm sans
     fontSize: 1.25rem
     fontWeight: 400
     lineHeight: 1.75rem
   body-lg:
-    fontFamily: DM Sans
+    fontFamily: dm sans
     fontSize: 1.125rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-md:
-    fontFamily: DM Sans
+    fontFamily: dm sans
     fontSize: 1rem
     fontWeight: 400
     lineHeight: 1.5rem
   body-sm:
-    fontFamily: DM Sans
+    fontFamily: dm sans
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.25rem
   detail-4xl:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 2.25rem
     fontWeight: 500
     lineHeight: 2.25rem
     letterSpacing: -1.08px
   detail-3xl:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 1.875rem
     fontWeight: 500
     lineHeight: 2.25rem
     letterSpacing: -0.9px
   detail-2xl:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 1.5rem
     fontWeight: 500
     lineHeight: 2rem
     letterSpacing: -0.72px
   detail-xl:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 1.25rem
     fontWeight: 500
     lineHeight: 1.375rem
     letterSpacing: -0.6px
   detail-lg:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 1.125rem
     fontWeight: 500
     lineHeight: 1.375rem
     letterSpacing: -0.54px
   detail-md:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 1rem
     fontWeight: 500
     lineHeight: 1.5rem
     letterSpacing: -0.48px
   detail-sm:
-    fontFamily: DM Mono
+    fontFamily: dm mono
     fontSize: 0.875rem
     fontWeight: 500
     lineHeight: 1.125rem
@@ -230,97 +230,86 @@ rounded:
   xs: 4px
 components:
   button-emphasis:
-    backgroundColor: "{colors.background-brand}"
-    textColor: "{colors.background-primary}"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.full}"
-    padding: 16px
+    backgroundColor: "{colors.interactive-highlight-surface-strong-default}"
+    textColor: "{colors.interactive-highlight-foreground-strong}"
+    rounded: "{rounded.md}"
   button-emphasis-hover:
-    backgroundColor: "{colors.interactive-brand-surface-strong-hover}"
-    textColor: "{colors.background-primary}"
+    backgroundColor: "{colors.interactive-highlight-surface-strong-hover}"
+    textColor: "{colors.interactive-highlight-foreground-strong}"
   button-emphasis-active:
-    backgroundColor: "{colors.interactive-brand-surface-strong-active}"
-    textColor: "{colors.background-primary}"
+    backgroundColor: "{colors.interactive-highlight-surface-strong-active}"
+    textColor: "{colors.interactive-highlight-foreground-strong}"
   button-solid-highlight:
     backgroundColor: "{colors.interactive-highlight-surface-strong-default}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
-    padding: 16px
-  button-solid-affirmative:
-    backgroundColor: "{colors.feedback-positive-border}"
-    textColor: "{colors.background-primary}"
-    rounded: "{rounded.full}"
-    padding: 16px
-  button-solid-destructive:
-    backgroundColor: "{colors.feedback-danger-border}"
-    textColor: "{colors.background-primary}"
-    rounded: "{rounded.full}"
-    padding: 16px
-  button-outline:
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
-    padding: 16px
-  button-ghost:
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
-  input:
-    backgroundColor: "{colors.background-secondary}"
-    textColor: "{colors.border-strong}"
+    textColor: "{colors.interactive-highlight-foreground-strong}"
     rounded: "{rounded.md}"
-    padding: 12px
+  button-solid-affirmative:
+    backgroundColor: "{colors.interactive-affirmative-surface-strong-default}"
+    textColor: "{colors.text-inverted}"
+    rounded: "{rounded.md}"
+  button-solid-destructive:
+    backgroundColor: "{colors.interactive-destructive-surface-strong-default}"
+    textColor: "{colors.text-inverted}"
+    rounded: "{rounded.md}"
+  button-outline:
+    textColor: "{colors.interactive-functional-foreground-subtle}"
+    rounded: "{rounded.md}"
+  button-ghost:
+    textColor: "{colors.interactive-functional-foreground-subtle}"
+    rounded: "{rounded.md}"
+  input:
+    backgroundColor: "{colors.surface-neutral-strong}"
+    textColor: "{colors.text-primary}"
+    rounded: "{rounded.md}"
   input-invalid:
-    backgroundColor: "{colors.background-secondary}"
-    textColor: "{colors.border-strong}"
+    backgroundColor: "{colors.surface-neutral-strong}"
+    textColor: "{colors.text-primary}"
   badge-danger:
-    backgroundColor: "{colors.feedback-danger-surface-default}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
+    backgroundColor: "{colors.feedback-danger-surface-subtle}"
+    textColor: "{colors.feedback-danger-foreground-default}"
+    rounded: "{rounded.xs}"
   badge-positive:
-    backgroundColor: "{colors.feedback-positive-surface-default}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
+    backgroundColor: "{colors.feedback-positive-surface-subtle}"
+    textColor: "{colors.feedback-positive-foreground-default}"
+    rounded: "{rounded.xs}"
   badge-warning:
-    backgroundColor: "{colors.feedback-warning-surface-default}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
+    backgroundColor: "{colors.feedback-warning-surface-subtle}"
+    textColor: "{colors.feedback-warning-foreground-default}"
+    rounded: "{rounded.xs}"
   badge-info:
-    backgroundColor: "{colors.feedback-info-surface-default}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.full}"
+    backgroundColor: "{colors.feedback-info-surface-subtle}"
+    textColor: "{colors.feedback-info-foreground-default}"
+    rounded: "{rounded.xs}"
   card:
-    backgroundColor: "{colors.background-secondary}"
+    backgroundColor: "{colors.surface-neutral-strong}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-brand:
-    backgroundColor: "{colors.background-brand}"
+    backgroundColor: "{colors.surface-brand-default}"
     textColor: "{colors.background-primary}"
     rounded: "{rounded.xl}"
   card-energy:
-    backgroundColor: "{colors.shadow-energy}"
+    backgroundColor: "{colors.surface-energy-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-broadband:
-    backgroundColor: "{colors.shadow-broadband}"
+    backgroundColor: "{colors.surface-broadband-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-insurance:
-    backgroundColor: "{colors.shadow-insurance}"
+    backgroundColor: "{colors.surface-insurance-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-mobile:
-    backgroundColor: "{colors.shadow-mobile}"
+    backgroundColor: "{colors.surface-mobile-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-cashback:
-    backgroundColor: "{colors.shadow-cashback}"
+    backgroundColor: "{colors.surface-cashback-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-pig:
-    backgroundColor: "{colors.shadow-pig}"
-    textColor: "{colors.border-strong}"
-    rounded: "{rounded.xl}"
-  card-highlight:
-    backgroundColor: "{colors.interactive-highlight-surface-strong-default}"
+    backgroundColor: "{colors.surface-pig-default}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   alert-danger:
@@ -340,7 +329,7 @@ components:
     textColor: "{colors.border-strong}"
     rounded: "{rounded.md}"
   card-neutral-subtle:
-    backgroundColor: "{colors.background-primary}"
+    backgroundColor: "{colors.surface-neutral-subtle}"
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   card-highlight-subtle:
@@ -372,17 +361,11 @@ components:
     textColor: "{colors.border-strong}"
     rounded: "{rounded.xl}"
   link:
-    textColor: "{colors.background-brand}"
-  link-affirmative:
-    textColor: "{colors.feedback-positive-border}"
+    textColor: "{colors.text-primary}"
   link-inverted:
-    textColor: "{colors.background-primary}"
+    textColor: "{colors.text-inverted}"
   helper-text:
-    textColor: "{colors.feedback-functional-border}"
-  feedback-warning-text:
-    textColor: "{colors.feedback-warning-border}"
-  feedback-info-text:
-    textColor: "{colors.feedback-info-border}"
+    textColor: "{colors.text-secondary}"
 ---
 
 # Hearth Design System

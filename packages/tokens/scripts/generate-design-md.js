@@ -155,15 +155,20 @@ const blocks = {
 };
 
 // components: is hand-authored and left untouched, but its {colors.*}
-// references point to names that colors: is about to lose (mechanical names
-// replace the old curated ones). Rewrite just those references so
-// components: keeps resolving.
+// references can go dangling when colors: is regenerated (a name it pointed
+// to no longer exists — e.g. after a naming-scheme change). Only rewrite
+// references that are actually broken; a reference already pointing at a
+// still-valid name is left alone, since many tokens share the same hex value
+// and picking a "replacement" by value alone would override a deliberate,
+// more-specific choice (e.g. interactive-highlight-foreground-strong) with
+// whichever same-valued name happens to sort first.
 function normalizeHex(value) {
   const hex = value.replace('#', '').toLowerCase();
   return `#${hex.length === 3 ? [...hex].map(c => c + c).join('') : hex}`;
 }
 
 function rewriteComponentRefs(componentLines, oldColorNameToValue) {
+  const validNewColorNames = new Set(colorEntries.map(([name]) => name));
   const newColorValueToName = new Map();
   for (const [name, value] of colorEntries) {
     const key = normalizeHex(value);
@@ -172,6 +177,7 @@ function rewriteComponentRefs(componentLines, oldColorNameToValue) {
 
   return componentLines.map(line =>
     line.replace(/\{colors\.([\w-]+)\}/g, (full, name) => {
+      if (validNewColorNames.has(name)) return full;
       const oldValue = oldColorNameToValue.get(name);
       const newName = oldValue && newColorValueToName.get(normalizeHex(oldValue));
       return newName ? `{colors.${newName}}` : full;
