@@ -178,8 +178,8 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.toast.gap,
   },
   iconWrap: {
-    width: theme.components.iconSize.md,
-    height: theme.components.iconSize.md,
+    width: theme.components.icon.md.width,
+    height: theme.components.icon.md.height,
     justifyContent: 'center',
     alignSelf: 'flex-start',
     alignItems: 'flex-start',

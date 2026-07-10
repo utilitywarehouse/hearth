@@ -34,7 +34,8 @@ Item-level binary controls (`Checkbox`, `Radio`, `RadioCard`,
 **Icon sizing now token-driven**
 
 Hardcoded 20px/24px icon dimensions across 15 components now use the new
-`theme.components.iconSize.sm` / `.md` tokens from `hearth-tokens`.
+`theme.components.icon.sm.width|height` / `theme.components.icon.md.width|height`
+tokens from `hearth-tokens`.
 
 **`ToggleButton` announces its toggled state**
 

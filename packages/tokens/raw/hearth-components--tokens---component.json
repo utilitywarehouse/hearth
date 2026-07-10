@@ -1036,6 +1036,32 @@
         }
       }
     },
+    "icon": {
+      "md": {
+        "height": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "width": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        }
+      },
+      "sm": {
+        "height": {
+          "alias": "{space.250}",
+          "type": "number",
+          "value": 20
+        },
+        "width": {
+          "alias": "{space.250}",
+          "type": "number",
+          "value": 20
+        }
+      }
+    },
     "icon-button": {
       "border-radius": {
         "alias": "{space.100}",
@@ -1218,18 +1244,6 @@
           "type": "number",
           "value": 32
         }
-      }
-    },
-    "icon-size": {
-      "md": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      },
-      "sm": {
-        "alias": "{space.250}",
-        "type": "number",
-        "value": 20
       }
     },
     "illustrations": {
@@ -3989,6 +4003,32 @@
         }
       }
     },
+    "icon": {
+      "md": {
+        "height": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "width": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        }
+      },
+      "sm": {
+        "height": {
+          "alias": "{space.250}",
+          "type": "number",
+          "value": 20
+        },
+        "width": {
+          "alias": "{space.250}",
+          "type": "number",
+          "value": 20
+        }
+      }
+    },
     "icon-button": {
       "border-radius": {
         "alias": "{border-radius.md}",
@@ -4171,18 +4211,6 @@
           "type": "number",
           "value": 32
         }
-      }
-    },
-    "icon-size": {
-      "md": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      },
-      "sm": {
-        "alias": "{space.250}",
-        "type": "number",
-        "value": 20
       }
     },
     "illustrations": {

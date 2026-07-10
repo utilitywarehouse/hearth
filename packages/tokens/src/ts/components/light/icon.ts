@@ -3,6 +3,12 @@
  */
 
 export default {
-  md: 24,
-  sm: 20,
+  md: {
+    height: 24,
+    width: 24,
+  },
+  sm: {
+    height: 20,
+    width: 20,
+  },
 } as const;

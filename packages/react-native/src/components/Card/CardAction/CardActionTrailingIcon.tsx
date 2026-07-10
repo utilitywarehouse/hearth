@@ -24,8 +24,8 @@ CardActionTrailingIcon.displayName = 'CardActionTrailingIcon';
 const styles = StyleSheet.create(theme => ({
   icon: {
     color: theme.color.icon.primary,
-    minWidth: theme.components.iconSize.sm,
-    minHeight: theme.components.iconSize.sm,
+    minWidth: theme.components.icon.sm.width,
+    minHeight: theme.components.icon.sm.height,
   },
 }));
 

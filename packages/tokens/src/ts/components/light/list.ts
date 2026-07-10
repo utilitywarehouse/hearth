@@ -42,7 +42,4 @@ export default {
       paddingRight: 16,
     },
   },
-  list: {
-    gap: 8,
-  },
 } as const;

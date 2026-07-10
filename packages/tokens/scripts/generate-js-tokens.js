@@ -19,10 +19,15 @@ function createDynamicComponentFiles(componentJson, mode) {
     format: 'js/component-output',
     options: { minify: true },
     transformGroup: 'js-device',
+    // Match only tokens from the component tokens file whose path starts with
+    // [mode, componentName] — a loose `path.includes` would also capture
+    // unrelated tokens with a nested segment of the same name (e.g. `icon`
+    // inside menu/checkbox tokens) and tokens from the semantic file, whose
+    // filename also contains 'component'.
     filter: token =>
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.path.includes(mode),
+      token.filePath.endsWith('hearth-components--tokens---component.json') &&
+      token.path[0] === mode &&
+      token.path[1] === componentName,
   }));
 }
 

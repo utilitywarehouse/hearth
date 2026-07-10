@@ -167,6 +167,10 @@
   --h-expandable-card-group-gap: var(--h-space-150);
   --h-form-field-gap: var(--h-space-75);
   --h-form-field-helper-gap: var(--h-space-25);
+  --h-icon-md-height: var(--h-space-300);
+  --h-icon-md-width: var(--h-space-300);
+  --h-icon-sm-height: var(--h-space-250);
+  --h-icon-sm-width: var(--h-space-250);
   --h-icon-button-border-radius: var(--h-border-radius-md);
   --h-icon-button-md-height: 48px;
   --h-icon-button-md-padding-horizontal: var(--h-space-150);
@@ -201,8 +205,6 @@
   --h-icon-container-sm-height: var(--h-space-400);
   --h-icon-container-sm-padding: var(--h-space-75);
   --h-icon-container-sm-width: var(--h-space-400);
-  --h-icon-size-md: var(--h-space-300);
-  --h-icon-size-sm: var(--h-space-250);
   --h-illustrations-color-mode: light;
   --h-inline-link-color: var(--h-color-blue-700);
   --h-inline-link-color-visited: var(--h-color-purple-700);

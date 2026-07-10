@@ -77,8 +77,8 @@ const styles = StyleSheet.create(theme => ({
   },
   icon: {
     color: theme.color.icon.primary,
-    width: theme.components.iconSize.sm,
-    height: theme.components.iconSize.sm,
+    width: theme.components.icon.sm.width,
+    height: theme.components.icon.sm.height,
   },
   monthYearWrap: {
     display: 'flex',

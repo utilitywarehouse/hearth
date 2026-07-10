@@ -37,8 +37,8 @@ CarouselControlItem.displayName = 'CarouselControlItem';
 
 const styles = StyleSheet.create(theme => ({
   item: {
-    width: theme.components.iconSize.md,
-    height: theme.components.iconSize.md,
+    width: theme.components.icon.md.width,
+    height: theme.components.icon.md.height,
     alignItems: 'center',
     justifyContent: 'center',
   },

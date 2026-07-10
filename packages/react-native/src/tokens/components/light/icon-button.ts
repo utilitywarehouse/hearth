@@ -3,13 +3,6 @@
  */
 
 export default {
-  iconButton: {
-    unstyled: {
-      foregroundColor: '#101010',
-      foregroundColorActive: '#3f3f3f',
-      foregroundColorHover: '#3a3837',
-    },
-  },
   borderRadius: 8,
   md: {
     height: 48,

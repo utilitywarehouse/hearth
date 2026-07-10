@@ -13,10 +13,10 @@ BadgeIcon.displayName = 'BadgeIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    width: theme.components.iconSize.sm,
-    height: theme.components.iconSize.sm,
-    minWidth: theme.components.iconSize.sm,
-    minHeight: theme.components.iconSize.sm,
+    width: theme.components.icon.sm.width,
+    height: theme.components.icon.sm.height,
+    minWidth: theme.components.icon.sm.width,
+    minHeight: theme.components.icon.sm.height,
     variants: {
       colorScheme: {
         info: {},
