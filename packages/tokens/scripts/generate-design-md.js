@@ -197,9 +197,13 @@ function parseOldColorsBlock(colorLines = []) {
 function spliceFrontMatter(designMd) {
   const lines = designMd.split('\n');
   const fmStart = lines.indexOf('---');
-  const fmEnd = lines.indexOf('---', fmStart + 1);
-  const frontMatter = lines.slice(fmStart + 1, fmEnd);
+  const fmEnd = fmStart === -1 ? -1 : lines.indexOf('---', fmStart + 1);
 
+  if (fmStart === -1 || fmEnd === -1) {
+    throw new Error('DESIGN.md must start with YAML front matter delimited by --- lines.');
+  }
+
+  const frontMatter = lines.slice(fmStart + 1, fmEnd);
   const topLevelKeyLines = [];
   frontMatter.forEach((line, i) => {
     if (/^\w[\w-]*:/.test(line)) topLevelKeyLines.push(i);
