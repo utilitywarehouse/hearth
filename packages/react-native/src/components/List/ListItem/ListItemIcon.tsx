@@ -24,8 +24,8 @@ ListItemIcon.displayName = 'ListItemIcon';
 const styles = StyleSheet.create(theme => ({
   icon: {
     color: theme.color.icon.primary,
-    width: 24,
-    height: 24,
+    width: theme.components.iconSize.md,
+    height: theme.components.iconSize.md,
   },
 }));
 

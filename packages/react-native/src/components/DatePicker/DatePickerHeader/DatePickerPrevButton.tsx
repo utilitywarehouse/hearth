@@ -37,8 +37,8 @@ const PrevButton = () => {
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    width: 20,
-    height: 20,
+    width: theme.components.iconSize.sm,
+    height: theme.components.iconSize.sm,
     color: theme.color.icon.primary,
   },
 }));

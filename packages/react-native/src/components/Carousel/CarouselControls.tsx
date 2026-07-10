@@ -140,8 +140,8 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.carouselControl.gap,
   },
   button: {
-    width: 24,
-    height: 24,
+    width: theme.components.iconSize.md,
+    height: theme.components.iconSize.md,
   },
 }));
 

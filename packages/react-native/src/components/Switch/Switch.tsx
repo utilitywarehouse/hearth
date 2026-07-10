@@ -20,18 +20,21 @@ const CustomSwitch = ({
   value = false,
   onValueChange,
   disabled = false,
-  size = 'medium',
+  size = 'md',
   ...accessibilityProps
 }: SwitchProps) => {
   const { components } = useTheme();
   const theme = useAnimatedTheme();
-  const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
+  // 'small' | 'medium' are deprecated aliases for 'sm' | 'md'
+  const resolvedSize = size === 'small' ? 'sm' : size === 'medium' ? 'md' : size;
+  const SWITCH_WIDTH =
+    resolvedSize === 'md' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =
-    size === 'medium' ? components.switch.md.circle.size : components.switch.sm.circle.size;
+    resolvedSize === 'md' ? components.switch.md.circle.size : components.switch.sm.circle.size;
   const PADDING = components.switch.padding;
   const isReducedMotion = useReducedMotion();
 
-  styles.useVariants({ size, disabled, value });
+  styles.useVariants({ size: resolvedSize, disabled, value });
 
   const offset = useSharedValue(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0);
   const progress = useSharedValue(value ? 1 : 0);
@@ -142,13 +145,13 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     variants: {
       size: {
-        medium: {
+        md: {
           width: theme.components.switch.md.width,
           height: theme.components.switch.md.height,
           borderRadius: theme.components.switch.radius,
           padding: theme.components.switch.padding,
         },
-        small: {
+        sm: {
           width: theme.components.switch.sm.width,
           height: theme.components.switch.sm.height,
           borderRadius: theme.components.switch.radius,
@@ -176,12 +179,12 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     variants: {
       size: {
-        medium: {
+        md: {
           width: theme.components.switch.md.circle.size,
           height: theme.components.switch.md.circle.size,
           borderRadius: theme.components.switch.radius,
         },
-        small: {
+        sm: {
           width: theme.components.switch.sm.circle.size,
           height: theme.components.switch.sm.circle.size,
           borderRadius: theme.components.switch.radius,

@@ -130,7 +130,8 @@ The `CheckboxGroup` component is used to group multiple checkbox inputs together
 | Property             | Type                                | Default     | Description                                                            |
 | -------------------- | ----------------------------------- | ----------- | ---------------------------------------------------------------------- |
 | `value`              | string                              | -           | The value of the checkbox group.                                       |
-| `onChange`           | function                            | -           | The callback fired when any children Checkbox is checked or unchecked. |
+| `onValueChange`      | `(values: Array<string>) => void`   | -           | The callback fired when any children Checkbox is checked or unchecked. |
+| `onChange`           | function                            | -           | **Deprecated** — use `onValueChange` instead. |
 | `disabled`           | bool                                | -           | To manually set disable to the checkbox group.                         |
 | `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -           | The validation status of the checkbox group.                           |
 | `label`              | `string`                            | -           | The label to be displayed above the checkbox group.                    |
@@ -186,7 +187,7 @@ const MyComponent = () => {
     <CheckboxGroup
       aria-label="Checkbox Group"
       value={values}
-      onChange={setValues}
+      onValueChange={setValues}
       nativeID="checkbox-group"
     >
       <Checkbox
@@ -209,7 +210,8 @@ const MyComponent = () => {
 | Property           | Type                                | Default | Description                                                            |
 | ------------------ | ----------------------------------- | ------- | ---------------------------------------------------------------------- |
 | `value`            | `string[]`                          | -       | The value of the checkbox group.                                       |
-| `onChange`         | `(values: Array<string>) => void`   | -       | The callback fired when any children Checkbox is checked or unchecked. |
+| `onValueChange`    | `(values: Array<string>) => void`   | -       | The callback fired when any children Checkbox is checked or unchecked. |
+| `onChange`         | `(values: Array<string>) => void`   | -       | **Deprecated** — use `onValueChange` instead. |
 | `disabled`         | `bool`                              | `false` | To manually set disable to the checkbox.                               |
 | `validationStatus` | `'valid' \| 'invalid' \| 'initial'` | -       | The validation status of the checkbox group.                           |
 
@@ -281,7 +283,7 @@ const MyComponent = () => {
       aria-label="Checkbox Group"
       label="Which fruit do you enjoy?"
       value={values}
-      onChange={setValues}
+      onValueChange={setValues}
       nativeID="checkbox-group"
     >
       <Checkbox value="Apple" aria-label="Apple">

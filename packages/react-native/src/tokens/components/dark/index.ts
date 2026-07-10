@@ -25,6 +25,7 @@ export { default as expandableCard } from './expandable-card';
 export { default as formField } from './form-field';
 export { default as iconButton } from './icon-button';
 export { default as iconContainer } from './icon-container';
+export { default as iconSize } from './icon-size';
 export { default as illustrations } from './illustrations';
 export { default as indicatorIconButton } from './indicator-icon-button';
 export { default as inlineLink } from './inline-link';

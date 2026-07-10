@@ -27,10 +27,10 @@ AlertIcon.displayName = 'AlertIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    width: 24,
-    height: 24,
-    minWidth: 24,
-    minHeight: 24,
+    width: theme.components.iconSize.md,
+    height: theme.components.iconSize.md,
+    minWidth: theme.components.iconSize.md,
+    minHeight: theme.components.iconSize.md,
     alignSelf: 'flex-start',
     variants: {
       colorScheme: {

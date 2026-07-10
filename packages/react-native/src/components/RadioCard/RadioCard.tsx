@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import RadioCardProps from './RadioCard.props';
 import StyledRadioCardGroup from './RadioCardGroup';
+import RadioCardGroupProps from './RadioCardGroup.props';
 import StyledRadioCardIcon from './RadioCardIcon';
 import StyledRadioCardIndicator from './RadioCardIndicator';
 import StyledRadioCardLabel from './RadioCardLabel';
@@ -17,10 +18,20 @@ const RadioCardComponent = createRadio({
   Label: StyledRadioCardLabel,
 });
 
-const RadioCardGroup = RadioCardComponent.Group;
+const RadioCardGroupComponent = RadioCardComponent.Group;
 const RadioCardIndicator = RadioCardComponent.Indicator;
 const RadioCardIcon = RadioCardComponent.Icon;
 const RadioCardLabel = RadioCardComponent.Label;
+
+const RadioCardGroup = ({ onChange, onValueChange, ...props }: RadioCardGroupProps) => (
+  <RadioCardGroupComponent
+    {...(props as any)}
+    onChange={(value: string) => {
+      onChange?.(value);
+      onValueChange?.(value);
+    }}
+  />
+);
 
 RadioCardGroup.displayName = 'RadioCardGroup';
 RadioCardIndicator.displayName = 'RadioCardIndicator';

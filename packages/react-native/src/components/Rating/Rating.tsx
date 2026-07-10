@@ -39,6 +39,7 @@ const Rating = ({
   value,
   defaultValue = 0,
   onChange,
+  onValueChange,
   disabled = false,
   labels,
   rangeLabels = DEFAULT_RANGE_LABELS,
@@ -71,8 +72,9 @@ const Rating = ({
       }
 
       onChange?.(nextValue);
+      onValueChange?.(nextValue);
     },
-    [disabled, isControlled, onChange]
+    [disabled, isControlled, onChange, onValueChange]
   );
 
   styles.useVariants({ disabled });

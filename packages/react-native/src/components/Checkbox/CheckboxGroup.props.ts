@@ -5,6 +5,10 @@ import { space } from '../../tokens';
 interface CheckboxGroupProps extends ViewProps {
   disabled?: boolean;
   value?: Array<string>;
+  onValueChange?: (value: Array<string>) => void;
+  /**
+   * @deprecated Use `onValueChange` instead.
+   */
   onChange?: (value: Array<string>) => void;
   readonly?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
