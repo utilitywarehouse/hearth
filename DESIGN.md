@@ -805,7 +805,7 @@ Hearth uses a **generous, consistent corner radius**. All interactive elements a
 
 Source: `packages/react/src` — `@utilitywarehouse/hearth-react`
 
-Wrap your app in `<HearthProvider>` (required — wraps `ToastProvider` and `TooltipProvider`).
+Wrap your app in `<HearthProvider>` (required — wraps `TooltipProvider`). If you use Toasts, also add `ToastProvider` higher in the tree.
 
 ```tsx
 import { HearthProvider } from '@utilitywarehouse/hearth-react';
