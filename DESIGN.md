@@ -1038,11 +1038,11 @@ Detailed instructional diagrams for broadband setup, smart meters, and insurance
 
 **Insurance Locks:** mortice-deadlock-5-levers, multipoint-system-3-bolts, other-lock, rim-automatic-deadlock
 
-### Sentiment Faces (8 files)
+### Sentiment Faces (10 files — 5 subjects × default/grey)
 
 Emoji-style faces for feedback and NPS surfaces. Available in default and `grey` colorway.
 
-`beaming-face` · `slightly-smiling-face` · `neutral-face` · `frowning-face` · `disappointed-face`
+`beaming-face` · `slightly-smiling-face` · `neutral-face` · `frowning-face` · `dissapointed-face`
 
 ---
 
