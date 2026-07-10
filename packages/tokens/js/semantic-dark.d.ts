@@ -2,6 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly icon: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#ebebeb';
+  };
   readonly background: {
     readonly brand: '#442484';
     readonly loading: '#30302c';
@@ -70,10 +74,6 @@ declare const _default: {
     };
   };
   readonly focus: {
-    readonly inverted: '#fcfbf2';
-    readonly primary: '#ebebeb';
-  };
-  readonly icon: {
     readonly inverted: '#fcfbf2';
     readonly primary: '#ebebeb';
   };

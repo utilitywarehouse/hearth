@@ -339,6 +339,16 @@ export declare const components: {
       readonly gap: 'var(--h-form-field-helper-gap)';
     };
   };
+  readonly icon: {
+    readonly md: {
+      readonly height: 'var(--h-icon-md-height)';
+      readonly width: 'var(--h-icon-md-width)';
+    };
+    readonly sm: {
+      readonly height: 'var(--h-icon-sm-height)';
+      readonly width: 'var(--h-icon-sm-width)';
+    };
+  };
   readonly iconButton: {
     readonly borderRadius: 'var(--h-icon-button-border-radius)';
     readonly md: {
@@ -394,10 +404,6 @@ export declare const components: {
       readonly padding: 'var(--h-icon-container-sm-padding)';
       readonly width: 'var(--h-icon-container-sm-width)';
     };
-  };
-  readonly iconSize: {
-    readonly md: 'var(--h-icon-size-md)';
-    readonly sm: 'var(--h-icon-size-sm)';
   };
   readonly illustrations: {
     readonly colorMode: 'var(--h-illustrations-color-mode)';

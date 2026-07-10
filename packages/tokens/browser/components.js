@@ -340,6 +340,16 @@ export const components = {
       gap: 'var(--h-form-field-helper-gap)',
     },
   },
+  icon: {
+    md: {
+      height: 'var(--h-icon-md-height)',
+      width: 'var(--h-icon-md-width)',
+    },
+    sm: {
+      height: 'var(--h-icon-sm-height)',
+      width: 'var(--h-icon-sm-width)',
+    },
+  },
   iconButton: {
     borderRadius: 'var(--h-icon-button-border-radius)',
     md: {
@@ -395,10 +405,6 @@ export const components = {
       padding: 'var(--h-icon-container-sm-padding)',
       width: 'var(--h-icon-container-sm-width)',
     },
-  },
-  iconSize: {
-    md: 'var(--h-icon-size-md)',
-    sm: 'var(--h-icon-size-sm)',
   },
   illustrations: {
     colorMode: 'var(--h-illustrations-color-mode)',

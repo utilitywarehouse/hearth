@@ -2,13 +2,6 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  iconButton: {
-    unstyled: {
-      foregroundColor: '#ebebeb',
-      foregroundColorActive: '#b2afae',
-      foregroundColorHover: '#d3d3d3',
-    },
-  },
   borderRadius: 8,
   md: {
     height: 48,
