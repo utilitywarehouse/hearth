@@ -231,11 +231,11 @@ const styles = StyleSheet.create(theme => ({
       size: {
         sm: {
           height: 32,
-          padding: 2,
+          padding: theme.components.segmentedControl.group.padding,
         },
         md: {
           height: theme.components.segmentedControl.group.height,
-          padding: 2,
+          padding: theme.components.segmentedControl.group.padding,
         },
       },
       disabled: {

@@ -11,20 +11,10 @@ import { Input, InputField, InputSlot } from '../Input';
 import { TimePicker } from '../TimePicker';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import type TimePickerInputProps from './TimePickerInput.props';
+import { DEFAULT_FORMAT_12, DEFAULT_FORMAT_24, maskDefaultFormat } from './TimePickerInput.utils';
 import TimePickerInputDoneButton from './TimePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
-
-const DEFAULT_FORMAT_24 = 'HH:mm';
-const DEFAULT_FORMAT_12 = 'hh:mm A';
-
-const maskDefaultFormat = (value: string) => {
-  const digitsOnly = value.replace(/\D/g, '').slice(0, 4);
-  const hours = digitsOnly.slice(0, 2);
-  const minutes = digitsOnly.slice(2, 4);
-
-  return [hours, minutes].filter(Boolean).join(':');
-};
 
 const TimePickerInput = ({
   validationStatus = 'initial',

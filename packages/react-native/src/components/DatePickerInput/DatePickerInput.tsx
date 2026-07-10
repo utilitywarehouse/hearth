@@ -11,20 +11,10 @@ import { useFormFieldContext } from '../FormField';
 import { Input, InputField, InputSlot } from '../Input';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import type DatePickerInputProps from './DatePickerInput.props';
+import { DEFAULT_FORMAT, maskDefaultFormat } from './DatePickerInput.utils';
 import DatePickerInputDoneButton from './DatePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
-
-const DEFAULT_FORMAT = 'DD/MM/YYYY';
-
-const maskDefaultFormat = (value: string) => {
-  const digitsOnly = value.replace(/\D/g, '').slice(0, 8);
-  const day = digitsOnly.slice(0, 2);
-  const month = digitsOnly.slice(2, 4);
-  const year = digitsOnly.slice(4, 8);
-
-  return [day, month, year].filter(Boolean).join('/');
-};
 
 const DatePickerInput = ({
   validationStatus = 'initial',
