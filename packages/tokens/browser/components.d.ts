@@ -395,6 +395,10 @@ export declare const components: {
       readonly width: 'var(--h-icon-container-sm-width)';
     };
   };
+  readonly iconSize: {
+    readonly md: 'var(--h-icon-size-md)';
+    readonly sm: 'var(--h-icon-size-sm)';
+  };
   readonly illustrations: {
     readonly colorMode: 'var(--h-illustrations-color-mode)';
   };

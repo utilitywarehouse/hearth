@@ -396,6 +396,10 @@ export const components = {
       width: 'var(--h-icon-container-sm-width)',
     },
   },
+  iconSize: {
+    md: 'var(--h-icon-size-md)',
+    sm: 'var(--h-icon-size-sm)',
+  },
   illustrations: {
     colorMode: 'var(--h-illustrations-color-mode)',
   },
