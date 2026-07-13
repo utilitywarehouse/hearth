@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-🧹 [HOUSEKEEPING]: Add Storybook MCP addon and align Chromatic config with `hearth-react`
+🧹 [HOUSEKEEPING]: Add Storybook MCP addon
 
 Adds `@storybook/addon-mcp` to Storybook so Chromatic can expose a hosted MCP
 server (`list-all-documentation`, `get-documentation`,

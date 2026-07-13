@@ -1,0 +1,100 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BodyText, Box, Card, Center, Heading } from '../src';
+import { BackToTopButton, InputShadowExample, NextPrevPage, UsageWrap } from './components';
+
+<Meta title="AI Tooling" />
+<BackToTopButton />
+
+# AI Tooling
+
+The Hearth React Native AI Tools are intended to help your AI agents use Hearth React Native
+components to build Utility Warehouse UIs. They provide access to APIs,
+component documentation and usage guidelines, so your agent has the context it
+needs to build with Hearth correctly.
+
+These tools include:
+
+- [llms.txt](https://hearth.prod.uw.systems/react-native/llms.txt) and markdown docs
+- [SKILL.md](https://github.com/utilitywarehouse/hearth/blob/main/packages/react/SKILL.md)
+- [MCP Server](https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp)
+
+## llms.txt and markdown docs
+
+The [llms.txt](https://hearth.prod.uw.systems/react-native/llms.txt) file is a list of
+all Hearth React Native documentation, and each documentation page has a corresponding
+markdown, file for use by AI agents.
+
+This documentation is also included in the Hearth React Native package, so your agent
+can access it locally if you have the package installed. The easiest way to do
+this is via the Hearth React Native Agent Skill.
+
+## Agent Skill
+
+The [Hearth React Native Agent Skill](https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/SKILL.md)
+is a skill for your AI agent to use when building any React Native UI.
+
+This skill is focused on usage of the Hearth React Native component library, and
+doesn't attempt to cover any other aspects of building a React application, or
+local custom components.
+
+The skill is packaged with the Hearth React Native package, so your agent can access
+it locally if you have the package installed. To ensure your agent has access
+to the skill, you can add an entry to your local `AGENTS.md` or `CLAUDE.md` file.
+
+You can do this by using the `init-ai` tool:
+
+```console
+npx @utilitywarehouse/hearth-react-native init-ai
+```
+
+This will add an entry to your `AGENTS.md` or `CLAUDE.md` file pointing to the
+skill file.
+
+Alternatively, you can add an entry manually to your `AGENTS.md` or `CLAUDE.md`
+file like this:
+
+```markdown
+<!-- @utilitywarehouse/hearth-react — AI skill for component library usage guidance -->
+
+@node_modules/@utilitywarehouse/hearth-react-native/SKILL.md
+```
+
+or if you are using a monorepo with the Hearth React Native package in a subdirectory,
+you can add an entry like this:
+
+```markdown
+<!-- @utilitywarehouse/hearth-react-native — AI skill for component library usage guidance -->
+
+@../../node_modules/@utilitywarehouse/hearth-react-native/SKILL.md
+```
+
+We recommend having `v0.34.5` or later of the Hearth React Native package installed,
+as this version includes the latest updates to the skill.
+
+## MCP Server
+
+The remote [MCP Server](https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp),
+built on the [Storybook MCP Server](https://storybook.js.org/docs/ai/mcp/overview#docs),
+provides tools for agents to use Hearth React Native documentation and components.
+
+It is referenced in the Hearth React Native Agent Skill, so your agent can access it
+remotely if you have the skill installed, and the MCP server configured in your
+agent.
+
+To configure your agent to use the MCP server, you can add an entry to your
+configuration file like this:
+
+```json
+{
+  "servers": {
+    "hearth-react-native": {
+      "url": "https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp",
+      "type": "http"
+    }
+  }
+}
+```
+
+This is an example for adding to the VS Code `mcp.json` file, but the
+configuration format may vary depending on your agent. We are in the process of
+adding support for the MCP Server to the organisation's Claude configuration.
