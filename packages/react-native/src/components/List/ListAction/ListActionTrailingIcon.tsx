@@ -25,8 +25,8 @@ ListActionTrailingIcon.displayName = 'ListActionTrailingIcon';
 const styles = StyleSheet.create(theme => ({
   icon: {
     color: theme.color.icon.primary,
-    minWidth: 20,
-    minHeight: 20,
+    minWidth: theme.components.icon.sm.width,
+    minHeight: theme.components.icon.sm.height,
   },
 }));
 

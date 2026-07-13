@@ -25,8 +25,8 @@ HelperIcon.displayName = 'HelperIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    width: 20,
-    height: 20,
+    width: theme.components.icon.sm.width,
+    height: theme.components.icon.sm.height,
     variants: {
       validationStatus: {
         valid: {

@@ -18,6 +18,7 @@ import ComboboxProps, {
   ComboboxOptionItemProps,
   ComboboxRenderContentProps,
 } from './Combobox.props';
+import { defaultFilterOption } from './Combobox.utils';
 import ComboboxOption from './ComboboxOption';
 
 const DEFAULT_SNAP_POINTS = ['25%', '40%', '80%'];
@@ -212,23 +213,11 @@ const Combobox = ({
     [handleClear]
   );
 
-  const defaultFilterOption = useCallback((option: ComboboxOptionItemProps, query: string) => {
-    const normalizedQuery = query.trim().toLowerCase();
-
-    if (!normalizedQuery) {
-      return true;
-    }
-
-    const haystack = [option.label, ...(option.keywords ?? [])].map(term => term.toLowerCase());
-
-    return haystack.some(term => term.includes(normalizedQuery));
-  }, []);
-
   const filteredOptions = useMemo(() => {
     const optionFilter = filterOption ?? defaultFilterOption;
 
     return options.filter(option => optionFilter(option, search));
-  }, [defaultFilterOption, filterOption, options, search]);
+  }, [filterOption, options, search]);
 
   const renderSelectOption = useCallback(
     ({ item }: { item: ComboboxOptionItemProps }) => (

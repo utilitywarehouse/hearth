@@ -67,7 +67,7 @@ const MyComponent = () => {
     <RadioCardGroup
       aria-label="Select Tariff"
       value={value}
-      onChange={setValue}
+      onValueChange={setValue}
       nativeID="RadioCard-group"
     >
       <RadioCard value="fixed" aria-label="Debit Card Payment" label="Debit card payment">
@@ -117,7 +117,8 @@ Contains all Group related layout style props and actions. It inherits all the p
 | Property         | Type                                                                                                     | Default  | Description                                                                                                |
 | ---------------- | -------------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------- |
 | `value`          | `string`                                                                                                 | -        | The value of the currently selected `RadioCard`.                                                           |
-| `onChange`       | `(value: string) => void`                                                                                | -        | Callback fired when the selected `RadioCard` changes.                                                      |
+| `onValueChange`  | `(value: string) => void`                                                                                | -        | Callback fired when the selected `RadioCard` changes.                                                      |
+| `onChange`       | `(value: string) => void`                                                                                | -        | **Deprecated** — use `onValueChange` instead.                                                              |
 | `gap`            | `keyof typeof space`                                                                                     | -        | The gap between the `RadioCard` items.                                                                     |
 | `columns`        | `GridProps['columns']`                                                                                   | -        | If set, the group will use a grid layout with the specified number of columns. Otherwise, it uses flexbox. |
 | `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                 | `'row'`  | (Flexbox only) Sets the direction of the flex items.                                                       |
