@@ -25,6 +25,8 @@ pnpm lint:fix               # eslint --fix .
 pnpm copyTokens             # vendors CSS tokens from packages/tokens into src/tokens — run after changing hearth-tokens
 pnpm generateColours        # regenerates legacy colour token files
 
+pnpm generate:llm-docs      # regenerate public/llms/ from stories — run after any API change
+
 pnpm figma:create           # scaffold a Code Connect entry
 pnpm figma:publish          # publish Code Connect mappings
 ```
@@ -98,6 +100,12 @@ There are two distinct test configs, and they check different things:
 
 Storybook itself targets `@storybook/react-native-web-vite`, so stories run against `react-native-web`, not a
 native simulator — this is also why `_web`-scoped Unistyles blocks matter for how components look in Storybook.
+
+### LLM docs
+
+- `public/llms/` is **auto-generated** by `pnpm generate:llm-docs` from `.docs.mdx` stories — **do not hand-edit**.
+- Regenerate whenever a public component API (props or JSDoc) changes.
+- Unlike `packages/react`'s generator, this package's pipeline has no `<ArgTypes>`/prop-table branch (RN docs hand-write `## Props` tables directly) and drops decorative/interactive doc-only components (`UsageWrap`, `ViewFigmaButton`, `BackToTopButton`, `NextPrevPage`, etc.) rather than leaking their raw JSX — their content, where meaningful, is already duplicated as a hand-written code fence alongside them.
 
 ### Peer dependency surface
 
