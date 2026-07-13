@@ -1,15 +1,15 @@
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
+import { config } from '@utilitywarehouse/hearth-storybook-utils';
+import '@utilitywarehouse/hearth-storybook-utils/styles/diff-highlighting.css';
+import '@utilitywarehouse/hearth-storybook-utils/styles/preview.css';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import '@utilitywarehouse/hearth-tokens/index.css';
 import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import '@utilitywarehouse/hearth-storybook-utils/styles/diff-highlighting.css';
-import '@utilitywarehouse/hearth-storybook-utils/styles/preview.css';
+import { create } from 'storybook/theming';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
 import { initializePrism } from './prism-setup';
-import { config } from '@utilitywarehouse/hearth-storybook-utils';
-import { create } from 'storybook/theming';
 
 const theme = create(config);
 
@@ -73,6 +73,7 @@ const preview = {
           'Introduction',
           'Getting Started',
           'Changelog',
+          'AI Tooling',
           'Styling',
           'Theme Tokens',
           'Hooks',
