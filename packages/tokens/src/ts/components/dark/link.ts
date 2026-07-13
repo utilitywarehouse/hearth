@@ -3,6 +3,11 @@
  */
 
 export default {
+  link: {
+    color: '#ebebeb',
+    colorActive: '#b2afae',
+    colorHover: '#d3d3d3',
+  },
   color: '#ebebeb',
   colorActive: '#b2afae',
   colorHover: '#d3d3d3',

@@ -41,5 +41,8 @@ declare const _default: {
       readonly paddingRight: 16;
     };
   };
+  readonly list: {
+    readonly gap: 8;
+  };
 };
 export default _default;

@@ -2,6 +2,11 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly link: {
+    readonly color: '#ebebeb';
+    readonly colorActive: '#b2afae';
+    readonly colorHover: '#d3d3d3';
+  };
   readonly color: '#ebebeb';
   readonly colorActive: '#b2afae';
   readonly colorHover: '#d3d3d3';
