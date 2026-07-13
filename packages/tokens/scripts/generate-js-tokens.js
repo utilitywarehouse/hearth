@@ -18,6 +18,7 @@ function createDynamicComponentFiles(componentJson, mode) {
     destination: `components/${mode}/${componentName}.ts`,
     format: 'js/component-output',
     options: { minify: true },
+    transformGroup: 'js-device',
     filter: token =>
       token.filePath.includes('component') &&
       token.path.includes(componentName) &&
