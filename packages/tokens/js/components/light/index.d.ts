@@ -16,6 +16,7 @@ export { default as cardAction } from './card-action';
 export { default as cardContent } from './card-content';
 export { default as carouselControl } from './carousel-control';
 export { default as checkbox } from './checkbox';
+export { default as chip } from './chip';
 export { default as datePicker } from './date-picker';
 export { default as descriptionList } from './description-list';
 export { default as divider } from './divider';

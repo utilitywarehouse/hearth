@@ -1,0 +1,123 @@
+# Hearth React Native
+
+> @utilitywarehouse/hearth-react-native - React Native component library for Utility Warehouse products.
+
+## Guides
+
+- [Adding Shadows](llms/docs/adding-shadows.md)
+  - Using Predefined Shadows
+  - Components with Shadow Props
+- [All Components](llms/docs/all-components.md)
+- [Dark Mode Best Practice](llms/docs/dark-mode-best-practice.md)
+  - Setting Up Dark Mode
+  - Use Semantic Theme Colours
+  - Use Semantic Utility Props
+  - Use the asset libraries
+  - `ThemedImage` component
+- [Getting Started](llms/docs/getting-started.md)
+- [Hooks](llms/docs/hooks.md)
+  - useTheme
+  - useToken
+  - useColorMode
+  - useBreakpointValue
+  - useMedia
+- [Hearth React Native](llms/docs/introduction.md)
+  - Installation
+  - Additional packages
+  - Fonts
+  - Babel configuration
+  - Jest configuration
+- [Layout Components](llms/docs/layout-components.md)
+  - Box
+  - Container
+  - Flex
+  - Grid
+- [Styling](llms/docs/styling.md)
+  - Unistyles Features
+  - Usage
+  - Design Tokens and Theme
+  - Responsive Design with Breakpoints
+  - Dark Mode Support
+  - Color Mode Specific Styles
+  - Runtime Access
+  - Component-Specific Tokens
+  - Variants and Compound Variants
+- [Theme Tokens](llms/docs/theme-tokens.md)
+  - How to Use Tokens
+  - Utility Tokens
+  - Colors
+  - Typography
+  - Spacing
+  - Shadows
+  - Layout Tokens
+  - Component Tokens
+  - Tokens Package
+
+## Components
+
+- [Accordion](llms/components/accordion.md): The Accordion component is a vertically stacked set of interactive headers that each reveal a section of content.
+- [Alert](llms/components/alert.md): The `Alert` component displays a short, important message in a way that attracts the user's attention without interrupting the user's task.
+- [Avatar](llms/components/avatar.md): Avatars help humanise the product experience by connecting users with the product and to each other.
+- [Badge](llms/components/badge.md): Use the `Badge` component to draw attention to another interface element or to provide additional context (such as status).
+- [Banner](llms/components/banner.md): The `Banner` component is a versatile card-based component for displaying informational content with an icon or image. It supports various layouts, interactive features like pressable states and close buttons, and optional action elements like buttons or links.
+- [BodyText](llms/components/body-text.md): The `BodyText` component gives you the ability to create text for your screen. It can be used to display text in different sizes and styles.
+- [Bottom Sheet](llms/components/bottom-sheet.md): The `BottomSheet` component provides a drawer-like interface that slides up from the bottom of the screen. It's commonly used for displaying additional content or actions without navigating away from the current screen.
+- [Box](llms/components/box.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
+- [Button](llms/components/button.md): The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
+- [Card](llms/components/card.md): A Card component serves as a visual container that groups related content and actions.
+- [Carousel](llms/components/carousel.md): Carousels provide users with a dynamic and interactive way to browse through a series of content items, such as images, articles, or products. It allows users to view multiple items within a confined space, enabling efficient content discovery and engagement.
+- [Center](llms/components/center.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
+- [Checkbox](llms/components/checkbox.md): Whether you're building a simple form or a complex data collection system, the Checkbox component offers a user-friendly way for users to select multiple options from a list.
+- [Combobox](llms/components/combobox.md): The `Combobox` component lets people search and select from a list inside a bottom sheet. It keeps the trigger text and the bottom sheet search input in sync, and can render either the built-in options list or fully custom sheet content.
+- [Container](llms/components/container.md): The Container component is a layout primitive that provides consistent spacing and structure using the design system's layout tokens. It automatically applies responsive margin and padding based on the current breakpoint, and supports additional customization through spacing props.
+- [Currency Input](llms/components/currency-input.md): An input specialised for monetary amounts. It shows a currency symbol prefix and uses a decimal keypad where supported.
+- [Date Input](llms/components/date-input.md): The `DateInput` component allows users to enter dates manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need, supports validation states, and integrates seamlessly with the React Native form system.
+- [Date Picker](llms/components/date-picker.md): The `DatePicker` component presents a calendar experience in a bottom sheet so people can choose one or more dates without leaving the current screen. It supports single-day, ranged, and multi-date selection while respecting locale, calendar, and availability rules.
+- [Date Picker Input](llms/components/date-picker-input.md): `DatePickerInput` extends the base input to present a calendar trigger for choosing dates while still allowing direct text entry. It keeps the field inline while delegating selection to the `DatePicker` bottom sheet and formats values with Day.js when needed. The default `DD/MM/YYYY` mask auto-inserts separators and surfaces a numeric keypad for faster entry.
+- [Description List](llms/components/description-list.md): Display pairs of related metadata (heading + description). Supports column (stacked) and row (two-column) layouts, optional SectionHeader (heading + helper text), and per-item action links.
+- [DetailText](llms/components/detail-text.md): The `DetailText` component gives you the ability to create text for your screen. It can be used to display detail text in different sizes and styles.
+- [Divider](llms/components/divider.md): `Divider` components in `hearth-react-native` enhances visual organisation by creating clear boundaries between sections, improving readability and content grouping. They reinforce the visual hierarchy, making it easier for users to understand relationships between elements.
+- [Expandable](llms/components/expandable.md): The Expandable component is a primitive for creating expandable content with smooth animations. It's commonly used as a building block for components like accordions, collapsible sections, and other interactive content that needs to expand and collapse.
+- [Expandable Card](llms/components/expandable-card.md): The `ExpandableCard` component is an interactive card that expands to reveal additional content when clicked. It's a Card component with smooth expansion animations, making it perfect for displaying collapsible information sections.
+- [Flex](llms/components/flex.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
+- [Form Field](llms/components/form-field.md): The `FormField` component is a container for form elements such as input fields. It provides a consistent layout and styling for form elements in which developers can provide important context to form elements. This context can include whether the element is invalid, disabled, or required.
+- [Grid](llms/components/grid.md): The Grid component helps you create responsive grid layouts with configurable columns and spacing. It's perfect for creating photo galleries, card layouts, and other grid-based UI elements.
+- [Heading](llms/components/heading.md): The `Heading` component gives you the ability to create headings for your screen with different sizes.
+- [Highlight Banner](llms/components/highlight-banner.md): A `HighlightBanner` component is a specialised card layout designed for highlighting featured content with an image. It combines a colored heading banner, an optional image, and descriptive text with optional action buttons or links. Perfect for promotional content, featured articles, or important announcements.
+- [Icon Button](llms/components/icon-button.md): The `IconButton` component is used to trigger an action or event, such as opening a dialog, canceling an action, or performing a delete operation.
+- [Icon Container](llms/components/icon-container.md): The `IconContainer` component provides a consistent background and sizing (via component tokens) for any standalone icon, with semantic colour families and subtle/emphasis variants.
+- [Icons](llms/components/icon.md): Icons are often used to enhance the usability and accessibility of digital products by providing users with clear and intuitive visual cues. It serves as an intuitive and easily recognizable way to communicate with users.
+- [Indicator Icon Button](llms/components/indicator-icon-button.md): The `IndicatorIconButton` component is used to trigger an action or event, such as opening a dialog or navigating to other screen. It extends the regular `UnstyledIconButton` with an optional red dot indicator in the top-right corner, useful for showing notifications or unread status.
+- [Inline Link](llms/components/inline-link.md): An `InlineLink` is a hyperlink embedded directly within a sentence or paragraph of text.
+- [Input](llms/components/input.md): The input component is a text field that allows users to enter text, numbers, or other data. It is commonly used in forms and search fields.
+- [Link](llms/components/link.md): Links are used to navigate a user to another screen or website, another place on the same page, or to open a link in a new tab.
+- [List](llms/components/list.md): The List component serves as the primary wrapper for List Items and List Heading components.
+- [Menu](llms/components/menu.md): The `Menu` component provides a bottom sheet modal with a list of actions. It's perfect for contextual menus, action sheets, and option lists. The component uses `BottomSheetModal` under the hood and includes `MenuItem` components that can display icons, text, and support different color schemes.
+- [Modal](llms/components/modal.md): The `Modal` component provides a versatile dialog interface that slides up from the bottom of the screen. It's built on top of
+- [Nav Modal](llms/components/nav-modal.md): The `NavModal` component is the screen-based modal layout for navigation flows. Use it when a screen is already being presented by React Navigation with `presentation: 'modal'` or `presentation: 'fullScreenModal'` and you want Hearth's modal structure, actions, and Android close animation support.
+- [Pagination](llms/components/pagination.md): Pagination helps users move between pages of content while keeping the current position visible. It supports both a full page list and a condensed “Page X of Y” layout.
+- [Pill Group](llms/components/pill-group.md): A container component that groups multiple `Pill` components together for filtering and categorization. It provides layout control with optional wrapping behavior and manages selection state.
+- [Progress Bar](llms/components/progress-bar.md): Progress bars communicate task completion for linear flows and bounded operations. Use the linear variant for
+- [Progress Stepper](llms/components/progress-stepper.md): A form helper component that displays a series of dots connected by lines, showing the progress through a multi-step process. Each step can be marked as completed, active, or uncompleted.
+- [Radio](llms/components/radio.md): The Radio component presents users with predefined choices and enables them to select only one option. It is commonly used for providing a single-choice selection in forms or surveys.
+- [Radio Card](llms/components/radio-card.md): The `RadioCard` component is a UI element that allows users to select one option from a set of predefined choices.
+- [Rating](llms/components/rating.md): Use Rating to collect a score with an optional descriptive label. Supports star and emoji variants.
+- [Roundel](llms/components/roundel.md): The `Roundel` component is a compact status indicator with success, pending, and error variants.
+- [Section Header](llms/components/section-header.md): Use the `Section Header` component to help define and separate content within a screen. It provides structure, clarity, and improves page scannability for users. It is nested within components, such as List, but can be used outside of components too.
+- [Segmented Control](llms/components/segmented-control.md): Segmented Control lets users switch between a small set of related options.
+- [Select](llms/components/select.md): The `Select` component creates a dropdown menu that allows users to choose from a list of options. It's commonly used in forms for selecting one option from many.
+- [Skeleton](llms/components/skeleton.md): The `Skeleton` component is used to show a loading state for a component that is still loading.
+- [Spinner](llms/components/spinner.md): Using a Spinner is a common method for indicating that an asynchronous process is ongoing. Additionally, it informs users that they should refrain from clicking or tapping the UI until the loading state has been resolved.
+- [Stepper Input](llms/components/stepper-input.md): The Stepper Input combines a numeric text input with decrement and increment controls. Use it when the value should stay within a defined range but still needs direct text entry.
+- [Switch](llms/components/switch.md): The Switch component is used to indicate switching between two opposing options. Switches allow users
+- [Table](llms/components/table.md): Table arranges structured data into rows and columns, with optional pagination beneath the rows. The React Native version uses horizontal scrolling automatically when the columns need more space than the viewport allows.
+- [Tabs](llms/components/tabs.md): Tabs are a navigational component that allows users to move easily between groups of related content.
+- [Textarea](llms/components/textarea.md): The input component is a text field that allows users to enter text, numbers, or other data. It is commonly used in forms and search fields.
+- [Themed Image](llms/components/themed-image.md): The `ThemedImage` component automatically switches between light and dark mode images or SVG components based on the current theme. It's perfect for illustrations, logos, or any visual assets that need different appearances for light and dark modes.
+- [Time Picker](llms/components/time-picker.md): `TimePicker` presents a wheel-based time selector inside a bottom sheet, letting people pick hours and minutes without leaving the current context. It supports 12-hour and 24-hour clocks and returns a JavaScript `Date` whenever the selection changes.
+- [Time Picker Input](llms/components/time-picker-input.md): `TimePickerInput` extends the base input to present a time picker trigger while still allowing direct text entry. It keeps the field inline and formats values with Day.js when needed.
+- [Timeline](llms/components/timeline.md): Timeline presents a sequence of related stops or steps using either a static stop indicator or a progress state indicator. Each item supports a label, optional helper text, and optional custom content.
+- [Toast](llms/components/toast.md): The `Toast` component provides a non-intrusive way to display brief messages to users. Toasts appear at the bottom of the screen, can be stacked vertically, and automatically dismiss after a configurable duration. They support swipe-to-dismiss gestures and can include icons, action links, and a dismiss button.
+- [Toggle Button Card](llms/components/toggle-button-card.md): The `ToggleButtonCard` component is a UI element that allows users to select one option from a set of predefined choices.
+- [UL & OL (Lists)](llms/components/html-elements/lists.md): The `UL` (Unordered List) and `OL` (Ordered List) components are used to display lists of items. `UL` displays a bulleted list, and `OL` displays a numbered list. The `LI` (List Item) component is used to define each item within these lists.
+- [Verification Input](llms/components/verification-input.md): The verification input component is used to capture OTP (One Time Password) or other verification codes.

@@ -768,6 +768,40 @@
         }
       }
     },
+    "chip": {
+      "border-radius": {
+        "alias": "{border-radius.full}",
+        "type": "number",
+        "value": 9999
+      },
+      "border-width": {
+        "alias": "{border-width.1}",
+        "type": "number",
+        "value": 1
+      },
+      "gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
+      },
+      "group": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
+      },
+      "padding-horizontal": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "padding-vertical": {
+        "alias": "{space.25}",
+        "type": "number",
+        "value": 2
+      }
+    },
     "date-picker": {
       "border-radius": {
         "alias": "{border-radius.md}",
@@ -1039,24 +1073,20 @@
     "icon": {
       "md": {
         "height": {
-          "alias": "{space.300}",
           "type": "number",
           "value": 24
         },
         "width": {
-          "alias": "{space.300}",
           "type": "number",
           "value": 24
         }
       },
       "sm": {
         "height": {
-          "alias": "{space.250}",
           "type": "number",
           "value": 20
         },
         "width": {
-          "alias": "{space.250}",
           "type": "number",
           "value": 20
         }
@@ -3734,6 +3764,40 @@
         }
       }
     },
+    "chip": {
+      "border-radius": {
+        "alias": "{border-radius.full}",
+        "type": "number",
+        "value": 9999
+      },
+      "border-width": {
+        "alias": "{border-width.1}",
+        "type": "number",
+        "value": 1
+      },
+      "gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
+      },
+      "group": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
+      },
+      "padding-horizontal": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "padding-vertical": {
+        "alias": "{space.25}",
+        "type": "number",
+        "value": 2
+      }
+    },
     "date-picker": {
       "border-radius": {
         "alias": "{border-radius.md}",
@@ -4006,24 +4070,20 @@
     "icon": {
       "md": {
         "height": {
-          "alias": "{space.300}",
           "type": "number",
           "value": 24
         },
         "width": {
-          "alias": "{space.300}",
           "type": "number",
           "value": 24
         }
       },
       "sm": {
         "height": {
-          "alias": "{space.250}",
           "type": "number",
           "value": 20
         },
         "width": {
-          "alias": "{space.250}",
           "type": "number",
           "value": 20
         }

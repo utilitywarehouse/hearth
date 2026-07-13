@@ -250,6 +250,16 @@ export declare const components: {
       readonly padding: 'var(--h-checkbox-tile-padding)';
     };
   };
+  readonly chip: {
+    readonly borderRadius: 'var(--h-chip-border-radius)';
+    readonly borderWidth: 'var(--h-chip-border-width)';
+    readonly gap: 'var(--h-chip-gap)';
+    readonly group: {
+      readonly gap: 'var(--h-chip-group-gap)';
+    };
+    readonly paddingHorizontal: 'var(--h-chip-padding-horizontal)';
+    readonly paddingVertical: 'var(--h-chip-padding-vertical)';
+  };
   readonly datePicker: {
     readonly borderRadius: 'var(--h-date-picker-border-radius)';
     readonly borderWidth: 'var(--h-date-picker-border-width)';
