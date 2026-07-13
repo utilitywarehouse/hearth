@@ -5,6 +5,7 @@ import { StatTile } from '../components/cards';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num, repoLabel } from '../lib/format';
 import { packageColor, pkgSlug, shortName } from '../lib/packages';
+import { compareVersionsDesc, isOutdated } from '../lib/versions';
 
 // Within a single repo "repos used" is always 1 and not meaningful — show
 // files + refs only.
@@ -12,6 +13,25 @@ const SYMBOL_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
 ];
+
+/** Declared version range(s) for one package in this repo, with an outdated flag. */
+function VersionTag({
+  versions,
+  latestVersion,
+}: {
+  versions: Record<string, number> | undefined;
+  latestVersion: string | undefined;
+}) {
+  if (!versions || Object.keys(versions).length === 0) return null;
+  const ranges = Object.entries(versions).sort((a, b) => compareVersionsDesc(a[0], b[0]));
+  const outdated = ranges.some(([range]) => isOutdated(range, latestVersion));
+  return (
+    <span className={outdated ? 'version-tag version-tag--outdated' : 'version-tag'}>
+      {ranges.map(([range]) => range).join(', ')}
+      {outdated ? ' · outdated' : ''}
+    </span>
+  );
+}
 
 export function RepoPage() {
   const params = useParams();
@@ -30,6 +50,9 @@ export function RepoPage() {
 
   const pkgEntries = Object.entries(repo.packages).sort((a, b) => b[1].refCount - a[1].refCount);
   const totalFiles = pkgEntries.reduce((a, [, p]) => a + p.fileCount, 0);
+  // A package can be declared in package.json without being imported anywhere
+  // (see RepoPackageUsage.versions) — don't count those as "used".
+  const usedPkgCount = pkgEntries.filter(([, p]) => p.refCount > 0 || p.fileCount > 0).length;
 
   return (
     <div>
@@ -37,7 +60,12 @@ export function RepoPage() {
         title={repoLabel(fullName)}
         subtitle={
           <>
-            <a className="link" href={`https://github.com/${fullName}`} target="_blank" rel="noreferrer">
+            <a
+              className="link"
+              href={`https://github.com/${fullName}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               {fullName} ↗
             </a>{' '}
             · {pkgEntries.length} tracked packages · commit{' '}
@@ -47,7 +75,7 @@ export function RepoPage() {
       />
 
       <div className="tiles">
-        <StatTile label="Packages used" value={num(pkgEntries.length)} />
+        <StatTile label="Packages used" value={num(usedPkgCount)} />
         <StatTile label="File imports" value={compact(totalFiles)} />
         <StatTile label="Total references" value={compact(repo.totalRefs)} />
       </div>
@@ -59,12 +87,17 @@ export function RepoPage() {
           repoCount: 1,
           fileCount: s.fileCount,
         }));
+        const declaredOnly = u.refCount === 0 && u.fileCount === 0;
         return (
           <Section
             key={pkg}
             title={shortName(pkg)}
             aside={
               <span className="muted">
+                <VersionTag
+                  versions={u.versions}
+                  latestVersion={snap.data!.packages[pkg]?.latestVersion}
+                />
                 {compact(u.refCount)} refs · {u.fileCount} files
               </span>
             }
@@ -79,6 +112,10 @@ export function RepoPage() {
                   void navigate(`/symbol/${pkgSlug(pkg)}/${encodeURIComponent(name)}`)
                 }
               />
+            ) : declaredOnly ? (
+              <p className="muted">
+                Declared in package.json but not imported anywhere in this repo.
+              </p>
             ) : (
               <p className="muted">Imported at the package level (no tracked symbols).</p>
             )}

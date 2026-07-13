@@ -43,6 +43,13 @@ export interface PackageConfig {
    * always `manifest: { kind: 'none' }`.
    */
   legacy?: boolean;
+  /**
+   * Path (relative to `REPO_ROOT`) to this package's own `package.json`, used
+   * to read its currently-published version as the "latest" a downstream repo
+   * could be on. Legacy packages have no local source, so this is omitted for
+   * them — they have no `latestVersion` in the dashboard.
+   */
+  localPackageJson?: string;
 }
 
 /** The 11 published @utilitywarehouse/hearth-* packages, in display order. */
@@ -51,57 +58,72 @@ export const PACKAGES: Array<PackageConfig> = [
     name: '@utilitywarehouse/hearth-react',
     type: 'component-lib',
     manifest: { kind: 'exports', file: 'packages/react/src/index.ts' },
+    localPackageJson: 'packages/react/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-react-native',
     type: 'component-lib',
     manifest: { kind: 'exports', file: 'packages/react-native/src/index.ts' },
+    localPackageJson: 'packages/react-native/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-tokens',
     type: 'tokens',
     manifest: { kind: 'exports', file: 'packages/tokens/js/index.js' },
+    localPackageJson: 'packages/tokens/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-react-icons',
     type: 'icons',
     manifest: { kind: 'exports', file: 'packages/react-icons/dist/index.d.ts' },
+    localPackageJson: 'packages/react-icons/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-react-native-icons',
     type: 'icons',
     manifest: { kind: 'exports', file: 'packages/react-native-icons/dist/index.d.ts' },
+    localPackageJson: 'packages/react-native-icons/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-svg-icons',
     type: 'icons',
     manifest: { kind: 'none' },
+    localPackageJson: 'packages/svg-icons/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-svg-assets',
     type: 'asset',
     manifest: { kind: 'none' },
+    localPackageJson: 'packages/svg-assets/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-json-assets',
     type: 'asset',
     manifest: { kind: 'none' },
+    localPackageJson: 'packages/json-assets/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-fonts',
     type: 'asset',
     manifest: { kind: 'none' },
+    localPackageJson: 'packages/fonts/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-css-reset',
     type: 'asset',
     manifest: { kind: 'none' },
+    localPackageJson: 'packages/css-reset/package.json',
   },
 
   // Predecessor packages from the pre-hearth design systems, kept in scope so
   // the dashboard can track their usage declining to zero as repos migrate.
   // https://github.com/utilitywarehouse/icons
-  { name: '@utilitywarehouse/react-icons', type: 'icons', manifest: { kind: 'none' }, legacy: true },
+  {
+    name: '@utilitywarehouse/react-icons',
+    type: 'icons',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
   {
     name: '@utilitywarehouse/react-native-icons',
     type: 'icons',
@@ -129,7 +151,12 @@ export const PACKAGES: Array<PackageConfig> = [
     manifest: { kind: 'none' },
     legacy: true,
   },
-  { name: '@utilitywarehouse/web-ui', type: 'component-lib', manifest: { kind: 'none' }, legacy: true },
+  {
+    name: '@utilitywarehouse/web-ui',
+    type: 'component-lib',
+    manifest: { kind: 'none' },
+    legacy: true,
+  },
 ];
 
 /** Unique package names (config above may repeat generated packages). */

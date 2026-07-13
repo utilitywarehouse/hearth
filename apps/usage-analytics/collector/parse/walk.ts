@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { DISCOVERY_TERMS, IGNORED_DIRS, MAX_FILE_BYTES, SOURCE_EXTENSIONS } from '../config.ts';
 import { analyzeFile, type AnalyzeContext, type PackageMeta } from './imports.ts';
+import { collectDeclaredVersions } from './versions.ts';
 
 /** Usage of a single symbol, aggregated across a repo's files. */
 export interface RepoSymbolResult {
@@ -23,6 +24,13 @@ export interface RepoParseResult {
   packages: Record<string, RepoPackageResult>;
   filesScanned: number;
   filesParsed: number;
+  /**
+   * package name -> (declared semver range -> number of `package.json` files
+   * in this repo declaring it that way). Populated from every `package.json`
+   * in the repo (root + nested workspace packages), independent of whether
+   * the package is actually imported anywhere.
+   */
+  versions: Record<string, Record<string, number>>;
 }
 
 /**
@@ -34,7 +42,13 @@ function mentionsTrackedPackage(code: string): boolean {
   return DISCOVERY_TERMS.some(term => code.includes(term));
 }
 
-function* walkFiles(dir: string): Generator<string> {
+interface WalkEntry {
+  path: string;
+  kind: 'source' | 'package-json';
+}
+
+/** Single filesystem pass yielding both source files and `package.json` files (root + nested workspaces). */
+function* walkFiles(dir: string): Generator<WalkEntry> {
   let entries: Array<fs.Dirent>;
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -47,8 +61,10 @@ function* walkFiles(dir: string): Generator<string> {
     if (entry.isDirectory()) {
       if (IGNORED_DIRS.has(entry.name)) continue;
       yield* walkFiles(full);
-    } else if (entry.isFile() && SOURCE_EXTENSIONS.includes(path.extname(entry.name))) {
-      yield full;
+    } else if (entry.isFile()) {
+      if (entry.name === 'package.json') yield { path: full, kind: 'package-json' };
+      else if (SOURCE_EXTENSIONS.includes(path.extname(entry.name)))
+        yield { path: full, kind: 'source' };
     }
   }
 }
@@ -58,15 +74,31 @@ function* walkFiles(dir: string): Generator<string> {
  * its source files. `ctx` carries the tracked packages + allow-lists.
  */
 export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult {
-  const result: RepoParseResult = { packages: {}, filesScanned: 0, filesParsed: 0 };
+  const result: RepoParseResult = { packages: {}, filesScanned: 0, filesParsed: 0, versions: {} };
+  const trackedNames = new Set(ctx.packages.keys());
 
-  for (const file of walkFiles(rootDir)) {
+  for (const entry of walkFiles(rootDir)) {
+    if (entry.kind === 'package-json') {
+      let code: string;
+      try {
+        code = fs.readFileSync(entry.path, 'utf8');
+      } catch {
+        continue;
+      }
+      const declared = collectDeclaredVersions(code, trackedNames);
+      for (const [pkg, range] of Object.entries(declared)) {
+        const bucket = (result.versions[pkg] ??= {});
+        bucket[range] = (bucket[range] ?? 0) + 1;
+      }
+      continue;
+    }
+
     result.filesScanned++;
     let code: string;
     try {
-      const stat = fs.statSync(file);
+      const stat = fs.statSync(entry.path);
       if (stat.size > MAX_FILE_BYTES) continue;
-      code = fs.readFileSync(file, 'utf8');
+      code = fs.readFileSync(entry.path, 'utf8');
     } catch {
       continue;
     }
@@ -112,12 +144,17 @@ export function walkRepo(rootDir: string, ctx: AnalyzeContext): RepoParseResult 
 export function buildContext(manifest: {
   packages: Record<
     string,
-    { type: PackageMeta['type']; symbols: Array<string>; legacy?: boolean }
+    { type: PackageMeta['type']; symbols: Array<string>; legacy?: boolean; version?: string }
   >;
 }): AnalyzeContext {
   const packages = new Map<string, PackageMeta>();
   for (const [name, m] of Object.entries(manifest.packages)) {
-    packages.set(name, { type: m.type, symbols: new Set(m.symbols), legacy: m.legacy ?? false });
+    packages.set(name, {
+      type: m.type,
+      symbols: new Set(m.symbols),
+      legacy: m.legacy ?? false,
+      version: m.version,
+    });
   }
   return { packages };
 }

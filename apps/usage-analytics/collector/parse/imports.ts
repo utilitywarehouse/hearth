@@ -10,9 +10,10 @@ import type { PackageType } from '../config.ts';
 import { parseModule } from './ast.ts';
 
 // @babel/traverse ships CJS; under ESM/tsx the callable lives on `.default`.
-const traverse = (
-  typeof _traverse === 'function' ? _traverse : (_traverse as { default: typeof _traverse }).default
-);
+const traverse =
+  typeof _traverse === 'function'
+    ? _traverse
+    : (_traverse as { default: typeof _traverse }).default;
 
 /** Per-package usage extracted from a single file. */
 export interface FilePackageUsage {
@@ -31,6 +32,8 @@ export interface PackageMeta {
   /** Allow-list of exported symbol names; empty means "accept anything". */
   symbols: Set<string>;
   legacy: boolean;
+  /** This package's own currently-published version. Absent for legacy packages. */
+  version?: string;
 }
 
 export interface AnalyzeContext {
@@ -84,7 +87,11 @@ function bumpProp(usage: FilePackageUsage, symbol: string, propName: string) {
  * binding, e.g. `color.blue[500]` -> `color.blue`, `tokens.space[3]` (namespace
  * import) -> `space`. Group granularity is the reliable unit for tokens.
  */
-function tokenGroup(root: NodePath<MemberExpression>, namespace: boolean, canonical?: string): string | null {
+function tokenGroup(
+  root: NodePath<MemberExpression>,
+  namespace: boolean,
+  canonical?: string
+): string | null {
   // Walk up to the outermost member expression to read the first two segments.
   const path: Array<string> = [];
   const obj = root.node.object;
@@ -103,7 +110,11 @@ function tokenGroup(root: NodePath<MemberExpression>, namespace: boolean, canoni
     if (!propName) return null;
     path.push(propName);
     const parent = root.parentPath;
-    if (parent?.isMemberExpression() && !parent.node.computed && parent.node.property.type === 'Identifier') {
+    if (
+      parent?.isMemberExpression() &&
+      !parent.node.computed &&
+      parent.node.property.type === 'Identifier'
+    ) {
       path.push(parent.node.property.name);
     }
     return path.join('.');
@@ -144,7 +155,12 @@ export function analyzeFile(code: string, ctx: AnalyzeContext): FileUsage {
   const tracked = ctx.packages;
   const bindings = new Map<string, Binding>();
 
-  const recordImportSpecifier = (pkg: string, local: string, canonical: string | undefined, namespace: boolean) => {
+  const recordImportSpecifier = (
+    pkg: string,
+    local: string,
+    canonical: string | undefined,
+    namespace: boolean
+  ) => {
     bindings.set(local, { pkg, canonical, namespace });
   };
 
@@ -161,7 +177,10 @@ export function analyzeFile(code: string, ctx: AnalyzeContext): FileUsage {
           const imported = spec.imported;
           const canonical = imported.type === 'Identifier' ? imported.name : imported.value;
           recordImportSpecifier(pkg, local, canonical, false);
-        } else if (spec.type === 'ImportNamespaceSpecifier' || spec.type === 'ImportDefaultSpecifier') {
+        } else if (
+          spec.type === 'ImportNamespaceSpecifier' ||
+          spec.type === 'ImportDefaultSpecifier'
+        ) {
           // `import * as x` or `import x from` — treat as namespace binding so we
           // can resolve member access (the common shape for token default imports).
           recordImportSpecifier(pkg, local, undefined, true);
@@ -244,13 +263,19 @@ export function analyzeFile(code: string, ctx: AnalyzeContext): FileUsage {
               if (group && (meta.symbols.size === 0 || meta.symbols.has(group.split('.')[0]!))) {
                 bump(u, group);
               }
-            } else if (binding.canonical && (meta.symbols.size === 0 || meta.symbols.has(binding.canonical))) {
+            } else if (
+              binding.canonical &&
+              (meta.symbols.size === 0 || meta.symbols.has(binding.canonical))
+            ) {
               // Bare reference to a named token namespace.
               bump(u, binding.canonical);
             }
           }
           // The import itself counts as one reference to the named group.
-          if (binding.canonical && (meta.symbols.size === 0 || meta.symbols.has(binding.canonical))) {
+          if (
+            binding.canonical &&
+            (meta.symbols.size === 0 || meta.symbols.has(binding.canonical))
+          ) {
             bump(u, binding.canonical);
           }
         } else if (binding.canonical) {

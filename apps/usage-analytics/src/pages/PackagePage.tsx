@@ -6,8 +6,16 @@ import { StatTile } from '../components/cards';
 import { CoverageDonut, TrendChart } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num } from '../lib/format';
-import { packageTrend, reposUsingPackage } from '../lib/series';
-import { packageColor, pkgFromSlug, pkgSlug, RANK_UNIT, shortName, TYPE_LABELS } from '../lib/packages';
+import { packageTrend, packageVersionTrend, reposUsingPackage } from '../lib/series';
+import {
+  packageColor,
+  pkgFromSlug,
+  pkgSlug,
+  RANK_UNIT,
+  shortName,
+  TYPE_LABELS,
+} from '../lib/packages';
+import { bucketColor, compareBucketsDesc, compareVersionsDesc, isOutdated } from '../lib/versions';
 
 // Each row IS a repo; "repoCount" is repurposed to hold the number of distinct
 // symbols that repo uses from this package.
@@ -16,6 +24,10 @@ const REPO_COLUMNS: Array<RankColumn> = [
   { key: 'fileCount', label: 'Files' },
   { key: 'repoCount', label: 'Symbols' },
 ];
+
+// Rows here are version ranges; "refCount" is repurposed to hold repo count
+// (also drives the ranking table's bar width) — same reuse pattern as above.
+const VERSION_COLUMNS: Array<RankColumn> = [{ key: 'refCount', label: 'Repos' }];
 
 export function PackagePage() {
   const { slug = '' } = useParams();
@@ -26,6 +38,17 @@ export function PackagePage() {
   const navigate = useNavigate();
 
   const trend = useMemo(() => (index.data ? packageTrend(index.data, pkg) : []), [index.data, pkg]);
+  const versionTrend = useMemo(
+    () => (index.data ? packageVersionTrend(index.data, pkg) : []),
+    [index.data, pkg]
+  );
+  const versionBuckets = useMemo(() => {
+    const keys = new Set<string>();
+    for (const point of versionTrend) {
+      for (const key of Object.keys(point)) if (key !== 'date') keys.add(key);
+    }
+    return [...keys].sort(compareBucketsDesc);
+  }, [versionTrend]);
 
   if (index.loading || snap.loading) return <Loading />;
   if (index.error) return <ErrorBox error={index.error} />;
@@ -60,6 +83,20 @@ export function PackagePage() {
     fileCount: r.files,
   }));
 
+  const versionEntries = Object.entries(usage.versions ?? {}).sort((a, b) =>
+    compareVersionsDesc(a[0], b[0])
+  );
+  const versionRows: Array<RankRow> = versionEntries.map(([range, repoCount]) => ({
+    name: range,
+    refCount: repoCount,
+    repoCount: 0,
+    fileCount: 0,
+  }));
+  const reposBehind = versionEntries
+    .filter(([range]) => isOutdated(range, usage.latestVersion))
+    .reduce((a, [, repoCount]) => a + repoCount, 0);
+  const reposOnVersion = versionEntries.reduce((a, [, repoCount]) => a + repoCount, 0);
+
   return (
     <div>
       <PageHeader
@@ -82,6 +119,13 @@ export function PackagePage() {
             hint="symbols used somewhere"
           />
         ) : null}
+        {usage.latestVersion ? (
+          <StatTile
+            label="On latest major"
+            value={reposOnVersion ? `${reposOnVersion - reposBehind}/${reposOnVersion}` : '—'}
+            hint={`latest published: v${usage.latestVersion}`}
+          />
+        ) : null}
       </div>
 
       <div className={usage.coverage ? 'two-col two-col--wide' : ''}>
@@ -90,13 +134,52 @@ export function PackagePage() {
         </Section>
         {usage.coverage ? (
           <Section title="Coverage">
-            <CoverageDonut used={usage.coverage.used} total={usage.coverage.totalExported} color={color} />
+            <CoverageDonut
+              used={usage.coverage.used}
+              total={usage.coverage.totalExported}
+              color={color}
+            />
             <p className="muted" style={{ textAlign: 'center' }}>
               {usage.coverage.unusedExports.length} exported symbols unused across the org
             </p>
           </Section>
         ) : null}
       </div>
+
+      {versionEntries.length > 0 ? (
+        <div className="two-col">
+          <Section
+            title="Version adoption over time"
+            aside={<span className="muted">repos per version</span>}
+          >
+            <TrendChart
+              data={versionTrend}
+              series={versionBuckets.map((bucket, i) => ({
+                key: bucket,
+                label: bucket,
+                color: bucketColor(i),
+              }))}
+            />
+          </Section>
+          <Section
+            title="Versions in use"
+            aside={
+              <span className="muted">
+                {usage.latestVersion
+                  ? `${reposBehind} repo${reposBehind === 1 ? '' : 's'} behind latest major`
+                  : `${versionRows.length} distinct ranges declared`}
+              </span>
+            }
+          >
+            <RankingTable
+              rows={versionRows}
+              unit="Version"
+              color={color}
+              columns={VERSION_COLUMNS}
+            />
+          </Section>
+        </div>
+      ) : null}
 
       <Section
         title={isAsset ? 'Symbol usage' : `${unit} usage`}

@@ -48,6 +48,19 @@ export interface PackageUsage {
   coverage?: Coverage;
   /** A pre-hearth predecessor package, tracked to watch its usage fall to zero. */
   legacy: boolean;
+  /**
+   * Declared semver range -> distinct repo count declaring it, org-wide. A
+   * repo counts once per range even if multiple workspace `package.json`
+   * files within it declare the same range. Absent on snapshots collected
+   * before version tracking was added.
+   */
+  versions?: Record<string, number>;
+  /**
+   * This package's own currently-published version at collection time (from
+   * the local hearth workspace), used to flag repos on outdated versions.
+   * Absent for legacy packages (no local source) and on older snapshots.
+   */
+  latestVersion?: string;
 }
 
 /** Usage of a single symbol within one repo. */
@@ -66,6 +79,16 @@ export interface RepoPackageUsage {
   refCount: number;
   /** Symbol name -> usage within this repo. */
   symbols: Record<string, RepoSymbolUsage>;
+  /**
+   * Declared semver range (as written in `package.json`, e.g. `^2.3.0`) ->
+   * number of `package.json` files in this repo declaring it that way. A
+   * monorepo whose sub-packages pin different ranges will have more than one
+   * entry. Present even when the package is declared but never imported
+   * (`fileCount`/`refCount` are 0 in that case) — installed-but-unused is
+   * itself a useful signal. Absent on snapshots collected before version
+   * tracking was added.
+   */
+  versions?: Record<string, number>;
 }
 
 /** Per-repo breakdown in a snapshot. */
@@ -112,6 +135,8 @@ export interface IndexPackageTotals {
   fileCount: number;
   refCount: number;
   legacy: boolean;
+  /** Same shape as {@link PackageUsage.versions}, this week — powers the version-adoption-over-time chart without fetching every snapshot. */
+  versions?: Record<string, number>;
 }
 
 /** One weekly entry in the rolled-up time-series index. */

@@ -98,7 +98,16 @@ function pick<T>(rng: () => number, arr: Array<T>, n: number): Array<T> {
  * in use" rather than only package-level counts.
  */
 const LEGACY_SYMBOLS: Record<string, Array<string>> = {
-  '@utilitywarehouse/web-ui': ['Button', 'Card', 'Modal', 'TextInput', 'Alert', 'Badge', 'Tabs', 'Tooltip'],
+  '@utilitywarehouse/web-ui': [
+    'Button',
+    'Card',
+    'Modal',
+    'TextInput',
+    'Alert',
+    'Badge',
+    'Tabs',
+    'Tooltip',
+  ],
   '@utilitywarehouse/native-ui': ['Button', 'Card', 'Modal', 'TextInput', 'Alert'],
   '@utilitywarehouse/react-icons': ['AddIcon', 'CloseIcon', 'InfoIcon', 'WarningIcon', 'CheckIcon'],
   '@utilitywarehouse/colour-system': ['primary', 'secondary', 'success', 'danger', 'warning'],
@@ -110,6 +119,36 @@ function symbolsFor(pkg: string): Array<string> {
   return manifest!.packages[pkg]?.symbols ?? [];
 }
 
+// Legacy predecessors have no local source, so there's no real "latest" to
+// read — fabricate a plausible fixed version so the sample data has *some*
+// declared range to show (they're never flagged "outdated"; see isOutdated).
+const LEGACY_VERSIONS: Record<string, string> = {
+  '@utilitywarehouse/web-ui': '^4.2.0',
+  '@utilitywarehouse/native-ui': '^3.1.0',
+  '@utilitywarehouse/react-icons': '^2.6.0',
+  '@utilitywarehouse/colour-system': '^1.8.0',
+};
+
+/**
+ * Fabricate a plausible declared version range for a repo/package/week: most
+ * repos track the workspace's current version, some lag a minor or two
+ * behind, and laggards shrink over the sample weeks as repos "upgrade" — so
+ * the version-adoption trend and "repos behind" ranking have something to show.
+ */
+function fabricateVersion(rng: () => number, pkg: string, weekIndex: number): string {
+  const latest = manifest!.packages[pkg]?.version;
+  if (!latest) return LEGACY_VERSIONS[pkg] ?? '^1.0.0';
+
+  const parts = latest.split('.').map(Number);
+  const major = parts[0]!;
+  const minor = parts[1]!;
+  const laggardShare = Math.max(0.08, 0.4 - weekIndex * 0.12);
+  const roll = rng();
+  const behindBy = roll < laggardShare * 0.4 ? 2 : roll < laggardShare ? 1 : 0;
+  const effectiveMinor = Math.max(0, minor - behindBy);
+  return `^${major}.${effectiveMinor}.0`;
+}
+
 /** Build a plausible parse result for one repo in one week. */
 function repoParse(repo: string, weekIndex: number): RepoParseResult {
   const rng = makeRng(hash(repo) + weekIndex * 7919);
@@ -118,6 +157,7 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
   // predecessor packages toward hearth.
   const decline = Math.max(0.1, 1 - weekIndex * 0.4);
   const packages: RepoParseResult['packages'] = {};
+  const versions: RepoParseResult['versions'] = {};
 
   // Every repo uses tokens + react; some use icons / native / assets.
   const usesRN = rng() < 0.35;
@@ -172,9 +212,10 @@ function repoParse(repo: string, weekIndex: number): RepoParseResult {
       fileCount = Math.max(1, Math.floor(used.length * (0.4 + rng() * 0.6)));
     }
     packages[pkg] = { fileCount, refCount, symbols };
+    versions[pkg] = { [fabricateVersion(rng, pkg, weekIndex)]: 1 };
   }
 
-  return { packages, filesScanned: 0, filesParsed: 0 };
+  return { packages, filesScanned: 0, filesParsed: 0, versions };
 }
 
 function hash(s: string): number {

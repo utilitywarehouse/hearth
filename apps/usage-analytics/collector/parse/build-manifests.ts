@@ -15,6 +15,8 @@ export interface PackageManifest {
   type: PackageType;
   symbols: Array<string>;
   legacy: boolean;
+  /** This package's own currently-published version, read from its package.json. Absent for legacy packages (no local source). */
+  version?: string;
 }
 
 export interface SymbolManifest {
@@ -25,13 +27,18 @@ export interface SymbolManifest {
 }
 
 function readWorkspaceVersion(): string {
+  return readPackageVersion('packages/react/package.json') ?? 'unknown';
+}
+
+/** Read the `version` field from a package.json relative to `REPO_ROOT`, or undefined if unreadable. */
+function readPackageVersion(relativePath: string): string | undefined {
   try {
-    const pkg = JSON.parse(
-      fs.readFileSync(path.join(REPO_ROOT, 'packages/react/package.json'), 'utf8')
-    ) as { version?: unknown };
-    return typeof pkg.version === 'string' ? pkg.version : 'unknown';
+    const pkg = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, relativePath), 'utf8')) as {
+      version?: unknown;
+    };
+    return typeof pkg.version === 'string' ? pkg.version : undefined;
   } catch {
-    return 'unknown';
+    return undefined;
   }
 }
 
@@ -39,8 +46,10 @@ export function buildManifest(): SymbolManifest {
   const packages: Record<string, PackageManifest> = {};
 
   for (const pkg of PACKAGES) {
+    const version = pkg.localPackageJson ? readPackageVersion(pkg.localPackageJson) : undefined;
+
     if (pkg.manifest.kind === 'none') {
-      packages[pkg.name] = { type: pkg.type, symbols: [], legacy: pkg.legacy ?? false };
+      packages[pkg.name] = { type: pkg.type, symbols: [], legacy: pkg.legacy ?? false, version };
       continue;
     }
     const abs = path.join(REPO_ROOT, pkg.manifest.file);
@@ -50,8 +59,8 @@ export function buildManifest(): SymbolManifest {
     } else {
       console.warn(`  ! ${pkg.manifest.file} not found for ${pkg.name} (build packages first?)`);
     }
-    packages[pkg.name] = { type: pkg.type, symbols, legacy: pkg.legacy ?? false };
-    console.log(`  ${pkg.name}: ${symbols.length} symbols`);
+    packages[pkg.name] = { type: pkg.type, symbols, legacy: pkg.legacy ?? false, version };
+    console.log(`  ${pkg.name}: ${symbols.length} symbols${version ? ` (v${version})` : ''}`);
   }
 
   return {
