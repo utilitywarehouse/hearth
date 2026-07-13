@@ -13,12 +13,14 @@ An input specialised for monetary amounts. It shows a currency symbol prefix and
 ## Playground
 
 ```tsx
+// Example usage
 <CurrencyInput {...args} value={value} onChangeText={setValue} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { CurrencyInput } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -57,6 +59,7 @@ Note: When used inside `FormField`, `validationStatus` and `disabled` are read f
 The `CurrencyInput` component can display a label and helper text by passing the appropriate props.
 
 ```tsx
+// Example usage
 import { CurrencyInput } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -82,6 +85,7 @@ The `CurrencyInput` component can be used with the `FormField` component to crea
 For more information on the `FormField` component view the `FormField` documentation.
 
 ```tsx
+// Example usage
 import { FormField, CurrencyInput } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -100,6 +104,7 @@ const MyComponent = () => {
 ## States
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg">
   <VariantTitle title="Default">
     <CurrencyInput />
@@ -139,10 +144,12 @@ const MyComponent = () => {
 Automatic thousand separator formatting can be disabled by setting `disableGroupSeparator`.
 
 ```tsx
+// Example usage
 <CurrencyInput {...args} value={value} onChangeText={setValue} />
 ```
 
 ```tsx
+// Example usage
 <CurrencyInput disableGroupSeparator value="1234567.89" /> // displays 1234567.89
 ```
 

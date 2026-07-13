@@ -14,6 +14,7 @@ It is commonly used to condense large amounts of information into a more managea
 ## Playground
 
 ```tsx
+// Example usage
 <Accordion {...args}>
   <AccordionItem title="How do I place an order?">
     <AccordionHeader>
@@ -73,6 +74,7 @@ It is commonly used to condense large amounts of information into a more managea
 # Usage
 
 ```tsx
+// Example usage
 import { BodyText, Accordion, AccordionItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -124,6 +126,7 @@ The Accordion component can be used in more complex scenarios, such as when you 
 state of the items or when you want to customise the header and content.
 
 ```tsx
+// Example usage
 import {
   Accordion,
   AccordionContent,
@@ -201,6 +204,7 @@ const MyComponent = () => {
 You can add a heading and helper text to the accordion to provide context for the user.
 
 ```tsx
+// Example usage
 import { Accordion, AccordionItem, BodyText } from '@utilitywarehouse/hearth-react-native';
 import {
   ChevronDownSmallIcon,
@@ -231,6 +235,7 @@ const MyComponent = () => {
 You can use custom content for the trigger of the accordion item, such as an icon or badge.
 
 ```tsx
+// Example usage
 import { Accordion, AccordionItem, Badge, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {

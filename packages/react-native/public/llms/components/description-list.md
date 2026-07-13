@@ -11,6 +11,7 @@ Display pairs of related metadata (heading + description). Supports column (stac
 ## Playground
 
 ```tsx
+// Example usage
 <DescriptionList {...args}>
   {sampleData.map(item => (
     <DescriptionListItem
@@ -26,6 +27,7 @@ Display pairs of related metadata (heading + description). Supports column (stac
 ## Usage
 
 ```tsx
+// Example usage
 import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-react-native';
 
 <DescriptionList direction="column" heading="Account details" helperText="Static account metadata">
@@ -66,6 +68,7 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 ## Variants
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
   <VariantTitle title="Row direction">
     <DescriptionList direction="row">
@@ -95,6 +98,7 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 ```
 
 ```tsx
+// Example usage
 <DescriptionList {...args}>
   <DescriptionListItem
     heading="Account Number"

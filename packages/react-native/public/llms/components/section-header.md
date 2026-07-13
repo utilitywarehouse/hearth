@@ -10,6 +10,7 @@ Use the `Section Header` component to help define and separate content within a 
 ## Playground
 
 ```tsx
+// Example usage
 <SectionHeader heading="This is the section heading" helperText="Helper text" />
 ```
 
@@ -34,6 +35,7 @@ Use helper text when users need extra clarity or explanation before engaging wit
 ## Usage
 
 ```tsx
+// Example usage
 import { SectionHeader } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <SectionHeader heading="Heading" helperText="Helper text" />;
@@ -51,6 +53,7 @@ const MyComponent = () => <SectionHeader heading="Heading" helperText="Helper te
 ## Variants
 
 ```tsx
+// Example usage
 <Flex spacing="xl" direction="column" style={{ width: '100%' }}>
   <VariantTitle title="Default SectionHeader with helper text and link">
     <SectionHeader

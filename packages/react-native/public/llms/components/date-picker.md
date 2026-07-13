@@ -20,6 +20,7 @@ The `DatePicker` component presents a calendar experience in a bottom sheet so p
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Date Picker</Button>
@@ -39,6 +40,7 @@ The `DatePicker` component presents a calendar experience in a bottom sheet so p
 Use the `DatePicker` with a ref so you can present and dismiss the bottom sheet when people tap a trigger like a button or form field. The picker respects the locale and calendar you provide and can be configured to limit which dates are selectable.
 
 ```tsx
+// Example usage
 import { useRef, useState } from 'react';
 import {
   BottomSheetModalProvider,
@@ -124,6 +126,7 @@ Attach a ref that conforms to `BottomSheetModalMethods` so you can call `present
 ### Range selection
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Range Date Picker</Button>
@@ -140,6 +143,7 @@ Attach a ref that conforms to `BottomSheetModalMethods` so you can call `present
 ```
 
 ```tsx
+// Example usage
 import { useRef, useState } from 'react';
 import {
   BottomSheetModalProvider,
@@ -175,6 +179,7 @@ const Example = () => {
 ### Multiple selection
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Multi Date Picker</Button>
@@ -190,6 +195,7 @@ const Example = () => {
 ```
 
 ```tsx
+// Example usage
 import { useRef, useState } from 'react';
 import {
   BottomSheetModalProvider,

@@ -11,6 +11,7 @@ The `Combobox` component lets people search and select from a list inside a bott
 ## Playground
 
 ```tsx
+// Example usage
 <Combobox
   label="Combobox"
   helperText="Helper text"
@@ -25,6 +26,7 @@ The `Combobox` component lets people search and select from a list inside a bott
 ## Usage
 
 ```tsx
+// Example usage
 import { Combobox } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -73,6 +75,7 @@ The `Combobox` component inherits all of the React Native [`View` props](https:/
 ### Static Searchable List
 
 ```tsx
+// Example usage
 <Combobox
   label="Combobox"
   helperText="Helper text"
@@ -85,6 +88,7 @@ The `Combobox` component inherits all of the React Native [`View` props](https:/
 ```
 
 ```tsx
+// Example usage
 import { Combobox } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -117,6 +121,7 @@ const MyComponent = () => {
 ### Dynamic Items
 
 ```tsx
+// Example usage
 <Combobox
   label="Combobox"
   helperText="Helper text"
@@ -129,6 +134,7 @@ const MyComponent = () => {
 ```
 
 ```tsx
+// Example usage
 import { Combobox } from '@utilitywarehouse/hearth-react-native';
 import { useEffect, useState } from 'react';
 
@@ -176,6 +182,7 @@ const MyComponent = () => {
 ### Custom Bottom Sheet Flat List
 
 ```tsx
+// Example usage
 <Combobox
   label="Combobox"
   helperText="Helper text"
@@ -188,6 +195,7 @@ const MyComponent = () => {
 ```
 
 ```tsx
+// Example usage
 import {
   BottomSheetFlatList,
   Combobox,
@@ -223,6 +231,7 @@ const MyComponent = () => {
 ### Inline Custom Content
 
 ```tsx
+// Example usage
 import { Box, Combobox, ComboboxOption } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 

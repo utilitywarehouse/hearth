@@ -10,6 +10,7 @@ A container component that groups multiple `Pill` components together for filter
 ## Playground
 
 ```tsx
+// Example usage
 <PillGroup {...props} value={value} onChange={setValue}>
   <Pill value="1" label="All" />
   <Pill value="2" label="Energy" />
@@ -25,6 +26,7 @@ The `PillGroup` component is a controlled component that manages the selection s
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { Pill, PillGroup } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -60,6 +62,7 @@ const [selectedTags, setSelectedTags] = useState(['ui']);
 ### Multi-Select Mode
 
 ```tsx
+// Example usage
 const [tags, setTags] = useState(['ui', 'backend']);
 
 <PillGroup multiple value={tags} onChange={setTags}>
@@ -74,6 +77,7 @@ const [tags, setTags] = useState(['ui', 'backend']);
 Compare how pills behave with and without wrapping enabled.
 
 ```tsx
+// Example usage
 <Flex spacing="xl" direction="column" align="center">
   <VariantTitle title="Wrap: False">
     <PillGroup wrap={false} value={value1} onChange={setValue1}>
@@ -103,6 +107,7 @@ Compare how pills behave with and without wrapping enabled.
 Select multiple options
 
 ```tsx
+// Example usage
 <Flex spacing="lg" direction="column" align="center" style={{ maxWidth: 400 }}>
   <PillGroup wrap={true} multiple value={selectedCategories} onChange={setSelectedCategories}>
     <Pill value="unread" label="Unread" />
@@ -122,6 +127,7 @@ Select multiple options
 ### All States of Pill
 
 ```tsx
+// Example usage
 <Flex spacing="xl" direction="column" align="center">
   <VariantTitle title="Unselected">
     <Flex direction="row" spacing="sm">

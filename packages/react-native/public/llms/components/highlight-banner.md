@@ -18,6 +18,7 @@ A `HighlightBanner` component is a specialised card layout designed for highligh
 ## Playground
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <HighlightBanner {...args} />
 </View>
@@ -26,6 +27,7 @@ A `HighlightBanner` component is a specialised card layout designed for highligh
 ## Usage
 
 ```jsx
+// Example usage
 import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -84,6 +86,7 @@ The HighlightBanner supports two visual variants:
 Add a Button component to provide a clear call-to-action:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <HighlightBanner
     {...args}
@@ -93,6 +96,7 @@ Add a Button component to provide a clear call-to-action:
 ```
 
 ```jsx
+// Example usage
 import {
   HighlightBanner,
   Button,
@@ -121,6 +125,7 @@ const MyComponent = () => (
 Use a Link component for a lighter-weight action:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <HighlightBanner
     {...args}
@@ -130,6 +135,7 @@ Use a Link component for a lighter-weight action:
 ```
 
 ```jsx
+// Example usage
 import { HighlightBanner, Link, HighlightBannerImage } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -154,6 +160,7 @@ const MyComponent = () => (
 Display the HighlightBanner without an image by omitting the `image` prop:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <HighlightBanner
     {...args}
@@ -166,6 +173,7 @@ Display the HighlightBanner without an image by omitting the `image` prop:
 ```
 
 ```jsx
+// Example usage
 import {
   HighlightBanner,
   Button,
@@ -186,6 +194,7 @@ const MyComponent = () => (
 The component supports seven semantic color schemes that automatically apply the appropriate subtle background colors:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column" align="stretch">
     <HighlightBanner
@@ -288,6 +297,7 @@ The component supports seven semantic color schemes that automatically apply the
 ```
 
 ```jsx
+// Example usage
 import { HighlightBanner, HighlightBannerImage } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -356,12 +366,14 @@ const MyComponent = () => (
 Use the subtle variant for a softer, less prominent appearance:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <HighlightBanner {...args} />
 </View>
 ```
 
 ```jsx
+// Example usage
 import { HighlightBanner, HighlightBannerImage } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -386,6 +398,7 @@ const MyComponent = () => (
 The component works well with various types of imagery:
 
 ```tsx
+// Example usage
 <Flex spacing="lg" direction="column">
   <View style={{ width: 400 }}>
     <HighlightBanner
@@ -442,6 +455,7 @@ The component works well with various types of imagery:
 Control the image container height to suit your content needs:
 
 ```jsx
+// Example usage
 import { HighlightBanner, HighlightBannerImage } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

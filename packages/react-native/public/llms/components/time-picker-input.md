@@ -11,6 +11,7 @@
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>{picker}</ViewWrap>
 </View>
@@ -21,6 +22,7 @@
 Wrap the component with `BottomSheetModalProvider` so the underlying picker can render its modal. Provide a controlled `value` if you want to react to changes immediately or let the component manage its own display string.
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import {
   BottomSheetModalProvider,
@@ -75,6 +77,7 @@ When `format` is left as `'HH:mm'`, the input automatically inserts `:` as peopl
 ### With label and helper text
 
 ```tsx
+// Example usage
 <TimePickerInput
   onClear={() => {}}
   label="Meeting time"
@@ -87,6 +90,7 @@ When `format` is left as `'HH:mm'`, the input automatically inserts `:` as peopl
 ### With `FormField`
 
 ```tsx
+// Example usage
 <FormField label="Meeting time" helperText="Pick a time">
   <TimePickerInput onClear={() => {}} />
 </FormField>

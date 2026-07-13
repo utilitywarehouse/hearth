@@ -10,6 +10,7 @@ Avatars help humanise the product experience by connecting users with the produc
 ## Playground
 
 ```tsx
+// Example usage
 <Avatar
   size="md"
   name="Jane Doe"
@@ -22,6 +23,7 @@ Avatars help humanise the product experience by connecting users with the produc
 The icon variant is the default `Avatar` type. It ensures UI remains balanced and visually complete, even with limited data.
 
 ```tsx
+// Example usage
 import { Avatar } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Avatar />;
@@ -32,6 +34,7 @@ const MyComponent = () => <Avatar />;
 The initials variant can be used when a profile image is not available, but you have the user's name.
 
 ```tsx
+// Example usage
 import { Avatar } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Avatar name="Jane Doe" />;
@@ -42,6 +45,7 @@ const MyComponent = () => <Avatar name="Jane Doe" />;
 The image variant is available to use in journeys where a user is able to upload their own profile picture.
 
 ```tsx
+// Example usage
 import { Avatar } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

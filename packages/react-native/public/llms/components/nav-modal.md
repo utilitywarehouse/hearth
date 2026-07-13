@@ -14,6 +14,7 @@ If you need a bottom-sheet modal that you present with a ref, use `Modal` instea
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
   <NavModal {...args}>
     <Box gap="200">
@@ -27,6 +28,7 @@ If you need a bottom-sheet modal that you present with a ref, use `Modal` instea
 ## Usage
 
 ```tsx
+// Example usage
 import { useNavigation } from '@react-navigation/native';
 import type { NavigationAction } from '@react-navigation/native';
 import { useCallback, useEffect, useRef } from 'react';
@@ -171,6 +173,7 @@ When `footer` is provided, the primary and secondary button props are not availa
 ### Brand Background
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
   <NavModal {...args}>
     <Box gap="200">
@@ -184,6 +187,7 @@ When `footer` is provided, the primary and secondary button props are not availa
 ### Full-Screen Presentation
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
   <NavModal {...args}>
     <Box gap="200">
@@ -197,6 +201,7 @@ When `footer` is provided, the primary and secondary button props are not availa
 ### Sticky Custom Footer
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
   <NavModal
     heading="Confirm changes"
@@ -222,6 +227,7 @@ When `footer` is provided, the primary and secondary button props are not availa
 ```
 
 ```tsx
+// Example usage
 <NavModal
   heading="Confirm changes"
   description="Use a custom sticky footer when your actions need a custom layout."
@@ -246,6 +252,7 @@ When `footer` is provided, the primary and secondary button props are not availa
 `description` accepts a string for the default text styling, or JSX when you need custom content such as a link.
 
 ```tsx
+// Example usage
 <NavModal
   heading="Update available"
   description={

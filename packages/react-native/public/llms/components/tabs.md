@@ -15,6 +15,7 @@ Tabs are a navigational component that allows users to move easily between group
 ## Playground
 
 ```tsx
+// Example usage
 <Tabs {...args} defaultValue="account">
   <TabsList>{children}</TabsList>
   <TabPanel value="account">
@@ -35,6 +36,7 @@ Tabs are a navigational component that allows users to move easily between group
 ## Usage
 
 ```tsx
+// Example usage
 import { Tabs, TabsList, Tab, TabPanel } from '@utilitywarehouse/hearth-react-native';
 
 <Tabs defaultValue="account">
@@ -61,6 +63,7 @@ Tabs can be controlled by passing `value` and `onValueChange` props to the `Tabs
 This allows you to manage the active tab state externally.
 
 ```tsx
+// Example usage
 const [tab, setTab] = useState('account');
 <Tabs value={tab} onValueChange={setTab}>
   <TabsList>
@@ -83,6 +86,7 @@ const [tab, setTab] = useState('account');
 ### Overflow & Scrolling
 
 ```tsx
+// Example usage
 <Tabs defaultValue="one">
   <TabsList>
     <Tab value="one">One</Tab>
@@ -182,6 +186,7 @@ Contextual navigation buttons (previous / next) appear just outside the scrollab
 You can add icons to each `Tab` by passing an icon component to the `icon` prop. The icon will be placed to the left of the tab label.
 
 ```tsx
+// Example usage
 <Tabs defaultValue="one">
   <TabsList>
     <Tab value="one" icon={ElectricityMediumIcon}>
@@ -213,6 +218,7 @@ You can add icons to each `Tab` by passing an icon component to the `icon` prop.
 ```
 
 ```tsx
+// Example usage
 import { Tabs, TabsList, Tab, TabPanel } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,
@@ -292,6 +298,7 @@ const MyComponent = () => (
 ## Size Variants
 
 ```tsx
+// Example usage
 <>
   <Tabs size="md" defaultValue="a">
     <TabsList>

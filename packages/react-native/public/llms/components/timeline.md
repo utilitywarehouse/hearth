@@ -11,6 +11,7 @@ Timeline presents a sequence of related stops or steps using either a static sto
 ## Playground
 
 ```tsx
+// Example usage
 <Box style={{ width: 280 }}>
   <Timeline {...args}>
     <TimelineItem
@@ -40,6 +41,7 @@ Timeline presents a sequence of related stops or steps using either a static sto
 ## Usage
 
 ```tsx
+// Example usage
 import { Timeline, TimelineItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -71,6 +73,7 @@ const MyComponent = () => (
 ### Variants
 
 ```tsx
+// Example usage
 import { Box, Timeline, TimelineItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -94,6 +97,7 @@ const MyComponent = () => (
 ### Custom Content
 
 ```tsx
+// Example usage
 import {
   Badge,
   BodyText,

@@ -9,6 +9,7 @@ When you need to center-align content, the Center component comes in handy. It i
 ## Playground
 
 ```tsx
+// Example usage
 <Box {...args}>
   <BodyText>{args.children}</BodyText>
 </Box>
@@ -17,6 +18,7 @@ When you need to center-align content, the Center component comes in handy. It i
 ## Usage
 
 ```jsx
+// Example usage
 import { Center, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

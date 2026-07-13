@@ -16,6 +16,7 @@ The Expandable component is a primitive for creating expandable content with smo
 ## Playground
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     {expanded ? 'Collapse' : 'Expand'}
@@ -34,6 +35,7 @@ The Expandable component is a primitive for creating expandable content with smo
 ## Usage
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     Toggle Content
@@ -47,6 +49,7 @@ The Expandable component is a primitive for creating expandable content with smo
 ```
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Expandable, Button, Card, BodyText } from '@utilitywarehouse/hearth-react-native';
@@ -85,6 +88,7 @@ const MyComponent = () => {
 The `duration` prop controls how long the expand/collapse animation takes. The default is 200ms, which provides a smooth, natural feel. You can adjust this for faster or slower animations.
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     Fast Toggle
@@ -98,6 +102,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ```
 
 ```tsx
+// Example usage
 // Fast animation (150ms)
 <Expandable expanded={expanded} duration={150}>
   <Card>
@@ -116,6 +121,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ### Basic Example
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     Toggle Content
@@ -131,6 +137,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ### With Different Animation Speeds
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     Fast Toggle
@@ -144,6 +151,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ```
 
 ```tsx
+// Example usage
 <>
   <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
     Slow Toggle
@@ -159,6 +167,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ### Multiple Expandables
 
 ```tsx
+// Example usage
 <View style={{ width: 300, gap: 16 }}>
   <View>
     <Button
@@ -213,6 +222,7 @@ The `duration` prop controls how long the expand/collapse animation takes. The d
 ```
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Expandable, Button, Card, BodyText } from '@utilitywarehouse/hearth-react-native';
@@ -258,6 +268,7 @@ const MyComponent = () => {
 ### Controlled Example
 
 ```tsx
+// Example usage
 <View style={{ width: 300 }}>
   <View style={{ flexDirection: 'row', gap: 8, marginBottom: 16 }}>
     <Button onPress={() => setExpanded(true)} style={{ flex: 1 }}>
@@ -282,6 +293,7 @@ const MyComponent = () => {
 ```
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Expandable, Button, Card, BodyText } from '@utilitywarehouse/hearth-react-native';
@@ -318,6 +330,7 @@ The Expandable component includes built-in accessibility support:
 - Automatically announces state changes to assistive technologies
 
 ```tsx
+// Example usage
 <Expandable expanded={expanded} accessibilityLabel="Additional information section">
   {/* content */}
 </Expandable>

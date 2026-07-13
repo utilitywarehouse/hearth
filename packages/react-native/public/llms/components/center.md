@@ -8,6 +8,7 @@ When you need to center-align content, the Center component comes in handy. It i
 ## Usage
 
 ```jsx
+// Example usage
 import { Center, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 

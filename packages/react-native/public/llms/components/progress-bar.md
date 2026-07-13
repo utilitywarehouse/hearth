@@ -14,6 +14,7 @@ inline layouts and the circular variant when space is tighter or when progress n
 ## Playground
 
 ```tsx
+// Example usage
 <ProgressBar
   variant="linear"
   colorScheme="default"
@@ -28,6 +29,7 @@ inline layouts and the circular variant when space is tighter or when progress n
 ## Usage
 
 ```tsx
+// Example usage
 import { ProgressBar } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <ProgressBar value={42} label="Uploading documents" />;
@@ -51,6 +53,7 @@ const MyComponent = () => <ProgressBar value={42} label="Uploading documents" />
 ## Variants
 
 ```tsx
+// Example usage
 <Box gap="300" style={{ width: 260 }}>
   <VariantTitle title="Linear">
     <ProgressBar {...args} variant="linear" />
@@ -64,6 +67,7 @@ const MyComponent = () => <ProgressBar value={42} label="Uploading documents" />
 ## Circular Sizes
 
 ```tsx
+// Example usage
 <Box gap="300">
   <VariantTitle title="Small">
     <ProgressBar {...args} size="sm" />
@@ -79,12 +83,14 @@ const MyComponent = () => <ProgressBar value={42} label="Uploading documents" />
 Use `formatValueText` to show values that are not percentages, such as remaining data allowance.
 
 ```tsx
+// Example usage
 <Box style={{ width: 260 }}>
   <ProgressBar {...args} />
 </Box>
 ```
 
 ```tsx
+// Example usage
 import { ProgressBar } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

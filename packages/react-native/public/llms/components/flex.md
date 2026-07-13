@@ -9,6 +9,7 @@ When you need to center-align content, the Center component comes in handy. It i
 ## Playground
 
 ```tsx
+// Example usage
 <Flex {...args}>
   {Array.from({ length: 4 }).map((_, index) => (
     <Box
@@ -28,6 +29,7 @@ When you need to center-align content, the Center component comes in handy. It i
 ## Usage
 
 ```jsx
+// Example usage
 import { Flex, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

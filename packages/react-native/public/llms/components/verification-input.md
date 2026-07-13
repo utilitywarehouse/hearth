@@ -11,6 +11,7 @@ The verification input component is used to capture OTP (One Time Password) or o
 ## Playground
 
 ```tsx
+// Example usage
 <VerificationInput
   {...args}
   value={value}
@@ -24,6 +25,7 @@ The verification input component is used to capture OTP (One Time Password) or o
 ## Usage
 
 ```tsx
+// Example usage
 import { VerificationInput } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -54,6 +56,7 @@ const MyComponent = () => {
 ## Ref Methods
 
 ```tsx
+// Example usage
 <Flex direction="column" space="lg" style={{ width: 400 }}>
   <VariantTitle title="Ref Methods">
     <VerificationInput
@@ -78,6 +81,7 @@ const MyComponent = () => {
 ```
 
 ```tsx
+// Example usage
 import { useRef } from 'react';
 import {
   VerificationInput,
@@ -103,6 +107,7 @@ Available methods:
 ## States
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg" style={{ width: 400 }}>
   <VariantTitle title="Default">
     <VerificationInput

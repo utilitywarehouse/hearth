@@ -18,6 +18,7 @@ Carousel Controls are used to clearly indicate multiple pieces of content and to
 ## Playground
 
 ```tsx
+// Example usage
 <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
   <CarouselExample {...args} items={items} width={width} />
 </Box>
@@ -35,6 +36,7 @@ Carousel Controls are used to clearly indicate multiple pieces of content and to
 ## Basic Usage
 
 ```jsx
+// Example usage
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -59,6 +61,7 @@ const MyComponent = () => (
 The `Carousel` component includes built-in pagination controls by default. You can customise their appearance or hide them entirely using props.
 
 ```jsx
+// Example usage
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -83,6 +86,7 @@ const MyComponent = () => (
 Add previous and next navigation buttons to the controls by setting `showNavigation` to `true`.
 
 ```jsx
+// Example usage
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -107,6 +111,7 @@ const MyComponent = () => (
 The `CarouselControls` component is to be used in conjunction with the `Carousel` component. This component requires no props and automatically utilises the carousel context. When custom controls are provided, the built-in controls are automatically hidden.
 
 ```jsx
+// Example usage
 import { BodyText, Box, Carousel, CarouselControls } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -132,6 +137,7 @@ const MyComponent = () => (
 You can control the carousel programmatically using a ref. The carousel exposes `scrollToIndex` and `scrollToOffset` methods.
 
 ```jsx
+// Example usage
 import { useRef } from 'react';
 import {
   BodyText,
@@ -173,6 +179,7 @@ const MyComponent = () => {
 You can create a carousel with centered items that are smaller than the viewport width, showing partial views of adjacent items.
 
 ```jsx
+// Example usage
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -261,6 +268,7 @@ When using a screen reader, users will navigate through the carousel items in or
 **Important:** You must add appropriate accessibility labels and hints to the content within each carousel item. The carousel itself does not automatically provide accessibility labels for item content.
 
 ```jsx
+// Example usage
 <Carousel width={300}>
   <CarouselItem>
     <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
@@ -292,6 +300,7 @@ When using a screen reader, users will navigate through the carousel items in or
 To make controls accessible to screen readers:
 
 ```jsx
+// Example usage
 // Make controls visible to screen readers globally
 <Carousel width={300} controlsAccessibilityHidden={false}>
   {/* items */}

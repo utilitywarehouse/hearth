@@ -10,12 +10,14 @@ Pagination helps users move between pages of content while keeping the current p
 ## Playground
 
 ```tsx
+// Example usage
 <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { Pagination } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -39,10 +41,12 @@ const MyComponent = () => {
 ### Condensed
 
 ```tsx
+// Example usage
 <Pagination condensed currentPage={currentPage} onPageChange={setCurrentPage} totalPages={10} />
 ```
 
 ```tsx
+// Example usage
 const [currentPage, setCurrentPage] = useState(1);
 
 <Pagination condensed currentPage={currentPage} onPageChange={setCurrentPage} totalPages={10} />;
@@ -51,6 +55,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ### Without skip buttons
 
 ```tsx
+// Example usage
 <Pagination
   currentPage={currentPage}
   hideSkipButtons
@@ -60,6 +65,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ```
 
 ```tsx
+// Example usage
 const [currentPage, setCurrentPage] = useState(3);
 
 <Pagination
@@ -73,6 +79,7 @@ const [currentPage, setCurrentPage] = useState(3);
 ### Edge cases
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg" style={{ width: '100%', maxWidth: 520 }}>
   <Flex direction="column" spacing="xs">
     <BodyText size="sm">Near start</BodyText>
@@ -90,6 +97,7 @@ const [currentPage, setCurrentPage] = useState(3);
 ```
 
 ```tsx
+// Example usage
 const [nearStartPage, setNearStartPage] = useState(2);
 const [middlePage, setMiddlePage] = useState(5);
 const [nearEndPage, setNearEndPage] = useState(9);

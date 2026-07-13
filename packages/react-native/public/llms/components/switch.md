@@ -14,12 +14,14 @@ to turn an individual option on or off. They are usually used to activate or dea
 ## Playground
 
 ```tsx
+// Example usage
 <Switch {...args} value={toggled} onValueChange={handleToggle} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { Switch } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -43,6 +45,7 @@ const MyComponent = () => {
 ## Variants
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="sm">
   <VariantTitle title="Off - medium">
     <Switch value={false} />
@@ -77,6 +80,7 @@ When the Switch is not placed in a List Item, you should use the `Label` compone
 the `FormField` documentation for more information.
 
 ```tsx
+// Example usage
 import {
   Switch,
   FormField,
@@ -109,6 +113,7 @@ component as the `trailingContent` of the `ListItem`. See the `List` documentati
 for more information.
 
 ```tsx
+// Example usage
 import React, { useState } from 'react';
 import { Card, List, ListItem, ListItemIcon, Switch } from '@utilitywarehouse/hearth-react-native';
 import {

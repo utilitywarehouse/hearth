@@ -11,6 +11,7 @@ The Stepper Input combines a numeric text input with decrement and increment con
 ## Playground
 
 ```tsx
+// Example usage
 <StepperInput
   {...args}
   value={value}
@@ -28,6 +29,7 @@ The Stepper Input combines a numeric text input with decrement and increment con
 ## Usage
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { StepperInput } from '@utilitywarehouse/hearth-react-native';
 
@@ -77,6 +79,7 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 ### States
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg" style={{ width: 420 }}>
   <VariantTitle title="Default">
     <StepperInput
@@ -151,6 +154,7 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 ### Bounds
 
 ```tsx
+// Example usage
 <StepperInput {...args} value={value} onChangeText={setValue} />
 ```
 
@@ -159,10 +163,12 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 `StepperInput` supports fractional steps and negative ranges. When `step`, `min`, `max`, or the current value uses decimals, the input switches to a numeric keyboard path that preserves decimal editing.
 
 ```tsx
+// Example usage
 <StepperInput {...args} value={value} onChangeText={setValue} />
 ```
 
 ```tsx
+// Example usage
 <StepperInput label="Weight" min={-2} max={2} step={0.5} value={value} onChangeText={setValue} />
 ```
 
@@ -171,10 +177,12 @@ The Stepper Input inherits React Native `TextInput` props except `children`, `va
 By default, the increment and decrement buttons update the value without moving focus into the text field. Enable `focusInputOnStepPress` when keyboard-first flows need the caret to stay in the input after a button press.
 
 ```tsx
+// Example usage
 <StepperInput {...args} value={value} onChangeText={setValue} />
 ```
 
 ```tsx
+// Example usage
 <StepperInput label="Guests" value={value} onChangeText={setValue} focusInputOnStepPress />
 ```
 

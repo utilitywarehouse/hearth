@@ -23,6 +23,7 @@ The `DateInput` component allows users to enter dates manually using separate in
 ## Playground
 
 ```tsx
+// Example usage
 <DateInput label="Date" helperText="Helper text" />
 ```
 
@@ -31,6 +32,7 @@ The `DateInput` component allows users to enter dates manually using separate in
 Use state to control the date values:
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { DateInput } from '@utilitywarehouse/hearth-react-native';
 
@@ -94,6 +96,7 @@ const MyComponent = () => {
 ### Date of Birth
 
 ```tsx
+// Example usage
 <DateInput label="Date of birth" helperText="Enter your date of birth" required />
 ```
 
@@ -102,6 +105,7 @@ const MyComponent = () => {
 Hide the day segment for card expiry dates:
 
 ```tsx
+// Example usage
 <DateInput
   label="Card expiry"
   helperText="Enter the expiry month and year"
@@ -119,6 +123,7 @@ Hide the day segment for card expiry dates:
 Hide day and month segments for year-only inputs:
 
 ```tsx
+// Example usage
 <DateInput label="Year" helperText="Enter the year" hideDay hideMonth />
 ```
 
@@ -127,6 +132,7 @@ Hide day and month segments for year-only inputs:
 Show validation states with helper text and icons:
 
 ```tsx
+// Example usage
 <View style={{ gap: 16 }}>
   <DateInput
     label="Valid date"
@@ -159,6 +165,7 @@ Show validation states with helper text and icons:
 Disabled date inputs:
 
 ```tsx
+// Example usage
 <DateInput
   label="Date of birth"
   helperText="This field is disabled"
@@ -174,6 +181,7 @@ Disabled date inputs:
 Set initial values with `value` props:
 
 ```tsx
+// Example usage
 <DateInput label="Date of birth" dayValue="01" monthValue="01" yearValue="2000" />
 ```
 
@@ -182,6 +190,7 @@ Set initial values with `value` props:
 Implement custom validation logic:
 
 ```tsx
+// Example usage
 <DateInput
   label="Date of birth"
   helperText="Enter a valid date between 1900 and today"
@@ -203,6 +212,7 @@ Implement custom validation logic:
 Control which segments are visible:
 
 ```tsx
+// Example usage
 <View style={{ gap: 16 }}>
   <DateInput label="Full date" helperText="DD/MM/YYYY" />
   <DateInput label="Month and year" helperText="MM/YYYY" hideDay required />
@@ -215,6 +225,7 @@ Control which segments are visible:
 Group date inputs with other form fields in a card:
 
 ```tsx
+// Example usage
 <Flex spacing="sm">
   <Heading size="lg">Event Registration</Heading>
   <Card variant="subtle" gap="250">
@@ -233,6 +244,7 @@ Group date inputs with other form fields in a card:
 Programmatically control date values:
 
 ```tsx
+// Example usage
 <Flex spacing="md">
   <DateInput
     label="Date"
@@ -258,6 +270,7 @@ Programmatically control date values:
 Use `dayRef`, `monthRef`, and `yearRef` to focus each segment programmatically:
 
 ```tsx
+// Example usage
 <Flex spacing="md">
   <DateInput
     label="Date"
@@ -281,6 +294,7 @@ Use `dayRef`, `monthRef`, and `yearRef` to focus each segment programmatically:
 ```
 
 ```tsx
+// Example usage
 import { useRef, useState } from 'react';
 import { TextInput } from 'react-native';
 import { Button, DateInput } from '@utilitywarehouse/hearth-react-native';
@@ -318,6 +332,7 @@ const MyComponent = () => {
 You can override the styles of the input containers, input fields, and input labels using the `inputContainerStyle`, `inputStyle`, and `inputLabelStyle` props respectively:
 
 ```tsx
+// Example usage
 <DateInput
   label="Custom width date input"
   helperText="Date input with custom width"
@@ -326,6 +341,7 @@ You can override the styles of the input containers, input fields, and input lab
 ```
 
 ```tsx
+// Example usage
 <DateInput
   label="Custom width date input"
   helperText="Date input with custom width"

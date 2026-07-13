@@ -21,12 +21,14 @@ The `Banner` component is a versatile card-based component for displaying inform
 ## Playground
 
 ```tsx
+// Example usage
 <Banner {...args} icon={ElectricityMediumIcon} />
 ```
 
 ## Usage
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -81,6 +83,7 @@ For more details about the ThemedImage component used internally, refer to the `
 The default horizontal layout places the icon or image to the left of the content, creating a compact side-by-side arrangement.
 
 ```jsx
+// Example usage
 <Banner
   icon={ElectricityMediumIcon}
   heading="Horizontal Layout"
@@ -94,6 +97,7 @@ The default horizontal layout places the icon or image to the left of the conten
 The vertical layout stacks the icon or image above the content, useful for centered or full-width presentations.
 
 ```jsx
+// Example usage
 <Banner
   icon={ElectricityMediumIcon}
   heading="Vertical Layout"
@@ -107,6 +111,7 @@ The vertical layout stacks the icon or image above the content, useful for cente
 Use an icon with `IconContainer` styling options:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -134,6 +139,7 @@ Use an icon with `IconContainer` styling options:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,
@@ -165,6 +171,7 @@ const MyComponent = () => (
 Display a themed image that automatically switches between light and dark modes:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -201,6 +208,7 @@ Display a themed image that automatically switches between light and dark modes:
 ```
 
 ```jsx
+// Example usage
 import { Banner, BannerImage } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -235,6 +243,7 @@ const MyComponent = () => (
 Display a themed illustration that adapts to layout changes:
 
 ```tsx
+// Example usage
 <View>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -275,6 +284,7 @@ Display a themed illustration that adapts to layout changes:
 ```
 
 ```jsx
+// Example usage
 import { Banner, BannerIllustration } from '@utilitywarehouse/hearth-react-native';
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
@@ -295,6 +305,7 @@ const MyComponent = () => (
 Add a button for clear call-to-action:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -325,6 +336,7 @@ Add a button for clear call-to-action:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -348,6 +360,7 @@ const MyComponent = () => (
 Use a link for lighter-weight actions:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -369,6 +382,7 @@ Use a link for lighter-weight actions:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -388,6 +402,7 @@ const MyComponent = () => (
 Make the entire banner pressable with a chevron indicator:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -453,6 +468,7 @@ Make the entire banner pressable with a chevron indicator:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -472,6 +488,7 @@ const MyComponent = () => (
 Add a close button for dismissible banners:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -499,6 +516,7 @@ Add a close button for dismissible banners:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -518,6 +536,7 @@ const MyComponent = () => (
 Stack the icon or image above the content:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -554,6 +573,7 @@ Stack the icon or image above the content:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -573,6 +593,7 @@ const MyComponent = () => (
 The component supports semantic color schemes for buttons and theming:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -722,6 +743,7 @@ The component supports semantic color schemes for buttons and theming:
 ```
 
 ```jsx
+// Example usage
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -761,6 +783,7 @@ const MyComponent = () => (
 Combine multiple features for rich interactive banners:
 
 ```tsx
+// Example usage
 <View style={{ width: 400 }}>
   <Flex spacing="lg" direction="column">
     <Banner
@@ -799,6 +822,7 @@ Combine multiple features for rich interactive banners:
 ```
 
 ```jsx
+// Example usage
 import { Banner, BannerImage } from '@utilitywarehouse/hearth-react-native';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 

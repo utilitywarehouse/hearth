@@ -17,6 +17,7 @@ The `BottomSheet` component provides a drawer-like interface that slides up from
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
@@ -37,6 +38,7 @@ The `BottomSheet` component provides a drawer-like interface that slides up from
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { useRef, useCallback } from 'react';
 import {
   BottomSheetModal,
@@ -98,6 +100,7 @@ For a comprehensive list of props, refer to the [official documentation](https:/
 The `BottomSheetModal` component is the recommended way to use bottom sheets in most applications. It appears over the current content rather than being rendered inline.
 
 ```tsx
+// Example usage
 import { BottomSheetModal } from '@utilitywarehouse/hearth-react-native';
 
 // See usage example above
@@ -106,6 +109,7 @@ import { BottomSheetModal } from '@utilitywarehouse/hearth-react-native';
 **Important:** When using `BottomSheetModal`, you need to wrap your app with `BottomSheetModalProvider`:
 
 ```tsx
+// Example usage
 import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 const App = () => {
@@ -116,6 +120,7 @@ const App = () => {
 `BottomSheetModalProvider` adds Hearth's bottom-sheet safe-area spacing by default. If your app already handles safe-area padding, you can opt out and avoid double spacing:
 
 ```tsx
+// Example usage
 import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 const App = () => {
@@ -132,6 +137,7 @@ const App = () => {
 For scrollable content within a bottom sheet, use the `BottomSheetScrollView` component instead of the standard ScrollView:
 
 ```tsx
+// Example usage
 import {
   BottomSheetModal,
   BottomSheetScrollView,
@@ -160,6 +166,7 @@ const MyComponent = () => {
 As mentioned above, when using `BottomSheetModal`, you need to wrap your app with `BottomSheetModalProvider`:
 
 ```tsx
+// Example usage
 import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 const App = () => {
@@ -178,6 +185,7 @@ Use the `useSafeAreaInsets` prop to control whether Hearth applies bottom-sheet 
 When using the `Input` component inside a `BottomSheet` or `BottomSheetModal`, you need to pass the `inBottomSheet` prop to ensure proper behavior with the keyboard and focus management.
 
 ```tsx
+// Example usage
 import { Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {

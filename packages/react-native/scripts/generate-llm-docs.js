@@ -66,9 +66,10 @@ function findMdxFiles(dir, results = []) {
 // ─── Output path derivation ───────────────────────────────────────────────────
 
 function toKebabCase(str) {
-  return str.replace(/([A-Z])/g, (m, l, offset) =>
-    offset > 0 ? '-' + l.toLowerCase() : l.toLowerCase()
-  );
+  return str
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2') // camelCase boundary: fooBar → foo-Bar
+    .replace(/([A-Z]+)([A-Z][a-z])/g, '$1-$2') // acronym boundary: HTMLElements → HTML-Elements
+    .toLowerCase();
 }
 
 /**
@@ -517,6 +518,10 @@ const CUSTOM_SELF_CLOSING_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*\/>\s*$/;
 // Matches an opening (non-self-closing) PascalCase JSX component on its own line: <FooBar ...>
 const CUSTOM_OPEN_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*>\s*$/;
 
+// Code fence languages that hold component usage examples — these get an "Example usage"
+// comment marker; other languages (bash, console, kotlin, etc.) are left as-is.
+const CODE_FENCE_LANGS = new Set(['tsx', 'jsx', 'ts', 'js', 'typescript', 'javascript']);
+
 // Matches a self-closing <video ... /> element (e.g. embedded demo clips), which may appear
 // inline (including inside a markdown table cell) rather than alone on its own line.
 const VIDEO_TAG_RE = /<video\b[^>]*\/>/g;
@@ -545,9 +550,15 @@ function transformContent(content, importMap, exprMap) {
 
   for (const line of lines) {
     // Track code fences — content inside fences passes through unchanged
-    if (/^(`{3,}|~{3,})/.test(line.trimStart())) {
+    const fenceMatch = line.trimStart().match(/^(`{3,}|~{3,})\s*([a-zA-Z]*)/);
+    if (fenceMatch) {
       inCodeFence = !inCodeFence;
       output.push(line);
+      // Mark JS/TS fences as example code so a reader doesn't mistake them for
+      // instructions to run verbatim (e.g. Storybook-only `{...args}` spreads).
+      if (inCodeFence && CODE_FENCE_LANGS.has(fenceMatch[2].toLowerCase())) {
+        output.push('// Example usage');
+      }
       continue;
     }
 
@@ -576,7 +587,7 @@ function transformContent(content, importMap, exprMap) {
       if (filePath) {
         const jsx =
           extractStoryRender(filePath, storyName) ?? extractStoryFromArgs(filePath, storyName);
-        if (jsx) output.push('', '```tsx', jsx, '```', '');
+        if (jsx) output.push('', '```tsx', '// Example usage', jsx, '```', '');
       }
       continue; // always consume the Canvas line
     }
@@ -685,7 +696,12 @@ function extractMetadata(markdown) {
     }
   }
 
-  return { title, description };
+  // Top-level sections (h2), used to give guides in llms.txt more context than the title alone
+  const headings = lines
+    .filter(line => /^##\s+/.test(line))
+    .map(line => line.replace(/^##\s+/, '').trim());
+
+  return { title, description, headings };
 }
 
 // ─── Process a single MDX file ────────────────────────────────────────────────
@@ -697,9 +713,9 @@ function processMdxFile(mdxAbsPath) {
   const { importMap, exprMap } = parseImports(content, mdxDir);
   const transformed = transformContent(content, importMap, exprMap);
   const pruned = pruneEmptySections(transformed);
-  const { title, description } = extractMetadata(pruned);
+  const { title, description, headings } = extractMetadata(pruned);
 
-  return { markdown: pruned, title, description };
+  return { markdown: pruned, title, description, headings };
 }
 
 // ─── llms.txt root index ──────────────────────────────────────────────────────
@@ -715,6 +731,13 @@ function generateLlmsTxt(entries, llmsTxtDir) {
   const commonProps = entries.filter(e => e.sub === 'common-props');
   const responsive = entries.filter(e => e.sub === 'responsive-design');
 
+  // Guides get their top-level sections listed as sub-bullets, so the index gives more
+  // context on what's covered than the page title alone.
+  const guideEntry = e => [
+    `- [${e.title}](${rel(e.outputPath)})`,
+    ...(e.headings ?? []).map(h => `  - ${h}`),
+  ];
+
   const lines = [
     '# Hearth React Native',
     '',
@@ -722,7 +745,7 @@ function generateLlmsTxt(entries, llmsTxtDir) {
     '',
     '## Guides',
     '',
-    ...guides.map(e => `- [${e.title}](${rel(e.outputPath)})`),
+    ...guides.flatMap(guideEntry),
   ];
 
   if (commonProps.length) {
@@ -804,13 +827,13 @@ async function main() {
     const relInput = path.relative(PKG_ROOT, mdxFile);
 
     try {
-      const { markdown, title, description } = processMdxFile(mdxFile);
+      const { markdown, title, description, headings } = processMdxFile(mdxFile);
       fs.mkdirSync(path.dirname(outputPath), { recursive: true });
       const content = await formatWithPrettier(outputPath, markdown + '\n');
       fs.writeFileSync(outputPath, content);
 
       const { category, sub } = categorise(mdxFile);
-      entries.push({ outputPath, title, description, category, sub });
+      entries.push({ outputPath, title, description, headings, category, sub });
       ok++;
       console.log(`  ✓ ${relInput}`);
     } catch (err) {

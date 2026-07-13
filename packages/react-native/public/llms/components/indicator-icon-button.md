@@ -10,12 +10,14 @@ The `IndicatorIconButton` component is used to trigger an action or event, such 
 ## Playground
 
 ```tsx
+// Example usage
 <IndicatorIconButton {...args} icon={icon} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { IndicatorIconButton } from '@utilitywarehouse/hearth-react-native';
 import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -38,6 +40,7 @@ const MyComponent = () => {
 ### Variants
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="xl">
   <Flex direction="row" spacing="lg">
     <Box>
@@ -66,6 +69,7 @@ const MyComponent = () => {
 You can pass color as the iconStyle props:
 
 ```javascript
+// Example usage
 const { color } = useTheme();
 
 return <IndicatorIconButton {...props} iconStyle={{ color: color.energyBlue[300] }} />;
@@ -74,6 +78,7 @@ return <IndicatorIconButton {...props} iconStyle={{ color: color.energyBlue[300]
 It does not work on Storybook on web, only mobile.
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="xl">
   <Flex direction="row" spacing="lg">
     <Box>
@@ -97,6 +102,7 @@ It does not work on Storybook on web, only mobile.
 ### Adding accessibility label
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="xl">
   <Box>
     <VariantTitle title="Notification label" invert={args.inverted}>

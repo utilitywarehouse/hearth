@@ -13,12 +13,14 @@ The input component is a text field that allows users to enter text, numbers, or
 ## Playground
 
 ```tsx
+// Example usage
 <Textarea placeholder="Textarea placeholder" validationStatus="initial" />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { Textarea } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -78,6 +80,7 @@ The `TextareaField` inherits all of the React Native [`TextTextarea` props](http
 The `Textarea` component can display a label and helper text by passing the appropriate props.
 
 ```tsx
+// Example usage
 import { Textarea } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -103,6 +106,7 @@ const MyComponent = () => {
 Set `resizable` to `true` to let people drag the bottom-right handle and increase the textarea height.
 
 ```tsx
+// Example usage
 import { Textarea } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {

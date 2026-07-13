@@ -22,6 +22,7 @@ A Card component serves as a visual container that groups related content and ac
 ## Playground
 
 ```tsx
+// Example usage
 <Card {...props}>
   <BodyText>{children as string}</BodyText>
 </Card>
@@ -30,6 +31,7 @@ A Card component serves as a visual container that groups related content and ac
 ## Usage
 
 ```jsx
+// Example usage
 import { Card, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -88,6 +90,7 @@ const MyComponent = () => (
 ## Variants
 
 ```tsx
+// Example usage
 <Flex spacing="lg">
   <VariantTitle title="Subtle - White">
     <Card {...props} variant="subtle" colorScheme="neutralStrong">
@@ -203,6 +206,7 @@ by passing the `handlerToInherit` prop e.g `onChange`. Wrapping a component in a
 make the card interactive and also show the `active` state of the child component when the `Card` is pressed.
 
 ```tsx
+// Example usage
 <Flex spacing="lg">
   <VariantTitle title="Pressable - Subtle - White">
     <Card
@@ -271,6 +275,7 @@ make the card interactive and also show the `active` state of the child componen
 See example below for how to use the `CardPressHandler` component:
 
 ```jsx
+// Example usage
 import {
   Card,
   CardPressHandler,
@@ -298,6 +303,7 @@ const MyComponent = () => (
 You can add shadow to the `Card` component by using the `shadowColor` prop. This prop accepts various semantic color options to match your design needs.
 
 ```tsx
+// Example usage
 <Flex spacing="lg">
   <VariantTitle title="Subtle - White - Shadow">
     <Card {...props} variant="subtle">
@@ -313,6 +319,7 @@ You can add shadow to the `Card` component by using the `shadowColor` prop. This
 ```
 
 ```jsx
+// Example usage
 import { Card, BodyText, Heading } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -328,6 +335,7 @@ const MyComponent = () => (
 You can use the `CardAction` component within a `Card` to create actionable items with consistent styling.
 
 ```tsx
+// Example usage
 <Flex gap="400">
   <Card {...props} flexDirection="column" alignItems="stretch" spacing="md" variant="emphasis">
     <BodyText>{children as string}</BodyText>
@@ -379,6 +387,7 @@ You can use the `CardAction` component within a `Card` to create actionable item
 ```
 
 ```jsx
+// Example usage
 import {
   Card,
   CardAction,
@@ -418,6 +427,7 @@ const MyComponent = () => (
 #### `CardAction` Playground
 
 ```tsx
+// Example usage
 <View style={{ width: '100%', maxWidth: 400, gap: 16 }}>
   <Card variant="emphasis">
     <CardActions>
@@ -432,6 +442,7 @@ const MyComponent = () => (
 The badge can be positioned in three different locations:
 
 ```tsx
+// Example usage
 import { Card, CardAction, CardActions, Badge } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -481,6 +492,7 @@ const MyComponent = () => (
 #### `CardAction` Size Variants
 
 ```tsx
+// Example usage
 import { Card, CardAction, CardActions } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -515,6 +527,7 @@ const MyComponent = () => (
 For more complex layouts, you can use the component parts directly:
 
 ```tsx
+// Example usage
 import {
   Card,
   CardAction,
@@ -562,6 +575,7 @@ Understanding how `Card` detects and renders `CardAction` components will help y
 direct child of `Card` to give the component a clear boundary for actions and remove heuristics.
 
 ```tsx
+// Example usage
 import { Card, CardAction, CardActions, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -578,6 +592,7 @@ const MyComponent = () => (
 **Using `CardContent` wrapper (For complex mixed content):**
 
 ```tsx
+// Example usage
 import {
   Card,
   CardContent,
@@ -618,6 +633,7 @@ Use the explicit `CardContent` wrapper when:
 3. **Nested components**: You have deeply nested content structures that might confuse the detection
 
 ```tsx
+// Example usage
 // Scenario: Complex nested structure with custom wrappers
 const MyComponent = () => (
   <Card>
@@ -638,6 +654,7 @@ When mapping over data to create `CardAction` components:
 1. **Wrap actions in `CardActions`** for better organisation:
 
 ```tsx
+// Example usage
 const ActionItem = ({ item }) => (
   <CardAction
     heading={item.label}
@@ -658,6 +675,7 @@ const ActionItem = ({ item }) => (
 2. **Keep action items simple** - avoid adding extra content alongside `CardAction` items:
 
 ```tsx
+// Example usage
 // ✅ Good: Simple action item
 const ActionItem = ({ label }) => <CardAction heading={label} onPress={() => {}} />;
 
@@ -673,6 +691,7 @@ const ActionItem = ({ label }) => (
 3. **Mix mapped actions with direct actions when needed**:
 
 ```tsx
+// Example usage
 <Card>
   <BodyText>Content</BodyText>
   <CardActions>

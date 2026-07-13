@@ -13,12 +13,14 @@ Hearth React Native provides a set of powerful hooks that help you build respons
 `useTheme` is a custom hook that returns the current theme object with all design tokens and theme values. This is the primary way to access theme values in your components.
 
 ```tsx
+// Example usage
 import { useTheme } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { View, Text } from 'react-native';
 import { useTheme } from '@utilitywarehouse/hearth-react-native';
 
@@ -50,6 +52,7 @@ function ThemedComponent() {
 ### Accessing Different Token Categories
 
 ```tsx
+// Example usage
 function ExampleComponent() {
   const theme = useTheme();
 
@@ -104,12 +107,14 @@ function ExampleComponent() {
 `useToken` is a custom hook that resolves specific design tokens from the theme. It provides a convenient way to access individual token values without importing the entire theme.
 
 ```tsx
+// Example usage
 import { useToken } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { View, Text } from 'react-native';
 import { useToken } from '@utilitywarehouse/hearth-react-native';
 
@@ -143,12 +148,14 @@ function TokenExample() {
 `useColorMode` is a custom hook that provides access to the current color mode and allows you to programmatically change between light and dark themes.
 
 ```tsx
+// Example usage
 import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 
@@ -194,6 +201,7 @@ function ColorModeToggle() {
 ### Conditional Styling Based on Color Mode
 
 ```tsx
+// Example usage
 function AdaptiveComponent() {
   const [colorMode] = useColorMode();
 
@@ -238,12 +246,14 @@ function AdaptiveComponent() {
 `useBreakpointValue` is a custom hook that returns different values based on the current screen breakpoint. It's perfect for creating responsive designs that adapt to different screen sizes.
 
 ```tsx
+// Example usage
 import { useBreakpointValue } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { View, Text } from 'react-native';
 import { useBreakpointValue } from '@utilitywarehouse/hearth-react-native';
 
@@ -284,6 +294,7 @@ function ResponsiveLayout() {
 ### Responsive Typography
 
 ```tsx
+// Example usage
 function ResponsiveText() {
   const fontSize = useBreakpointValue({
     default: 16,
@@ -317,6 +328,7 @@ function ResponsiveText() {
 ### Complex Responsive Values
 
 ```tsx
+// Example usage
 function ResponsiveCard() {
   const cardStyle = useBreakpointValue({
     default: {
@@ -363,12 +375,14 @@ function ResponsiveCard() {
 `useMedia` is a custom hook that returns an object with boolean values for each breakpoint, indicating whether the current screen size matches that breakpoint. It's useful for conditional rendering based on screen size.
 
 ```tsx
+// Example usage
 import { useMedia } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { View, Text } from 'react-native';
 import { useMedia } from '@utilitywarehouse/hearth-react-native';
 
@@ -401,6 +415,7 @@ function MediaExample() {
 ### Conditional Components
 
 ```tsx
+// Example usage
 function ConditionalLayout() {
   const media = useMedia();
 
@@ -469,6 +484,7 @@ function ConditionalLayout() {
 ### Responsive Grid
 
 ```tsx
+// Example usage
 function ResponsiveGrid({ items }) {
   const media = useMedia();
 

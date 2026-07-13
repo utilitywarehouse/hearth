@@ -10,6 +10,7 @@
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Time Picker</Button>
@@ -30,6 +31,7 @@
 Use the `TimePicker` with a ref to present the bottom sheet when people tap a trigger button.
 
 ```tsx
+// Example usage
 import { useRef, useState } from 'react';
 import {
   BottomSheetModalProvider,

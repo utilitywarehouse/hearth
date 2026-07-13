@@ -43,6 +43,7 @@ Some of the key features of Unistyles include:
 To start using Unistyles for styling your components, simply import the `StyleSheet` from Hearth React Native:
 
 ```tsx
+// Example usage
 import { StyleSheet, View, Text } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -76,6 +77,7 @@ Hearth React Native comes with a comprehensive set of design tokens that ensure 
 To access design tokens, create your styles using a function that receives the theme as the first parameter:
 
 ```tsx
+// Example usage
 import { StyleSheet, View, Text } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -106,6 +108,7 @@ const styles = StyleSheet.create(theme => ({
 The theme provides a comprehensive color palette organized by semantic meaning:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   // Primary colors
   primaryButton: {
@@ -139,6 +142,7 @@ const styles = StyleSheet.create(theme => ({
 Use consistent spacing values from the design system:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     // Use space tokens for consistent spacing
@@ -163,6 +167,7 @@ const styles = StyleSheet.create(theme => ({
 Access font families, sizes, weights, and line heights:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   heading: {
     fontFamily: theme.font.family.display, // Comic Hams
@@ -190,6 +195,7 @@ const styles = StyleSheet.create(theme => ({
 Use consistent border radius values:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   card: {
     borderRadius: theme.borderRadius.lg,
@@ -210,6 +216,7 @@ const styles = StyleSheet.create(theme => ({
 Apply consistent shadow styles:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   card: {
     ...theme.shadow.md,
@@ -228,6 +235,7 @@ const styles = StyleSheet.create(theme => ({
 Create responsive layouts using the built-in breakpoint system:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     padding: {
@@ -257,6 +265,7 @@ const styles = StyleSheet.create(theme => ({
 Styles automatically adapt to the current color mode when using theme tokens:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     // Automatically switches between light and dark mode
@@ -276,6 +285,7 @@ const styles = StyleSheet.create(theme => ({
 You can also define styles that apply only in light or dark mode:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   text: {
     color: theme.isLight ? theme.color.grey[900] : theme.color.grey[100],
@@ -288,6 +298,7 @@ const styles = StyleSheet.create(theme => ({
 Access theme values and device information at runtime:
 
 ```tsx
+// Example usage
 import { StyleSheet, UnistylesRuntime } from '@utilitywarehouse/hearth-react-native';
 
 const styles = StyleSheet.create((theme, rt) => ({
@@ -315,6 +326,7 @@ Read more about the [Unistyles Runtime API](https://www.unistyl.es/v3/references
 Use component-specific design tokens for consistent styling:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   button: {
     backgroundColor: theme.components.button.background.primary,
@@ -343,6 +355,7 @@ Unistyles provides powerful variant systems that allow you to create flexible, r
 Variants allow you to define different styles based on props passed to your component:
 
 ```tsx
+// Example usage
 import { StyleSheet, View, Text } from '@utilitywarehouse/hearth-react-native';
 
 interface ButtonProps {
@@ -441,6 +454,7 @@ const styles = StyleSheet.create(theme => ({
 You can also use boolean values for simpler variant logic:
 
 ```tsx
+// Example usage
 interface AlertProps {
   message: string;
   isError?: boolean;
@@ -515,6 +529,7 @@ Read more about [Unistyles Variants](https://www.unistyl.es/v3/references/varian
 Compound variants allow you to apply specific styles when certain combinations of variants are active:
 
 ```tsx
+// Example usage
 interface BadgeProps {
   variant?: 'solid' | 'outline' | 'soft';
   color?: 'purple' | 'green' | 'red' | 'grey';
@@ -734,6 +749,7 @@ Read more about [Unistyles Compound Variants](https://www.unistyl.es/v3/referenc
 You can specify default variants that will be applied when no variant is explicitly set:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   button: {
     borderRadius: theme.borderRadius.md,
@@ -769,6 +785,7 @@ Read more about [Unistyles Default Variants](https://www.unistyl.es/v3/reference
 You can combine variants with responsive breakpoints:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   card: {
     borderRadius: theme.borderRadius.lg,
@@ -804,6 +821,7 @@ Using variants and compound variants with Hearth React Native allows you to buil
 ### 1. Always Use Theme Tokens
 
 ```tsx
+// Example usage
 // ✅ Good - Uses theme tokens
 const styles = StyleSheet.create(theme => ({
   text: {
@@ -824,6 +842,7 @@ const styles = StyleSheet.create({
 ### 2. Leverage Responsive Design
 
 ```tsx
+// Example usage
 // ✅ Good - Responsive design
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -839,6 +858,7 @@ const styles = StyleSheet.create(theme => ({
 ### 3. Use Semantic Color Names
 
 ```tsx
+// Example usage
 // ✅ Good - Semantic meaning
 const styles = StyleSheet.create(theme => ({
   errorText: {
@@ -853,6 +873,7 @@ const styles = StyleSheet.create(theme => ({
 ### 4. Consistent Spacing
 
 ```tsx
+// Example usage
 // ✅ Good - Consistent spacing scale
 const styles = StyleSheet.create(theme => ({
   card: {

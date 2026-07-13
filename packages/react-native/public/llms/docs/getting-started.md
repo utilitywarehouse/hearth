@@ -5,6 +5,7 @@ Although there are a few components that require a `BottomSheetModalProvider` to
 You should also make sure you're app is wrapped in a `GestureHandlerRootView` from `react-native-gesture-handler`.
 
 ```tsx
+// Example usage
 import {
   Box,
   Alert,
@@ -31,6 +32,7 @@ By default the light colour mode is enabled. If you want to enable dark mode, yo
 use the `useColorMode` hook to toggle between light and dark modes.
 
 ```tsx
+// Example usage
 import {
   useColorMode,
   Box,

@@ -5,14 +5,53 @@
 ## Guides
 
 - [Adding Shadows](llms/docs/adding-shadows.md)
+  - Using Predefined Shadows
+  - Components with Shadow Props
 - [All Components](llms/docs/all-components.md)
 - [Dark Mode Best Practice](llms/docs/dark-mode-best-practice.md)
+  - Setting Up Dark Mode
+  - Use Semantic Theme Colours
+  - Use Semantic Utility Props
+  - Use the asset libraries
+  - `ThemedImage` component
 - [Getting Started](llms/docs/getting-started.md)
 - [Hooks](llms/docs/hooks.md)
+  - useTheme
+  - useToken
+  - useColorMode
+  - useBreakpointValue
+  - useMedia
 - [Hearth React Native](llms/docs/introduction.md)
+  - Installation
+  - Additional packages
+  - Fonts
+  - Babel configuration
+  - Jest configuration
 - [Layout Components](llms/docs/layout-components.md)
+  - Box
+  - Container
+  - Flex
+  - Grid
 - [Styling](llms/docs/styling.md)
+  - Unistyles Features
+  - Usage
+  - Design Tokens and Theme
+  - Responsive Design with Breakpoints
+  - Dark Mode Support
+  - Color Mode Specific Styles
+  - Runtime Access
+  - Component-Specific Tokens
+  - Variants and Compound Variants
 - [Theme Tokens](llms/docs/theme-tokens.md)
+  - How to Use Tokens
+  - Utility Tokens
+  - Colors
+  - Typography
+  - Spacing
+  - Shadows
+  - Layout Tokens
+  - Component Tokens
+  - Tokens Package
 
 ## Components
 
@@ -80,5 +119,5 @@
 - [Timeline](llms/components/timeline.md): Timeline presents a sequence of related stops or steps using either a static stop indicator or a progress state indicator. Each item supports a label, optional helper text, and optional custom content.
 - [Toast](llms/components/toast.md): The `Toast` component provides a non-intrusive way to display brief messages to users. Toasts appear at the bottom of the screen, can be stacked vertically, and automatically dismiss after a configurable duration. They support swipe-to-dismiss gestures and can include icons, action links, and a dismiss button.
 - [Toggle Button Card](llms/components/toggle-button-card.md): The `ToggleButtonCard` component is a UI element that allows users to select one option from a set of predefined choices.
-- [UL & OL (Lists)](llms/components/h-t-m-l-elements/lists.md): The `UL` (Unordered List) and `OL` (Ordered List) components are used to display lists of items. `UL` displays a bulleted list, and `OL` displays a numbered list. The `LI` (List Item) component is used to define each item within these lists.
+- [UL & OL (Lists)](llms/components/html-elements/lists.md): The `UL` (Unordered List) and `OL` (Ordered List) components are used to display lists of items. `UL` displays a bulleted list, and `OL` displays a numbered list. The `LI` (List Item) component is used to define each item within these lists.
 - [Verification Input](llms/components/verification-input.md): The verification input component is used to capture OTP (One Time Password) or other verification codes.

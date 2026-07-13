@@ -20,6 +20,7 @@ The `ExpandableCard` component is an interactive card that expands to reveal add
 ## Playground
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Expandable Card"
   helperText="Click to expand"
@@ -37,6 +38,7 @@ The `ExpandableCard` component is an interactive card that expands to reveal add
 ## Usage
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Order Details"
   helperText="View your order information"
@@ -52,6 +54,7 @@ The `ExpandableCard` component is an interactive card that expands to reveal add
 ```
 
 ```tsx
+// Example usage
 import { ExpandableCard, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -106,6 +109,7 @@ When `triggerContent` is provided, the default trigger props such as `heading`, 
 ### Basic Example
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Order Details"
   helperText="View your order information"
@@ -125,6 +129,7 @@ When `triggerContent` is provided, the default trigger props such as `heading`, 
 You can add a leading icon using the `leadingIcon` prop for simple icons, or use `leadingContent` with an `IconContainer` for more customization.
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Settings"
   helperText="Configure your preferences"
@@ -141,6 +146,7 @@ You can add a leading icon using the `leadingIcon` prop for simple icons, or use
 ```
 
 ```tsx
+// Example usage
 import { ExpandableCard, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -163,6 +169,7 @@ const MyComponent = () => (
 Or use `leadingContent` with `IconContainer` for emphasis variants:
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Electricity"
   helperText="Last reading 23/03/24"
@@ -181,6 +188,7 @@ Or use `leadingContent` with `IconContainer` for emphasis variants:
 ```
 
 ```tsx
+// Example usage
 import { ExpandableCard, IconContainer, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -204,6 +212,7 @@ const MyComponent = () => (
 ### With `Badge`
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="New Feature"
   helperText="Check out what's new"
@@ -216,6 +225,7 @@ const MyComponent = () => (
 ```
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="New Feature"
   helperText="Check out what's new"
@@ -227,6 +237,7 @@ const MyComponent = () => (
 ### With Numeric Value
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Total Balance"
   helperText="Current account balance"
@@ -242,6 +253,7 @@ const MyComponent = () => (
 ```
 
 ```tsx
+// Example usage
 <ExpandableCard
   heading="Total Balance"
   helperText="Current account balance"
@@ -260,6 +272,7 @@ const MyComponent = () => (
     Use `triggerContent` when you need to replace the standard trigger layout entirely while keeping the expandable chevron.
 
 ```tsx
+// Example usage
 <ExpandableCard
   triggerContent={
     <View style={{ flex: 1, gap: 4 }}>
@@ -278,8 +291,10 @@ const MyComponent = () => (
 ```
 
     ```tsx
-    import { ExpandableCard, BodyText } from '@utilitywarehouse/hearth-react-native';
-    import { View } from 'react-native';
+
+// Example usage
+import { ExpandableCard, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { View } from 'react-native';
 
     const MyComponent = () => (
       <ExpandableCard
@@ -304,6 +319,7 @@ const MyComponent = () => (
 Use `ExpandableCardGroup` to group multiple expandable cards with an optional header.
 
 ```tsx
+// Example usage
 <ExpandableCardGroup
   heading="Your Services"
   helperText="View details for each service"
@@ -339,6 +355,7 @@ Use `ExpandableCardGroup` to group multiple expandable cards with an optional he
 ```
 
 ```tsx
+// Example usage
 import {
   ExpandableCard,
   ExpandableCardGroup,
@@ -389,6 +406,7 @@ const MyComponent = () => (
 If you need to use the `ExpandableCard` component in a more advanced way, you can use the child components directly for full composition control.
 
 ```tsx
+// Example usage
 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
   <ExpandableCard
     expanded={triggerContentExpanded}
@@ -432,6 +450,7 @@ If you need to use the `ExpandableCard` component in a more advanced way, you ca
 ```
 
 ```tsx
+// Example usage
 import {
   ExpandableCard,
   ExpandableCardTrigger,

@@ -10,6 +10,7 @@ The `BodyText` component gives you the ability to create text for your screen. I
 ## Playground
 
 ```tsx
+// Example usage
 <BodyText size="md" weight="regular" textDecorationColor="grey1000">
   Hello there, I'm some body text!
 </BodyText>
@@ -18,6 +19,7 @@ The `BodyText` component gives you the ability to create text for your screen. I
 ## Usage
 
 ```jsx
+// Example usage
 import { BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -53,6 +55,7 @@ const MyComponent = () => (
 The `BodyText` component has different sizes to style the text.
 
 ```tsx
+// Example usage
 <Box gap="200">
   <VariantTitle title="SM">
     <BodyText {...args} size="sm">

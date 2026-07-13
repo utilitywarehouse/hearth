@@ -16,6 +16,7 @@ The `Select` component creates a dropdown menu that allows users to choose from 
 ## Playground
 
 ```tsx
+// Example usage
 <Select
   label="Choose an option"
   placeholder="Select an option"
@@ -34,6 +35,7 @@ The `Select` component creates a dropdown menu that allows users to choose from 
 ## Usage
 
 ```tsx
+// Example usage
 import { Select } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -102,6 +104,7 @@ The `SelectOption` component is used to create individual options within the `Se
 ## With label and helper text
 
 ```tsx
+// Example usage
 import { Select } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -130,6 +133,7 @@ The `Select` component can be used with the `FormField` component for additional
 For more information on the `FormField` component, view the `FormField` documentation.
 
 ```tsx
+// Example usage
 <Select
   label="Choose an option"
   placeholder="Select an option"
@@ -146,6 +150,7 @@ For more information on the `FormField` component, view the `FormField` document
 ```
 
 ```tsx
+// Example usage
 import { FormField, Select } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -176,6 +181,7 @@ const MyComponent = () => {
 ### Searchable `Select`
 
 ```tsx
+// Example usage
 <Select
   label="Choose an option"
   placeholder="Select an option"
@@ -192,6 +198,7 @@ const MyComponent = () => {
 ```
 
 ```tsx
+// Example usage
 import { Select } from '@utilitywarehouse/hearth-react-native';
 import { useState } from 'react';
 
@@ -228,6 +235,7 @@ const MyComponent = () => {
 The `SelectOption` component can be used inline instead of the options prop. This allows for more flexibility in how the options are displayed.
 
 ```tsx
+// Example usage
 <Select
   label="Choose an option"
   placeholder="Select an option"
@@ -244,6 +252,7 @@ The `SelectOption` component can be used inline instead of the options prop. Thi
 ```
 
 ```tsx
+// Example usage
 import { Select, SelectOption } from '@utilitywarehouse/hearth-react-native';
 import {
   UserSmallIcon,

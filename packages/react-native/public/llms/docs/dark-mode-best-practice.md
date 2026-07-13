@@ -21,6 +21,7 @@ By default Hearth React Native theme is set to light mode. To enable dark mode, 
 This will automatically apply the dark mode color palette and styles across your app.
 
 ```tsx
+// Example usage
 import { useEffect } from 'react';
 import { Appearance } from 'react-native';
 import { useColorMode } from '@utilitywarehouse/hearth-react-native';
@@ -47,6 +48,7 @@ const App = () => {
 You can also use the Unistyles runtime to set the theme outside of React components, [read more here](https://www.unistyl.es/v3/guides/theming/#change-theme):
 
 ```tsx
+// Example usage
 import { UnistylesRuntime } from 'react-native-unistyles';
 
 const toggleTheme = () => {
@@ -63,6 +65,7 @@ automatically adapt to both light and dark modes without needing to write custom
 To use the semantic colours, you can access them from the theme object in your styles:
 
 ```tsx
+// Example usage
 import { StyleSheet } from '@utilitywarehouse/hearth-react-native';
 
 const styles = StyleSheet.create(theme => ({
@@ -75,6 +78,7 @@ const styles = StyleSheet.create(theme => ({
 You can also use the `useTheme` hook to access the theme colours directly in your components:
 
 ```tsx
+// Example usage
 import { useTheme } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -94,6 +98,7 @@ These props are designed to work with the theme and will automatically adjust th
 For example, instead of setting a background colour directly, you can use the `backgroundColor` or, for text, the `color` prop with a semantic colour value:
 
 ```tsx
+// Example usage
 <Box backgroundColor="brand" p="400">
   <BodyText color="inverted">This branded box and text adapt to light or dark mode!</BodyText>
 </Box>
@@ -118,6 +123,7 @@ by using the `color` prop and the `Icon` component with a semantic colour token 
 colour which adapts to light and dark mode):
 
 ```tsx
+// Example usage
 import { Icon , useTheme } from '@utilitywarehouse/hearth-react-native';
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -137,6 +143,7 @@ When using illustrations from the `@utilitywarehouse/hearth-svg-assets` library,
 of the illustration and conditionally render the appropriate one based on the current colour mode.
 
 ```tsx
+// Example usage
 import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 import SceneBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-dark.svg';
 import SceneBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg';
@@ -172,6 +179,7 @@ To simplify the process of handling light and dark mode for images, you can crea
 Here's an example implementation of a `ThemedImage` component:
 
 ```tsx
+// Example usage
 import React from 'react';
 import { ThemedImage } from '@utilitywarehouse/hearth-react-native';
 import SpotPiggyBankLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-light.svg';

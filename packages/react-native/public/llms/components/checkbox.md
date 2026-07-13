@@ -24,6 +24,7 @@ Whether you're building a simple form or a complex data collection system, the C
 ## Playground
 
 ```tsx
+// Example usage
 <Checkbox
   onChange={val => {
     console.log('-----');
@@ -37,6 +38,7 @@ Whether you're building a simple form or a complex data collection system, the C
 ## Usage
 
 ```tsx
+// Example usage
 import { Checkbox } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -117,6 +119,7 @@ The `CheckboxGroup` component is used to group multiple checkbox inputs together
 | `gap`                | `string`                            | -           | The gap between the checkbox group items.                              |
 
 ```jsx
+// Example usage
 import { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxLabel, } from '@utilitywarehouse/hearth-react-native';
 
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
@@ -170,6 +173,7 @@ The `CheckboxImage` component is used to display an image next to the checkbox l
 ## Variants
 
 ```tsx
+// Example usage
 <CheckboxGroup
   aria-label="Checkbox Group"
   value={values}
@@ -226,6 +230,7 @@ The `CheckboxImage` component is used to display an image next to the checkbox l
 You can create a custom checkbox by using the `CheckboxIndicator`, `CheckboxIcon` and `CheckboxLabel` components.
 
 ```tsx
+// Example usage
 import {
   CheckboxGroup,
   Checkbox,
@@ -278,6 +283,7 @@ const MyComponent = () => {
 Wrap tile checkboxes in a `Grid` when you want a multi-column layout inside a `CheckboxGroup`.
 
 ```tsx
+// Example usage
 import { Checkbox, CheckboxGroup, Grid } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -302,6 +308,7 @@ The `CheckboxTile` component is a variant of the `Checkbox` component that displ
 It is used to present options in a more visually appealing way.
 
 ```tsx
+// Example usage
 import { CheckboxTile, CheckboxGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -320,6 +327,7 @@ const MyComponent = () => {
 The `CheckboxImage` component is used to display an image next to the checkbox label. It inherits all the properties of React Native's `Image` component.
 
 ```tsx
+// Example usage
 <CheckboxGroup aria-label="Checkbox Group" nativeID="checkbox-group">
   <Checkbox
     aria-label="Visa"
@@ -354,6 +362,7 @@ The `CheckboxImage` component is used to display an image next to the checkbox l
 ```
 
 ```tsx
+// Example usage
 import { Checkbox, CheckboxImage } from '@utilitywarehouse/hearth-react-native';
 import visaLogo from '../../../assets/visa.png';
 import mastercardLogo from '../../../assets/mastercard.png';
@@ -394,6 +403,7 @@ The `CheckboxGroup` component is used to group multiple `Checkbox` components to
 You can pass props like `label` and `helperText` to the `CheckboxGroup` component to provide context for the group of radios.
 
 ```tsx
+// Example usage
 import { Checkbox, CheckboxGroup } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {

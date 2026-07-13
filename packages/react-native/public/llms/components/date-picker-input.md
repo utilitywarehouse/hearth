@@ -15,6 +15,7 @@
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>{picker}</ViewWrap>
 </View>
@@ -25,6 +26,7 @@
 Wrap the component with `BottomSheetModalProvider` so the underlying picker can render its modal. Provide a controlled `value` if you want to react to changes immediately or let the component manage its own display string.
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import {
   BottomSheetModalProvider,
@@ -87,6 +89,7 @@ On iOS, a contextual **Done** button appears above the keyboard so people can di
 `DatePickerInput` doesn't display validation styles by itself. Pair it with `FormField` (or your own state) to surface errors whenever the typed value doesn't match your expected format.
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import dayjs from 'dayjs';
 import { DatePickerInput, FormField, type DateType } from '@utilitywarehouse/hearth-react-native';
@@ -143,12 +146,14 @@ Selection through the calendar always returns a JavaScript `Date` that is reform
 The `DatePickerInput` component can display a label and helper text by passing the appropriate props.
 
 ```tsx
+// Example usage
 <DatePickerInput label="Travel date" helperText="Choose a departure day" onClear={() => {}} />
 ```
 
 ### With `FormField`
 
 ```tsx
+// Example usage
 <FormField label="Travel date" helperText="Choose a departure day">
   <DatePickerInput onClear={() => {}} />
 </FormField>
@@ -157,6 +162,7 @@ The `DatePickerInput` component can display a label and helper text by passing t
 ### Custom formatting
 
 ```tsx
+// Example usage
 <DatePickerInput format="MMM D, YYYY" placeholder="MMM D, YYYY" />
 ```
 

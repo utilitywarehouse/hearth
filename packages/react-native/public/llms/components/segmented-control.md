@@ -14,6 +14,7 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 ## Playground
 
 ```tsx
+// Example usage
 <SegmentedControl defaultValue="day" {...args}>
   <SegmentedControlOption value="day">Day</SegmentedControlOption>
   <SegmentedControlOption value="week">Week</SegmentedControlOption>
@@ -24,6 +25,7 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 ## Usage
 
 ```tsx
+// Example usage
 import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';
 
 const Example = () => {
@@ -65,6 +67,7 @@ Figma defines two size variants for Segmented Control:
 - `md` maps to `MD-48`
 
 ```tsx
+// Example usage
 <Flex spacing="sm" align="center">
   <SegmentedControl defaultValue="one" size="sm">
     <SegmentedControlOption value="one">Label</SegmentedControlOption>
@@ -80,6 +83,7 @@ Figma defines two size variants for Segmented Control:
 ```
 
 ```tsx
+// Example usage
 <SegmentedControl size="sm">...</SegmentedControl>
 <SegmentedControl size="md">...</SegmentedControl>
 ```
@@ -89,6 +93,7 @@ Figma defines two size variants for Segmented Control:
 SegmentedControlOption supports an optional leading icon.
 
 ```tsx
+// Example usage
 <SegmentedControl defaultValue="energy" size="md">
   <SegmentedControlOption value="energy" icon={ElectricitySmallIcon}>
     Energy
@@ -103,6 +108,7 @@ SegmentedControlOption supports an optional leading icon.
 ```
 
 ```tsx
+// Example usage
 import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 <SegmentedControl>

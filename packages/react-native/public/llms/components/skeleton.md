@@ -5,10 +5,12 @@ The `Skeleton` component is used to show a loading state for a component that is
 ## Usage
 
 ```tsx
+// Example usage
 <Skeleton {...args} />
 ```
 
 ```jsx
+// Example usage
 import { Center, Skeleton, Text } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

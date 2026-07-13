@@ -73,6 +73,7 @@ mkdir -p src/assets/fonts && cp ./node_modules/@utilitywarehouse/hearth-fonts/fi
 Next, create or update your `react-native.config.js` file in the root directory and paste the code below inside it:
 
 ```js
+// Example usage
 module.exports = {
   project: {
     ios: {},
@@ -125,6 +126,7 @@ If you are using Expo, you can use the `expo-font` and [`expo-xml-font`](https:/
 Here is an example of how to load the fonts in your `App.tsx` file:
 
 ```tsx
+// Example usage
 import { useFonts } from 'expo-font';
 import App from './src/App';
 
@@ -153,6 +155,7 @@ Follow the [expo-xml-font](https://github.com/Armster15/expo-xml-font) documenta
 You will need to add the following Babel plugin to your `babel.config.js` file:
 
 ```js
+// Example usage
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
   autoProcessPaths: ['@utilitywarehouse/hearth-react-native'],
@@ -175,6 +178,7 @@ module.exports = {
 If you are using Jest for testing, you will need to add the following configuration to your `jest.config.js` file:
 
 ```js
+// Example usage
 module.exports = {
   // other Jest configurations...
   setupFiles: [
@@ -188,6 +192,7 @@ module.exports = {
 You'll also need to add the following to your `jest.setup.js` file:
 
 ```js
+// Example usage
 import { StyleSheet, themes, breakpoints } from '@utilitywarehouse/hearth-react-native';
 
 StyleSheet.configure({

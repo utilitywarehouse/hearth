@@ -20,6 +20,7 @@ The input component is a text field that allows users to enter text, numbers, or
 ## Playground
 
 ```tsx
+// Example usage
 <Input
   {...args}
   leadingIcon={leadingIcon}
@@ -32,6 +33,7 @@ The input component is a text field that allows users to enter text, numbers, or
 ## Usage
 
 ```tsx
+// Example usage
 import { Input } from '@utilitywarehouse/hearth-react-native';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -117,6 +119,7 @@ The `InputField` inherits all of the React Native [`TextInput` props](https://re
 The `Input` component can be used with the `InputField`, `InputSlot` and `InputIcon` components to create a custom input field.
 
 ```tsx
+// Example usage
 import {
   Input,
   InputField,
@@ -168,6 +171,7 @@ export default AdvancedExample;
 The `Input` component has the following variants:
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg">
   <VariantTitle title="Default">
     <Input />
@@ -229,6 +233,7 @@ The `Input` component has the following variants:
 The `Input` component can be used with a label and helper text by passing the `label` and `helperText` props.
 
 ```tsx
+// Example usage
 import { Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -253,6 +258,7 @@ const MyComponent = () => {
 The `Input` component can be customised with `prefix` and `suffix` props to add content before or after the input field.
 
 ```tsx
+// Example usage
 import { Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -279,6 +285,7 @@ The `Input` component can be used with the `FormField` component to create a cus
 For more information on the `FormField` component view the `FormField` documentation.
 
 ```tsx
+// Example usage
 import { FormField, Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {

@@ -17,6 +17,7 @@ The `ThemedImage` component automatically switches between light and dark mode i
 ## Basic Usage
 
 ```tsx
+// Example usage
 <Box gap="200">
   <ThemedImage
     // @ts-expect-error - This is a playground
@@ -50,6 +51,7 @@ The `ThemedImage` component automatically switches between light and dark mode i
 The most common use case is with SVG components from the `@utilitywarehouse/hearth-svg-assets` package:
 
 ```tsx
+// Example usage
 import { View } from 'react-native';
 import { ThemedImage } from '@utilitywarehouse/hearth-react-native';
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
@@ -61,6 +63,7 @@ function MyComponent() {
 ```
 
 ```tsx
+// Example usage
 <Box flexDirection="row" flexWrap="wrap" gap="200">
   <ThemedImage
     // @ts-expect-error - Ignore TS2322 for Storybook stories
@@ -76,6 +79,7 @@ function MyComponent() {
 You can also use regular image sources (not just SVG components):
 
 ```tsx
+// Example usage
 import { ThemedImage } from '@utilitywarehouse/hearth-react-native';
 import logoLight from './assets/logo-light.png';
 import logoDark from './assets/logo-dark.png';
@@ -86,6 +90,7 @@ function MyComponent() {
 ```
 
 ```tsx
+// Example usage
 <Box gap="200">
   <ThemedImage
     light={{
@@ -106,6 +111,7 @@ function MyComponent() {
 When using SVG components, control the size by passing a `style` prop with `width` and `height` to the component:
 
 ```tsx
+// Example usage
 <Box flexDirection="row" flexWrap="wrap" gap="200" alignItems="center">
   <ThemedImage
     // @ts-expect-error - Ignore TS2322 for Storybook stories
@@ -133,6 +139,7 @@ When using SVG components, control the size by passing a `style` prop with `widt
 Support screen readers and assistive technologies:
 
 ```tsx
+// Example usage
 import { View } from 'react-native';
 import { ThemedImage } from '@utilitywarehouse/hearth-react-native';
 import MascotEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-energy-dark.svg';
@@ -153,6 +160,7 @@ function MyComponent() {
 ```
 
 ```tsx
+// Example usage
 <Box gap="200">
   <ThemedImage
     // @ts-expect-error - This is a playground
@@ -215,6 +223,7 @@ npm install react-native-svg react-native-svg-transformer --save-dev
 Configure your `metro.config.js`:
 
 ```js
+// Example usage
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
 
 const config = {
@@ -233,6 +242,7 @@ module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 Add TypeScript declarations (optional):
 
 ```typescript
+// Example usage
 // svg.d.ts
 declare module '*.svg' {
   import React from 'react';

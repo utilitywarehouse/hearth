@@ -18,6 +18,7 @@ The `Menu` component provides a bottom sheet modal with a list of actions. It's 
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : { flex: 1 }}>
   <ViewWrap>
     <MenuTrigger onPress={openMenu}>
@@ -46,6 +47,7 @@ The `Menu` component provides a bottom sheet modal with a list of actions. It's 
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { useRef } from 'react';
 import { Menu, MenuItem, MenuTrigger } from '@utilitywarehouse/hearth-react-native';
 import { EditSmallIcon, TrashSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
@@ -126,6 +128,7 @@ Menu items automatically close the menu when pressed, making it easy to handle a
 A simple menu with icon-based actions:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 
@@ -134,6 +137,7 @@ A simple menu with icon-based actions:
 Menu with a destructive action styled differently:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 
@@ -142,6 +146,7 @@ Menu with a destructive action styled differently:
 Menu items with icons positioned on the right side:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 
@@ -150,6 +155,7 @@ Menu items with icons positioned on the right side:
 Simple text-only menu items:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 
@@ -158,6 +164,7 @@ Simple text-only menu items:
 Menu with some items disabled:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 
@@ -166,6 +173,7 @@ Menu with some items disabled:
 Menu without a heading section:
 
 ```tsx
+// Example usage
 <Menu heading="Menu Options" />
 ```
 

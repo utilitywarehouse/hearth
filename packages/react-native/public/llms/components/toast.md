@@ -19,6 +19,7 @@ The `Toast` component provides a non-intrusive way to display brief messages to 
 ## Playground
 
 ```tsx
+// Example usage
 <ViewWrap>
   <PlaygroundDemo />
 </ViewWrap>
@@ -29,6 +30,7 @@ The `Toast` component provides a non-intrusive way to display brief messages to 
 First, wrap your app with the `ToastProvider` at the root level:
 
 ```tsx
+// Example usage
 import { ToastProvider } from '@utilitywarehouse/hearth-react-native';
 
 function App() {
@@ -43,6 +45,7 @@ function App() {
 Use the `useToast` hook to display toasts from any component:
 
 ```tsx
+// Example usage
 import { useToast } from '@utilitywarehouse/hearth-react-native';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -98,6 +101,7 @@ Returns an object with:
 A simple text-only toast:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <BasicToastDemo />
 </ViewWrap>
@@ -108,6 +112,7 @@ A simple text-only toast:
 Toasts with icons for different message types:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <WithIconDemo />
 </ViewWrap>
@@ -118,6 +123,7 @@ Toasts with icons for different message types:
 Include interactive action links for secondary actions:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <WithActionDemo />
 </ViewWrap>
@@ -128,6 +134,7 @@ Include interactive action links for secondary actions:
 Control how long toasts stay visible:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <CustomDurationDemo />
 </ViewWrap>
@@ -138,6 +145,7 @@ Control how long toasts stay visible:
 Multiple toasts stack vertically, newest on top:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <StackedToastsDemo />
 </ViewWrap>
@@ -148,6 +156,7 @@ Multiple toasts stack vertically, newest on top:
 Dismiss toasts programmatically using their ID:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <ProgrammaticDismissDemo />
 </ViewWrap>
@@ -158,6 +167,7 @@ Dismiss toasts programmatically using their ID:
 Control dismiss behavior with `showDismissIcon` and `dismissOnPress`:
 
 ```tsx
+// Example usage
 <ViewWrap>
   <DismissOptionsDemo />
 </ViewWrap>

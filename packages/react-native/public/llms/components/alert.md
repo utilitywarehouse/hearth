@@ -13,6 +13,7 @@ The Alert offers different colour schemes, the colour scheme is mapped to an ico
 ## Playground
 
 ```tsx
+// Example usage
 <Alert
   colorScheme="info"
   title="Information"
@@ -27,6 +28,7 @@ The Alert offers different colour schemes, the colour scheme is mapped to an ico
 ## Usage
 
 ```tsx
+// Example usage
 import { Alert } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -60,6 +62,7 @@ const MyComponent = () => {
 The `Alert` component has four colour schemes: info, positive, warning and danger. Each colour scheme is mapped to an icon.
 
 ```tsx
+// Example usage
 <Flex spacing="sm">
   <VariantTitle title="Info - Blue">
     <Alert
@@ -94,6 +97,7 @@ The `Alert` component has four colour schemes: info, positive, warning and dange
 If you need to use the Alert component in a more advanced way, you can use the parts of the component directly.
 
 ```tsx
+// Example usage
 import {
   Alert,
   AlertIcon,

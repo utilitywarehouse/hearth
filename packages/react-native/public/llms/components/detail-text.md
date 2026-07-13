@@ -10,6 +10,7 @@ The `DetailText` component gives you the ability to create text for your screen.
 ## Playground
 
 ```tsx
+// Example usage
 <DetailText size="md" textDecorationColor="grey1000">
   Hello there, I'm some detail text!
 </DetailText>
@@ -18,6 +19,7 @@ The `DetailText` component gives you the ability to create text for your screen.
 ## Usage
 
 ```jsx
+// Example usage
 import { DetailText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -52,6 +54,7 @@ const MyComponent = () => (
 The `DetailText` component has different sizes to style the text.
 
 ```tsx
+// Example usage
 <Box gap="200">
   <VariantTitle title="SM">
     <DetailText {...args} size="sm">

@@ -10,6 +10,7 @@ The `IconContainer` component provides a consistent background and sizing (via c
 ## Playground
 
 ```tsx
+// Example usage
 <IconContainer {...args} />
 ```
 
@@ -18,6 +19,7 @@ The `IconContainer` component provides a consistent background and sizing (via c
 Wrap an icon with the `IconContainer` to apply sizing + background styles without repeating layout code.
 
 ```jsx
+// Example usage
 import { IconContainer } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,
@@ -58,6 +60,7 @@ const MyComponent = () => (
 Use the matrix below to compare every combination of size, variant, and color.
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg">
   {sizes.map(size => (
     <Box key={size} gap="300">

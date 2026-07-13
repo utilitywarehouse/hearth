@@ -10,6 +10,7 @@ Table arranges structured data into rows and columns, with optional pagination b
 ## Playground
 
 ```tsx
+// Example usage
 <Table {...args}>
   <TableHeader color={headerColor}>
     <TableHeaderCell
@@ -49,6 +50,7 @@ Table arranges structured data into rows and columns, with optional pagination b
 ## Usage
 
 ```tsx
+// Example usage
 import {
   Table,
   TableBody,
@@ -100,6 +102,7 @@ const MyComponent = () => (
 ### Containers
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="xl" style={{ width: '100%' }}>
   {[
     { container: 'none' as const, color: 'white' as const },
@@ -144,6 +147,7 @@ const MyComponent = () => (
 ```
 
 ```tsx
+// Example usage
 <Table container="subtle">
   <TableHeader color="purple">
     <TableHeaderCell>Name</TableHeaderCell>
@@ -163,6 +167,7 @@ const MyComponent = () => (
 ### With pagination
 
 ```tsx
+// Example usage
 <Table
   {...args}
   pagination={
@@ -203,6 +208,7 @@ const MyComponent = () => (
 ```
 
 ```tsx
+// Example usage
 const [currentPage, setCurrentPage] = useState(1);
 
 <Table
@@ -223,6 +229,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ### Narrow viewport
 
 ```tsx
+// Example usage
 <Box style={{ width: 320 }}>
   <Table
     container="subtle"
@@ -263,6 +270,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ```
 
 ```tsx
+// Example usage
 <Box style={{ width: 320 }}>
   <Table container="subtle">
     <TableHeader color="purple">
@@ -279,6 +287,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ### Configured column widths
 
 ```tsx
+// Example usage
 <Table columnWidths={[180, '2fr', '1fr', 140]} container="subtle">
   <TableHeader color="purple">
     <TableHeaderCell>Name</TableHeaderCell>
@@ -304,6 +313,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ```
 
 ```tsx
+// Example usage
 <Table columnWidths={[180, '2fr', '1fr', 140]} container="subtle">
   <TableHeader color="purple">
     <TableHeaderCell>Name</TableHeaderCell>
@@ -318,6 +328,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ### Custom sort function
 
 ```tsx
+// Example usage
 <Table columnWidths={[180, '2fr', 120]} container="subtle">
   <TableHeader color="purple">
     <TableHeaderCell>Customer</TableHeaderCell>
@@ -349,6 +360,7 @@ const [currentPage, setCurrentPage] = useState(1);
 ```
 
 ```tsx
+// Example usage
 const statusOrder = {
   Active: 0,
   Pending: 1,

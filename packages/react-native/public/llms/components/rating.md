@@ -12,6 +12,7 @@ Use Rating to collect a score with an optional descriptive label. Supports star 
 ## Playground
 
 ```tsx
+// Example usage
 <Rating
   {...args}
   value={value}
@@ -25,6 +26,7 @@ Use Rating to collect a score with an optional descriptive label. Supports star 
 ## Usage
 
 ```tsx
+// Example usage
 import { useState } from 'react';
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
@@ -53,6 +55,7 @@ const MyComponent = () => {
 Use the default labels for a quick feedback prompt.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={3} />;
@@ -63,6 +66,7 @@ const MyComponent = () => <Rating value={3} />;
 Use `value={0}` to show a zero-star state.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={0} labels={{ 0: 'Not rated' }} />;
@@ -73,6 +77,7 @@ const MyComponent = () => <Rating value={0} labels={{ 0: 'Not rated' }} />;
 Provide custom copy for each rating value.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
@@ -95,6 +100,7 @@ const MyComponent = () => (
 Use `hideLabel` when the context already explains the rating.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={2} hideLabel />;
@@ -105,6 +111,7 @@ const MyComponent = () => <Rating value={2} hideLabel />;
 Use `disabled` to show a read-only rating.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={4} disabled />;
@@ -115,6 +122,7 @@ const MyComponent = () => <Rating value={4} disabled />;
 Use `variant="emojis"` to show emoji faces instead of stars. Labels default to "Very dissatisfied" and "Very satisfied" at the extremes. Override them with `rangeLabels={{ low: 'Custom low', high: 'Custom high' }}`.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={4} variant="emojis" />;
@@ -125,6 +133,7 @@ const MyComponent = () => <Rating value={4} variant="emojis" />;
 When no emoji is selected, all emojis display at normal size with full colour.
 
 ```tsx
+// Example usage
 import { Rating } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Rating value={0} variant="emojis" />;

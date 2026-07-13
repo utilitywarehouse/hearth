@@ -11,6 +11,7 @@ An Inline text should follow the typography style on the body of copy is sits wi
 ## Playground
 
 ```tsx
+// Example usage
 <InlineLink href="https://www.uw.co.uk" target="_blank">
   embedded link
 </InlineLink>
@@ -19,6 +20,7 @@ An Inline text should follow the typography style on the body of copy is sits wi
 ## Usage
 
 ```jsx
+// Example usage
 import { BodyText, InlineLink } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

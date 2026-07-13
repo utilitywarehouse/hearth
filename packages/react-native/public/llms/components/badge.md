@@ -11,6 +11,7 @@ Use the `Badge` component to draw attention to another interface element or to p
 ## Playground
 
 ```tsx
+// Example usage
 <Badge {...args} icon={icon} />
 ```
 
@@ -23,6 +24,7 @@ Badge is a stateless component, e.g. it has no Pressed, Disabled, Active states.
 - Performing an action
 
 ```jsx
+// Example usage
 import { Badge, Center } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
@@ -51,6 +53,7 @@ const MyComponent = () => (
 The `Badge` component has different sizes to style the spinner.
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
   {colorSchemes.map(cs => {
     // Determine allowed variants per color scheme based on design constraints:
@@ -105,6 +108,7 @@ The `Badge` component has different sizes to style the spinner.
 Although not recommended, the `Badge` component can be used to create more complex UI with the internal parts of the badge.
 
 ```tsx
+// Example usage
 import { Badge, BadgeText, BadgeIcon } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

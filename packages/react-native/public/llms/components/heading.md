@@ -11,6 +11,7 @@ The `Heading` component gives you the ability to create headings for your screen
 ## Playground
 
 ```tsx
+// Example usage
 <Heading size="md" textDecorationColor="grey1000">
   Hello there, I'm a heading!
 </Heading>
@@ -19,6 +20,7 @@ The `Heading` component gives you the ability to create headings for your screen
 ## Usage
 
 ```jsx
+// Example usage
 import { Heading } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Heading>Welcome to Utility Warehouse</Heading>;
@@ -46,6 +48,7 @@ const MyComponent = () => <Heading>Welcome to Utility Warehouse</Heading>;
 The `Heading` component has different sizes to style the text.
 
 ```tsx
+// Example usage
 <Box gap="200">
   <VariantTitle title="SM">
     <Heading {...args} size="sm">

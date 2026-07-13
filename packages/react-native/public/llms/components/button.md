@@ -19,12 +19,14 @@ The `Button` component is used to trigger an action or event, such as submitting
 ## Playground
 
 ```tsx
+// Example usage
 <Button {...args} icon={icon} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { Button } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -58,6 +60,7 @@ const MyComponent = () => {
 ## Variants
 
 ```tsx
+// Example usage
 <Flex direction="row" spacing="lg" wrap="wrap">
   {schemes.map(scheme => (
     <Flex direction="column" spacing="lg" key={scheme}>
@@ -168,6 +171,7 @@ const MyComponent = () => {
 For more advanced usage, you can use the `ButtonText`, `ButtonIcon` and `ButtonSpinner` components to customise the button.
 
 ```tsx
+// Example usage
 import {
   Button,
   ButtonIcon,
@@ -205,6 +209,7 @@ The `Button` component is composed of the following components under the hood an
 The `ButtonGroup` component is used to group multiple buttons together.
 
 ```tsx
+// Example usage
 import { ButtonGroup, Button } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -241,6 +246,7 @@ The `ButtonIcon` component is used to add an icon to the button.
 We recommend using the `icon` prop on the `Button` component for simpler usage.
 
 ```tsx
+// Example usage
 import { Button, ButtonIcon, ButtonText } from '@utilitywarehouse/hearth-react-native';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -262,6 +268,7 @@ The `ButtonText` component is used to add text to the button.
 We recommend using the children prop on the `Button` component for simpler usage.
 
 ```tsx
+// Example usage
 import { Button, ButtonText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -284,6 +291,7 @@ The `ButtonSpinner` component is used to add a spinner to the button and show lo
 should inlude the `disabled` prop. We recommend using the `loading` prop on the `Button` component for simpler usage.
 
 ```tsx
+// Example usage
 import { Button, ButtonSpinner, ButtonText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = ({ loading }) => {
@@ -302,6 +310,7 @@ Similar to the `UnstyledIconButton`, the `paddingNone` prop can be used to remov
 This is useful when you want to create a button that looks like a link or a text button without any padding around it.
 
 ```tsx
+// Example usage
 import { Button } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -318,6 +327,7 @@ const MyComponent = () => {
 Use layout components, like `Box` or `Flex`, to define your UI layouts, which can also be responsive.
 
 ```tsx
+// Example usage
 <Flex align="stretch">
   <Button>Full width button</Button>
 </Flex>

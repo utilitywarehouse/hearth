@@ -10,6 +10,7 @@ Using a Spinner is a common method for indicating that an asynchronous process i
 ## Playground
 
 ```tsx
+// Example usage
 <Spinner size="md" />
 ```
 
@@ -20,6 +21,7 @@ such as in the loading state of a `Button` or `Input` Search retrieving data. It
 with text, or directly in a container on the screen when we want the user to wait and avoid performing any actions.
 
 ```jsx
+// Example usage
 import { Spinner, Center } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -42,6 +44,7 @@ const MyComponent = () => (
 The `Spinner` component has different sizes to style the spinner.
 
 ```tsx
+// Example usage
 <Box gap="200">
   <VariantTitle title="XS">
     <Spinner {...args} size="xs" />

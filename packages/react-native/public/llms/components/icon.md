@@ -10,6 +10,7 @@ Icons are often used to enhance the usability and accessibility of digital produ
 ## Playground
 
 ```tsx
+// Example usage
 <Icon as={as} color={color} />
 ```
 
@@ -23,6 +24,7 @@ The `Icon` component also provides additional functionality such as handling dif
 light and dark mode colors from the theme.
 
 ```jsx
+// Example usage
 import { Flex, Icon, color } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,
@@ -47,6 +49,7 @@ const MyComponent = () => {
 Or you can use the icons directly from the `@utilitywarehouse/hearth-react-native-icons` package. Make sure you handle the color prop correctly, including light and dark modes.
 
 ```jsx
+// Example usage
 import { Flex, Icon, color } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,

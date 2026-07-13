@@ -11,12 +11,14 @@ The `IconButton` component is used to trigger an action or event, such as openin
 ## Playground
 
 ```tsx
+// Example usage
 <IconButton {...args} icon={icon} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { IconButton } from '@utilitywarehouse/hearth-react-native';
 import { ChevronRightMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -53,6 +55,7 @@ const MyComponent = () => {
 ## Variants
 
 ```tsx
+// Example usage
 <Flex direction="row" spacing="lg" wrap="wrap">
   {schemes.map(scheme => (
     <Flex direction="column" spacing="lg" key={scheme}>
@@ -146,6 +149,7 @@ For most use cases, you should use the standard `colorScheme` and `variant` prop
 ### Example: Service Icon Buttons
 
 ```tsx
+// Example usage
 <ButtonGroup spacing="md">
   <IconButton
     icon={ElectricityMediumIcon}
@@ -191,6 +195,7 @@ For most use cases, you should use the standard `colorScheme` and `variant` prop
 ```
 
 ```tsx
+// Example usage
 import { IconButton } from '@utilitywarehouse/hearth-react-native';
 import {
   ElectricityMediumIcon,

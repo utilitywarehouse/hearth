@@ -16,6 +16,7 @@ Dividers can help establish a visual hierarchy on your designs. They can indicat
 ## Playground
 
 ```tsx
+// Example usage
 <Box
   minWidth={args.orientation === 'horizontal' ? 200 : 1}
   minHeight={args.orientation === 'horizontal' ? 1 : 30}
@@ -27,6 +28,7 @@ Dividers can help establish a visual hierarchy on your designs. They can indicat
 ## Usage
 
 ```tsx
+// Example usage
 import { Spinner, Center } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (

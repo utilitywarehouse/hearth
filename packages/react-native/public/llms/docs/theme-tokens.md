@@ -32,6 +32,7 @@ Theme tokens are accessible through the theme object in your stylesheets or with
 Here's an example of how to use them in a component:
 
 ```tsx
+// Example usage
 import { StyleSheet, View, Text } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -87,6 +88,7 @@ Utility tokens are tokens provide helpful context or helper functions to simplif
 They can be used to create consistent styles across your application.
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     backgroundColor: theme.isDark ? theme.color.grey[900] : theme.color.grey[100],
@@ -162,6 +164,7 @@ style={{
 These colors represent the core brand identity and various services:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   brandButton: {
     backgroundColor: theme.color.surface.brand.default,
@@ -201,6 +204,7 @@ Semantic colors provide meaning and context to your UI elements:
 #### Background Colors
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   primaryBackground: {
     backgroundColor: theme.color.background.primary, // Main app background
@@ -217,6 +221,7 @@ const styles = StyleSheet.create(theme => ({
 #### Text Colors
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   primaryText: {
     color: theme.color.text.primary, // Main text color
@@ -233,6 +238,7 @@ const styles = StyleSheet.create(theme => ({
 #### Interactive Colors
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   primaryButton: {
     backgroundColor: theme.color.interactive.brand.surface.strong.default,
@@ -260,6 +266,7 @@ const styles = StyleSheet.create(theme => ({
 #### Feedback Colors
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   errorMessage: {
     backgroundColor: theme.color.feedback.danger.surface.subtle,
@@ -584,6 +591,7 @@ const styles = StyleSheet.create(theme => ({
 Access the full primitive color palette for custom use cases:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   customElement: {
     backgroundColor: theme.color.purple[400],
@@ -655,6 +663,7 @@ The typography system provides a cohesive set of font properties based on the de
 ### Font Family
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   heading: {
     fontFamily: theme.font.family.heading, // Comic Hams
@@ -679,6 +688,7 @@ Available font families:
 The font size scale provides consistent typography sizing:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   caption: {
     fontSize: theme.font.size['50'], // 10px
@@ -720,6 +730,7 @@ Available font sizes:
 ### Font Weight
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   regular: {
     fontWeight: theme.font.weight.regular, // 400
@@ -741,6 +752,7 @@ const styles = StyleSheet.create(theme => ({
 Optimized letter spacing values for each font size:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   tightText: {
     letterSpacing: theme.letterSpacing['700'], // Tight spacing for large text
@@ -756,6 +768,7 @@ const styles = StyleSheet.create(theme => ({
 Consistent line height values for optimal readability:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   bodyText: {
     lineHeight: theme.lineHeight['400'], // 22px for body text
@@ -771,6 +784,7 @@ const styles = StyleSheet.create(theme => ({
 The spacing system provides a consistent scale for padding, margins, and gaps:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     padding: theme.space['200'], // 16px
@@ -828,6 +842,7 @@ These responsive layout spacings live under `theme.layout.[mobile|tablet|desktop
 layout structure (page/frame scaffolding) rather than component-level internal spacing (which should prefer the core `space` scale).
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   pageSection: {
     padding: theme.space.xl, // 20px on mobile, 24px on tablet/desktop
@@ -859,6 +874,7 @@ Percentage-based spacing is also available:
 ### Border Width
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   thinBorder: {
     borderWidth: theme.borderWidth['1'], // 1px
@@ -872,6 +888,7 @@ const styles = StyleSheet.create(theme => ({
 ### Border Radius
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   card: {
     borderRadius: theme.borderRadius.lg, // 12px
@@ -901,6 +918,7 @@ Available border radius values:
 The shadow system provides elevation through predefined shadow styles:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   card: {
     ...theme.shadow.sm, // Subtle shadow
@@ -919,6 +937,7 @@ const styles = StyleSheet.create(theme => ({
 Access responsive layout values for different screen sizes:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   container: {
     padding: {
@@ -935,6 +954,7 @@ const styles = StyleSheet.create(theme => ({
 Access component-specific design tokens for consistent styling:
 
 ```tsx
+// Example usage
 const styles = StyleSheet.create(theme => ({
   customButton: {
     backgroundColor: theme.components.button.background.primary,

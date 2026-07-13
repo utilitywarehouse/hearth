@@ -32,6 +32,7 @@ If you need a modal layout inside a React Navigation modal screen, use `NavModal
 ## Playground
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={openModal}>Open Modal</Button>
@@ -44,6 +45,7 @@ If you need a modal layout inside a React Navigation modal screen, use `NavModal
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { useRef, useCallback } from 'react';
 import { Modal, Button, BottomSheetModal } from '@utilitywarehouse/hearth-react-native';
 
@@ -162,6 +164,7 @@ The Modal component is built with comprehensive accessibility support to ensure 
 The Modal component automatically manages focus to provide a seamless experience:
 
 ```tsx
+// Example usage
 // Focus is automatically set when modal opens
 const MyModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
@@ -184,6 +187,7 @@ const MyModal = () => {
 You can enhance accessibility by providing custom labels for buttons and close actions:
 
 ```tsx
+// Example usage
 <Modal
   ref={modalRef}
   heading="Delete Item"
@@ -208,6 +212,7 @@ You can enhance accessibility by providing custom labels for buttons and close a
 Loading states are fully accessible with proper announcements:
 
 ```tsx
+// Example usage
 <Modal
   ref={modalRef}
   heading="Processing Payment"
@@ -232,6 +237,7 @@ Loading states are fully accessible with proper announcements:
 To test accessibility in your Modal implementation:
 
 ```tsx
+// Example usage
 import { AccessibilityInfo } from 'react-native';
 
 const TestableModal = () => {
@@ -271,6 +277,7 @@ The Modal component handles platform-specific accessibility differences:
 ### Basic Modal
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={openModal}>Open Modal</Button>
@@ -285,6 +292,7 @@ The Modal component handles platform-specific accessibility differences:
 Use the `image` prop to display an image-centric modal with centered content:
 
 ```tsx
+// Example usage
 <Modal
   heading="Modal Heading"
   description="This is a modal description"
@@ -298,6 +306,7 @@ Use the `image` prop to display an image-centric modal with centered content:
 ```
 
 ```tsx
+// Example usage
 import { Modal, ModalImage, Button } from '@utilitywarehouse/hearth-react-native';
 
 const ImageModal = () => {
@@ -327,6 +336,7 @@ const ImageModal = () => {
 Create a modal that takes up the full screen height:
 
 ```tsx
+// Example usage
 <View style={Platform.OS === 'web' ? { width: 400, height: 800 } : { flex: 1 }}>
   <ViewWrap>
     <Button onPress={openModal}>Open Fullscreen Modal</Button>
@@ -352,6 +362,7 @@ Create a modal that takes up the full screen height:
 ```
 
 ```tsx
+// Example usage
 const FullscreenModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -377,6 +388,7 @@ const FullscreenModal = () => {
 Add custom content between the header and footer sections:
 
 ```tsx
+// Example usage
 <Modal
   heading="Modal Heading"
   description="This is a modal description"
@@ -390,6 +402,7 @@ Add custom content between the header and footer sections:
 ```
 
 ```tsx
+// Example usage
 const CustomContentModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -422,6 +435,7 @@ const CustomContentModal = () => {
 `description` accepts a string for the default text styling, or JSX when you need custom content such as a link:
 
 ```tsx
+// Example usage
 <Modal
   ref={modalRef}
   heading="Update available"
@@ -438,6 +452,7 @@ const CustomContentModal = () => {
 Replace the built-in buttons with a custom sticky footer when you need custom layouts or button arrangements:
 
 ```tsx
+// Example usage
 <Modal
   heading="Modal Heading"
   description="This is a modal description"
@@ -451,6 +466,7 @@ Replace the built-in buttons with a custom sticky footer when you need custom la
 ```
 
 ```tsx
+// Example usage
 const StickyCustomFooterModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -495,6 +511,7 @@ const StickyCustomFooterModal = () => {
 Show a loading spinner while processing:
 
 ```tsx
+// Example usage
 <Modal
   heading="Modal Heading"
   description="This is a modal description"
@@ -508,6 +525,7 @@ Show a loading spinner while processing:
 ```
 
 ```tsx
+// Example usage
 const LoadingModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -543,6 +561,7 @@ const LoadingModal = () => {
 Remove the close button for critical actions:
 
 ```tsx
+// Example usage
 const CriticalModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -570,6 +589,7 @@ const CriticalModal = () => {
 Create a modal with only one action button:
 
 ```tsx
+// Example usage
 const AlertModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -603,6 +623,7 @@ The Modal component provides multiple ways to handle closing the modal and manag
 - Use the `onChange` prop to detect when the modal is opened or closed based on the index parameter (0 for open, -1 for closed) and manage state accordingly.
 
 ```tsx
+// Example usage
 const MyModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -645,6 +666,7 @@ const MyModal = () => {
 When using the Modal component, ensure your app is wrapped with `BottomSheetModalProvider`:
 
 ```tsx
+// Example usage
 import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 const App = () => {
@@ -655,6 +677,7 @@ const App = () => {
 If your app already handles safe-area padding around modal content, you can disable Hearth's bottom-sheet safe-area spacing:
 
 ```tsx
+// Example usage
 import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 const App = () => {
@@ -677,6 +700,7 @@ The Modal component forwards its ref to the underlying `BottomSheetModal`, givin
 - `snapToPosition(position)` - Snap to a specific position
 
 ```tsx
+// Example usage
 const modalRef = useRef<BottomSheetModal>(null);
 
 // Open modal

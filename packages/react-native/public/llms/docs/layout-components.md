@@ -13,6 +13,7 @@ apply design decisions coherently.
 ## Box
 
 ```tsx
+// Example usage
 <Box {...args}>
   <BodyText>{args.children}</BodyText>
 </Box>
@@ -25,6 +26,7 @@ elements within `Flex` and `Grid` containers.
 You can view the `Box` docs here.
 
 ```tsx
+// Example usage
 <Box
   padding="400"
   marginBottom="300"
@@ -37,6 +39,7 @@ You can view the `Box` docs here.
 ## Container
 
 ```tsx
+// Example usage
 <Box backgroundColor={color.red['100']}>
   <Container {...args} backgroundColor="secondary">
     <Box bg={color.blue['400']} p="200" borderRadius="md">
@@ -60,6 +63,7 @@ wrapping page content or major sections.
 You can view the `Container` docs here.
 
 ```tsx
+// Example usage
 <Container spacing="lg">
   <Box>{...}</Box>
   <Box>{...}</Box>
@@ -70,6 +74,7 @@ When you need custom spacing, you can override the defaults while maintaining
 the convenience of the component:
 
 ```tsx
+// Example usage
 <Container
   marginHorizontal="none"
   spacing="xl"
@@ -81,6 +86,7 @@ the convenience of the component:
 ## Flex
 
 ```tsx
+// Example usage
 <Flex {...args}>
   {Array.from({ length: 4 }).map((_, index) => (
     <Box
@@ -104,6 +110,7 @@ component you may have used in other libraries.
 You can view the `Flex` docs here.
 
 ```tsx
+// Example usage
 <Flex
   padding="400"
   spacing="md"
@@ -117,6 +124,7 @@ You can view the `Flex` docs here.
 ## Grid
 
 ```tsx
+// Example usage
 <Grid {...args} style={{ width: 400 }}>
   <GridItem color="#FFD6D6" />
   <GridItem color="#D6FFD6" />
@@ -136,6 +144,7 @@ You can easily build responsive layouts using Design System defaults.
 You can view the `Grid` docs here.
 
 ```tsx
+// Example usage
 <Grid columns={2} spacing="md">
   <Box>{...}</Box>
   <Box>{...}</Box>

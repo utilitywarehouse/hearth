@@ -16,6 +16,7 @@ The `ProgressStepper` component uses a compound component pattern, making it eas
 ### Basic Usage
 
 ```tsx
+// Example usage
 import { ProgressStepper, ProgressStep } from '@utilitywarehouse/hearth-react-native';
 
 <ProgressStepper>
@@ -30,6 +31,7 @@ import { ProgressStepper, ProgressStep } from '@utilitywarehouse/hearth-react-na
 ### Default Layout
 
 ```tsx
+// Example usage
 <ProgressStepper>
   (
   <Flex spacing="xl" direction="column" align="center" style={{ flex: 1, minWidth: 200 }}>
@@ -58,6 +60,7 @@ import { ProgressStepper, ProgressStep } from '@utilitywarehouse/hearth-react-na
 See how different step statuses are visualized:
 
 ```tsx
+// Example usage
 <Flex spacing="xl" direction="column" align="center">
   <VariantTitle title="All Uncompleted Steps">
     <ProgressStepper {...props}>
@@ -94,6 +97,7 @@ See how different step statuses are visualized:
 ### Basic
 
 ```tsx
+// Example usage
 <Flex spacing="lg" direction="column" align="center">
   <Heading size="md">Progress Stepper</Heading>
   <BodyText>Shows progress through multi-step processes</BodyText>

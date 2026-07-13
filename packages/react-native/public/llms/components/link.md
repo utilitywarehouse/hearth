@@ -9,12 +9,14 @@ Links are used to navigate a user to another screen or website, another place on
 ## Playground
 
 ```tsx
+// Example usage
 <Link {...args} icon={icon} />
 ```
 
 ## Usage
 
 ```jsx
+// Example usage
 import { Link } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Link>Welcome to Utility Warehouse</Link>;

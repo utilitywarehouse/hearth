@@ -10,12 +10,14 @@ The `Roundel` component is a compact status indicator with success, pending, and
 ## Playground
 
 ```tsx
+// Example usage
 <Roundel {...args} />
 ```
 
 ## Usage
 
 ```tsx
+// Example usage
 import { Roundel } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => <Roundel variant="success" />;
@@ -31,6 +33,7 @@ const MyComponent = () => <Roundel variant="success" />;
 ## Examples
 
 ```tsx
+// Example usage
 <Flex direction="column" spacing="md" alignItems="center">
   <VariantTitle title="Success">
     <Roundel variant="success" />

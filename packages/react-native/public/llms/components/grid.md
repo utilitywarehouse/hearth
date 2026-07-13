@@ -9,6 +9,7 @@ The Grid component helps you create responsive grid layouts with configurable co
 ## Playground
 
 ```tsx
+// Example usage
 <Grid {...args} style={{ width: 400 }}>
   <GridItem color="#FFD6D6" />
   <GridItem color="#D6FFD6" />
@@ -22,6 +23,7 @@ The Grid component helps you create responsive grid layouts with configurable co
 ## Usage
 
 ```jsx
+// Example usage
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -48,6 +50,7 @@ const MyComponent = () => (
 The Grid component supports responsive column layouts based on screen size breakpoints:
 
 ```jsx
+// Example usage
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -83,6 +86,7 @@ const MyComponent = () => (
 You can specify different horizontal and vertical spacing:
 
 ```jsx
+// Example usage
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
@@ -121,6 +125,7 @@ The Grid component extends all the props from the [View component](https://react
 Where `GridColumns` is defined as:
 
 ```tsx
+// Example usage
 type GridColumns = {
   [key in keyof UnistylesBreakpoints]?: number;
 };
