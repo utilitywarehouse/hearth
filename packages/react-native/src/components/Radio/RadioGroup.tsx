@@ -12,6 +12,8 @@ const RadioGroup = ({
   children,
   disabled,
   readonly,
+  onChange,
+  onValueChange,
   validationStatus,
   label,
   labelVariant = 'body',
@@ -44,6 +46,10 @@ const RadioGroup = ({
     <RadioGroupContext.Provider value={value}>
       <RadioGroupComponent
         {...props}
+        onChange={(groupValue: string) => {
+          onChange?.(groupValue);
+          onValueChange?.(groupValue);
+        }}
         isDisabled={disabled}
         isReadOnly={readonly}
         isCard={childIsCard}

@@ -53,12 +53,12 @@ const styles = StyleSheet.create(theme => ({
       },
       size: {
         sm: {
-          width: 20,
-          height: 20,
+          width: theme.components.icon.sm.width,
+          height: theme.components.icon.sm.height,
         },
         md: {
-          width: 24,
-          height: 24,
+          width: theme.components.icon.md.width,
+          height: theme.components.icon.md.height,
         },
       },
     },

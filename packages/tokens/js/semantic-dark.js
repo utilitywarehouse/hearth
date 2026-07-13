@@ -2,6 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
+  icon: {
+    inverted: '#fcfbf2',
+    primary: '#ebebeb',
+  },
   background: {
     brand: '#442484',
     loading: '#30302c',
@@ -70,10 +74,6 @@ export default {
     },
   },
   focus: {
-    inverted: '#fcfbf2',
-    primary: '#ebebeb',
-  },
-  icon: {
     inverted: '#fcfbf2',
     primary: '#ebebeb',
   },

@@ -14,6 +14,11 @@ export interface RatingProps extends Omit<ViewProps, 'children'> {
   /** Initial rating value when uncontrolled. */
   defaultValue?: RatingValue;
   /** Called when a rating is selected. */
+  onValueChange?: (value: RatingValue) => void;
+  /**
+   * Called when a rating is selected.
+   * @deprecated Use `onValueChange` instead.
+   */
   onChange?: (value: RatingValue) => void;
   /** Disables the rating input. */
   disabled?: boolean;

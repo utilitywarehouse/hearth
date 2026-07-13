@@ -5,6 +5,10 @@ import { GridProps } from '../Grid';
 // Base props shared by both layout modes
 type ToggleButtonCardGroupBaseProps = {
   value?: string;
+  onValueChange?: (value: string) => void;
+  /**
+   * @deprecated Use `onValueChange` instead.
+   */
   onChange?: (value: string) => void;
   gap?: keyof typeof space;
 } & ViewProps;

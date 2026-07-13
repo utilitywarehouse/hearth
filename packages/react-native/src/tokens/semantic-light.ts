@@ -3,6 +3,10 @@
  */
 
 export default {
+  icon: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+  },
   background: {
     brand: '#7a42c8',
     loading: '#f1efe4',
@@ -71,10 +75,6 @@ export default {
     },
   },
   focus: {
-    inverted: '#fcfbf2',
-    primary: '#101010',
-  },
-  icon: {
     inverted: '#fcfbf2',
     primary: '#101010',
   },
