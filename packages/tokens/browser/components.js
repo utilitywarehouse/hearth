@@ -250,6 +250,16 @@ export const components = {
       padding: 'var(--h-checkbox-tile-padding)',
     },
   },
+  chip: {
+    borderRadius: 'var(--h-chip-border-radius)',
+    borderWidth: 'var(--h-chip-border-width)',
+    gap: 'var(--h-chip-gap)',
+    group: {
+      gap: 'var(--h-chip-group-gap)',
+    },
+    paddingHorizontal: 'var(--h-chip-padding-horizontal)',
+    paddingVertical: 'var(--h-chip-padding-vertical)',
+  },
   datePicker: {
     borderRadius: 'var(--h-date-picker-border-radius)',
     borderWidth: 'var(--h-date-picker-border-width)',
@@ -338,6 +348,16 @@ export const components = {
     gap: 'var(--h-form-field-gap)',
     helper: {
       gap: 'var(--h-form-field-helper-gap)',
+    },
+  },
+  icon: {
+    md: {
+      height: 'var(--h-icon-md-height)',
+      width: 'var(--h-icon-md-width)',
+    },
+    sm: {
+      height: 'var(--h-icon-sm-height)',
+      width: 'var(--h-icon-sm-width)',
     },
   },
   iconButton: {
