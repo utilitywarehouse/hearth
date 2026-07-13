@@ -1,4 +1,8 @@
 export declare const semantic: {
+  readonly icon: {
+    readonly inverted: 'var(--h-icon-inverted)';
+    readonly primary: 'var(--h-icon-primary)';
+  };
   readonly background: {
     readonly brand: 'var(--h-background-brand)';
     readonly loading: 'var(--h-background-loading)';
@@ -69,10 +73,6 @@ export declare const semantic: {
   readonly focus: {
     readonly inverted: 'var(--h-focus-inverted)';
     readonly primary: 'var(--h-focus-primary)';
-  };
-  readonly icon: {
-    readonly inverted: 'var(--h-icon-inverted)';
-    readonly primary: 'var(--h-icon-primary)';
   };
   readonly interactive: {
     readonly affirmative: {

@@ -1,4 +1,8 @@
 export const semantic = {
+  icon: {
+    inverted: 'var(--h-icon-inverted)',
+    primary: 'var(--h-icon-primary)',
+  },
   background: {
     brand: 'var(--h-background-brand)',
     loading: 'var(--h-background-loading)',
@@ -69,10 +73,6 @@ export const semantic = {
   focus: {
     inverted: 'var(--h-focus-inverted)',
     primary: 'var(--h-focus-primary)',
-  },
-  icon: {
-    inverted: 'var(--h-icon-inverted)',
-    primary: 'var(--h-icon-primary)',
   },
   interactive: {
     affirmative: {
