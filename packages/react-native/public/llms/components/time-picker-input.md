@@ -1,14 +1,3 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { BottomSheetModalProvider, Center, FormField, TimePickerInput } from '../../';
-import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
-import * as Stories from './TimePickerInput.stories';
-
-<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=10334-6212&t=Jg2fPJPQNzOyspmQ-4" />
-
-<Meta title="Forms / Time Picker Input" />
-
-<BackToTopButton />
-
 # Time Picker Input
 
 `TimePickerInput` extends the base input to present a time picker trigger while still allowing direct text entry. It keeps the field inline and formats values with Day.js when needed.
@@ -21,22 +10,19 @@ import * as Stories from './TimePickerInput.stories';
 
 ## Playground
 
-<Canvas of={Stories.Playground} />
-<Controls of={Stories.Playground} />
+```tsx
+// Example usage
+<View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+  <ViewWrap>{picker}</ViewWrap>
+</View>
+```
 
 ## Usage
 
 Wrap the component with `BottomSheetModalProvider` so the underlying picker can render its modal. Provide a controlled `value` if you want to react to changes immediately or let the component manage its own display string.
 
-<UsageWrap>
-  <BottomSheetModalProvider>
-    <Center>
-      <TimePickerInput placeholder="HH:mm" />
-    </Center>
-  </BottomSheetModalProvider>
-</UsageWrap>
-
 ```tsx
+// Example usage
 import { useState } from 'react';
 import {
   BottomSheetModalProvider,
@@ -88,25 +74,10 @@ const BookingTimeField = () => {
 
 When `format` is left as `'HH:mm'`, the input automatically inserts `:` as people type and requests a numeric keypad on supported platforms.
 
-## Examples
-
 ### With label and helper text
 
-<UsageWrap>
-  <BottomSheetModalProvider>
-    <Center>
-      <TimePickerInput
-        onClear={() => {}}
-        label="Meeting time"
-        helperText="Pick a time for your meeting"
-        validText="Time looks good!"
-        invalidText="Please enter a valid time"
-      />
-    </Center>
-  </BottomSheetModalProvider>
-</UsageWrap>
-
 ```tsx
+// Example usage
 <TimePickerInput
   onClear={() => {}}
   label="Meeting time"
@@ -118,17 +89,8 @@ When `format` is left as `'HH:mm'`, the input automatically inserts `:` as peopl
 
 ### With `FormField`
 
-<UsageWrap>
-  <BottomSheetModalProvider>
-    <Center>
-      <FormField label="Meeting time" helperText="Pick a time">
-        <TimePickerInput onClear={() => {}} />
-      </FormField>
-    </Center>
-  </BottomSheetModalProvider>
-</UsageWrap>
-
 ```tsx
+// Example usage
 <FormField label="Meeting time" helperText="Pick a time">
   <TimePickerInput onClear={() => {}} />
 </FormField>

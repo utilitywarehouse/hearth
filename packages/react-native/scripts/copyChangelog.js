@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 // Define paths
 const sourceFile = path.resolve(__dirname, '../CHANGELOG.md');
-const targetFile = path.resolve(__dirname, '../docs/changelog.mdx');
+const targetFile = path.resolve(__dirname, '../docs/changelog.docs.mdx');
 
 // Read the changelog content
 console.log('Reading CHANGELOG.md...');
@@ -49,7 +49,7 @@ ${changelogContent}
 `;
 
 // Write the new MDX file
-console.log('Writing changelog.mdx...');
+console.log('Writing changelog.docs.mdx...');
 fs.writeFileSync(targetFile, mdxContent);
 
 console.log('✅ Changelog copied and transformed successfully!');
