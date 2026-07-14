@@ -198,6 +198,8 @@ import TechnicalRouterStatusOrangeLight from '@utilitywarehouse/hearth-svg-asset
 import TechnicalRouterStatusOrangeDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-dark.svg';
 import TechnicalRouterStatusGreenLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-light.svg';
 import TechnicalRouterStatusGreenDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-dark.svg';
+import TechnicalOntRouterConnxLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-light.svg';
+import TechnicalOntRouterConnxLabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-dark.svg';
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
@@ -753,5 +755,15 @@ export const svgAssets = [
     name: 'TechnicalRouterStatusGreenDark',
     src: TechnicalRouterStatusGreenDark,
     path: 'technical-router-status-green-dark.svg',
+  },
+  {
+    name: 'TechnicalOntRouterConnxLabelledLight',
+    src: TechnicalOntRouterConnxLabelledLight,
+    path: 'technical-ont-router-connx-labelled-light.svg',
+  },
+  {
+    name: 'TechnicalOntRouterConnxLabelledDark',
+    src: TechnicalOntRouterConnxLabelledDark,
+    path: 'technical-ont-router-connx-labelled-dark.svg',
   },
 ];
