@@ -989,6 +989,16 @@
       "name": "TechnicalRouterStatusGreenDark",
       "path": "technical-router-status-green-dark.svg",
       "hash": "1bf23538fbfc596158753c5d5427b3a1255a38309551234857a77bd9ef4b630a"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLabelledLight",
+      "path": "technical-ont-router-connx-labelled-light.svg",
+      "hash": "091a1ec3e24e47023a9e8ce8611f704e45b9d5510d25300f0d5d7ce61e60b6d4"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLabelledDark",
+      "path": "technical-ont-router-connx-labelled-dark.svg",
+      "hash": "dda3a1f6bcd93381ce1b10bef9192899a111db24cd2c860b8ea7ce7d9be1124e"
     }
   ]
 }
