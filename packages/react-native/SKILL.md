@@ -94,8 +94,11 @@ pairing with someone, ask for it here too.
    (`theme.color.purple[400]`) unless a semantic token doesn't cover the case.
 6. **Theme tokens in Unistyles `StyleSheet.create`, not hardcoded values.** Any
    custom styling should pull from the `theme` argument (`theme.space`,
-   `theme.color`, `theme.font`, `theme.borderRadius`) rather than hardcoded
-   numbers, hex codes, or font sizes.
+   `theme.color`, `theme.font`, `theme.borderRadius`) rather than hardcoded hex
+   codes or font sizes. Prefer tokens for pixel dimensions too, but a hardcoded
+   value (e.g. a `minHeight` with no matching token) is fine when no token
+   covers the case — check the theme first rather than treating this as an
+   absolute rule.
 7. **Space tokens are for spacing only** — do not use spacing tokens for
    one-off dimensions that aren't part of the spacing scale.
 
@@ -177,9 +180,12 @@ existing component variants don't cover the need.
   `disabled`) and apply them at render time via `styles.useVariants({...})`.
 - Use **`compoundVariants`** for combinations that need distinct treatment,
   rather than conditional logic in the component body.
-- Always read colours, spacing, radii, and typography from the `theme`
-  parameter (`theme.color.*`, `theme.space[...]`, `theme.borderRadius.*`,
-  `theme.font.*`) — never hardcode a hex value, pixel size, or font family.
+- Read colours, spacing, radii, and typography from the `theme` parameter
+  (`theme.color.*`, `theme.space[...]`, `theme.borderRadius.*`, `theme.font.*`)
+  rather than hardcoding a hex value or font family. Prefer a token for pixel
+  dimensions too, but check the theme first before assuming one doesn't
+  exist — existing components do fall back to a hardcoded value (e.g. a
+  `minHeight`) when there's genuinely no matching token.
 - `_web` blocks hold web-only pseudo-class styles (`_hover`, `_focus-visible`,
   `_active`) since Unistyles targets both native and `react-native-web`
   (Storybook renders through `react-native-web`, so these matter for how a
