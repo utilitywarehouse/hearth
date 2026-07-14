@@ -231,7 +231,7 @@ export const FocusProgressionAfterEmptySlotSelection: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByLabelText('Verification Code') as HTMLInputElement;
+    const input = (await canvas.findByLabelText('Verification Code')) as HTMLInputElement;
 
     input.focus();
 
