@@ -8,6 +8,9 @@
   "module": "build/index",
   "type": "module",
   "sideEffects": false,
+  "files": [
+    "build/**"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
