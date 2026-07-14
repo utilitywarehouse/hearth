@@ -790,5 +790,13 @@
   {
     "id": "2636:15797",
     "name": "TechnicalRouterStatusGreenDark"
+  },
+  {
+    "id": "2958:15755",
+    "name": "TechnicalOntRouterConnxLabelledLight"
+  },
+  {
+    "id": "2958:15757",
+    "name": "TechnicalOntRouterConnxLabelledDark"
   }
 ]
