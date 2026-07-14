@@ -18,8 +18,8 @@ A label is required, this should be clear and descriptive to guide the user.
 
 ## Disabled and Read-only
 
-Read-only inputs can not be edited, but remain focusable, and should only be
-used readonly when presenting already submitted information. They differ from
+Read-only inputs cannot be edited, but remain focusable, and should only be
+used when presenting already submitted information. They differ from
 disabled inputs, as there may be actions a user can take to activate a disabled
 input, but read-only fields should stay undeditable in the same view.
 
@@ -33,7 +33,7 @@ input, but read-only fields should stay undeditable in the same view.
 ## Validation
 
 The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
-indicate the status. This status must be accompanied by a validation text to
+indicate the status. This status must be accompanied by the `validationText` to
 explain the reason for the status.
 
 ```tsx
