@@ -5,8 +5,8 @@ import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile, PackageCard } from '../components/cards';
 import { TrendChart } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
-import { compact, formatDate, num } from '../lib/format';
-import { orgTrend, reposUsingHearth } from '../lib/series';
+import { compact, formatDate, num, pct } from '../lib/format';
+import { orgTrend, orgVersionHealth, reposBehindLatest, reposUsingHearth } from '../lib/series';
 import { packageColor, pkgSlug, shortName } from '../lib/packages';
 
 // Package types whose symbols are visual components a user drops into a UI —
@@ -19,6 +19,14 @@ const REPO_ROW_COLUMNS: Array<RankColumn> = [
   { key: 'refCount', label: 'Refs' },
   { key: 'fileCount', label: 'Files' },
   { key: 'repoCount', label: 'Packages' },
+];
+
+// Rows here are repos; "refCount" holds count of outdated packages, "repoCount"
+// holds total version-tracked packages in that repo — reuses RankingTable's
+// generic column config rather than a bespoke table.
+const REPO_BEHIND_COLUMNS: Array<RankColumn> = [
+  { key: 'refCount', label: 'Outdated' },
+  { key: 'repoCount', label: 'Tracked' },
 ];
 
 export function Overview() {
@@ -65,6 +73,15 @@ export function Overview() {
   );
   const componentLegend = componentPackages.filter(([, p]) => p.repoCount > 0);
 
+  const versionHealth = orgVersionHealth(snapshot);
+  const versionHealthTotal = versionHealth.onLatest + versionHealth.behind;
+  const behindRows: Array<RankRow> = reposBehindLatest(snapshot).map(r => ({
+    name: r.repo,
+    refCount: r.outdatedCount,
+    repoCount: r.trackedCount,
+    fileCount: 0,
+  }));
+
   return (
     <div>
       <PageHeader
@@ -89,9 +106,7 @@ export function Overview() {
       <Section title="Adoption over time">
         <TrendChart
           data={orgData}
-          series={[
-            { key: 'repos', label: 'Repos using hearth', color: 'var(--h-color-blue-600)' },
-          ]}
+          series={[{ key: 'repos', label: 'Repos using hearth', color: 'var(--h-color-blue-600)' }]}
         />
       </Section>
 
@@ -102,6 +117,32 @@ export function Overview() {
           ))}
         </div>
       </Section>
+
+      {versionHealthTotal > 0 ? (
+        <Section
+          title="Version health"
+          aside={
+            <span className="muted">
+              {pct(versionHealth.onLatest, versionHealthTotal)} of tracked installs on the latest
+              breaking version version
+            </span>
+          }
+        >
+          {behindRows.length ? (
+            <RankingTable
+              rows={behindRows}
+              unit="Repository"
+              color="var(--h-color-red-600)"
+              columns={REPO_BEHIND_COLUMNS}
+              onSelect={repo => void navigate(`/repo/${repo}`)}
+            />
+          ) : (
+            <p className="muted">
+              Every tracked repo is on the latest breaking version of every package it uses.
+            </p>
+          )}
+        </Section>
+      ) : null}
 
       <div className="two-col">
         <Section title="Repositories by usage">
@@ -130,7 +171,9 @@ export function Overview() {
             rows={componentRows}
             unit="Component / icon"
             color={packageColor('@utilitywarehouse/hearth-react')}
-            onSelect={(name, row) => void navigate(`/symbol/${pkgSlug(row.pkg!)}/${encodeURIComponent(name)}`)}
+            onSelect={(name, row) =>
+              void navigate(`/symbol/${pkgSlug(row.pkg!)}/${encodeURIComponent(name)}`)
+            }
           />
         </Section>
       </div>
@@ -139,8 +182,8 @@ export function Overview() {
         Counts reflect direct dependents (declared in <code>package.json</code>); the hearth repo
         itself is excluded. Ranked by references — {repoRows.length} repos, showing{' '}
         {compact(componentRows.length)} distinct components/icons across {componentLegend.length}{' '}
-        packages. Repos with heavy monorepo usage inflate
-        file/ref counts; repo counts show adoption breadth.
+        packages. Repos with heavy monorepo usage inflate file/ref counts; repo counts show adoption
+        breadth.
       </p>
     </div>
   );

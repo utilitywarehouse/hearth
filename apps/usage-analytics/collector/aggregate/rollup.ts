@@ -35,6 +35,8 @@ export function buildSnapshot(
   const symRefCount = new Map<string, Map<string, number>>();
   // package -> symbol -> prop name -> count, org-wide.
   const symProps = new Map<string, Map<string, Record<string, number>>>();
+  // package -> declared range -> distinct repos declaring it, org-wide.
+  const pkgVersionRepoSet = new Map<string, Map<string, Set<string>>>();
 
   for (const { fullName, sha, parse } of repoResults) {
     const repoPkgs: RepoUsage['packages'] = {};
@@ -64,6 +66,18 @@ export function buildSnapshot(
       }
     }
 
+    // Version data can exist for packages with zero detected usage (declared
+    // in package.json but never imported) — surface those too, with
+    // zero-usage stats, rather than dropping them. Doesn't affect the
+    // usage-based repoCount/fileCount/refCount aggregates above.
+    for (const [pkg, versions] of Object.entries(parse.versions)) {
+      const entry = (repoPkgs[pkg] ??= { fileCount: 0, refCount: 0, symbols: {} });
+      entry.versions = versions;
+      for (const range of Object.keys(versions)) {
+        addToNestedSet(pkgVersionRepoSet, pkg, range, fullName);
+      }
+    }
+
     if (Object.keys(repoPkgs).length > 0) {
       repos[fullName] = { clonedSha: sha, packages: repoPkgs, totalRefs };
     }
@@ -85,6 +99,11 @@ export function buildSnapshot(
       }
     }
 
+    const versionRepoSets = pkgVersionRepoSet.get(name);
+    const versions: Record<string, number> | undefined = versionRepoSets
+      ? Object.fromEntries([...versionRepoSets].map(([range, repos]) => [range, repos.size]))
+      : undefined;
+
     const usage: PackageUsage = {
       type: m.type,
       repoCount: pkgRepoSet.get(name)?.size ?? 0,
@@ -92,6 +111,8 @@ export function buildSnapshot(
       refCount: pkgRefCount.get(name) ?? 0,
       symbols,
       legacy: m.legacy,
+      ...(versions ? { versions } : {}),
+      ...(m.version ? { latestVersion: m.version } : {}),
     };
 
     if (m.symbols.size > 0) {
@@ -133,6 +154,7 @@ export function updateIndex(existing: UsageIndex | null, snapshot: Snapshot): Us
       fileCount: pkg.fileCount,
       refCount: pkg.refCount,
       legacy: pkg.legacy,
+      ...(pkg.versions ? { versions: pkg.versions } : {}),
     };
     if (pkg.legacy) {
       entry.legacyTotals.totalLegacyFiles += pkg.fileCount;
@@ -145,10 +167,17 @@ export function updateIndex(existing: UsageIndex | null, snapshot: Snapshot): Us
 
   // A repo can use legacy packages, hearth packages, or both — count each
   // repo under every bucket it actually touches, not just "uses anything".
+  // Filtered to packages with detected source usage — a repo that only
+  // *declares* a package (see RepoPackageUsage.versions) without importing it
+  // anywhere shouldn't count as "using" it here.
   for (const repo of Object.values(snapshot.repos)) {
-    const pkgNames = Object.keys(repo.packages);
-    if (pkgNames.some(n => !snapshot.packages[n]?.legacy)) entry.orgTotals.reposUsingAnyHearth += 1;
-    if (pkgNames.some(n => snapshot.packages[n]?.legacy)) entry.legacyTotals.reposUsingAnyLegacy += 1;
+    const usedPkgNames = Object.entries(repo.packages)
+      .filter(([, p]) => p.refCount > 0 || p.fileCount > 0)
+      .map(([n]) => n);
+    if (usedPkgNames.some(n => !snapshot.packages[n]?.legacy))
+      entry.orgTotals.reposUsingAnyHearth += 1;
+    if (usedPkgNames.some(n => snapshot.packages[n]?.legacy))
+      entry.legacyTotals.reposUsingAnyLegacy += 1;
   }
 
   const snapshots = (existing?.snapshots ?? []).filter(s => s.date !== snapshot.date);
@@ -170,7 +199,12 @@ function addToSet(map: Map<string, Set<string>>, key: string, value: string) {
   if (!set) map.set(key, (set = new Set()));
   set.add(value);
 }
-function addToNestedSet(map: Map<string, Map<string, Set<string>>>, k1: string, k2: string, value: string) {
+function addToNestedSet(
+  map: Map<string, Map<string, Set<string>>>,
+  k1: string,
+  k2: string,
+  value: string
+) {
   let inner = map.get(k1);
   if (!inner) map.set(k1, (inner = new Map<string, Set<string>>()));
   let set = inner.get(k2);

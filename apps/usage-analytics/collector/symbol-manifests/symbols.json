@@ -1,6 +1,6 @@
 {
   "manifestVersion": "0.31.0",
-  "generatedAt": "2026-07-07T17:37:55.888Z",
+  "generatedAt": "2026-07-13T17:17:29.637Z",
   "packages": {
     "@utilitywarehouse/hearth-react": {
       "type": "component-lib",
@@ -249,7 +249,8 @@
         "useComboboxFilter",
         "useMediaQuery"
       ],
-      "legacy": false
+      "legacy": false,
+      "version": "0.31.0"
     },
     "@utilitywarehouse/hearth-react-native": {
       "type": "component-lib",
@@ -622,7 +623,8 @@
         "useUnistyles",
         "withUnistyles"
       ],
-      "legacy": false
+      "legacy": false,
+      "version": "0.34.5"
     },
     "@utilitywarehouse/hearth-tokens": {
       "type": "tokens",
@@ -644,7 +646,8 @@
         "space",
         "typography"
       ],
-      "legacy": false
+      "legacy": false,
+      "version": "0.4.1"
     },
     "@utilitywarehouse/hearth-react-icons": {
       "type": "icons",
@@ -676,6 +679,7 @@
         "CashbackCardSmallIcon",
         "CelebrationMediumIcon",
         "CelebrationSmallIcon",
+        "ChatMediumIcon",
         "ChevronDownMediumIcon",
         "ChevronDownSmallIcon",
         "ChevronLeftMediumIcon",
@@ -725,6 +729,7 @@
         "FullscreenSmallIcon",
         "GasMediumIcon",
         "GasSmallIcon",
+        "GoalMediumIcon",
         "GreenDealElectricityMediumIcon",
         "HeartMediumIcon",
         "HeartOutlineMediumIcon",
@@ -843,7 +848,8 @@
         "WithdrawSmallIcon",
         "YoutubeMediumIcon"
       ],
-      "legacy": false
+      "legacy": false,
+      "version": "0.8.6"
     },
     "@utilitywarehouse/hearth-react-native-icons": {
       "type": "icons",
@@ -875,6 +881,7 @@
         "CashbackCardSmallIcon",
         "CelebrationMediumIcon",
         "CelebrationSmallIcon",
+        "ChatMediumIcon",
         "ChevronDownMediumIcon",
         "ChevronDownSmallIcon",
         "ChevronLeftMediumIcon",
@@ -924,6 +931,7 @@
         "FullscreenSmallIcon",
         "GasMediumIcon",
         "GasSmallIcon",
+        "GoalMediumIcon",
         "GreenDealElectricityMediumIcon",
         "HeartMediumIcon",
         "HeartOutlineMediumIcon",
@@ -1041,32 +1049,38 @@
         "WithdrawSmallIcon",
         "YoutubeMediumIcon"
       ],
-      "legacy": false
+      "legacy": false,
+      "version": "0.8.5"
     },
     "@utilitywarehouse/hearth-svg-icons": {
       "type": "icons",
       "symbols": [],
-      "legacy": false
+      "legacy": false,
+      "version": "0.8.5"
     },
     "@utilitywarehouse/hearth-svg-assets": {
       "type": "asset",
       "symbols": [],
-      "legacy": false
+      "legacy": false,
+      "version": "0.6.4"
     },
     "@utilitywarehouse/hearth-json-assets": {
       "type": "asset",
       "symbols": [],
-      "legacy": false
+      "legacy": false,
+      "version": "0.5.1"
     },
     "@utilitywarehouse/hearth-fonts": {
       "type": "asset",
       "symbols": [],
-      "legacy": false
+      "legacy": false,
+      "version": "0.1.1"
     },
     "@utilitywarehouse/hearth-css-reset": {
       "type": "asset",
       "symbols": [],
-      "legacy": false
+      "legacy": false,
+      "version": "0.1.5"
     },
     "@utilitywarehouse/react-icons": {
       "type": "icons",

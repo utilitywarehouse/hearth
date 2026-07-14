@@ -437,6 +437,15 @@ body {
   vertical-align: middle;
   margin-right: 4px;
 }
+.version-tag {
+  font-family: var(--h-font-family-mono, monospace);
+  font-size: 12px;
+  margin-right: 8px;
+}
+.version-tag--outdated {
+  color: var(--h-color-red-600, #c0392b);
+  font-weight: 600;
+}
 code {
   font-family: var(--h-font-family-mono, monospace);
   font-size: 0.9em;

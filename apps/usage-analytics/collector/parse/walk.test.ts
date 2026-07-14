@@ -47,7 +47,7 @@ void test('per-symbol fileCount counts distinct files, not repo count', () => {
   }
 });
 
-void test('prop usage is aggregated across a repo\'s files', () => {
+void test("prop usage is aggregated across a repo's files", () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
   try {
     fs.writeFileSync(
@@ -65,6 +65,86 @@ void test('prop usage is aggregated across a repo\'s files', () => {
 
     assert.equal(button.props?.['variant'], 2);
     assert.equal(button.props?.['onClick'], 1);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+void test('package.json dependency ranges are collected per package', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
+  try {
+    fs.writeFileSync(
+      path.join(dir, 'package.json'),
+      JSON.stringify({ dependencies: { '@utilitywarehouse/hearth-react': '^2.3.0' } })
+    );
+
+    const ctx = buildContext(manifest);
+    const result = walkRepo(dir, ctx);
+
+    assert.deepEqual(result.versions['@utilitywarehouse/hearth-react'], { '^2.3.0': 1 });
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+void test('a monorepo with mixed ranges across workspace package.json files records both', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
+  try {
+    fs.writeFileSync(
+      path.join(dir, 'package.json'),
+      JSON.stringify({ dependencies: { '@utilitywarehouse/hearth-react': '^1.0.0' } })
+    );
+    fs.mkdirSync(path.join(dir, 'apps', 'foo'), { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, 'apps', 'foo', 'package.json'),
+      JSON.stringify({ dependencies: { '@utilitywarehouse/hearth-react': '^2.0.0' } })
+    );
+
+    const ctx = buildContext(manifest);
+    const result = walkRepo(dir, ctx);
+
+    assert.deepEqual(result.versions['@utilitywarehouse/hearth-react'], {
+      '^1.0.0': 1,
+      '^2.0.0': 1,
+    });
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+void test('a package declared but never imported still surfaces with zero-usage stats', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
+  try {
+    fs.writeFileSync(
+      path.join(dir, 'package.json'),
+      JSON.stringify({ devDependencies: { '@utilitywarehouse/hearth-react': '^2.3.0' } })
+    );
+    // No source files reference hearth-react at all.
+    fs.writeFileSync(path.join(dir, 'a.ts'), `export const x = 1;`);
+
+    const ctx = buildContext(manifest);
+    const result = walkRepo(dir, ctx);
+
+    assert.deepEqual(result.versions['@utilitywarehouse/hearth-react'], { '^2.3.0': 1 });
+    assert.equal(result.packages['@utilitywarehouse/hearth-react'], undefined);
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+void test('package.json under node_modules is ignored', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'walk-test-'));
+  try {
+    fs.mkdirSync(path.join(dir, 'node_modules', '@utilitywarehouse'), { recursive: true });
+    fs.writeFileSync(
+      path.join(dir, 'node_modules', '@utilitywarehouse', 'package.json'),
+      JSON.stringify({ dependencies: { '@utilitywarehouse/hearth-react': '^9.9.9' } })
+    );
+
+    const ctx = buildContext(manifest);
+    const result = walkRepo(dir, ctx);
+
+    assert.deepEqual(result.versions, {});
   } finally {
     fs.rmSync(dir, { recursive: true, force: true });
   }

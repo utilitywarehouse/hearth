@@ -73,6 +73,18 @@ for testing and offline runs.
 `Snapshot` (per-package + per-repo usage with `fileCount` / `repoCount` /
 `refCount`), `UsageIndex` (weekly roll-up), `Checkpoint` (resume state).
 
+**Version tracking:** alongside usage, the collector reads every `package.json`
+in a cloned repo (root + nested workspace packages) and records the declared
+semver range for each tracked package — `RepoPackageUsage.versions` (range ->
+number of `package.json` files declaring it, per repo) and `PackageUsage.versions`
+(range -> distinct repo count, org-wide), rolled up into `IndexPackageTotals.versions`
+for the version-adoption-over-time chart. `PackageUsage.latestVersion` is the
+package's own currently-published version (read from its `package.json` in this
+workspace at collection time), used to flag repos on an outdated version. A
+package can have version data with zero detected usage — declared in
+`package.json` but never imported — which is itself a useful signal surfaced
+on the repo/package pages rather than silently dropped.
+
 ## Accuracy caveats
 
 - Discovers **direct** dependents (declared in `package.json`); transitive-only
@@ -94,3 +106,14 @@ for testing and offline runs.
   optional field on `SymbolUsage`/`RepoSymbolUsage` — snapshots collected before
   this was added simply have no `props` key, and the dashboard treats that the
   same as "no prop data yet" rather than an error.
+- Versions are the **declared semver range from `package.json`** (e.g.
+  `^2.3.0`), not the exact version resolved from a lockfile — cheap and
+  format-agnostic across npm/yarn/pnpm, but two repos both declaring `^2.3.0`
+  could be on different resolved patch versions in practice.
+- Legacy predecessor packages have no `latestVersion` (no local source to read
+  a "currently published" version from), so they're never flagged as
+  "outdated" even though their versions are still tracked per repo.
+- Every hearth package is currently pre-1.0, so version comparisons bucket by
+  **minor** version, not major (semver's 0ver convention treats a minor bump
+  pre-1.0 the way a major bump is treated post-1.0) — see `significantVersion`
+  in `src/lib/versions.ts`.
