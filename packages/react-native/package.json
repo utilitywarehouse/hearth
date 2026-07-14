@@ -8,8 +8,15 @@
   "module": "build/index",
   "type": "module",
   "sideEffects": false,
+  "bin": {
+    "hearth-react-native": "./scripts/init-ai.js"
+  },
   "files": [
-    "build/**"
+    "build/**",
+    "scripts/init-ai.js",
+    "SKILL.md",
+    "public/llms/**",
+    "public/llms.txt"
   ],
   "scripts": {
     "clean": "rm -rf node_modules build .turbo",
