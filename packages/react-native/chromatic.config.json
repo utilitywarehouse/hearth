@@ -1,4 +1,6 @@
 {
+  "autoAcceptChanges": "main",
+  "buildScriptName": "build:storybook",
   "onlyChanged": true,
   "projectId": "Project:68e3ad5c6e80b57678cad6c6",
   "storybookBaseDir": "packages/react-native",

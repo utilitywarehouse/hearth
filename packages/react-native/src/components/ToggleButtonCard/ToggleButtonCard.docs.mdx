@@ -80,7 +80,7 @@ const MyComponent = () => {
     <ToggleButtonCardGroup
       aria-label="Select Tariff"
       value={value}
-      onChange={setValue}
+      onValueChange={setValue}
       nativeID="ToggleButtonCard-group"
     >
       <ToggleButtonCard value="fixed" aria-label="Fixed Tariff" label="Select tariff" gap="200">
@@ -137,7 +137,8 @@ Contains all Group related layout style props and actions. It inherits all the p
 | Property         | Type                                                                                                     | Default | Description                                                                                                |
 | ---------------- | -------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
 | `value`          | `string`                                                                                                 | -       | The value of the currently selected `ToggleButtonCard`.                                                    |
-| `onChange`       | `(value: string) => void`                                                                                | -       | Callback fired when the selected `ToggleButtonCard` changes.                                               |
+| `onValueChange`  | `(value: string) => void`                                                                                | -       | Callback fired when the selected `ToggleButtonCard` changes.                                               |
+| `onChange`       | `(value: string) => void`                                                                                | -       | **Deprecated** — use `onValueChange` instead.                                                              |
 | `gap`            | `keyof typeof space`                                                                                     | -       | The gap between the `ToggleButtonCard` items.                                                              |
 | `columns`        | `GridProps['columns']`                                                                                   | -       | If set, the group will use a grid layout with the specified number of columns. Otherwise, it uses flexbox. |
 | `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                 | `row`   | (Flexbox only) Sets the direction of the flex items.                                                       |

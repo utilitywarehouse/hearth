@@ -27,6 +27,7 @@ const ButtonRoot = ({
   return (
     <Pressable
       {...props}
+      accessibilityState={{ selected: toggled, ...props.accessibilityState }}
       style={[styles.container, props.style as ViewStyle]}
       onPress={handlePress}
     >

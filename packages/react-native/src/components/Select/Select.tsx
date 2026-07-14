@@ -17,6 +17,7 @@ import { Icon } from '../Icon';
 import { Input } from '../Input';
 import { SelectContext } from './Select.context';
 import SelectProps, { SelectOptionItemProps } from './Select.props';
+import { filterOptionsByLabel } from './Select.utils';
 import SelectOption from './SelectOption';
 
 const Select = ({
@@ -81,9 +82,7 @@ const Select = ({
     hasValue: !!selectedLabel || !!selectedOption?.label,
   });
 
-  const filteredOptions = searchable
-    ? options.filter(option => option.label.toLowerCase().includes(search.toLowerCase()))
-    : options;
+  const filteredOptions = searchable ? filterOptionsByLabel(options, search) : options;
 
   const handleClose = useCallback((index: number) => {
     if (index === -1) {

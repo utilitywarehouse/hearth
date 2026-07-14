@@ -21,6 +21,11 @@ interface SinglePillGroupProps extends PillGroupBaseProps {
   /** Controlled selected value */
   value: string;
   /** Handle selection changes */
+  onValueChange?: (value: string) => void;
+  /**
+   * Handle selection changes
+   * @deprecated Use `onValueChange` instead.
+   */
   onChange?: (value: string) => void;
 }
 
@@ -30,6 +35,11 @@ interface MultiPillGroupProps extends PillGroupBaseProps {
   /** Controlled selected value(s) */
   value: string[];
   /** Handle selection changes */
+  onValueChange?: (value: string[]) => void;
+  /**
+   * Handle selection changes
+   * @deprecated Use `onValueChange` instead.
+   */
   onChange?: (value: string[]) => void;
 }
 

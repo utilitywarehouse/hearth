@@ -8,8 +8,8 @@ figma.connect(Switch, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-
     }),
     checked: figma.boolean('Checked?'),
     size: figma.enum('Size', {
-      'MD-32': 'medium',
-      'SM-24': 'small',
+      'MD-32': 'md',
+      'SM-24': 'sm',
     }),
   },
   example: props => <Switch value={props.checked} disabled={props.disabled} size={props.size} />,

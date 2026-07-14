@@ -49,7 +49,7 @@
     "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-docs#generate:assets",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:tokens:react": "turbo run build:tokens && turbo run @utilitywarehouse/hearth-react#copy:tokens",
-    "generate:llm-docs": "pnpm --dir packages/react run generate:llm-docs"
+    "generate:llm-docs": "turbo run generate:llm-docs"
   },
   "type": "module",
   "workspaces": [
@@ -57,7 +57,7 @@
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "11.0.5"
+    "pnpm": "11.8.0"
   },
   "prettier": "@utilitywarehouse/prettier-config",
   "packageManager": "pnpm@11.0.5+sha512.94fa09e72016402aefce788e46994e18eb1922998b16b6fd5aa6bafd8ae4dea05d0852f60247fdb7d5ab8199a7b0beda830398f3f80cb9f822398522a1535481",

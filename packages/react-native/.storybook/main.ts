@@ -27,6 +27,7 @@ const config = {
     },
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-vitest'),
+    getAbsolutePath('@storybook/addon-mcp'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-native-web-vite'),

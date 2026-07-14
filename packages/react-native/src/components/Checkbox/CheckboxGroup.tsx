@@ -12,6 +12,8 @@ const CheckboxGroup = ({
   children,
   disabled,
   readonly,
+  onChange,
+  onValueChange,
   validationStatus,
   label,
   labelVariant = 'body',
@@ -45,6 +47,10 @@ const CheckboxGroup = ({
       <CheckboxGroupComponent
         {...props}
         value={props.value as Array<string>}
+        onChange={(groupValue: Array<string>) => {
+          onChange?.(groupValue);
+          onValueChange?.(groupValue);
+        }}
         isDisabled={disabled}
         isReadOnly={readonly}
         isCard={childIsCard}

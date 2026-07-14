@@ -11,6 +11,7 @@ export const PillGroup = ({
   multiple = false,
   wrap = true,
   onChange,
+  onValueChange,
   style,
   ...props
 }: PillGroupProps) => {
@@ -25,12 +26,14 @@ export const PillGroup = ({
             ? normalizedValue.filter(v => v !== pillValue)
             : [...normalizedValue, pillValue];
           (onChange as (value: string[]) => void)?.(newValue);
+          (onValueChange as (value: string[]) => void)?.(newValue);
         } else {
           (onChange as (value: string) => void)?.(pillValue);
+          (onValueChange as (value: string) => void)?.(pillValue);
         }
       },
     }),
-    [normalizedValue, multiple, onChange]
+    [normalizedValue, multiple, onChange, onValueChange]
   );
 
   return (

@@ -17,7 +17,7 @@ const meta = {
     },
     size: {
       control: 'select',
-      options: ['medium', 'small'],
+      options: ['md', 'sm'],
       description: 'Use this value to set the Switch size.',
     },
     disabled: {
@@ -27,7 +27,7 @@ const meta = {
   },
   args: {
     value: false,
-    size: 'medium',
+    size: 'md',
     disabled: false,
   },
 } satisfies Meta<typeof Switch>;
@@ -64,16 +64,16 @@ export const Variants: Story = {
         <Switch value={true} disabled />
       </VariantTitle>
       <VariantTitle title="Off - small">
-        <Switch value={false} size="small" />
+        <Switch value={false} size="sm" />
       </VariantTitle>
       <VariantTitle title="On - small">
-        <Switch value={true} size="small" />
+        <Switch value={true} size="sm" />
       </VariantTitle>
       <VariantTitle title="Off - small - Disabled">
-        <Switch value={false} size="small" disabled />
+        <Switch value={false} size="sm" disabled />
       </VariantTitle>
       <VariantTitle title="On - small - Disabled">
-        <Switch value={true} size="small" disabled />
+        <Switch value={true} size="sm" disabled />
       </VariantTitle>
     </Flex>
   ),

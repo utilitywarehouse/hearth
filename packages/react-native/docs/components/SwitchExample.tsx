@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Switch } from '../../src';
 
-const SwitchExample: FC<{ value: boolean; disabled: boolean; size: 'small' | 'medium' }> = ({
+const SwitchExample: FC<{ value: boolean; disabled: boolean; size: 'sm' | 'md' }> = ({
   value,
   disabled,
   size,
