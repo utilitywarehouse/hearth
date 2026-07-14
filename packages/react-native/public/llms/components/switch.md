@@ -35,12 +35,12 @@ const MyComponent = () => {
 
 ## Props
 
-| Property      | Type                       | Default    | Description                            |
-| ------------- | -------------------------- | ---------- | -------------------------------------- |
-| value         | `boolean`                  | `false`    | The value of the switch                |
-| onValueChange | `(value: boolean) => void` | -          | Callback when the switch value changes |
-| disabled      | `boolean`                  | `false`    | If true, the switch will be disabled   |
-| size          | `'small' \| 'medium'`      | `'medium'` | The size of the switch                 |
+| Property      | Type                       | Default | Description                            |
+| ------------- | -------------------------- | ------- | -------------------------------------- |
+| value         | `boolean`                  | `false` | The value of the switch                |
+| onValueChange | `(value: boolean) => void` | -       | Callback when the switch value changes |
+| disabled      | `boolean`                  | `false` | If true, the switch will be disabled   |
+| size          | `'sm' \| 'md'`             | `'md'`  | The size of the switch                 |
 
 ## Variants
 
@@ -60,16 +60,16 @@ const MyComponent = () => {
     <Switch value={true} disabled />
   </VariantTitle>
   <VariantTitle title="Off - small">
-    <Switch value={false} size="small" />
+    <Switch value={false} size="sm" />
   </VariantTitle>
   <VariantTitle title="On - small">
-    <Switch value={true} size="small" />
+    <Switch value={true} size="sm" />
   </VariantTitle>
   <VariantTitle title="Off - small - Disabled">
-    <Switch value={false} size="small" disabled />
+    <Switch value={false} size="sm" disabled />
   </VariantTitle>
   <VariantTitle title="On - small - Disabled">
-    <Switch value={true} size="small" disabled />
+    <Switch value={true} size="sm" disabled />
   </VariantTitle>
 </Flex>
 ```
@@ -136,7 +136,7 @@ const SwitchList = () => {
         helperText="Allow notifications"
         leadingContent={<ListItemIcon as={BellMediumIcon} />}
         trailingContent={
-          <Switch value={notifications} onValueChange={setNotifications} size="small" />
+          <Switch value={notifications} onValueChange={setNotifications} size="sm" />
         }
         onPress={() => setNotifications(!notifications)}
       />
@@ -144,21 +144,21 @@ const SwitchList = () => {
         text="Secure ID"
         helperText="Use secure ID"
         leadingContent={<ListItemIcon as={LockMediumIcon} />}
-        trailingContent={<Switch value={secureId} onValueChange={setSecureId} size="small" />}
+        trailingContent={<Switch value={secureId} onValueChange={setSecureId} size="sm" />}
         onPress={() => setSecureId(!secureId)}
       />
       <ListItem
         text="Location"
         helperText="Allow location"
         leadingContent={<ListItemIcon as={LocationMediumIcon} />}
-        trailingContent={<Switch value={location} onValueChange={setLocation} size="small" />}
+        trailingContent={<Switch value={location} onValueChange={setLocation} size="sm" />}
         onPress={() => setLocation(!location)}
       />
       <ListItem
         text="Dark mode"
         helperText="Enable dark mode"
         leadingContent={<ListItemIcon as={EyeMediumIcon} />}
-        trailingContent={<Switch value={darkMode} onValueChange={setDarkMode} size="small" />}
+        trailingContent={<Switch value={darkMode} onValueChange={setDarkMode} size="sm" />}
         onPress={() => setDarkMode(!darkMode)}
       />
     </List>

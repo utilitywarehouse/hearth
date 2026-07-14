@@ -1,5 +1,123 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.35.0
+
+### Minor Changes
+
+- [#1394](https://github.com/utilitywarehouse/hearth/pull/1394) [`0b512dd`](https://github.com/utilitywarehouse/hearth/commit/0b512dd62c2225e81539485decde6d6a65ae2af6) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add generated LLM-friendly markdown docs (`public/llms/`)
+
+  `public/llms/` and a root `public/llms.txt` index are now generated from the
+  Storybook `.docs.mdx` files and published with the package, mirroring
+  `@utilitywarehouse/hearth-react`. This gives AI tools a markdown-based way to
+  discover component usage and props without parsing Storybook.
+
+  **Developer changes**:
+
+  Run `pnpm generate:llm-docs` after changing a public component API (props or
+  JSDoc) to keep the generated docs in sync. The root `pnpm generate:llm-docs`
+  command now regenerates docs for both `hearth-react` and
+  `hearth-react-native`.
+
+### Patch Changes
+
+- [#1402](https://github.com/utilitywarehouse/hearth/pull/1402) [`5e22af8`](https://github.com/utilitywarehouse/hearth/commit/5e22af81894f90c35540d056b1e379b6f59cdc63) Thanks [@jordmccord](https://github.com/jordmccord)! - 🧹 [HOUSEKEEPING]: Add Storybook MCP addon
+
+  Adds `@storybook/addon-mcp` to Storybook so Chromatic can expose a hosted MCP
+  server (`list-all-documentation`, `get-documentation`,
+  `get-documentation-for-story`) for this package's stories, matching the setup
+  already in place for `hearth-react`. Also adds `autoAcceptChanges` and
+  `buildScriptName` to `chromatic.config.json` for parity.
+
+- [#1410](https://github.com/utilitywarehouse/hearth/pull/1410) [`aadbf01`](https://github.com/utilitywarehouse/hearth/commit/aadbf01499c1a6959de05f977096a8ea2ea8978e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🧹 [HOUSEKEEPING]: Explicit `files` allowlist for published npm package
+
+  `package.json` previously had no `files` array and no `.npmignore`, so the
+  published package relied on npm's default gitignore-based inclusion rules.
+  `files` is now set to `["build/**"]`, matching the intent of the existing
+  `/build` `.gitignore` entry and mirroring the explicit allowlist already used
+  by `@utilitywarehouse/hearth-react`.
+
+  **Developer changes**:
+
+  No changes required for consumers using the package's public entry point.
+
+- [#1409](https://github.com/utilitywarehouse/hearth/pull/1409) [`e9b668a`](https://github.com/utilitywarehouse/hearth/commit/e9b668ae9b9de43689b9a36a853e7ea3ce1dce9c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `npx @utilitywarehouse/hearth-react-native init-ai` installer
+
+  Consumers can now run `npx @utilitywarehouse/hearth-react-native init-ai` to
+  automatically wire the package's `SKILL.md` into their project's AI assistant
+  config (`CLAUDE.md`, `.cursorrules`, `.windsurfrules`, `.clinerules`,
+  `AGENTS.md`, or `.github/copilot-instructions.md`). This mirrors the installer
+  already shipped with `@utilitywarehouse/hearth-react`.
+
+  **Developer changes**:
+
+  No changes required. Run `npx @utilitywarehouse/hearth-react-native init-ai`
+  after installing or upgrading the package to wire up the skill.
+
+- [#1409](https://github.com/utilitywarehouse/hearth/pull/1409) [`e9b668a`](https://github.com/utilitywarehouse/hearth/commit/e9b668ae9b9de43689b9a36a853e7ea3ce1dce9c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add AI agent skill file for Hearth React Native
+
+  The package now ships a `SKILL.md` file, giving coding assistants (Claude Code,
+  Cursor, Windsurf, and others) deep knowledge of Hearth React Native's component
+  APIs, utility props, Unistyles theming, breakpoints, safe-area handling, and
+  accessibility patterns. This mirrors the skill already shipped with
+  `@utilitywarehouse/hearth-react`.
+
+  **Developer changes**:
+
+  No changes required. To wire the skill into your AI tool, see the "AI Assistant
+  Setup" section in the package README.
+
+- [#1397](https://github.com/utilitywarehouse/hearth/pull/1397) [`09559ff`](https://github.com/utilitywarehouse/hearth/commit/09559fffe366e7f9df975b74c7280fea1e8c323f) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Standardise `size` values, selection callbacks and icon sizing tokens
+
+  All changes are backward compatible — existing props continue to work but are
+  now deprecated where superseded.
+
+  **`Switch` size values align with the rest of the system**
+
+  `Switch` now accepts `size="sm" | "md"`, matching every other sized component
+  and the web package. The previous `'small' | 'medium'` values still work but
+  are deprecated and will be removed in a future release.
+
+  **Selection groups gain `onValueChange`**
+
+  Selection-style group components now support `onValueChange`, aligning with
+  `Select`, `Combobox`, `SegmentedControl`, `Tabs` and the web package. The
+  existing `onChange` prop on these components is deprecated but still fires:
+
+  **Components affected**:
+
+  - `PillGroup`
+  - `RadioGroup`
+  - `CheckboxGroup`
+  - `RadioCardGroup`
+  - `ToggleButtonCardGroup`
+  - `Rating`
+
+  Item-level binary controls (`Checkbox`, `Radio`, `RadioCard`,
+  `ToggleButtonCard`) keep `onChange(isSelected)` — that convention is unchanged.
+
+  **Icon sizing now token-driven**
+
+  Hardcoded 20px/24px icon dimensions across 15 components now use the new
+  `theme.components.icon.sm.width|height` / `theme.components.icon.md.width|height`
+  tokens from `hearth-tokens`.
+
+  **`ToggleButton` announces its toggled state**
+
+  `ToggleButton` now exposes `accessibilityState.selected`, so screen readers
+  announce whether it is toggled.
+
+  **Developer changes**:
+
+  No changes required. To adopt the new APIs:
+
+  ```diff
+  - <Switch value={on} onValueChange={setOn} size="small" />
+  + <Switch value={on} onValueChange={setOn} size="sm" />
+
+  - <RadioGroup value={value} onChange={setValue}>
+  + <RadioGroup value={value} onValueChange={setValue}>
+  ```
+
 ## 0.34.5
 
 ### Patch Changes

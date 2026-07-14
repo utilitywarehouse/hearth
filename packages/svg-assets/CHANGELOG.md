@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.5
+
+### Patch Changes
+
+- [#1408](https://github.com/utilitywarehouse/hearth/pull/1408) [`577200d`](https://github.com/utilitywarehouse/hearth/commit/577200d2207ceba1aaaf3066e65cc9f6ca67ac59) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  - TechnicalOntRouterConnxLabelledLight
+  - TechnicalOntRouterConnxLabelledDark
+
+  ## CHANGED ASSETS
+
+  No changed assets.
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.6.4
 
 ### Patch Changes
