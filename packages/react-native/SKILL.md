@@ -107,7 +107,7 @@ Use layout components to structure and space content. Do not add margin to
 individual UI elements to achieve spacing — keep spacing decisions at the layout
 level so UI components stay composable.
 
-Four layout primitives, all built on design tokens:
+Five layout primitives, all built on design tokens:
 
 | Component   | Use for                                                                                            |
 | ----------- | --------------------------------------------------------------------------------------------------- |
@@ -286,18 +286,22 @@ fails to present, check these providers are wired up before debugging further.
 Two different patterns exist depending on the component — check which one
 applies before reaching for `react-native-safe-area-context` directly:
 
-- **Bottom-sheet-based components** (`Modal`, `Combobox`, `Select`,
-  `BottomSheetModalProvider`) expose a boolean `useSafeAreaInsets` prop (default
-  `true`) that toggles whether their internal `SafeAreaView` applies the `top`
-  edge. Set it to `false` only if the parent screen already handles safe-area
-  insets itself.
+- **Bottom-sheet-based components** (`Modal`, `Combobox`, `Select`, and the
+  `BottomSheet*` primitives) don't take their own safe-area prop — they read a
+  boolean `useSafeAreaInsets` (default `true`) from the nearest
+  `BottomSheetModalProvider` via context, which toggles whether their internal
+  `SafeAreaView` applies the `top` edge. Set `useSafeAreaInsets={false}` on
+  `BottomSheetModalProvider` only if the parent screen already handles
+  safe-area insets itself — don't look for the prop on the individual
+  components.
 - **`NavModal`** (used when a screen is already presented by React Navigation)
   reads safe-area insets directly from the Unistyles runtime
   (`rt.insets.top`/`rt.insets.bottom` inside `StyleSheet.create((theme, rt) =>
   ...)`) rather than rendering a `SafeAreaView`.
 
 Don't wrap Hearth components in your own `SafeAreaView` on top of these —
-check the component's own safe-area prop first.
+check `BottomSheetModalProvider`'s `useSafeAreaInsets` prop (or `NavModal`'s
+own prop, for that component) first.
 
 ## Accessibility
 
