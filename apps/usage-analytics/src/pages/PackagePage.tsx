@@ -121,7 +121,7 @@ export function PackagePage() {
         ) : null}
         {usage.latestVersion ? (
           <StatTile
-            label="On latest major"
+            label="On latest breaking version"
             value={reposOnVersion ? `${reposOnVersion - reposBehind}/${reposOnVersion}` : '—'}
             hint={`latest published: v${usage.latestVersion}`}
           />
@@ -166,7 +166,7 @@ export function PackagePage() {
             aside={
               <span className="muted">
                 {usage.latestVersion
-                  ? `${reposBehind} repo${reposBehind === 1 ? '' : 's'} behind latest major`
+                  ? `${reposBehind} repo${reposBehind === 1 ? '' : 's'} behind the latest breaking version`
                   : `${versionRows.length} distinct ranges declared`}
               </span>
             }

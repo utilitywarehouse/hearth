@@ -75,13 +75,13 @@ export const PACKAGES: Array<PackageConfig> = [
   {
     name: '@utilitywarehouse/hearth-react-icons',
     type: 'icons',
-    manifest: { kind: 'exports', file: 'packages/react-icons/dist/index.d.ts' },
+    manifest: { kind: 'exports', file: 'packages/react-icons/lib/index.ts' },
     localPackageJson: 'packages/react-icons/package.json',
   },
   {
     name: '@utilitywarehouse/hearth-react-native-icons',
     type: 'icons',
-    manifest: { kind: 'exports', file: 'packages/react-native-icons/dist/index.d.ts' },
+    manifest: { kind: 'exports', file: 'packages/react-native-icons/lib/index.ts' },
     localPackageJson: 'packages/react-native-icons/package.json',
   },
   {

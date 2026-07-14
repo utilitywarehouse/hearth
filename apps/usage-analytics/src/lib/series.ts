@@ -36,8 +36,8 @@ export function packageTrend(index: UsageIndex, pkg: string): Array<TrendPoint> 
 }
 
 /**
- * One package's version distribution over time, bucketed by major version
- * (see {@link versionBucket}) — repo count per bucket, per week. Drives the
+ * One package's version distribution over time, bucketed by significant
+ * version (see {@link versionBucket}) — repo count per bucket, per week. Drives the
  * "version adoption over time" chart on a package's detail page. Reads
  * straight off the lean `index.json`, no per-snapshot fetch needed (mirrors
  * how {@link packageTrend} works off refCount/fileCount/repoCount).
@@ -176,9 +176,9 @@ export function reposUsingLegacy(
 
 /**
  * Org-wide version-health split: how many (package, repo) installs are on the
- * package's current major version vs. behind it. Only counts packages with a
- * known `latestVersion` (i.e. non-legacy — legacy predecessors have no local
- * source to read a "latest" from).
+ * package's current significant version (see {@link isOutdated}) vs. behind
+ * it. Only counts packages with a known `latestVersion` (i.e. non-legacy —
+ * legacy predecessors have no local source to read a "latest" from).
  */
 export function orgVersionHealth(snapshot: Snapshot): { onLatest: number; behind: number } {
   let onLatest = 0;
@@ -194,8 +194,9 @@ export function orgVersionHealth(snapshot: Snapshot): { onLatest: number; behind
 }
 
 /**
- * Repos ranked by how many distinct packages they're behind the latest major
- * on, descending — a starting point for deprecation/migration outreach.
+ * Repos ranked by how many distinct packages they're behind the latest
+ * significant version on, descending — a starting point for
+ * deprecation/migration outreach.
  */
 export function reposBehindLatest(
   snapshot: Snapshot

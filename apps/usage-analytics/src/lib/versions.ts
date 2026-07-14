@@ -56,14 +56,19 @@ export function isOutdated(range: string, latest: string | undefined): boolean {
   return rangeVersion < latestVersion;
 }
 
-/** Sort version ranges descending by {@link significantVersion} (unparseable ranges sort last). */
+/**
+ * Sort version ranges descending by {@link significantVersion} (unparseable
+ * ranges sort last). Falls back to a string compare when two ranges share a
+ * significant version (e.g. `^0.31.0` vs `^0.31.5`) so ordering is
+ * deterministic rather than depending on object insertion order.
+ */
 export function compareVersionsDesc(a: string, b: string): number {
   const sa = significantVersion(a);
   const sb = significantVersion(b);
   if (sa === null && sb === null) return a.localeCompare(b);
   if (sa === null) return 1;
   if (sb === null) return -1;
-  return sb - sa;
+  return sb - sa || a.localeCompare(b);
 }
 
 /** Numeric rank for a {@link versionBucket} label, for sorting — higher is newer. */

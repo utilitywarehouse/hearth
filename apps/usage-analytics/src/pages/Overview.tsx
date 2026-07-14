@@ -123,8 +123,8 @@ export function Overview() {
           title="Version health"
           aside={
             <span className="muted">
-              {pct(versionHealth.onLatest, versionHealthTotal)} of tracked installs on latest major
-              version
+              {pct(versionHealth.onLatest, versionHealthTotal)} of tracked installs on the latest
+              breaking version version
             </span>
           }
         >
@@ -138,7 +138,7 @@ export function Overview() {
             />
           ) : (
             <p className="muted">
-              Every tracked repo is on the latest major version of every package it uses.
+              Every tracked repo is on the latest breaking version of every package it uses.
             </p>
           )}
         </Section>
