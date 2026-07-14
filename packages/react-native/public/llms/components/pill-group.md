@@ -32,7 +32,7 @@ import { useState } from 'react';
 
 const [selectedTags, setSelectedTags] = useState(['ui']);
 
-<PillGroup value={selectedTags} onChange={setSelectedTags}>
+<PillGroup value={selectedTags} onValueChange={setSelectedTags}>
   <Pill value="ui" label="UI" />
   <Pill value="backend" label="Backend" icon={ServerMediumIcon} />
   <Pill value="devops" label="DevOps" />
@@ -41,14 +41,15 @@ const [selectedTags, setSelectedTags] = useState(['ui']);
 
 ### PillGroup Props
 
-| Prop       | Type                                  | Default  | Description                                                                                       |
-| ---------- | ------------------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `value`    | `string \| string[]`                  | Required | Controlled selected value(s). Single string for single-select, array for multi-select             |
-| `multiple` | `boolean`                             | `false`  | Enable multi-select mode                                                                          |
-| `wrap`     | `boolean`                             | `true`   | Whether pills should wrap to multiple lines when they overflow                                    |
-| `onChange` | `(value: string \| string[]) => void` | -        | Handle selection changes. Returns single string in single-select mode, array in multi-select mode |
-| `children` | `ReactNode`                           | Required | `Pill` components to group together                                                               |
-| ...rest    | `ViewProps`                           | -        | All standard View props are supported                                                             |
+| Prop            | Type                                  | Default  | Description                                                                                       |
+| --------------- | ------------------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
+| `value`         | `string \| string[]`                  | Required | Controlled selected value(s). Single string for single-select, array for multi-select             |
+| `multiple`      | `boolean`                             | `false`  | Enable multi-select mode                                                                          |
+| `wrap`          | `boolean`                             | `true`   | Whether pills should wrap to multiple lines when they overflow                                    |
+| `onValueChange` | `(value: string \| string[]) => void` | -        | Handle selection changes. Returns single string in single-select mode, array in multi-select mode |
+| `onChange`      | `(value: string \| string[]) => void` | -        | **Deprecated** — use `onValueChange` instead                                                      |
+| `children`      | `ReactNode`                           | Required | `Pill` components to group together                                                               |
+| ...rest         | `ViewProps`                           | -        | All standard View props are supported                                                             |
 
 ### Pill Props
 
@@ -65,7 +66,7 @@ const [selectedTags, setSelectedTags] = useState(['ui']);
 // Example usage
 const [tags, setTags] = useState(['ui', 'backend']);
 
-<PillGroup multiple value={tags} onChange={setTags}>
+<PillGroup multiple value={tags} onValueChange={setTags}>
   <Pill value="ui" label="UI" />
   <Pill value="backend" label="Backend" icon={ServerMediumIcon} />
   <Pill value="devops" label="DevOps" />

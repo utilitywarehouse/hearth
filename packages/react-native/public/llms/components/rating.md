@@ -33,22 +33,23 @@ import { Rating } from '@utilitywarehouse/hearth-react-native';
 const MyComponent = () => {
   const [rating, setRating] = useState<0 | 1 | 2 | 3 | 4 | 5>(0);
 
-  return <Rating value={rating} onChange={setRating} labels={{ 0: 'Not rated' }} />;
+  return <Rating value={rating} onValueChange={setRating} labels={{ 0: 'Not rated' }} />;
 };
 ```
 
 ## Props
 
-| Property       | Type                                   | Description                                                         | Default                                                |
-| -------------- | -------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
-| `value`        | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Current rating value.                                               | `0`                                                    |
-| `defaultValue` | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Initial rating value when uncontrolled.                             | `0`                                                    |
-| `onChange`     | `(value: RatingValue) => void`         | Called when a rating is selected.                                   | `undefined`                                            |
-| `disabled`     | `boolean`                              | Disables the rating input.                                          | `false`                                                |
-| `labels`       | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values.                         | `undefined`                                            |
-| `rangeLabels`  | `{ low: string; high: string }`        | Override the low and high end labels shown below the emoji variant. | `{ low: 'Very dissatisfied', high: 'Very satisfied' }` |
-| `hideLabel`    | `boolean`                              | Hide the label text below the rating.                               | `false`                                                |
-| `variant`      | `'stars' \| 'emojis'`                  | Visual variant for the rating indicators.                           | `'stars'`                                              |
+| Property        | Type                                   | Description                                                         | Default                                                |
+| --------------- | -------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------ |
+| `value`         | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Current rating value.                                               | `0`                                                    |
+| `defaultValue`  | `0 \| 1 \| 2 \| 3 \| 4 \| 5`           | Initial rating value when uncontrolled.                             | `0`                                                    |
+| `onValueChange` | `(value: RatingValue) => void`         | Called when a rating is selected.                                   | `undefined`                                            |
+| `onChange`      | `(value: RatingValue) => void`         | **Deprecated** — use `onValueChange` instead.                       | `undefined`                                            |
+| `disabled`      | `boolean`                              | Disables the rating input.                                          | `false`                                                |
+| `labels`        | `Partial<Record<RatingValue, string>>` | Override labels for specific rating values.                         | `undefined`                                            |
+| `rangeLabels`   | `{ low: string; high: string }`        | Override the low and high end labels shown below the emoji variant. | `{ low: 'Very dissatisfied', high: 'Very satisfied' }` |
+| `hideLabel`     | `boolean`                              | Hide the label text below the rating.                               | `false`                                                |
+| `variant`       | `'stars' \| 'emojis'`                  | Visual variant for the rating indicators.                           | `'stars'`                                              |
 
 ### Default rating
 

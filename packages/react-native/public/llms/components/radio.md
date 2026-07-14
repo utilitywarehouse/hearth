@@ -55,7 +55,12 @@ import {
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');
   return (
-    <RadioGroup aria-label="Radio Group" value={value} onChange={setValue} nativeID="Radio-group">
+    <RadioGroup
+      aria-label="Radio Group"
+      value={value}
+      onValueChange={setValue}
+      nativeID="Radio-group"
+    >
       <Radio value="Option 1" aria-label="Option 1" label="Option 1" />
       <Radio value="Option 2" aria-label="Option 2" label="Option 2" />
     </RadioGroup>
@@ -109,7 +114,8 @@ Contains all Group related layout style props and actions. It inherits all the p
 | Property             | Type                                | Default     | Description                                                         |
 | -------------------- | ----------------------------------- | ----------- | ------------------------------------------------------------------- |
 | `value`              | string                              | -           | The value of the radio group.                                       |
-| `onChange`           | function                            | -           | The callback fired when any children Radio is checked or unchecked. |
+| `onValueChange`      | `(value: string) => void`           | -           | The callback fired when any children Radio is checked or unchecked. |
+| `onChange`           | function                            | -           | **Deprecated** — use `onValueChange` instead.                       |
 | `disabled`           | bool                                | -           | To manually set disable to the radio group.                         |
 | `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -           | The validation status of the radio group.                           |
 | `label`              | `string`                            | -           | The label to be displayed above the radio group.                    |
@@ -216,7 +222,7 @@ import mastercardLogo from '../../assets/bank-logo.png';
 const AdvancedExample = () => {
   const [value, setValue] = React.useState('option-1');
   return (
-    <RadioGroup value={value} onChange={setValue} aria-label="Card type" type="tile">
+    <RadioGroup value={value} onValueChange={setValue} aria-label="Card type" type="tile">
       <Radio value="option-1" aria-label="Visa">
         <RadioIndicator>
           <RadioIcon />
@@ -251,7 +257,12 @@ const MyComponent = () => {
   const [value, setValue] = React.useState('yes');
 
   return (
-    <RadioGroup label="Did this solve your problem?" type="tile" value={value} onChange={setValue}>
+    <RadioGroup
+      label="Did this solve your problem?"
+      type="tile"
+      value={value}
+      onValueChange={setValue}
+    >
       <Grid columns={2} spacing="md">
         <Radio label="Yes" value="yes" />
         <Radio label="No" value="no" />
@@ -275,7 +286,7 @@ import { RadioTile, RadioGroup } from '@utilitywarehouse/hearth-react-native';
 const MyComponent = () => {
   const [value, setValue] = React.useState('option-1');
   return (
-    <RadioGroup value={value} onChange={setValue}>
+    <RadioGroup value={value} onValueChange={setValue}>
       <RadioTile value="option-1" aria-label="Label 1" label="Option 1" />
       <RadioTile value="option-2" aria-label="Label 2" label="Option 2" />
     </RadioGroup>
@@ -336,7 +347,12 @@ import mastercardLogo from './mastercard-logo.png';
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');
   return (
-    <RadioGroup value={value} onChange={setValue} aria-label="Radio Group" nativeID="Radio-group">
+    <RadioGroup
+      value={value}
+      onValueChange={setValue}
+      aria-label="Radio Group"
+      nativeID="Radio-group"
+    >
       <Radio
         value="visa"
         aria-label="Visa"

@@ -1,7 +1,7 @@
 # Hearth React Native
 
 React Native component library for building UIs at Utility Warehouse.<br/>
-Current version: v0.34.5
+Current version: v0.35.0
 
 Hearth React Native is a comprehensive design system library for React Native, providing reusable components, consistent styling, and tools to streamline UI development. It is built to enhance productivity and maintain design consistency across projects.
 

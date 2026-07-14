@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.4.2
+
+### Patch Changes
+
+- [#1397](https://github.com/utilitywarehouse/hearth/pull/1397) [`09559ff`](https://github.com/utilitywarehouse/hearth/commit/09559fffe366e7f9df975b74c7280fea1e8c323f) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Generate and build Hearth tokens
+
+- [#1397](https://github.com/utilitywarehouse/hearth/pull/1397) [`09559ff`](https://github.com/utilitywarehouse/hearth/commit/09559fffe366e7f9df975b74c7280fea1e8c323f) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Generate and build Hearth tokens
+
+- [#1397](https://github.com/utilitywarehouse/hearth/pull/1397) [`09559ff`](https://github.com/utilitywarehouse/hearth/commit/09559fffe366e7f9df975b74c7280fea1e8c323f) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `icon` component tokens
+
+  New `icon` component tokens follow the standard component → variant → property
+  pattern: `icon.sm.width` / `icon.sm.height` (20) and
+  `icon.md.width` / `icon.md.height` (24). These match
+  the intrinsic sizes of the small and medium icon sets and are available in the
+  JS, CSS (`--h-icon-sm-width`, `--h-icon-md-height`, etc.) and browser outputs.
+
 ## 0.4.1
 
 ### Patch Changes
