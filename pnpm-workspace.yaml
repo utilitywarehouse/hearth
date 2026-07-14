@@ -1,6 +1,14 @@
 packages:
   - 'apps/*'
   - 'packages/*'
+overrides:
+  react: 19.1.0
+  react-dom: 19.1.0
+  zod-validation-error: ^4.0.2
+peerDependencyRules:
+  allowedVersions:
+    eslint-plugin-react>eslint: '10'
+    eslint-plugin-jsx-a11y>eslint: '10'
 publicHoistPattern:
   - 'expo-modules-core'
 patchedDependencies:

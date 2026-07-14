@@ -61,19 +61,6 @@
   },
   "prettier": "@utilitywarehouse/prettier-config",
   "packageManager": "pnpm@11.8.0",
-  "pnpm": {
-    "overrides": {
-      "react": "19.1.0",
-      "react-dom": "19.1.0",
-      "zod-validation-error": "^4.0.2"
-    },
-    "peerDependencyRules": {
-      "allowedVersions": {
-        "eslint-plugin-react>eslint": "10",
-        "eslint-plugin-jsx-a11y>eslint": "10"
-      }
-    }
-  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.9",
