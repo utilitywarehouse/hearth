@@ -6,7 +6,7 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@11.0.5 --activate && pnpm install",
+    "setup": "corepack enable && corepack prepare pnpm@11.8.0 --activate && pnpm install",
     "refresh": "pnpm clean && pnpm install && pnpm run build",
     "clean": "turbo run clean --concurrency=20 && rm -rf node_modules",
     "build": "turbo run build",
@@ -60,7 +60,7 @@
     "pnpm": "11.8.0"
   },
   "prettier": "@utilitywarehouse/prettier-config",
-  "packageManager": "pnpm@11.0.5+sha512.94fa09e72016402aefce788e46994e18eb1922998b16b6fd5aa6bafd8ae4dea05d0852f60247fdb7d5ab8199a7b0beda830398f3f80cb9f822398522a1535481",
+  "packageManager": "pnpm@11.8.0",
   "pnpm": {
     "overrides": {
       "react": "19.1.0",
