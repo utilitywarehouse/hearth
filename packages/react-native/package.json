@@ -11,6 +11,9 @@
   "bin": {
     "hearth-react-native": "./scripts/init-ai.js"
   },
+  "files": [
+    "build/**"
+  ],
   "scripts": {
     "clean": "rm -rf node_modules build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
