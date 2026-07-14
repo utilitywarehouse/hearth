@@ -8,6 +8,9 @@
   "module": "build/index",
   "type": "module",
   "sideEffects": false,
+  "bin": {
+    "hearth-react-native": "./scripts/init-ai.js"
+  },
   "scripts": {
     "clean": "rm -rf node_modules build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
