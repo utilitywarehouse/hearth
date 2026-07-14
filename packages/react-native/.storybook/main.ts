@@ -1,5 +1,5 @@
-import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import remarkGfm from 'remark-gfm';
 import svgr from 'vite-plugin-svgr';
 
@@ -13,6 +13,10 @@ const unistylesPluginOptions = {
 /** @type { import('@storybook/react-native-web-vite').StorybookConfig } */
 const config = {
   stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  features: {
+    componentsManifest: true,
+    experimentalDocgenServer: true,
+  },
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),
     {
