@@ -28,6 +28,7 @@
     "lint": "TIMING=1 eslint .",
     "build": "tsc",
     "watch": "tsc --watch",
+    "typecheck": "tsc --noEmit",
     "figma:create": "figma connect create",
     "figma:publish": "figma connect publish",
     "test": "vitest run --config vitest.unit.config.ts",

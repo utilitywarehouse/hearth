@@ -7,7 +7,7 @@
     "noEmit": false,
     "allowSyntheticDefaultImports": true,
     "module": "ES2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
@@ -18,7 +18,8 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "dist",
     "rootDir": "lib",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "types": []
   },
   "exclude": ["dist", "node_modules"],
   "include": ["lib"]

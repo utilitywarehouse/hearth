@@ -7,6 +7,7 @@
   "scripts": {
     "build:app": "webpack --mode=production",
     "build:watch": "webpack --mode=development --watch",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf node_modules dist .turbo",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0 --ext ts,tsx src",
     "lint": "TIMING=1 eslint --max-warnings 0 --ext ts,tsx src",
@@ -47,27 +48,5 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:@figma/figma-plugins/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "root": true,
-    "rules": {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        {
-          "argsIgnorePattern": "^_",
-          "varsIgnorePattern": "^_",
-          "caughtErrorsIgnorePattern": "^_"
-        }
-      ]
-    }
   }
 }
