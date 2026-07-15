@@ -10,7 +10,7 @@ import { BackToTopButton, InputShadowExample, NextPrevPage, UsageWrap } from './
 - [Figma MCP Server](#figma-mcp-server)
 - [llms.txt and markdown docs](#llms-txt-and-markdown-docs)
 - [Agent Skill](#agent-skill)
-- [Hearth MCP Server](#hearth-mcp-server)
+- [Hearth React Native MCP Server](#hearth-react-native-mcp-server)
 
 The Hearth React Native AI Tools are intended to help your AI agents use Hearth React Native
 components to build Utility Warehouse UIs. They provide access to APIs,
@@ -34,10 +34,12 @@ If you're implementing a Figma design, this should be the first tool you reach
 for. Figma's [Dev Mode MCP Server](https://developers.figma.com/docs/figma-mcp-server/)
 gives your agent direct access to the design file itself, layout, variables,
 and generated code for a selected frame or component. This is a Figma-provided
-tool, separate from the Hearth MCP Server below.
+tool, separate from the Hearth React Native MCP Server below.
 
 Figma recommends the **remote server** for most people, as it supports the
-broadest set of features. Add an entry to your `mcp.json` file:
+broadest set of features. We have this set up as a Claude plugin for the
+organisation which you can enable in your Claude configuration. If you want to
+set it up yourself, add an entry to your `mcp.json` file:
 
 ```json
 {
@@ -147,9 +149,9 @@ you can add an entry like this:
 We recommend having `v0.34.5` or later of the Hearth React Native package installed,
 as this version includes the latest updates to the skill.
 
-## Hearth MCP Server
+## Hearth React Native MCP Server
 
-The remote [Hearth MCP Server](https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp),
+The remote [Hearth React Native MCP Server](https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp),
 built on the [Storybook MCP Server](https://storybook.js.org/docs/ai/mcp/overview#docs),
 provides tools for agents to use Hearth React Native documentation and components.
 

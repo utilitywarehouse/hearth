@@ -11,7 +11,7 @@
   - Figma MCP Server
   - llms.txt and markdown docs
   - Agent Skill
-  - Hearth MCP Server
+  - Hearth React Native MCP Server
 - [All Components](llms/docs/all-components.md)
 - [Dark Mode Best Practice](llms/docs/dark-mode-best-practice.md)
   - Setting Up Dark Mode
