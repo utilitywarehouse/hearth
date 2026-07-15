@@ -36,10 +36,27 @@ gives your agent direct access to the design file itself, layout, variables,
 and generated code for a selected frame or component. This is a Figma-provided
 tool, separate from the Hearth React Native MCP Server below.
 
+### If you're using Claude
+
+Utility Warehouse has the [Figma connector](https://claude.com/connectors/figma)
+enabled at an organisation level. It already includes the Figma MCP Server's
+tools, so if you have it connected there's nothing else to set up — just
+prompt Claude with a link to the Figma design you want to build, and it will
+pull in the design context itself.
+
+To check it's connected for you:
+
+1. In Claude, go to **Customize > Connectors**.
+2. Find **Figma** and click **Connect**, authenticating with your Figma account if prompted.
+3. In a conversation, open the **+** menu (or type `/`) in the chat box, then **Connectors**, and toggle **Figma** on. Once it's connected, Claude can also bring it into a conversation on its own when a Figma link is relevant, so you don't have to toggle it every time.
+
+If you're not using Claude, or don't have the connector available, set up the
+Figma MCP Server manually instead.
+
+### Manual setup
+
 Figma recommends the **remote server** for most people, as it supports the
-broadest set of features. We have this set up as a Claude plugin for the
-organisation which you can enable in your Claude configuration. If you want to
-set it up yourself, add an entry to your `mcp.json` file:
+broadest set of features. Add an entry to your `mcp.json` file:
 
 ```json
 {
