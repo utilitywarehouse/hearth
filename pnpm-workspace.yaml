@@ -30,3 +30,5 @@ supportedArchitectures:
   cpu:
     - current
 verifyDepsBeforeRun: warn
+minimumReleaseAgeExclude:
+  - '@changesets/cli@2.31.1'
