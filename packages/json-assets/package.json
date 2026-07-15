@@ -3,6 +3,10 @@
   "version": "0.5.1",
   "description": "Hearth JSON assets",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+  },
   "scripts": {
     "clean:lib": "rm -rf lib",
     "gen:script": "node ./scripts/generate-json-assets.js",

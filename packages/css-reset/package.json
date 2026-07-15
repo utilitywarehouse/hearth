@@ -9,8 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/css-reset"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
     "build": "postcss src --dir .",

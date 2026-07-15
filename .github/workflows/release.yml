@@ -6,14 +6,12 @@ on:
 env:
   CI: true
 
-permissions:
-  contents: read
-
 jobs:
   release:
     permissions:
       contents: write # for changesets/action to push to the repo
       pull-requests: write # for changesets/action to create PRs
+      id-token: write # Required for OIDC
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -28,9 +26,13 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          node-version: '22.x'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
+          node-version: '24'
+          package-manager-cache: false # never use caching in release builds
+
+      - name: Prepare npm for OIDC
+        run: |
+          npm install -g npm@^11.5.1
+          rm -f ~/.npmrc
 
       - run: pnpm install --frozen-lockfile
         env:
@@ -45,6 +47,6 @@ jobs:
           publish: pnpm ci:publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
+          NPM_TOKEN: ''
+          NODE_AUTH_TOKEN: ''
