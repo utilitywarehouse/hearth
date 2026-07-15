@@ -5,7 +5,7 @@ and `@utilitywarehouse/hearth-react-native`.
 
 ## Install
 
-```sh
+```console
 /plugin marketplace add utilitywarehouse/hearth
 /plugin install hearth@hearth-plugins
 ```
