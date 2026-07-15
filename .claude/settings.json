@@ -1,7 +1,7 @@
 {
   "sandbox": {
     "filesystem": {
-      "allowWrite": ["node_modules/**"]
+      "allowWrite": ["**/node_modules/**"]
     }
   }
 }
