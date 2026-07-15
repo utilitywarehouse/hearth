@@ -6,15 +6,12 @@ on:
 env:
   CI: true
 
-permissions:
-  id-token: write # Required for OIDC
-  contents: read
-
 jobs:
   release:
     permissions:
       contents: write # for changesets/action to push to the repo
       pull-requests: write # for changesets/action to create PRs
+      id-token: write # Required for OIDC
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -31,6 +28,11 @@ jobs:
         with:
           node-version: '22'
           package-manager-cache: false # never use caching in release builds
+
+      - name: Prepare npm for OIDC
+        run: |
+          npm install -g npm@latest
+          rm -f ~/.npmrc
 
       - run: pnpm install --frozen-lockfile
         env:
