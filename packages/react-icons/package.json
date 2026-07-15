@@ -4,6 +4,11 @@
   "description": "Hearth React icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react-icons"
+  },
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",

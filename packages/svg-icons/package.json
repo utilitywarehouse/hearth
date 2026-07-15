@@ -4,6 +4,11 @@
   "description": "Hearth SVG icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/svg-icons"
+  },
   "scripts": {
     "clean:lib": "rm -rf lib",
     "format": "prettier --log-level=silent --write --parser=html \"lib/*.svg\"",
