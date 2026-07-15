@@ -8,8 +8,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/fonts"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
     "build": "postcss src --dir .",

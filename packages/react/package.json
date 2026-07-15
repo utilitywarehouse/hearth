@@ -5,8 +5,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/react"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "type": "module",
   "main": "./dist/index.cjs",
