@@ -111,7 +111,7 @@ export function Overview() {
         <TrendChart
           data={orgData}
           series={[
-            { key: orgMetric, label: TREND_METRIC_LABELS[orgMetric], color: 'var(--h-color-blue-600)' },
+            { key: orgMetric, label: orgMetric === 'repos' ? 'Repos using hearth' : TREND_METRIC_LABELS[orgMetric], color: 'var(--h-color-blue-600)' },
           ]}
         />
       </Section>
