@@ -28,7 +28,6 @@
         "module": "esnext",
         "moduleResolution": "bundler",
         "rootDir": "./src",
-        "types": ["node"],
         "allowSyntheticDefaultImports": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
