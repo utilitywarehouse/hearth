@@ -1,0 +1,1 @@
+../../../../packages/react-native/SKILL.md
