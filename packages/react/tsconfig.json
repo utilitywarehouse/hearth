@@ -26,10 +26,7 @@
       "dom.iterable"
     ],
     "jsx": "react-jsx",
-    "emitDeclarationOnly": true,
-    "types": [
-      "node"
-    ]
+    "emitDeclarationOnly": true
   },
   "exclude": [
     "dist",
