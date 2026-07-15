@@ -389,3 +389,10 @@ create a layered but uncluttered hierarchy.
 
 ## Colors
 
+### Brand & Accent
+
+- **Brand Background** ({colors.background-brand}): The signature Linear accent — primary CTA, brand mark, link emphasis.
+- **Lavender Hover** ({colors.primary-hover}): Lighter lavender (#828fff) — hovered state of the primary CTA.
+- **Lavender Focus** ({colors.primary-focus}): Focus-ring tint (#5e69d1) — focused inputs, focused buttons.
+- **Brand Secure** ({colors.brand-secure}): Muted lavender-gray (#7a7fad) — used in "Linear Security" surfaces.
+
