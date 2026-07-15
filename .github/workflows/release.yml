@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-      - robphoenix-uwds-4810
+
 env:
   CI: true
 
