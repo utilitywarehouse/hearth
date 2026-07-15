@@ -6,8 +6,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/react-native-icons"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

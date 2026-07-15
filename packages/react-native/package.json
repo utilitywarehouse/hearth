@@ -5,8 +5,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/react-native"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",

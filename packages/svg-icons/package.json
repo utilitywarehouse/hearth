@@ -6,8 +6,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git",
-    "directory": "packages/svg-icons"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
     "clean:lib": "rm -rf lib",
