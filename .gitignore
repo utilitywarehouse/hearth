@@ -26,6 +26,8 @@ apps/storybook-rn-expo/.rnstorybook/storybook.requires.js
 hearth-react-workspace
 .pnpm-store
 
+.claude/settings.local.json
+
 # usage-analytics: generated from committed data/ at dev/build time (not source of truth)
 apps/usage-analytics/public/data
 # usage-analytics: transient clones made by the collector
