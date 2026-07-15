@@ -1,10 +1,11 @@
 import type { ComponentPropsWithRef } from 'react';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 
 export interface AccordionHeaderProps extends Omit<
   ComponentPropsWithRef<typeof AccordionPrimitive.Header>,
-  'asChild'
+  'render' | 'className'
 > {
+  className?: string;
   /**
    * Render the appropriate heading level for your page
    */

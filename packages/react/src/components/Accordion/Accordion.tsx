@@ -5,7 +5,7 @@ import { cn } from '../../helpers/cn';
 import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionProps } from './Accordion.props';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -18,7 +18,7 @@ type AccordionElement = ComponentRef<'div'>;
 export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, ref) => {
   const {
     className,
-    type = 'multiple',
+    multiple = true,
     heading,
     headingElement = 'h2',
     helperText,
@@ -37,8 +37,8 @@ export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, re
     validationStatus,
   };
 
-  const accordionProps = { type, ...restProps } as ComponentPropsWithRef<
-    typeof AccordionPrimitive.Root
+  const accordionProps = { multiple, ...restProps } as ComponentPropsWithRef<
+    typeof AccordionPrimitive.Root<string>
   >;
 
   return (

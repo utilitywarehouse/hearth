@@ -1,7 +1,9 @@
 import type { ComponentPropsWithRef } from 'react';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 
 export type AccordionTriggerProps = Omit<
   ComponentPropsWithRef<typeof AccordionPrimitive.Trigger>,
-  'asChild'
->;
+  'render' | 'className'
+> & {
+  className?: string;
+};
