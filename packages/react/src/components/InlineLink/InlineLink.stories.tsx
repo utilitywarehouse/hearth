@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { InlineLink } from './InlineLink';
+import type { InlineLinkProps } from './InlineLink.props';
 
 const meta: Meta<typeof InlineLink> = {
   title: 'Typography / InlineLink',
@@ -85,7 +86,7 @@ export const KitchenSink: Story = {
 };
 
 export const LengthyContent: Story = {
-  render: (args: { children?: string }) => (
+  render: (args: Pick<InlineLinkProps, 'children'>) => (
     <Flex width="600px">
       <BodyText>
         To limit spend on international calls, turn on Budget Control and then{' '}

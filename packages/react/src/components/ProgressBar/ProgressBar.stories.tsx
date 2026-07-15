@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { ProgressBar } from './ProgressBar';
+import type { ProgressBarProps } from './ProgressBar.props';
 import { useState, useEffect } from 'react';
 
 const meta: Meta<typeof ProgressBar> = {
@@ -22,7 +23,7 @@ type Story = StoryObj<typeof ProgressBar>;
 export const Playground: Story = {
   tags: ['!test'],
   parameters: { chromatic: { disableSnapshot: true } },
-  render: (args: { value?: number }) => {
+  render: (args: Pick<ProgressBarProps, 'value' | 'label' | 'colorScheme'>) => {
     const [value, setValue] = useState(20);
 
     // Simulate changes

@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./lib",
+    "rootDir": "./lib",
     "declaration": true,
     "declarationMap": true,
     "noEmit": false,

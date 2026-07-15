@@ -22,6 +22,7 @@
     "generate": "pnpm clean:lib && pnpm transform && pnpm copy-types && node ./scripts/generate-manifest.cjs && node ./scripts/generate-figma-code-connect.cjs",
     "build": "NODE_OPTIONS='--max-old-space-size=16384' tsup && NODE_OPTIONS='--max-old-space-size=16384' tsc",
     "ts-types": "tsc",
+    "typecheck": "tsc --noEmit",
     "lint:fix": "TIMING=1 eslint --fix --ext ts,tsx lib && pnpm format",
     "lint": "TIMING=1 eslint --ext ts,tsx lib",
     "figma:publish": "figma connect publish"
