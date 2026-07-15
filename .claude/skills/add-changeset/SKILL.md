@@ -22,6 +22,8 @@ Use this skill when:
 - Documenting changes to any package in the monorepo
 - Reviewing changesets in pull requests
 
+Don't use this skill for internal-only changes that don't affect consumers from a library release perspective, such as refactoring, code style updates or documentation changes. Those changes should be documented in the commit message but do not require a changeset.
+
 ## Workflow
 
 ### Check for Existing Changesets
