@@ -6,7 +6,6 @@ on:
       - 'packages/react-native/**'
     branches:
       - '*'
-      - '!main'
 
 jobs:
   chromatic:
@@ -38,6 +37,7 @@ jobs:
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE }}
           buildScriptName: build:storybook:react-native
+          autoAcceptChanges: 'main'
           exitOnceUploaded: true
           onlyChanged: true
           zip: true
