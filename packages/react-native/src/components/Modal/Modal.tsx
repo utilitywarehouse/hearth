@@ -45,6 +45,7 @@ const Modal = ({
   secondaryButtonProps,
   closeButtonProps,
   stickyFooter = true,
+  testID,
   ...props
 }: ModalProps) => {
   const theme = useTheme();
@@ -168,6 +169,7 @@ const Modal = ({
       {loading ? (
         <View
           style={styles.loadingContainer}
+          testID={testID}
           accessible={Platform.OS === 'android' ? true : undefined}
           accessibilityLabel={Platform.OS === 'android' ? (loadingHeading ?? 'Loading') : undefined}
           accessibilityHint={
@@ -185,6 +187,7 @@ const Modal = ({
       ) : (
         <View
           style={styles.container}
+          testID={testID}
           accessible={Platform.OS === 'android' ? true : undefined}
           accessibilityLabel={Platform.OS === 'android' ? 'Modal content' : undefined}
           screenReaderFocusable
