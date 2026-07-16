@@ -92,7 +92,6 @@ shadows with interactive content.
       headingColor={c === 'functional' ? 'highlight' : c === 'brand' ? 'pig' : c}
       colorScheme="neutralSubtle"
       shadowColor={c}
-      {...args}
     >
       <Box height="100px" width="200px" />
       <HighlightBannerFooter>

@@ -1,11 +1,12 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.31.0",
+  "version": "0.31.1",
   "description": "React components",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react"
   },
   "type": "module",
   "main": "./dist/index.cjs",

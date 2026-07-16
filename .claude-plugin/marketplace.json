@@ -6,8 +6,8 @@
   "description": "Claude Code plugins for building UI with the Hearth design system",
   "plugins": [
     {
-      "name": "hearth",
-      "source": "./plugins/hearth",
+      "name": "hearth-ai-toolkit",
+      "source": "./plugins/hearth-ai-toolkit",
       "description": "Skills and MCP servers for building UI with Hearth React and Hearth React Native"
     }
   ]

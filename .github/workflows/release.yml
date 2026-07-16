@@ -50,6 +50,9 @@ on:
 env:
   CI: true
 
+permissions:
+  contents: read
+
 jobs:
   release:
     if: ${{ github.event_name == 'push' }}
@@ -93,8 +96,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ''
-          NODE_AUTH_TOKEN: ''
 
   manual-publish:
     if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -166,5 +167,3 @@ jobs:
         env:
           NPM_CONFIG_PROVENANCE: ${{ inputs.provenance }}
           NPM_CONFIG_LOGLEVEL: ${{ inputs.debug && 'verbose' || 'notice' }}
-          NPM_TOKEN: ''
-          NODE_AUTH_TOKEN: ''

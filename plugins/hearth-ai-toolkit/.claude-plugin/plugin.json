@@ -1,12 +1,12 @@
 {
-  "name": "hearth",
-  "displayName": "Hearth Design Systems",
+  "name": "hearth-ai-toolkit",
+  "displayName": "Hearth AI Toolkit",
   "description": "Skills and MCP servers for building UI with Hearth React and Hearth React Native",
   "version": "0.1.0",
   "author": {
     "name": "Utility Warehouse Design Systems"
   },
-  "homepage": "https://github.com/utilitywarehouse/hearth",
+  "homepage": "https://hearth.prod.uw.systems/",
   "repository": "https://github.com/utilitywarehouse/hearth",
   "license": "Apache-2.0",
   "keywords": ["hearth", "design-system", "utilitywarehouse", "react", "react-native"]
