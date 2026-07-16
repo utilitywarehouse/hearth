@@ -70,7 +70,7 @@ export const WithCard: Story = {
 };
 
 export const AsLink: Story = {
-  render: (args: { size?: string; disabled?: boolean }) => {
+  render: (args: Pick<UnstyledIconButtonProps, 'size' | 'disabled' | 'label'>) => {
     return (
       <Flex gap="200">
         <UnstyledIconButton {...args} asChild>

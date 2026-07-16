@@ -207,13 +207,13 @@ export const AsLink: Story = {
   render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="200">
-        <IconButton {...args} asChild>
+        <IconButton {...args} asChild label="add">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
             <AddMediumIcon />
           </a>
         </IconButton>
-        <IconButton {...args} asChild loading>
+        <IconButton {...args} asChild loading label="add">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
             <AddMediumIcon />

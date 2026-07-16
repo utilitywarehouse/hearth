@@ -169,7 +169,7 @@ export const HideContent: Story = {
   ),
 };
 
-type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
+type Props = React.ComponentPropsWithoutRef<'a'> & Omit<BoxProps, 'ref'>;
 const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   const ref = useRef<HTMLAnchorElement>(null);
   return (

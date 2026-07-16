@@ -39,6 +39,7 @@
     "copy:tokens:index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
     "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm copy:breakpoints",
     "build:js": "NODE_OPTIONS='--max-old-space-size=6144' tsup && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
     "dev:storybook": "storybook dev -p 6006",

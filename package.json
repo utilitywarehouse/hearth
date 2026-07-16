@@ -23,8 +23,10 @@
     "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
     "lint": "turbo run lint:fix --filter='./packages/*'",
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
-    "checks": "pnpm run lint && pnpm run format",
-    "checks:ci": "pnpm run lint:ci && pnpm run format:ci",
+    "typecheck": "turbo run typecheck",
+    "typecheck:packages": "turbo run typecheck --filter='./packages/*'",
+    "checks": "pnpm run lint && pnpm run format && pnpm run typecheck:packages",
+    "checks:ci": "pnpm run lint:ci && pnpm run format:ci && pnpm run typecheck:packages",
     "changeset": "changeset",
     "ci:publish": "pnpm run build:packages && changeset publish",
     "ci:version": "changeset version && turbo run copy:changelog generate:llm-docs && pnpm install --no-frozen-lockfile",
@@ -79,7 +81,7 @@
     "eslint-plugin-storybook": "^10.4.3",
     "prettier": "^3.8.3",
     "turbo": "^2.9.12",
-    "typescript": "^5.9.2",
+    "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.0"
   }
 }

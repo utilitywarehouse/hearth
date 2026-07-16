@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Pagination } from './Pagination';
+import type { PaginationProps } from './Pagination.props';
 import { useState } from 'react';
 
 const meta: Meta<typeof Pagination> = {
@@ -26,8 +27,10 @@ export default meta;
 type Story = StoryObj<typeof Pagination>;
 
 export const Playground: Story = {
-  render: (args: { currentPage?: number }) => {
-    const [currentPage, setCurrentPage] = useState(args.currentPage);
+  render: (
+    args: Pick<PaginationProps, 'currentPage' | 'totalPages' | 'condensed' | 'hideSkipButtons'>
+  ) => {
+    const [currentPage, setCurrentPage] = useState(args.currentPage ?? 1);
 
     return <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />;
   },
