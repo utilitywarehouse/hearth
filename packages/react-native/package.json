@@ -2,6 +2,11 @@
   "name": "@utilitywarehouse/hearth-react-native",
   "version": "0.32.5",
   "description": "Utility Warehouse React Native UI library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react-native"
+  },
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "module": "build/index",
