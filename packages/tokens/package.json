@@ -1,10 +1,11 @@
 {
   "name": "@utilitywarehouse/hearth-tokens",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/tokens"
   },
   "style": "./index.css",
   "main": "./js/index.js",
