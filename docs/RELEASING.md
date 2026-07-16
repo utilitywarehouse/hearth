@@ -11,19 +11,6 @@ flowchart LR
   CS["branch + patch changeset"] --> FORK{"how it ships"}
 
   FORK -->|"merge to main"| VP["Version Packages PR<br/>bump applied to main<br/>0.35.1 → 0.35.2"]
-  VP -->|"merge"| LATEST["npm dist-tag: latest<br/>0.35.2 — permanent"]
-
-  FORK -->|"dispatch Release<br/>ref = branch"| SNAP{"snapshot?"}
-
-  SNAP -->|"off"| OFF["bump applied to branch<br/>0.32.5 → 0.32.6"]
-  OFF --> OFFPUB["npm dist-tag: legacy<br/>0.32.6 — permanent"]
-
-  SNAP -->|"on"| ON["bump and base discarded<br/>0.32.5 → 0.0.0-legacy-20260716..."]
-  ON --> ONPUB["npm dist-tag: legacy<br/>0.0.0-legacy-... — throwaway"]
-flowchart LR
-  CS["branch + patch changeset"] --> FORK{"how it ships"}
-
-  FORK -->|"merge to main"| VP["Version Packages PR<br/>bump applied to main<br/>0.35.1 → 0.35.2"]
   VP -->|"merge"| LATEST["npm dist-tag: latest<br/>0.35.2"]
 
   FORK -->|"dispatch Release<br/>ref = branch"| SNAP{"snapshot?"}
