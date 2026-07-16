@@ -7,7 +7,7 @@
   "plugins": [
     {
       "name": "hearth-ai-toolkit",
-      "source": "./plugins/hearth",
+      "source": "./plugins/hearth-ai-toolkit",
       "description": "Skills and MCP servers for building UI with Hearth React and Hearth React Native"
     }
   ]
