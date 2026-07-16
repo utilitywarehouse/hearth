@@ -1,0 +1,158 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="AI Toolkit" />
+
+# AI Toolkit
+
+- [Plugin installation](#plugin-installation)
+  - [Claude CLI](#claude-cli)
+  - [Claude Desktop](#claude-desktop)
+- [Monorepo checkout note](#monorepo-checkout-note)
+- [Scope](#scope)
+- [Figma MCP](#figma-mcp)
+  - [Claude setup](#claude-setup)
+  - [Manual setup](#manual-setup)
+  - [Works with Hearth components](#works-with-hearth-components)
+  - [Combine it with Hearth's AI Toolkit](#combine-it-with-hearth's-ai-toolkit)
+
+The Hearth AI Toolkit connects your AI tools to the Hearth Design Systems
+packages, enabling them to build and generate UI code with Hearth.
+
+The toolkit currently includes skills and MCP servers for building UI with
+`@utilitywarehouse/hearth-react` and `@utilitywarehouse/hearth-react-native`.
+
+You can set up the toolkit via our plugin, or if you can manually install the
+individual elements of the toolkit related to each package. Please refer to the
+the package specific documentation to find out more about the available AI
+tools, and how to install and use them.
+
+## Plugin installation
+
+This gives you:
+
+- The `hearth-react` and `hearth-react-native` skills — triggered
+  automatically whenever you're building UI in an app that has the
+  corresponding Hearth package installed.
+- The `hearth-react` and `hearth-react-native` MCP servers, for richer
+  component discovery (`list-all-documentation`, `get-documentation`,
+  `get-documentation-for-story`) beyond the raw markdown docs shipped in each
+  package's `public/llms/` folder.
+
+### Claude CLI
+
+```console
+/plugin marketplace add utilitywarehouse/hearth
+/plugin install hearth-ai-toolkit@hearth-plugins
+```
+
+### Claude Desktop
+
+In the desktop app, click on **Customize** in the sidebar, then navigate to
+**Plugins**. In the **Add** menu, choose **Add Marketplace**, then select the
+**utilitywarehouse/hearth** repository, and click **Sync**.
+
+This will add the `hearth-plugins` to Claude, and if you then click the **+**
+symbol in the corner of the Hearth Design Systems card, you will have the
+plugin installed and ready to use.
+
+## Monorepo checkout note
+
+This plugin's skills are symlinks into `packages/react/SKILL.md` and
+`packages/react-native/SKILL.md` elsewhere in this repo. If you add this
+marketplace with `--sparse`, include those paths too:
+
+```sh
+claude plugin marketplace add utilitywarehouse/hearth --sparse .claude-plugin plugins packages/react packages/react-native
+```
+
+Omitting `--sparse` (a full clone) works too and is simplest.
+
+## Scope
+
+Only `hearth-react` and `hearth-react-native` are covered today. The other
+Hearth packages (tokens, fonts, css-reset, icons, svg-assets, json-assets)
+don't yet have a consumer `SKILL.md` or MCP server — that work is tracked
+separately.
+
+## Figma MCP
+
+If you're implementing a Figma design, the [Figma MCP Server](https://developers.figma.com/docs/figma-mcp-server/)
+gives your agent direct access to the design file, layout, variables,
+and generated code for a selected frame or component.
+
+### Claude setup
+
+Utility Warehouse has the [Figma connector](https://claude.com/connectors/figma)
+enabled at an organisation level. It already includes the Figma MCP Server's
+tools, so if you have it connected there's nothing else to set up — just
+prompt Claude with a link to the Figma design you want to build, and it will
+pull in the design context itself.
+
+To check it's connected for you:
+
+1. In Claude, go to **Customize > Connectors**.
+2. Find **Figma** and click **Connect**, authenticating with your Figma account if prompted.
+3. In a conversation, open the **+** menu (or type `/`) in the chat box, then **Connectors**, and toggle **Figma** on. Once it's connected, Claude can also bring it into a conversation on its own when a Figma link is relevant, so you don't have to toggle it every time.
+
+If you're not using Claude, or don't have the connector available, set up the
+Figma MCP Server manually instead.
+
+### Manual setup
+
+Figma recommends the **remote server** for most people, as it supports the
+broadest set of features. Add an entry to your `mcp.json` file:
+
+```json
+{
+  "servers": {
+    "figma": {
+      "url": "https://mcp.figma.com/mcp",
+      "type": "http"
+    }
+  }
+}
+```
+
+See Figma's [remote server installation guide](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
+for the full setup flow, including the OAuth step required to grant the server
+access to your Figma account.
+
+Alternatively, a **local server** runs from the Figma desktop app itself (Dev
+Mode → enable desktop MCP server), which some organisations use instead of the
+remote option:
+
+```json
+{
+  "servers": {
+    "figma-desktop": {
+      "url": "http://127.0.0.1:3845/mcp",
+      "type": "http"
+    }
+  }
+}
+```
+
+See Figma's [local server installation guide](https://developers.figma.com/docs/figma-mcp-server/local-server-installation/)
+for prerequisites and setup.
+
+### Works with Hearth components
+
+Hearth publishes [Figma Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect)
+mappings for its React Native components. In practice, this means: when the
+Figma frame you're implementing uses a component we've mapped, the Figma MCP
+Server returns real Hearth code, for example `<Button variant="emphasis">`,
+rather than generic markup reconstructed from layer names and styles. You
+don't need to know how these mappings work under the hood, just that a mapped
+component gets you code that's ready to use, with little to no rework needed.
+
+### Combine it with Hearth's AI Toolkit
+
+The Figma MCP Server tells your agent what design it's looking at, and, via
+Code Connect, which Hearth component to use. It doesn't know the rest of the
+Hearth APIs; prop combinations a mapping doesn't cover, accessibility guidance,
+or usage conventions.
+
+For most use cases, this is what the toolkit is for. Set up the Figma MCP
+Server alongside the Hearth Skills and/or MCP Servers, rather than in place of
+them, so your agent can confirm the full prop API, correct usage, and any
+guidance the Figma mapping doesn't capture.

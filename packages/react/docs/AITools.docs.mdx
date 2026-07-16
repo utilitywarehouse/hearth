@@ -16,11 +16,29 @@ These tools include:
 - [SKILL.md](https://github.com/utilitywarehouse/hearth/blob/main/packages/react/SKILL.md)
 - [MCP Server](https://main--68dbda8270df9c2a6568ece8.chromatic.com/mcp)
 
+If you're building UI from a Figma design, start with Figma's own Figma MCP
+Server. When building UI from a UX design, this should be the first step, since
+it gives your agent direct access to the design you're implementing. You can
+read more information about setting this up in the root AI Toolkit
+documentation.
+
+## Plugin
+
+The Hearth AI Toolkit plugin is the recommended way to set up your agent with
+the Hearth React AI Tools. It will automatically add the skill and MCP
+server to your agent configuration, and ensure that your agent has access to
+the latest Hearth React documentation and usage guidance. How to install
+and use the plugin is documented in the root AI Toolkit documentation.
+
 ## llms.txt and markdown docs
 
 The [llms.txt](https://hearth.prod.uw.systems/react/llms.txt) file is a list of
 all Hearth React documentation, and each documentation page has a corresponding
 markdown, file for use by AI agents.
+
+Each docs page has a "View Markdown" link, and a "Copy Markdown" button, at the
+top, which can be used to share documentation with AI chat assistants to help
+them understand Hearth concepts and component APIs.
 
 This documentation is also included in the Hearth React package, so your agent
 can access it locally if you have the package installed. The easiest way to do
