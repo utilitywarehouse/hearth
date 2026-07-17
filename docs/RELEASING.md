@@ -89,7 +89,7 @@ The case this workflow exists for: shipping a fix to consumers stuck on an old m
 
 1. Branch from the **last tag of that line**, not from `main`. Tags are per package, named `<pkg-name>@<version>`:
    ```sh
-   git checkout -b release/rn-0.32.6-my-fix '@utilitywarehouse/hearth-react-native@0.32.5'
+   git checkout -b release/rn-0.32.6-my-fix @utilitywarehouse/hearth-react-native@0.32.5
    ```
 2. Cherry-pick or write the fix, and add a changeset for it.
 3. Push the branch.
