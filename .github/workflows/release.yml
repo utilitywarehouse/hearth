@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Branch or tag to build & publish (must contain the fix + a changeset)'
+        description: 'Branch to publish'
         required: true
         type: string
       channel:
@@ -43,7 +43,7 @@ on:
           - 'tokens'
         default: 'react-native'
       snapshot:
-        description: 'Ephemeral test build: publish a 0.0.0-<channel>-<hash> snapshot instead of the changeset version bump'
+        description: 'Publish a snapshot 0.0.0-<channel>-<timestamp>'
         type: boolean
         default: false
       dry_run:
@@ -116,6 +116,20 @@ jobs:
     name: Manual publish
     runs-on: ubuntu-latest
     steps:
+      - name: Guard dispatch
+        run: |
+          if [ "${{ github.ref_name }}" != "main" ]; then
+            echo "::error::To publish '${{ github.ref_name }}', leave 'Use workflow from' set to main and put the branch ref under `Branch to publish`."
+            exit 1
+          fi
+
+          REF="${{ inputs.ref }}"
+          case "$REF" in refs/heads/*) REF="${REF#refs/heads/}" ;; origin/*) REF="${REF#origin/}" ;; esac
+          if [ "$REF" = "main" ] && [ "${{ inputs.snapshot }}" != "true" ]; then
+            echo "::error::Refusing to publish on 'main' - 'changeset version' would claim the main release path's next version number"
+            exit 1
+          fi
+
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
         with:
@@ -143,6 +157,14 @@ jobs:
 
       - name: Version with changeset
         run: |
+          set -euo pipefail
+
+          CHANGESETS=$(find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md')
+          if [ -z "$CHANGESETS" ]; then
+            echo "::error::'${{ inputs.ref }}' has no changesets - nothing would be versioned and the publish would fail on a version already on npm."
+            exit 1
+          fi
+
           if [ "${{ inputs.snapshot }}" = "true" ]; then
             pnpm changeset version --snapshot "${{ inputs.channel }}"
           else
