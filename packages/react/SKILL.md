@@ -34,6 +34,9 @@ fetching story code, or discovering what exists when you're not sure where to
 start. It's worth reaching for when the markdown files don't give you enough
 context, but it requires the server to be configured and reachable.
 
+For questions about onboarding, updating to a newer version of this skill, or
+configuring the MCP server, see [`public/llms/docs/a-i-tools.md`](public/llms/docs/a-i-tools.md).
+
 Whatever source you use, review what is available before writing any code.
 
 The library is broad — always check whether an existing component covers the
@@ -175,7 +178,8 @@ components or wrap them in an extra `Box` just for positioning.
 
 ## Choosing a typography component
 
-Hearth uses three font families. Match the Figma font-family to the component:
+Hearth uses three font families. Match the Figma font-family to the component.
+(Source of truth: [`public/llms/docs/typography.md`](public/llms/docs/typography.md))
 
 | Figma font-family token                     | Component    |
 | ------------------------------------------- | ------------ |
@@ -267,6 +271,7 @@ no import needed.
 
 Many props accept a `Responsive` object with breakpoint keys. Breakpoints are
 **mobile-first**: a value applies from that breakpoint upward until overridden.
+(Source of truth: [`public/llms/docs/responsive-design/breakpoints.md`](public/llms/docs/responsive-design/breakpoints.md))
 
 Breakpoints: `mobile` | `tablet` | `desktop` | `wide`
 
@@ -370,7 +375,7 @@ Control `Button` width with parent layout components.
 </Flex>
 ```
 
-## Responsive two-column grid
+### Responsive two-column grid
 
 ```tsx
 <Grid defaultResponsiveColumns gap={{ mobile: '200', desktop: '400' }}>
@@ -383,5 +388,5 @@ Control `Button` width with parent layout components.
 </Grid>
 ```
 
-`defaultResponsiveColumns` sets 4 columns on mobile, 8 on tablet, 12 on desktop+wide.
+`defaultResponsiveColumns` sets 4 columns on mobile, 8 on tablet, 12 on desktop+wide (source: [`public/llms/docs/layout.md`](public/llms/docs/layout.md)).
 `gridColumnSpan` takes a string value from `'1'` to `'12'`.
