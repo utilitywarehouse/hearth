@@ -2,7 +2,7 @@
 
 Hearth publishes to npm from GitHub Actions using [changesets](https://github.com/changesets/changesets) and npm [trusted publishing](https://docs.npmjs.com/trusted-publishers/) (OIDC). 
 
-There are no npm tokens in CI, authentication comes from the workflow's OIDC identity, which npm accepts only from `.github/workflows/release.yml` running on `main`.
+There are no npm tokens in CI, authentication comes from the workflow's OIDC identity. npm matches that identity on the repository and the workflow `.github/workflows/release.yml`
 
 Every release starts the same way, a branch with a changeset on it. Where it ends up depends on how you ship it:
 
@@ -53,7 +53,7 @@ For anything that must not become `latest` i.e. hotfixes, release candidates, th
 Run it from **Actions → Release → Run workflow**.
 
 > [!IMPORTANT]
-> Leave **"Use workflow from"** on `main`, and name the branch you actually want to publish in the `ref` input labelled **`Branch to publish`**. npm's trusted publisher only accepts an OIDC subject from `main`, so dispatching from your branch fails to authenticate. The workflow definition comes from `main`; only the code being built comes from `ref`.
+> Leave **"Use workflow from"** on `main`, and name the branch you actually want to publish in the `ref` input labelled **`Branch to publish`**. The workflow definition comes from **"Use workflow from"**; only the code being built comes from `ref`. Dispatching from your own branch would run that branch's copy of the workflow — on an old release line that copy is stale or has no `workflow_dispatch` trigger at all — so the job guards on it and fails fast.
 
 ### Inputs
 
@@ -81,7 +81,7 @@ Use `snapshot` for a build you want to install in a consumer app and then forget
 This is also why `ref: main` is rejected. Versioning `main` outside the normal flow *claims its next version number*: the manual publish succeeds, then the Version Packages PR merges and the release job cannot publish the version it just resolved, because you already took it.
 
 > [!WARNING]
-> npm versions are immutable. Once `0.32.6` is published it can never be replaced, only deprecated. There is no second attempt, get it right with `dry_run` first.
+> Treat npm versions as immutable. While we can unpublish within 24 hours, assume there is no second attempt, get it right with `dry_run` first.
 
 ### Publishing
 
@@ -92,9 +92,13 @@ The case this workflow exists for: shipping a fix to consumers stuck on an old m
    git checkout -b release/rn-0.32.6-my-fix @utilitywarehouse/hearth-react-native@0.32.5
    ```
 2. Cherry-pick or write the fix, and add a changeset for it.
-3. Push the branch.
-4. Dispatch **Release** from `main` with `ref` set to your branch, `channel: legacy`, and `dry_run` **on**.
+3. Push the branch. 
+4. Open a draft PR for review. Label with do not merge.
+4. Once it's been reviewed, dispatch **Release** from `main` with your branch set for `ref`, `channel: legacy`, and `dry_run` **on**.
 5. Check the version in the run summary is what you expect, then re-run with `dry_run` off.
+
+> [!WARNING]
+> Do not merge your changes. Kill your PR and branch after its been published
 
 Consumers then install it explicitly:
 
