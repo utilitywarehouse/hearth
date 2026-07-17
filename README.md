@@ -111,6 +111,8 @@ create a PR for release (or add your changes to existing PR, as sometimes we may
 want to wait for more work to release). Once that PR is merged, the release
 process will fire and new versions of the libs will be ready to use.
 
+See [RELEASING](./docs/RELEASING.md) for the full flow, and for publishing a single package to a channel other than `latest` for hotfixes, release candidates, and test builds without breaking the main release path.
+
 ### Integration with Hearth Tokens
 
 The `hearth-tokens` library is not marked as a dependency, instead we copy the
