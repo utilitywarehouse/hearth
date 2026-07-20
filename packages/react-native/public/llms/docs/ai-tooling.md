@@ -1,110 +1,35 @@
 # AI Tooling
 
-- [Figma MCP Server](#figma-mcp-server)
+- [Plugin](#plugin)
 - [llms.txt and markdown docs](#llms-txt-and-markdown-docs)
 - [Agent Skill](#agent-skill)
 - [Hearth React Native MCP Server](#hearth-react-native-mcp-server)
 
-The Hearth React Native AI Tools are intended to help your AI agents use Hearth React Native
-components to build Utility Warehouse UIs. They provide access to APIs,
-component documentation and usage guidelines, so your agent has the context it
-needs to build with Hearth correctly.
+The Hearth React Native AI Tools are intended to help your AI agents use Hearth
+React Native components to build Utility Warehouse UIs. They provide access to
+APIs, component documentation and usage guidelines, so your agent has the
+context it needs to build with Hearth correctly.
 
-If you're building UI from a Figma design, start with Figma's own
-[Figma MCP Server](#figma-mcp-server), for most people building UI, this is
-the first step, since it gives your agent direct access to the design you're
-implementing. Hearth's own AI tooling then supplements it for most use cases,
-filling in the parts of the Hearth React Native API and usage guidance that
-the design alone doesn't capture:
+If you're building UI from a design in Figma, start with Figma's MCP Server.
+This should be the first step, since it gives your agent direct access to the
+design you're implementing. You can read more information about setting this up
+in the root AI Toolkit documentation.
+
+Hearth's own AI tooling then supplements it for most use cases, filling in the
+parts of the Hearth React Native API and usage guidance that the design alone
+doesn't capture:
 
 - [llms.txt](https://hearth.prod.uw.systems/react-native/llms.txt) and markdown docs
 - [SKILL.md](https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/SKILL.md)
 - [Hearth MCP Server](https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp)
 
-## Figma MCP Server
+## Plugin
 
-If you're implementing a Figma design, this should be the first tool you reach
-for. Figma's [Dev Mode MCP Server](https://developers.figma.com/docs/figma-mcp-server/)
-gives your agent direct access to the design file itself, layout, variables,
-and generated code for a selected frame or component. This is a Figma-provided
-tool, separate from the Hearth React Native MCP Server below.
-
-### If you're using Claude
-
-Utility Warehouse has the [Figma connector](https://claude.com/connectors/figma)
-enabled at an organisation level. It already includes the Figma MCP Server's
-tools, so if you have it connected there's nothing else to set up — just
-prompt Claude with a link to the Figma design you want to build, and it will
-pull in the design context itself.
-
-To check it's connected for you:
-
-1. In Claude, go to **Customize > Connectors**.
-2. Find **Figma** and click **Connect**, authenticating with your Figma account if prompted.
-3. In a conversation, open the **+** menu (or type `/`) in the chat box, then **Connectors**, and toggle **Figma** on. Once it's connected, Claude can also bring it into a conversation on its own when a Figma link is relevant, so you don't have to toggle it every time.
-
-If you're not using Claude, or don't have the connector available, set up the
-Figma MCP Server manually instead.
-
-### Manual setup
-
-Figma recommends the **remote server** for most people, as it supports the
-broadest set of features. Add an entry to your `mcp.json` file:
-
-```json
-{
-  "servers": {
-    "figma": {
-      "url": "https://mcp.figma.com/mcp",
-      "type": "http"
-    }
-  }
-}
-```
-
-See Figma's [remote server installation guide](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/)
-for the full setup flow, including the OAuth step required to grant the server
-access to your Figma account.
-
-Alternatively, a **local server** runs from the Figma desktop app itself (Dev
-Mode → enable desktop MCP server), which some organisations use instead of the
-remote option:
-
-```json
-{
-  "servers": {
-    "figma-desktop": {
-      "url": "http://127.0.0.1:3845/mcp",
-      "type": "http"
-    }
-  }
-}
-```
-
-See Figma's [local server installation guide](https://developers.figma.com/docs/figma-mcp-server/local-server-installation/)
-for prerequisites and setup.
-
-### Works with Hearth components
-
-Hearth publishes [Figma Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect)
-mappings for its React Native components. In practice, this means: when the
-Figma frame you're implementing uses a component we've mapped, the Figma MCP
-Server returns real Hearth code, for example `<Button variant="emphasis">`,
-rather than generic markup reconstructed from layer names and styles. You
-don't need to know how these mappings work under the hood, just that a mapped
-component gets you code that's ready to use, with little to no rework needed.
-
-### Supplement it with Hearth's AI tooling
-
-The Figma MCP Server tells your agent what design it's looking at, and, via
-Code Connect, which Hearth component to use. It doesn't know the rest of the
-Hearth React Native API: prop combinations a mapping doesn't cover,
-accessibility guidance, or usage conventions.
-
-For most use cases, that's exactly what the tools below are for. Set up the
-Figma MCP Server alongside the Hearth Agent Skill and/or Hearth MCP Server,
-rather than in place of them, so your agent can confirm the full prop API,
-correct usage, and any guidance the Figma mapping doesn't capture.
+The Hearth AI Toolkit plugin is the recommended way to set up your agent with
+the Hearth React Native AI Tools. It will automatically add the skill and MCP
+server to your agent configuration, and ensure that your agent has access to
+the latest Hearth React Native documentation and usage guidance. How to install
+and use the plugin is documented in the root AI Toolkit documentation.
 
 ## llms.txt and markdown docs
 
