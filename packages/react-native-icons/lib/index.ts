@@ -15,6 +15,7 @@ export { default as BookOpenMediumIcon } from './BookOpenMediumIcon';
 export { default as BookmarkMediumIcon } from './BookmarkMediumIcon';
 export { default as BroadbandMediumIcon } from './BroadbandMediumIcon';
 export { default as BroadbandSmallIcon } from './BroadbandSmallIcon';
+export { default as BudgetPlanMediumIcon } from './BudgetPlanMediumIcon';
 export { default as BulbMediumIcon } from './BulbMediumIcon';
 export { default as CalendarAddMediumIcon } from './CalendarAddMediumIcon';
 export { default as CalendarAddSmallIcon } from './CalendarAddSmallIcon';
