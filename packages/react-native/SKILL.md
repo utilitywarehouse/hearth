@@ -131,6 +131,8 @@ pairing with someone, ask for it here too.
 
 ## Use layout components
 
+(Source of truth: [`public/llms/docs/layout-components.md`](public/llms/docs/layout-components.md))
+
 Use layout components to structure and space content. Do not add margin to
 individual UI elements to achieve spacing — keep spacing decisions at the layout
 level so UI components stay composable.
@@ -197,6 +199,8 @@ alongside their own layout-specific props (`direction`, `align`, `justify`,
 
 ## Styling: Unistyles, not `StyleSheet` from `react-native`
 
+(Source of truth: [`public/llms/docs/styling.md`](public/llms/docs/styling.md))
+
 Custom styles use `react-native-unistyles`'s `StyleSheet.create(theme => ({...}))`,
 re-exported from the package. Only reach for this when utility props and
 existing component variants don't cover the need.
@@ -260,6 +264,8 @@ const styles = StyleSheet.create(theme => ({
 
 ## Responsive breakpoints
 
+(Source of truth: [`public/llms/docs/styling.md`](public/llms/docs/styling.md#responsive-design-with-breakpoints))
+
 Breakpoints are configured once (via Unistyles' `StyleSheet.configure`) and
 cascade **mobile-first**: a value applies from that breakpoint upward until
 overridden by a larger one. See the
@@ -288,6 +294,8 @@ const styles = StyleSheet.create(theme => ({
 `columns={{ base: 1, md: 2, lg: 3 }}`.
 
 ## Required app-level providers
+
+(Source of truth: [`public/llms/docs/getting-started.md`](public/llms/docs/getting-started.md))
 
 Hearth React Native components rely on these wrapping the app root:
 
@@ -324,11 +332,13 @@ applies before reaching for `react-native-safe-area-context` directly:
   `SafeAreaView` applies the `top` edge. Set `useSafeAreaInsets={false}` on
   `BottomSheetModalProvider` only if the parent screen already handles
   safe-area insets itself — don't look for the prop on the individual
-  components.
+  components. (Source of truth:
+  [`public/llms/components/modal.md`](public/llms/components/modal.md))
 - **`NavModal`** (used when a screen is already presented by React Navigation)
   reads safe-area insets directly from the Unistyles runtime
   (`rt.insets.top`/`rt.insets.bottom` inside `StyleSheet.create((theme, rt) =>
-  ...)`) rather than rendering a `SafeAreaView`.
+  ...)`) rather than rendering a `SafeAreaView`. (Source of truth:
+  [`public/llms/components/nav-modal.md`](public/llms/components/nav-modal.md))
 
 Don't wrap Hearth components in your own `SafeAreaView` on top of these —
 check `BottomSheetModalProvider`'s `useSafeAreaInsets` prop (or `NavModal`'s
@@ -368,6 +378,8 @@ Compound components share state via a `<Component>Context` (check for a
 ## Common patterns
 
 ### Themed images that adapt to light/dark mode
+
+(Source of truth: [`public/llms/docs/dark-mode-best-practice.md`](public/llms/docs/dark-mode-best-practice.md))
 
 ```tsx
 <ThemedImage light={require('./logo-light.png')} dark={require('./logo-dark.png')} />
