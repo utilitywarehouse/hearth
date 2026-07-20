@@ -79,7 +79,7 @@ export const NoItems: Story = {
         label="Address"
         marginBottom="50"
         onInputValueChange={onPostcodeChange}
-        onValueChange={value => setPostcodeValue(value)}
+        onValueChange={value => setPostcodeValue(value as string)}
         required
         triggerOnlyOnType
         validationStatus="invalid"

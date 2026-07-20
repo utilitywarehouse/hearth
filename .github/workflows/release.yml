@@ -3,11 +3,70 @@ on:
   push:
     branches:
       - main
+  # Manual publish of a single package from an arbitrary ref (backport / rc /
+  # test channel). Runs from `main` so the OIDC subject satisfies the trusted
+  # publisher, but builds & publishes `inputs.ref`. The version is whatever
+  # `changeset version` produces from the changeset on the ref published under the selected `channel`.
+  # Never publishes `latest`.
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Branch to publish'
+        required: true
+        type: string
+      channel:
+        description: 'Release channel to publish under'
+        required: true
+        type: choice
+        options:
+          - canary
+          - next
+          - beta
+          - rc
+          - legacy
+          - experimental
+        default: legacy
+      package:
+        description: 'The name of the package to publish'
+        required: true
+        type: choice
+        options:
+          - 'react-native'
+          - react
+          - 'css-reset'
+          - fonts
+          - 'json-assets'
+          - 'react-icons'
+          - 'react-native-icons'
+          - 'svg-assets'
+          - 'svg-icons'
+          - 'tokens'
+        default: 'react-native'
+      snapshot:
+        description: 'Publish a snapshot 0.0.0-<channel>-<timestamp>'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Publish with --dry-run (no upload)'
+        type: boolean
+        default: true
+      provenance:
+        description: 'Attach npm provenance attestation'
+        type: boolean
+        default: true
+      debug:
+        description: 'Verbose logging'
+        type: boolean
+        default: false
 env:
   CI: true
 
+permissions:
+  contents: read
+
 jobs:
   release:
+    if: ${{ github.event_name == 'push' }}
     permissions:
       contents: write # for changesets/action to push to the repo
       pull-requests: write # for changesets/action to create PRs
@@ -48,5 +107,96 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ''
-          NODE_AUTH_TOKEN: ''
+
+  manual-publish:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    permissions:
+      contents: read
+      id-token: write # Required for OIDC / provenance
+    name: Manual publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard dispatch
+        run: |
+          if [ "${{ github.ref_name }}" != "main" ]; then
+            echo "::error::To publish '${{ github.ref_name }}', leave 'Use workflow from' set to main and put the branch ref under `Branch to publish`."
+            exit 1
+          fi
+
+          REF="${{ inputs.ref }}"
+          case "$REF" in refs/heads/*) REF="${REF#refs/heads/}" ;; origin/*) REF="${REF#origin/}" ;; esac
+          if [ "$REF" = "main" ] && [ "${{ inputs.snapshot }}" != "true" ]; then
+            echo "::error::Refusing to publish on 'main' - 'changeset version' would claim the main release path's next version number"
+            exit 1
+          fi
+
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        with:
+          egress-policy: audit
+
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.8.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '24'
+          package-manager-cache: false # never use caching in release builds
+
+      - name: Prepare npm for OIDC
+        run: |
+          npm install -g npm@^11.5.1
+          rm -f ~/.npmrc
+
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+      - name: Version with changeset
+        run: |
+          set -euo pipefail
+
+          CHANGESETS=$(find .changeset -maxdepth 1 -name '*.md' ! -name 'README.md')
+          if [ -z "$CHANGESETS" ]; then
+            echo "::error::'${{ inputs.ref }}' has no changesets - nothing would be versioned and the publish would fail on a version already on npm."
+            exit 1
+          fi
+
+          if [ "${{ inputs.snapshot }}" = "true" ]; then
+            pnpm changeset version --snapshot "${{ inputs.channel }}"
+          else
+            pnpm changeset version
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve release
+        working-directory: packages/${{ inputs.package }}
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          echo "Publishing $NAME@$VERSION to dist-tag '${{ inputs.channel }}' (dry-run: ${{ inputs.dry_run }})"
+          {
+            echo "### Manual publish"
+            echo "- \`$NAME@$VERSION\` - dist-tag \`${{ inputs.channel }}\`"
+            echo "- ref: \`${{ inputs.ref }}\` - dry-run: \`${{ inputs.dry_run }}\` - snapshot: \`${{ inputs.snapshot }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Build
+        run: pnpm run build
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+      - name: Publish
+        working-directory: packages/${{ inputs.package }}
+        run: |
+          pnpm publish \
+            --tag "${{ inputs.channel }}" \
+            --no-git-checks \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
+        env:
+          NPM_CONFIG_PROVENANCE: ${{ inputs.provenance }}
+          NPM_CONFIG_LOGLEVEL: ${{ inputs.debug && 'verbose' || 'notice' }}

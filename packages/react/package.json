@@ -1,11 +1,12 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.31.0",
+  "version": "0.31.1",
   "description": "React components",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react"
   },
   "type": "module",
   "main": "./dist/index.cjs",
@@ -39,6 +40,7 @@
     "copy:tokens:index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
     "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm copy:breakpoints",
     "build:js": "NODE_OPTIONS='--max-old-space-size=6144' tsup && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
     "dev:storybook": "storybook dev -p 6006",

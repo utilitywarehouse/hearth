@@ -59,6 +59,10 @@
       "outputs": [],
       "dependsOn": ["lint:fix"]
     },
+    "typecheck": {
+      "outputs": [],
+      "dependsOn": ["^build"]
+    },
     "lint:ci": {
       "outputs": [],
       "dependsOn": ["lint:fix"]

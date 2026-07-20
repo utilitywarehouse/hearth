@@ -7,7 +7,7 @@ and `@utilitywarehouse/hearth-react-native`.
 
 ```console
 /plugin marketplace add utilitywarehouse/hearth
-/plugin install hearth@hearth-plugins
+/plugin install hearth-ai-toolkit@hearth-plugins
 ```
 
 This gives you:

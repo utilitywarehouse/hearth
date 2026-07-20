@@ -1,11 +1,12 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.35.0",
+  "version": "0.35.1",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react-native"
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -32,6 +33,7 @@
     "lint": "TIMING=1 eslint .",
     "build": "tsc",
     "watch": "tsc --watch",
+    "typecheck": "tsc --noEmit",
     "figma:create": "figma connect create",
     "figma:publish": "figma connect publish",
     "test": "vitest run --config vitest.unit.config.ts",

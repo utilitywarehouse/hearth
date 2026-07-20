@@ -91,6 +91,7 @@ export const icons = [
   { reactName: 'BookmarkMediumIcon', svgName: 'bookmark-medium-icon.svg' },
   { reactName: 'BookOpenMediumIcon', svgName: 'book-open-medium-icon.svg' },
   { reactName: 'BroadbandMediumIcon', svgName: 'broadband-medium-icon.svg' },
+  { reactName: 'BudgetPlanMediumIcon', svgName: 'budget-plan-medium-icon.svg' },
   { reactName: 'BulbMediumIcon', svgName: 'bulb-medium-icon.svg' },
   { reactName: 'ChevronDownMediumIcon', svgName: 'chevron-down-medium-icon.svg' },
   { reactName: 'ChevronLeftMediumIcon', svgName: 'chevron-left-medium-icon.svg' },
