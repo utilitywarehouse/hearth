@@ -16,6 +16,7 @@ import { BookOpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Boo
 import { BookmarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookmarkMediumIcon';
 import { BroadbandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandMediumIcon';
 import { BroadbandSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandSmallIcon';
+import { BudgetPlanMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BudgetPlanMediumIcon';
 import { BulbMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BulbMediumIcon';
 import { CalendarAddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddMediumIcon';
 import { CalendarAddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddSmallIcon';
@@ -212,6 +213,7 @@ export const reactIcons = [
   BookmarkMediumIcon,
   BroadbandMediumIcon,
   BroadbandSmallIcon,
+  BudgetPlanMediumIcon,
   BulbMediumIcon,
   CalendarAddMediumIcon,
   CalendarAddSmallIcon,
