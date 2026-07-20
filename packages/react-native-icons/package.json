@@ -1,12 +1,13 @@
 {
   "name": "@utilitywarehouse/hearth-react-native-icons",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "description": "Hearth React Native Icons",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/utilitywarehouse/hearth.git"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react-native-icons"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

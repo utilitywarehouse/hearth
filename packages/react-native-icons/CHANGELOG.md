@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.8.6
+
+### Patch Changes
+
+- [#1422](https://github.com/utilitywarehouse/hearth/pull/1422) [`f3edf91`](https://github.com/utilitywarehouse/hearth/commit/f3edf918524d7fd45cdde3d20a524a89c1d7244b) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Upgrade TypeScript to 6.0.3
+
+  Updated TypeScript from 5.x to 6.0.3 across the monorepo, and cleaned up
+  compiler options deprecated since TypeScript 5.0 (`ignoreDeprecations`,
+  `noImplicitUseStrict`, `noStrictGenericChecks`) and 6.0 (`moduleResolution:
+node`, `baseUrl` as a module resolution root).
+
+  **Developer changes**:
+
+  No changes required. Published output (JS bundles and `.d.ts` declarations) is
+  unaffected — this is a devDependency and tooling upgrade only.
+
 ## 0.8.5
 
 ### Patch Changes

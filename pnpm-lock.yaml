@@ -503,7 +503,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.8.6
+        specifier: workspace:^0.8.7
         version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
@@ -15273,7 +15273,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@expo/prebuild-config@8.0.17':
+  '@expo/prebuild-config@8.0.17(supports-color@8.1.1)':
     dependencies:
       '@expo/config': 10.0.6
       '@expo/config-plugins': 9.0.12(supports-color@8.1.1)
@@ -20039,7 +20039,7 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  babel-preset-expo@54.0.11(@babel/core@7.29.7)(@babel/runtime@7.29.7)(expo@54.0.22)(react-refresh@0.14.2):
+  babel-preset-expo@54.0.11(@babel/core@7.29.7)(@babel/runtime@7.29.7)(expo@54.0.22)(react-refresh@0.14.2)(supports-color@8.1.1):
     dependencies:
       '@babel/helper-module-imports': 7.29.7
       '@babel/plugin-proposal-decorators': 7.29.7(@babel/core@7.29.7)
@@ -21094,7 +21094,7 @@ snapshots:
       '@expo/plist': 0.2.0
       '@expo/plugin-help': 5.1.23(@types/node@22.20.1)(typescript@6.0.3)
       '@expo/plugin-warn-if-update-available': 2.5.1(@types/node@22.20.1)(supports-color@8.1.1)(typescript@6.0.3)
-      '@expo/prebuild-config': 8.0.17
+      '@expo/prebuild-config': 8.0.17(supports-color@8.1.1)
       '@expo/results': 1.0.0
       '@expo/rudder-sdk-node': 1.1.1
       '@expo/spawn-async': 1.7.2
@@ -22186,7 +22186,7 @@ snapshots:
       '@expo/metro-config': 54.0.8(expo@54.0.22)
       '@expo/vector-icons': 15.1.1(expo-font@14.0.9(expo@54.0.22)(react-native@0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0))(react-native@0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@ungap/structured-clone': 1.3.1
-      babel-preset-expo: 54.0.11(@babel/core@7.29.7)(@babel/runtime@7.29.7)(expo@54.0.22)(react-refresh@0.14.2)
+      babel-preset-expo: 54.0.11(@babel/core@7.29.7)(@babel/runtime@7.29.7)(expo@54.0.22)(react-refresh@0.14.2)(supports-color@8.1.1)
       expo-asset: 12.0.13(expo@54.0.22)(react-native@0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)(typescript@6.0.3)
       expo-constants: 18.0.10(expo@54.0.22)(react-native@0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))
       expo-file-system: 19.0.23(expo@54.0.22)(react-native@0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))
