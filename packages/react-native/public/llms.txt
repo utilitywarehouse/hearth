@@ -8,7 +8,7 @@
   - Using Predefined Shadows
   - Components with Shadow Props
 - [AI Tooling](llms/docs/ai-tooling.md)
-  - Figma MCP Server
+  - Plugin
   - llms.txt and markdown docs
   - Agent Skill
   - Hearth React Native MCP Server
