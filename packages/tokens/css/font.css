@@ -3,9 +3,9 @@
  */
 
 :root {
-  --h-font-family-body: dm sans;
-  --h-font-family-detail: dm mono;
-  --h-font-family-heading: comic hams;
+  --h-font-family-body: DM Sans;
+  --h-font-family-detail: DM Mono;
+  --h-font-family-heading: Comic Hams;
   --h-font-size-90: 0.875rem;
   --h-font-size-100: 1rem;
   --h-font-size-150: 1.125rem;
@@ -34,6 +34,7 @@
   --h-line-height-600: 1.75rem;
   --h-line-height-700: 2rem;
   --h-line-height-800: 2.25rem;
+  --h-line-height-900: 2.5rem;
   --h-line-height-950: 3rem;
   --h-line-height-975: 3.25rem;
   --h-line-height-1050: 3.875rem;

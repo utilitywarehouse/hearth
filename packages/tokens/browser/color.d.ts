@@ -14,6 +14,7 @@ export declare const color: {
   };
   readonly cashbackLilac: {
     readonly '300': 'var(--h-color-cashback-lilac-300)';
+    readonly '400': 'var(--h-color-cashback-lilac-400)';
     readonly '500': 'var(--h-color-cashback-lilac-500)';
     readonly '700': 'var(--h-color-cashback-lilac-700)';
     readonly '900': 'var(--h-color-cashback-lilac-900)';
@@ -62,6 +63,7 @@ export declare const color: {
   };
   readonly mobileRose: {
     readonly '200': 'var(--h-color-mobile-rose-200)';
+    readonly '300': 'var(--h-color-mobile-rose-300)';
     readonly '400': 'var(--h-color-mobile-rose-400)';
     readonly '800': 'var(--h-color-mobile-rose-800)';
     readonly '900': 'var(--h-color-mobile-rose-900)';

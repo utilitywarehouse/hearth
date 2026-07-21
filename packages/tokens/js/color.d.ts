@@ -16,6 +16,7 @@ export declare const broadbandGreen: {
 };
 export declare const cashbackLilac: {
   readonly '300': '#dfbdf5';
+  readonly '400': '#ce9cf0';
   readonly '500': '#be7aeb';
   readonly '700': '#8b2bc9';
   readonly '900': '#7429b5';
@@ -64,6 +65,7 @@ export declare const insuranceOrange: {
 };
 export declare const mobileRose: {
   readonly '200': '#fad0e9';
+  readonly '300': '#f49fd2';
   readonly '400': '#ee6dbb';
   readonly '800': '#a7266d';
   readonly '900': '#8a3260';
@@ -636,6 +638,7 @@ declare const color: {
   };
   readonly cashbackLilac: {
     readonly '300': '#dfbdf5';
+    readonly '400': '#ce9cf0';
     readonly '500': '#be7aeb';
     readonly '700': '#8b2bc9';
     readonly '900': '#7429b5';
@@ -684,6 +687,7 @@ declare const color: {
   };
   readonly mobileRose: {
     readonly '200': '#fad0e9';
+    readonly '300': '#f49fd2';
     readonly '400': '#ee6dbb';
     readonly '800': '#a7266d';
     readonly '900': '#8a3260';
