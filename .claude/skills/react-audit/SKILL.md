@@ -38,8 +38,9 @@ For each name exported from `src/index.ts`, check:
 
 ## Docs Quality Checklist (per `.docs.mdx`)
 
-- [ ] `sourceState` values are valid: `'show'`, `'hide'`, or `'none'` — never `'shown'` or `'hidden'`
-- [ ] `StorybookLink` import uses the package form: `import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils'`
+See [`react-component-addition`](../react-component-addition/SKILL.md) for canonical docs authoring rules (`sourceState` values, `StorybookLink` import path).
+
+Audit-specific checks:
 - [ ] No duplicate links in common-props or Alternatives sections
 - [ ] `## Alternatives` section present when 2+ other components serve overlapping use cases
 - [ ] `## Accessibility` section present for interactive components (keyboard interactions, ARIA roles, focus management)
@@ -49,9 +50,9 @@ For each name exported from `src/index.ts`, check:
 
 ## Figma Code Connect Checklist (per `.figma.ts`)
 
-- [ ] File is `.figma.ts` template format — **not** `.figma.tsx` (parser-based `figma.connect()`)
-- [ ] Header comments present: `// url=`, `// source=`, `// component=`
-- [ ] Compound children include `metadata: { nestable: true }` in their export
+See [`figma-code-connect`](../figma-code-connect/SKILL.md) for canonical Code Connect format and structure rules (`.figma.ts` format, header comments, `nestable: true` metadata).
+
+Audit-specific gates:
 - [ ] Output previewed with `npx figma connect print` before committing
 - [ ] **Never publish without explicit user approval**
 

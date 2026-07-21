@@ -1,0 +1,59 @@
+````mdx
+<Meta title="Components / <Component>" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="<Figma URL>" />
+
+# <Component>
+
+One-paragraph summary of what the component does and when to use it.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Box>
+      {/* Example usage */}
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { <Component> } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <<Component> />
+);
+```
+
+## Props
+
+| Property | Type | Description | Default |
+| --- | --- | --- | --- |
+| `example` | `string` | Example prop description. | `""` |
+
+## Compound Component Example (if applicable)
+
+For components with subcomponents (e.g. `Button`, `Accordion`, `ButtonGroup`), document each with a nested heading and its own props table:
+
+### SubComponent
+
+Brief description of the subcomponent's role.
+
+#### Props
+
+| Property | Type | Description | Default |
+| --- | --- | --- | --- |
+| `exampleProp` | `string` | Subcomponent prop description. | `""` |
+````

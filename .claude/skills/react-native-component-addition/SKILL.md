@@ -1,6 +1,6 @@
 ---
 name: react-native-component-addition
-description: "Use when: adding a new component to Hearth React Native (packages/react-native). Covers component files, props, exports, stories, docs, Figma Code Connect, and All Components updates."
+description: "Use when: adding a new component to Hearth React Native (packages/react-native), or mirroring an existing React component's API in React Native. Covers component files, props, exports, stories, and All Components registration — sequences through the react-native-component-docs and figma-code-connect skills for those steps."
 argument-hint: "Component name and any special variants or animation requirements"
 ---
 
@@ -37,8 +37,8 @@ Add additional files as needed (subcomponents, helpers, platform-specific varian
 3. **Animations**: Use react-native-reanimated for animations. Respect reduce motion via useReducedMotion.
 4. **Exports**: Export from index.ts in the component folder, then re-export in packages/react-native/src/components/index.ts.
 5. **Stories**: Add <Component>.stories.tsx with a Playground story and key variants. Follow existing Storybook patterns.
-6. **Docs**: Add <Component>.docs.mdx following the React Native component docs skill template.
-7. **Figma**: Add <Component>.figma.tsx with figma.connect and match props to design controls.
+6. **Docs**: Add <Component>.docs.mdx. See the [react-native-component-docs](./../react-native-component-docs/SKILL.md) skill for the required structure, sections, and code snippets.
+7. **Figma**: Add <Component>.figma.tsx. See the [figma-code-connect](./../figma-code-connect/SKILL.md) skill for the connect API, prop mapping patterns, the `pnpm figma:create` scaffold command, and the publish-approval requirement.
 8. **All Components**: Add the component to packages/react-native/docs/components/AllComponents.web.tsx with a minimal demo.
 9. **Tests**: Add any tests for components that have complex logic, split out into a Component.utils.ts file and test against that if necessary.
 Add storybook story tests for interaction behviour tests where necessary too.
