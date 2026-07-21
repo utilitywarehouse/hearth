@@ -14,6 +14,7 @@ export const color = {
   },
   cashbackLilac: {
     '300': 'var(--h-color-cashback-lilac-300)',
+    '400': 'var(--h-color-cashback-lilac-400)',
     '500': 'var(--h-color-cashback-lilac-500)',
     '700': 'var(--h-color-cashback-lilac-700)',
     '900': 'var(--h-color-cashback-lilac-900)',
@@ -62,6 +63,7 @@ export const color = {
   },
   mobileRose: {
     '200': 'var(--h-color-mobile-rose-200)',
+    '300': 'var(--h-color-mobile-rose-300)',
     '400': 'var(--h-color-mobile-rose-400)',
     '800': 'var(--h-color-mobile-rose-800)',
     '900': 'var(--h-color-mobile-rose-900)',

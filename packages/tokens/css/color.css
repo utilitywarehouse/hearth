@@ -13,6 +13,7 @@
   --h-color-broadband-green-800: #506c21;
   --h-color-broadband-green-900: #4f6b20;
   --h-color-cashback-lilac-300: #dfbdf5;
+  --h-color-cashback-lilac-400: #ce9cf0;
   --h-color-cashback-lilac-500: #be7aeb;
   --h-color-cashback-lilac-700: #8b2bc9;
   --h-color-cashback-lilac-900: #7429b5;
@@ -31,13 +32,13 @@
   --h-color-green-900: #074b2a;
   --h-color-green-950: #033d21;
   --h-color-green-1000: #002e18;
-  --h-color-grey-0: #fff;
+  --h-color-grey-0: #ffffff;
   --h-color-grey-50: #f7f7f7;
   --h-color-grey-100: #ebebeb;
   --h-color-grey-200: #d3d3d3;
   --h-color-grey-300: #b2afae;
   --h-color-grey-400: #919191;
-  --h-color-grey-500: #888;
+  --h-color-grey-500: #888888;
   --h-color-grey-600: #5b5b5b;
   --h-color-grey-700: #4c4c4c;
   --h-color-grey-800: #3f3f3f;
@@ -51,6 +52,7 @@
   --h-color-insurance-orange-800: #9b4c0e;
   --h-color-insurance-orange-900: #7f4518;
   --h-color-mobile-rose-200: #fad0e9;
+  --h-color-mobile-rose-300: #f49fd2;
   --h-color-mobile-rose-400: #ee6dbb;
   --h-color-mobile-rose-800: #a7266d;
   --h-color-mobile-rose-900: #8a3260;
