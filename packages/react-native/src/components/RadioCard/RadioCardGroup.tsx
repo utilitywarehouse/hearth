@@ -15,7 +15,8 @@ const RadioCardGroup = ({
   alignItems,
   columns,
   disabled,
-  isDisabled: _isDisabled,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  isDisabled,
   ...props
 }: RadioCardGroupProps & { isDisabled?: boolean }) => {
   const context = useMemo(() => {
