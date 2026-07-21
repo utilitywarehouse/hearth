@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.4.4
+
+### Patch Changes
+
+- [#1453](https://github.com/utilitywarehouse/hearth/pull/1453) [`e37f2fe`](https://github.com/utilitywarehouse/hearth/commit/e37f2fe21cb70ba191b42a2643e08826c3d962b6) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Generate and build Hearth tokens
+
 ## 0.4.3
 
 ### Patch Changes
