@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.35.3
+
+### Patch Changes
+
+- [#1454](https://github.com/utilitywarehouse/hearth/pull/1454) [`cb9c2b4`](https://github.com/utilitywarehouse/hearth/commit/cb9c2b4f72dbe84b6843fff571446b2e5e231939) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Adds missing colour, border radius, line height and space tokens
+
 ## 0.35.2
 
 ### Patch Changes
