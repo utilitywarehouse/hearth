@@ -10,11 +10,13 @@ const RadioCardRoot = ({
   children,
   style,
   states,
+  disabled,
   ...props
 }: RadioCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
   const { checked, active } = states ?? {};
 
-  const { flexDirection } = useRadioCardGroupContext() ?? {};
+  const { flexDirection, disabled: groupDisabled } = useRadioCardGroupContext() ?? {};
+  const isDisabled = groupDisabled ?? disabled ?? undefined;
 
   const value = useMemo(
     () => ({
@@ -27,11 +29,12 @@ const RadioCardRoot = ({
   styles.useVariants({
     selected: checked,
     flexDirection,
+    disabled: isDisabled,
   });
 
   return (
     <RadioCardContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, style as ViewStyle]}>
+      <Pressable {...props} disabled={isDisabled} style={[styles.container, style as ViewStyle]}>
         {children}
       </Pressable>
     </RadioCardContext.Provider>
@@ -71,6 +74,11 @@ const styles = StyleSheet.create(theme => ({
         'row-reverse': {},
         'column-reverse': {
           width: '100%',
+        },
+      },
+      disabled: {
+        true: {
+          opacity: theme.opacity.disabled,
         },
       },
     },

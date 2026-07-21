@@ -14,11 +14,14 @@ const RadioCardGroup = ({
   justifyContent,
   alignItems,
   columns,
+  disabled,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  isDisabled,
   ...props
-}: RadioCardGroupProps) => {
+}: RadioCardGroupProps & { isDisabled?: boolean }) => {
   const context = useMemo(() => {
-    return { flexDirection, flexWrap, justifyContent, alignItems };
-  }, [flexDirection, flexWrap, justifyContent, alignItems]);
+    return { flexDirection, flexWrap, justifyContent, alignItems, disabled };
+  }, [flexDirection, flexWrap, justifyContent, alignItems, disabled]);
   return columns ? (
     <RadioCardGroupContext.Provider value={context}>
       <Grid {...props} gap={gap} columns={columns} style={style}>
