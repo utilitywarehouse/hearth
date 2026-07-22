@@ -1,4 +1,4 @@
-name: Notify Claude plugin version change
+name: Release Claude plugin version change
 on:
   push:
     branches:
@@ -10,9 +10,11 @@ permissions:
   contents: read
 
 jobs:
-  notify-slack:
-    name: Notify Slack on version bump
+  release:
+    name: Create release on version bump
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create the GitHub release
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
@@ -35,7 +37,8 @@ jobs:
           fi
 
           NEW_VERSION=$(jq -er '.version' "$PLUGIN_FILE")
-          PLUGIN_NAME=$(jq -er '.displayName // .name' "$PLUGIN_FILE")
+          PLUGIN_NAME=$(jq -er '.name' "$PLUGIN_FILE")
+          PLUGIN_DISPLAY_NAME=$(jq -er '.displayName // .name' "$PLUGIN_FILE")
 
           BASE_SHA="${{ github.event.before }}"
           if [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$BASE_SHA:$PLUGIN_FILE" 2>/dev/null; then
@@ -47,6 +50,7 @@ jobs:
           echo "old_version=$OLD_VERSION" >> "$GITHUB_OUTPUT"
           echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
           echo "plugin_name=$PLUGIN_NAME" >> "$GITHUB_OUTPUT"
+          echo "plugin_display_name=$PLUGIN_DISPLAY_NAME" >> "$GITHUB_OUTPUT"
 
           if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -54,16 +58,16 @@ jobs:
             echo "changed=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Post update to Slack
+      - name: Create GitHub release
         if: steps.check.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          : "${SLACK_WEBHOOK_URL:?Missing SLACK_WEBHOOK_URL repo secret}"
-          curl --fail -sS -X POST -H 'Content-Type: application/json' \
-            --data "$(jq -n \
-              --arg name "${{ steps.check.outputs.plugin_name }}" \
-              --arg old "${{ steps.check.outputs.old_version }}" \
-              --arg new "${{ steps.check.outputs.new_version }}" \
-              --arg url "${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}" \
-              '{text: ("*\($name)* Claude plugin version updated: `\($old)` → `\($new)`\n\($url)")}') \
-            "$SLACK_WEBHOOK_URL"
+
+          TAG="${{ steps.check.outputs.plugin_name }}@${{ steps.check.outputs.new_version }}"
+
+          gh release create "$TAG" \
+            --title "${{ steps.check.outputs.plugin_display_name }} ${{ steps.check.outputs.new_version }}" \
+            --notes "Claude plugin \`${{ steps.check.outputs.plugin_name }}\` updated: \`${{ steps.check.outputs.old_version }}\` → \`${{ steps.check.outputs.new_version }}\`" \
+            --target "${{ github.sha }}"
