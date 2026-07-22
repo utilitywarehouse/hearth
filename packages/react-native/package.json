@@ -12,7 +12,7 @@
   "types": "build/index.d.ts",
   "module": "build/index",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": ["build/core/configure.js"],
   "bin": {
     "hearth-react-native": "./scripts/init-ai.js"
   },
