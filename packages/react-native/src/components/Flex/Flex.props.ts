@@ -5,6 +5,7 @@ import {
   GapProps,
   MarginProps,
   PaddingProps,
+  SizeProps,
   SpacingValues,
 } from '../../types';
 
@@ -15,6 +16,7 @@ interface FlexProps
     PaddingProps,
     FlexLayoutProps,
     GapProps,
+    Pick<SizeProps, 'width'>,
     Omit<DisplayProps, 'direction'> {
   direction?: ViewStyle['flexDirection'];
   align?: FlexAlignType;

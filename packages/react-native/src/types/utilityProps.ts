@@ -354,7 +354,7 @@ export interface IconColorProps {
  * Common text styling props shared across text components (BodyText, Heading, DetailText).
  * Includes margin utility props, simplified semantic text color, and standard text style props.
  */
-export interface CommonTextProps extends RNTextProps, MarginProps {
+export interface CommonTextProps extends RNTextProps, MarginProps, Pick<FlexLayoutProps, 'flexShrink'> {
   /** Whether to truncate text with an ellipsis. */
   truncated?: boolean;
   /** Whether to show strikethrough text. */
