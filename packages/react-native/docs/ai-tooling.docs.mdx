@@ -8,6 +8,8 @@ import { BackToTopButton, InputShadowExample, NextPrevPage, UsageWrap } from './
 # AI Tooling
 
 - [Plugin](#plugin)
+  - [Claude CLI](#claude-cli)
+  - [Claude Desktop](#claude-desktop)
 - [llms.txt and markdown docs](#llms-txt-and-markdown-docs)
 - [Agent Skill](#agent-skill)
 - [Hearth React Native MCP Server](#hearth-react-native-mcp-server)
@@ -20,7 +22,7 @@ context it needs to build with Hearth correctly.
 If you're building UI from a design in Figma, start with Figma's MCP Server.
 This should be the first step, since it gives your agent direct access to the
 design you're implementing. You can read more information about setting this up
-in the root AI Toolkit documentation.
+in the [root AI Toolkit documentation](https://hearth.prod.uw.systems/?path=/docs/ai-toolkit--docs).
 
 Hearth's own AI tooling then supplements it for most use cases, filling in the
 parts of the Hearth React Native API and usage guidance that the design alone
@@ -33,10 +35,30 @@ doesn't capture:
 ## Plugin
 
 The Hearth AI Toolkit plugin is the recommended way to set up your agent with
-the Hearth React Native AI Tools. It will automatically add the skill and MCP
-server to your agent configuration, and ensure that your agent has access to
-the latest Hearth React Native documentation and usage guidance. How to install
-and use the plugin is documented in the root AI Toolkit documentation.
+the Hearth React Native AI Tools. It will automatically add the `hearth-react-native`
+skill and MCP server to your agent configuration, and ensure that your agent has
+access to the latest Hearth React Native documentation and usage guidance.
+
+### Claude CLI
+
+```console
+/plugin marketplace add utilitywarehouse/hearth
+/plugin install hearth-ai-toolkit@hearth-plugins
+```
+
+### Claude Desktop
+
+In the desktop app, click on **Customize** in the sidebar, then navigate to
+**Plugins**. In the **Add** menu, choose **Add Marketplace**, then select the
+**utilitywarehouse/hearth** repository, and click **Sync**.
+
+This will add the `hearth-plugins` marketplace to Claude, and if you then click
+the **+** symbol in the corner of the Hearth Design Systems card, you will have
+the plugin installed and ready to use.
+
+See the [root AI Toolkit documentation](https://hearth.prod.uw.systems/?path=/docs/ai-toolkit--docs)
+for the full plugin scope (it also covers `hearth-react`), and for how to
+combine it with the Figma MCP Server.
 
 ## llms.txt and markdown docs
 
