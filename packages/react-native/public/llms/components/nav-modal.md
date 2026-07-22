@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
 | `image`                  | `ReactNode`                                                                                                      | Optional image or illustration shown above the text content.                                                                                                                                     | -              |
 | `children`               | `ReactNode`                                                                                                      | Content rendered inside the modal body.                                                                                                                                                          | -              |
 | `stickyFooter`           | `boolean`                                                                                                        | Keeps action buttons pinned to the bottom instead of flowing with the content.                                                                                                                   | `true`         |
-| `background`             | `'default' /\| 'brand'`                                                                                          | Switches between the default surface background and the brand background treatment.                                                                                                              | `'default'`    |
+| `background`             | `'default' /\| 'brand' /\| 'primary'`                                                                            | Switches between the default surface background, the brand background, and the primary background treatment.                                                                                     | `'default'`    |
 | `scrollable`             | `boolean`                                                                                                        | Wraps the content area in a `ScrollView`. Set this to `false` for custom layouts that should not scroll.                                                                                         | `true`         |
 | `presentation`           | `'modal' \| 'fullScreenModal' \| 'transparentModal' `<br />` \| 'containedModal' \| 'containedTransparentModal'` | Matches the React Navigation screen presentation. `fullScreenModal` uses the full-screen layout; the other values use the sheet-style layout.                                                    | `'modal'`      |
 | `useSafeAreaInsets`      | `boolean`                                                                                                        | Whether to apply safe area insets as padding within the component. This is enabled by default to fix full-screen presentation padding but can be disabled if you want to manage insets yourself. | `true`         |
@@ -179,6 +179,19 @@ When `footer` is provided, the primary and secondary button props are not availa
     <Box gap="200">
       <BodyText inverted>Brand background content stays readable with inverted text.</BodyText>
       <BodyText inverted>Buttons and the close icon also invert automatically.</BodyText>
+    </Box>
+  </NavModal>
+</View>
+```
+
+### Primary Background
+
+```tsx
+// Example usage
+<View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
+  <NavModal {...args}>
+    <Box gap="200">
+      <BodyText>This is a navigation modal with the primary background.</BodyText>
     </Box>
   </NavModal>
 </View>
