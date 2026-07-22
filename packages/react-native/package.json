@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.35.4",
+  "version": "0.35.5",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
   "repository": {
@@ -12,7 +12,9 @@
   "types": "build/index.d.ts",
   "module": "build/index",
   "type": "module",
-  "sideEffects": ["build/core/configure.js"],
+  "sideEffects": [
+    "build/core/configure.js"
+  ],
   "bin": {
     "hearth-react-native": "./scripts/init-ai.js"
   },
