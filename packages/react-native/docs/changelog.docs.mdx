@@ -9,6 +9,27 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.35.4
+
+### Patch Changes
+
+- [#1455](https://github.com/utilitywarehouse/hearth/pull/1455) [`6429fd5`](https://github.com/utilitywarehouse/hearth/commit/6429fd5e290e3e5d43516fa1f4b54ab8eab10e4b) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: `RadioCardGroup` supports a `disabled` prop
+
+  Setting `disabled` on `RadioCardGroup` now disables every `RadioCard` within
+  it, dimming each card and blocking interaction. Individual `RadioCard`s can
+  still set their own `disabled` prop when the group itself isn't disabled.
+
+  **Developer changes**:
+
+  No action required. This is a new, optional prop.
+
+  ```tsx
+  <RadioCardGroup disabled>
+    <RadioCard value="fixed" label="Debit card payment" />
+    <RadioCard value="variable" label="Instant bank transfer" />
+  </RadioCardGroup>
+  ```
+
 ## 0.35.3
 
 ### Patch Changes
