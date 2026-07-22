@@ -7,6 +7,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 - [Plugin installation](#plugin-installation)
   - [Claude CLI](#claude-cli)
   - [Claude Desktop](#claude-desktop)
+  - [Keeping the plugin up to date](#keeping-the-plugin-up-to-date)
 - [Monorepo checkout note](#monorepo-checkout-note)
 - [Scope](#scope)
 - [Figma MCP](#figma-mcp)
@@ -54,6 +55,23 @@ In the desktop app, click on **Customize** in the sidebar, then navigate to
 This will add the `hearth-plugins` to Claude, and if you then click the **+**
 symbol in the corner of the Hearth Design Systems card, you will have the
 plugin installed and ready to use.
+
+### Keeping the plugin up to date
+
+The GitHub integration that would let Claude auto-sync marketplace updates
+isn't set up for the Utility Warehouse org yet, so new plugin versions aren't
+picked up automatically — you'll need to update manually.
+
+Subscribe to the `#help-design-systems` Slack channel to hear about new
+releases. When one ships, update by uninstalling and reinstalling the plugin:
+
+```console
+/plugin uninstall hearth-ai-toolkit@hearth-plugins
+/plugin install hearth-ai-toolkit@hearth-plugins
+```
+
+In Claude Desktop, do the same from the **Plugins** page: remove the Hearth
+Design Systems plugin, then click **+** to re-add it.
 
 ## Monorepo checkout note
 
