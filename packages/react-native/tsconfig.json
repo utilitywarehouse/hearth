@@ -10,9 +10,16 @@
     ],
     "compilerOptions": {
         "paths": {
-            "react-native": ["./node_modules/react-native"],
-            "react-native/*": ["./node_modules/react-native/*"]
+            "react-native": [
+                "./node_modules/react-native"
+            ],
+            "react-native/*": [
+                "./node_modules/react-native/*"
+            ]
         },
+        "types": [
+            "@figma/code-connect/figma-types"
+        ],
         "noEmit": false,
         "declaration": true,
         "allowJs": true,
