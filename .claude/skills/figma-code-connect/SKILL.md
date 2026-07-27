@@ -23,6 +23,7 @@ Both packages use `.figma.ts` template files. Only these differ:
 |---|---|---|
 | **Location** | `packages/react/figma/<Name>.figma.ts` (flat directory) | `packages/react-native/src/components/<Name>/<Name>.figma.ts` (co-located with the component) |
 | **Config** | `packages/react/figma.config.json` | `packages/react-native/figma.config.json` |
+| **`// source=` comment** | Relative path back to the component, e.g. `../src/components/ExpandableCard/ExpandableCard.tsx` | Full GitHub blob URL, e.g. `https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Badge/Badge.tsx` |
 
 **Import convention is the same for both**: import from the published package name (`@utilitywarehouse/hearth-react` or `@utilitywarehouse/hearth-react-native`), not a relative path. This is resolved via the `importPaths` mapping in each package's `figma.config.json`. (The legacy `.figma.tsx` connect format for React Native required importing from the component's local `'../'` to avoid a resolution issue — that workaround does not apply to `.figma.ts` templates; `npx figma connect migrate` rewrites these imports to the package name automatically.)
 
@@ -34,6 +35,7 @@ Do not mix formats between packages, and don't hand-roll the old `figma.connect(
 
 ```ts
 // url=https://www.figma.com/design/<fileKey>/<fileName>?node-id=<nodeId>
+// source=<see the per-package convention in the table above>
 // component=MyComponent
 import figma from 'figma';
 
@@ -47,17 +49,18 @@ export default {
   id: 'my-component',
   imports: ['import { MyComponent } from "@utilitywarehouse/hearth-react-native";'],
   example: figma.code`<MyComponent${figma.helpers.react.renderProp('size', size)}${figma.helpers.react.renderProp('disabled', disabled)}>${figma.helpers.react.renderChildren(label)}</MyComponent>`,
+  metadata: { props: { size, label, disabled } },
 };
 ```
 
-The `// url=` / `// component=` header comments are metadata for the CLI, not executed code. The default export has three fields:
+The `// url=` / `// source=` / `// component=` header comments are metadata for the CLI, not executed code — always include all three. The default export has three fields:
 
 | Field | Purpose |
 |---|---|
 | `example` | The rendered code snippet — built with the `figma.code` tagged template. |
 | `imports` | Array of import statement strings shown alongside the snippet. |
 | `id` | Template identifier. |
-| `metadata` (optional) | `{ nestable: true }` marks a child template as renderable inline when a parent resolves it — see [Compound components](#compound-components-parent--children). |
+| `metadata` (optional) | `{ nestable: true }` marks a child template as renderable inline when a parent resolves it — see [Compound components](#compound-components-parent--children). `{ props: {...} }` exposes every resolved const from the template (not just the ones interpolated into `example`) so a parent template can read a child's raw data via `executeTemplate().metadata.props`, not just its rendered code — always include it, keyed by the same names as your local `const` declarations. |
 
 ## The `InstanceHandle` API
 
@@ -181,9 +184,9 @@ This is the workflow for turning an existing `.figma.tsx` (legacy connect API) f
 4. **Delete** the old `.figma.tsx` file once you're confident the new file is correct.
 5. **Verify** — preview the rendered output:
    ```sh
-   npx figma connect preview --file src/components/<Name>/<Name>.figma.ts
+   npx figma connect preview --file src/components/<Name>/<Name>.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
    ```
-   Older docs and issue templates refer to this as `figma connect print` — that subcommand does not exist in the installed CLI (`@figma/code-connect` v1.4.8 at time of writing); `preview` is the correct command. `preview` calls the live Figma API to resolve slots/instance-swaps, so it requires a `FIGMA_ACCESS_TOKEN` with **both** the "File Read" and "Code Connect Write" scopes — a token missing "Code Connect Write" will fail every file with `Invalid scope(s)`, not just the one you're checking.
+   Older docs and issue templates refer to this as `figma connect print` — that subcommand does not exist in the installed CLI (`@figma/code-connect` v1.4.8 at time of writing); `preview` is the correct command. `preview` calls the live Figma API to resolve slots/instance-swaps, so it requires a token with **both** the "File Read" and "Code Connect Write" scopes — a token missing "Code Connect Write" will fail every file with `Invalid scope(s)`, not just the one you're checking. The CLI only auto-reads `FIGMA_ACCESS_TOKEN` from the environment (via `dotenv`), but this repo's token is stored as `FIGMA_CODE_CONNECT_TOKEN` — always pass it explicitly with `--token`, as above, for `preview`, `migrate` (only needed if resolving imports against the live file), and `publish`.
 
 ## Publishing
 
@@ -191,10 +194,10 @@ This is the workflow for turning an existing `.figma.tsx` (legacy connect API) f
 
 ```sh
 # React — from packages/react
-npx figma connect publish --file figma/MyComponent.figma.ts
+npx figma connect publish --file figma/MyComponent.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 # React Native — from packages/react-native
-pnpm figma:publish
+pnpm figma:publish -- --token "$FIGMA_CODE_CONNECT_TOKEN"
 ```
 
 ## Legacy connect API (historical context)

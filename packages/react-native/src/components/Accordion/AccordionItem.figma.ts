@@ -1,4 +1,5 @@
 // url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3390%3A6160
+// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Accordion/Accordion.tsx
 // component=AccordionItem
 
 import figma from 'figma';
@@ -27,5 +28,5 @@ export default {
       <BodyText>${figma.helpers.react.renderChildren(description)}</BodyText>
       ${content.flat()}
     </AccordionItem>`,
-  metadata: { nestable: true },
+  metadata: { nestable: true, props: { title, expanded, description, triggerContent, content } },
 };

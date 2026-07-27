@@ -1,4 +1,5 @@
 // url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3385%3A7751
+// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Accordion/Accordion.tsx
 // component=Accordion
 
 import figma from 'figma';
@@ -21,5 +22,5 @@ export default {
   example: figma.code`<Accordion${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}>
       ${items.flat()}
     </Accordion>`,
-  metadata: { nestable: true },
+  metadata: { nestable: true, props: { heading, helperText, items } },
 };
