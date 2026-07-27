@@ -3,15 +3,6 @@
 // component=Table
 
 import figma from 'figma';
-import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHeader,
-  TableHeaderCell,
-  TableRow,
-} from '@utilitywarehouse/hearth-react-native';
 
 const instance = figma.selectedInstance;
 

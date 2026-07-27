@@ -35,22 +35,24 @@ const displayValue = valueType === 'filled' ? value : undefined;
 
 export default {
   id: 'currency-input',
-  imports: ["import { CurrencyInput, FormField } from '@utilitywarehouse/hearth-react-native';"],
-  example: figma.code`<FormField${figma.helpers.react.renderProp(
-    'label',
-    label
-  )}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp(
-    'invalidText',
-    invalidText
-  )}${figma.helpers.react.renderProp('validationStatus', validationStatus)}>
+  imports: ["import { CurrencyInput } from '@utilitywarehouse/hearth-react-native';"],
+  example: figma.code`
         <CurrencyInput${figma.helpers.react.renderProp(
-          'placeholder',
-          placeholder
-        )}${figma.helpers.react.renderProp('value', displayValue)}${figma.helpers.react.renderProp(
-          'focused',
-          focused
-        )}${figma.helpers.react.renderProp('labelVariant', labelVariant)} onChange={onChangeHandler}/>
-      </FormField>`,
+          'label',
+          label
+        )}${figma.helpers.react.renderProp(
+    'helperText',
+    helperText
+  )}${figma.helpers.react.renderProp('invalidText', invalidText)}${figma.helpers.react.renderProp(
+    'validationStatus',
+    validationStatus
+  )}${figma.helpers.react.renderProp('placeholder', placeholder)}${figma.helpers.react.renderProp(
+    'value',
+    displayValue
+  )}${figma.helpers.react.renderProp('focused', focused)}${figma.helpers.react.renderProp(
+    'labelVariant',
+    labelVariant
+  )} onChange={onChangeHandler}/>`,
   metadata: {
     nestable: true,
     props: {

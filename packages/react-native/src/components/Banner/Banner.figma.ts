@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=12512-3903&t=wLfy4ZMrZsHup0oB-4
+// url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=8294-3905&m=dev
 // source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Banner/Banner.tsx
 // component=Banner
 
@@ -27,7 +27,7 @@ const image =
 
 const onClose = instance.getBoolean('Close?', {
   true: figma.helpers.react.function("() => console.log('Close pressed')"),
-  false: undefined,
+  false: '',
 });
 
 const button = instance.getBoolean('Button?', {

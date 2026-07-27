@@ -3,8 +3,6 @@
 // component=TableHeaderCell
 
 import figma from 'figma';
-import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { TableHeaderCell } from '@utilitywarehouse/hearth-react-native';
 
 const instance = figma.selectedInstance;
 

@@ -2,7 +2,6 @@
 // source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/DatePickerInput/DatePickerInput.tsx
 // component=DatePickerInput
 import figma from 'figma';
-import { DatePickerInput } from '@utilitywarehouse/hearth-react-native';
 
 const instance = figma.selectedInstance;
 
