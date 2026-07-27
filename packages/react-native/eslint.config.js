@@ -8,7 +8,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['build', 'dist', 'storybook-static', '**/*.figma.tsx'] },
+  { ignores: ['build', 'dist', 'storybook-static', '**/*.figma.tsx', '**/*.figma.ts'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
