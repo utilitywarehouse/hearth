@@ -47,6 +47,8 @@ const disabled = instance.getBoolean('Disabled');
 
 export default {
   id: 'my-component',
+  // Import from the published package name for whichever package you're in —
+  // "@utilitywarehouse/hearth-react" or "@utilitywarehouse/hearth-react-native" (see the table above).
   imports: ['import { MyComponent } from "@utilitywarehouse/hearth-react-native";'],
   example: figma.code`<MyComponent${figma.helpers.react.renderProp('size', size)}${figma.helpers.react.renderProp('disabled', disabled)}>${figma.helpers.react.renderChildren(label)}</MyComponent>`,
   metadata: { props: { size, label, disabled } },
