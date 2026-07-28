@@ -1,0 +1,837 @@
+{
+  "templateFile": "./assets.figma.batch.ts",
+  "components": [
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=1:9&m=dev",
+      "id": "logo-full-purple",
+      "name": "LogoFullPurple",
+      "component": "LogoFullPurple",
+      "path": "logo-full-purple.svg",
+      "source": "../../lib/logo-full-purple.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5299&m=dev",
+      "id": "beaming-face",
+      "name": "BeamingFace",
+      "component": "BeamingFace",
+      "path": "beaming-face.svg",
+      "source": "../../lib/beaming-face.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5750&m=dev",
+      "id": "beaming-face-grey",
+      "name": "BeamingFaceGrey",
+      "component": "BeamingFaceGrey",
+      "path": "beaming-face-grey.svg",
+      "source": "../../lib/beaming-face-grey.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5290&m=dev",
+      "id": "dissapointed-face",
+      "name": "DissapointedFace",
+      "component": "DissapointedFace",
+      "path": "dissapointed-face.svg",
+      "source": "../../lib/dissapointed-face.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5292&m=dev",
+      "id": "frowning-face",
+      "name": "FrowningFace",
+      "component": "FrowningFace",
+      "path": "frowning-face.svg",
+      "source": "../../lib/frowning-face.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5294&m=dev",
+      "id": "neutral-face",
+      "name": "NeutralFace",
+      "component": "NeutralFace",
+      "path": "neutral-face.svg",
+      "source": "../../lib/neutral-face.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5738&m=dev",
+      "id": "neutral-face-grey",
+      "name": "NeutralFaceGrey",
+      "component": "NeutralFaceGrey",
+      "path": "neutral-face-grey.svg",
+      "source": "../../lib/neutral-face-grey.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5296&m=dev",
+      "id": "slightly-smiling-face",
+      "name": "SlightlySmilingFace",
+      "component": "SlightlySmilingFace",
+      "path": "slightly-smiling-face.svg",
+      "source": "../../lib/slightly-smiling-face.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5744&m=dev",
+      "id": "slightly-smiling-face-grey",
+      "name": "SlightlySmilingFaceGrey",
+      "component": "SlightlySmilingFaceGrey",
+      "path": "slightly-smiling-face-grey.svg",
+      "source": "../../lib/slightly-smiling-face-grey.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5726&m=dev",
+      "id": "dissapointed-face-grey",
+      "name": "DissapointedFaceGrey",
+      "component": "DissapointedFaceGrey",
+      "path": "dissapointed-face-grey.svg",
+      "source": "../../lib/dissapointed-face-grey.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2787:5732&m=dev",
+      "id": "frowning-face-grey",
+      "name": "FrowningFaceGrey",
+      "component": "FrowningFaceGrey",
+      "path": "frowning-face-grey.svg",
+      "source": "../../lib/frowning-face-grey.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2119:910&m=dev",
+      "id": "spot-neighbours-light",
+      "name": "SpotNeighboursLight",
+      "component": "SpotNeighboursLight",
+      "path": "spot-neighbours-light.svg",
+      "source": "../../lib/spot-neighbours-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:697&m=dev",
+      "id": "spot-notification-light",
+      "name": "SpotNotificationLight",
+      "component": "SpotNotificationLight",
+      "path": "spot-notification-light.svg",
+      "source": "../../lib/spot-notification-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:871&m=dev",
+      "id": "spot-moving-house-light",
+      "name": "SpotMovingHouseLight",
+      "component": "SpotMovingHouseLight",
+      "path": "spot-moving-house-light.svg",
+      "source": "../../lib/spot-moving-house-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:1299&m=dev",
+      "id": "spot-innovation-light",
+      "name": "SpotInnovationLight",
+      "component": "SpotInnovationLight",
+      "path": "spot-innovation-light.svg",
+      "source": "../../lib/spot-innovation-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:1493&m=dev",
+      "id": "spot-help-light",
+      "name": "SpotHelpLight",
+      "component": "SpotHelpLight",
+      "path": "spot-help-light.svg",
+      "source": "../../lib/spot-help-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:1583&m=dev",
+      "id": "spot-online-account-light",
+      "name": "SpotOnlineAccountLight",
+      "component": "SpotOnlineAccountLight",
+      "path": "spot-online-account-light.svg",
+      "source": "../../lib/spot-online-account-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:1703&m=dev",
+      "id": "spot-success-light",
+      "name": "SpotSuccessLight",
+      "component": "SpotSuccessLight",
+      "path": "spot-success-light.svg",
+      "source": "../../lib/spot-success-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:1828&m=dev",
+      "id": "spot-smart-meter-light",
+      "name": "SpotSmartMeterLight",
+      "component": "SpotSmartMeterLight",
+      "path": "spot-smart-meter-light.svg",
+      "source": "../../lib/spot-smart-meter-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:4666&m=dev",
+      "id": "spot-security-light",
+      "name": "SpotSecurityLight",
+      "component": "SpotSecurityLight",
+      "path": "spot-security-light.svg",
+      "source": "../../lib/spot-security-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:4722&m=dev",
+      "id": "spot-error-light",
+      "name": "SpotErrorLight",
+      "component": "SpotErrorLight",
+      "path": "spot-error-light.svg",
+      "source": "../../lib/spot-error-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:4803&m=dev",
+      "id": "spot-piggy-bank-light",
+      "name": "SpotPiggyBankLight",
+      "component": "SpotPiggyBankLight",
+      "path": "spot-piggy-bank-light.svg",
+      "source": "../../lib/spot-piggy-bank-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:4919&m=dev",
+      "id": "spot-billing-light",
+      "name": "SpotBillingLight",
+      "component": "SpotBillingLight",
+      "path": "spot-billing-light.svg",
+      "source": "../../lib/spot-billing-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:5152&m=dev",
+      "id": "spot-celebratory-light",
+      "name": "SpotCelebratoryLight",
+      "component": "SpotCelebratoryLight",
+      "path": "spot-celebratory-light.svg",
+      "source": "../../lib/spot-celebratory-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:5247&m=dev",
+      "id": "spot-recognition-light",
+      "name": "SpotRecognitionLight",
+      "component": "SpotRecognitionLight",
+      "path": "spot-recognition-light.svg",
+      "source": "../../lib/spot-recognition-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:5366&m=dev",
+      "id": "spot-ev-light",
+      "name": "SpotEvLight",
+      "component": "SpotEvLight",
+      "path": "spot-ev-light.svg",
+      "source": "../../lib/spot-ev-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2211:5643&m=dev",
+      "id": "spot-tick-light",
+      "name": "SpotTickLight",
+      "component": "SpotTickLight",
+      "path": "spot-tick-light.svg",
+      "source": "../../lib/spot-tick-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2211:5692&m=dev",
+      "id": "spot-security-code-light",
+      "name": "SpotSecurityCodeLight",
+      "component": "SpotSecurityCodeLight",
+      "path": "spot-security-code-light.svg",
+      "source": "../../lib/spot-security-code-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5731&m=dev",
+      "id": "spot-no-broadband-light",
+      "name": "SpotNoBroadbandLight",
+      "component": "SpotNoBroadbandLight",
+      "path": "spot-no-broadband-light.svg",
+      "source": "../../lib/spot-no-broadband-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5755&m=dev",
+      "id": "spot-heart-light",
+      "name": "SpotHeartLight",
+      "component": "SpotHeartLight",
+      "path": "spot-heart-light.svg",
+      "source": "../../lib/spot-heart-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5785&m=dev",
+      "id": "spot-empty-light",
+      "name": "SpotEmptyLight",
+      "component": "SpotEmptyLight",
+      "path": "spot-empty-light.svg",
+      "source": "../../lib/spot-empty-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5826&m=dev",
+      "id": "spot-confetti-light",
+      "name": "SpotConfettiLight",
+      "component": "SpotConfettiLight",
+      "path": "spot-confetti-light.svg",
+      "source": "../../lib/spot-confetti-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5892&m=dev",
+      "id": "spot-bundle-complete-light",
+      "name": "SpotBundleCompleteLight",
+      "component": "SpotBundleCompleteLight",
+      "path": "spot-bundle-complete-light.svg",
+      "source": "../../lib/spot-bundle-complete-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5920&m=dev",
+      "id": "spot-bundle-incomplete-light",
+      "name": "SpotBundleIncompleteLight",
+      "component": "SpotBundleIncompleteLight",
+      "path": "spot-bundle-incomplete-light.svg",
+      "source": "../../lib/spot-bundle-incomplete-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5962&m=dev",
+      "id": "spot-boiler-light",
+      "name": "SpotBoilerLight",
+      "component": "SpotBoilerLight",
+      "path": "spot-boiler-light.svg",
+      "source": "../../lib/spot-boiler-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:5985&m=dev",
+      "id": "spot-switch-light",
+      "name": "SpotSwitchLight",
+      "component": "SpotSwitchLight",
+      "path": "spot-switch-light.svg",
+      "source": "../../lib/spot-switch-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:6005&m=dev",
+      "id": "spot-savings-light",
+      "name": "SpotSavingsLight",
+      "component": "SpotSavingsLight",
+      "path": "spot-savings-light.svg",
+      "source": "../../lib/spot-savings-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:6326&m=dev",
+      "id": "spot-new-look-light",
+      "name": "SpotNewLookLight",
+      "component": "SpotNewLookLight",
+      "path": "spot-new-look-light.svg",
+      "source": "../../lib/spot-new-look-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:6352&m=dev",
+      "id": "spot-unavailable-light",
+      "name": "SpotUnavailableLight",
+      "component": "SpotUnavailableLight",
+      "path": "spot-unavailable-light.svg",
+      "source": "../../lib/spot-unavailable-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:6375&m=dev",
+      "id": "spot-dark-mode-light",
+      "name": "SpotDarkModeLight",
+      "component": "SpotDarkModeLight",
+      "path": "spot-dark-mode-light.svg",
+      "source": "../../lib/spot-dark-mode-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2212:6407&m=dev",
+      "id": "spot-broadband-light",
+      "name": "SpotBroadbandLight",
+      "component": "SpotBroadbandLight",
+      "path": "spot-broadband-light.svg",
+      "source": "../../lib/spot-broadband-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17152&m=dev",
+      "id": "spot-welcome-light",
+      "name": "SpotWelcomeLight",
+      "component": "SpotWelcomeLight",
+      "path": "spot-welcome-light.svg",
+      "source": "../../lib/spot-welcome-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17346&m=dev",
+      "id": "spot-quote-light",
+      "name": "SpotQuoteLight",
+      "component": "SpotQuoteLight",
+      "path": "spot-quote-light.svg",
+      "source": "../../lib/spot-quote-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17388&m=dev",
+      "id": "spot-leads-light",
+      "name": "SpotLeadsLight",
+      "component": "SpotLeadsLight",
+      "path": "spot-leads-light.svg",
+      "source": "../../lib/spot-leads-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17448&m=dev",
+      "id": "spot-keep-track-light",
+      "name": "SpotKeepTrackLight",
+      "component": "SpotKeepTrackLight",
+      "path": "spot-keep-track-light.svg",
+      "source": "../../lib/spot-keep-track-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17505&m=dev",
+      "id": "spot-how-to-video-light",
+      "name": "SpotHowToVideoLight",
+      "component": "SpotHowToVideoLight",
+      "path": "spot-how-to-video-light.svg",
+      "source": "../../lib/spot-how-to-video-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17586&m=dev",
+      "id": "spot-earnings-light",
+      "name": "SpotEarningsLight",
+      "component": "SpotEarningsLight",
+      "path": "spot-earnings-light.svg",
+      "source": "../../lib/spot-earnings-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17702&m=dev",
+      "id": "spot-calendar-light",
+      "name": "SpotCalendarLight",
+      "component": "SpotCalendarLight",
+      "path": "spot-calendar-light.svg",
+      "source": "../../lib/spot-calendar-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2256:17781&m=dev",
+      "id": "spot-book-appointment-light",
+      "name": "SpotBookAppointmentLight",
+      "component": "SpotBookAppointmentLight",
+      "path": "spot-book-appointment-light.svg",
+      "source": "../../lib/spot-book-appointment-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:10126&m=dev",
+      "id": "scene-energy-light",
+      "name": "SceneEnergyLight",
+      "component": "SceneEnergyLight",
+      "path": "scene-energy-light.svg",
+      "source": "../../lib/scene-energy-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:11069&m=dev",
+      "id": "scene-mobile-light",
+      "name": "SceneMobileLight",
+      "component": "SceneMobileLight",
+      "path": "scene-mobile-light.svg",
+      "source": "../../lib/scene-mobile-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:12039&m=dev",
+      "id": "scene-broadband-light",
+      "name": "SceneBroadbandLight",
+      "component": "SceneBroadbandLight",
+      "path": "scene-broadband-light.svg",
+      "source": "../../lib/scene-broadband-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:12474&m=dev",
+      "id": "scene-insurance-light",
+      "name": "SceneInsuranceLight",
+      "component": "SceneInsuranceLight",
+      "path": "scene-insurance-light.svg",
+      "source": "../../lib/scene-insurance-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:12927&m=dev",
+      "id": "scene-cashback-light",
+      "name": "SceneCashbackLight",
+      "component": "SceneCashbackLight",
+      "path": "scene-cashback-light.svg",
+      "source": "../../lib/scene-cashback-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:13478&m=dev",
+      "id": "scene-bundle-light",
+      "name": "SceneBundleLight",
+      "component": "SceneBundleLight",
+      "path": "scene-bundle-light.svg",
+      "source": "../../lib/scene-bundle-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:20121&m=dev",
+      "id": "mascot-energy-light",
+      "name": "MascotEnergyLight",
+      "component": "MascotEnergyLight",
+      "path": "mascot-energy-light.svg",
+      "source": "../../lib/mascot-energy-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:27197&m=dev",
+      "id": "mascot-broadband-light",
+      "name": "MascotBroadbandLight",
+      "component": "MascotBroadbandLight",
+      "path": "mascot-broadband-light.svg",
+      "source": "../../lib/mascot-broadband-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:27396&m=dev",
+      "id": "mascot-mobile-light",
+      "name": "MascotMobileLight",
+      "component": "MascotMobileLight",
+      "path": "mascot-mobile-light.svg",
+      "source": "../../lib/mascot-mobile-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:27504&m=dev",
+      "id": "mascot-insurance-light",
+      "name": "MascotInsuranceLight",
+      "component": "MascotInsuranceLight",
+      "path": "mascot-insurance-light.svg",
+      "source": "../../lib/mascot-insurance-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:27652&m=dev",
+      "id": "mascot-cashback-light",
+      "name": "MascotCashbackLight",
+      "component": "MascotCashbackLight",
+      "path": "mascot-cashback-light.svg",
+      "source": "../../lib/mascot-cashback-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:46016&m=dev",
+      "id": "technical-router-with-power-light",
+      "name": "TechnicalRouterWithPowerLight",
+      "component": "TechnicalRouterWithPowerLight",
+      "path": "technical-router-with-power-light.svg",
+      "source": "../../lib/technical-router-with-power-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:46168&m=dev",
+      "id": "technical-standard-dsl-connx-full-labelled-light",
+      "name": "TechnicalStandardDslConnxFullLabelledLight",
+      "component": "TechnicalStandardDslConnxFullLabelledLight",
+      "path": "technical-standard-dsl-connx-full-labelled-light.svg",
+      "source": "../../lib/technical-standard-dsl-connx-full-labelled-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:46902&m=dev",
+      "id": "technical-standard-dsl-connx-part-light",
+      "name": "TechnicalStandardDslConnxPartLight",
+      "component": "TechnicalStandardDslConnxPartLight",
+      "path": "technical-standard-dsl-connx-part-light.svg",
+      "source": "../../lib/technical-standard-dsl-connx-part-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:47225&m=dev",
+      "id": "technical-standard-dsl-connx-full-light",
+      "name": "TechnicalStandardDslConnxFullLight",
+      "component": "TechnicalStandardDslConnxFullLight",
+      "path": "technical-standard-dsl-connx-full-light.svg",
+      "source": "../../lib/technical-standard-dsl-connx-full-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:47529&m=dev",
+      "id": "technical-power-supply-01-b-rgb-light",
+      "name": "TechnicalPowerSupply01BRgbLight",
+      "component": "TechnicalPowerSupply01BRgbLight",
+      "path": "technical-power-supply-01-b-rgb-light.svg",
+      "source": "../../lib/technical-power-supply-01-b-rgb-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:47585&m=dev",
+      "id": "technical-prefiltered-connx-full-labelled-light",
+      "name": "TechnicalPrefilteredConnxFullLabelledLight",
+      "component": "TechnicalPrefilteredConnxFullLabelledLight",
+      "path": "technical-prefiltered-connx-full-labelled-light.svg",
+      "source": "../../lib/technical-prefiltered-connx-full-labelled-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48001&m=dev",
+      "id": "technical-prefiltered-connx-full-light",
+      "name": "TechnicalPrefilteredConnxFullLight",
+      "component": "TechnicalPrefilteredConnxFullLight",
+      "path": "technical-prefiltered-connx-full-light.svg",
+      "source": "../../lib/technical-prefiltered-connx-full-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48313&m=dev",
+      "id": "technical-prefiltered-connx-part-light",
+      "name": "TechnicalPrefilteredConnxPartLight",
+      "component": "TechnicalPrefilteredConnxPartLight",
+      "path": "technical-prefiltered-connx-part-light.svg",
+      "source": "../../lib/technical-prefiltered-connx-part-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48487&m=dev",
+      "id": "technical-prefiltered-master-sockets-light",
+      "name": "TechnicalPrefilteredMasterSocketsLight",
+      "component": "TechnicalPrefilteredMasterSocketsLight",
+      "path": "technical-prefiltered-master-sockets-light.svg",
+      "source": "../../lib/technical-prefiltered-master-sockets-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48555&m=dev",
+      "id": "technical-rim-automatic-deadlock-light",
+      "name": "TechnicalRimAutomaticDeadlockLight",
+      "component": "TechnicalRimAutomaticDeadlockLight",
+      "path": "technical-rim-automatic-deadlock-light.svg",
+      "source": "../../lib/technical-rim-automatic-deadlock-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48592&m=dev",
+      "id": "technical-router-01-light",
+      "name": "TechnicalRouter01Light",
+      "component": "TechnicalRouter01Light",
+      "path": "technical-router-01-light.svg",
+      "source": "../../lib/technical-router-01-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48629&m=dev",
+      "id": "technical-router-02-front-light",
+      "name": "TechnicalRouter02FrontLight",
+      "component": "TechnicalRouter02FrontLight",
+      "path": "technical-router-02-front-light.svg",
+      "source": "../../lib/technical-router-02-front-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48642&m=dev",
+      "id": "technical-router-03-rear-light",
+      "name": "TechnicalRouter03RearLight",
+      "component": "TechnicalRouter03RearLight",
+      "path": "technical-router-03-rear-light.svg",
+      "source": "../../lib/technical-router-03-rear-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48760&m=dev",
+      "id": "technical-meter-01-labelled-light",
+      "name": "TechnicalMeter01LabelledLight",
+      "component": "TechnicalMeter01LabelledLight",
+      "path": "technical-meter-01-labelled-light.svg",
+      "source": "../../lib/technical-meter-01-labelled-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48896&m=dev",
+      "id": "technical-meter-02-labelled-light",
+      "name": "TechnicalMeter02LabelledLight",
+      "component": "TechnicalMeter02LabelledLight",
+      "path": "technical-meter-02-labelled-light.svg",
+      "source": "../../lib/technical-meter-02-labelled-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48998&m=dev",
+      "id": "technical-meter-02-light",
+      "name": "TechnicalMeter02Light",
+      "component": "TechnicalMeter02Light",
+      "path": "technical-meter-02-light.svg",
+      "source": "../../lib/technical-meter-02-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49076&m=dev",
+      "id": "technical-microfilter-01-light",
+      "name": "TechnicalMicrofilter01Light",
+      "component": "TechnicalMicrofilter01Light",
+      "path": "technical-microfilter-01-light.svg",
+      "source": "../../lib/technical-microfilter-01-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49114&m=dev",
+      "id": "technical-mortice-deadlock-5-levers-light",
+      "name": "TechnicalMorticeDeadlock5LeversLight",
+      "component": "TechnicalMorticeDeadlock5LeversLight",
+      "path": "technical-mortice-deadlock-5-levers-light.svg",
+      "source": "../../lib/technical-mortice-deadlock-5-levers-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49166&m=dev",
+      "id": "technical-microfilter-02-light",
+      "name": "TechnicalMicrofilter02Light",
+      "component": "TechnicalMicrofilter02Light",
+      "path": "technical-microfilter-02-light.svg",
+      "source": "../../lib/technical-microfilter-02-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49194&m=dev",
+      "id": "technical-multipoint-system-3-bolts-light",
+      "name": "TechnicalMultipointSystem3BoltsLight",
+      "component": "TechnicalMultipointSystem3BoltsLight",
+      "path": "technical-multipoint-system-3-bolts-light.svg",
+      "source": "../../lib/technical-multipoint-system-3-bolts-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49238&m=dev",
+      "id": "technical-ont-router-connx-light",
+      "name": "TechnicalOntRouterConnxLight",
+      "component": "TechnicalOntRouterConnxLight",
+      "path": "technical-ont-router-connx-light.svg",
+      "source": "../../lib/technical-ont-router-connx-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49525&m=dev",
+      "id": "technical-other-building-light",
+      "name": "TechnicalOtherBuildingLight",
+      "component": "TechnicalOtherBuildingLight",
+      "path": "technical-other-building-light.svg",
+      "source": "../../lib/technical-other-building-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49549&m=dev",
+      "id": "technical-other-lock-light",
+      "name": "TechnicalOtherLockLight",
+      "component": "TechnicalOtherLockLight",
+      "path": "technical-other-lock-light.svg",
+      "source": "../../lib/technical-other-lock-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49572&m=dev",
+      "id": "technical-eero-light",
+      "name": "TechnicalEeroLight",
+      "component": "TechnicalEeroLight",
+      "path": "technical-eero-light.svg",
+      "source": "../../lib/technical-eero-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49583&m=dev",
+      "id": "technical-ethernet-cable-light",
+      "name": "TechnicalEthernetCableLight",
+      "component": "TechnicalEthernetCableLight",
+      "path": "technical-ethernet-cable-light.svg",
+      "source": "../../lib/technical-ethernet-cable-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49619&m=dev",
+      "id": "technical-flat-light",
+      "name": "TechnicalFlatLight",
+      "component": "TechnicalFlatLight",
+      "path": "technical-flat-light.svg",
+      "source": "../../lib/technical-flat-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:49660&m=dev",
+      "id": "technical-full-fibre-socket-light",
+      "name": "TechnicalFullFibreSocketLight",
+      "component": "TechnicalFullFibreSocketLight",
+      "path": "technical-full-fibre-socket-light.svg",
+      "source": "../../lib/technical-full-fibre-socket-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:49734&m=dev",
+      "id": "technical-fullfibre-9-16-mobile-light",
+      "name": "TechnicalFullfibre916MobileLight",
+      "component": "TechnicalFullfibre916MobileLight",
+      "path": "technical-fullfibre-9-16-mobile-light.svg",
+      "source": "../../lib/technical-fullfibre-9-16-mobile-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:50441&m=dev",
+      "id": "technical-fullfibre-9-16-desktop-light",
+      "name": "TechnicalFullfibre916DesktopLight",
+      "component": "TechnicalFullfibre916DesktopLight",
+      "path": "technical-fullfibre-9-16-desktop-light.svg",
+      "source": "../../lib/technical-fullfibre-9-16-desktop-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:51135&m=dev",
+      "id": "technical-house-light",
+      "name": "TechnicalHouseLight",
+      "component": "TechnicalHouseLight",
+      "path": "technical-house-light.svg",
+      "source": "../../lib/technical-house-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:51172&m=dev",
+      "id": "technical-main-telephone-socket-light",
+      "name": "TechnicalMainTelephoneSocketLight",
+      "component": "TechnicalMainTelephoneSocketLight",
+      "path": "technical-main-telephone-socket-light.svg",
+      "source": "../../lib/technical-main-telephone-socket-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:51201&m=dev",
+      "id": "technical-meter-light",
+      "name": "TechnicalMeterLight",
+      "component": "TechnicalMeterLight",
+      "path": "technical-meter-light.svg",
+      "source": "../../lib/technical-meter-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2384:51309&m=dev",
+      "id": "technical-buildings-and-contents-light",
+      "name": "TechnicalBuildingsAndContentsLight",
+      "component": "TechnicalBuildingsAndContentsLight",
+      "path": "technical-buildings-and-contents-light.svg",
+      "source": "../../lib/technical-buildings-and-contents-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51368&m=dev",
+      "id": "technical-buildings-light",
+      "name": "TechnicalBuildingsLight",
+      "component": "TechnicalBuildingsLight",
+      "path": "technical-buildings-light.svg",
+      "source": "../../lib/technical-buildings-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51482&m=dev",
+      "id": "technical-bungalow-light",
+      "name": "TechnicalBungalowLight",
+      "component": "TechnicalBungalowLight",
+      "path": "technical-bungalow-light.svg",
+      "source": "../../lib/technical-bungalow-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51513&m=dev",
+      "id": "technical-contents-light",
+      "name": "TechnicalContentsLight",
+      "component": "TechnicalContentsLight",
+      "path": "technical-contents-light.svg",
+      "source": "../../lib/technical-contents-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51641&m=dev",
+      "id": "technical-dsl-cable-light",
+      "name": "TechnicalDslCableLight",
+      "component": "TechnicalDslCableLight",
+      "path": "technical-dsl-cable-light.svg",
+      "source": "../../lib/technical-dsl-cable-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51676&m=dev",
+      "id": "technical-dsl-power-microfilter-light",
+      "name": "TechnicalDslPowerMicrofilterLight",
+      "component": "TechnicalDslPowerMicrofilterLight",
+      "path": "technical-dsl-power-microfilter-light.svg",
+      "source": "../../lib/technical-dsl-power-microfilter-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2388:51898&m=dev",
+      "id": "technical-optical-network-terminal-light",
+      "name": "TechnicalOpticalNetworkTerminalLight",
+      "component": "TechnicalOpticalNetworkTerminalLight",
+      "path": "technical-optical-network-terminal-light.svg",
+      "source": "../../lib/technical-optical-network-terminal-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2636:15704&m=dev",
+      "id": "technical-router-status-off-light",
+      "name": "TechnicalRouterStatusOffLight",
+      "component": "TechnicalRouterStatusOffLight",
+      "path": "technical-router-status-off-light.svg",
+      "source": "../../lib/technical-router-status-off-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2636:15717&m=dev",
+      "id": "technical-router-status-red-light",
+      "name": "TechnicalRouterStatusRedLight",
+      "component": "TechnicalRouterStatusRedLight",
+      "path": "technical-router-status-red-light.svg",
+      "source": "../../lib/technical-router-status-red-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2636:15752&m=dev",
+      "id": "technical-router-status-orange-light",
+      "name": "TechnicalRouterStatusOrangeLight",
+      "component": "TechnicalRouterStatusOrangeLight",
+      "path": "technical-router-status-orange-light.svg",
+      "source": "../../lib/technical-router-status-orange-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2636:15782&m=dev",
+      "id": "technical-router-status-green-light",
+      "name": "TechnicalRouterStatusGreenLight",
+      "component": "TechnicalRouterStatusGreenLight",
+      "path": "technical-router-status-green-light.svg",
+      "source": "../../lib/technical-router-status-green-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2958:15756&m=dev",
+      "id": "technical-ont-router-connx-labelled-light",
+      "name": "TechnicalOntRouterConnxLabelledLight",
+      "component": "TechnicalOntRouterConnxLabelledLight",
+      "path": "technical-ont-router-connx-labelled-light.svg",
+      "source": "../../lib/technical-ont-router-connx-labelled-light.svg"
+    }
+  ]
+}
