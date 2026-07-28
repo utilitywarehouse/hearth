@@ -8,7 +8,12 @@ const label = figma.selectedInstance.getString('Text');
 const disabled = figma.selectedInstance.getEnum('State', {
   Disabled: true,
 });
-const selected = figma.selectedInstance.getBoolean('Selected?#3481:0');
+const rawSelected = figma.selectedInstance.getBoolean('Selected?#3481:0');
+// getBoolean() can resolve to a non-boolean sentinel when the property can't be cleanly
+// matched (this node has a duplicate "Selected?" property disambiguated by id) — always fall
+// back to a real boolean rather than pass that sentinel through to renderProp, which renders
+// it as broken, unparseable syntax.
+const selected = typeof rawSelected === 'boolean' ? rawSelected : false;
 
 export default {
   id: 'SelectOption',

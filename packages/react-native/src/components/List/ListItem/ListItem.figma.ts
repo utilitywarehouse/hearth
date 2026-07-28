@@ -63,9 +63,10 @@ const heading = figma.selectedInstance.getString('List heading');
 const helperText = figma.selectedInstance.getBoolean('Helper text?', {
   true: figma.selectedInstance.getString('Helper text'),
 });
-const badge = figma.selectedInstance.getBoolean('Badge?', {
-  true: figma.properties.children(['Badge']),
-});
+const showBadge = figma.selectedInstance.getBoolean('Badge?');
+const badgeInstance = figma.selectedInstance.findInstance('Badge');
+const badge =
+  showBadge && badgeInstance.type !== 'ERROR' ? badgeInstance.executeTemplate().example : undefined;
 const numericValue = figma.selectedInstance.getBoolean('Numerical value?', {
   true: figma.selectedInstance.getString('Numerical value'),
 });

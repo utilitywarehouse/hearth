@@ -21,12 +21,17 @@ const headingColor = figma.selectedInstance.getEnum('Heading color', {
   Cashback: 'cashback',
   Mobile: 'mobile',
 });
-const link = figma.selectedInstance.getBoolean('Link?', {
-  true: figma.properties.children(['Link']),
-});
-const button = figma.selectedInstance.getBoolean('Button?', {
-  true: figma.properties.children(['Button']),
-});
+const showLink = figma.selectedInstance.getBoolean('Link?');
+const linkInstance = figma.selectedInstance.findInstance('Link');
+const link =
+  showLink && linkInstance.type !== 'ERROR' ? linkInstance.executeTemplate().example : undefined;
+
+const showButton = figma.selectedInstance.getBoolean('Button?');
+const buttonInstance = figma.selectedInstance.findInstance('Button');
+const button =
+  showButton && buttonInstance.type !== 'ERROR'
+    ? buttonInstance.executeTemplate().example
+    : undefined;
 
 export default {
   id: 'HighlightBanner',

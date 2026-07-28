@@ -31,7 +31,10 @@ const badge = figma.selectedInstance.getBoolean('Badge?', {
   true: figma.selectedInstance.getInstanceSwap('Badge')?.executeTemplate().example,
 });
 const slot = figma.selectedInstance.getSlot('Slot');
-const expandedContent = slot?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
+const expandedContentItems = slot?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
+// An empty array passed to renderProp() renders as broken, unparseable `prop={}` syntax
+// instead of being omitted — only pass it through when there's actually something to render.
+const expandedContent = expandedContentItems.length > 0 ? expandedContentItems.flat() : undefined;
 
 export default {
   id: 'ExpandableCard',
@@ -50,7 +53,7 @@ export default {
     numericalValue
   )}${figma.helpers.react.renderProp('badge', badge)}${figma.helpers.react.renderProp(
     'expandedContent',
-    expandedContent.flat()
+    expandedContent
   )}>
         ${figma.helpers.react.renderChildren(content)}
       </ExpandableCard>`,

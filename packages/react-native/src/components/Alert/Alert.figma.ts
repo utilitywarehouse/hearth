@@ -10,23 +10,24 @@ const colorScheme = figma.selectedInstance.getEnum('Color Scheme', {
   Warning: 'warning',
   Danger: 'danger',
 });
-const iconButton = figma.selectedInstance.getBoolean('Icon button?', {
-  true: figma.helpers.react.function("() => console.log('icon button pressed')"),
-  false: undefined,
-});
+const showIconButton = figma.selectedInstance.getBoolean('Icon button?');
+const onPressIconButton =
+  showIconButton === true
+    ? figma.helpers.react.function("() => console.log('icon button pressed')")
+    : undefined;
 const text = figma.selectedInstance.getString('Text');
-const close = figma.selectedInstance.getBoolean('Close?', {
-  true: figma.helpers.react.function("() => console.log('close')"),
-  false: undefined,
-});
+const showClose = figma.selectedInstance.getBoolean('Close?');
+const onClose =
+  showClose === true ? figma.helpers.react.function("() => console.log('close')") : undefined;
 const title = figma.selectedInstance.getBoolean('Title?', {
   true: figma.selectedInstance.getString('Title'),
   false: undefined,
 });
-const showLink = figma.selectedInstance.getBoolean('Link?', {
-  true: figma.helpers.react.function("() => console.log('link pressed')"),
-  false: undefined,
-});
+const showLinkPress = figma.selectedInstance.getBoolean('Link?');
+const onPressLink =
+  showLinkPress === true
+    ? figma.helpers.react.function("() => console.log('link pressed')")
+    : undefined;
 const link = (function () {
   const nestedLayer0 = figma.selectedInstance.findInstance('Link');
   return {
@@ -43,15 +44,15 @@ export default {
   )}${figma.helpers.react.renderProp('title', title)}${figma.helpers.react.renderProp(
     'text',
     text
-  )}${figma.helpers.react.renderProp('onClose', close)}${figma.helpers.react.renderProp(
+  )}${figma.helpers.react.renderProp('onClose', onClose)}${figma.helpers.react.renderProp(
     'onPressIconButton',
-    iconButton
+    onPressIconButton
   )}${figma.helpers.react.renderProp('link', link.text)}${figma.helpers.react.renderProp(
     'onPressLink',
-    showLink
+    onPressLink
   )}/>`,
   metadata: {
     nestable: true,
-    props: { colorScheme, iconButton, text, close, title, showLink, link },
+    props: { colorScheme, onPressIconButton, text, onClose, title, onPressLink, link },
   },
 };
