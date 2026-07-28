@@ -33,14 +33,23 @@ function getAssets() {
   );
   const pathByName = new Map(svgAssets.map(asset => [asset.name, asset.path]));
 
-  return assets.map(asset => ({
-    id: asset.id,
-    // Older assets.json files predate componentSetId; fall back to the
-    // variant's own id so this doesn't crash before a regenerate.
-    componentSetId: asset.componentSetId || asset.id,
-    name: asset.name,
-    path: pathByName.get(asset.name),
-  }));
+  return assets.map(asset => {
+    const assetPath = pathByName.get(asset.name);
+    if (!assetPath) {
+      throw new Error(
+        `Asset "${asset.name}" (id: ${asset.id}) is missing from manifest.json — run "pnpm generate" to regenerate it.`
+      );
+    }
+
+    return {
+      id: asset.id,
+      // Older assets.json files predate componentSetId; fall back to the
+      // variant's own id so this doesn't crash before a regenerate.
+      componentSetId: asset.componentSetId || asset.id,
+      name: asset.name,
+      path: assetPath,
+    };
+  });
 }
 
 /**
