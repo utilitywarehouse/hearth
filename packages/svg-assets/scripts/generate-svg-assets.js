@@ -118,15 +118,23 @@ function getAssets(data) {
     const visit = (node, ctx = {}) => {
       if (!node) return;
       if (node.type === 'COMPONENT') {
-        assets[node.id] = transformers.buildAssetNames(node, {
-          canvas: canvas.size,
-          componentSetName: ctx.componentSetName,
-        });
+        assets[node.id] = {
+          ...transformers.buildAssetNames(node, {
+            canvas: canvas.size,
+            componentSetName: ctx.componentSetName,
+          }),
+          // Figma Code Connect can only attach to a top-level component or
+          // component set, never to an individual variant, so we need the
+          // enclosing set's id (falling back to the component's own id when
+          // it isn't part of a set) alongside the variant's own render id.
+          componentSetId: ctx.componentSetId || node.id,
+        };
       }
-      // If this is a COMPONENT_SET, capture its name to pass to children
+      // If this is a COMPONENT_SET, capture its name & id to pass to children
       const nextCtx = { ...ctx };
       if (node.type === 'COMPONENT_SET') {
         nextCtx.componentSetName = `${node.name.split(' - ')[0]}`;
+        nextCtx.componentSetId = node.id;
       }
       if (node.children && node.children.length) {
         node.children.forEach(child => visit(child, nextCtx));
@@ -139,7 +147,11 @@ function getAssets(data) {
 }
 
 async function writeAssetsToFile(assets) {
-  const formatted = Object.values(assets).map(({ id, jsxName }) => ({ id, name: jsxName }));
+  const formatted = Object.values(assets).map(({ id, jsxName, componentSetId }) => ({
+    id,
+    name: jsxName,
+    componentSetId,
+  }));
   await fs.outputFile(
     path.resolve(__dirname, '..', 'assets.json'),
     JSON.stringify(formatted, undefined, 2),

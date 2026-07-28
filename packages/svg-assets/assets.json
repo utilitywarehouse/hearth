@@ -1,802 +1,1002 @@
 [
   {
     "id": "1:8",
-    "name": "LogoFullPurple"
+    "name": "LogoFullPurple",
+    "componentSetId": "1:9"
   },
   {
     "id": "1:10",
-    "name": "LogoFullWarmWhite"
+    "name": "LogoFullWarmWhite",
+    "componentSetId": "1:9"
   },
   {
     "id": "1:18",
-    "name": "LogoCondensedPurple"
+    "name": "LogoCondensedPurple",
+    "componentSetId": "1:9"
   },
   {
     "id": "1:25",
-    "name": "LogoCondensedWarmWhite"
+    "name": "LogoCondensedWarmWhite",
+    "componentSetId": "1:9"
   },
   {
     "id": "2787:5299",
-    "name": "BeamingFace"
+    "name": "BeamingFace",
+    "componentSetId": "2787:5299"
   },
   {
     "id": "2787:5750",
-    "name": "BeamingFaceGrey"
+    "name": "BeamingFaceGrey",
+    "componentSetId": "2787:5750"
   },
   {
     "id": "2787:5290",
-    "name": "DissapointedFace"
+    "name": "DissapointedFace",
+    "componentSetId": "2787:5290"
   },
   {
     "id": "2787:5292",
-    "name": "FrowningFace"
+    "name": "FrowningFace",
+    "componentSetId": "2787:5292"
   },
   {
     "id": "2787:5294",
-    "name": "NeutralFace"
+    "name": "NeutralFace",
+    "componentSetId": "2787:5294"
   },
   {
     "id": "2787:5738",
-    "name": "NeutralFaceGrey"
+    "name": "NeutralFaceGrey",
+    "componentSetId": "2787:5738"
   },
   {
     "id": "2787:5296",
-    "name": "SlightlySmilingFace"
+    "name": "SlightlySmilingFace",
+    "componentSetId": "2787:5296"
   },
   {
     "id": "2787:5744",
-    "name": "SlightlySmilingFaceGrey"
+    "name": "SlightlySmilingFaceGrey",
+    "componentSetId": "2787:5744"
   },
   {
     "id": "2787:5726",
-    "name": "DissapointedFaceGrey"
+    "name": "DissapointedFaceGrey",
+    "componentSetId": "2787:5726"
   },
   {
     "id": "2787:5732",
-    "name": "FrowningFaceGrey"
+    "name": "FrowningFaceGrey",
+    "componentSetId": "2787:5732"
   },
   {
     "id": "2119:909",
-    "name": "SpotNeighboursLight"
+    "name": "SpotNeighboursLight",
+    "componentSetId": "2119:910"
   },
   {
     "id": "2119:911",
-    "name": "SpotNeighboursDark"
+    "name": "SpotNeighboursDark",
+    "componentSetId": "2119:910"
   },
   {
     "id": "2125:696",
-    "name": "SpotNotificationLight"
+    "name": "SpotNotificationLight",
+    "componentSetId": "2125:697"
   },
   {
     "id": "2125:698",
-    "name": "SpotNotificationDark"
+    "name": "SpotNotificationDark",
+    "componentSetId": "2125:697"
   },
   {
     "id": "2125:870",
-    "name": "SpotMovingHouseLight"
+    "name": "SpotMovingHouseLight",
+    "componentSetId": "2125:871"
   },
   {
     "id": "2125:872",
-    "name": "SpotMovingHouseDark"
+    "name": "SpotMovingHouseDark",
+    "componentSetId": "2125:871"
   },
   {
     "id": "2125:1298",
-    "name": "SpotInnovationLight"
+    "name": "SpotInnovationLight",
+    "componentSetId": "2125:1299"
   },
   {
     "id": "2125:1300",
-    "name": "SpotInnovationDark"
+    "name": "SpotInnovationDark",
+    "componentSetId": "2125:1299"
   },
   {
     "id": "2125:1492",
-    "name": "SpotHelpLight"
+    "name": "SpotHelpLight",
+    "componentSetId": "2125:1493"
   },
   {
     "id": "2125:1494",
-    "name": "SpotHelpDark"
+    "name": "SpotHelpDark",
+    "componentSetId": "2125:1493"
   },
   {
     "id": "2125:1582",
-    "name": "SpotOnlineAccountLight"
+    "name": "SpotOnlineAccountLight",
+    "componentSetId": "2125:1583"
   },
   {
     "id": "2125:1584",
-    "name": "SpotOnlineAccountDark"
+    "name": "SpotOnlineAccountDark",
+    "componentSetId": "2125:1583"
   },
   {
     "id": "2125:1702",
-    "name": "SpotSuccessLight"
+    "name": "SpotSuccessLight",
+    "componentSetId": "2125:1703"
   },
   {
     "id": "2125:1704",
-    "name": "SpotSuccessDark"
+    "name": "SpotSuccessDark",
+    "componentSetId": "2125:1703"
   },
   {
     "id": "2125:1827",
-    "name": "SpotSmartMeterLight"
+    "name": "SpotSmartMeterLight",
+    "componentSetId": "2125:1828"
   },
   {
     "id": "2125:1829",
-    "name": "SpotSmartMeterDark"
+    "name": "SpotSmartMeterDark",
+    "componentSetId": "2125:1828"
   },
   {
     "id": "2125:4665",
-    "name": "SpotSecurityLight"
+    "name": "SpotSecurityLight",
+    "componentSetId": "2125:4666"
   },
   {
     "id": "2125:4667",
-    "name": "SpotSecurityDark"
+    "name": "SpotSecurityDark",
+    "componentSetId": "2125:4666"
   },
   {
     "id": "2125:4721",
-    "name": "SpotErrorLight"
+    "name": "SpotErrorLight",
+    "componentSetId": "2125:4722"
   },
   {
     "id": "2125:4723",
-    "name": "SpotErrorDark"
+    "name": "SpotErrorDark",
+    "componentSetId": "2125:4722"
   },
   {
     "id": "2125:4802",
-    "name": "SpotPiggyBankLight"
+    "name": "SpotPiggyBankLight",
+    "componentSetId": "2125:4803"
   },
   {
     "id": "2125:4804",
-    "name": "SpotPiggyBankDark"
+    "name": "SpotPiggyBankDark",
+    "componentSetId": "2125:4803"
   },
   {
     "id": "2125:4918",
-    "name": "SpotBillingLight"
+    "name": "SpotBillingLight",
+    "componentSetId": "2125:4919"
   },
   {
     "id": "2125:4920",
-    "name": "SpotBillingDark"
+    "name": "SpotBillingDark",
+    "componentSetId": "2125:4919"
   },
   {
     "id": "2125:5151",
-    "name": "SpotCelebratoryLight"
+    "name": "SpotCelebratoryLight",
+    "componentSetId": "2125:5152"
   },
   {
     "id": "2125:5153",
-    "name": "SpotCelebratoryDark"
+    "name": "SpotCelebratoryDark",
+    "componentSetId": "2125:5152"
   },
   {
     "id": "2125:5246",
-    "name": "SpotRecognitionLight"
+    "name": "SpotRecognitionLight",
+    "componentSetId": "2125:5247"
   },
   {
     "id": "2125:5248",
-    "name": "SpotRecognitionDark"
+    "name": "SpotRecognitionDark",
+    "componentSetId": "2125:5247"
   },
   {
     "id": "2125:5365",
-    "name": "SpotEvLight"
+    "name": "SpotEvLight",
+    "componentSetId": "2125:5366"
   },
   {
     "id": "2125:5367",
-    "name": "SpotEvDark"
+    "name": "SpotEvDark",
+    "componentSetId": "2125:5366"
   },
   {
     "id": "2211:5642",
-    "name": "SpotTickLight"
+    "name": "SpotTickLight",
+    "componentSetId": "2211:5643"
   },
   {
     "id": "2219:15492",
-    "name": "SpotTickDark"
+    "name": "SpotTickDark",
+    "componentSetId": "2211:5643"
   },
   {
     "id": "2211:5691",
-    "name": "SpotSecurityCodeLight"
+    "name": "SpotSecurityCodeLight",
+    "componentSetId": "2211:5692"
   },
   {
     "id": "2211:5693",
-    "name": "SpotSecurityCodeDark"
+    "name": "SpotSecurityCodeDark",
+    "componentSetId": "2211:5692"
   },
   {
     "id": "2212:5730",
-    "name": "SpotNoBroadbandLight"
+    "name": "SpotNoBroadbandLight",
+    "componentSetId": "2212:5731"
   },
   {
     "id": "2212:5732",
-    "name": "SpotNoBroadbandDark"
+    "name": "SpotNoBroadbandDark",
+    "componentSetId": "2212:5731"
   },
   {
     "id": "2212:5754",
-    "name": "SpotHeartLight"
+    "name": "SpotHeartLight",
+    "componentSetId": "2212:5755"
   },
   {
     "id": "2212:5756",
-    "name": "SpotHeartDark"
+    "name": "SpotHeartDark",
+    "componentSetId": "2212:5755"
   },
   {
     "id": "2212:5784",
-    "name": "SpotEmptyLight"
+    "name": "SpotEmptyLight",
+    "componentSetId": "2212:5785"
   },
   {
     "id": "2212:5786",
-    "name": "SpotEmptyDark"
+    "name": "SpotEmptyDark",
+    "componentSetId": "2212:5785"
   },
   {
     "id": "2212:5825",
-    "name": "SpotConfettiLight"
+    "name": "SpotConfettiLight",
+    "componentSetId": "2212:5826"
   },
   {
     "id": "2212:5827",
-    "name": "SpotConfettiDark"
+    "name": "SpotConfettiDark",
+    "componentSetId": "2212:5826"
   },
   {
     "id": "2212:5891",
-    "name": "SpotBundleCompleteLight"
+    "name": "SpotBundleCompleteLight",
+    "componentSetId": "2212:5892"
   },
   {
     "id": "2212:5893",
-    "name": "SpotBundleCompleteDark"
+    "name": "SpotBundleCompleteDark",
+    "componentSetId": "2212:5892"
   },
   {
     "id": "2212:5919",
-    "name": "SpotBundleIncompleteLight"
+    "name": "SpotBundleIncompleteLight",
+    "componentSetId": "2212:5920"
   },
   {
     "id": "2212:5921",
-    "name": "SpotBundleIncompleteDark"
+    "name": "SpotBundleIncompleteDark",
+    "componentSetId": "2212:5920"
   },
   {
     "id": "2212:5961",
-    "name": "SpotBoilerLight"
+    "name": "SpotBoilerLight",
+    "componentSetId": "2212:5962"
   },
   {
     "id": "2212:5963",
-    "name": "SpotBoilerDark"
+    "name": "SpotBoilerDark",
+    "componentSetId": "2212:5962"
   },
   {
     "id": "2212:5984",
-    "name": "SpotSwitchLight"
+    "name": "SpotSwitchLight",
+    "componentSetId": "2212:5985"
   },
   {
     "id": "2212:5986",
-    "name": "SpotSwitchDark"
+    "name": "SpotSwitchDark",
+    "componentSetId": "2212:5985"
   },
   {
     "id": "2212:6004",
-    "name": "SpotSavingsLight"
+    "name": "SpotSavingsLight",
+    "componentSetId": "2212:6005"
   },
   {
     "id": "2212:6006",
-    "name": "SpotSavingsDark"
+    "name": "SpotSavingsDark",
+    "componentSetId": "2212:6005"
   },
   {
     "id": "2212:6325",
-    "name": "SpotNewLookLight"
+    "name": "SpotNewLookLight",
+    "componentSetId": "2212:6326"
   },
   {
     "id": "2212:6327",
-    "name": "SpotNewLookDark"
+    "name": "SpotNewLookDark",
+    "componentSetId": "2212:6326"
   },
   {
     "id": "2212:6351",
-    "name": "SpotUnavailableLight"
+    "name": "SpotUnavailableLight",
+    "componentSetId": "2212:6352"
   },
   {
     "id": "2212:6353",
-    "name": "SpotUnavailableDark"
+    "name": "SpotUnavailableDark",
+    "componentSetId": "2212:6352"
   },
   {
     "id": "2212:6374",
-    "name": "SpotDarkModeLight"
+    "name": "SpotDarkModeLight",
+    "componentSetId": "2212:6375"
   },
   {
     "id": "2212:6376",
-    "name": "SpotDarkModeDark"
+    "name": "SpotDarkModeDark",
+    "componentSetId": "2212:6375"
   },
   {
     "id": "2212:6406",
-    "name": "SpotBroadbandLight"
+    "name": "SpotBroadbandLight",
+    "componentSetId": "2212:6407"
   },
   {
     "id": "2212:6408",
-    "name": "SpotBroadbandDark"
+    "name": "SpotBroadbandDark",
+    "componentSetId": "2212:6407"
   },
   {
     "id": "2256:17151",
-    "name": "SpotWelcomeLight"
+    "name": "SpotWelcomeLight",
+    "componentSetId": "2256:17152"
   },
   {
     "id": "2256:17153",
-    "name": "SpotWelcomeDark"
+    "name": "SpotWelcomeDark",
+    "componentSetId": "2256:17152"
   },
   {
     "id": "2256:17345",
-    "name": "SpotQuoteLight"
+    "name": "SpotQuoteLight",
+    "componentSetId": "2256:17346"
   },
   {
     "id": "2256:17347",
-    "name": "SpotQuoteDark"
+    "name": "SpotQuoteDark",
+    "componentSetId": "2256:17346"
   },
   {
     "id": "2256:17387",
-    "name": "SpotLeadsLight"
+    "name": "SpotLeadsLight",
+    "componentSetId": "2256:17388"
   },
   {
     "id": "2256:17389",
-    "name": "SpotLeadsDark"
+    "name": "SpotLeadsDark",
+    "componentSetId": "2256:17388"
   },
   {
     "id": "2256:17447",
-    "name": "SpotKeepTrackLight"
+    "name": "SpotKeepTrackLight",
+    "componentSetId": "2256:17448"
   },
   {
     "id": "2256:17449",
-    "name": "SpotKeepTrackDark"
+    "name": "SpotKeepTrackDark",
+    "componentSetId": "2256:17448"
   },
   {
     "id": "2256:17504",
-    "name": "SpotHowToVideoLight"
+    "name": "SpotHowToVideoLight",
+    "componentSetId": "2256:17505"
   },
   {
     "id": "2256:17545",
-    "name": "SpotHowToVideoDark"
+    "name": "SpotHowToVideoDark",
+    "componentSetId": "2256:17505"
   },
   {
     "id": "2256:17585",
-    "name": "SpotEarningsLight"
+    "name": "SpotEarningsLight",
+    "componentSetId": "2256:17586"
   },
   {
     "id": "2256:17587",
-    "name": "SpotEarningsDark"
+    "name": "SpotEarningsDark",
+    "componentSetId": "2256:17586"
   },
   {
     "id": "2256:17701",
-    "name": "SpotCalendarLight"
+    "name": "SpotCalendarLight",
+    "componentSetId": "2256:17702"
   },
   {
     "id": "2256:17703",
-    "name": "SpotCalendarDark"
+    "name": "SpotCalendarDark",
+    "componentSetId": "2256:17702"
   },
   {
     "id": "2256:17780",
-    "name": "SpotBookAppointmentLight"
+    "name": "SpotBookAppointmentLight",
+    "componentSetId": "2256:17781"
   },
   {
     "id": "2256:17782",
-    "name": "SpotBookAppointmentDark"
+    "name": "SpotBookAppointmentDark",
+    "componentSetId": "2256:17781"
   },
   {
     "id": "2125:10125",
-    "name": "SceneEnergyLight"
+    "name": "SceneEnergyLight",
+    "componentSetId": "2125:10126"
   },
   {
     "id": "2125:10127",
-    "name": "SceneEnergyDark"
+    "name": "SceneEnergyDark",
+    "componentSetId": "2125:10126"
   },
   {
     "id": "2125:11068",
-    "name": "SceneMobileLight"
+    "name": "SceneMobileLight",
+    "componentSetId": "2125:11069"
   },
   {
     "id": "2125:11070",
-    "name": "SceneMobileDark"
+    "name": "SceneMobileDark",
+    "componentSetId": "2125:11069"
   },
   {
     "id": "2125:12038",
-    "name": "SceneBroadbandLight"
+    "name": "SceneBroadbandLight",
+    "componentSetId": "2125:12039"
   },
   {
     "id": "2125:12040",
-    "name": "SceneBroadbandDark"
+    "name": "SceneBroadbandDark",
+    "componentSetId": "2125:12039"
   },
   {
     "id": "2125:12473",
-    "name": "SceneInsuranceLight"
+    "name": "SceneInsuranceLight",
+    "componentSetId": "2125:12474"
   },
   {
     "id": "2125:12475",
-    "name": "SceneInsuranceDark"
+    "name": "SceneInsuranceDark",
+    "componentSetId": "2125:12474"
   },
   {
     "id": "2125:12926",
-    "name": "SceneCashbackLight"
+    "name": "SceneCashbackLight",
+    "componentSetId": "2125:12927"
   },
   {
     "id": "2125:12928",
-    "name": "SceneCashbackDark"
+    "name": "SceneCashbackDark",
+    "componentSetId": "2125:12927"
   },
   {
     "id": "2125:13477",
-    "name": "SceneBundleLight"
+    "name": "SceneBundleLight",
+    "componentSetId": "2125:13478"
   },
   {
     "id": "2125:13479",
-    "name": "SceneBundleDark"
+    "name": "SceneBundleDark",
+    "componentSetId": "2125:13478"
   },
   {
     "id": "2125:20120",
-    "name": "MascotEnergyLight"
+    "name": "MascotEnergyLight",
+    "componentSetId": "2125:20121"
   },
   {
     "id": "2125:20122",
-    "name": "MascotEnergyDark"
+    "name": "MascotEnergyDark",
+    "componentSetId": "2125:20121"
   },
   {
     "id": "2125:27196",
-    "name": "MascotBroadbandLight"
+    "name": "MascotBroadbandLight",
+    "componentSetId": "2125:27197"
   },
   {
     "id": "2125:27198",
-    "name": "MascotBroadbandDark"
+    "name": "MascotBroadbandDark",
+    "componentSetId": "2125:27197"
   },
   {
     "id": "2125:27395",
-    "name": "MascotMobileLight"
+    "name": "MascotMobileLight",
+    "componentSetId": "2125:27396"
   },
   {
     "id": "2125:27397",
-    "name": "MascotMobileDark"
+    "name": "MascotMobileDark",
+    "componentSetId": "2125:27396"
   },
   {
     "id": "2125:27503",
-    "name": "MascotInsuranceLight"
+    "name": "MascotInsuranceLight",
+    "componentSetId": "2125:27504"
   },
   {
     "id": "2125:27505",
-    "name": "MascotInsuranceDark"
+    "name": "MascotInsuranceDark",
+    "componentSetId": "2125:27504"
   },
   {
     "id": "2125:27651",
-    "name": "MascotCashbackLight"
+    "name": "MascotCashbackLight",
+    "componentSetId": "2125:27652"
   },
   {
     "id": "2125:27653",
-    "name": "MascotCashbackDark"
+    "name": "MascotCashbackDark",
+    "componentSetId": "2125:27652"
   },
   {
     "id": "2381:38504",
-    "name": "TechnicalRouterWithPowerLight"
+    "name": "TechnicalRouterWithPowerLight",
+    "componentSetId": "2381:46016"
   },
   {
     "id": "2381:46017",
-    "name": "TechnicalRouterWithPowerDark"
+    "name": "TechnicalRouterWithPowerDark",
+    "componentSetId": "2381:46016"
   },
   {
     "id": "2381:46167",
-    "name": "TechnicalStandardDslConnxFullLabelledLight"
+    "name": "TechnicalStandardDslConnxFullLabelledLight",
+    "componentSetId": "2381:46168"
   },
   {
     "id": "2381:46169",
-    "name": "TechnicalStandardDslConnxFullLabelledDark"
+    "name": "TechnicalStandardDslConnxFullLabelledDark",
+    "componentSetId": "2381:46168"
   },
   {
     "id": "2381:46901",
-    "name": "TechnicalStandardDslConnxPartLight"
+    "name": "TechnicalStandardDslConnxPartLight",
+    "componentSetId": "2381:46902"
   },
   {
     "id": "2381:46903",
-    "name": "TechnicalStandardDslConnxPartDark"
+    "name": "TechnicalStandardDslConnxPartDark",
+    "componentSetId": "2381:46902"
   },
   {
     "id": "2381:47224",
-    "name": "TechnicalStandardDslConnxFullLight"
+    "name": "TechnicalStandardDslConnxFullLight",
+    "componentSetId": "2381:47225"
   },
   {
     "id": "2381:47226",
-    "name": "TechnicalStandardDslConnxFullDark"
+    "name": "TechnicalStandardDslConnxFullDark",
+    "componentSetId": "2381:47225"
   },
   {
     "id": "2381:47528",
-    "name": "TechnicalPowerSupply01BRgbLight"
+    "name": "TechnicalPowerSupply01BRgbLight",
+    "componentSetId": "2381:47529"
   },
   {
     "id": "2381:47530",
-    "name": "TechnicalPowerSupply01BRgbDark"
+    "name": "TechnicalPowerSupply01BRgbDark",
+    "componentSetId": "2381:47529"
   },
   {
     "id": "2381:47584",
-    "name": "TechnicalPrefilteredConnxFullLabelledLight"
+    "name": "TechnicalPrefilteredConnxFullLabelledLight",
+    "componentSetId": "2381:47585"
   },
   {
     "id": "2381:47586",
-    "name": "TechnicalPrefilteredConnxFullLabelledDark"
+    "name": "TechnicalPrefilteredConnxFullLabelledDark",
+    "componentSetId": "2381:47585"
   },
   {
     "id": "2381:48000",
-    "name": "TechnicalPrefilteredConnxFullLight"
+    "name": "TechnicalPrefilteredConnxFullLight",
+    "componentSetId": "2381:48001"
   },
   {
     "id": "2381:48002",
-    "name": "TechnicalPrefilteredConnxFullDark"
+    "name": "TechnicalPrefilteredConnxFullDark",
+    "componentSetId": "2381:48001"
   },
   {
     "id": "2381:48312",
-    "name": "TechnicalPrefilteredConnxPartLight"
+    "name": "TechnicalPrefilteredConnxPartLight",
+    "componentSetId": "2381:48313"
   },
   {
     "id": "2381:48314",
-    "name": "TechnicalPrefilteredConnxPartDark"
+    "name": "TechnicalPrefilteredConnxPartDark",
+    "componentSetId": "2381:48313"
   },
   {
     "id": "2381:48486",
-    "name": "TechnicalPrefilteredMasterSocketsLight"
+    "name": "TechnicalPrefilteredMasterSocketsLight",
+    "componentSetId": "2381:48487"
   },
   {
     "id": "2381:48488",
-    "name": "TechnicalPrefilteredMasterSocketsDark"
+    "name": "TechnicalPrefilteredMasterSocketsDark",
+    "componentSetId": "2381:48487"
   },
   {
     "id": "2381:48554",
-    "name": "TechnicalRimAutomaticDeadlockLight"
+    "name": "TechnicalRimAutomaticDeadlockLight",
+    "componentSetId": "2381:48555"
   },
   {
     "id": "2381:48556",
-    "name": "TechnicalRimAutomaticDeadlockDark"
+    "name": "TechnicalRimAutomaticDeadlockDark",
+    "componentSetId": "2381:48555"
   },
   {
     "id": "2381:48591",
-    "name": "TechnicalRouter01Light"
+    "name": "TechnicalRouter01Light",
+    "componentSetId": "2381:48592"
   },
   {
     "id": "2381:48593",
-    "name": "TechnicalRouter01Dark"
+    "name": "TechnicalRouter01Dark",
+    "componentSetId": "2381:48592"
   },
   {
     "id": "2381:48628",
-    "name": "TechnicalRouter02FrontLight"
+    "name": "TechnicalRouter02FrontLight",
+    "componentSetId": "2381:48629"
   },
   {
     "id": "2381:48630",
-    "name": "TechnicalRouter02FrontDark"
+    "name": "TechnicalRouter02FrontDark",
+    "componentSetId": "2381:48629"
   },
   {
     "id": "2381:48641",
-    "name": "TechnicalRouter03RearLight"
+    "name": "TechnicalRouter03RearLight",
+    "componentSetId": "2381:48642"
   },
   {
     "id": "2381:48643",
-    "name": "TechnicalRouter03RearDark"
+    "name": "TechnicalRouter03RearDark",
+    "componentSetId": "2381:48642"
   },
   {
     "id": "2381:48759",
-    "name": "TechnicalMeter01LabelledLight"
+    "name": "TechnicalMeter01LabelledLight",
+    "componentSetId": "2381:48760"
   },
   {
     "id": "2381:48761",
-    "name": "TechnicalMeter01LabelledDark"
+    "name": "TechnicalMeter01LabelledDark",
+    "componentSetId": "2381:48760"
   },
   {
     "id": "2381:48895",
-    "name": "TechnicalMeter02LabelledLight"
+    "name": "TechnicalMeter02LabelledLight",
+    "componentSetId": "2381:48896"
   },
   {
     "id": "2381:48897",
-    "name": "TechnicalMeter02LabelledDark"
+    "name": "TechnicalMeter02LabelledDark",
+    "componentSetId": "2381:48896"
   },
   {
     "id": "2381:48997",
-    "name": "TechnicalMeter02Light"
+    "name": "TechnicalMeter02Light",
+    "componentSetId": "2381:48998"
   },
   {
     "id": "2381:48999",
-    "name": "TechnicalMeter02Dark"
+    "name": "TechnicalMeter02Dark",
+    "componentSetId": "2381:48998"
   },
   {
     "id": "2381:49075",
-    "name": "TechnicalMicrofilter01Light"
+    "name": "TechnicalMicrofilter01Light",
+    "componentSetId": "2381:49076"
   },
   {
     "id": "2381:49077",
-    "name": "TechnicalMicrofilter01Dark"
+    "name": "TechnicalMicrofilter01Dark",
+    "componentSetId": "2381:49076"
   },
   {
     "id": "2381:49113",
-    "name": "TechnicalMorticeDeadlock5LeversLight"
+    "name": "TechnicalMorticeDeadlock5LeversLight",
+    "componentSetId": "2381:49114"
   },
   {
     "id": "2381:49115",
-    "name": "TechnicalMorticeDeadlock5LeversDark"
+    "name": "TechnicalMorticeDeadlock5LeversDark",
+    "componentSetId": "2381:49114"
   },
   {
     "id": "2381:49165",
-    "name": "TechnicalMicrofilter02Light"
+    "name": "TechnicalMicrofilter02Light",
+    "componentSetId": "2381:49166"
   },
   {
     "id": "2381:49167",
-    "name": "TechnicalMicrofilter02Dark"
+    "name": "TechnicalMicrofilter02Dark",
+    "componentSetId": "2381:49166"
   },
   {
     "id": "2381:49193",
-    "name": "TechnicalMultipointSystem3BoltsLight"
+    "name": "TechnicalMultipointSystem3BoltsLight",
+    "componentSetId": "2381:49194"
   },
   {
     "id": "2381:49195",
-    "name": "TechnicalMultipointSystem3BoltsDark"
+    "name": "TechnicalMultipointSystem3BoltsDark",
+    "componentSetId": "2381:49194"
   },
   {
     "id": "2381:49237",
-    "name": "TechnicalOntRouterConnxLight"
+    "name": "TechnicalOntRouterConnxLight",
+    "componentSetId": "2381:49238"
   },
   {
     "id": "2381:49239",
-    "name": "TechnicalOntRouterConnxDark"
+    "name": "TechnicalOntRouterConnxDark",
+    "componentSetId": "2381:49238"
   },
   {
     "id": "2388:64970",
-    "name": "TechnicalOtherBuildingLight"
+    "name": "TechnicalOtherBuildingLight",
+    "componentSetId": "2381:49525"
   },
   {
     "id": "2381:49526",
-    "name": "TechnicalOtherBuildingDark"
+    "name": "TechnicalOtherBuildingDark",
+    "componentSetId": "2381:49525"
   },
   {
     "id": "2381:49548",
-    "name": "TechnicalOtherLockLight"
+    "name": "TechnicalOtherLockLight",
+    "componentSetId": "2381:49549"
   },
   {
     "id": "2381:49550",
-    "name": "TechnicalOtherLockDark"
+    "name": "TechnicalOtherLockDark",
+    "componentSetId": "2381:49549"
   },
   {
     "id": "2381:49571",
-    "name": "TechnicalEeroLight"
+    "name": "TechnicalEeroLight",
+    "componentSetId": "2381:49572"
   },
   {
     "id": "2381:49573",
-    "name": "TechnicalEeroDark"
+    "name": "TechnicalEeroDark",
+    "componentSetId": "2381:49572"
   },
   {
     "id": "2381:49582",
-    "name": "TechnicalEthernetCableLight"
+    "name": "TechnicalEthernetCableLight",
+    "componentSetId": "2381:49583"
   },
   {
     "id": "2381:49584",
-    "name": "TechnicalEthernetCableDark"
+    "name": "TechnicalEthernetCableDark",
+    "componentSetId": "2381:49583"
   },
   {
     "id": "2381:49618",
-    "name": "TechnicalFlatLight"
+    "name": "TechnicalFlatLight",
+    "componentSetId": "2381:49619"
   },
   {
     "id": "2381:49620",
-    "name": "TechnicalFlatDark"
+    "name": "TechnicalFlatDark",
+    "componentSetId": "2381:49619"
   },
   {
     "id": "2381:49659",
-    "name": "TechnicalFullFibreSocketLight"
+    "name": "TechnicalFullFibreSocketLight",
+    "componentSetId": "2381:49660"
   },
   {
     "id": "2381:49661",
-    "name": "TechnicalFullFibreSocketDark"
+    "name": "TechnicalFullFibreSocketDark",
+    "componentSetId": "2381:49660"
   },
   {
     "id": "2384:49733",
-    "name": "TechnicalFullfibre916MobileLight"
+    "name": "TechnicalFullfibre916MobileLight",
+    "componentSetId": "2384:49734"
   },
   {
     "id": "2384:49735",
-    "name": "TechnicalFullfibre916MobileDark"
+    "name": "TechnicalFullfibre916MobileDark",
+    "componentSetId": "2384:49734"
   },
   {
     "id": "2384:50440",
-    "name": "TechnicalFullfibre916DesktopLight"
+    "name": "TechnicalFullfibre916DesktopLight",
+    "componentSetId": "2384:50441"
   },
   {
     "id": "2384:50442",
-    "name": "TechnicalFullfibre916DesktopDark"
+    "name": "TechnicalFullfibre916DesktopDark",
+    "componentSetId": "2384:50441"
   },
   {
     "id": "2384:51134",
-    "name": "TechnicalHouseLight"
+    "name": "TechnicalHouseLight",
+    "componentSetId": "2384:51135"
   },
   {
     "id": "2384:51136",
-    "name": "TechnicalHouseDark"
+    "name": "TechnicalHouseDark",
+    "componentSetId": "2384:51135"
   },
   {
     "id": "2384:51171",
-    "name": "TechnicalMainTelephoneSocketLight"
+    "name": "TechnicalMainTelephoneSocketLight",
+    "componentSetId": "2384:51172"
   },
   {
     "id": "2384:51173",
-    "name": "TechnicalMainTelephoneSocketDark"
+    "name": "TechnicalMainTelephoneSocketDark",
+    "componentSetId": "2384:51172"
   },
   {
     "id": "2384:51200",
-    "name": "TechnicalMeterLight"
+    "name": "TechnicalMeterLight",
+    "componentSetId": "2384:51201"
   },
   {
     "id": "2384:51202",
-    "name": "TechnicalMeterDark"
+    "name": "TechnicalMeterDark",
+    "componentSetId": "2384:51201"
   },
   {
     "id": "2384:51308",
-    "name": "TechnicalBuildingsAndContentsLight"
+    "name": "TechnicalBuildingsAndContentsLight",
+    "componentSetId": "2384:51309"
   },
   {
     "id": "2384:51310",
-    "name": "TechnicalBuildingsAndContentsDark"
+    "name": "TechnicalBuildingsAndContentsDark",
+    "componentSetId": "2384:51309"
   },
   {
     "id": "2384:51367",
-    "name": "TechnicalBuildingsLight"
+    "name": "TechnicalBuildingsLight",
+    "componentSetId": "2388:51368"
   },
   {
     "id": "2388:51369",
-    "name": "TechnicalBuildingsDark"
+    "name": "TechnicalBuildingsDark",
+    "componentSetId": "2388:51368"
   },
   {
     "id": "2388:51452",
-    "name": "TechnicalBungalowLight"
+    "name": "TechnicalBungalowLight",
+    "componentSetId": "2388:51482"
   },
   {
     "id": "2388:51483",
-    "name": "TechnicalBungalowDark"
+    "name": "TechnicalBungalowDark",
+    "componentSetId": "2388:51482"
   },
   {
     "id": "2388:51512",
-    "name": "TechnicalContentsLight"
+    "name": "TechnicalContentsLight",
+    "componentSetId": "2388:51513"
   },
   {
     "id": "2388:51514",
-    "name": "TechnicalContentsDark"
+    "name": "TechnicalContentsDark",
+    "componentSetId": "2388:51513"
   },
   {
     "id": "2388:51640",
-    "name": "TechnicalDslCableLight"
+    "name": "TechnicalDslCableLight",
+    "componentSetId": "2388:51641"
   },
   {
     "id": "2388:51642",
-    "name": "TechnicalDslCableDark"
+    "name": "TechnicalDslCableDark",
+    "componentSetId": "2388:51641"
   },
   {
     "id": "2388:51675",
-    "name": "TechnicalDslPowerMicrofilterLight"
+    "name": "TechnicalDslPowerMicrofilterLight",
+    "componentSetId": "2388:51676"
   },
   {
     "id": "2388:51677",
-    "name": "TechnicalDslPowerMicrofilterDark"
+    "name": "TechnicalDslPowerMicrofilterDark",
+    "componentSetId": "2388:51676"
   },
   {
     "id": "2388:51897",
-    "name": "TechnicalOpticalNetworkTerminalLight"
+    "name": "TechnicalOpticalNetworkTerminalLight",
+    "componentSetId": "2388:51898"
   },
   {
     "id": "2388:51899",
-    "name": "TechnicalOpticalNetworkTerminalDark"
+    "name": "TechnicalOpticalNetworkTerminalDark",
+    "componentSetId": "2388:51898"
   },
   {
     "id": "2636:15703",
-    "name": "TechnicalRouterStatusOffLight"
+    "name": "TechnicalRouterStatusOffLight",
+    "componentSetId": "2636:15704"
   },
   {
     "id": "2636:15705",
-    "name": "TechnicalRouterStatusOffDark"
+    "name": "TechnicalRouterStatusOffDark",
+    "componentSetId": "2636:15704"
   },
   {
     "id": "2636:15718",
-    "name": "TechnicalRouterStatusRedLight"
+    "name": "TechnicalRouterStatusRedLight",
+    "componentSetId": "2636:15717"
   },
   {
     "id": "2636:15730",
-    "name": "TechnicalRouterStatusRedDark"
+    "name": "TechnicalRouterStatusRedDark",
+    "componentSetId": "2636:15717"
   },
   {
     "id": "2636:15753",
-    "name": "TechnicalRouterStatusOrangeLight"
+    "name": "TechnicalRouterStatusOrangeLight",
+    "componentSetId": "2636:15752"
   },
   {
     "id": "2636:15767",
-    "name": "TechnicalRouterStatusOrangeDark"
+    "name": "TechnicalRouterStatusOrangeDark",
+    "componentSetId": "2636:15752"
   },
   {
     "id": "2636:15783",
-    "name": "TechnicalRouterStatusGreenLight"
+    "name": "TechnicalRouterStatusGreenLight",
+    "componentSetId": "2636:15782"
   },
   {
     "id": "2636:15797",
-    "name": "TechnicalRouterStatusGreenDark"
+    "name": "TechnicalRouterStatusGreenDark",
+    "componentSetId": "2636:15782"
   },
   {
     "id": "2958:15755",
-    "name": "TechnicalOntRouterConnxLabelledLight"
+    "name": "TechnicalOntRouterConnxLabelledLight",
+    "componentSetId": "2958:15756"
   },
   {
     "id": "2958:15757",
-    "name": "TechnicalOntRouterConnxLabelledDark"
+    "name": "TechnicalOntRouterConnxLabelledDark",
+    "componentSetId": "2958:15756"
   }
 ]
