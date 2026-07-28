@@ -28,8 +28,10 @@ function generateBatchFiles(icons) {
     templateFile: './icons.figma.batch.ts',
     components: icons.map(icon => ({
       url: `https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=${icon.id}&m=dev`,
+      id: icon.name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase(),
       name: icon.name,
       component: icon.name,
+      source: `../lib/${icon.name}.tsx`,
     })),
   };
 

@@ -3,8 +3,8 @@ import figma from 'figma';
 const name = figma.batch.name;
 
 export default {
-  id: name,
+  id: figma.batch.id,
   imports: [`import { ${name} } from '@utilitywarehouse/hearth-react-native-icons';`],
   example: figma.code`<${name} />`,
-  metadata: { props: { componentName: name } },
+  metadata: { nestable: true, props: { componentName: name } },
 };
