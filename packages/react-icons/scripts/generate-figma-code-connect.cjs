@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const path = require('path');
-var template = require('lodash.template');
 
 /**
  * Get a list of all the icon ids & names.
@@ -15,23 +14,35 @@ function getIcons() {
   return JSON.parse(icons);
 }
 
-function generateCodeConnectFiles(icons) {
-  icons.forEach(async function (icon) {
-    const compiled = template(
-      fs.readFileSync(path.join(__dirname, '..', 'templates', 'icon.figma.tsx'), 'utf8')
-    );
+/**
+ * All icons share one Code Connect template — batch files pair that single
+ * template with a JSON list of per-icon data, rather than one file per icon.
+ */
+function generateBatchFiles(icons) {
+  fs.copySync(
+    path.join(__dirname, '..', 'templates', 'icons.figma.batch.ts'),
+    path.resolve(__dirname, '..', 'figma-code-connect', 'icons.figma.batch.ts')
+  );
 
-    await fs.outputFile(
-      path.resolve(__dirname, '..', 'figma-code-connect', icon.name + '.figma.tsx'),
-      compiled(icon),
-      { encoding: 'utf8' }
-    );
-  });
+  const batchJson = {
+    templateFile: './icons.figma.batch.ts',
+    components: icons.map(icon => ({
+      url: `https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=${icon.id}&m=dev`,
+      name: icon.name,
+      component: icon.name,
+    })),
+  };
+
+  fs.outputFileSync(
+    path.resolve(__dirname, '..', 'figma-code-connect', 'icons.figma.batch.json'),
+    JSON.stringify(batchJson, null, 2) + '\n',
+    { encoding: 'utf8' }
+  );
 }
 
 async function main() {
   const icons = getIcons();
-  generateCodeConnectFiles(icons);
+  generateBatchFiles(icons);
 }
 
 main()
