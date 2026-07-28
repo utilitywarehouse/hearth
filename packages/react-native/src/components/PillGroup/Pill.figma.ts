@@ -7,16 +7,27 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const label = instance.getString('Label');
-const icon = instance.getBoolean('Icon?', {
-  true: instance.getInstanceSwap('Icon-20')?.executeTemplate().example,
+const iconName = instance.getBoolean('Icon?', {
+  true: instance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props?.componentName as
+    | string
+    | undefined,
 });
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'Pill',
-  imports: ["import { Pill } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { Pill } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<Pill${figma.helpers.react.renderProp(
     'value',
     label
-  )}${figma.helpers.react.renderProp('label', label)}${icon ? ` icon={${icon}}` : ''}/>`,
+  )}${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp(
+    'icon',
+    icon
+  )}/>`,
   metadata: { nestable: true, props: { label, icon } },
 };

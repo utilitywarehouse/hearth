@@ -35,13 +35,16 @@ const iconPosition = instance.getBoolean('Show icon left?', {
     false: undefined,
   }),
 });
-const icon = instance.getBoolean('Show icon left?', {
-  true: instance.getInstanceSwap('Icon left-20')?.executeTemplate().example,
+const iconName = instance.getBoolean('Show icon left?', {
+  true: instance.getInstanceSwap('Icon left-20')?.executeTemplate().metadata?.props
+    ?.componentName as string | undefined,
   false: instance.getBoolean('Show icon right?', {
-    true: instance.getInstanceSwap('Icon right-20')?.executeTemplate().example,
+    true: instance.getInstanceSwap('Icon right-20')?.executeTemplate().metadata?.props
+      ?.componentName as string | undefined,
     false: undefined,
   }),
 });
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 const variant = instance.getEnum('Variant', {
   Emphasis: 'emphasis',
   Solid: 'solid',
@@ -58,7 +61,12 @@ const childrenContent = variant === 'ghost' ? ghostText : text;
 
 export default {
   id: 'Button',
-  imports: ["import { Button } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { Button } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<Button${figma.helpers.react.renderProp(
     'disabled',
     disabled

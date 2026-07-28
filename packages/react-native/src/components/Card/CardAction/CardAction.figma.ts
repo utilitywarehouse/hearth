@@ -21,12 +21,19 @@ const heading = figma.selectedInstance.getString('List heading');
 const helperTextEnabled = figma.selectedInstance.getBoolean('Helper text?');
 const helperText = helperTextEnabled ? figma.selectedInstance.getString('Helper text') : undefined;
 const leadingIconEnabled = figma.selectedInstance.getBoolean('Leading Icon?');
-const leadingIcon = leadingIconEnabled
-  ? figma.selectedInstance.getInstanceSwap('Leading icon-24')?.executeTemplate().example
+const leadingIconName = leadingIconEnabled
+  ? (figma.selectedInstance.getInstanceSwap('Leading icon-24')?.executeTemplate().metadata?.props
+      ?.componentName as string | undefined)
   : undefined;
-const trailingIcon = figma.selectedInstance
+const leadingIcon = leadingIconName
+  ? figma.helpers.react.reactComponent(leadingIconName)
+  : undefined;
+const trailingIconName = figma.selectedInstance
   .getInstanceSwap('Trailing icon-20')
-  ?.executeTemplate().example;
+  ?.executeTemplate().metadata?.props?.componentName as string | undefined;
+const trailingIcon = trailingIconName
+  ? figma.helpers.react.reactComponent(trailingIconName)
+  : undefined;
 const iconContainerEnabled = figma.selectedInstance.getBoolean('Icon container?');
 const badgeBottomEnabled = figma.selectedInstance.getBoolean('Badge bottom?');
 const badgeRightEnabled = figma.selectedInstance.getBoolean('Badge right?');
@@ -41,7 +48,12 @@ const badgePosition = badgeRightEnabled
 
 export default {
   id: 'CardAction',
-  imports: ["import { CardAction } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { CardAction } from '@utilitywarehouse/hearth-react-native';",
+    ...[...new Set([leadingIconName, trailingIconName].filter(Boolean))].map(
+      name => `import { ${name} } from '@utilitywarehouse/hearth-react-native-icons';`
+    ),
+  ],
   example: figma.code`<CardAction${figma.helpers.react.renderProp(
     'loading',
     loading

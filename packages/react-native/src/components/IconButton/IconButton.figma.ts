@@ -20,10 +20,14 @@ const colorScheme = figma.selectedInstance.getEnum('Color Scheme', {
 const loading = figma.selectedInstance.getEnum('State', {
   Loading: true,
 });
-const icon =
+const iconName = (
   size === 'sm'
-    ? figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().example
-    : figma.selectedInstance.getInstanceSwap('Icon-24')?.executeTemplate().example;
+    ? figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props
+        ?.componentName
+    : figma.selectedInstance.getInstanceSwap('Icon-24')?.executeTemplate().metadata?.props
+        ?.componentName
+) as string | undefined;
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 const variant = figma.selectedInstance.getEnum('Variant', {
   Emphasis: 'emphasis',
   Solid: 'solid',
@@ -34,7 +38,12 @@ const inverted = figma.selectedInstance.getBoolean('Inverted?');
 
 export default {
   id: 'IconButton',
-  imports: ["import { IconButton } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { IconButton } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<IconButton${figma.helpers.react.renderProp(
     'disabled',
     disabled
