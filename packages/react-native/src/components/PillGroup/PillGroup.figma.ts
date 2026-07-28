@@ -15,7 +15,7 @@ const pills = pillLayers
 export default {
   id: 'PillGroup',
   imports: ["import { PillGroup } from '@utilitywarehouse/hearth-react-native';"],
-  example: figma.code`<PillGroup value={value}${figma.helpers.react.renderProp('wrap', wrap)}>
+  example: figma.code`<PillGroup value=""${figma.helpers.react.renderProp('wrap', wrap)}>
   ${pills}
 </PillGroup>`,
   metadata: { nestable: true, props: { wrap } },

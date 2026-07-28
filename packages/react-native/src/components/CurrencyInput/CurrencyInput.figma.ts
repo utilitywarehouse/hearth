@@ -52,7 +52,7 @@ export default {
   )}${figma.helpers.react.renderProp('focused', focused)}${figma.helpers.react.renderProp(
     'labelVariant',
     labelVariant
-  )} onChange={onChangeHandler}/>`,
+  )} onChange={() => {}}/>`,
   metadata: {
     nestable: true,
     props: {

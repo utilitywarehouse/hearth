@@ -50,7 +50,7 @@ export default {
     direction
   )}${figma.helpers.react.renderProp('invalidText', invalidText)}${
     type === 'tile' ? ' type="tile"' : ''
-  } value={value} onChange={value => setValue(value)}>
+  } value="" onValueChange={() => {}}>
     ${items.flat()}
   </RadioGroup>`,
   metadata: {

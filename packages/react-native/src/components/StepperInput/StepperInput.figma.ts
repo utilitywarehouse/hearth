@@ -39,7 +39,7 @@ export default {
   )}${figma.helpers.react.renderProp('invalidText', invalidText)}${figma.helpers.react.renderProp(
     'focused',
     focused
-  )} onChangeText={handleChangeText}/>`,
+  )} onChangeText={() => {}}/>`,
   metadata: {
     nestable: true,
     props: { value, label, labelVariant, helperText, validationStatus, invalidText, focused },

@@ -39,28 +39,31 @@ const value = valueType === 'selected' ? figma.selectedInstance.getString('Value
 
 export default {
   id: 'Select',
-  imports: ["import { Select } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { Select } from '@utilitywarehouse/hearth-react-native';",
+    "import { useState } from 'react';",
+  ],
   example: figma.code`function Example() {
     const [value, setValue] = useState(null);
     return (<Select${figma.helpers.react.renderProp(
       'label',
       label
     )}${figma.helpers.react.renderProp(
-      'labelVariant',
-      labelVariant
-    )}${figma.helpers.react.renderProp('placeholder', placeholder)}${figma.helpers.react.renderProp(
-      'disabled',
-      disabled
-    )}${figma.helpers.react.renderProp(
-      'validationStatus',
-      validationStatus
-    )}${figma.helpers.react.renderProp('invalidText', invalidText)}${figma.helpers.react.renderProp(
-      'validText',
-      validText
-    )}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp(
-      'required',
-      required
-    )} options={[
+    'labelVariant',
+    labelVariant
+  )}${figma.helpers.react.renderProp('placeholder', placeholder)}${figma.helpers.react.renderProp(
+    'disabled',
+    disabled
+  )}${figma.helpers.react.renderProp(
+    'validationStatus',
+    validationStatus
+  )}${figma.helpers.react.renderProp('invalidText', invalidText)}${figma.helpers.react.renderProp(
+    'validText',
+    validText
+  )}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp(
+    'required',
+    required
+  )} options={[
             { label: 'Option 1', value: '1' },
             { label: 'Option 2', value: '2' },
             { label: 'Option 3', value: '3' },
