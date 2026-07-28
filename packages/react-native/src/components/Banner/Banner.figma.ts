@@ -14,10 +14,14 @@ const description =
   (descriptionText.type !== 'ERROR' ? descriptionText.textContent : undefined) ||
   'The text in the banner';
 
-const direction = instance.getEnum('Direction', {
+const rawDirection = instance.getEnum('Direction', {
   Horizontal: 'horizontal',
   Vertical: 'vertical',
 });
+// getEnum() can resolve to a non-string sentinel when Direction can't be matched to either
+// option — always fall back to the component's own default ('horizontal') rather than pass
+// that sentinel through to renderProp, which renders it as broken, unparseable syntax.
+const direction = typeof rawDirection === 'string' ? rawDirection : 'horizontal';
 
 const imageSlot = instance.getSlot('Image');
 const image2Slot = instance.getSlot('Image2');
@@ -25,23 +29,29 @@ const image =
   imageSlot?.connectedInstances[0]?.executeTemplate().example ??
   image2Slot?.connectedInstances[0]?.executeTemplate().example;
 
-const onClose = instance.getBoolean('Close?', {
-  true: figma.helpers.react.function("() => console.log('Close pressed')"),
-  false: '',
-});
+const showClose = instance.getBoolean('Close?');
+const onClose =
+  showClose === true
+    ? figma.helpers.react.function("() => console.log('Close pressed')")
+    : undefined;
 
-const button = instance.getBoolean('Button?', {
-  true: figma.properties.children(['Button']),
-});
+const showButton = instance.getBoolean('Button?');
+const buttonInstance = instance.findInstance('Button');
+const button =
+  showButton && buttonInstance.type !== 'ERROR'
+    ? buttonInstance.executeTemplate().example
+    : undefined;
 
-const link = instance.getBoolean('Link?', {
-  true: figma.properties.children(['Link']),
-});
+const showLink = instance.getBoolean('Link?');
+const linkInstance = instance.findInstance('Link');
+const link =
+  showLink && linkInstance.type !== 'ERROR' ? linkInstance.executeTemplate().example : undefined;
 
-const onPress = instance.getBoolean('Chevron?', {
-  true: figma.helpers.react.function("() => console.log('Banner pressed')"),
-  false: undefined,
-});
+const showChevron = instance.getBoolean('Chevron?');
+const onPress =
+  showChevron === true
+    ? figma.helpers.react.function("() => console.log('Banner pressed')")
+    : undefined;
 
 export default {
   id: 'Banner',

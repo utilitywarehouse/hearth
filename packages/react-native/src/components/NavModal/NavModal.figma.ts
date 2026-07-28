@@ -26,6 +26,9 @@ const colorScheme = instance.getEnum('Color Scheme', {
 
 const imageItems = image?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
 const contentItems = customContent?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
+// An empty array passed to renderProp() renders as broken, unparseable `prop={}` syntax
+// instead of being omitted — only pass it through when there's actually something to render.
+const imageProp = imageItems.length > 0 ? imageItems.flat() : undefined;
 
 export default {
   id: 'nav-modal',
@@ -33,7 +36,7 @@ export default {
   example: figma.code`<NavModal${figma.helpers.react.renderProp(
     'background',
     colorScheme
-  )}${figma.helpers.react.renderProp('image', imageItems.flat())}${figma.helpers.react.renderProp(
+  )}${figma.helpers.react.renderProp('image', imageProp)}${figma.helpers.react.renderProp(
     'showCloseButton',
     showClose
   )}${figma.helpers.react.renderProp(
