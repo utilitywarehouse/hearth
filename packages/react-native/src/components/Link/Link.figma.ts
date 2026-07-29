@@ -15,18 +15,22 @@ const text = figma.selectedInstance.getString('Text');
 const showIcon = iconRight || iconLeft;
 const iconPosition = iconRight ? 'right' : iconLeft ? 'left' : undefined;
 
-const iconRightSwap = figma.selectedInstance
-  .getInstanceSwap('Icon right-20')
-  ?.executeTemplate().example;
-const iconLeftSwap = figma.selectedInstance
-  .getInstanceSwap('Icon left-20')
-  ?.executeTemplate().example;
+const iconRightName = figma.selectedInstance.getInstanceSwap('Icon right-20')?.executeTemplate()
+  .metadata?.props?.componentName as string | undefined;
+const iconLeftName = figma.selectedInstance.getInstanceSwap('Icon left-20')?.executeTemplate()
+  .metadata?.props?.componentName as string | undefined;
 
-const icon = iconRight ? iconRightSwap : iconLeftSwap;
+const iconName = showIcon ? (iconRight ? iconRightName : iconLeftName) : undefined;
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'Link',
-  imports: ["import { Link } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { Link } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<Link${figma.helpers.react.renderProp(
     'inverted',
     inverted
@@ -45,8 +49,8 @@ export default {
       text,
       showIcon,
       iconPosition,
-      iconRightSwap,
-      iconLeftSwap,
+      iconRightName,
+      iconLeftName,
       icon,
     },
   },

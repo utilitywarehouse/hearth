@@ -23,14 +23,23 @@ const color = figma.selectedInstance.getEnum('Color', {
   Cashback: 'cashback',
   Highlight: 'highlight',
 });
-const icon =
+const iconName = (
   size === 'sm'
-    ? figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().example
-    : figma.selectedInstance.getInstanceSwap('Icon-24')?.executeTemplate().example;
+    ? figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props
+        ?.componentName
+    : figma.selectedInstance.getInstanceSwap('Icon-24')?.executeTemplate().metadata?.props
+        ?.componentName
+) as string | undefined;
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'icon-container',
-  imports: ["import { IconContainer } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { IconContainer } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<IconContainer${figma.helpers.react.renderProp(
     'icon',
     icon

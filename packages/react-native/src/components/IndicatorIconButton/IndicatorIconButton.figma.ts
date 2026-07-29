@@ -5,22 +5,27 @@
 import figma from 'figma';
 
 const indicator = figma.selectedInstance.getBoolean('Indicator?');
-const icon = (function () {
+const iconName = (function () {
   const nestedLayer0 = figma.selectedInstance.findInstance('Icon Button/Unstyled');
-  return {
-    icon:
-      nestedLayer0.type !== 'ERROR'
-        ? nestedLayer0.getInstanceSwap('Icon-24')?.executeTemplate().example
-        : undefined,
-  };
+  return nestedLayer0.type !== 'ERROR'
+    ? (nestedLayer0.getInstanceSwap('Icon-24')?.executeTemplate().metadata?.props?.componentName as
+        | string
+        | undefined)
+    : undefined;
 })();
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'IndicatorIconButton',
-  imports: ["import { IndicatorIconButton } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { IndicatorIconButton } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<IndicatorIconButton${figma.helpers.react.renderProp(
     'icon',
-    icon.icon
+    icon
   )}${figma.helpers.react.renderProp('indicator', indicator)} />`,
   metadata: { nestable: true, props: { indicator, icon } },
 };

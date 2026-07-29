@@ -30,15 +30,22 @@ const size = instance.getEnum('Size', {
   'MD-28': 'md',
 });
 const flatBase = instance.getBoolean('Flat Base?');
-const icon = instance.getBoolean('Icon?', {
-  true: instance.getInstanceSwap('Icon-20')?.executeTemplate().example,
-  false: '',
+const iconName = instance.getBoolean('Icon?', {
+  true: instance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props?.componentName as
+    | string
+    | undefined,
 });
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 const text = instance.getString('Text');
 
 export default {
   id: 'Badge',
-  imports: ["import { Badge } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { Badge } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<Badge${figma.helpers.react.renderProp(
     'variant',
     variant

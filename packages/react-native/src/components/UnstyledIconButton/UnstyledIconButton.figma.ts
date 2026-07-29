@@ -17,14 +17,21 @@ const state = instance.getEnum('State', {
 const disabled = state === 'disabled';
 const loading = state === 'loading';
 const inverted = instance.getBoolean('Inverted?');
-const icon =
+const iconName = (
   size === 'sm'
-    ? instance.getInstanceSwap('Icon-20')?.executeTemplate().example
-    : instance.getInstanceSwap('Icon-24')?.executeTemplate().example;
+    ? instance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props?.componentName
+    : instance.getInstanceSwap('Icon-24')?.executeTemplate().metadata?.props?.componentName
+) as string | undefined;
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'unstyled-icon-button',
-  imports: ['import { UnstyledIconButton } from "@utilitywarehouse/hearth-react-native";'],
+  imports: [
+    'import { UnstyledIconButton } from "@utilitywarehouse/hearth-react-native";',
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<UnstyledIconButton${figma.helpers.react.renderProp(
     'size',
     size

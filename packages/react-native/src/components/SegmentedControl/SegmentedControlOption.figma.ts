@@ -5,13 +5,20 @@
 import figma from 'figma';
 
 const label = figma.selectedInstance.getString('Label');
-const icon = figma.selectedInstance.getBoolean('Icon?', {
-  true: figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().example,
+const iconName = figma.selectedInstance.getBoolean('Icon?', {
+  true: figma.selectedInstance.getInstanceSwap('Icon-20')?.executeTemplate().metadata?.props
+    ?.componentName as string | undefined,
 });
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
   id: 'segmented-control-option',
-  imports: ["import { SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<SegmentedControlOption value={'option'}${figma.helpers.react.renderProp(
     'icon',
     icon

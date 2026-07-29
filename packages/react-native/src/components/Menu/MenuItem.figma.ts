@@ -5,12 +5,15 @@
 import figma from 'figma';
 
 const text = figma.selectedInstance.getString('Text');
-const icon = figma.selectedInstance.getBoolean('Icon left?', {
-  true: figma.selectedInstance.getInstanceSwap('Icon left-20')?.executeTemplate().example,
+const iconName = figma.selectedInstance.getBoolean('Icon left?', {
+  true: figma.selectedInstance.getInstanceSwap('Icon left-20')?.executeTemplate().metadata?.props
+    ?.componentName as string | undefined,
   false: figma.selectedInstance.getBoolean('Icon right?', {
-    true: figma.selectedInstance.getInstanceSwap('Icon right-20')?.executeTemplate().example,
+    true: figma.selectedInstance.getInstanceSwap('Icon right-20')?.executeTemplate().metadata?.props
+      ?.componentName as string | undefined,
   }),
 });
+const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 const iconPosition = figma.selectedInstance.getBoolean('Icon left?', {
   true: 'left',
   false: figma.selectedInstance.getBoolean('Icon right?', {
@@ -31,7 +34,12 @@ const disabled = figma.selectedInstance.getEnum('State', {
 
 export default {
   id: 'MenuItem',
-  imports: ["import { MenuItem } from '@utilitywarehouse/hearth-react-native';"],
+  imports: [
+    "import { MenuItem } from '@utilitywarehouse/hearth-react-native';",
+    ...(iconName
+      ? [`import { ${iconName} } from '@utilitywarehouse/hearth-react-native-icons';`]
+      : []),
+  ],
   example: figma.code`<MenuItem${figma.helpers.react.renderProp(
     'text',
     text
