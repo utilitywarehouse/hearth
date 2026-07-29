@@ -20,7 +20,7 @@ const iconRightName = figma.selectedInstance.getInstanceSwap('Icon right-20')?.e
 const iconLeftName = figma.selectedInstance.getInstanceSwap('Icon left-20')?.executeTemplate()
   .metadata?.props?.componentName as string | undefined;
 
-const iconName = iconRight ? iconRightName : iconLeftName;
+const iconName = showIcon ? (iconRight ? iconRightName : iconLeftName) : undefined;
 const icon = iconName ? figma.helpers.react.reactComponent(iconName) : undefined;
 
 export default {
