@@ -33,8 +33,8 @@ importers:
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.5.0(supports-color@8.1.1))
       '@figma/code-connect':
-        specifier: ^1.4.9
-        version: 1.4.9
+        specifier: ^1.5.0
+        version: 1.5.0
       '@utilitywarehouse/prettier-config':
         specifier: ^0.1.1
         version: 0.1.4
@@ -761,8 +761,8 @@ importers:
         version: 19.1.0
     devDependencies:
       '@figma/code-connect':
-        specifier: ^1.4.9
-        version: 1.4.9
+        specifier: ^1.5.0
+        version: 1.5.0
       '@svgr/cli':
         specifier: ^7.0.0
         version: 7.0.0(typescript@6.0.3)
@@ -843,8 +843,8 @@ importers:
         specifier: ^7.18.9
         version: 7.18.9(@babel/core@7.29.7)
       '@figma/code-connect':
-        specifier: ^1.4.9
-        version: 1.4.9
+        specifier: ^1.5.0
+        version: 1.5.0
       '@gorhom/bottom-sheet':
         specifier: 5.2.6
         version: 5.2.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)))(@types/react@19.1.17)(react-native-gesture-handler@2.28.0(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.29.7)(react-native-worklets@0.5.1(patch_hash=df5ea8d8f16a4bb2cedc988009ffafd0bdfc5af4bd186e54bf4ab6eaf43c3bd3)(@babel/core@7.29.7)(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -970,8 +970,8 @@ importers:
         version: 0.81.5(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)
     devDependencies:
       '@figma/code-connect':
-        specifier: ^1.4.9
-        version: 1.4.9
+        specifier: ^1.5.0
+        version: 1.5.0
       '@svgr/cli':
         specifier: ^7.0.0
         version: 7.0.0(typescript@6.0.3)
@@ -1019,8 +1019,8 @@ importers:
   packages/svg-assets:
     devDependencies:
       '@figma/code-connect':
-        specifier: ^1.4.9
-        version: 1.4.9
+        specifier: ^1.5.0
+        version: 1.5.0
       cheerio:
         specifier: 1.0.0-rc.12
         version: 1.0.0-rc.12
@@ -2603,8 +2603,8 @@ packages:
     resolution: {integrity: sha512-4aQzz9vgxcNXFfo/iyNgDDYfsU5XGKKxWxZopw0cVotHiW+U8IJbIxMaxsINs6bHhtkG3StKNPcOrn3eBuxKPw==}
     hasBin: true
 
-  '@figma/code-connect@1.4.9':
-    resolution: {integrity: sha512-Ifan9Kb5oXHAh0wXu0BM8Iy+AEhWM8NoJSTBr3oU0vQTwggleK55CUHnh5zEYl6tQjj83mg6mTo4klDgcgDprg==}
+  '@figma/code-connect@1.5.0':
+    resolution: {integrity: sha512-dzdSDvZrDHTEm7oh/J5RMeb3BWcJRUt7+xxf9IpuFoI/Z1avsVACGe0Igr5o0GKyJha+obrrhLwzOlQUta8yHA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -7322,6 +7322,11 @@ packages:
     resolution: {integrity: sha512-H2/S7Pm8a9CL1uhp9OvjwrBh5Pvx0H8qVOxNu8Wed9Y7qv56MPtq+GGM8RJpq6glYJn9Wspr8uw7l55uyinNeg==}
     peerDependencies:
       esbuild: '>=0.12 <1'
+
+  esbuild-wasm@0.27.3:
+    resolution: {integrity: sha512-AUXuOxZ145/5Az+lIqk6TdJbxKTyDGkXMJpTExmBdbnHR6n6qAFx+F4oG9ORpVYJ9dQYeQAqzv51TO4DFKsbXw==}
+    engines: {node: '>=18'}
+    hasBin: true
 
   esbuild@0.25.12:
     resolution: {integrity: sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg==}
@@ -15373,7 +15378,7 @@ snapshots:
       chalk: 4.1.2
       js-yaml: 4.2.0
 
-  '@figma/code-connect@1.4.9':
+  '@figma/code-connect@1.5.0':
     dependencies:
       boxen: 5.1.1
       chalk: 4.1.2
@@ -15381,6 +15386,7 @@ snapshots:
       compare-versions: 6.1.1
       cross-spawn: 7.0.6
       dotenv: 16.6.1
+      esbuild-wasm: 0.27.3
       fast-fuzzy: 1.12.0
       find-up: 5.0.0
       glob: 11.1.0
@@ -21362,6 +21368,8 @@ snapshots:
       esbuild: 0.28.1
     transitivePeerDependencies:
       - supports-color
+
+  esbuild-wasm@0.27.3: {}
 
   esbuild@0.25.12:
     optionalDependencies:

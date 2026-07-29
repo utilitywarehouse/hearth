@@ -30,3 +30,5 @@ supportedArchitectures:
   cpu:
     - current
 verifyDepsBeforeRun: warn
+minimumReleaseAgeExclude:
+  - '@figma/code-connect@1.5.0'
