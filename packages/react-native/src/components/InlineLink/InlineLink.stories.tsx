@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { InlineLink } from '.';
 import { BodyText } from '../BodyText';
 import { Flex } from '../Flex';
@@ -50,7 +51,48 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const link = await canvas.findByRole('link', { name: 'embedded link' });
+
+    // On web, InlineLink (built on `createLink` from `@gluestack-ui/link`,
+    // rendering through a `Text` root rather than `Pressable`) also renders as
+    // a real anchor when `href` is set and the link is enabled.
+    expect(link.tagName).toBe('A');
+    expect(link).toHaveAttribute('href', 'https://www.uw.co.uk');
+    expect(link).toHaveAttribute('tabindex', '0');
+    expect(link).not.toHaveAttribute('aria-disabled');
+
+    // Same gap as Link (see UWDS-4909): `@gluestack-ui/link`'s `useLink` hook
+    // set `target`/`rel` imperatively via a ref mutation during render, which
+    // never reliably landed as DOM attributes. InlineLink now passes
+    // `target`/`rel` through explicitly as props (converted to
+    // react-native-web's `hrefAttrs`), so both are applied here, including
+    // the `rel="noopener noreferrer"` default that guards against reverse
+    // tabnabbing on `target="_blank"` links.
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const link = await canvas.findByRole('link', { name: 'embedded link' });
+
+    // When disabled, `href` is stripped (`react-native-web`'s `Text` only
+    // renders as an `<a>` when `href` is non-null), so the element falls back
+    // to a plain `<div role="link">` rather than a real anchor.
+    expect(link.tagName).not.toBe('A');
+    expect(link).not.toHaveAttribute('href');
+    expect(link).toHaveAttribute('aria-disabled', 'true');
+    expect(link).toHaveAttribute('tabindex', '-1');
+  },
+};
 
 export const Variants: Story = {
   render: ({ children }) => {
