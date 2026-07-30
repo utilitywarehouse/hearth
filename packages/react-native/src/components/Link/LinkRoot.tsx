@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import { Platform, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { LinkContext } from './Link.context';
 import LinkProps from './Link.props';
@@ -18,7 +18,9 @@ const LinkRoot = ({
   // react-native-web only applies `target`/`rel` to the rendered `<a>` via
   // `hrefAttrs` - passing them as bare props is a no-op. Not typed on
   // `PressableProps`, hence the spread rather than a named JSX attribute.
-  const hrefAttrsProp = target || rel ? { hrefAttrs: { target, rel } } : {};
+  // Web-only prop, so it's gated to avoid an unknown-prop warning on native.
+  const hrefAttrsProp =
+    Platform.OS === 'web' && (target || rel) ? { hrefAttrs: { target, rel } } : {};
   return (
     <LinkContext.Provider value={value}>
       <Pressable {...props} {...hrefAttrsProp} style={[styles.container, props.style as ViewStyle]}>
