@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Platform } from 'react-native';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 import UnstyledIconButton from './UnstyledIconButton';
@@ -52,6 +53,7 @@ const meta = {
     loading: false,
     icon: CloseMediumIcon,
     pressed: false,
+    onPress: fn(),
   },
 } satisfies Meta<typeof UnstyledIconButton>;
 
@@ -66,7 +68,20 @@ export const Playground: Story = {
       typeof args.icon === 'string' ? Icons[args.icon as keyof typeof Icons] : args.icon;
     return <UnstyledIconButton {...args} icon={iconComponent} />;
   },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.findByRole('button');
+
+    await userEvent.click(button);
+
+    // Pressing an enabled button fires the `onPress` handler passed through from
+    // the underlying `createButton()` Pressable.
+    await expect(args.onPress).toHaveBeenCalledOnce();
+  },
 };
+
+const statesOnPressDefault = fn();
+const statesOnPressDisabled = fn();
 
 export const States: Story = {
   parameters: {
@@ -79,18 +94,59 @@ export const States: Story = {
     return (
       <Flex direction="column" spacing="lg">
         <VariantTitle title="Default" invert={inverted}>
-          <UnstyledIconButton size={size} inverted={inverted} icon={iconComponent} />
+          <UnstyledIconButton
+            size={size}
+            inverted={inverted}
+            icon={iconComponent}
+            onPress={statesOnPressDefault}
+            aria-label="Default"
+          />
         </VariantTitle>
         <VariantTitle title="Pressed" invert={inverted}>
           <UnstyledIconButton size={size} inverted={inverted} icon={iconComponent} pressed />
         </VariantTitle>
         <VariantTitle title="Disabled" invert={inverted}>
-          <UnstyledIconButton size={size} inverted={inverted} icon={iconComponent} disabled />
+          <UnstyledIconButton
+            size={size}
+            inverted={inverted}
+            icon={iconComponent}
+            disabled
+            onPress={statesOnPressDisabled}
+            aria-label="Disabled"
+          />
         </VariantTitle>
         <VariantTitle title="Loading" invert={inverted}>
           <UnstyledIconButton size={size} inverted={inverted} icon={iconComponent} loading />
         </VariantTitle>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+
+    const defaultButton = await canvas.findByRole('button', { name: 'Default' });
+    await userEvent.click(defaultButton);
+    // Pressing the enabled "Default" button fires its `onPress` handler.
+    expect(statesOnPressDefault).toHaveBeenCalledOnce();
+
+    const disabledButton = await canvas.findByRole('button', { name: 'Disabled' });
+    expect(disabledButton).toBeDisabled();
+    expect(disabledButton).toHaveAttribute('aria-disabled', 'true');
+    await userEvent.click(disabledButton);
+    // A disabled button does not respond to press - `disabled` maps to the DOM
+    // `disabled`/`aria-disabled` attributes here (react-native-web's one special
+    // case for accessibilityState, verified via live DOM inspection).
+    expect(statesOnPressDisabled).not.toHaveBeenCalled();
+
+    // The "Loading" variant renders `UnstyledIconButtonSpinner` (role="status",
+    // aria-busy) in place of `UnstyledIconButtonIcon` (role="img") - only 3 of
+    // the 4 buttons expose an icon's `img` role, the loading one shows a spinner
+    // instead.
+    const iconRoles = canvas.queryAllByRole('img', { hidden: true });
+    const statusRoles = canvas.queryAllByRole('status');
+    expect(iconRoles.length).toBe(3);
+    expect(statusRoles.length).toBe(1);
+    expect(buttons.length).toBe(4);
   },
 };

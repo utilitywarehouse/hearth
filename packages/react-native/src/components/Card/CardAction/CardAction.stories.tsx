@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../../';
 import { Badge } from '../../Badge';
 import { Flex } from '../../Flex';
@@ -69,7 +70,7 @@ type Story = StoryObj<typeof CardAction>;
 
 export const Playground: Story = {
   args: {
-    onPress: () => console.log('pressed'),
+    onPress: fn(),
   },
   render: (args: any) => {
     // @ts-expect-error - This is a playground
@@ -85,6 +86,16 @@ export const Playground: Story = {
         </Card>
       </View>
     );
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const action = await canvas.findByTestId('card-action');
+    await userEvent.click(action);
+
+    // Pressing a CardAction fires the `onPress` handler passed through from the
+    // underlying `createPressable()` Root.
+    expect(args.onPress).toHaveBeenCalledOnce();
   },
 };
 
@@ -168,6 +179,20 @@ export const WithIconContainer: Story = {
       </Card>
     </View>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // CardActions tracks registration order (see CardActions.tsx / CardActions.utils.ts)
+    // to work out which CardAction is first. When a Card contains only CardActions
+    // (no other content), the first action's top border is removed so it doesn't
+    // double up with the Card's own border - this is a visual/layout detail, not an
+    // accessibility one (there's no corresponding aria-* or accessibilityState change).
+    const actions = canvas.getAllByTestId('card-action');
+    expect(actions).toHaveLength(3);
+    expect(getComputedStyle(actions[0]).borderTopWidth).toBe('0px');
+    expect(getComputedStyle(actions[1]).borderTopWidth).not.toBe('0px');
+    expect(getComputedStyle(actions[2]).borderTopWidth).not.toBe('0px');
+  },
 };
 
 export const WithBadge: Story = {
@@ -269,6 +294,8 @@ export const Loading: Story = {
   ),
 };
 
+const disabledOnPress = fn();
+
 export const Disabled: Story = {
   parameters: {
     controls: { include: [] },
@@ -282,12 +309,26 @@ export const Disabled: Story = {
             helperText="This is disabled"
             disabled
             leadingIcon={ElectricityMediumIcon}
-            onPress={() => console.log('pressed')}
+            onPress={disabledOnPress}
           />
         </CardActions>
       </Card>
     </View>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const action = await canvas.findByTestId('card-action');
+    // `disabled` maps straight through to the Pressable's `disabled`/`aria-disabled`
+    // DOM attributes here (react-native-web's one special case for
+    // accessibilityState - verified via live DOM inspection).
+    expect(action).toHaveAttribute('aria-disabled', 'true');
+
+    await userEvent.click(action);
+
+    // A disabled CardAction does not fire its `onPress` handler.
+    expect(disabledOnPress).not.toHaveBeenCalled();
+  },
 };
 
 const CustomAction = ({ heading, ...props }: { heading: string }) => {

@@ -8,6 +8,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import React from 'react';
 import { View } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Badge, BodyText, IconContainer, Link } from '../../components';
 import ExpandableCard from './ExpandableCard';
 import ExpandableCardContent from './ExpandableCardContent';
@@ -94,6 +95,28 @@ export const BasicExample: Story = {
       style={{ width: 350 }}
     />
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: /order details/i });
+
+    // ExpandableCardTriggerRoot sets accessibilityState={{ expanded, disabled }}, but
+    // react-native-web only maps the `disabled` key of accessibilityState through to a
+    // DOM attribute - there is no aria-expanded to assert on here. The trailing chevron
+    // icon (ChevronDownSmallIcon/ChevronUpSmallIcon, swapped based on `isExpanded`) is
+    // the only DOM-observable signal of expanded/collapsed state for the default
+    // trigger content, so this characterizes uncontrolled expand *and* collapse via
+    // that icon flipping and flipping back.
+    const getChevronPath = () => canvasElement.querySelector('svg path')?.getAttribute('d');
+    const collapsedChevron = getChevronPath();
+
+    await userEvent.click(trigger);
+    await waitFor(() => expect(getChevronPath()).not.toBe(collapsedChevron));
+    const expandedChevron = getChevronPath();
+
+    await userEvent.click(trigger);
+    await waitFor(() => expect(getChevronPath()).toBe(collapsedChevron));
+    expect(getChevronPath()).not.toBe(expandedChevron);
+  },
 };
 
 export const WithLeadingIcon: Story = {
@@ -195,6 +218,24 @@ export const Disabled: Story = {
       style={{ width: 350 }}
     />
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: /disabled card/i });
+
+    // `disabled` maps straight through to the Pressable's `disabled`/`aria-disabled`
+    // DOM attributes here (react-native-web's one special case for
+    // accessibilityState - verified via live DOM inspection).
+    expect(trigger).toHaveAttribute('aria-disabled', 'true');
+
+    const getChevronPath = () => canvasElement.querySelector('svg path')?.getAttribute('d');
+    const initialChevron = getChevronPath();
+
+    await userEvent.click(trigger);
+
+    // Pressing a disabled trigger does not toggle expanded state - ExpandableCard's
+    // handlePress returns early when `disabled` is true.
+    expect(getChevronPath()).toBe(initialChevron);
+  },
 };
 
 export const Controlled: Story = {
@@ -217,6 +258,24 @@ export const Controlled: Story = {
         />
       </div>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    expect(canvas.getByText('Status: Collapsed')).toBeInTheDocument();
+
+    const trigger = await canvas.findByRole('button', { name: /controlled card/i });
+    await userEvent.click(trigger);
+
+    // In controlled mode, `expanded`/`onExpandedChange` are wired to this story's own
+    // state rather than ExpandableCard's internal state - pressing the trigger calls
+    // onExpandedChange, and it's that resulting prop change which flips the trigger.
+    // This story's own status text (driven purely by the external state) confirms the
+    // round-trip both ways.
+    await waitFor(() => expect(canvas.getByText('Status: Expanded')).toBeInTheDocument());
+
+    await userEvent.click(trigger);
+    await waitFor(() => expect(canvas.getByText('Status: Collapsed')).toBeInTheDocument());
   },
 };
 
