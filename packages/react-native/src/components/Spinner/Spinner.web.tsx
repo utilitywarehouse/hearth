@@ -85,10 +85,12 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   return (
     <View
       {...props}
+      aria-label={props['aria-label'] ?? 'loading'}
       style={[styles.container, props.style]}
       aria-busy
       aria-live="polite"
       role="status"
+      tabIndex={props.tabIndex ?? 0}
     >
       <AnimatedSvg
         width={width}
