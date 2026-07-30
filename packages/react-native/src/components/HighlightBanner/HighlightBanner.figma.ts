@@ -36,10 +36,7 @@ const button =
 export default {
   id: 'HighlightBanner',
   imports: ["import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';"],
-  example: figma.code`// HighlightBanner doesn't need to be wrapped in a Card
-// it's a standalone component in code please see the HighlightBanner docs
-// https://hearth.prod.uw.systems/react-native/?path=/docs/components-highlightbanner--docs
-<HighlightBanner${figma.helpers.react.renderProp(
+  example: figma.code`<HighlightBanner${figma.helpers.react.renderProp(
     'heading',
     heading
   )}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp(
