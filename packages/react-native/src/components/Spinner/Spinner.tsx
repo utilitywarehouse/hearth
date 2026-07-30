@@ -91,7 +91,8 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   return (
     <View
       {...props}
-      aria-label={props['aria-label'] ?? 'loading'}
+      aria-label={props['aria-label'] ?? props.accessibilityLabel ?? 'loading'}
+      accessibilityLabel={props.accessibilityLabel ?? props['aria-label'] ?? 'loading'}
       style={[styles.container, props.style]}
       aria-busy
       aria-live="polite"
