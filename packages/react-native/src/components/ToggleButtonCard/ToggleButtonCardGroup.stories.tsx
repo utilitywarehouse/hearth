@@ -97,15 +97,20 @@ export const Playground: Story = {
 
     await userEvent.click(toggle2);
 
-    // Characterizes current behaviour: pressing a ToggleButtonCard's inner toggle
-    // button does not flip the shared createRadio() selection state - the hidden
-    // radio input backing each card stays unchecked and toggle2's visual "toggled"
-    // styling (background colour) is unchanged. Pressing toggle1 afterwards is
-    // likewise a no-op on the shared selection. See UWDS-4909.
-    expect(inputs.every(input => !input.checked)).toBe(true);
-    expect(getComputedStyle(toggle2).backgroundColor).toBe(backgroundBefore);
+    // Pressing a ToggleButtonCard's inner toggle button now flips the shared
+    // createRadio() selection state - the hidden radio input backing the pressed
+    // card becomes checked (and, per native radio-group semantics, any other
+    // checked input in the group would become unchecked), and toggle2's visual
+    // "toggled" styling updates accordingly. Previously this was a no-op because
+    // the click never reached the hidden input.
+    expect(inputs.filter(input => input.checked)).toHaveLength(1);
+    expect(inputs.find(input => input.checked)?.value).toBe('Option 2');
+    expect(getComputedStyle(toggle2).backgroundColor).not.toBe(backgroundBefore);
 
     await userEvent.click(toggle1);
-    expect(inputs.every(input => !input.checked)).toBe(true);
+
+    // Selecting toggle1 swaps the selection within the shared group.
+    expect(inputs.filter(input => input.checked)).toHaveLength(1);
+    expect(inputs.find(input => input.checked)?.value).toBe('Option 1');
   },
 };

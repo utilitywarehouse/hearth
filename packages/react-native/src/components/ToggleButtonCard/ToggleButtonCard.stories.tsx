@@ -54,10 +54,12 @@ export const Playground: Story = {
     await userEvent.click(toggle);
 
     // Pressing the ToggleButtonCard's inner toggle button fires the per-item onChange
-    // callback (see the onChange handler passed to this story's args), but currently
-    // does not flip the underlying createRadio() radio input's checked state - see
-    // ToggleButtonCardGroup's Playground story for the multi-item characterization,
-    // and UWDS-4909 for the related accessibility follow-up.
-    expect(hiddenInput.checked).toBe(false);
+    // callback (see the onChange handler passed to this story's args) and now also
+    // flips the underlying createRadio() radio input's checked state. Previously the
+    // click never reached the hidden radio input (the nested ToggleButton intercepted
+    // it); ToggleButtonCardRoot now clicks the hidden input directly on web when it's
+    // unchecked - see ToggleButtonCardGroup's Playground story for the multi-item
+    // characterization.
+    expect(hiddenInput.checked).toBe(true);
   },
 };
