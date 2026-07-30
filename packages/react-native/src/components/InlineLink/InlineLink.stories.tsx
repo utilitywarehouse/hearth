@@ -64,13 +64,15 @@ export const Playground: Story = {
     expect(link).toHaveAttribute('tabindex', '0');
     expect(link).not.toHaveAttribute('aria-disabled');
 
-    // Baseline finding (not a bug fix - characterizing current behaviour
-    // only): same gap as Link - the story's default `target` of `_blank`
-    // never lands as a DOM attribute because `@gluestack-ui/link`'s `useLink`
-    // hook sets `target`/`rel` imperatively via a ref mutation during render.
-    // See UWDS-4909 for tracked aria/attribute gaps.
-    expect(link).not.toHaveAttribute('target');
-    expect(link).not.toHaveAttribute('rel');
+    // Same gap as Link (see UWDS-4909): `@gluestack-ui/link`'s `useLink` hook
+    // set `target`/`rel` imperatively via a ref mutation during render, which
+    // never reliably landed as DOM attributes. InlineLink now passes
+    // `target`/`rel` through explicitly as props (converted to
+    // react-native-web's `hrefAttrs`), so both are applied here, including
+    // the `rel="noopener noreferrer"` default that guards against reverse
+    // tabnabbing on `target="_blank"` links.
+    expect(link).toHaveAttribute('target', '_blank');
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   },
 };
 

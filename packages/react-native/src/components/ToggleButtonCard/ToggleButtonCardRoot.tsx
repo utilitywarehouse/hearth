@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
+import { useMemo, useRef } from 'react';
+import { GestureResponderEvent, Platform, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import { ToggleButtonCardContext } from './ToggleButtonCard.context';
@@ -16,6 +16,7 @@ const ToggleButtonCardRoot = ({
   states?: { disabled?: boolean; checked?: boolean; active?: boolean };
 }) => {
   const { checked, active } = states ?? {};
+  const containerRef = useRef<View>(null);
 
   const value = useMemo(
     () => ({
@@ -30,13 +31,30 @@ const ToggleButtonCardRoot = ({
   });
 
   const handlePress = (e: GestureResponderEvent) => {
+    // gluestack's Radio selection state on web is driven by the hidden native
+    // <input type="radio"> receiving a real click (label-forwarding). The
+    // ToggleButton nested inside is itself an interactive element, so browsers
+    // don't forward the click to that hidden input. Click it directly instead.
+    if (Platform.OS === 'web') {
+      const node = containerRef.current as unknown as HTMLElement | null;
+      const input = node?.querySelector?.('input[type="radio"]') as HTMLInputElement | null;
+      if (input && !input.checked) {
+        input.click();
+        return;
+      }
+    }
     onPress?.(e);
     props.onChange?.(!checked);
   };
 
   return (
     <ToggleButtonCardContext.Provider value={value}>
-      <Pressable {...props} onPress={onPress} style={[styles.container, style as ViewStyle]}>
+      <Pressable
+        {...props}
+        ref={containerRef}
+        onPress={onPress}
+        style={[styles.container, style as ViewStyle]}
+      >
         {children}
         <View style={styles.buttonContainer}>
           <ToggleButton
