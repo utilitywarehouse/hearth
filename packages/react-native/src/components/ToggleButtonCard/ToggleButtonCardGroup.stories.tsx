@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { BodyText } from '../BodyText';
 
@@ -82,4 +83,29 @@ export const Playground: Story = {
       </ToggleButtonCard>
     </ToggleButtonCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const toggle1 = await canvas.findByRole('button', { name: 'Option 1' });
+    const toggle2 = canvas.getByRole('button', { name: /Option 2/ });
+    const inputs = Array.from(
+      canvasElement.querySelectorAll('input[type="radio"]')
+    ) as HTMLInputElement[];
+
+    expect(inputs.every(input => !input.checked)).toBe(true);
+    const backgroundBefore = getComputedStyle(toggle2).backgroundColor;
+
+    await userEvent.click(toggle2);
+
+    // Characterizes current behaviour: pressing a ToggleButtonCard's inner toggle
+    // button does not flip the shared createRadio() selection state - the hidden
+    // radio input backing each card stays unchecked and toggle2's visual "toggled"
+    // styling (background colour) is unchanged. Pressing toggle1 afterwards is
+    // likewise a no-op on the shared selection. See UWDS-4909.
+    expect(inputs.every(input => !input.checked)).toBe(true);
+    expect(getComputedStyle(toggle2).backgroundColor).toBe(backgroundBefore);
+
+    await userEvent.click(toggle1);
+    expect(inputs.every(input => !input.checked)).toBe(true);
+  },
 };

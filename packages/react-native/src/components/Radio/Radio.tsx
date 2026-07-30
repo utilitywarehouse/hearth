@@ -8,6 +8,7 @@ import StyledRadio from './RadioRoot';
 
 import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
+import { resolveRadioType, resolveValidationStatus } from './Radio.utils';
 import { useRadioGroupContext } from './RadioGroup.context';
 import RadioTextContent from './RadioTextContent';
 import RadioTileRoot from './RadioTileRoot';
@@ -47,9 +48,12 @@ const Radio = ({
 }: RadioProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
   const { validationStatus: groupValidationStatus, type: groupType } = useRadioGroupContext();
-  const validationStatus =
-    fieldValidationStatus ?? groupValidationStatus ?? validation ?? 'initial';
-  const radioType = groupType ?? type;
+  const validationStatus = resolveValidationStatus({
+    fieldValidationStatus,
+    groupValidationStatus,
+    validation,
+  });
+  const radioType = resolveRadioType({ groupType, type });
   const radioChildren = children ? (
     children
   ) : (

@@ -1,5 +1,6 @@
 import { RadioCard, RadioCardGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText } from '../BodyText';
 
 const meta = {
@@ -42,4 +43,14 @@ export const Playground: Story = {
       </RadioCard>
     </RadioCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const option1 = await canvas.findByRole('radio', { name: 'Label 1' });
+    expect(option1).not.toBeChecked();
+
+    // Pressing an unselected RadioCard selects it.
+    await userEvent.click(option1);
+    await waitFor(() => expect(option1).toBeChecked());
+  },
 };

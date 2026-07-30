@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-native';
 import React, { useEffect } from 'react';
 import { ImageSourcePropType } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Checkbox, CheckboxGroup, CheckboxImage } from '.';
 import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
@@ -92,6 +93,27 @@ export const Playground: Story = {
         checked={checked}
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = await canvas.findByRole('checkbox');
+
+    // `checked: false` initially, so the checkbox renders unchecked.
+    expect(checkbox).toHaveAttribute('aria-checked', 'false');
+
+    await userEvent.click(checkbox);
+
+    // Pressing an unchecked checkbox checks it.
+    await waitFor(() => {
+      expect(checkbox).toHaveAttribute('aria-checked', 'true');
+    });
+
+    await userEvent.click(checkbox);
+
+    // Pressing a checked checkbox unchecks it.
+    await waitFor(() => {
+      expect(checkbox).toHaveAttribute('aria-checked', 'false');
+    });
   },
 };
 
@@ -213,5 +235,27 @@ export const Variants: Story = {
         </VariantTitle>
       </CheckboxGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Both "Checkbox disabled" (Label 3) and "Checkbox disabled with label" (Label 4)
+    // are unchecked in the underlying CheckboxGroup's controlled value (only "Label 1"
+    // is in the group's initial value array) - the `checked` prop passed directly to
+    // "Label 3" has no effect here, since it's a member of a CheckboxGroup.
+    const disabled1 = await canvas.findByRole('checkbox', { name: 'Label 3' });
+    const disabled2 = await canvas.findByRole('checkbox', { name: 'Label 4' });
+
+    expect(disabled1).toBeDisabled();
+    expect(disabled1).toHaveAttribute('aria-checked', 'false');
+    expect(disabled2).toBeDisabled();
+    expect(disabled2).toHaveAttribute('aria-checked', 'false');
+
+    await userEvent.click(disabled1);
+    await userEvent.click(disabled2);
+
+    // Pressing a disabled checkbox does not change its checked state.
+    expect(disabled1).toHaveAttribute('aria-checked', 'false');
+    expect(disabled2).toHaveAttribute('aria-checked', 'false');
   },
 };
