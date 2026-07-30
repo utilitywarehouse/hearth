@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { PillGroup } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -39,6 +40,27 @@ export const Playground: Story = {
         <Pill value="4" label="Mobile" />
       </PillGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const energyPill = await canvas.findByRole('button', { name: 'Energy' });
+    const broadbandPill = await canvas.findByRole('button', { name: 'Broadband' });
+
+    // `value: '2'` (Energy) is selected initially, so its background reflects the
+    // "selected" style while Broadband's reflects the "unselected" style.
+    const selectedBackground = getComputedStyle(energyPill).backgroundColor;
+    const unselectedBackground = getComputedStyle(broadbandPill).backgroundColor;
+    expect(selectedBackground).not.toBe(unselectedBackground);
+
+    await userEvent.click(broadbandPill);
+
+    // Pressing Broadband should swap which pill carries the "selected" background —
+    // single-select mode replaces the current value rather than toggling it.
+    await waitFor(() => {
+      expect(getComputedStyle(broadbandPill).backgroundColor).toBe(selectedBackground);
+      expect(getComputedStyle(energyPill).backgroundColor).toBe(unselectedBackground);
+    });
   },
 };
 
