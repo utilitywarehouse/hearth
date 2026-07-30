@@ -8,14 +8,20 @@ const InlineLinkRoot = ({
   children,
   inverted = false,
   states,
+  target,
+  rel,
   ...props
 }: InlineLinkProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active, disabled = false } = states || {};
   styles.useVariants({ disabled, inverted, active });
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
+  // react-native-web only applies `target`/`rel` to the rendered `<a>` via
+  // `hrefAttrs` - passing them as bare props is a no-op. Not typed on
+  // `TextProps`, hence the spread rather than a named JSX attribute.
+  const hrefAttrsProp = target || rel ? { hrefAttrs: { target, rel } } : {};
   return (
     <InlineLinkContext.Provider value={value}>
-      <Text {...props} style={[styles.container, props.style]}>
+      <Text {...props} {...hrefAttrsProp} style={[styles.container, props.style]}>
         {children}
       </Text>
     </InlineLinkContext.Provider>
