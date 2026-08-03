@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Spinner } from '.';
 import { coloursAsArray } from '../../utils';
 import { VariantTitle } from '../../../docs/components';
@@ -34,7 +35,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // The Spinner communicates its loading state to assistive tech via `role="status"`
+    // plus `aria-busy`/`aria-live`, set directly in Spinner.web.tsx — verified live in the
+    // rendered DOM rather than assumed. (Note: an `aria-label="loading"` is also set via
+    // @gluestack-ui/spinner's `createSpinner` defaultProps, but defaultProps on function
+    // components no longer apply reliably under React 19 — it was observed present here
+    // but absent for the same component in the KitchenSink story below. Tracked as a gap
+    // for UWDS-4909, not asserted on here.)
+    const spinner = await canvas.findByRole('status');
+    expect(spinner).toHaveAttribute('aria-busy', 'true');
+    expect(spinner).toHaveAttribute('aria-live', 'polite');
+  },
+};
 
 export const KitchenSink: Story = {
   render: args => (
@@ -53,4 +69,17 @@ export const KitchenSink: Story = {
       </VariantTitle>
     </Box>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Each size variant renders without throwing and exposes the same accessibility
+    // contract as the default Spinner.
+    const spinners = await canvas.findAllByRole('status');
+    expect(spinners).toHaveLength(4);
+
+    spinners.forEach(spinner => {
+      expect(spinner).toHaveAttribute('aria-busy', 'true');
+      expect(spinner).toHaveAttribute('aria-live', 'polite');
+    });
+  },
 };

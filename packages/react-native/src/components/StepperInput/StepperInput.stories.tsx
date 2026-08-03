@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-native';
 import type { ComponentProps } from 'react';
 import { useEffect, useState } from 'react';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { StepperInput } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
@@ -212,6 +213,52 @@ export const Bounds: Story = {
     const [value, setValue] = useState('10');
 
     return <StepperInput {...args} value={value} onChangeText={setValue} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const decrementButton = canvas.getByRole('button', { name: 'Decrease value' });
+    const incrementButton = canvas.getByRole('button', { name: 'Increase value' });
+
+    expect(canvas.getByDisplayValue('10')).toBeInTheDocument();
+
+    // Pressing increment updates the displayed value by `step` (2).
+    await userEvent.click(incrementButton);
+    await waitFor(() => expect(canvas.getByDisplayValue('12')).toBeInTheDocument());
+
+    // 12 is `max` — the increment button disables itself rather than going higher.
+    await waitFor(() => expect(incrementButton).toBeDisabled());
+
+    // Pressing decrement updates the displayed value by `step`, down to `min` (0).
+    for (let i = 0; i < 6; i++) {
+      await userEvent.click(decrementButton);
+    }
+    await waitFor(() => expect(canvas.getByDisplayValue('0')).toBeInTheDocument());
+
+    // 0 is `min` — the decrement button disables itself rather than going lower.
+    await waitFor(() => expect(decrementButton).toBeDisabled());
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+  render: (args: StepperInputStoryProps) => {
+    const [value, setValue] = useState('10');
+
+    return <StepperInput {...args} value={value} onChangeText={setValue} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const decrementButton = canvas.getByRole('button', { name: 'Decrease value' });
+    const incrementButton = canvas.getByRole('button', { name: 'Increase value' });
+
+    // A disabled StepperInput's buttons are genuinely disabled (not just visually dimmed),
+    // so they can't dispatch a press at all — attempting a real click on either throws,
+    // which is itself the proof that pressing them does not respond / change the value.
+    expect(decrementButton).toBeDisabled();
+    expect(incrementButton).toBeDisabled();
+    expect(canvas.getByDisplayValue('10')).toBeInTheDocument();
   },
 };
 

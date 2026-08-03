@@ -1,5 +1,6 @@
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText';
 
 const meta = {
@@ -42,4 +43,23 @@ export const Playground: Story = {
       </ToggleButtonCard>
     </ToggleButtonCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const toggle = await canvas.findByRole('button', { name: 'Label' });
+    const hiddenInput = canvasElement.querySelector('input[type="radio"]') as HTMLInputElement;
+
+    expect(hiddenInput.checked).toBe(false);
+
+    await userEvent.click(toggle);
+
+    // Pressing the ToggleButtonCard's inner toggle button fires the per-item onChange
+    // callback (see the onChange handler passed to this story's args) and now also
+    // flips the underlying createRadio() radio input's checked state. Previously the
+    // click never reached the hidden radio input (the nested ToggleButton intercepted
+    // it); ToggleButtonCardRoot now clicks the hidden input directly on web when it's
+    // unchecked - see ToggleButtonCardGroup's Playground story for the multi-item
+    // characterization.
+    expect(hiddenInput.checked).toBe(true);
+  },
 };

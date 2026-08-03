@@ -3,6 +3,7 @@ import { color } from '@utilitywarehouse/hearth-tokens/js';
 import { useState } from 'react';
 import { LayoutChangeEvent, Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Carousel, CarouselControls, CarouselItem, CarouselProps } from '.';
 import { Alert, BodyText, Box } from '../';
 
@@ -291,6 +292,49 @@ export const CustomControls: Story = {
         </Carousel>
       </Box>
     );
+  },
+};
+
+export const PressControlItem: Story = {
+  args: {
+    width: 300,
+    inactiveItemOpacity: 0.4,
+  },
+  // Uses a fixed width (rather than the onLayout-measured width used by the
+  // other stories) so the play function below doesn't race the initial
+  // layout measurement.
+  render: args => (
+    <Box width={300} overflow="hidden">
+      <Carousel {...args}>
+        {items.map(({ color, key, title }) => (
+          <CarouselItem key={key} testID={`carousel-item-${key}`}>
+            <CarouselItemCard backgroundColor={color} title={`•••• •••• •••• ${title}`} />
+          </CarouselItem>
+        ))}
+      </Carousel>
+    </Box>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const firstItem = await canvas.findByTestId('carousel-item-1');
+    const thirdItem = await canvas.findByTestId('carousel-item-3');
+    const thirdDot = await canvas.findByLabelText('Page 3 of 5');
+
+    // The first item starts active (full opacity); the third is inactive (dimmed).
+    await waitFor(() => {
+      expect(getComputedStyle(firstItem).opacity).toBe('1');
+      expect(getComputedStyle(thirdItem).opacity).toBe('0.4');
+    });
+
+    await userEvent.click(thirdDot);
+
+    // Pressing the third dot's control item should make the third carousel
+    // item the active (fully opaque) one, and dim the first item.
+    await waitFor(() => {
+      expect(getComputedStyle(thirdItem).opacity).toBe('1');
+      expect(getComputedStyle(firstItem).opacity).toBe('0.4');
+    });
   },
 };
 

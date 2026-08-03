@@ -1,8 +1,9 @@
-import { Children, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { Easing, useSharedValue, withTiming } from 'react-native-reanimated';
 import { TabsContext } from './Tabs.context';
 import type TabsProps from './Tabs.props';
+import { collectTabValues, resolveActiveValue, resolveInitialValue, resolveValidValue } from './Tabs.utils';
 
 const Tabs = ({
   value: controlledValue,
@@ -14,28 +15,9 @@ const Tabs = ({
   ...props
 }: TabsProps) => {
   // Collect child tab values
-  const tabValues = useMemo(() => {
-    const vals: string[] = [];
-    const walk = (node: any) => {
-      Children.forEach(node, child => {
-        if (!isValidElement(child)) return;
-        const props: any = child.props;
-        const type: any = child.type;
-        if (type?.displayName === 'Tab' && typeof props?.value === 'string') {
-          vals.push(props.value);
-        }
-        if (props?.children) walk(props.children);
-      });
-    };
-    walk(children);
-    return vals;
-  }, [children]);
+  const tabValues = useMemo(() => collectTabValues(children), [children]);
 
-  const getInitial = () => {
-    if (controlledValue !== undefined) return controlledValue;
-    if (defaultValue) return defaultValue;
-    return tabValues[0];
-  };
+  const getInitial = () => resolveInitialValue({ controlledValue, defaultValue, tabValues });
 
   const [uncontrolled, setUncontrolled] = useState<string | undefined>(getInitial);
 
@@ -45,14 +27,10 @@ const Tabs = ({
 
   // Ensure value remains valid if tabs change
   useEffect(() => {
-    setUncontrolled(prev => {
-      if (!prev) return tabValues[0];
-      if (!tabValues.includes(prev)) return tabValues[0];
-      return prev;
-    });
+    setUncontrolled(prev => resolveValidValue({ prev, tabValues }));
   }, [tabValues.join('|')]);
 
-  const currentValue = controlledValue !== undefined ? controlledValue : uncontrolled;
+  const currentValue = resolveActiveValue({ controlledValue, uncontrolledValue: uncontrolled });
 
   const select = useCallback(
     (val: string) => {

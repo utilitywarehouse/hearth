@@ -8,6 +8,7 @@ import {
   MobileMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentType } from 'react';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { IconButton, IconButtonProps } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
@@ -72,6 +73,7 @@ const meta = {
     disabled: false,
     inverted: false,
     pressed: false,
+    onPress: fn(),
   },
 } satisfies Meta<typeof IconButton>;
 
@@ -83,6 +85,91 @@ export const Playground: Story = {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return <IconButton {...args} icon={icon} />;
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.findByRole('button');
+
+    await userEvent.click(button);
+
+    // Pressing an enabled button fires the `onPress` handler passed through from
+    // the underlying `createButton()` Pressable.
+    await expect(args.onPress).toHaveBeenCalledOnce();
+  },
+};
+
+const statesOnPressDefault = fn();
+const statesOnPressDisabled = fn();
+
+export const States: Story = {
+  parameters: {
+    controls: { include: ['size', 'variant', 'colorScheme'] },
+  },
+  render: ({ size, variant, colorScheme, inverted }) => (
+    <Flex direction="column" spacing="lg">
+      <VariantTitle title="Default" invert={inverted}>
+        <IconButton
+          size={size}
+          variant={variant}
+          colorScheme={colorScheme}
+          inverted={inverted}
+          icon={Icons.AddMediumIcon}
+          onPress={statesOnPressDefault}
+          aria-label="Default"
+        />
+      </VariantTitle>
+      <VariantTitle title="Disabled" invert={inverted}>
+        <IconButton
+          size={size}
+          variant={variant}
+          colorScheme={colorScheme}
+          inverted={inverted}
+          icon={Icons.AddMediumIcon}
+          disabled
+          onPress={statesOnPressDisabled}
+          aria-label="Disabled"
+        />
+      </VariantTitle>
+      <VariantTitle title="Loading" invert={inverted}>
+        <IconButton
+          size={size}
+          variant={variant}
+          colorScheme={colorScheme}
+          inverted={inverted}
+          icon={Icons.AddMediumIcon}
+          loading
+        />
+      </VariantTitle>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+
+    const defaultButton = await canvas.findByRole('button', { name: 'Default' });
+    await userEvent.click(defaultButton);
+    // Pressing the enabled "Default" button fires its `onPress` handler.
+    expect(statesOnPressDefault).toHaveBeenCalledOnce();
+
+    // A disabled button renders with `pointer-events: none` - a real user cannot
+    // click it at all (userEvent.click throws on a pointer-events: none element,
+    // which is itself proof it can't respond), so its disabled state is the
+    // characterization itself. `disabled` maps to the DOM `disabled`/
+    // `aria-disabled` attributes here (react-native-web's one special case for
+    // accessibilityState, verified via live DOM inspection).
+    const disabledButton = await canvas.findByRole('button', { name: 'Disabled' });
+    expect(disabledButton).toBeDisabled();
+    expect(disabledButton).toHaveAttribute('aria-disabled', 'true');
+    expect(statesOnPressDisabled).not.toHaveBeenCalled();
+
+    // The "Loading" variant renders `IconButtonSpinner` (role="status", aria-busy)
+    // in place of `IconButtonIcon` (role="img") - only 2 of the 3 buttons expose
+    // an icon's `img` role, the loading one shows a spinner instead.
+    const iconRoles = canvas.queryAllByRole('img', { hidden: true });
+    const statusRoles = canvas.queryAllByRole('status');
+    expect(iconRoles.length).toBe(2);
+    expect(statusRoles.length).toBe(1);
+    expect(buttons.length).toBe(3);
   },
 };
 

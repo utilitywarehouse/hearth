@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Box } from '../Box';
 import { PillGroupContext, PillGroupContextValue } from './PillGroup.context';
 import type { PillGroupProps } from './PillGroup.props';
+import { toggleSelection } from './PillGroup.utils';
 
 export const PillGroup = ({
   children,
@@ -21,15 +22,13 @@ export const PillGroup = ({
     () => ({
       value: normalizedValue,
       onChange: (pillValue: string) => {
+        const newValue = toggleSelection({ currentValue: normalizedValue, pillValue, multiple });
         if (multiple) {
-          const newValue = normalizedValue.includes(pillValue)
-            ? normalizedValue.filter(v => v !== pillValue)
-            : [...normalizedValue, pillValue];
-          (onChange as (value: string[]) => void)?.(newValue);
-          (onValueChange as (value: string[]) => void)?.(newValue);
+          (onChange as (value: string[]) => void)?.(newValue as string[]);
+          (onValueChange as (value: string[]) => void)?.(newValue as string[]);
         } else {
-          (onChange as (value: string) => void)?.(pillValue);
-          (onValueChange as (value: string) => void)?.(pillValue);
+          (onChange as (value: string) => void)?.(newValue as string);
+          (onValueChange as (value: string) => void)?.(newValue as string);
         }
       },
     }),

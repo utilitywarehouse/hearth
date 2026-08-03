@@ -13,11 +13,11 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { useTabsContext } from './Tabs.context';
+import { computeScrollTarget, computeScrollVisibility } from './Tabs.utils';
 import type TabsListProps from './TabsList.props';
 
 const Indicator = Animated.createAnimatedComponent(View);
 
-const SCROLL_STEP_RATIO = 0.6;
 const SCROLL_BUTTON_HITSLOP = { top: 10, bottom: 10, left: 10, right: 10 } as const;
 
 const TabsList = ({ children, style, ...rest }: TabsListProps) => {
@@ -36,12 +36,13 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
   }));
 
   const updateScrollState = useCallback(() => {
-    const cw = containerWidthRef.current;
-    const contentW = contentWidthRef.current;
-    const x = scrollX.value;
-    const overflow = contentW > cw + 1;
-    setCanScrollLeft(overflow && x > 0);
-    setCanScrollRight(overflow && x + cw < contentW - 1);
+    const { canScrollLeft, canScrollRight } = computeScrollVisibility({
+      containerWidth: containerWidthRef.current,
+      contentWidth: contentWidthRef.current,
+      scrollX: scrollX.value,
+    });
+    setCanScrollLeft(canScrollLeft);
+    setCanScrollRight(canScrollRight);
   }, [scrollX]);
 
   const onLayoutContainer = (e: LayoutChangeEvent) => {
@@ -60,11 +61,12 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
   });
 
   const scrollBy = (direction: 1 | -1) => {
-    const viewW = containerWidthRef.current;
-    const step = viewW * SCROLL_STEP_RATIO;
-    const current = scrollX.value;
-    const max = Math.max(0, contentWidthRef.current - viewW);
-    const target = Math.max(0, Math.min(current + direction * step, max));
+    const target = computeScrollTarget({
+      containerWidth: containerWidthRef.current,
+      contentWidth: contentWidthRef.current,
+      currentScrollX: scrollX.value,
+      direction,
+    });
     scrollRef.current?.scrollTo({ x: target, animated: true });
   };
 

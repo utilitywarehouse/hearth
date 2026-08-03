@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { BodyText } from '../BodyText';
 
@@ -82,4 +83,33 @@ export const Playground: Story = {
       </ToggleButtonCard>
     </ToggleButtonCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const toggle1 = await canvas.findByRole('button', { name: 'Option 1' });
+    const toggle2 = canvas.getByRole('button', { name: /Option 2/ });
+    const inputs = Array.from(
+      canvasElement.querySelectorAll('input[type="radio"]')
+    ) as HTMLInputElement[];
+
+    expect(inputs.every(input => !input.checked)).toBe(true);
+
+    await userEvent.click(toggle2);
+
+    // Pressing a ToggleButtonCard's inner toggle button now flips the shared
+    // createRadio() selection state - the hidden radio input backing the pressed
+    // card becomes checked (and, per native radio-group semantics, any other
+    // checked input in the group would become unchecked). Previously this was
+    // a no-op because the click never reached the hidden input. `checked` is a
+    // real native DOM property (not a Unistyles-computed style), so it's a
+    // reliable signal here.
+    expect(inputs.filter(input => input.checked)).toHaveLength(1);
+    expect(inputs.find(input => input.checked)?.value).toBe('Option 2');
+
+    await userEvent.click(toggle1);
+
+    // Selecting toggle1 swaps the selection within the shared group.
+    expect(inputs.filter(input => input.checked)).toHaveLength(1);
+    expect(inputs.find(input => input.checked)?.value).toBe('Option 1');
+  },
 };
