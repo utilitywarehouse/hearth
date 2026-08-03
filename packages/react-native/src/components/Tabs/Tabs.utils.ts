@@ -39,7 +39,7 @@ export const resolveInitialValue = ({
   tabValues,
 }: ResolveInitialValueOptions): string | undefined => {
   if (controlledValue !== undefined) return controlledValue;
-  if (defaultValue) return defaultValue;
+  if (defaultValue !== undefined) return defaultValue;
   return tabValues[0];
 };
 

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { expect, within } from 'storybook/test';
+import { expect, waitFor, within } from 'storybook/test';
 import { FormField } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Checkbox } from '../Checkbox';
@@ -226,7 +226,9 @@ export const DisabledPropagation: Story = {
     const enabledLabel = await canvas.findByText('Enabled label');
     const disabledLabel = await canvas.findByText('Disabled label');
 
-    expect(getComputedStyle(enabledLabel).opacity).toBe('1');
-    expect(getComputedStyle(disabledLabel).opacity).toBe('0.5');
+    await waitFor(() => {
+      expect(getComputedStyle(enabledLabel).opacity).toBe('1');
+      expect(getComputedStyle(disabledLabel).opacity).toBe('0.5');
+    });
   },
 };

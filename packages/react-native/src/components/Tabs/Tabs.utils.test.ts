@@ -75,6 +75,16 @@ describe('resolveInitialValue', () => {
       })
     ).toBe('a');
   });
+
+  it('uses an explicit empty-string defaultValue rather than falling back to the first tab', () => {
+    expect(
+      resolveInitialValue({
+        controlledValue: undefined,
+        defaultValue: '',
+        tabValues: ['a', 'b'],
+      })
+    ).toBe('');
+  });
 });
 
 describe('resolveActiveValue', () => {

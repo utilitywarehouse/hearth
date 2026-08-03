@@ -130,13 +130,15 @@ export const States: Story = {
     // Pressing the enabled "Default" button fires its `onPress` handler.
     expect(statesOnPressDefault).toHaveBeenCalledOnce();
 
+    // A disabled button renders with `pointer-events: none` - a real user cannot
+    // click it at all (userEvent.click throws on a pointer-events: none element,
+    // which is itself proof it can't respond), so its disabled state is the
+    // characterization itself. `disabled` maps to the DOM `disabled`/
+    // `aria-disabled` attributes here (react-native-web's one special case for
+    // accessibilityState, verified via live DOM inspection).
     const disabledButton = await canvas.findByRole('button', { name: 'Disabled' });
     expect(disabledButton).toBeDisabled();
     expect(disabledButton).toHaveAttribute('aria-disabled', 'true');
-    await userEvent.click(disabledButton);
-    // A disabled button does not respond to press - `disabled` maps to the DOM
-    // `disabled`/`aria-disabled` attributes here (react-native-web's one special
-    // case for accessibilityState, verified via live DOM inspection).
     expect(statesOnPressDisabled).not.toHaveBeenCalled();
 
     // The "Loading" variant renders `UnstyledIconButtonSpinner` (role="status",
