@@ -19,7 +19,6 @@ figma.connect(
     },
     example: ({ sectionHeader, children, ...props }) => (
       <Accordion
-        type="single"
         heading={sectionHeader.heading}
         helperText={sectionHeader.helperText}
         {...props}

@@ -64,7 +64,7 @@
     transition: transform 200ms;
   }
 
-  & :where(.h-AccordionTrigger[data-state='open'] > svg) {
+  & :where(.h-AccordionTrigger[data-panel-open] > svg) {
     transform: rotate(180deg);
   }
 
@@ -73,11 +73,11 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    & :where(.h-AccordionContent[data-state='open']) {
+    & :where(.h-AccordionContent[data-starting-style]) {
       animation: h-slide-down 200ms ease-out;
     }
 
-    & :where(.h-AccordionContent[data-state='closed']) {
+    & :where(.h-AccordionContent[data-ending-style]) {
       animation: h-slide-up 200ms ease-out forwards;
     }
   }
@@ -96,15 +96,15 @@
     }
 
     to {
-      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-      height: var(--radix-accordion-content-height);
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+      height: var(--accordion-panel-height);
     }
   }
 
   @keyframes h-slide-up {
     from {
-      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-      height: var(--radix-accordion-content-height);
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+      height: var(--accordion-panel-height);
     }
 
     to {
