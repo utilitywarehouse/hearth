@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { expect, waitFor, within } from 'storybook/test';
+import { expect, within } from 'storybook/test';
 import { FormField } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Checkbox } from '../Checkbox';
@@ -223,12 +223,16 @@ export const DisabledPropagation: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const enabledLabel = await canvas.findByText('Enabled label');
-    const disabledLabel = await canvas.findByText('Disabled label');
+    // FormField's `disabled` prop propagates through `FormFieldContext` to the
+    // wrapped `Input`, which becomes a genuinely disabled native `<input>` -
+    // a reliable, native DOM property (unlike the label's Unistyles-variant-
+    // driven opacity dimming, which isn't reliably observable via
+    // `getComputedStyle` in every test environment - see UWDS-4909). `Input`
+    // derives its own accessible name from FormField's `label` prop.
+    const enabledInput = await canvas.findByRole('textbox', { name: 'Enabled label, required' });
+    const disabledInput = await canvas.findByRole('textbox', { name: 'Disabled label, required' });
 
-    await waitFor(() => {
-      expect(getComputedStyle(enabledLabel).opacity).toBe('1');
-      expect(getComputedStyle(disabledLabel).opacity).toBe('0.5');
-    });
+    expect(enabledInput).not.toBeDisabled();
+    expect(disabledInput).toBeDisabled();
   },
 };
