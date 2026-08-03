@@ -39,6 +39,7 @@ export declare const font: {
     readonly '600': 'var(--h-line-height-600)';
     readonly '700': 'var(--h-line-height-700)';
     readonly '800': 'var(--h-line-height-800)';
+    readonly '900': 'var(--h-line-height-900)';
     readonly '950': 'var(--h-line-height-950)';
     readonly '975': 'var(--h-line-height-975)';
     readonly '1050': 'var(--h-line-height-1050)';

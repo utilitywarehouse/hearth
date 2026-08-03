@@ -4,6 +4,10 @@
       "type": "number",
       "value": 9999
     },
+    "lg": {
+      "type": "number",
+      "value": 12
+    },
     "md": {
       "type": "number",
       "value": 8
@@ -80,6 +84,10 @@
       "300": {
         "type": "color",
         "value": "#dfbdf5"
+      },
+      "400": {
+        "type": "color",
+        "value": "#ce9cf0"
       },
       "500": {
         "type": "color",
@@ -242,6 +250,10 @@
       "200": {
         "type": "color",
         "value": "#fad0e9"
+      },
+      "300": {
+        "type": "color",
+        "value": "#f49fd2"
       },
       "400": {
         "type": "color",
@@ -580,6 +592,10 @@
       "type": "number",
       "value": 36
     },
+    "900": {
+      "type": "number",
+      "value": 40
+    },
     "950": {
       "type": "number",
       "value": 48
@@ -719,6 +735,10 @@
     "900": {
       "type": "number",
       "value": 72
+    },
+    "1000": {
+      "type": "number",
+      "value": 80
     }
   }
 }

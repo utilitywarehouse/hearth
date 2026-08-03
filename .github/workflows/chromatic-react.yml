@@ -6,7 +6,6 @@ on:
       - 'packages/react/**'
     branches:
       - '*'
-      - '!main'
 
 jobs:
   chromatic:
@@ -40,5 +39,6 @@ jobs:
           buildScriptName: build:storybook:react
           exitOnceUploaded: true
           onlyChanged: true
+          autoAcceptChanges: 'main'
           zip: true
           storybookBaseDir: packages/react

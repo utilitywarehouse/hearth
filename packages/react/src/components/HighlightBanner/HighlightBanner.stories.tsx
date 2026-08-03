@@ -125,12 +125,7 @@ export const ShadowColours: Story = {
     actions: { disable: true },
     options: { selectedPanel: 'storybook/a11y/panel' },
   },
-  args: {
-    width: '300px',
-    direction: 'column',
-    gap: '150',
-  },
-  render: args => (
+  render: () => (
     <Flex gap="400" padding="400" wrap="wrap">
       {shadowColors.map(c => (
         <HighlightBanner
@@ -139,7 +134,6 @@ export const ShadowColours: Story = {
           headingColor={c === 'functional' ? 'highlight' : c === 'brand' ? 'pig' : c}
           colorScheme="neutralSubtle"
           shadowColor={c}
-          {...args}
         >
           <Box height="100px" width="200px" />
           <HighlightBannerFooter>

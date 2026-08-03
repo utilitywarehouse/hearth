@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { Radio } from './Radio';
+import type { RadioProps } from './Radio.props';
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import visa from '../../../docs/assets/visa.png';
 
@@ -21,7 +22,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
   tags: ['!test'],
-  render: (args: { value?: string }) => {
+  render: (args: Pick<RadioProps, 'value' | 'label' | 'helperText'>) => {
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">

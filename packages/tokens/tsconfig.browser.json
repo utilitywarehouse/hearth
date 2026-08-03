@@ -2,6 +2,7 @@
   "extends": "./tsconfig.json",
   "include": ["./src/browser"],
   "compilerOptions": {
-    "outDir": "./browser"
+    "outDir": "./browser",
+    "rootDir": "./src/browser"
   }
 }

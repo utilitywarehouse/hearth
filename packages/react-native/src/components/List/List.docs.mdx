@@ -286,15 +286,9 @@ You can use the `SectionHeader` component to add a heading and supporting text t
 <Canvas of={Stories.WithSectionHeader} />
 
 ```tsx
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemTrailingIcon,
-} from '@utilitywarehouse/hearth-react-native';
+import { List, ListItem, ListItemIcon } from '@utilitywarehouse/hearth-react-native';
 import {
   BillMediumIcon,
-  ChevronRightSmallIcon,
   PaymentMediumIcon,
   HomeMediumIcon,
   UserMediumIcon,
@@ -310,33 +304,34 @@ const MyComponent = ({ navigate }) => (
       heading="Bills"
       helperText="View your bills"
       leadingContent={<ListItemIcon as={BillMediumIcon} />}
-      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
       onPress={() => console.log('pressed')}
     />
     <ListItem
       heading="Payments"
       helperText="Make a payment"
       leadingContent={<ListItemIcon as={PaymentMediumIcon} />}
-      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
       onPress={() => console.log('pressed')}
     />
     <ListItem
       heading="Moving home"
       helperText="Tell us if you're moving"
       leadingContent={<ListItemIcon as={HomeMediumIcon} />}
-      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
       onPress={() => console.log('pressed')}
     />
     <ListItem
       heading="Refer a friend"
       helperText="Get rewarded with a friend"
       leadingContent={<ListItemIcon as={UserMediumIcon} />}
-      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
       onPress={() => console.log('pressed')}
     />
   </List>
 );
 ```
+
+`ListItem` renders its own trailing chevron automatically when `onPress` is
+set and `trailingContent` is omitted — no need to pass
+`trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}`
+yourself unless you want a different trailing element.
 
 ### `List` with `ListAction`
 

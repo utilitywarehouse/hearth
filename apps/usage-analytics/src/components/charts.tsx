@@ -11,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react';
 import { compact, formatDate, num } from '../lib/format';
 
 export interface Series {
@@ -26,6 +27,44 @@ export interface TrendPoint {
 
 const AXIS = 'var(--h-text-secondary)';
 const GRID = 'var(--h-border-subtle)';
+
+/**
+ * The three usage metrics every trend is tracked by (see `orgTrend`/`packageTrend`
+ * in `lib/series.ts`). Repo counts change far less often than refs or files, so
+ * refs is the more useful default view.
+ */
+export type TrendMetric = 'refs' | 'files' | 'repos';
+
+export const TREND_METRIC_LABELS: Record<TrendMetric, string> = {
+  refs: 'References',
+  files: 'File imports',
+  repos: 'Repos',
+};
+
+/** Switches which metric a single-series TrendChart displays. Defaults belong to the caller. */
+export function TrendMetricSwitcher({
+  value,
+  onChange,
+}: {
+  value: TrendMetric;
+  onChange: (metric: TrendMetric) => void;
+}) {
+  return (
+    <SegmentedControl
+      size="sm"
+      value={[value]}
+      onValueChange={([next]) => {
+        // multiple=false toggle groups can emit [] when the pressed option is
+        // clicked again — ignore that so a metric is always selected.
+        if (next) onChange(next as TrendMetric);
+      }}
+    >
+      {(Object.keys(TREND_METRIC_LABELS) as Array<TrendMetric>).map(metric => (
+        <SegmentedControlOption key={metric} value={metric} label={TREND_METRIC_LABELS[metric]} />
+      ))}
+    </SegmentedControl>
+  );
+}
 
 /** Multi-series line chart for weekly usage-over-time. */
 export function TrendChart({

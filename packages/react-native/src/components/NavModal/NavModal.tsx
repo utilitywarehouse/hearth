@@ -50,6 +50,7 @@ const NavModal = ({
   const backgroundOpacity = useSharedValue(0);
   const pretendContentTranslateY = useSharedValue(20);
   const isBrandBackground = background === 'brand';
+  const backgroundVariant = background === 'default' ? 'neutral' : background;
   const isFullScreenPresentation = presentation === 'fullScreenModal';
   const usesSheetPresentation = !isFullScreenPresentation;
 
@@ -120,7 +121,7 @@ const NavModal = ({
 
   styles.useVariants({
     loading,
-    background: isBrandBackground ? 'brand' : 'primary',
+    background: backgroundVariant,
     presentation: isFullScreenPresentation ? 'fullScreen' : 'modal',
     useSafeAreaInsets,
     usesSheetPresentation,
@@ -304,8 +305,11 @@ const styles = StyleSheet.create((theme, rt) => ({
         brand: {
           backgroundColor: theme.color.background.brand,
         },
-        primary: {
+        neutral: {
           backgroundColor: theme.color.background.secondary,
+        },
+        primary: {
+          backgroundColor: theme.color.background.primary,
         },
       },
       usesSheetPresentation: {
@@ -397,11 +401,14 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     variants: {
       background: {
-        primary: {
+        neutral: {
           backgroundColor: theme.color.surface.neutral.strong,
         },
         brand: {
           backgroundColor: theme.color.background.brand,
+        },
+        primary: {
+          backgroundColor: theme.color.background.primary,
         },
       },
       presentation: {

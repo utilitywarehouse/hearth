@@ -2,6 +2,7 @@
   "codeConnect": {
     "include": ["figma-code-connect/**", "lib/**"],
     "parser": "react",
+    "language": "jsx",
     "exclude": [],
     "importPaths": {
       "packages/react-icons/lib/*": "@utilitywarehouse/hearth-react-icons"

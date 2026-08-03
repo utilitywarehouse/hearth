@@ -1,5 +1,116 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.35.7
+
+### Patch Changes
+
+- [#1464](https://github.com/utilitywarehouse/hearth/pull/1464) [`d9264d3`](https://github.com/utilitywarehouse/hearth/commit/d9264d3b5d0cd893f681fd8aac9578167b9242d2) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: `Flex` supports a `width` utility prop; `Heading`, `BodyText`, and `DetailText` support a `flexShrink` utility prop
+
+  `Flex` can now control its own width directly rather than requiring a wrapping `Box` or inline `style`. `Heading`, `BodyText`, and `DetailText` can now control how they shrink within a flex container, which is useful when other layout considerations (e.g. an icon or button alongside the text) mean the text needs to give up space to prevent overflow.
+
+  **Developer changes**:
+
+  No action required — these are additive, backward-compatible props.
+
+  ```tsx
+  <Flex width={200}>
+    <BodyText flexShrink={1}>This text can shrink to fit available space</BodyText>
+  </Flex>
+  ```
+
+## 0.35.6
+
+### Patch Changes
+
+- [#1462](https://github.com/utilitywarehouse/hearth/pull/1462) [`c748a97`](https://github.com/utilitywarehouse/hearth/commit/c748a97feaec95953299402e19776a1c894f2a30) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: `NavModal` supports a `primary` background option
+
+  `NavModal`'s `background` prop now accepts `'primary'`, applying the primary surface colour instead of the default or brand background.
+
+  **Developer changes**:
+
+  No action required. To use the new option:
+
+  ```tsx
+  <NavModal background="primary">...</NavModal>
+  ```
+
+## 0.35.5
+
+### Patch Changes
+
+- [#1458](https://github.com/utilitywarehouse/hearth/pull/1458) [`37854bb`](https://github.com/utilitywarehouse/hearth/commit/37854bbc148e445a90a90d4b692f3e52b4426aab) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Web bundlers (Vite/Rollup) could tree-shake away Unistyles configuration, breaking styling
+
+  `package.json` previously declared `"sideEffects": false` for the whole package. Bundlers that tree-shake on the exports of `export * from './core'` could conclude the module was unused and strip it entirely, skipping the `StyleSheet.configure(...)` call that sets up breakpoints, themes, and the initial theme. This surfaced as broken/missing styles (or outright runtime errors) in `react-native-web` apps built with Vite.
+
+  The `StyleSheet.configure(...)` call has been moved out of `core/index.ts` into its own side-effect-only module, `core/configure.ts`, imported as the first statement in the package entry point. This makes the "must run before any component calls `StyleSheet.create`" ordering explicit and independent of the barrel's re-export order, rather than relying on `export *` sequencing. `package.json`'s `sideEffects` field is scoped to `["build/core/configure.js"]`, so bundlers keep evaluating that module even though none of its (non-existent) exports are directly imported, while the rest of the package remains tree-shakeable as before.
+
+  **Developer changes**:
+
+  No action required — this only affects how consuming bundlers tree-shake the package. As before, importing components via deep paths into `build/` rather than the package root is unsupported and may not run this configuration step.
+
+## 0.35.4
+
+### Patch Changes
+
+- [#1455](https://github.com/utilitywarehouse/hearth/pull/1455) [`6429fd5`](https://github.com/utilitywarehouse/hearth/commit/6429fd5e290e3e5d43516fa1f4b54ab8eab10e4b) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: `RadioCardGroup` supports a `disabled` prop
+
+  Setting `disabled` on `RadioCardGroup` now disables every `RadioCard` within
+  it, dimming each card and blocking interaction. Individual `RadioCard`s can
+  still set their own `disabled` prop when the group itself isn't disabled.
+
+  **Developer changes**:
+
+  No action required. This is a new, optional prop.
+
+  ```tsx
+  <RadioCardGroup disabled>
+    <RadioCard value="fixed" label="Debit card payment" />
+    <RadioCard value="variable" label="Instant bank transfer" />
+  </RadioCardGroup>
+  ```
+
+## 0.35.3
+
+### Patch Changes
+
+- [#1454](https://github.com/utilitywarehouse/hearth/pull/1454) [`cb9c2b4`](https://github.com/utilitywarehouse/hearth/commit/cb9c2b4f72dbe84b6843fff571446b2e5e231939) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Adds missing colour, border radius, line height and space tokens
+
+## 0.35.2
+
+### Patch Changes
+
+- [#1448](https://github.com/utilitywarehouse/hearth/pull/1448) [`3ee6250`](https://github.com/utilitywarehouse/hearth/commit/3ee62505c243c1cebed3d44cb3e349517eb13dd4) Thanks [@jordmccord](https://github.com/jordmccord)! - 🧹 [HOUSEKEEPING]: Strengthen Claude Code skill trigger reliability
+
+  The `hearth-react` and `hearth-react-native` Claude Code skills used
+  descriptive trigger language ("use this implicitly", "do not wait for
+  explicit mention"), which made them easy to skip in favour of more
+  specifically-scoped, hard-gated skills such as `figma-design-to-code`. The
+  skill description and a new mandatory "when to use" section now use
+  gate-style language and anchor the trigger to concrete moments: writing or
+  editing a file that imports the package, adapting Figma `get_design_context`
+  reference output, and delegating component research to a subagent.
+
+  No runtime behaviour changes for consumers of either package.
+
+## 0.35.1
+
+### Patch Changes
+
+- [#1422](https://github.com/utilitywarehouse/hearth/pull/1422) [`f3edf91`](https://github.com/utilitywarehouse/hearth/commit/f3edf918524d7fd45cdde3d20a524a89c1d7244b) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Upgrade TypeScript to 6.0.3
+
+  Updated TypeScript from 5.x to 6.0.3 across the monorepo, and cleaned up
+  compiler options deprecated since TypeScript 5.0 (`ignoreDeprecations`,
+  `noImplicitUseStrict`, `noStrictGenericChecks`) and 6.0 (`moduleResolution:
+node`, `baseUrl` as a module resolution root).
+
+  **Developer changes**:
+
+  No changes required. Published output (JS bundles and `.d.ts` declarations) is
+  unaffected — this is a devDependency and tooling upgrade only.
+
+- Updated dependencies [[`f3edf91`](https://github.com/utilitywarehouse/hearth/commit/f3edf918524d7fd45cdde3d20a524a89c1d7244b)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.8.6
+
 ## 0.35.0
 
 ### Minor Changes

@@ -4,6 +4,7 @@ import { Badge } from '../Badge/Badge';
 import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { RadioTile } from './RadioTile';
+import type { RadioTileProps } from './RadioTile.props';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../../../docs/assets/mastercard.png';
 import visa from '../../../docs/assets/visa.png';
@@ -32,7 +33,7 @@ export const Playground: Story = {
     label: 'Radio label',
     helperText: 'Radio helper text',
   },
-  render: (args: { value?: string }) => {
+  render: (args: Pick<RadioTileProps, 'value' | 'label' | 'helperText'>) => {
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">

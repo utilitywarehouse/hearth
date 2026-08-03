@@ -9,12 +9,17 @@
         "./src/**/*.stories.tsx",
     ],
     "compilerOptions": {
-        "baseUrl": ".",
         "paths": {
-            "react-native": ["./node_modules/react-native"],
-            "react-native/*": ["./node_modules/react-native/*"]
+            "react-native": [
+                "./node_modules/react-native"
+            ],
+            "react-native/*": [
+                "./node_modules/react-native/*"
+            ]
         },
-        "ignoreDeprecations": "5.0",
+        "types": [
+            "@figma/code-connect/figma-types"
+        ],
         "noEmit": false,
         "declaration": true,
         "allowJs": true,
@@ -28,12 +33,11 @@
             "dom"
         ],
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
+        "rootDir": "./src",
         "allowSyntheticDefaultImports": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
-        "noImplicitUseStrict": false,
-        "noStrictGenericChecks": false,
         "noUnusedLocals": false,
         "noUnusedParameters": true,
         "resolveJsonModule": true,

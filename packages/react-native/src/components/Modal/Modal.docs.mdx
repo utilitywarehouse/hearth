@@ -128,6 +128,7 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `footerStyle`                 | `StyleProp<ViewStyle>`                                             | Styles applied to the footer container, useful for sticky footer shadows or custom spacing                             | -              |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                           | -              |
 | `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                                | `false`        |
+| `testID`                      | `string`                                                           | Applied to the modal content container, useful for locating the modal in e2e tests                                     | -              |
 
 When `footer` is provided, the primary and secondary button props are not available. Build your footer actions directly inside the custom footer content instead.
 

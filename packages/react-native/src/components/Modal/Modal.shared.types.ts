@@ -4,6 +4,7 @@ import { ButtonWithoutChildrenProps } from '../Button/Button.props';
 import { UnstyledIconButtonProps } from '../UnstyledIconButton';
 
 export interface ModalCommonBaseProps {
+  testID?: string;
   loading?: boolean;
   image?: ReactNode;
   showCloseButton?: boolean;

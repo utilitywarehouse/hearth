@@ -1,0 +1,1370 @@
+{
+  "templateFile": "./icons.figma.batch.ts",
+  "components": [
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:773&m=dev",
+      "id": "add-small-icon",
+      "name": "AddSmallIcon",
+      "component": "AddSmallIcon",
+      "source": "../lib/AddSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:794&m=dev",
+      "id": "attach-small-icon",
+      "name": "AttachSmallIcon",
+      "component": "AttachSmallIcon",
+      "source": "../lib/AttachSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2330:17&m=dev",
+      "id": "basket-small-icon",
+      "name": "BasketSmallIcon",
+      "component": "BasketSmallIcon",
+      "source": "../lib/BasketSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2301:392&m=dev",
+      "id": "bell-small-icon",
+      "name": "BellSmallIcon",
+      "component": "BellSmallIcon",
+      "source": "../lib/BellSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2397:19&m=dev",
+      "id": "bill-small-icon",
+      "name": "BillSmallIcon",
+      "component": "BillSmallIcon",
+      "source": "../lib/BillSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2192:61&m=dev",
+      "id": "broadband-small-icon",
+      "name": "BroadbandSmallIcon",
+      "component": "BroadbandSmallIcon",
+      "source": "../lib/BroadbandSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2017:52&m=dev",
+      "id": "calendar-small-icon",
+      "name": "CalendarSmallIcon",
+      "component": "CalendarSmallIcon",
+      "source": "../lib/CalendarSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:769&m=dev",
+      "id": "calendar-add-small-icon",
+      "name": "CalendarAddSmallIcon",
+      "component": "CalendarAddSmallIcon",
+      "source": "../lib/CalendarAddSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2192:89&m=dev",
+      "id": "cashback-card-small-icon",
+      "name": "CashbackCardSmallIcon",
+      "component": "CashbackCardSmallIcon",
+      "source": "../lib/CashbackCardSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2353:17&m=dev",
+      "id": "celebration-small-icon",
+      "name": "CelebrationSmallIcon",
+      "component": "CelebrationSmallIcon",
+      "source": "../lib/CelebrationSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2074:37&m=dev",
+      "id": "chevron-down-small-icon",
+      "name": "ChevronDownSmallIcon",
+      "component": "ChevronDownSmallIcon",
+      "source": "../lib/ChevronDownSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1172&m=dev",
+      "id": "chevron-left-small-icon",
+      "name": "ChevronLeftSmallIcon",
+      "component": "ChevronLeftSmallIcon",
+      "source": "../lib/ChevronLeftSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1183&m=dev",
+      "id": "chevron-right-small-icon",
+      "name": "ChevronRightSmallIcon",
+      "component": "ChevronRightSmallIcon",
+      "source": "../lib/ChevronRightSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2074:100&m=dev",
+      "id": "chevron-up-small-icon",
+      "name": "ChevronUpSmallIcon",
+      "component": "ChevronUpSmallIcon",
+      "source": "../lib/ChevronUpSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:742&m=dev",
+      "id": "close-small-icon",
+      "name": "CloseSmallIcon",
+      "component": "CloseSmallIcon",
+      "source": "../lib/CloseSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1249&m=dev",
+      "id": "copy-small-icon",
+      "name": "CopySmallIcon",
+      "component": "CopySmallIcon",
+      "source": "../lib/CopySmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:14&m=dev",
+      "id": "credit-small-icon",
+      "name": "CreditSmallIcon",
+      "component": "CreditSmallIcon",
+      "source": "../lib/CreditSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:18&m=dev",
+      "id": "credit-reversal-small-icon",
+      "name": "CreditReversalSmallIcon",
+      "component": "CreditReversalSmallIcon",
+      "source": "../lib/CreditReversalSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=43:150&m=dev",
+      "id": "decrease-small-icon",
+      "name": "DecreaseSmallIcon",
+      "component": "DecreaseSmallIcon",
+      "source": "../lib/DecreaseSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1205&m=dev",
+      "id": "download-small-icon",
+      "name": "DownloadSmallIcon",
+      "component": "DownloadSmallIcon",
+      "source": "../lib/DownloadSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1194&m=dev",
+      "id": "expand-small-icon",
+      "name": "ExpandSmallIcon",
+      "component": "ExpandSmallIcon",
+      "source": "../lib/ExpandSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:27&m=dev",
+      "id": "edit-small-icon",
+      "name": "EditSmallIcon",
+      "component": "EditSmallIcon",
+      "source": "../lib/EditSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2173:34&m=dev",
+      "id": "electricity-small-icon",
+      "name": "ElectricitySmallIcon",
+      "component": "ElectricitySmallIcon",
+      "source": "../lib/ElectricitySmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=46:25&m=dev",
+      "id": "email-small-icon",
+      "name": "EmailSmallIcon",
+      "component": "EmailSmallIcon",
+      "source": "../lib/EmailSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2017:23&m=dev",
+      "id": "error-circle-small-icon",
+      "name": "ErrorCircleSmallIcon",
+      "component": "ErrorCircleSmallIcon",
+      "source": "../lib/ErrorCircleSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2017:88&m=dev",
+      "id": "eye-small-icon",
+      "name": "EyeSmallIcon",
+      "component": "EyeSmallIcon",
+      "source": "../lib/EyeSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2017:89&m=dev",
+      "id": "eye-off-small-icon",
+      "name": "EyeOffSmallIcon",
+      "component": "EyeOffSmallIcon",
+      "source": "../lib/EyeOffSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:135&m=dev",
+      "id": "filter-small-icon",
+      "name": "FilterSmallIcon",
+      "component": "FilterSmallIcon",
+      "source": "../lib/FilterSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2674:33&m=dev",
+      "id": "flame-small-icon",
+      "name": "FlameSmallIcon",
+      "component": "FlameSmallIcon",
+      "source": "../lib/FlameSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:38&m=dev",
+      "id": "fullscreen-small-icon",
+      "name": "FullscreenSmallIcon",
+      "component": "FullscreenSmallIcon",
+      "source": "../lib/FullscreenSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2173:22&m=dev",
+      "id": "gas-small-icon",
+      "name": "GasSmallIcon",
+      "component": "GasSmallIcon",
+      "source": "../lib/GasSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2165:39&m=dev",
+      "id": "heart-small-icon",
+      "name": "HeartSmallIcon",
+      "component": "HeartSmallIcon",
+      "source": "../lib/HeartSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2311:38&m=dev",
+      "id": "home-and-boiler-small-icon",
+      "name": "HomeAndBoilerSmallIcon",
+      "component": "HomeAndBoilerSmallIcon",
+      "source": "../lib/HomeAndBoilerSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2311:41&m=dev",
+      "id": "home-insurance-small-icon",
+      "name": "HomeInsuranceSmallIcon",
+      "component": "HomeInsuranceSmallIcon",
+      "source": "../lib/HomeInsuranceSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2311:44&m=dev",
+      "id": "income-protect-small-icon",
+      "name": "IncomeProtectSmallIcon",
+      "component": "IncomeProtectSmallIcon",
+      "source": "../lib/IncomeProtectSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=43:133&m=dev",
+      "id": "increase-small-icon",
+      "name": "IncreaseSmallIcon",
+      "component": "IncreaseSmallIcon",
+      "source": "../lib/IncreaseSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2463:9&m=dev",
+      "id": "insights-small-icon",
+      "name": "InsightsSmallIcon",
+      "component": "InsightsSmallIcon",
+      "source": "../lib/InsightsSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2415:19&m=dev",
+      "id": "info-small-icon",
+      "name": "InfoSmallIcon",
+      "component": "InfoSmallIcon",
+      "source": "../lib/InfoSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2192:75&m=dev",
+      "id": "insurance-small-icon",
+      "name": "InsuranceSmallIcon",
+      "component": "InsuranceSmallIcon",
+      "source": "../lib/InsuranceSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2311:35&m=dev",
+      "id": "landline-small-icon",
+      "name": "LandlineSmallIcon",
+      "component": "LandlineSmallIcon",
+      "source": "../lib/LandlineSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2353:16&m=dev",
+      "id": "launch-small-icon",
+      "name": "LaunchSmallIcon",
+      "component": "LaunchSmallIcon",
+      "source": "../lib/LaunchSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2458:85&m=dev",
+      "id": "list-small-icon",
+      "name": "ListSmallIcon",
+      "component": "ListSmallIcon",
+      "source": "../lib/ListSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:113&m=dev",
+      "id": "logout-small-icon",
+      "name": "LogoutSmallIcon",
+      "component": "LogoutSmallIcon",
+      "source": "../lib/LogoutSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2447:40&m=dev",
+      "id": "locate-small-icon",
+      "name": "LocateSmallIcon",
+      "component": "LocateSmallIcon",
+      "source": "../lib/LocateSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2458:19&m=dev",
+      "id": "location-small-icon",
+      "name": "LocationSmallIcon",
+      "component": "LocationSmallIcon",
+      "source": "../lib/LocationSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:804&m=dev",
+      "id": "lock-small-icon",
+      "name": "LockSmallIcon",
+      "component": "LockSmallIcon",
+      "source": "../lib/LockSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:91&m=dev",
+      "id": "link-small-icon",
+      "name": "LinkSmallIcon",
+      "component": "LinkSmallIcon",
+      "source": "../lib/LinkSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:102&m=dev",
+      "id": "login-small-icon",
+      "name": "LoginSmallIcon",
+      "component": "LoginSmallIcon",
+      "source": "../lib/LoginSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2425:19&m=dev",
+      "id": "meter-small-icon",
+      "name": "MeterSmallIcon",
+      "component": "MeterSmallIcon",
+      "source": "../lib/MeterSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:790&m=dev",
+      "id": "minus-small-icon",
+      "name": "MinusSmallIcon",
+      "component": "MinusSmallIcon",
+      "source": "../lib/MinusSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2192:103&m=dev",
+      "id": "mobile-small-icon",
+      "name": "MobileSmallIcon",
+      "component": "MobileSmallIcon",
+      "source": "../lib/MobileSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1238&m=dev",
+      "id": "more-small-icon",
+      "name": "MoreSmallIcon",
+      "component": "MoreSmallIcon",
+      "source": "../lib/MoreSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2015:19&m=dev",
+      "id": "open-small-icon",
+      "name": "OpenSmallIcon",
+      "component": "OpenSmallIcon",
+      "source": "../lib/OpenSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=46:27&m=dev",
+      "id": "phone-small-icon",
+      "name": "PhoneSmallIcon",
+      "component": "PhoneSmallIcon",
+      "source": "../lib/PhoneSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1227&m=dev",
+      "id": "placeholder-small-icon",
+      "name": "PlaceholderSmallIcon",
+      "component": "PlaceholderSmallIcon",
+      "source": "../lib/PlaceholderSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2513:21&m=dev",
+      "id": "play-small-icon",
+      "name": "PlaySmallIcon",
+      "component": "PlaySmallIcon",
+      "source": "../lib/PlaySmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2425:32&m=dev",
+      "id": "question-mark-small-icon",
+      "name": "QuestionMarkSmallIcon",
+      "component": "QuestionMarkSmallIcon",
+      "source": "../lib/QuestionMarkSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:26&m=dev",
+      "id": "refund-small-icon",
+      "name": "RefundSmallIcon",
+      "component": "RefundSmallIcon",
+      "source": "../lib/RefundSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2017:20&m=dev",
+      "id": "search-small-icon",
+      "name": "SearchSmallIcon",
+      "component": "SearchSmallIcon",
+      "source": "../lib/SearchSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:784&m=dev",
+      "id": "send-small-icon",
+      "name": "SendSmallIcon",
+      "component": "SendSmallIcon",
+      "source": "../lib/SendSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:60&m=dev",
+      "id": "settings-small-icon",
+      "name": "SettingsSmallIcon",
+      "component": "SettingsSmallIcon",
+      "source": "../lib/SettingsSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:1361&m=dev",
+      "id": "share-small-icon",
+      "name": "ShareSmallIcon",
+      "component": "ShareSmallIcon",
+      "source": "../lib/ShareSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:20&m=dev",
+      "id": "shopping-small-icon",
+      "name": "ShoppingSmallIcon",
+      "component": "ShoppingSmallIcon",
+      "source": "../lib/ShoppingSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2311:47&m=dev",
+      "id": "sim-small-icon",
+      "name": "SimSmallIcon",
+      "component": "SimSmallIcon",
+      "source": "../lib/SimSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2260:12&m=dev",
+      "id": "skip-last-small-icon",
+      "name": "SkipLastSmallIcon",
+      "component": "SkipLastSmallIcon",
+      "source": "../lib/SkipLastSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2260:13&m=dev",
+      "id": "skip-first-small-icon",
+      "name": "SkipFirstSmallIcon",
+      "component": "SkipFirstSmallIcon",
+      "source": "../lib/SkipFirstSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2404:20&m=dev",
+      "id": "snowflake-small-icon",
+      "name": "SnowflakeSmallIcon",
+      "component": "SnowflakeSmallIcon",
+      "source": "../lib/SnowflakeSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:854&m=dev",
+      "id": "tick-small-icon",
+      "name": "TickSmallIcon",
+      "component": "TickSmallIcon",
+      "source": "../lib/TickSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=135:136&m=dev",
+      "id": "tick-circle-small-icon",
+      "name": "TickCircleSmallIcon",
+      "component": "TickCircleSmallIcon",
+      "source": "../lib/TickCircleSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2392:24&m=dev",
+      "id": "thumbs-up-small-icon",
+      "name": "ThumbsUpSmallIcon",
+      "component": "ThumbsUpSmallIcon",
+      "source": "../lib/ThumbsUpSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2392:32&m=dev",
+      "id": "thumbs-down-small-icon",
+      "name": "ThumbsDownSmallIcon",
+      "component": "ThumbsDownSmallIcon",
+      "source": "../lib/ThumbsDownSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2459:19&m=dev",
+      "id": "time-small-icon",
+      "name": "TimeSmallIcon",
+      "component": "TimeSmallIcon",
+      "source": "../lib/TimeSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:24&m=dev",
+      "id": "top-up-small-icon",
+      "name": "TopUpSmallIcon",
+      "component": "TopUpSmallIcon",
+      "source": "../lib/TopUpSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:124&m=dev",
+      "id": "trash-small-icon",
+      "name": "TrashSmallIcon",
+      "component": "TrashSmallIcon",
+      "source": "../lib/TrashSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2616:34&m=dev",
+      "id": "qr-code-small-icon",
+      "name": "QrCodeSmallIcon",
+      "component": "QrCodeSmallIcon",
+      "source": "../lib/QrCodeSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2304:2253&m=dev",
+      "id": "unlock-small-icon",
+      "name": "UnlockSmallIcon",
+      "component": "UnlockSmallIcon",
+      "source": "../lib/UnlockSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1216&m=dev",
+      "id": "upload-small-icon",
+      "name": "UploadSmallIcon",
+      "component": "UploadSmallIcon",
+      "source": "../lib/UploadSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:49&m=dev",
+      "id": "user-small-icon",
+      "name": "UserSmallIcon",
+      "component": "UserSmallIcon",
+      "source": "../lib/UserSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2425:40&m=dev",
+      "id": "warning-small-icon",
+      "name": "WarningSmallIcon",
+      "component": "WarningSmallIcon",
+      "source": "../lib/WarningSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2076:19&m=dev",
+      "id": "whats-app-small-icon",
+      "name": "WhatsAppSmallIcon",
+      "component": "WhatsAppSmallIcon",
+      "source": "../lib/WhatsAppSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:22&m=dev",
+      "id": "withdraw-small-icon",
+      "name": "WithdrawSmallIcon",
+      "component": "WithdrawSmallIcon",
+      "source": "../lib/WithdrawSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:275&m=dev",
+      "id": "add-medium-icon",
+      "name": "AddMediumIcon",
+      "component": "AddMediumIcon",
+      "source": "../lib/AddMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:24&m=dev",
+      "id": "attach-medium-icon",
+      "name": "AttachMediumIcon",
+      "component": "AttachMediumIcon",
+      "source": "../lib/AttachMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:774&m=dev",
+      "id": "bank-medium-icon",
+      "name": "BankMediumIcon",
+      "component": "BankMediumIcon",
+      "source": "../lib/BankMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:925&m=dev",
+      "id": "basket-medium-icon",
+      "name": "BasketMediumIcon",
+      "component": "BasketMediumIcon",
+      "source": "../lib/BasketMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:666&m=dev",
+      "id": "bell-medium-icon",
+      "name": "BellMediumIcon",
+      "component": "BellMediumIcon",
+      "source": "../lib/BellMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=154:97&m=dev",
+      "id": "bill-medium-icon",
+      "name": "BillMediumIcon",
+      "component": "BillMediumIcon",
+      "source": "../lib/BillMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2447:68&m=dev",
+      "id": "boiler-medium-icon",
+      "name": "BoilerMediumIcon",
+      "component": "BoilerMediumIcon",
+      "source": "../lib/BoilerMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:223&m=dev",
+      "id": "bookmark-medium-icon",
+      "name": "BookmarkMediumIcon",
+      "component": "BookmarkMediumIcon",
+      "source": "../lib/BookmarkMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2365:13&m=dev",
+      "id": "book-open-medium-icon",
+      "name": "BookOpenMediumIcon",
+      "component": "BookOpenMediumIcon",
+      "source": "../lib/BookOpenMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:1417&m=dev",
+      "id": "broadband-medium-icon",
+      "name": "BroadbandMediumIcon",
+      "component": "BroadbandMediumIcon",
+      "source": "../lib/BroadbandMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2684:138&m=dev",
+      "id": "budget-plan-medium-icon",
+      "name": "BudgetPlanMediumIcon",
+      "component": "BudgetPlanMediumIcon",
+      "source": "../lib/BudgetPlanMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:892&m=dev",
+      "id": "bulb-medium-icon",
+      "name": "BulbMediumIcon",
+      "component": "BulbMediumIcon",
+      "source": "../lib/BulbMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=68:124&m=dev",
+      "id": "chevron-down-medium-icon",
+      "name": "ChevronDownMediumIcon",
+      "component": "ChevronDownMediumIcon",
+      "source": "../lib/ChevronDownMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1153&m=dev",
+      "id": "chevron-left-medium-icon",
+      "name": "ChevronLeftMediumIcon",
+      "component": "ChevronLeftMediumIcon",
+      "source": "../lib/ChevronLeftMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:503&m=dev",
+      "id": "chevron-right-medium-icon",
+      "name": "ChevronRightMediumIcon",
+      "component": "ChevronRightMediumIcon",
+      "source": "../lib/ChevronRightMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=68:134&m=dev",
+      "id": "chevron-up-medium-icon",
+      "name": "ChevronUpMediumIcon",
+      "component": "ChevronUpMediumIcon",
+      "source": "../lib/ChevronUpMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:359&m=dev",
+      "id": "phone-medium-icon",
+      "name": "PhoneMediumIcon",
+      "component": "PhoneMediumIcon",
+      "source": "../lib/PhoneMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:699&m=dev",
+      "id": "calendar-medium-icon",
+      "name": "CalendarMediumIcon",
+      "component": "CalendarMediumIcon",
+      "source": "../lib/CalendarMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:423&m=dev",
+      "id": "calendar-add-medium-icon",
+      "name": "CalendarAddMediumIcon",
+      "component": "CalendarAddMediumIcon",
+      "source": "../lib/CalendarAddMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:604&m=dev",
+      "id": "camera-medium-icon",
+      "name": "CameraMediumIcon",
+      "component": "CameraMediumIcon",
+      "source": "../lib/CameraMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:264&m=dev",
+      "id": "cashback-card-medium-icon",
+      "name": "CashbackCardMediumIcon",
+      "component": "CashbackCardMediumIcon",
+      "source": "../lib/CashbackCardMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:492&m=dev",
+      "id": "celebration-medium-icon",
+      "name": "CelebrationMediumIcon",
+      "component": "CelebrationMediumIcon",
+      "source": "../lib/CelebrationMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2681:43&m=dev",
+      "id": "chat-medium-icon",
+      "name": "ChatMediumIcon",
+      "component": "ChatMediumIcon",
+      "source": "../lib/ChatMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:287&m=dev",
+      "id": "close-medium-icon",
+      "name": "CloseMediumIcon",
+      "component": "CloseMediumIcon",
+      "source": "../lib/CloseMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:189&m=dev",
+      "id": "contactless-medium-icon",
+      "name": "ContactlessMediumIcon",
+      "component": "ContactlessMediumIcon",
+      "source": "../lib/ContactlessMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:644&m=dev",
+      "id": "copy-medium-icon",
+      "name": "CopyMediumIcon",
+      "component": "CopyMediumIcon",
+      "source": "../lib/CopyMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:12&m=dev",
+      "id": "credit-medium-icon",
+      "name": "CreditMediumIcon",
+      "component": "CreditMediumIcon",
+      "source": "../lib/CreditMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=154:177&m=dev",
+      "id": "credits-and-debits-medium-icon",
+      "name": "CreditsAndDebitsMediumIcon",
+      "component": "CreditsAndDebitsMediumIcon",
+      "source": "../lib/CreditsAndDebitsMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2388:16&m=dev",
+      "id": "credit-reversal-medium-icon",
+      "name": "CreditReversalMediumIcon",
+      "component": "CreditReversalMediumIcon",
+      "source": "../lib/CreditReversalMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:183&m=dev",
+      "id": "decrease-medium-icon",
+      "name": "DecreaseMediumIcon",
+      "component": "DecreaseMediumIcon",
+      "source": "../lib/DecreaseMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=33:115&m=dev",
+      "id": "document-medium-icon",
+      "name": "DocumentMediumIcon",
+      "component": "DocumentMediumIcon",
+      "source": "../lib/DocumentMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:589&m=dev",
+      "id": "download-medium-icon",
+      "name": "DownloadMediumIcon",
+      "component": "DownloadMediumIcon",
+      "source": "../lib/DownloadMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:517&m=dev",
+      "id": "edit-medium-icon",
+      "name": "EditMediumIcon",
+      "component": "EditMediumIcon",
+      "source": "../lib/EditMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:1406&m=dev",
+      "id": "electricity-medium-icon",
+      "name": "ElectricityMediumIcon",
+      "component": "ElectricityMediumIcon",
+      "source": "../lib/ElectricityMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:212&m=dev",
+      "id": "email-medium-icon",
+      "name": "EmailMediumIcon",
+      "component": "EmailMediumIcon",
+      "source": "../lib/EmailMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:149&m=dev",
+      "id": "environment-medium-icon",
+      "name": "EnvironmentMediumIcon",
+      "component": "EnvironmentMediumIcon",
+      "source": "../lib/EnvironmentMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1046&m=dev",
+      "id": "extra-help-medium-icon",
+      "name": "ExtraHelpMediumIcon",
+      "component": "ExtraHelpMediumIcon",
+      "source": "../lib/ExtraHelpMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=151:191&m=dev",
+      "id": "expand-medium-icon",
+      "name": "ExpandMediumIcon",
+      "component": "ExpandMediumIcon",
+      "source": "../lib/ExpandMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:655&m=dev",
+      "id": "eye-medium-icon",
+      "name": "EyeMediumIcon",
+      "component": "EyeMediumIcon",
+      "source": "../lib/EyeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:666&m=dev",
+      "id": "eye-off-medium-icon",
+      "name": "EyeOffMediumIcon",
+      "component": "EyeOffMediumIcon",
+      "source": "../lib/EyeOffMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1074&m=dev",
+      "id": "facebook-medium-icon",
+      "name": "FacebookMediumIcon",
+      "component": "FacebookMediumIcon",
+      "source": "../lib/FacebookMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:412&m=dev",
+      "id": "filter-medium-icon",
+      "name": "FilterMediumIcon",
+      "component": "FilterMediumIcon",
+      "source": "../lib/FilterMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:1384&m=dev",
+      "id": "fingerprint-medium-icon",
+      "name": "FingerprintMediumIcon",
+      "component": "FingerprintMediumIcon",
+      "source": "../lib/FingerprintMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:259&m=dev",
+      "id": "fit-energy-medium-icon",
+      "name": "FitEnergyMediumIcon",
+      "component": "FitEnergyMediumIcon",
+      "source": "../lib/FitEnergyMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2675:19&m=dev",
+      "id": "flame-medium-icon",
+      "name": "FlameMediumIcon",
+      "component": "FlameMediumIcon",
+      "source": "../lib/FlameMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:677&m=dev",
+      "id": "fullscreen-medium-icon",
+      "name": "FullscreenMediumIcon",
+      "component": "FullscreenMediumIcon",
+      "source": "../lib/FullscreenMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=4:1395&m=dev",
+      "id": "gas-medium-icon",
+      "name": "GasMediumIcon",
+      "component": "GasMediumIcon",
+      "source": "../lib/GasMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2681:21&m=dev",
+      "id": "goal-medium-icon",
+      "name": "GoalMediumIcon",
+      "component": "GoalMediumIcon",
+      "source": "../lib/GoalMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=20:127&m=dev",
+      "id": "green-deal-electricity-medium-icon",
+      "name": "GreenDealElectricityMediumIcon",
+      "component": "GreenDealElectricityMediumIcon",
+      "source": "../lib/GreenDealElectricityMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:459&m=dev",
+      "id": "heart-medium-icon",
+      "name": "HeartMediumIcon",
+      "component": "HeartMediumIcon",
+      "source": "../lib/HeartMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:149&m=dev",
+      "id": "heart-outline-medium-icon",
+      "name": "HeartOutlineMediumIcon",
+      "component": "HeartOutlineMediumIcon",
+      "source": "../lib/HeartOutlineMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:135&m=dev",
+      "id": "history-medium-icon",
+      "name": "HistoryMediumIcon",
+      "component": "HistoryMediumIcon",
+      "source": "../lib/HistoryMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:644&m=dev",
+      "id": "home-medium-icon",
+      "name": "HomeMediumIcon",
+      "component": "HomeMediumIcon",
+      "source": "../lib/HomeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:1412&m=dev",
+      "id": "home-and-boiler-medium-icon",
+      "name": "HomeAndBoilerMediumIcon",
+      "component": "HomeAndBoilerMediumIcon",
+      "source": "../lib/HomeAndBoilerMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:1421&m=dev",
+      "id": "home-insurance-medium-icon",
+      "name": "HomeInsuranceMediumIcon",
+      "component": "HomeInsuranceMediumIcon",
+      "source": "../lib/HomeInsuranceMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:172&m=dev",
+      "id": "increase-medium-icon",
+      "name": "IncreaseMediumIcon",
+      "component": "IncreaseMediumIcon",
+      "source": "../lib/IncreaseMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:1435&m=dev",
+      "id": "income-protect-medium-icon",
+      "name": "IncomeProtectMediumIcon",
+      "component": "IncomeProtectMediumIcon",
+      "source": "../lib/IncomeProtectMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:481&m=dev",
+      "id": "info-medium-icon",
+      "name": "InfoMediumIcon",
+      "component": "InfoMediumIcon",
+      "source": "../lib/InfoMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:164&m=dev",
+      "id": "insights-medium-icon",
+      "name": "InsightsMediumIcon",
+      "component": "InsightsMediumIcon",
+      "source": "../lib/InsightsMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1071&m=dev",
+      "id": "instagram-medium-icon",
+      "name": "InstagramMediumIcon",
+      "component": "InstagramMediumIcon",
+      "source": "../lib/InstagramMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2060:2&m=dev",
+      "id": "insurance-medium-icon",
+      "name": "InsuranceMediumIcon",
+      "component": "InsuranceMediumIcon",
+      "source": "../lib/InsuranceMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:1382&m=dev",
+      "id": "landline-medium-icon",
+      "name": "LandlineMediumIcon",
+      "component": "LandlineMediumIcon",
+      "source": "../lib/LandlineMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:710&m=dev",
+      "id": "launch-medium-icon",
+      "name": "LaunchMediumIcon",
+      "component": "LaunchMediumIcon",
+      "source": "../lib/LaunchMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:201&m=dev",
+      "id": "link-medium-icon",
+      "name": "LinkMediumIcon",
+      "component": "LinkMediumIcon",
+      "source": "../lib/LinkMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1077&m=dev",
+      "id": "linked-in-medium-icon",
+      "name": "LinkedInMediumIcon",
+      "component": "LinkedInMediumIcon",
+      "source": "../lib/LinkedInMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:914&m=dev",
+      "id": "location-medium-icon",
+      "name": "LocationMediumIcon",
+      "component": "LocationMediumIcon",
+      "source": "../lib/LocationMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=153:369&m=dev",
+      "id": "lock-medium-icon",
+      "name": "LockMediumIcon",
+      "component": "LockMediumIcon",
+      "source": "../lib/LockMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:256&m=dev",
+      "id": "login-medium-icon",
+      "name": "LoginMediumIcon",
+      "component": "LoginMediumIcon",
+      "source": "../lib/LoginMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:267&m=dev",
+      "id": "logout-medium-icon",
+      "name": "LogoutMediumIcon",
+      "component": "LogoutMediumIcon",
+      "source": "../lib/LogoutMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2447:56&m=dev",
+      "id": "maintenance-medium-icon",
+      "name": "MaintenanceMediumIcon",
+      "component": "MaintenanceMediumIcon",
+      "source": "../lib/MaintenanceMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:437&m=dev",
+      "id": "minus-medium-icon",
+      "name": "MinusMediumIcon",
+      "component": "MinusMediumIcon",
+      "source": "../lib/MinusMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:434&m=dev",
+      "id": "money-medium-icon",
+      "name": "MoneyMediumIcon",
+      "component": "MoneyMediumIcon",
+      "source": "../lib/MoneyMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:176&m=dev",
+      "id": "meter-medium-icon",
+      "name": "MeterMediumIcon",
+      "component": "MeterMediumIcon",
+      "source": "../lib/MeterMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:622&m=dev",
+      "id": "menu-medium-icon",
+      "name": "MenuMediumIcon",
+      "component": "MenuMediumIcon",
+      "source": "../lib/MenuMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=174:26&m=dev",
+      "id": "mobile-medium-icon",
+      "name": "MobileMediumIcon",
+      "component": "MobileMediumIcon",
+      "source": "../lib/MobileMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:997&m=dev",
+      "id": "moon-medium-icon",
+      "name": "MoonMediumIcon",
+      "component": "MoonMediumIcon",
+      "source": "../lib/MoonMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:633&m=dev",
+      "id": "more-medium-icon",
+      "name": "MoreMediumIcon",
+      "component": "MoreMediumIcon",
+      "source": "../lib/MoreMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:688&m=dev",
+      "id": "open-medium-icon",
+      "name": "OpenMediumIcon",
+      "component": "OpenMediumIcon",
+      "source": "../lib/OpenMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:159&m=dev",
+      "id": "payment-medium-icon",
+      "name": "PaymentMediumIcon",
+      "component": "PaymentMediumIcon",
+      "source": "../lib/PaymentMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=57:116&m=dev",
+      "id": "placeholder-medium-icon",
+      "name": "PlaceholderMediumIcon",
+      "component": "PlaceholderMediumIcon",
+      "source": "../lib/PlaceholderMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2513:13&m=dev",
+      "id": "play-medium-icon",
+      "name": "PlayMediumIcon",
+      "component": "PlayMediumIcon",
+      "source": "../lib/PlayMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1068&m=dev",
+      "id": "question-mark-medium-icon",
+      "name": "QuestionMarkMediumIcon",
+      "component": "QuestionMarkMediumIcon",
+      "source": "../lib/QuestionMarkMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:268&m=dev",
+      "id": "refund-medium-icon",
+      "name": "RefundMediumIcon",
+      "component": "RefundMediumIcon",
+      "source": "../lib/RefundMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:611&m=dev",
+      "id": "restart-medium-icon",
+      "name": "RestartMediumIcon",
+      "component": "RestartMediumIcon",
+      "source": "../lib/RestartMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:615&m=dev",
+      "id": "search-medium-icon",
+      "name": "SearchMediumIcon",
+      "component": "SearchMediumIcon",
+      "source": "../lib/SearchMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:337&m=dev",
+      "id": "send-medium-icon",
+      "name": "SendMediumIcon",
+      "component": "SendMediumIcon",
+      "source": "../lib/SendMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:146&m=dev",
+      "id": "settings-medium-icon",
+      "name": "SettingsMediumIcon",
+      "component": "SettingsMediumIcon",
+      "source": "../lib/SettingsMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:348&m=dev",
+      "id": "share-medium-icon",
+      "name": "ShareMediumIcon",
+      "component": "ShareMediumIcon",
+      "source": "../lib/ShareMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:677&m=dev",
+      "id": "shopping-medium-icon",
+      "name": "ShoppingMediumIcon",
+      "component": "ShoppingMediumIcon",
+      "source": "../lib/ShoppingMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:1392&m=dev",
+      "id": "sim-medium-icon",
+      "name": "SimMediumIcon",
+      "component": "SimMediumIcon",
+      "source": "../lib/SimMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2404:6&m=dev",
+      "id": "snowflake-medium-icon",
+      "name": "SnowflakeMediumIcon",
+      "component": "SnowflakeMediumIcon",
+      "source": "../lib/SnowflakeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1008&m=dev",
+      "id": "sun-medium-icon",
+      "name": "SunMediumIcon",
+      "component": "SunMediumIcon",
+      "source": "../lib/SunMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:864&m=dev",
+      "id": "team-medium-icon",
+      "name": "TeamMediumIcon",
+      "component": "TeamMediumIcon",
+      "source": "../lib/TeamMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1110&m=dev",
+      "id": "tick-circle-medium-icon",
+      "name": "TickCircleMediumIcon",
+      "component": "TickCircleMediumIcon",
+      "source": "../lib/TickCircleMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:492&m=dev",
+      "id": "tick-medium-icon",
+      "name": "TickMediumIcon",
+      "component": "TickMediumIcon",
+      "source": "../lib/TickMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1086&m=dev",
+      "id": "tik-tok-medium-icon",
+      "name": "TikTokMediumIcon",
+      "component": "TikTokMediumIcon",
+      "source": "../lib/TikTokMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:688&m=dev",
+      "id": "time-medium-icon",
+      "name": "TimeMediumIcon",
+      "component": "TimeMediumIcon",
+      "source": "../lib/TimeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2341:13&m=dev",
+      "id": "top-up-medium-icon",
+      "name": "TopUpMediumIcon",
+      "component": "TopUpMediumIcon",
+      "source": "../lib/TopUpMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:168&m=dev",
+      "id": "torch-off-medium-icon",
+      "name": "TorchOffMediumIcon",
+      "component": "TorchOffMediumIcon",
+      "source": "../lib/TorchOffMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:167&m=dev",
+      "id": "torch-on-medium-icon",
+      "name": "TorchOnMediumIcon",
+      "component": "TorchOnMediumIcon",
+      "source": "../lib/TorchOnMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:144&m=dev",
+      "id": "transfer-medium-icon",
+      "name": "TransferMediumIcon",
+      "component": "TransferMediumIcon",
+      "source": "../lib/TransferMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:401&m=dev",
+      "id": "trash-medium-icon",
+      "name": "TrashMediumIcon",
+      "component": "TrashMediumIcon",
+      "source": "../lib/TrashMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1083&m=dev",
+      "id": "twitter-medium-icon",
+      "name": "TwitterMediumIcon",
+      "component": "TwitterMediumIcon",
+      "source": "../lib/TwitterMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=153:383&m=dev",
+      "id": "unlock-medium-icon",
+      "name": "UnlockMediumIcon",
+      "component": "UnlockMediumIcon",
+      "source": "../lib/UnlockMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:600&m=dev",
+      "id": "upload-medium-icon",
+      "name": "UploadMediumIcon",
+      "component": "UploadMediumIcon",
+      "source": "../lib/UploadMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:582&m=dev",
+      "id": "user-medium-icon",
+      "name": "UserMediumIcon",
+      "component": "UserMediumIcon",
+      "source": "../lib/UserMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:470&m=dev",
+      "id": "warning-medium-icon",
+      "name": "WarningMediumIcon",
+      "component": "WarningMediumIcon",
+      "source": "../lib/WarningMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=34:108&m=dev",
+      "id": "whats-app-medium-icon",
+      "name": "WhatsAppMediumIcon",
+      "component": "WhatsAppMediumIcon",
+      "source": "../lib/WhatsAppMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2447:85&m=dev",
+      "id": "withdraw-medium-icon",
+      "name": "WithdrawMediumIcon",
+      "component": "WithdrawMediumIcon",
+      "source": "../lib/WithdrawMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1080&m=dev",
+      "id": "youtube-medium-icon",
+      "name": "YoutubeMediumIcon",
+      "component": "YoutubeMediumIcon",
+      "source": "../lib/YoutubeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2365:21&m=dev",
+      "id": "book-open-large-icon",
+      "name": "BookOpenLargeIcon",
+      "component": "BookOpenLargeIcon",
+      "source": "../lib/BookOpenLargeIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2194:438&m=dev",
+      "id": "moon-large-icon",
+      "name": "MoonLargeIcon",
+      "component": "MoonLargeIcon",
+      "source": "../lib/MoonLargeIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2194:464&m=dev",
+      "id": "placeholder-large-icon",
+      "name": "PlaceholderLargeIcon",
+      "component": "PlaceholderLargeIcon",
+      "source": "../lib/PlaceholderLargeIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2194:451&m=dev",
+      "id": "sun-large-icon",
+      "name": "SunLargeIcon",
+      "component": "SunLargeIcon",
+      "source": "../lib/SunLargeIcon.tsx"
+    }
+  ]
+}

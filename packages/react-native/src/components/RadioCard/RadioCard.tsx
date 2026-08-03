@@ -23,9 +23,11 @@ const RadioCardIndicator = RadioCardComponent.Indicator;
 const RadioCardIcon = RadioCardComponent.Icon;
 const RadioCardLabel = RadioCardComponent.Label;
 
-const RadioCardGroup = ({ onChange, onValueChange, ...props }: RadioCardGroupProps) => (
+const RadioCardGroup = ({ onChange, onValueChange, disabled, ...props }: RadioCardGroupProps) => (
   <RadioCardGroupComponent
     {...(props as any)}
+    disabled={disabled}
+    isDisabled={disabled}
     onChange={(value: string) => {
       onChange?.(value);
       onValueChange?.(value);

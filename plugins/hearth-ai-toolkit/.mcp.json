@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "hearth-react": {
+      "type": "http",
+      "url": "https://main--68dbda8270df9c2a6568ece8.chromatic.com/mcp"
+    },
+    "hearth-react-native": {
+      "type": "http",
+      "url": "https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp"
+    }
+  }
+}

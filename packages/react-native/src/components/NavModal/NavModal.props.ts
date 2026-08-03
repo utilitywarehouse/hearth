@@ -12,7 +12,7 @@ export interface NavModalRef {
 
 type NavModalBaseProps = ModalCommonBaseProps & {
   ref?: Ref<NavModalRef>;
-  background?: 'default' | 'brand';
+  background?: 'default' | 'brand' | 'primary';
   scrollable?: boolean;
   presentation?:
     | 'fullScreenModal'

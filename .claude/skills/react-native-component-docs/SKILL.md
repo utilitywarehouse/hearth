@@ -41,53 +41,7 @@ import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 ## Doc Structure (Template)
 
-Use this skeleton and adapt the content to the component:
-
-````mdx
-<Meta title="Components / <Component>" />
-
-<BackToTopButton />
-
-<ViewFigmaButton url="<Figma URL>" />
-
-# <Component>
-
-One-paragraph summary of what the component does and when to use it.
-
-- [Playground](#playground)
-- [Usage](#usage)
-- [Props](#props)
-
-## Playground
-
-<Canvas of={Stories.Playground} />
-
-<Controls of={Stories.Playground} />
-
-## Usage
-
-<UsageWrap>
-  <Center>
-    <Box>
-      {/* Example usage */}
-    </Box>
-  </Center>
-</UsageWrap>
-
-```tsx
-import { <Component> } from '@utilitywarehouse/hearth-react-native';
-
-const MyComponent = () => (
-  <<Component> />
-);
-```
-
-## Props
-
-| Property | Type | Description | Default |
-| --- | --- | --- | --- |
-| `example` | `string` | Example prop description. | `""` |
-````
+Read `assets/docs-template.mdx` when drafting the file structure. The template includes sections for the main component and compound-component sub-props patterns. Adapt the skeleton to your component and remove unused imports or sections.
 
 ## Optional Sections
 
@@ -107,6 +61,14 @@ Make sure to include code blocks for each example. This is likely needed for mos
 - If you include a Figma link, add `ViewFigmaButton` after `BackToTopButton`.
 - Keep examples simple and centered with `UsageWrap` + `Center` + `Box`.
 - Prefer `tsx` for code blocks unless it is strictly `jsx`.
+- **LLM-docs pipeline constraint:** Pair `UsageWrap` blocks with an adjacent code fence — the LLM-docs generator drops decorative components and expects their content already duplicated in code. Re-run `pnpm generate:llm-docs` after any props or JSDoc changes to sync the generated llms.txt files (see `packages/react-native/CLAUDE.md`).
+
+## Verify Before You Finish
+
+1. **Read the component's source of truth:** Open `<Component>.props.ts` and cross-check every prop against your drafted Props table. Include all public props with correct types and defaults. For compound components, verify each subcomponent's `.props.ts` file and include a nested props table under the subcomponent's heading.
+2. **Treat mismatches as blocking:** If a prop appears in `.props.ts` but not in your table (or vice versa), stop and fix it. This is not a nice-to-have — it's the ground truth check.
+3. **Match story names exactly:** Verify that `Stories.Playground` and any other story references exist in the component's `.stories.tsx` file.
+4. **Check compound-component structure:** If the component has subcomponents (e.g. `BadgeIcon`, `AccordionItem`), ensure each has its own `### Heading` with a `#### Props` table.
 
 ## Checklist
 
@@ -114,6 +76,7 @@ Make sure to include code blocks for each example. This is likely needed for mos
 - `Meta` title matches Storybook nav structure
 - `Playground` and `Controls` reference a real story
 - `Usage` section has both a live example and a code block
-- `Props` table covers all public props and defaults
+- Props table verified against `.props.ts` (including subcomponents)
+- Compound component sub-props documented if applicable
 - Optional sections are only added when helpful
 - Order of sections should be in the standard pattern (Playground, Usage, Props, then optional sections)

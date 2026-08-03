@@ -9,6 +9,7 @@ declare const _default: {
   readonly '600': 28;
   readonly '700': 32;
   readonly '800': 36;
+  readonly '900': 40;
   readonly '950': 48;
   readonly '975': 52;
   readonly '1050': 62;

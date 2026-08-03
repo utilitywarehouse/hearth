@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-svg-icons
 
+## 0.9.0
+
+### Minor Changes
+
+- [#1445](https://github.com/utilitywarehouse/hearth/pull/1445) [`ef5298d`](https://github.com/utilitywarehouse/hearth/commit/ef5298d603d631ae1426efaa03e135746e7c41e1) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - BudgetPlanMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.8.5
 
 ### Patch Changes

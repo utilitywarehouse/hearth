@@ -45,7 +45,7 @@ const meta = {
     },
     background: {
       control: 'radio',
-      options: ['default', 'brand'],
+      options: ['default', 'brand', 'primary'],
       description: 'Sets the modal background.',
     },
     presentation: {
@@ -111,6 +111,21 @@ export const BrandBackground: Story = {
         <Box gap="200">
           <BodyText inverted>Brand background content stays readable with inverted text.</BodyText>
           <BodyText inverted>Buttons and the close icon also invert automatically.</BodyText>
+        </Box>
+      </NavModal>
+    </View>
+  ),
+};
+
+export const PrimaryBackground: Story = {
+  args: {
+    background: 'primary',
+  },
+  render: (args: StoryObj<typeof meta.args>) => (
+    <View style={Platform.OS === 'web' ? { width: 400, height: 720 } : { flex: 1 }}>
+      <NavModal {...args}>
+        <Box gap="200">
+          <BodyText>This is a navigation modal with the primary background.</BodyText>
         </Box>
       </NavModal>
     </View>

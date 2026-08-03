@@ -16,6 +16,7 @@ const config = {
   features: {
     componentsManifest: true,
     experimentalDocgenServer: true,
+    changeDetection: true,
   },
   addons: [
     getAbsolutePath('@chromatic-com/storybook'),

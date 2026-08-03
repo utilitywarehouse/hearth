@@ -12,6 +12,7 @@ type RadioCardGroupBaseProps = {
    */
   onChange?: (value: string) => void;
   gap?: keyof typeof space;
+  disabled?: boolean;
   ref?: Ref<View>;
 } & ViewProps;
 

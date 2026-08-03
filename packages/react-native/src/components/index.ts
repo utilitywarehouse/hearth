@@ -66,6 +66,7 @@ export * from './TimePicker';
 export * from './TimePickerInput';
 export * from './Toast';
 export * from './ToggleButtonCard';
+export * from './UnstyledIconButton';
 export * from './VerificationInput';
 
 export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';

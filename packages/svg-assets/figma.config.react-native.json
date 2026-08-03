@@ -1,0 +1,12 @@
+{
+  "codeConnect": {
+    "include": ["figma-code-connect/react-native/**", "lib/**"],
+    "parser": "react",
+    "language": "jsx",
+    "exclude": [],
+    "importPaths": {
+      "packages/svg-assets/lib/*": "@utilitywarehouse/hearth-svg-assets/lib"
+    },
+    "label": "React Native"
+  }
+}

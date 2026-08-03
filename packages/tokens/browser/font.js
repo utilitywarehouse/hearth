@@ -39,6 +39,7 @@ export const font = {
     600: 'var(--h-line-height-600)',
     700: 'var(--h-line-height-700)',
     800: 'var(--h-line-height-800)',
+    900: 'var(--h-line-height-900)',
     950: 'var(--h-line-height-950)',
     975: 'var(--h-line-height-975)',
     1050: 'var(--h-line-height-1050)',

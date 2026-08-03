@@ -16,4 +16,5 @@ export const space = {
   '700': 'var(--h-space-700)',
   '800': 'var(--h-space-800)',
   '900': 'var(--h-space-900)',
+  '1000': 'var(--h-space-1000)',
 } as const;

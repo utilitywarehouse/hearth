@@ -1,9 +1,9 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useIndex, useSnapshot, latestDate } from '../data/hooks';
 import { ErrorBox, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile, PackageCard } from '../components/cards';
-import { TrendChart } from '../components/charts';
+import { TREND_METRIC_LABELS, TrendChart, TrendMetricSwitcher, type TrendMetric } from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, formatDate, num, pct } from '../lib/format';
 import { orgTrend, orgVersionHealth, reposBehindLatest, reposUsingHearth } from '../lib/series';
@@ -34,6 +34,7 @@ export function Overview() {
   const date = latestDate(index.data);
   const snap = useSnapshot(date);
   const navigate = useNavigate();
+  const [orgMetric, setOrgMetric] = useState<TrendMetric>('refs');
 
   const orgData = useMemo(() => (index.data ? orgTrend(index.data) : []), [index.data]);
 
@@ -103,10 +104,15 @@ export function Overview() {
         <StatTile label="Packages in use" value={`${inUse} / ${packages.length}`} />
       </div>
 
-      <Section title="Adoption over time">
+      <Section
+        title="Adoption over time"
+        aside={<TrendMetricSwitcher value={orgMetric} onChange={setOrgMetric} />}
+      >
         <TrendChart
           data={orgData}
-          series={[{ key: 'repos', label: 'Repos using hearth', color: 'var(--h-color-blue-600)' }]}
+          series={[
+            { key: orgMetric, label: orgMetric === 'repos' ? 'Repos using hearth' : TREND_METRIC_LABELS[orgMetric], color: 'var(--h-color-blue-600)' },
+          ]}
         />
       </Section>
 

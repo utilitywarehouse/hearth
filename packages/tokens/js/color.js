@@ -16,6 +16,7 @@ export const broadbandGreen = {
 };
 export const cashbackLilac = {
   300: '#dfbdf5',
+  400: '#ce9cf0',
   500: '#be7aeb',
   700: '#8b2bc9',
   900: '#7429b5',
@@ -64,6 +65,7 @@ export const insuranceOrange = {
 };
 export const mobileRose = {
   200: '#fad0e9',
+  300: '#f49fd2',
   400: '#ee6dbb',
   800: '#a7266d',
   900: '#8a3260',

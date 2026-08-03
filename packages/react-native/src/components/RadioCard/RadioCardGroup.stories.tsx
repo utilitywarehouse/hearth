@@ -38,6 +38,10 @@ const meta = {
       control: 'number',
       description: 'Use this value to set the RadioCardGroup columns.',
     },
+    disabled: {
+      control: 'boolean',
+      description: 'Use this value to disable all RadioCards in the group.',
+    },
   },
   args: {
     gap: '200',
@@ -46,6 +50,7 @@ const meta = {
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     columns: undefined,
+    disabled: false,
   },
 } satisfies Meta<typeof RadioCardGroup>;
 

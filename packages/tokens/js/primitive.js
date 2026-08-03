@@ -4,6 +4,7 @@
 export default {
   borderRadius: {
     full: 9999,
+    lg: 12,
     md: 8,
     none: 0,
     sm: 6,
@@ -56,6 +57,7 @@ export default {
     600: 28,
     700: 32,
     800: 36,
+    900: 40,
     950: 48,
     975: 52,
     1050: 62,
@@ -97,5 +99,6 @@ export default {
     700: 56,
     800: 64,
     900: 72,
+    1000: 80,
   },
 };

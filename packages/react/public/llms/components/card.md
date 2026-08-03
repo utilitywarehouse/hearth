@@ -65,7 +65,10 @@ The `colorScheme` prop sets the colour family applied to the card surface. It wo
         if (colorScheme === 'highlight' && variant === 'emphasis') return [];
         return (
           <Card key={variant} colorScheme={colorScheme} variant={variant} width="300px">
-            <BodyText size="md" inverted={colorScheme === 'brand' && variant === 'emphasis'}>
+            <BodyText
+              size="md"
+              color={colorScheme === 'brand' && variant === 'emphasis' ? 'inverted' : undefined}
+            >
               <strong>
                 {colorScheme} / {variant}
               </strong>

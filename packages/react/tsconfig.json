@@ -18,9 +18,8 @@
     "alwaysStrict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ES2020",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "outDir": "dist",
-    "rootDir": "src",
     "lib": [
       "es2022",
       "dom",

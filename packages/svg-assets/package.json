@@ -3,11 +3,22 @@
   "version": "0.6.5",
   "description": "Hearth SVG assets",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/svg-assets"
+  },
   "scripts": {
-    "clean:lib": "rm -rf lib",
-    "generate": "pnpm clean:lib && node ./scripts/generate-svg-assets.js"
+    "clean:lib": "rm -rf lib && rm -rf figma-code-connect",
+    "generate": "pnpm clean:lib && node ./scripts/generate-svg-assets.js && pnpm generate:figma-code-connect",
+    "generate:figma-code-connect": "pnpm generate:figma-code-connect:react && pnpm generate:figma-code-connect:react-native",
+    "generate:figma-code-connect:react": "node ./scripts/generate-figma-code-connect.cjs --config figma.config.react.json",
+    "generate:figma-code-connect:react-native": "node ./scripts/generate-figma-code-connect.cjs --config figma.config.react-native.json",
+    "figma:publish:react": "figma connect publish --config figma.config.react.json",
+    "figma:publish:react-native": "figma connect publish --config figma.config.react-native.json"
   },
   "devDependencies": {
+    "@figma/code-connect": "^1.4.9",
     "cheerio": "1.0.0-rc.12",
     "dotenv": "^16.3.1",
     "fs-extra": "^11.1.1",

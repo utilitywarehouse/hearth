@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from '../Card/Card';
 import { Flex } from '../Flex/Flex';
 import { IconContainer } from './IconContainer';
+import type { IconContainerProps } from './IconContainer.props';
 import { PlaceholderSmallIcon, PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const variants = ['subtle', 'emphasis'] as const;
@@ -77,7 +78,7 @@ export const KitchenSink: Story = {
 };
 
 export const Playground: Story = {
-  render: (args: { size?: string }) => (
+  render: (args: Pick<IconContainerProps, 'size' | 'variant' | 'colorScheme'>) => (
     <IconContainer {...args}>
       {args.size === 'sm' ? <PlaceholderSmallIcon /> : <PlaceholderMediumIcon />}
     </IconContainer>

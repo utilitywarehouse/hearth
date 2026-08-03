@@ -16,4 +16,5 @@ export declare const space: {
   readonly '700': 'var(--h-space-700)';
   readonly '800': 'var(--h-space-800)';
   readonly '900': 'var(--h-space-900)';
+  readonly '1000': 'var(--h-space-1000)';
 };

@@ -1,6 +1,6 @@
 ---
 name: hearth-react
-description: Use when building any UI component or page with the Hearth React library. Use this implicitly whenever building any UI component or page in an app that has Hearth React installed — Hearth React is the default. Do not wait for an explicit mention of "Hearth React" — if it's UI work in an app with Hearth React, use this skill. Triggers when creating components, implementing Figma designs, adding UI features, or writing any frontend code in the app.
+description: MANDATORY prerequisite — you MUST load this skill BEFORE writing or editing any file that imports from `@utilitywarehouse/hearth-react` or `@utilitywarehouse/hearth-react-icons`, BEFORE adapting Figma `get_design_context` reference output into a page or component in a Hearth app, and BEFORE delegating research about a Hearth component's props or usage to a subagent. NEVER substitute node_modules type definitions or a grep of existing usage for this skill's own component docs — that is how this skill gets silently bypassed. This skill IS the "target project's conventions" that figma-design-to-code hands off to; loading that skill does NOT satisfy this requirement. Do not wait for an explicit mention of "Hearth React" — any frontend UI work in an app with the library installed requires this skill first.
 ---
 
 # Building with Hearth React
@@ -8,6 +8,31 @@ description: Use when building any UI component or page with the Hearth React li
 You are acting as a frontend engineer. Your job is to turn requirements—either
 Figma designs or written requirements—into UI React code using Hearth — Utility
 Warehouse's Design Systems libraries.
+
+## MANDATORY — when you must load this skill
+
+Load this skill — do not skip it — at each of these moments:
+
+- **Before writing or editing any file that imports from
+  `@utilitywarehouse/hearth-react` or `@utilitywarehouse/hearth-react-icons`.**
+  If the file touches either package, this skill MUST be loaded first, no
+  exceptions.
+- **Before adapting Figma `get_design_context` reference output into this
+  codebase.** `figma-design-to-code` hands off with "adapt the reference code
+  to the target project's conventions" without saying what those conventions
+  are. This skill IS that answer. Loading `figma-design-to-code` does NOT
+  satisfy this requirement — load both, this one before you touch the
+  reference code.
+- **Before delegating research about a Hearth component's props, variants, or
+  usage to a subagent.** Reading `node_modules` type definitions or grepping
+  existing usage in the app is NOT a substitute for this skill's own component
+  docs (see "Before you implement" below). Spawning a research subagent to
+  answer a question this skill already answers is how this skill gets
+  silently bypassed — load this skill, or pass its instructions into the
+  subagent's prompt, before delegating.
+
+Treat each moment above as a hard gate, not a vague "this is UI work" prompt
+to get around to eventually.
 
 ## Package imports
 
@@ -33,6 +58,9 @@ the API you get.
 fetching story code, or discovering what exists when you're not sure where to
 start. It's worth reaching for when the markdown files don't give you enough
 context, but it requires the server to be configured and reachable.
+
+For questions about onboarding, updating to a newer version of this skill, or
+configuring the MCP server, see [`public/llms/docs/a-i-tools.md`](public/llms/docs/a-i-tools.md).
 
 Whatever source you use, review what is available before writing any code.
 
@@ -175,7 +203,8 @@ components or wrap them in an extra `Box` just for positioning.
 
 ## Choosing a typography component
 
-Hearth uses three font families. Match the Figma font-family to the component:
+Hearth uses three font families. Match the Figma font-family to the component.
+(Source of truth: [`public/llms/docs/typography.md`](public/llms/docs/typography.md))
 
 | Figma font-family token                     | Component    |
 | ------------------------------------------- | ------------ |
@@ -267,6 +296,7 @@ no import needed.
 
 Many props accept a `Responsive` object with breakpoint keys. Breakpoints are
 **mobile-first**: a value applies from that breakpoint upward until overridden.
+(Source of truth: [`public/llms/docs/responsive-design/breakpoints.md`](public/llms/docs/responsive-design/breakpoints.md))
 
 Breakpoints: `mobile` | `tablet` | `desktop` | `wide`
 
@@ -370,7 +400,7 @@ Control `Button` width with parent layout components.
 </Flex>
 ```
 
-## Responsive two-column grid
+### Responsive two-column grid
 
 ```tsx
 <Grid defaultResponsiveColumns gap={{ mobile: '200', desktop: '400' }}>
@@ -383,5 +413,5 @@ Control `Button` width with parent layout components.
 </Grid>
 ```
 
-`defaultResponsiveColumns` sets 4 columns on mobile, 8 on tablet, 12 on desktop+wide.
+`defaultResponsiveColumns` sets 4 columns on mobile, 8 on tablet, 12 on desktop+wide (source: [`public/llms/docs/layout.md`](public/llms/docs/layout.md)).
 `gridColumnSpan` takes a string value from `'1'` to `'12'`.

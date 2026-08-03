@@ -91,6 +91,7 @@ import BoilerMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/boiler-medi
 import BookmarkMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/bookmark-medium-icon.svg';
 import BookOpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/book-open-medium-icon.svg';
 import BroadbandMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/broadband-medium-icon.svg';
+import BudgetPlanMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/budget-plan-medium-icon.svg';
 import BulbMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/bulb-medium-icon.svg';
 import ChevronDownMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-down-medium-icon.svg';
 import ChevronLeftMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-left-medium-icon.svg';
@@ -287,6 +288,7 @@ export const svgIcons = [
   BookmarkMediumIcon,
   BookOpenMediumIcon,
   BroadbandMediumIcon,
+  BudgetPlanMediumIcon,
   BulbMediumIcon,
   ChevronDownMediumIcon,
   ChevronLeftMediumIcon,

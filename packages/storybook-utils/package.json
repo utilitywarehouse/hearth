@@ -11,7 +11,8 @@
   "scripts": {
     "clean": "rm -rf node_modules .turbo",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "react": "^19.1.0"

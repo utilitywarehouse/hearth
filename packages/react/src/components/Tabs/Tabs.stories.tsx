@@ -224,7 +224,7 @@ export const Controlled: Story = {
     const next = () => {
       const index = tabs.indexOf(value as (typeof tabs)[number]);
       const nextIndex = (index + 1) % tabs.length;
-      setValue(tabs[nextIndex]);
+      setValue(tabs[nextIndex]!);
     };
     return (
       <Flex direction="row" gap="400" alignItems="center">

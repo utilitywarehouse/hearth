@@ -1,6 +1,3 @@
-import { StyleSheet } from 'react-native-unistyles';
-import { breakpoints } from './breakpoints';
-import { themes } from './themes';
 export {
   createUnistylesElement,
   Display,
@@ -25,14 +22,5 @@ export type {
 } from 'react-native-unistyles';
 export * from './breakpoints';
 export * from './themes';
-
-StyleSheet.configure({
-  breakpoints,
-  themes,
-  settings: {
-    initialTheme: 'light',
-    adaptiveThemes: false,
-  },
-});
 
 export type * from '../types/unistyles';

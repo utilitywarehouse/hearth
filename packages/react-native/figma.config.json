@@ -1,9 +1,10 @@
 {
   "codeConnect": {
-    "include": ["src/**"],
+    "include": ["**/*.figma.ts"],
     "parser": "react",
     "exclude": [],
     "label": "React Native",
+    "language": "jsx",
     "importPaths": {
       "packages/react-native/src/*": "@utilitywarehouse/hearth-react-native"
     }

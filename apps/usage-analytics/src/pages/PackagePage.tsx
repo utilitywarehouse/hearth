@@ -1,9 +1,15 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useIndex, useSnapshot, latestDate } from '../data/hooks';
 import { ErrorBox, Empty, Loading, PageHeader, Section } from '../components/ui';
 import { StatTile } from '../components/cards';
-import { CoverageDonut, TrendChart } from '../components/charts';
+import {
+  CoverageDonut,
+  TREND_METRIC_LABELS,
+  TrendChart,
+  TrendMetricSwitcher,
+  type TrendMetric,
+} from '../components/charts';
 import { RankingTable, type RankColumn, type RankRow } from '../components/RankingTable';
 import { compact, num } from '../lib/format';
 import { packageTrend, packageVersionTrend, reposUsingPackage } from '../lib/series';
@@ -36,6 +42,7 @@ export function PackagePage() {
   const date = latestDate(index.data);
   const snap = useSnapshot(date);
   const navigate = useNavigate();
+  const [metric, setMetric] = useState<TrendMetric>('refs');
 
   const trend = useMemo(() => (index.data ? packageTrend(index.data, pkg) : []), [index.data, pkg]);
   const versionTrend = useMemo(
@@ -129,8 +136,11 @@ export function PackagePage() {
       </div>
 
       <div className={usage.coverage ? 'two-col two-col--wide' : ''}>
-        <Section title="Usage over time">
-          <TrendChart data={trend} series={[{ key: 'refs', label: 'References', color }]} />
+        <Section
+          title="Usage over time"
+          aside={<TrendMetricSwitcher value={metric} onChange={setMetric} />}
+        >
+          <TrendChart data={trend} series={[{ key: metric, label: TREND_METRIC_LABELS[metric], color }]} />
         </Section>
         {usage.coverage ? (
           <Section title="Coverage">

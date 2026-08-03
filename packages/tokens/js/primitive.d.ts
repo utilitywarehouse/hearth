@@ -4,6 +4,7 @@
 declare const _default: {
   readonly borderRadius: {
     readonly full: 9999;
+    readonly lg: 12;
     readonly md: 8;
     readonly none: 0;
     readonly sm: 6;
@@ -56,6 +57,7 @@ declare const _default: {
     readonly '600': 28;
     readonly '700': 32;
     readonly '800': 36;
+    readonly '900': 40;
     readonly '950': 48;
     readonly '975': 52;
     readonly '1050': 62;
@@ -97,6 +99,7 @@ declare const _default: {
     readonly '700': 56;
     readonly '800': 64;
     readonly '900': 72;
+    readonly '1000': 80;
   };
 };
 export default _default;

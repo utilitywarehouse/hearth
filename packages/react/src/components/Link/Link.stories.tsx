@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
 import { Link } from './Link';
+import type { LinkProps } from './Link.props';
 import {
   DownloadSmallIcon,
   ChevronLeftSmallIcon,
@@ -94,7 +95,7 @@ export const LengthyContent: Story = {
     children:
       'Agnes Bernice Martin was an American abstract painter known for her minimalist style and abstract expressionism.',
   },
-  render: (args: { children?: string }) => (
+  render: (args: Pick<LinkProps, 'children' | 'href'>) => (
     <Flex width="500px">
       <Link {...args}>{args.children}</Link>
     </Flex>

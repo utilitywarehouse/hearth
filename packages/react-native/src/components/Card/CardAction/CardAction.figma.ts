@@ -1,0 +1,132 @@
+// url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=8154%3A4346
+// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Card/CardAction/CardActionRoot.tsx
+// component=CardAction
+
+import figma from 'figma';
+
+const state = figma.selectedInstance.getEnum('State', {
+  Default: 'default',
+  Hover: 'hover',
+  Active: 'active',
+  Disabled: 'disabled',
+  Loading: 'loading',
+});
+const size = figma.selectedInstance.getEnum('Size', {
+  Default: 'md',
+  Large: 'lg',
+});
+const loading = state === 'loading';
+const disabled = state === 'disabled';
+const heading = figma.selectedInstance.getString('List heading');
+const helperTextEnabled = figma.selectedInstance.getBoolean('Helper text?');
+const helperText = helperTextEnabled ? figma.selectedInstance.getString('Helper text') : undefined;
+const iconContainerEnabled = figma.selectedInstance.getBoolean('Icon container?');
+const iconContainerInstance = figma.selectedInstance.findInstance('Icon Container');
+// When "Icon container?" is on, the leading icon and its container styling come from this
+// nested Icon Container instance rather than the bare "Leading icon-24" swap below.
+const iconContainer =
+  iconContainerEnabled && iconContainerInstance.type !== 'ERROR'
+    ? iconContainerInstance
+    : undefined;
+const iconContainerSize = iconContainer?.getEnum('Size', {
+  'SM-32': 'sm',
+  'MD-48': 'md',
+  'LG-64': 'lg',
+});
+const iconContainerIconName = iconContainer
+  ?.getInstanceSwap(iconContainerSize === 'sm' ? 'Icon-20' : 'Icon-24')
+  ?.executeTemplate().metadata?.props?.componentName as string | undefined;
+const iconContainerVariant = iconContainer?.getEnum('Variant', {
+  Subtle: 'subtle',
+  Emphasis: 'emphasis',
+});
+const iconContainerColor = iconContainer?.getEnum('Color', {
+  Pig: 'pig',
+  Energy: 'energy',
+  Broadband: 'broadband',
+  Mobile: 'mobile',
+  Insurance: 'insurance',
+  Cashback: 'cashback',
+  Highlight: 'highlight',
+});
+
+const leadingIconEnabled = figma.selectedInstance.getBoolean('Leading Icon?');
+const leadingIconName = iconContainer
+  ? iconContainerIconName
+  : leadingIconEnabled
+    ? (figma.selectedInstance.getInstanceSwap('Leading icon-24')?.executeTemplate().metadata?.props
+        ?.componentName as string | undefined)
+    : undefined;
+const leadingIcon = leadingIconName
+  ? figma.helpers.react.reactComponent(leadingIconName)
+  : undefined;
+const trailingIconName = figma.selectedInstance
+  .getInstanceSwap('Trailing icon-20')
+  ?.executeTemplate().metadata?.props?.componentName as string | undefined;
+const trailingIcon = trailingIconName
+  ? figma.helpers.react.reactComponent(trailingIconName)
+  : undefined;
+const badgeBottomEnabled = figma.selectedInstance.getBoolean('Badge bottom?');
+const badgeRightEnabled = figma.selectedInstance.getBoolean('Badge right?');
+const badgeMiddleEnabled = figma.selectedInstance.getBoolean('Badge middle?');
+const badgePosition = badgeRightEnabled
+  ? 'right'
+  : badgeMiddleEnabled
+    ? 'middle'
+    : badgeBottomEnabled
+      ? 'bottom'
+      : undefined;
+
+export default {
+  id: 'CardAction',
+  imports: [
+    "import { CardAction } from '@utilitywarehouse/hearth-react-native';",
+    ...[...new Set([leadingIconName, trailingIconName].filter(Boolean))].map(
+      name => `import { ${name} } from '@utilitywarehouse/hearth-react-native-icons';`
+    ),
+  ],
+  example: figma.code`<CardAction${figma.helpers.react.renderProp(
+    'loading',
+    loading
+  )}${figma.helpers.react.renderProp('disabled', disabled)}${figma.helpers.react.renderProp(
+    'size',
+    size
+  )}${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp(
+    'helperText',
+    helperText
+  )}${figma.helpers.react.renderProp(
+    'badgePosition',
+    badgePosition
+  )}${figma.helpers.react.renderProp(
+    'iconContainer',
+    iconContainerEnabled
+  )}${figma.helpers.react.renderProp('leadingIcon', leadingIcon)}${figma.helpers.react.renderProp(
+    'iconContainerVariant',
+    iconContainerVariant
+  )}${figma.helpers.react.renderProp(
+    'iconContainerColor',
+    iconContainerColor
+  )}${figma.helpers.react.renderProp('trailingIcon', trailingIcon)} />`,
+  metadata: {
+    nestable: true,
+    props: {
+      state,
+      size,
+      loading,
+      disabled,
+      heading,
+      helperTextEnabled,
+      helperText,
+      leadingIconEnabled,
+      leadingIcon,
+      iconContainerVariant,
+      iconContainerColor,
+      trailingIcon,
+      iconContainerEnabled,
+      badgeBottomEnabled,
+      badgeRightEnabled,
+      badgeMiddleEnabled,
+      badgePosition,
+    },
+  },
+};

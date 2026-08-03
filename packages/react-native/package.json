@@ -1,13 +1,20 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.35.0",
+  "version": "0.35.7",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/react-native"
+  },
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "module": "build/index",
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "build/core/configure.js"
+  ],
   "bin": {
     "hearth-react-native": "./scripts/init-ai.js"
   },
@@ -28,6 +35,7 @@
     "lint": "TIMING=1 eslint .",
     "build": "tsc",
     "watch": "tsc --watch",
+    "typecheck": "tsc --noEmit",
     "figma:create": "figma connect create",
     "figma:publish": "figma connect publish",
     "test": "vitest run --config vitest.unit.config.ts",
@@ -57,8 +65,8 @@
     "nanoid": "3.3.11"
   },
   "devDependencies": {
-    "@utilitywarehouse/hearth-storybook-utils": "workspace:*",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@figma/code-connect": "^1.4.9",
     "@gorhom/bottom-sheet": "5.2.6",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-docs": "^10.2.1",
@@ -72,6 +80,7 @@
     "@utilitywarehouse/hearth-fonts": "workspace:^",
     "@utilitywarehouse/hearth-react-icons": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",
+    "@utilitywarehouse/hearth-storybook-utils": "workspace:*",
     "@utilitywarehouse/hearth-svg-assets": "workspace:^",
     "@utilitywarehouse/hearth-tokens": "workspace:^",
     "@vitest/browser": "^3.2.4",

@@ -1,0 +1,73 @@
+name: Release Claude plugin version change
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'plugins/hearth-ai-toolkit/.claude-plugin/plugin.json'
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Create release on version bump
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to create the GitHub release
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Check for version change
+        id: check
+        run: |
+          set -euo pipefail
+
+          PLUGIN_FILE="plugins/hearth-ai-toolkit/.claude-plugin/plugin.json"
+          if [ ! -f "$PLUGIN_FILE" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          NEW_VERSION=$(jq -er '.version' "$PLUGIN_FILE")
+          PLUGIN_NAME=$(jq -er '.name' "$PLUGIN_FILE")
+          PLUGIN_DISPLAY_NAME=$(jq -er '.displayName // .name' "$PLUGIN_FILE")
+
+          BASE_SHA="${{ github.event.before }}"
+          if [ "$BASE_SHA" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$BASE_SHA:$PLUGIN_FILE" 2>/dev/null; then
+            OLD_VERSION=$(git show "$BASE_SHA:$PLUGIN_FILE" | jq -er '.version')
+          else
+            OLD_VERSION=""
+          fi
+
+          echo "old_version=$OLD_VERSION" >> "$GITHUB_OUTPUT"
+          echo "new_version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
+          echo "plugin_name=$PLUGIN_NAME" >> "$GITHUB_OUTPUT"
+          echo "plugin_display_name=$PLUGIN_DISPLAY_NAME" >> "$GITHUB_OUTPUT"
+
+          if [ "$OLD_VERSION" != "$NEW_VERSION" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Create GitHub release
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          TAG="${{ steps.check.outputs.plugin_name }}@${{ steps.check.outputs.new_version }}"
+
+          gh release create "$TAG" \
+            --title "${{ steps.check.outputs.plugin_display_name }} ${{ steps.check.outputs.new_version }}" \
+            --notes "Claude plugin \`${{ steps.check.outputs.plugin_name }}\` updated: \`${{ steps.check.outputs.old_version }}\` → \`${{ steps.check.outputs.new_version }}\`" \
+            --target "${{ github.sha }}"

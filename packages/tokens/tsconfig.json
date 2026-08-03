@@ -1,7 +1,6 @@
 {
   "include": ["./src/ts"],
   "compilerOptions": {
-    "ignoreDeprecations": "5.0",
     "noEmit": false,
     "allowJs": true,
     "declaration": true,
@@ -12,18 +11,18 @@
     "jsx": "react",
     "lib": ["esnext", "dom"],
     "outDir": "./js",
+    "rootDir": "./src/ts",
     "module": "esnext",
     "moduleResolution": "bundler",
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "esnext"
+    "target": "esnext",
+    "types": []
   }
 }
 

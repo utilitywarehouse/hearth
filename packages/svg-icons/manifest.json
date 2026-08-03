@@ -456,6 +456,11 @@
       "hash": "d505329febddba9cef8e3aeed8e265b491d2ab63ffd2d9e304b079b7bc50914d"
     },
     {
+      "name": "BudgetPlanMediumIcon",
+      "path": "budget-plan-medium-icon.svg",
+      "hash": "ea43806ff359f417dc8ea55cdb6ba35921d9a6a9d0756938f2309d42197494da"
+    },
+    {
       "name": "BulbMediumIcon",
       "path": "bulb-medium-icon.svg",
       "hash": "1891d05f8b4f108c8e3faa81d6aa50d35313da8bebeb212536b98f30ede3c7a0"

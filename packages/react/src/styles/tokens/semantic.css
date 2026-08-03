@@ -3,6 +3,8 @@
  */
 
 :root {
+  --h-icon-inverted: var(--h-color-warm-white-50);
+  --h-icon-primary: var(--h-color-grey-1000);
   --h-background-brand: var(--h-color-purple-700);
   --h-background-loading: var(--h-color-warm-white-200);
   --h-background-primary: var(--h-color-warm-white-50);
@@ -36,8 +38,6 @@
   --h-feedback-warning-surface-subtle: var(--h-color-orange-200);
   --h-focus-inverted: var(--h-color-warm-white-50);
   --h-focus-primary: var(--h-color-grey-1000);
-  --h-icon-inverted: var(--h-color-warm-white-50);
-  --h-icon-primary: var(--h-color-grey-1000);
   --h-interactive-affirmative-border-strong: var(--h-color-grey-1000);
   --h-interactive-affirmative-border-subtle: var(--h-color-green-800);
   --h-interactive-affirmative-foreground-strong: var(--h-color-warm-white-50);

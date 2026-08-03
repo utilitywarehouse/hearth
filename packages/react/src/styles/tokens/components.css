@@ -120,6 +120,12 @@
   --h-checkbox-tile-max-width: 680px;
   --h-checkbox-tile-min-width: 80px;
   --h-checkbox-tile-padding: var(--h-space-150);
+  --h-chip-border-radius: var(--h-border-radius-full);
+  --h-chip-border-width: var(--h-border-width-1);
+  --h-chip-gap: var(--h-space-50);
+  --h-chip-group-gap: var(--h-space-100);
+  --h-chip-padding-horizontal: var(--h-space-150);
+  --h-chip-padding-vertical: var(--h-space-25);
   --h-date-picker-border-radius: var(--h-border-radius-md);
   --h-date-picker-border-width: var(--h-border-width-1);
   --h-date-picker-border-width-focused: var(--h-border-width-2);
@@ -167,6 +173,10 @@
   --h-expandable-card-group-gap: var(--h-space-150);
   --h-form-field-gap: var(--h-space-75);
   --h-form-field-helper-gap: var(--h-space-25);
+  --h-icon-md-height: 24px;
+  --h-icon-md-width: 24px;
+  --h-icon-sm-height: 20px;
+  --h-icon-sm-width: 20px;
   --h-icon-button-border-radius: var(--h-border-radius-md);
   --h-icon-button-md-height: 48px;
   --h-icon-button-md-padding-horizontal: var(--h-space-150);

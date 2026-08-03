@@ -47,7 +47,7 @@ const Tab = ({
       onLayout={handleLayout}
       style={[styles.tab, style]}
       {...(Platform.OS === 'web'
-        ? { id: `tab-${value}`, 'aria-controls': `tabpanel-${value}` }
+        ? { id: `tab-${value}`, 'aria-controls': `tabpanel-${value}`, 'aria-selected': isActive }
         : null)}
       {...props}
     >

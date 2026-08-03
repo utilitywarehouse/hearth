@@ -1,6 +1,6 @@
 ---
 name: hearth-react-native
-description: Use when building any UI component or screen with the Hearth React Native library. Use this implicitly whenever building any UI component or screen in a React Native app that has Hearth React Native installed — Hearth React Native is the default. Do not wait for an explicit mention of "Hearth React Native" — if it's UI work in an app with Hearth React Native, use this skill. Triggers when creating components, implementing Figma designs, adding UI features, or writing any React Native code in the app.
+description: MANDATORY prerequisite — you MUST load this skill BEFORE writing or editing any file that imports from `@utilitywarehouse/hearth-react-native` or `@utilitywarehouse/hearth-react-native-icons`, BEFORE adapting Figma `get_design_context` reference output into a React Native screen in a Hearth app, and BEFORE delegating research about a Hearth component's props or usage to a subagent. NEVER substitute node_modules type definitions or a grep of existing usage for this skill's own component docs — that is how this skill gets silently bypassed. This skill IS the "target project's conventions" that figma-design-to-code hands off to; loading that skill does NOT satisfy this requirement. Do not wait for an explicit mention of "Hearth React Native" — any React Native UI work in an app with the library installed requires this skill first.
 ---
 
 # Building with Hearth React Native
@@ -8,6 +8,31 @@ description: Use when building any UI component or screen with the Hearth React 
 You are acting as a React Native engineer. Your job is to turn requirements —
 either Figma designs or written requirements — into UI React Native code using
 Hearth — Utility Warehouse's Design Systems libraries.
+
+## MANDATORY — when you must load this skill
+
+Load this skill — do not skip it — at each of these moments:
+
+- **Before writing or editing any file that imports from
+  `@utilitywarehouse/hearth-react-native` or
+  `@utilitywarehouse/hearth-react-native-icons`.** If the file touches either
+  package, this skill MUST be loaded first, no exceptions.
+- **Before adapting Figma `get_design_context` reference output into this
+  codebase.** `figma-design-to-code` hands off with "adapt the reference code
+  to the target project's conventions" without saying what those conventions
+  are. This skill IS that answer. Loading `figma-design-to-code` does NOT
+  satisfy this requirement — load both, this one before you touch the
+  reference code.
+- **Before delegating research about a Hearth component's props, variants, or
+  usage to a subagent.** Reading `node_modules` type definitions or grepping
+  existing usage in the app is NOT a substitute for this skill's own component
+  docs (see "Before you implement" below). Spawning a research subagent to
+  answer a question this skill already answers is how this skill gets
+  silently bypassed — load this skill, or pass its instructions into the
+  subagent's prompt, before delegating.
+
+Treat each moment above as a hard gate, not a vague "this is UI work" prompt
+to get around to eventually.
 
 ## Package imports
 
@@ -36,6 +61,12 @@ Whatever source you use, review what is available before writing any code.
 
 The library is broad — always check whether an existing component covers the
 need before implementing anything custom.
+
+When reusing an existing local pattern for a Hearth component, still check
+that component's own doc page — a local pattern may predate a more direct
+prop the library added later (e.g. `List`'s own `heading`/`helperText` props
+vs. a sibling `SectionHeader` or `Heading`). Prefer the documented, current shorthand over
+an older local convention when they diverge.
 
 ### Raw markdown files
 
@@ -104,7 +135,57 @@ pairing with someone, ask for it here too.
 
 # Critical Rules
 
+## Figma-to-code fidelity
+
+These apply whenever you're translating `get_design_context`/`get_metadata`
+output into code — they're easy to get right in principle and wrong in
+practice, so treat them as mechanical checks rather than judgment calls:
+
+- **Respect hidden-node flags.** Check a node's `hidden` flag before
+  implementing it — a hidden node is not part of the default/visible state,
+  so don't render it unconditionally just because its content was returned to
+  you. If you deliberately want to reuse hidden content for a different state
+  (e.g. an alternate variant), say so explicitly in a code comment and
+  confirm the condition with the user rather than silently flattening it into
+  the default view.
+- **Don't invent style variants beyond what's in the design.** When a text
+  node's colour variable isn't visible in the response, default to the
+  base/primary token rather than adding a muted/secondary colour or other
+  visual hierarchy that isn't actually specified.
+- **Verify each component instance individually.** When a design uses the
+  same component more than once with potentially different configurations
+  (variants, direction, size, etc.), check each instance against its own
+  region of the screenshot — don't assume the first instance's props apply
+  uniformly to the rest just because the component name matches. This
+  matters most for variant props (like `Flex`/`DescriptionList`'s
+  `direction`) that `get_metadata` doesn't expose at all, where the
+  screenshot is the only available ground truth.
+
+## Typography
+
+Map a text node's Figma **text style name** directly to a component + `size`
+(and `weight`, where present) — don't guess the size from screenshot
+proportions. `get_design_context` surfaces the style name verbatim in its
+"styles contained in the design" list, in the form
+`<Category>/<Style Name> <SIZE>[ <Weight>]`, e.g.:
+
+| Figma text style              | Component + props                    |
+| ------------------------------ | -------------------------------------- |
+| `Headings/Heading MD`          | `<Heading size="md">`                 |
+| `Detail/Detail Text 3XL`       | `<DetailText size="3xl">`             |
+| `Body/Body Text MD`            | `<BodyText size="md">`                |
+| `Body/Body Text MD SemiBold`   | `<BodyText size="md" weight="semibold">` |
+
+The prefix before the slash (`Headings`/`Detail`/`Body`) names the
+component (`Heading`/`DetailText`/`BodyText`); the last token is the `size`
+value (lowercased); a trailing weight modifier (`SemiBold`, `Bold`) maps to
+`BodyText`'s `weight` prop, lowercased. This is a direct, mechanical lookup —
+if a style name is present in the response, use it instead of picking a size
+by eye from the screenshot.
+
 ## Use layout components
+
+(Source of truth: [`public/llms/docs/layout-components.md`](public/llms/docs/layout-components.md))
 
 Use layout components to structure and space content. Do not add margin to
 individual UI elements to achieve spacing — keep spacing decisions at the layout
@@ -144,9 +225,44 @@ Five layout primitives, all built on design tokens:
 </Center>
 ```
 
-Use `gap` (or the `spacing`/`space` alias) on the parent `Flex`/`Grid` to space
-children. For distribution and alignment, use `justify`/`align` on `Flex`. Don't
-put margin on individual sibling components just for spacing.
+**Default to `Container` for a screen's top-level scrollable content
+wrapper** — it auto-applies the exact responsive page margin/padding tokens
+(mobile: 16px horizontal margin, 24px top padding, 32px bottom padding —
+scaling up at larger breakpoints) that `Box`/`Flex` have no dedicated
+shortcut for, instead of a manually-guessed `p`/`px`/`py`:
+
+```tsx
+<Container>
+  <Flex direction="column" spacing="2xl">
+    {...}
+  </Flex>
+</Container>
+```
+
+More generally: before picking a layout prop/component for **any** node, scan
+the Figma variable paths bound to it. If any contain the segment `container`
+(e.g. `layout/container/padding-top`), that's a direct signal to reach for
+`Container`'s own padding/margin props (or the nearest container-aware
+ancestor) rather than a bare `Flex`/`Box` — regardless of whether the node
+happens to be the literal screen root.
+
+`Flex`/`Grid` have two distinct props for spacing children — don't treat them
+as interchangeable aliases:
+
+- **`gap`** — a raw numeric space token (`'0'..'900'`), non-responsive.
+- **`spacing`** (aliased as the deprecated `space`) — Hearth's semantic layout
+  scale (`'2xs'..'2xl'`). This is both the direct match for Figma's
+  `layout/spacing/*` variable names **and** automatically responsive per
+  breakpoint (e.g. `spacing="2xl"` resolves to 28px on mobile, 40px on
+  desktop).
+
+**If a Figma variable path bound to a node contains the segment `spacing`**
+(e.g. `layout/spacing/lg`), use the `spacing` prop with the matching value
+(`lg`, `2xl`, etc.) — never `gap`. Reserve `gap` for adjustments that don't
+correspond to any named Figma variable.
+
+For distribution and alignment, use `justify`/`align` on `Flex`. Don't put
+margin on individual sibling components just for spacing.
 
 ```tsx
 // ❌ WRONG — margin for spacing
@@ -171,6 +287,8 @@ alongside their own layout-specific props (`direction`, `align`, `justify`,
 `wrap` on `Flex`; `columns` on `Grid`).
 
 ## Styling: Unistyles, not `StyleSheet` from `react-native`
+
+(Source of truth: [`public/llms/docs/styling.md`](public/llms/docs/styling.md))
 
 Custom styles use `react-native-unistyles`'s `StyleSheet.create(theme => ({...}))`,
 re-exported from the package. Only reach for this when utility props and
@@ -235,6 +353,8 @@ const styles = StyleSheet.create(theme => ({
 
 ## Responsive breakpoints
 
+(Source of truth: [`public/llms/docs/styling.md`](public/llms/docs/styling.md#responsive-design-with-breakpoints))
+
 Breakpoints are configured once (via Unistyles' `StyleSheet.configure`) and
 cascade **mobile-first**: a value applies from that breakpoint upward until
 overridden by a larger one. See the
@@ -263,6 +383,8 @@ const styles = StyleSheet.create(theme => ({
 `columns={{ base: 1, md: 2, lg: 3 }}`.
 
 ## Required app-level providers
+
+(Source of truth: [`public/llms/docs/getting-started.md`](public/llms/docs/getting-started.md))
 
 Hearth React Native components rely on these wrapping the app root:
 
@@ -299,11 +421,13 @@ applies before reaching for `react-native-safe-area-context` directly:
   `SafeAreaView` applies the `top` edge. Set `useSafeAreaInsets={false}` on
   `BottomSheetModalProvider` only if the parent screen already handles
   safe-area insets itself — don't look for the prop on the individual
-  components.
+  components. (Source of truth:
+  [`public/llms/components/modal.md`](public/llms/components/modal.md))
 - **`NavModal`** (used when a screen is already presented by React Navigation)
   reads safe-area insets directly from the Unistyles runtime
   (`rt.insets.top`/`rt.insets.bottom` inside `StyleSheet.create((theme, rt) =>
-  ...)`) rather than rendering a `SafeAreaView`.
+  ...)`) rather than rendering a `SafeAreaView`. (Source of truth:
+  [`public/llms/components/nav-modal.md`](public/llms/components/nav-modal.md))
 
 Don't wrap Hearth components in your own `SafeAreaView` on top of these —
 check `BottomSheetModalProvider`'s `useSafeAreaInsets` prop (or `NavModal`'s
@@ -342,7 +466,46 @@ Compound components share state via a `<Component>Context` (check for a
 
 ## Common patterns
 
+### Icon next to wrapping body text
+
+A `Text`/`BodyText` child inside a `direction="row"` `Flex` has no inherent
+width constraint in RN's layout engine — it lays out at its intrinsic
+single-line width unless told to share the remaining row space, and will
+overflow instead of wrapping. This is a general React Native flexbox gotcha,
+not Hearth-specific, and easy to miss when translating from a Figma/web
+reference where text wraps by default.
+
+```tsx
+<Flex direction="row" align="flex-start" gap="100">
+  <CheckIcon />
+  <BodyText style={{ flex: 1 }}>{longWrappingCopy}</BodyText>
+</Flex>
+```
+
+Give the text `flex: 1` (or `flexShrink: 1`, or wrap it in its own `Box`) so
+it wraps instead of overflowing, and use `align="flex-start"` on the row
+rather than `"center"` once the text can span multiple lines.
+
+### Interactive rows auto-render their own trailing chevron
+
+`ListItem` renders a trailing `ChevronRightSmallIcon` automatically whenever
+`onPress` is set and `trailingContent` is omitted — passing
+`trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}`
+yourself is redundant. `CardAction` goes further: it defaults its trailing
+icon to `ChevronRightSmallIcon` unconditionally unless `trailingContent` is
+supplied. Only pass `trailingContent` when you need a **different** trailing
+element (a `Switch`, a `Link`, a custom icon).
+
+This isn't visible from a Figma screenshot or `get_design_context` alone — a
+row with a chevron doesn't tell you whether the component renders it for you
+or expects it explicitly. Default/automatic behaviour driven by props like
+`onPress` (not just visual appearance) should be checked against the
+component's own source/docs before manually replicating something that might
+already be automatic.
+
 ### Themed images that adapt to light/dark mode
+
+(Source of truth: [`public/llms/docs/dark-mode-best-practice.md`](public/llms/docs/dark-mode-best-practice.md))
 
 ```tsx
 <ThemedImage light={require('./logo-light.png')} dark={require('./logo-dark.png')} />

@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import remarkGfm from 'remark-gfm';
 import { dirname } from 'path';
+import remarkGfm from 'remark-gfm';
 import { fileURLToPath } from 'url';
 
 /**
@@ -33,7 +33,7 @@ const config: StorybookConfig = {
   framework: getAbsolutePath('@storybook/react-vite'),
   features: {
     changeDetection: true,
-    experimentalComponentsManifest: true,
+    componentsManifest: true,
   },
   typescript: {
     reactDocgen: 'react-docgen-typescript',

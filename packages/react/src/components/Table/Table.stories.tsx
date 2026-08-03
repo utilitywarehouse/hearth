@@ -141,7 +141,7 @@ function usePaginatedSeededData<T extends { id: string | number }>(
       const result = [...arr];
       for (let i = result.length - 1; i > 0; i--) {
         const j = Math.floor(rng() * (i + 1));
-        [result[i], result[j]] = [result[j], result[i]];
+        [result[i], result[j]] = [result[j]!, result[i]!];
       }
       return result;
     };
@@ -161,7 +161,7 @@ function usePaginatedSeededData<T extends { id: string | number }>(
     for (let i = startIndex; i < endIndex && i < totalItems; i++) {
       const cycleIndex = i % shuffledData.length;
       const multiplierIndex = Math.floor(i / shuffledData.length);
-      const item = shuffledData[cycleIndex];
+      const item = shuffledData[cycleIndex]!;
 
       result.push({
         ...item,

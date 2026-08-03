@@ -4,6 +4,42 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.31.2
+
+### Patch Changes
+
+- [#1448](https://github.com/utilitywarehouse/hearth/pull/1448) [`3ee6250`](https://github.com/utilitywarehouse/hearth/commit/3ee62505c243c1cebed3d44cb3e349517eb13dd4) Thanks [@jordmccord](https://github.com/jordmccord)! - 🧹 [HOUSEKEEPING]: Strengthen Claude Code skill trigger reliability
+
+  The `hearth-react` and `hearth-react-native` Claude Code skills used
+  descriptive trigger language ("use this implicitly", "do not wait for
+  explicit mention"), which made them easy to skip in favour of more
+  specifically-scoped, hard-gated skills such as `figma-design-to-code`. The
+  skill description and a new mandatory "when to use" section now use
+  gate-style language and anchor the trigger to concrete moments: writing or
+  editing a file that imports the package, adapting Figma `get_design_context`
+  reference output, and delegating component research to a subagent.
+
+  No runtime behaviour changes for consumers of either package.
+
+## 0.31.1
+
+### Patch Changes
+
+- [#1422](https://github.com/utilitywarehouse/hearth/pull/1422) [`f3edf91`](https://github.com/utilitywarehouse/hearth/commit/f3edf918524d7fd45cdde3d20a524a89c1d7244b) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Upgrade TypeScript to 6.0.3
+
+  Updated TypeScript from 5.x to 6.0.3 across the monorepo, and cleaned up
+  compiler options deprecated since TypeScript 5.0 (`ignoreDeprecations`,
+  `noImplicitUseStrict`, `noStrictGenericChecks`) and 6.0 (`moduleResolution:
+node`, `baseUrl` as a module resolution root).
+
+  **Developer changes**:
+
+  No changes required. Published output (JS bundles and `.d.ts` declarations) is
+  unaffected — this is a devDependency and tooling upgrade only.
+
+- Updated dependencies [[`f3edf91`](https://github.com/utilitywarehouse/hearth/commit/f3edf918524d7fd45cdde3d20a524a89c1d7244b)]:
+  - @utilitywarehouse/hearth-react-icons@0.8.7
+
 ## 0.31.0
 
 ### Minor Changes
