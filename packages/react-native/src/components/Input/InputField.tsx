@@ -14,7 +14,7 @@ import InputProps from './Input.props';
 const InputField = forwardRef<
   RNTextInput,
   TextInputProps & { inBottomSheet?: boolean; type?: InputProps['type'] }
->(({ style, inBottomSheet = false, type, onFocus, onBlur, ...props }, ref) => {
+>(({ style, inBottomSheet = false, type, onFocus, onBlur, editable, ...props }, ref) => {
   const {
     disabled,
     readonly,
@@ -28,7 +28,7 @@ const InputField = forwardRef<
   styles.useVariants({ focused, type: resolvedType });
   const { color } = useTheme();
 
-  const editable = props.editable !== undefined ? props.editable : !(disabled || readonly);
+  const resolvedEditable = editable !== undefined ? editable : !(disabled || readonly);
 
   const handleFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
     setFocused?.(true);
@@ -53,7 +53,8 @@ const InputField = forwardRef<
         aria-invalid={validationStatus === 'invalid'}
         aria-required={required}
         accessibilityState={{ disabled }}
-        readOnly={!editable}
+        editable={resolvedEditable}
+        readOnly={!resolvedEditable}
         {...props}
         onFocus={handleFocus}
         onBlur={handleBlur}
@@ -74,7 +75,8 @@ const InputField = forwardRef<
       aria-invalid={validationStatus === 'invalid'}
       aria-required={required}
       accessibilityState={{ disabled }}
-      readOnly={!editable}
+      editable={resolvedEditable}
+      readOnly={!resolvedEditable}
       {...props}
       onFocus={handleFocus}
       onBlur={handleBlur}
