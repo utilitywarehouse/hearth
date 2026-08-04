@@ -1,4 +1,4 @@
-# AI Tooling
+# AI Toolkit
 
 - [Plugin](#plugin)
   - [Claude CLI](#claude-cli)
@@ -17,7 +17,7 @@ This should be the first step, since it gives your agent direct access to the
 design you're implementing. You can read more information about setting this up
 in the [root AI Toolkit documentation](https://hearth.prod.uw.systems/?path=/docs/ai-toolkit--docs).
 
-Hearth's own AI tooling then supplements it for most use cases, filling in the
+Hearth's own AI toolkit then supplements it for most use cases, filling in the
 parts of the Hearth React Native API and usage guidance that the design alone
 doesn't capture:
 
