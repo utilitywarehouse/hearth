@@ -1,5 +1,62 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.35.8
+
+### Patch Changes
+
+- [#1478](https://github.com/utilitywarehouse/hearth/pull/1478) [`d993e7f`](https://github.com/utilitywarehouse/hearth/commit/d993e7f963ff1d92ee88a985d1d1c603d91ec8b3) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Link` and `InlineLink` never applied `target`/`rel` on web
+
+  On `react-native-web` builds, `@gluestack-ui/link`'s `useLink` hook sets
+  `target`/`rel` on the underlying DOM node imperatively via a ref mutation
+  during render, before the ref is attached at commit - so they never took
+  effect. `target="_blank"` links also never got a `rel` attribute, which is a
+  reverse-tabnabbing risk.
+
+  `Link` and `InlineLink` now pass `target`/`rel` through explicitly as props
+  (converted to `react-native-web`'s `hrefAttrs`) instead of relying on
+  gluestack's ref mutation. `target="_blank"` now defaults `rel` to
+  `noopener noreferrer` unless a `rel` prop is provided.
+
+- [#1477](https://github.com/utilitywarehouse/hearth/pull/1477) [`3ccdc39`](https://github.com/utilitywarehouse/hearth/commit/3ccdc39597c73cb5102124496f1b48fd526123a2) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Spinner` sometimes missing accessible label and keyboard focus
+
+  `Spinner` relied on `@gluestack-ui/spinner` setting `aria-label` and
+  `tabIndex` via `defaultProps` on the underlying component. React 19 no
+  longer applies `defaultProps` to function components, so depending on
+  where `Spinner` was rendered, these attributes could be silently dropped
+  — leaving some spinners without an accessible name for screen readers.
+
+  `Spinner` now sets these defaults itself, so the accessible label and
+  focusability are applied consistently regardless of render position.
+
+  **Components affected**:
+  - `Spinner`
+
+  **Developer changes**:
+
+  No action required. `aria-label` and `tabIndex` remain overridable via
+  props as before.
+
+- [#1475](https://github.com/utilitywarehouse/hearth/pull/1475) [`ec154c3`](https://github.com/utilitywarehouse/hearth/commit/ec154c38ca5a7500971d6795f6c61e6ed761243b) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Tabs` items don't expose selected state to screen readers on web
+
+  On `react-native-web` builds, `Tab` did not expose the active tab to assistive
+  technology because `react-native-web` does not derive an `aria-selected` DOM
+  attribute from `accessibilityState`. Active tabs now render `aria-selected`
+  explicitly, alongside the existing `accessibilityState`.
+
+- [#1479](https://github.com/utilitywarehouse/hearth/pull/1479) [`819bf70`](https://github.com/utilitywarehouse/hearth/commit/819bf7062d1524785f339a3153fdd3e6868e8356) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ToggleButtonCard` selection state didn't update on web when pressed
+
+  On web, pressing a `ToggleButtonCard`'s inner toggle button didn't update the
+  shared selection state — the card never visually reflected as selected and the
+  underlying radio input never became checked, even though `onChange` still
+  fired. This was caused by the nested toggle button intercepting the click
+  before it could reach the hidden radio input that drives selection.
+
+  **Components affected**:
+  - `ToggleButtonCard`
+  - `ToggleButtonCardGroup`
+
+  No developer action is required.
+
 ## 0.35.7
 
 ### Patch Changes
