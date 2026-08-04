@@ -1,4 +1,4 @@
-# AI Tools
+# AI Toolkit
 
 The Hearth React AI Tools are intended to help your AI agents use Hearth React
 components to build Utility Warehouse UIs. They provide access to APIs,
