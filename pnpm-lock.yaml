@@ -790,9 +790,6 @@ importers:
       '@gluestack-ui/accordion':
         specifier: 1.0.14
         version: 1.0.14(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/alert':
-        specifier: 0.1.15
-        version: 0.1.15(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@gluestack-ui/button':
         specifier: 1.0.7
         version: 1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -820,9 +817,6 @@ importers:
       '@gluestack-ui/spinner':
         specifier: 0.1.14
         version: 0.1.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@gluestack-ui/switch':
-        specifier: 0.1.22
-        version: 0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@gluestack-ui/textarea':
         specifier: 0.1.23
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -2641,12 +2635,6 @@ packages:
       react: 19.1.0
       react-dom: 19.1.0
 
-  '@gluestack-ui/alert@0.1.15':
-    resolution: {integrity: sha512-Jlaz8awVHznQixVfc1WmO9C1Em7DuF23N44PVOiGe2fCotOOB68ru2cGggaqGlHDzqhPRVpP5Fls+gn8CRDf0Q==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@gluestack-ui/button@1.0.7':
     resolution: {integrity: sha512-6hz5BPoB+iHMpDvys6AbIpeRPbnFiqyE3SnnbKPSCj8lgl3Dr9sFln41BvDmqmZ98d0usJluk50rz8pVNRZRgw==}
     peerDependencies:
@@ -2703,12 +2691,6 @@ packages:
 
   '@gluestack-ui/spinner@0.1.14':
     resolution: {integrity: sha512-6uLUvyJMhYR/sIMU/purfaYPqaKiLqnBi0n0LiWRsJNGDgENqdWVHMJpGTdWaFuCLxumZ7xnp0wG2KAdG9UyyQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/switch@0.1.22':
-    resolution: {integrity: sha512-R5gVyKh7O5vGUvao8VWI1ZAnVhlt2TFYpoiSILydbWLnYydqNa8EQujnXAH4RvjTS6/CVu/sH7sK03uKMmPdvA==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -15450,11 +15432,6 @@ snapshots:
     transitivePeerDependencies:
       - react-native
 
-  '@gluestack-ui/alert@0.1.15(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
   '@gluestack-ui/button@1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
       '@gluestack-ui/utils': 0.1.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -15560,18 +15537,6 @@ snapshots:
     dependencies:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-
-  '@gluestack-ui/switch@0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/form-control': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/toggle': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - react-native
 
   '@gluestack-ui/textarea@0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
