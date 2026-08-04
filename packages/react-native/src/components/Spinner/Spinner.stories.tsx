@@ -40,15 +40,12 @@ export const Playground: Story = {
     const canvas = within(canvasElement);
 
     // The Spinner communicates its loading state to assistive tech via `role="status"`
-    // plus `aria-busy`/`aria-live`, set directly in Spinner.web.tsx — verified live in the
-    // rendered DOM rather than assumed. (Note: an `aria-label="loading"` is also set via
-    // @gluestack-ui/spinner's `createSpinner` defaultProps, but defaultProps on function
-    // components no longer apply reliably under React 19 — it was observed present here
-    // but absent for the same component in the KitchenSink story below. Tracked as a gap
-    // for UWDS-4909, not asserted on here.)
+    // plus `aria-busy`/`aria-live`/`aria-label`, all set directly in Spinner.web.tsx —
+    // verified live in the rendered DOM rather than assumed.
     const spinner = await canvas.findByRole('status');
     expect(spinner).toHaveAttribute('aria-busy', 'true');
     expect(spinner).toHaveAttribute('aria-live', 'polite');
+    expect(spinner).toHaveAttribute('aria-label', 'loading');
   },
 };
 
@@ -80,6 +77,7 @@ export const KitchenSink: Story = {
     spinners.forEach(spinner => {
       expect(spinner).toHaveAttribute('aria-busy', 'true');
       expect(spinner).toHaveAttribute('aria-live', 'polite');
+      expect(spinner).toHaveAttribute('aria-label', 'loading');
     });
   },
 };

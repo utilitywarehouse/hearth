@@ -814,9 +814,6 @@ importers:
       '@gluestack-ui/radio':
         specifier: 0.1.33
         version: 0.1.33(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/spinner':
-        specifier: 0.1.14
-        version: 0.1.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@gluestack-ui/textarea':
         specifier: 0.1.23
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -2685,12 +2682,6 @@ packages:
 
   '@gluestack-ui/radio@0.1.33':
     resolution: {integrity: sha512-x93F8MTvS8EF1B0VllXcnVFpK+dlfQYjQCC0+x5G9TyXYU/z6C2Y4wq0YS6ivqRtq00diHW3b1xXz1TOgR2j6g==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/spinner@0.1.14':
-    resolution: {integrity: sha512-6uLUvyJMhYR/sIMU/purfaYPqaKiLqnBi0n0LiWRsJNGDgENqdWVHMJpGTdWaFuCLxumZ7xnp0wG2KAdG9UyyQ==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -15532,11 +15523,6 @@ snapshots:
     transitivePeerDependencies:
       - '@react-spectrum/provider'
       - react-native
-
-  '@gluestack-ui/spinner@0.1.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
 
   '@gluestack-ui/textarea@0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:

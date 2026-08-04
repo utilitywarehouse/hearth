@@ -1,4 +1,3 @@
-import { createSpinner } from '@gluestack-ui/spinner';
 import { useCallback, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import Animated, {
@@ -155,6 +154,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const Spinner = createSpinner({ Root: SpinnerRoot });
-
-export default Spinner;
+export default SpinnerRoot;
