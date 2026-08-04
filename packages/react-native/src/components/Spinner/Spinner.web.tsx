@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createSpinner } from '@gluestack-ui/spinner';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import Animated, {
@@ -118,6 +117,8 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   );
 };
 
+SpinnerRoot.displayName = 'Spinner';
+
 const styles = StyleSheet.create(theme => ({
   container: {
     display: 'flex',
@@ -147,6 +148,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const Spinner = createSpinner({ Root: SpinnerRoot });
-
-export default Spinner;
+export default SpinnerRoot;
