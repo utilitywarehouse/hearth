@@ -284,7 +284,7 @@ const lightHelpers = {
     outlineWidth: 2,
     outlineColor: color.light.focus.primary,
     outlineOffset: 1,
-  },
+  } as const,
 };
 
 export const lightTheme = {
@@ -337,7 +337,7 @@ const darkHelpers = {
     outlineWidth: 2,
     outlineColor: color.dark.focus.primary,
     outlineOffset: 1,
-  },
+  } as const,
 };
 
 export const darkTheme = {

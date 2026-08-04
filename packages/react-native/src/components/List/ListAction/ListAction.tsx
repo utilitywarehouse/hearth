@@ -125,6 +125,7 @@ const styles = StyleSheet.create(theme => ({
         },
         false: {
           _web: {
+            '_focus-visible': theme.helpers.focusVisible,
             _hover: {
               backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
             },

@@ -55,7 +55,7 @@ const styles = StyleSheet.create(theme => ({
     borderColor: theme.color.interactive.neutral.border.subtle,
     height: theme.components.toggleButton.height,
     _web: {
-      // '_focus-visible': theme.helpers.focusVisible,
+      '_focus-visible': theme.helpers.focusVisible,
       _hover: {
         backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
       },
