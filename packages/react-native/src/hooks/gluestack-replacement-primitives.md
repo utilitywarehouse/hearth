@@ -18,11 +18,14 @@ ExpandableCard) need no primitive — they move straight to RN's native
 Replaces `@gluestack-ui/accordion`'s `createAccordion` + `@react-stately/utils`
 `useControlledState` + `@react-native-aria/accordion` `useAccordion`/
 `useAccordionItem`. The single/multiple × collapsible branching is real state
-logic that must be reproduced exactly (see behaviour table below) — everything
-else gluestack did here (id-linking, `aria-controls`, `role="region"`) is a
-web-only ARIA pattern with no native equivalent, and is dropped in favour of
-`accessibilityState.expanded`, which is what actually drives native
-VoiceOver/TalkBack.
+logic that must be reproduced exactly (see behaviour table below). Of the
+ARIA wiring gluestack did on top of that, `aria-controls` and `role="region"`
+are web-only patterns with no native equivalent and are dropped entirely.
+The one piece that is kept is the trigger/content `id`↔`aria-labelledby` link
+itself — reproduced below as `nativeID`/`accessibilityLabelledBy` — since that
+still gives web (via react-native-web) and Android a working label
+association. `accessibilityState.expanded` on the trigger remains the one
+signal that actually drives native VoiceOver/TalkBack.
 
 ```ts
 type ExpandableType = 'single' | 'multiple';
@@ -62,12 +65,16 @@ rest of the codebase (e.g. `Tabs.utils.ts`'s `resolveInitialValue` /
 `resolveActiveValue`): `value` wins when defined; otherwise fall back to
 internal state seeded from `defaultValue` (or `[]`).
 
-Per-item hook, called once per `AccordionItem`:
+Per-item hook, called once per `AccordionItem`. `disabled` must already be the
+combined item/group value (`itemDisabled || groupDisabled`, mirroring 2a's
+consumer-side derivation below) — `useExpandableItem` has no group context of
+its own, so an item that omits this reflects `expanded`/enabled state to
+assistive tech even while the group is disabled and `onPress` is a no-op:
 
 ```ts
 interface UseExpandableItemOptions {
   value: string;
-  disabled?: boolean;
+  disabled?: boolean; // combined item/group disabled state, see below
   expandedValues: string[];
   toggleItem: UseExpandableGroupResult['toggleItem'];
 }
