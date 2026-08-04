@@ -1,6 +1,14 @@
-import { createInput } from '@gluestack-ui/input';
-import { ComponentType, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { TextInput } from 'react-native';
+import {
+  ComponentType,
+  forwardRef,
+  ReactNode,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { TextInput, ViewProps } from 'react-native';
 import type InputProps from './Input.props';
 
 import {
@@ -14,22 +22,73 @@ import { BodyText } from '../BodyText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
+import { InputContext } from './Input.context';
 import { InputWithoutChildrenProps } from './Input.props';
 import InputFieldComponent from './InputField';
 import InputIconComponent from './InputIcon';
 import InputRoot from './InputRoot';
 import InputSlotComponent from './InputSlot';
 
-export const InputComponent = createInput({
-  Icon: InputIconComponent,
-  Slot: InputSlotComponent,
-  Root: InputRoot,
-  Input: InputFieldComponent,
-});
+type InputComponentProps = Omit<ViewProps, 'children'> & {
+  children?: ReactNode;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
+  isReadOnly?: boolean;
+  isRequired?: boolean;
+  isFocused?: boolean;
+  validationStatus?: InputProps['validationStatus'];
+  type?: InputProps['type'];
+};
 
-export const InputSlot = InputComponent.Slot;
-export const InputField = InputComponent.Input;
-export const InputIcon = InputComponent.Icon;
+export const InputComponent = ({
+  children,
+  isDisabled,
+  isInvalid,
+  isReadOnly,
+  isRequired,
+  isFocused,
+  validationStatus,
+  type,
+  ...props
+}: InputComponentProps) => {
+  const [focused, setFocused] = useState(false);
+  const resolvedFocused = isFocused || focused;
+  // isInvalid is accepted for API compatibility with existing callers (e.g. StepperInput) but
+  // is always passed alongside an equivalent validationStatus, which drives styling directly.
+  void isInvalid;
+
+  const contextValue = useMemo(
+    () => ({
+      disabled: isDisabled,
+      focused: resolvedFocused,
+      readonly: isReadOnly,
+      validationStatus,
+      required: isRequired,
+      type,
+      setFocused,
+    }),
+    [isDisabled, resolvedFocused, isReadOnly, validationStatus, isRequired, type]
+  );
+
+  return (
+    <InputContext.Provider value={contextValue}>
+      {/* InputRoot's props are typed as a discriminated union keyed on `type`, which doesn't
+          fit this generic wrapper — cast, as the props are passed straight through to a View. */}
+      <InputRoot
+        {...(props as any)}
+        validationStatus={validationStatus}
+        type={type as any}
+        states={{ focus: resolvedFocused, disabled: isDisabled, readonly: isReadOnly }}
+      >
+        {children}
+      </InputRoot>
+    </InputContext.Provider>
+  );
+};
+
+export const InputSlot = InputSlotComponent;
+export const InputField = InputFieldComponent;
+export const InputIcon = InputIconComponent;
 
 const Input = forwardRef<TextInput, InputProps>(
   (
@@ -161,7 +220,6 @@ const Input = forwardRef<TextInput, InputProps>(
                 </InputSlot>
               )}
               <InputField
-                // @ts-expect-error - ref forwarding issue
                 ref={inputRef}
                 type={fieldType}
                 inputMode={getInputMode}
