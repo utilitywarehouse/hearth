@@ -9,6 +9,33 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.35.9
+
+### Patch Changes
+
+- [#1494](https://github.com/utilitywarehouse/hearth/pull/1494) [`b076c99`](https://github.com/utilitywarehouse/hearth/commit/b076c994568fd5290d33fe6b517577019da0d110) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Missing web hover/focus-visible states on several components
+
+  On web, several components were missing hover and/or keyboard focus-visible
+  outlines that already exist in `@utilitywarehouse/hearth-react`, or had them
+  defined but disabled.
+
+  **Components affected**:
+  - `Accordion`
+  - `Card` / `CardAction`
+  - `DatePicker`
+  - `ExpandableCard`
+  - `List` (`ListItem`, `ListAction`)
+  - `RadioCard`
+  - `SegmentedControl`
+  - `Switch`
+  - `Tabs`
+  - `ToggleButton` / `ToggleButtonCard`
+  - `UnstyledIconButton` (and `Toast`'s close button, which reuses it)
+
+  **Developer changes**:
+
+  No action required. This is a visual-only fix for web/Storybook rendering.
+
 ## 0.35.8
 
 ### Patch Changes
