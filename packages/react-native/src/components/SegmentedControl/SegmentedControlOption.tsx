@@ -143,6 +143,9 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     backgroundColor: 'transparent',
     zIndex: 1,
+    _web: {
+      '_focus-visible': theme.helpers.focusVisible,
+    },
     variants: {
       size: {
         sm: {

@@ -94,11 +94,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-    _web: {
-      // '_focus-visible': {
-      //   ...theme.helpers.focusVisible,
-      // },
-    },
   },
   buttonContainer: {
     flexDirection: 'row',
