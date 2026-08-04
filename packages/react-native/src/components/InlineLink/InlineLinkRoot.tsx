@@ -44,8 +44,8 @@ const InlineLinkRoot = ({
   const webOnlyProps =
     Platform.OS === 'web'
       ? {
-          'aria-disabled': disabled,
           tabIndex: disabled ? -1 : 0,
+          ...(disabled ? { 'aria-disabled': true } : {}),
           ...(!disabled && href ? { href } : {}),
           ...(target || rel ? { hrefAttrs: { target, rel } } : {}),
         }
