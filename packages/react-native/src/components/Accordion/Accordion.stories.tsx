@@ -63,11 +63,11 @@ const renderAccordion = (args: AccordionProps) => (
     <AccordionItem title="How do I place an order?">
       <AccordionHeader>
         <AccordionTrigger>
-          {({ isExpanded }: { isExpanded: boolean }) => {
+          {({ expanded }: { expanded: boolean }) => {
             return (
               <>
                 <AccordionTitleText>How do I place an order?</AccordionTitleText>
-                {isExpanded ? (
+                {expanded ? (
                   <AccordionIcon as={ChevronUpSmallIcon} />
                 ) : (
                   <AccordionIcon as={ChevronDownSmallIcon} />
@@ -87,11 +87,11 @@ const renderAccordion = (args: AccordionProps) => (
     <AccordionItem>
       <AccordionHeader>
         <AccordionTrigger>
-          {({ isExpanded }: { isExpanded: boolean }) => {
+          {({ expanded }: { expanded: boolean }) => {
             return (
               <>
                 <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
-                {isExpanded ? (
+                {expanded ? (
                   <AccordionIcon as={ChevronUpSmallIcon} />
                 ) : (
                   <AccordionIcon as={ChevronDownSmallIcon} />

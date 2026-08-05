@@ -46,7 +46,6 @@
     "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
-    "@gluestack-ui/accordion": "1.0.14",
     "@gluestack-ui/button": "1.0.7",
     "@gluestack-ui/checkbox": "0.1.32",
     "@gluestack-ui/form-control": "0.1.19",

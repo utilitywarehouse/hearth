@@ -4,16 +4,23 @@ import AccordionContext from './Accordion.context';
 import { AccordionProps } from './Accordion.props';
 import { StyleSheet } from 'react-native-unistyles';
 
+type AccordionRootProps = AccordionProps & {
+  expandedValues?: string[];
+  toggleItem?: (value: string, disabled?: boolean) => void;
+};
+
 export const AccordionRoot = ({
   children,
   noPadding,
   disabled,
   contentNoPadding,
+  expandedValues,
+  toggleItem,
   ...props
-}: AccordionProps) => {
+}: AccordionRootProps) => {
   const context = useMemo(
-    () => ({ noPadding, disabled, contentNoPadding }),
-    [noPadding, disabled, contentNoPadding]
+    () => ({ noPadding, disabled, contentNoPadding, expandedValues, toggleItem }),
+    [noPadding, disabled, contentNoPadding, expandedValues, toggleItem]
   );
   return (
     <AccordionContext.Provider value={context}>
