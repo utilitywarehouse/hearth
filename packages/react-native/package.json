@@ -53,7 +53,6 @@
     "@gluestack-ui/icon": "0.1.22",
     "@gluestack-ui/pressable": "0.1.16",
     "@gluestack-ui/radio": "0.1.33",
-    "@gluestack-ui/textarea": "0.1.23",
     "@quidone/react-native-wheel-picker": "^1.6.1",
     "@react-stately/utils": "^3.12.1",
     "dayjs": "^1.11.13",

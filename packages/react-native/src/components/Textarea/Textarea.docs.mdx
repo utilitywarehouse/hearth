@@ -188,5 +188,5 @@ We have outlined the various features that ensure the Textarea component is acce
 ### States
 
 - In error state, aria-invalid will be passed to indicate that the Textarea has an error, and providing support for an aria-errormessage to describe the error in more detail.
-- In disabled state, aria-hidden will be passed to make input not focusable.
+- In disabled state, aria-disabled and accessibilityState will be passed to indicate that the Textarea is disabled, while keeping it perceivable to assistive tech rather than hiding it entirely.
 - In required state, aria-required will be passed to indicate that the Textarea is required.

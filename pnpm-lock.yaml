@@ -808,9 +808,6 @@ importers:
       '@gluestack-ui/radio':
         specifier: 0.1.33
         version: 0.1.33(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/textarea':
-        specifier: 0.1.23
-        version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@quidone/react-native-wheel-picker':
         specifier: ^1.6.1
         version: 1.7.0(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -2664,12 +2661,6 @@ packages:
 
   '@gluestack-ui/radio@0.1.33':
     resolution: {integrity: sha512-x93F8MTvS8EF1B0VllXcnVFpK+dlfQYjQCC0+x5G9TyXYU/z6C2Y4wq0YS6ivqRtq00diHW3b1xXz1TOgR2j6g==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/textarea@0.1.23':
-    resolution: {integrity: sha512-yZmCoj+0ZHkdqKMY/VTaW6AZ2EVGgaP4WOmXFnglWYsRDH+ZVUuBPYUJeqfko3WZ3gjgcS5vL+NKV98zirtyaA==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -15483,16 +15474,6 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
       - '@react-spectrum/provider'
-      - react-native
-
-  '@gluestack-ui/textarea@0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/form-control': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
       - react-native
 
   '@gluestack-ui/utils@0.1.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':

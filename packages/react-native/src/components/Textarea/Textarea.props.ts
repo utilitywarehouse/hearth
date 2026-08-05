@@ -69,6 +69,8 @@ export type TextareaContextValue = {
   focused?: TextareaProps['focused'];
   readonly?: TextareaProps['readonly'];
   validationStatus?: TextareaProps['validationStatus'];
+  required?: boolean;
+  setFocused?: (focused: boolean) => void;
 };
 
 export default TextareaProps;
