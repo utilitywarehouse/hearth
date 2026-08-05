@@ -31,43 +31,43 @@ import InputSlotComponent from './InputSlot';
 
 type InputComponentProps = Omit<ViewProps, 'children'> & {
   children?: ReactNode;
-  isDisabled?: boolean;
-  isInvalid?: boolean;
-  isReadOnly?: boolean;
-  isRequired?: boolean;
-  isFocused?: boolean;
+  disabled?: boolean;
+  invalid?: boolean;
+  readOnly?: boolean;
+  required?: boolean;
+  focused?: boolean;
   validationStatus?: InputProps['validationStatus'];
   type?: InputProps['type'];
 };
 
 export const InputComponent = ({
   children,
-  isDisabled,
-  isInvalid,
-  isReadOnly,
-  isRequired,
-  isFocused,
+  disabled,
+  invalid,
+  readOnly,
+  required,
+  focused,
   validationStatus,
   type,
   ...props
 }: InputComponentProps) => {
-  const [focused, setFocused] = useState(false);
-  const resolvedFocused = isFocused || focused;
-  // isInvalid is accepted for API compatibility with existing callers (e.g. StepperInput) but
+  const [isFocused, setFocused] = useState(false);
+  const resolvedFocused = focused || isFocused;
+  // invalid is accepted for API compatibility with existing callers (e.g. StepperInput) but
   // is always passed alongside an equivalent validationStatus, which drives styling directly.
-  void isInvalid;
+  void invalid;
 
   const contextValue = useMemo(
     () => ({
-      disabled: isDisabled,
+      disabled,
       focused: resolvedFocused,
-      readonly: isReadOnly,
+      readonly: readOnly,
       validationStatus,
-      required: isRequired,
+      required,
       type,
       setFocused,
     }),
-    [isDisabled, resolvedFocused, isReadOnly, validationStatus, isRequired, type]
+    [disabled, resolvedFocused, readOnly, validationStatus, required, type]
   );
 
   return (
@@ -78,7 +78,7 @@ export const InputComponent = ({
         {...(props as any)}
         validationStatus={validationStatus}
         type={type as any}
-        states={{ focus: resolvedFocused, disabled: isDisabled, readonly: isReadOnly }}
+        states={{ focus: resolvedFocused, disabled, readonly: readOnly }}
       >
         {children}
       </InputRoot>
@@ -193,12 +193,12 @@ const Input = forwardRef<TextInput, InputProps>(
         <InputComponent
           {...(children ? props : {})}
           validationStatus={inputValidationStatus}
-          isInvalid={inputValidationStatus === 'invalid'}
-          isReadOnly={inputReadonly}
-          isDisabled={inputDisabled}
-          isFocused={focused}
+          invalid={inputValidationStatus === 'invalid'}
+          readOnly={inputReadonly}
+          disabled={inputDisabled}
+          focused={focused}
           type={type as undefined}
-          isRequired={inputRequired}
+          required={inputRequired}
           style={style}
         >
           {children ? (

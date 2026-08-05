@@ -21,40 +21,40 @@ import TextareaRoot from './TextareaRoot';
 
 type TextareaComponentProps = Omit<ViewProps, 'children'> & {
   children?: ReactNode;
-  isDisabled?: boolean;
-  isInvalid?: boolean;
-  isReadOnly?: boolean;
-  isRequired?: boolean;
-  isFocused?: boolean;
+  disabled?: boolean;
+  invalid?: boolean;
+  readOnly?: boolean;
+  required?: boolean;
+  focused?: boolean;
   validationStatus?: TextareaProps['validationStatus'];
 };
 
 export const TextareaComponent = ({
   children,
-  isDisabled,
-  isInvalid,
-  isReadOnly,
-  isRequired,
-  isFocused,
+  disabled,
+  invalid,
+  readOnly,
+  required,
+  focused,
   validationStatus,
   ...props
 }: TextareaComponentProps) => {
-  const [focused, setFocused] = useState(false);
-  const resolvedFocused = isFocused || focused;
-  // isInvalid is accepted for API compatibility but is always passed alongside an
+  const [isFocused, setFocused] = useState(false);
+  const resolvedFocused = focused || isFocused;
+  // invalid is accepted for API compatibility but is always passed alongside an
   // equivalent validationStatus, which drives styling directly.
-  void isInvalid;
+  void invalid;
 
   const contextValue = useMemo(
     () => ({
-      disabled: isDisabled,
+      disabled,
       focused: resolvedFocused,
-      readonly: isReadOnly,
+      readonly: readOnly,
       validationStatus,
-      required: isRequired,
+      required,
       setFocused,
     }),
-    [isDisabled, resolvedFocused, isReadOnly, validationStatus, isRequired]
+    [disabled, resolvedFocused, readOnly, validationStatus, required]
   );
 
   return (
@@ -62,7 +62,7 @@ export const TextareaComponent = ({
       <TextareaRoot
         {...(props as any)}
         validationStatus={validationStatus}
-        states={{ focus: resolvedFocused, disabled: isDisabled, readonly: isReadOnly }}
+        states={{ focus: resolvedFocused, disabled, readonly: readOnly }}
       >
         {children}
       </TextareaRoot>
@@ -192,11 +192,11 @@ const Textarea = ({
         onLayout={handleTextareaLayout}
         style={textareaStyle}
         validationStatus={textareaValidationStatus}
-        isInvalid={textareaValidationStatus === 'invalid'}
-        isReadOnly={textareaReadonly}
-        isDisabled={textareaDisabled}
-        isFocused={focused}
-        isRequired={textareaRequired}
+        invalid={textareaValidationStatus === 'invalid'}
+        readOnly={textareaReadonly}
+        disabled={textareaDisabled}
+        focused={focused}
+        required={textareaRequired}
         aria-label={accessibilityLabel}
         accessibilityHint={accessibilityHint}
       >

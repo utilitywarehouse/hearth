@@ -172,11 +172,11 @@ const StepperInput = ({
         />
         <InputComponent
           validationStatus={validationStatus}
-          isInvalid={validationStatus === 'invalid'}
-          isReadOnly={readonly}
-          isDisabled={disabled}
-          isFocused={resolvedFocused}
-          isRequired={required}
+          invalid={validationStatus === 'invalid'}
+          readOnly={readonly}
+          disabled={disabled}
+          focused={resolvedFocused}
+          required={required}
           style={styles.inputRoot}
         >
           <InputField
