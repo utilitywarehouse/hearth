@@ -10,7 +10,7 @@ type AccordionTriggerProps = Omit<PressableProps, 'children'> & {
   children?: ReactNode | ((props: AccordionTriggerRenderProps) => ReactNode);
 };
 
-const AccordionTrigger = ({ children, onPress, ...props }: AccordionTriggerProps) => {
+const AccordionTrigger = ({ children, onPress, onPressIn, onPressOut, ...props }: AccordionTriggerProps) => {
   const [pressed, setPressed] = useState(false);
   const { noPadding: contextNoPadding } = useAccordionContext();
   const {
@@ -28,6 +28,16 @@ const AccordionTrigger = ({ children, onPress, ...props }: AccordionTriggerProps
     onPress?.(event);
   };
 
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <Pressable
       accessibilityRole="button"
@@ -36,11 +46,11 @@ const AccordionTrigger = ({ children, onPress, ...props }: AccordionTriggerProps
       aria-disabled={disabled}
       disabled={disabled}
       nativeID={triggerId}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
       style={styles.trigger}
       {...props}
       onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
     >
       {typeof children === 'function' ? children({ expanded, disabled }) : children}
     </Pressable>

@@ -46,7 +46,7 @@ const Accordion = ({
 
   const toggleItem = useCallback(
     (itemValue: string, itemDisabled?: boolean) => {
-      if (itemDisabled || !itemValue) return;
+      if (itemDisabled) return;
       const next = resolveToggledValues({ type, collapsible, selectedValues: expandedValues, itemValue });
       setUncontrolledValues(next);
       onValueChange?.(next);

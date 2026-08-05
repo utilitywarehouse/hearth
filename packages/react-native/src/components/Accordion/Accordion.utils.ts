@@ -13,7 +13,8 @@ export interface ResolveToggledValuesOptions {
  * - `single`: opening an item always replaces the current selection; closing
  *   the only open item is only allowed when `collapsible` is true.
  * - `multiple`: opening adds to the selection, closing removes from it;
- *   closing the last open item is only allowed when `collapsible` is true.
+ *   closing any open item is only allowed when `collapsible` is true —
+ *   this blocks closing an item even when other items remain open.
  */
 export const resolveToggledValues = ({
   type,
