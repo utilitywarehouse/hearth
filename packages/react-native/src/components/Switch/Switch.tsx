@@ -118,6 +118,7 @@ const CustomSwitch = ({
       accessibilityState={{ checked: value, disabled }}
       accessibilityLabel={accessibilityProps.accessibilityLabel}
       accessibilityHint={accessibilityProps.accessibilityHint}
+      style={styles.pressable}
       {...accessibilityProps}
     >
       <Animated.View style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
@@ -141,6 +142,20 @@ const CustomSwitch = ({
 };
 
 const styles = StyleSheet.create(theme => ({
+  pressable: {
+    variants: {
+      disabled: {
+        false: {
+          _web: {
+            '_focus-visible': { outline: 'none' },
+            '_focus-visible > div:nth-child(1)': {
+              ...theme.helpers.focusVisible,
+            },
+          },
+        },
+      },
+    },
+  },
   switch: {
     justifyContent: 'center',
     variants: {
@@ -161,9 +176,19 @@ const styles = StyleSheet.create(theme => ({
       value: {
         true: {
           backgroundColor: theme.color.interactive.brand.surface.strong.default,
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.brand.surface.strong.hover,
+            },
+          },
         },
         false: {
           backgroundColor: theme.color.interactive.functional.surface.strong.default,
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.functional.surface.strong.hover,
+            },
+          },
         },
       },
       disabled: {

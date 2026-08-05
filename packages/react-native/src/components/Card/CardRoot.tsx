@@ -210,7 +210,11 @@ const styles = StyleSheet.create(theme => ({
         true: {},
       },
       showPressed: {
-        true: {},
+        true: {
+          _web: {
+            '_focus-visible': theme.helpers.focusVisible,
+          },
+        },
         false: {
           cursor: 'auto',
         },
