@@ -1,4 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-native';
+import { View } from 'react-native';
+import { expect, within } from 'storybook/test';
 import { Textarea } from '.';
 
 const meta = {
@@ -84,7 +86,47 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textarea = (await canvas.findByPlaceholderText(
+      'Textarea placeholder'
+    )) as HTMLTextAreaElement;
+
+    expect(textarea.tagName.toLowerCase()).toBe('textarea');
+    expect(textarea).not.toHaveAttribute('aria-disabled');
+    expect(textarea).toHaveAttribute('aria-invalid', 'false');
+    expect(textarea).not.toHaveAttribute('readonly');
+  },
+};
+
+export const States: Story = {
+  render: () => (
+    <View style={{ gap: 16 }}>
+      <Textarea placeholder="Textarea placeholder" validationStatus="invalid" />
+      <Textarea placeholder="Textarea placeholder" disabled />
+      <Textarea placeholder="Textarea placeholder" readonly />
+    </View>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textareas = (await canvas.findAllByPlaceholderText(
+      'Textarea placeholder'
+    )) as HTMLTextAreaElement[];
+
+    const invalidTextarea = textareas.find(el => el.getAttribute('aria-invalid') === 'true');
+    expect(invalidTextarea).toBeDefined();
+
+    const disabledTextarea = textareas.find(el => el.getAttribute('aria-disabled') === 'true');
+    expect(disabledTextarea).toBeDefined();
+    expect(disabledTextarea).toHaveAttribute('readonly');
+
+    const readonlyOnlyTextarea = textareas.find(
+      el => el.readOnly && el.getAttribute('aria-disabled') !== 'true'
+    );
+    expect(readonlyOnlyTextarea).toBeDefined();
+  },
+};
 
 export const Resizable: Story = {
   args: {

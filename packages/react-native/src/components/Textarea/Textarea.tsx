@@ -1,12 +1,12 @@
-import { createTextarea } from '@gluestack-ui/textarea';
 import type TextareaProps from './Textarea.props';
 
-import { useEffect, useMemo, useRef } from 'react';
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import {
   View,
   type LayoutChangeEvent,
   type StyleProp,
   type TextStyle,
+  type ViewProps,
   type ViewStyle,
 } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
@@ -15,15 +15,62 @@ import { Path, Svg } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { useFormFieldAccessibility, useTheme } from '../../hooks';
 import { FormField, useFormFieldContext } from '../FormField';
+import { TextareaContext } from './Textarea.context';
 import TextareaFieldComponent from './TextareaField';
 import TextareaRoot from './TextareaRoot';
 
-export const TextareaComponent = createTextarea({
-  Root: TextareaRoot,
-  Input: TextareaFieldComponent,
-});
+type TextareaComponentProps = Omit<ViewProps, 'children'> & {
+  children?: ReactNode;
+  disabled?: boolean;
+  invalid?: boolean;
+  readOnly?: boolean;
+  required?: boolean;
+  focused?: boolean;
+  validationStatus?: TextareaProps['validationStatus'];
+};
 
-export const TextareaField = TextareaComponent.Input;
+export const TextareaComponent = ({
+  children,
+  disabled,
+  invalid,
+  readOnly,
+  required,
+  focused,
+  validationStatus,
+  ...props
+}: TextareaComponentProps) => {
+  const [isFocused, setFocused] = useState(false);
+  const resolvedFocused = focused || isFocused;
+  // invalid is accepted for API compatibility but is always passed alongside an
+  // equivalent validationStatus, which drives styling directly.
+  void invalid;
+
+  const contextValue = useMemo(
+    () => ({
+      disabled,
+      focused: resolvedFocused,
+      readonly: readOnly,
+      validationStatus,
+      required,
+      setFocused,
+    }),
+    [disabled, resolvedFocused, readOnly, validationStatus, required]
+  );
+
+  return (
+    <TextareaContext.Provider value={contextValue}>
+      <TextareaRoot
+        {...(props as any)}
+        validationStatus={validationStatus}
+        states={{ focus: resolvedFocused, disabled, readonly: readOnly }}
+      >
+        {children}
+      </TextareaRoot>
+    </TextareaContext.Provider>
+  );
+};
+
+export const TextareaField = TextareaFieldComponent;
 
 const DEFAULT_TEXTAREA_HEIGHT = 96;
 const RESIZE_HANDLE_TOUCH_SIZE = 28;
@@ -42,7 +89,7 @@ const Textarea = ({
   helperText,
   validText,
   invalidText,
-  required,
+  required = true,
   helperIcon,
   onLayout,
   ...props
@@ -145,10 +192,10 @@ const Textarea = ({
         onLayout={handleTextareaLayout}
         style={textareaStyle}
         validationStatus={textareaValidationStatus}
-        isInvalid={textareaValidationStatus === 'invalid'}
-        isReadOnly={textareaReadonly}
-        isDisabled={textareaDisabled}
-        isFocused={focused}
+        invalid={textareaValidationStatus === 'invalid'}
+        readOnly={textareaReadonly}
+        disabled={textareaDisabled}
+        focused={focused}
         required={textareaRequired}
         aria-label={accessibilityLabel}
         accessibilityHint={accessibilityHint}
