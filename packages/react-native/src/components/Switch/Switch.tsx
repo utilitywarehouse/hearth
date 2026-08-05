@@ -118,7 +118,7 @@ const CustomSwitch = ({
       accessibilityState={{ checked: value, disabled }}
       accessibilityLabel={accessibilityProps.accessibilityLabel}
       accessibilityHint={accessibilityProps.accessibilityHint}
-      style={styles.pressables}
+      style={styles.pressable}
       {...accessibilityProps}
     >
       <Animated.View style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
@@ -142,7 +142,7 @@ const CustomSwitch = ({
 };
 
 const styles = StyleSheet.create(theme => ({
-  pressables: {
+  pressable: {
     position: 'relative',
     variants: {
       disabled: {
