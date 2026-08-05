@@ -4,8 +4,28 @@ import { StyleSheet } from 'react-native-unistyles';
 import AccordionItemContext from './AccordionItem.context';
 import { AccordionItemProps } from './AccordionItem.props';
 
-const AccordionItem = ({ children, style, noPadding, disabled, ...props }: AccordionItemProps) => {
-  const context = useMemo(() => ({ noPadding, disabled }), [noPadding, disabled]);
+type AccordionItemRootProps = Omit<AccordionItemProps, 'expanded'> & {
+  expanded?: boolean;
+  onPress?: () => void;
+  triggerId?: string;
+  contentId?: string;
+};
+
+const AccordionItem = ({
+  children,
+  style,
+  noPadding,
+  disabled,
+  expanded,
+  onPress,
+  triggerId,
+  contentId,
+  ...props
+}: AccordionItemRootProps) => {
+  const context = useMemo(
+    () => ({ noPadding, disabled, expanded, onPress, triggerId, contentId }),
+    [noPadding, disabled, expanded, onPress, triggerId, contentId]
+  );
   return (
     <AccordionItemContext.Provider value={context}>
       <View style={[styles.item, style]} {...props}>

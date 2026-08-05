@@ -1,59 +1,66 @@
-import { createAccordion } from '@gluestack-ui/accordion';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { Children, isValidElement, useMemo } from 'react';
+import { Children, isValidElement, useCallback, useMemo, useState } from 'react';
 import { SectionHeader } from '../SectionHeader';
 import { AccordionProps } from './Accordion.props';
+import { resolveActiveValues, resolveInitialValues, resolveToggledValues } from './Accordion.utils';
 import AccordionContentComponent from './AccordionContent';
 import AccordionContentTextComponent from './AccordionContentText';
 import AccordionHeaderComponent from './AccordionHeader';
 import AccordionIconComponent from './AccordionIcon';
+import { useAccordionContext } from './Accordion.context';
 import { AccordionItemProps } from './AccordionItem.props';
 import AccordionItemRoot from './AccordionItemRoot';
 import AccordionRoot from './AccordionRoot';
 import AccordionTitleTextComponent from './AccordionTitleText';
 import AccordionTriggerComponent from './AccordionTrigger';
 
-const AccordionComponent = createAccordion({
-  Root: AccordionRoot,
-  ContentText: AccordionContentTextComponent,
-  Icon: AccordionIconComponent,
-  Content: AccordionContentComponent,
-  Header: AccordionHeaderComponent,
-  Item: AccordionItemRoot,
-  TitleText: AccordionTitleTextComponent,
-  Trigger: AccordionTriggerComponent,
-});
-
-const AccordionItemComponent = AccordionComponent.Item;
-export const AccordionHeader = AccordionComponent.Header;
-export const AccordionTrigger = AccordionComponent.Trigger;
-export const AccordionContent = AccordionComponent.Content;
-export const AccordionContentText = AccordionComponent.ContentText;
-export const AccordionIcon = AccordionComponent.Icon;
-export const AccordionTitleText = AccordionComponent.TitleText;
+export const AccordionHeader = AccordionHeaderComponent;
+export const AccordionTrigger = AccordionTriggerComponent;
+export const AccordionContent = AccordionContentComponent;
+export const AccordionContentText = AccordionContentTextComponent;
+export const AccordionIcon = AccordionIconComponent;
+export const AccordionTitleText = AccordionTitleTextComponent;
 
 const Accordion = ({
   children,
-  collapsible,
+  collapsible = true,
   type = 'multiple',
   heading,
   helperText,
+  disabled,
+  value,
+  defaultValue,
+  onValueChange,
   ...props
-}: AccordionProps) => (
-  <AccordionComponent
-    isDisabled={props.disabled}
-    isCollapsible={collapsible}
-    type={type}
-    contentNoPadding={props.contentNoPadding}
-    {...props}
-  >
-    {heading ? <SectionHeader heading={heading} helperText={helperText} /> : null}
-    {children}
-  </AccordionComponent>
-);
+}: AccordionProps) => {
+  const [uncontrolledValues, setUncontrolledValues] = useState<string[]>(() =>
+    resolveInitialValues({ controlledValue: value, defaultValue })
+  );
+  const expandedValues = resolveActiveValues({
+    controlledValue: value,
+    uncontrolledValue: uncontrolledValues,
+  });
+
+  const toggleItem = useCallback(
+    (itemValue: string, itemDisabled?: boolean) => {
+      if (itemDisabled || !itemValue) return;
+      const next = resolveToggledValues({ type, collapsible, selectedValues: expandedValues, itemValue });
+      setUncontrolledValues(next);
+      onValueChange?.(next);
+    },
+    [type, collapsible, expandedValues, onValueChange]
+  );
+
+  return (
+    <AccordionRoot disabled={disabled} expandedValues={expandedValues} toggleItem={toggleItem} {...props}>
+      {heading ? <SectionHeader heading={heading} helperText={helperText} /> : null}
+      {children}
+    </AccordionRoot>
+  );
+};
 
 let accordionItemCounter = 0;
 
@@ -61,11 +68,20 @@ export const AccordionItem = ({
   children,
   value,
   title,
-  expanded,
+  disabled,
   triggerContent,
   testID,
+  // `expanded`/`toggleItem` are declared on AccordionItemProps but have never been wired to
+  // anything (pre-existing, unrelated to this migration) — destructured here purely so they
+  // don't collide with this component's own real `expanded` state via the `...props` spread.
+  expanded: _expandedProp,
+  toggleItem: _toggleItemProp,
   ...props
 }: AccordionItemProps) => {
+  void _expandedProp;
+  void _toggleItemProp;
+  const { expandedValues, toggleItem, disabled: groupDisabled } = useAccordionContext();
+
   const itemValue = useMemo(() => {
     if (value !== undefined) {
       return value;
@@ -74,6 +90,15 @@ export const AccordionItem = ({
     accordionItemCounter += 1;
     return newId;
   }, [value]);
+
+  const isDisabled = disabled || groupDisabled || false;
+  const expandedState = expandedValues?.includes(itemValue) ?? false;
+  const handlePress = useCallback(
+    () => toggleItem?.(itemValue, isDisabled),
+    [toggleItem, itemValue, isDisabled]
+  );
+  const triggerId = `accordion-trigger-${itemValue}`;
+  const contentId = `accordion-content-${itemValue}`;
 
   if (!children) {
     return null;
@@ -86,19 +111,26 @@ export const AccordionItem = ({
   );
 
   return (
-    <AccordionItemComponent value={itemValue} title={title} isDisabled={props.disabled} {...props}>
+    <AccordionItemRoot
+      disabled={isDisabled}
+      expanded={expandedState}
+      onPress={handlePress}
+      triggerId={triggerId}
+      contentId={contentId}
+      {...props}
+    >
       {hasContentComponent ? (
         children
       ) : (
         <>
           <AccordionHeader>
-            <AccordionTrigger isExpanded={expanded} testID={testID}>
-              {({ isExpanded }: { isExpanded: boolean }) => {
+            <AccordionTrigger testID={testID}>
+              {({ expanded }) => {
                 return (
                   <>
                     <AccordionTitleText>{title}</AccordionTitleText>
                     {triggerContent}
-                    {isExpanded ? (
+                    {expanded ? (
                       <AccordionIcon as={ChevronUpSmallIcon} />
                     ) : (
                       <AccordionIcon as={ChevronDownSmallIcon} />
@@ -111,7 +143,7 @@ export const AccordionItem = ({
           <AccordionContent>{children}</AccordionContent>
         </>
       )}
-    </AccordionItemComponent>
+    </AccordionItemRoot>
   );
 };
 
