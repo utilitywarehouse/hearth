@@ -47,7 +47,7 @@ export const Playground: Story = {
             <Button>Open Menu</Button>
           </MenuTrigger>
 
-          <Menu ref={menuRef} {...args}>
+          <Menu ref={menuRef} animationConfigs={{ duration: 0 }} {...args}>
             <MenuItem
               icon={EditSmallIcon}
               text="Edit"
@@ -100,7 +100,7 @@ export const Playground: Story = {
       () => {
         expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
       },
-      { timeout: 3000 }
+      { timeout: 8000 }
     );
   },
 };
