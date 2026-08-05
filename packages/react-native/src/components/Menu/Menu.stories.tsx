@@ -47,7 +47,7 @@ export const Playground: Story = {
             <Button>Open Menu</Button>
           </MenuTrigger>
 
-          <Menu ref={menuRef} {...args}>
+          <Menu ref={menuRef} animationConfigs={{ duration: 0 }} {...args}>
             <MenuItem
               icon={EditSmallIcon}
               text="Edit"
