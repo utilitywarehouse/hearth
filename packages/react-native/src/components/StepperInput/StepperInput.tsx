@@ -180,7 +180,6 @@ const StepperInput = ({
           style={styles.inputRoot}
         >
           <InputField
-            // @ts-expect-error - ref forwarding issue mirrors the base Input component
             ref={inputRef}
             inputMode={inputMode}
             keyboardType={keyboardType}
