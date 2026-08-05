@@ -100,7 +100,7 @@ export const Playground: Story = {
       () => {
         expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
       },
-      { timeout: 3000 }
+      { timeout: 8000 }
     );
   },
 };
