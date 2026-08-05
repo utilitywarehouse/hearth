@@ -112,6 +112,9 @@ const styles = StyleSheet.create(theme => ({
     },
     _web: {
       width: '100%',
+      '_focus-visible': {
+        outlineColor: 'transparent',
+      },
     },
   },
 }));
