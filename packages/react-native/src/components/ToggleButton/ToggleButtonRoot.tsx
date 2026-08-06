@@ -41,7 +41,7 @@ const ToggleButtonRoot = ({
     <Pressable
       accessibilityRole={accessibilityRole}
       {...props}
-      accessibilityState={{ selected: toggled, ...props.accessibilityState }}
+      accessibilityState={{ ...props.accessibilityState, selected: toggled }}
       style={[styles.container, props.style as ViewStyle]}
       onPress={handlePress}
       onPressIn={handlePressIn}

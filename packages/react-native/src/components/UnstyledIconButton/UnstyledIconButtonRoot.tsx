@@ -36,7 +36,7 @@ const UnstyledIconButtonRoot = ({
       <Pressable
         disabled={disabled}
         {...props}
-        accessibilityState={{ disabled: !!disabled, ...props.accessibilityState }}
+        accessibilityState={{ ...props.accessibilityState, disabled: !!disabled }}
         style={[styles.container, props.style as ViewStyle]}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
