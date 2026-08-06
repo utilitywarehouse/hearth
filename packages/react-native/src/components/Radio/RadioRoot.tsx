@@ -1,35 +1,58 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-
-import { Pressable, ViewStyle } from 'react-native';
 import { RadioContext } from './Radio.context';
 import type RadioProps from './Radio.props';
-import { useRadioGroupContext } from './RadioGroup.context';
 
 const RadioRoot = ({
   children,
   style,
-  states,
+  disabled,
+  checked,
+  onPressIn,
+  onPressOut,
   ...props
-}: RadioProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
-  const { disabled, checked, active } = states ?? {};
+}: RadioProps & { checked?: boolean }) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = touchPressed;
 
-  const isDisabled = useRadioGroupContext()?.disabled ?? disabled;
-
-  styles.useVariants({ disabled: isDisabled });
+  styles.useVariants({ disabled });
 
   const value = useMemo(
     () => ({
-      disabled: isDisabled,
+      disabled,
       checked,
       active,
     }),
-    [isDisabled, checked, active]
+    [disabled, checked, active]
   );
+
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
 
   return (
     <RadioContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, style as ViewStyle]}>
+      <Pressable
+        accessibilityRole="radio"
+        disabled={disabled}
+        {...props}
+        accessibilityState={{
+          ...props.accessibilityState,
+          checked: !!checked,
+          disabled: !!disabled,
+        }}
+        aria-checked={!!checked}
+        style={[styles.container, style as ViewStyle]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
         {children}
       </Pressable>
     </RadioContext.Provider>

@@ -1,34 +1,58 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-import { Pressable, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import type CheckboxProps from './Checkbox.props';
 import { CheckboxContext } from './Checkbox.context';
-import { useCheckboxGroupContext } from './CheckboxGroup.context';
 
 const CheckboxRoot = ({
   children,
   style,
-  states,
+  disabled,
+  checked,
+  onPressIn,
+  onPressOut,
   ...props
-}: CheckboxProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
-  const { disabled, checked, active } = states ?? {};
+}: CheckboxProps & { checked?: boolean }) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = touchPressed;
 
-  const isDisabled = useCheckboxGroupContext()?.disabled ?? disabled;
-
-  styles.useVariants({ disabled: isDisabled });
+  styles.useVariants({ disabled });
 
   const value = useMemo(
     () => ({
-      disabled: isDisabled,
+      disabled,
       checked,
       active,
     }),
-    [isDisabled, checked, active]
+    [disabled, checked, active]
   );
+
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
 
   return (
     <CheckboxContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, style as ViewStyle]}>
+      <Pressable
+        accessibilityRole="checkbox"
+        disabled={disabled}
+        {...props}
+        accessibilityState={{
+          ...props.accessibilityState,
+          checked: !!checked,
+          disabled: !!disabled,
+        }}
+        aria-checked={!!checked}
+        style={[styles.container, style as ViewStyle]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
         {children}
       </Pressable>
     </CheckboxContext.Provider>

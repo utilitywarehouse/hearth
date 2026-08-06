@@ -1,4 +1,3 @@
-import { createFormControl } from '@gluestack-ui/form-control';
 import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { BodyText } from '../BodyText';
@@ -6,31 +5,15 @@ import { HelperIcon, HelperText } from '../Helper';
 import { FormFieldContext } from './FormField.context';
 import FormFieldProps from './FormField.props';
 import FormFieldHelperComponent from './FormFieldHelper';
-import {
-  default as FormFieldInvalid,
-  default as FormFieldInvalidComponent,
-} from './FormFieldInvalid';
+import FormFieldInvalidComponent from './FormFieldInvalid';
 import FormFieldLabelComponent from './FormFieldLabel';
 import FormFieldRoot from './FormFieldRoot';
 import FormFieldValid from './FormFieldValid';
-import FormFieldInvalidIcon from './FormFielInvalidIcon';
 
-export const FormFieldComponent = createFormControl({
-  Root: FormFieldRoot,
-  Error: FormFieldInvalidComponent,
-  ErrorText: FormFieldInvalid,
-  ErrorIcon: FormFieldInvalidIcon,
-  Label: () => null,
-  LabelText: FormFieldLabelComponent,
-  LabelAstrick: () => null,
-  Helper: FormFieldHelperComponent,
-  HelperText: HelperText,
-});
-
-export const FormFieldLabel = FormFieldComponent.Label;
-export const FormFieldLabelText = FormFieldComponent.Label.Text;
-export const FormFieldHelper = FormFieldComponent.Helper;
-export const FormFieldHelperText = FormFieldComponent.Helper.Text;
+export const FormFieldLabel = View;
+export const FormFieldLabelText = FormFieldLabelComponent;
+export const FormFieldHelper = FormFieldHelperComponent;
+export const FormFieldHelperText = HelperText;
 export const FormFieldHelperIcon = HelperIcon;
 export const FormFieldValidText = HelperText;
 export const FormFieldInvalidText = HelperText;
@@ -85,7 +68,7 @@ const FormField = ({
 
   return (
     <FormFieldContext.Provider value={value}>
-      <FormFieldComponent {...props} isDisabled={disabled} isReadOnly={readonly}>
+      <FormFieldRoot {...props}>
         {(!!label || !!helperText) && (
           <FormFieldTextContent>
             {!!label && (
@@ -113,7 +96,7 @@ const FormField = ({
 
         {!!validText && <FormFieldValid text={validText} />}
         {!!invalidText && <FormFieldInvalidComponent text={invalidText} />}
-      </FormFieldComponent>
+      </FormFieldRoot>
     </FormFieldContext.Provider>
   );
 };

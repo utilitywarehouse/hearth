@@ -1,10 +1,8 @@
-import { createRadio } from '@gluestack-ui/radio';
 import RadioProps from './Radio.props';
-import StyledRadioGroup from './RadioGroupRoot';
-import StyledRadioIcon from './RadioIcon';
-import StyledRadioIndicator from './RadioIndicator';
-import StyledRadioLabel from './RadioLabel';
-import StyledRadio from './RadioRoot';
+import RadioIconComponent from './RadioIcon';
+import RadioIndicatorComponent from './RadioIndicator';
+import RadioLabelComponent from './RadioLabel';
+import RadioRootComponent from './RadioRoot';
 
 import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
@@ -13,23 +11,9 @@ import { useRadioGroupContext } from './RadioGroup.context';
 import RadioTextContent from './RadioTextContent';
 import RadioTileRoot from './RadioTileRoot';
 
-const RadioComponent = createRadio({
-  Root: StyledRadio,
-  Group: StyledRadioGroup,
-  Indicator: StyledRadioIndicator,
-  Icon: StyledRadioIcon,
-  Label: StyledRadioLabel,
-});
-
-const RadioGroup = RadioComponent.Group;
-const RadioIndicator = RadioComponent.Indicator;
-const RadioIcon = RadioComponent.Icon;
-const RadioLabel = RadioComponent.Label;
-
-RadioGroup.displayName = 'RadioGroup';
-RadioIndicator.displayName = 'RadioIndicator';
-RadioIcon.displayName = 'RadioIcon';
-RadioLabel.displayName = 'RadioLabel';
+const RadioIndicator = RadioIndicatorComponent;
+const RadioIcon = RadioIconComponent;
+const RadioLabel = RadioLabelComponent;
 
 const Radio = ({
   children,
@@ -44,16 +28,33 @@ const Radio = ({
   showValidationIcon,
   type = 'default',
   image,
+  value,
+  onChange,
   ...props
 }: RadioProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
-  const { validationStatus: groupValidationStatus, type: groupType } = useRadioGroupContext();
+  const {
+    validationStatus: groupValidationStatus,
+    type: groupType,
+    disabled: groupDisabled,
+    selectedValue,
+    select,
+  } = useRadioGroupContext();
   const validationStatus = resolveValidationStatus({
     fieldValidationStatus,
     groupValidationStatus,
     validation,
   });
   const radioType = resolveRadioType({ groupType, type });
+  const radioDisabled = groupDisabled ?? disabled;
+  const checked = selectedValue === value;
+
+  const handlePress = () => {
+    if (radioDisabled) return;
+    select?.(value);
+    onChange?.(true);
+  };
+
   const radioChildren = children ? (
     children
   ) : (
@@ -86,9 +87,15 @@ const Radio = ({
     </>
   );
   return (
-    <RadioComponent {...props} isDisabled={disabled}>
+    <RadioRootComponent
+      {...props}
+      value={value}
+      disabled={radioDisabled}
+      checked={checked}
+      onPress={handlePress}
+    >
       {radioType === 'tile' ? <RadioTileRoot>{radioChildren}</RadioTileRoot> : radioChildren}
-    </RadioComponent>
+    </RadioRootComponent>
   );
 };
 
@@ -97,6 +104,6 @@ const RadioTile = ({ type = 'tile', ...props }: RadioProps) => <Radio {...props}
 RadioTile.displayName = 'RadioTile';
 Radio.displayName = 'Radio';
 
-export { Radio, RadioGroup, RadioIcon, RadioIndicator, RadioLabel, RadioTile };
+export { Radio, RadioIcon, RadioIndicator, RadioLabel, RadioTile };
 
 export default Radio;

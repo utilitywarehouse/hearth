@@ -5,6 +5,8 @@ export const CheckboxGroupContext = createContext<{
   validationStatus?: 'valid' | 'invalid' | 'initial';
   type?: 'default' | 'tile';
   direction?: 'column' | 'row';
+  selectedValues?: string[];
+  select?: (value: string) => void;
 }>({});
 
 export const useCheckboxGroupContext = () => useContext(CheckboxGroupContext);

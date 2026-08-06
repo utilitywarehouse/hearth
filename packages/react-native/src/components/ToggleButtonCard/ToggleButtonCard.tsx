@@ -1,47 +1,41 @@
-import { createRadio } from '@gluestack-ui/radio';
-import StyledToggleButtonCard from './ToggleButtonCardRoot';
-import StyledToggleButtonCardGroup from './ToggleButtonCardGroup';
 import ToggleButtonCardProps from './ToggleButtonCard.props';
-import ToggleButtonCardGroupProps from './ToggleButtonCardGroup.props';
 import { View } from 'react-native';
 import { useStyleProps } from '../../hooks';
+import ToggleButtonCardRootComponent from './ToggleButtonCardRoot';
+import { useToggleButtonCardGroupContext } from './ToggleButtonCardGroup.context';
 
-const ToggleButtonCardComponent = createRadio({
-  Root: StyledToggleButtonCard,
-  Group: StyledToggleButtonCardGroup,
-  Indicator: () => null,
-  Icon: () => null,
-  Label: () => null,
-});
-
-const ToggleButtonCardGroupComponent = ToggleButtonCardComponent.Group;
-
-const ToggleButtonCardGroup = ({
+const ToggleButtonCard = ({
+  children,
+  contentStyle,
+  value,
   onChange,
-  onValueChange,
+  disabled,
   ...props
-}: ToggleButtonCardGroupProps) => (
-  <ToggleButtonCardGroupComponent
-    {...(props as any)}
-    onChange={(value: string) => {
-      onChange?.(value);
-      onValueChange?.(value);
-    }}
-  />
-);
-
-ToggleButtonCardGroup.displayName = 'ToggleButtonCardGroup';
-
-const ToggleButtonCard = ({ children, contentStyle, ...props }: ToggleButtonCardProps) => {
+}: ToggleButtonCardProps) => {
   const { computedStyles } = useStyleProps(props);
+  const { selectedValue, select } = useToggleButtonCardGroupContext();
+  const checked = selectedValue === value;
+
+  const handleToggle = () => {
+    if (disabled) return;
+    select?.(value);
+    onChange?.(true);
+  };
+
   return (
-    <ToggleButtonCardComponent {...props}>
+    <ToggleButtonCardRootComponent
+      {...props}
+      value={value}
+      disabled={disabled}
+      checked={checked}
+      onToggle={handleToggle}
+    >
       {!!children && <View style={[computedStyles, contentStyle]}>{children}</View>}
-    </ToggleButtonCardComponent>
+    </ToggleButtonCardRootComponent>
   );
 };
 ToggleButtonCard.displayName = 'ToggleButtonCard';
 
-export { ToggleButtonCard, ToggleButtonCardGroup };
+export { ToggleButtonCard };
 
 export default ToggleButtonCard;
