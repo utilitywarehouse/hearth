@@ -246,12 +246,15 @@ export const Variants: Story = {
     const disabled1 = await canvas.findByRole('checkbox', { name: 'Label 3' });
     const disabled2 = await canvas.findByRole('checkbox', { name: 'Label 4' });
 
-    // A disabled checkbox cannot receive a real user click at all (userEvent.click
-    // throws on a disabled form element, which is itself proof it can't respond),
-    // so its disabled state is the characterization itself.
-    expect(disabled1).toBeDisabled();
+    // A disabled checkbox renders as a <div role="checkbox">, not a native form
+    // control, so react-native-web exposes its disabled state via aria-disabled
+    // rather than the HTML disabled attribute (toBeDisabled() only recognises the
+    // latter). It also can't receive a real user click at all (userEvent.click
+    // throws on an element with pointer-events: none), so this aria state is the
+    // characterization itself.
+    expect(disabled1).toHaveAttribute('aria-disabled', 'true');
     expect(disabled1).toHaveAttribute('aria-checked', 'false');
-    expect(disabled2).toBeDisabled();
+    expect(disabled2).toHaveAttribute('aria-disabled', 'true');
     expect(disabled2).toHaveAttribute('aria-checked', 'false');
   },
 };

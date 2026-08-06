@@ -1,39 +1,23 @@
-import { createCheckbox } from '@gluestack-ui/checkbox';
 import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
 import CheckboxProps from './Checkbox.props';
 import { useCheckboxGroupContext } from './CheckboxGroup.context';
-import StyledCheckboxGroup from './CheckboxGroupRoot';
-import StyledCheckboxIcon from './CheckboxIcon';
-import StyledCheckboxIndicator from './CheckboxIndicator';
-import StyledCheckboxLabel from './CheckboxLabel';
-import StyledCheckbox from './CheckboxRoot';
+import CheckboxIconComponent from './CheckboxIcon';
+import CheckboxIndicatorComponent from './CheckboxIndicator';
+import CheckboxLabelComponent from './CheckboxLabel';
+import CheckboxRootComponent from './CheckboxRoot';
 import CheckboxTextContent from './CheckboxTextContent';
 import CheckboxTileRoot from './CheckboxTileRoot';
 
-const CheckboxComponent = createCheckbox({
-  Root: StyledCheckbox,
-  Group: StyledCheckboxGroup,
-  Indicator: StyledCheckboxIndicator,
-  Icon: StyledCheckboxIcon,
-  Label: StyledCheckboxLabel,
-});
-
-const CheckboxGroup = CheckboxComponent.Group;
-const CheckboxIndicator = CheckboxComponent.Indicator;
-const CheckboxIcon = CheckboxComponent.Icon;
-const CheckboxLabel = CheckboxComponent.Label;
-
-CheckboxGroup.displayName = 'CheckboxGroup';
-CheckboxIndicator.displayName = 'CheckboxIndicator';
-CheckboxIcon.displayName = 'CheckboxIcon';
-CheckboxLabel.displayName = 'CheckboxLabel';
+const CheckboxIndicator = CheckboxIndicatorComponent;
+const CheckboxIcon = CheckboxIconComponent;
+const CheckboxLabel = CheckboxLabelComponent;
 
 const Checkbox = ({
   children,
   label,
   disabled,
-  checked,
+  checked: ownChecked,
   helperIcon,
   helperText,
   badge,
@@ -44,13 +28,30 @@ const Checkbox = ({
   type = 'default',
   image,
   value,
+  onChange,
   ...props
 }: CheckboxProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
-  const { validationStatus: groupValidationStatus, type: groupType } = useCheckboxGroupContext();
+  const {
+    validationStatus: groupValidationStatus,
+    type: groupType,
+    disabled: groupDisabled,
+    selectedValues,
+    select,
+  } = useCheckboxGroupContext();
   const validationStatus =
     fieldValidationStatus ?? groupValidationStatus ?? validation ?? 'initial';
   const checkboxType = groupType ?? type;
+  const checkboxDisabled = groupDisabled ?? disabled;
+  const stringValue = (value ?? '').toString();
+  const checked = selectedValues ? selectedValues.includes(stringValue) : !!ownChecked;
+
+  const handlePress = () => {
+    if (checkboxDisabled) return;
+    select?.(stringValue);
+    onChange?.(!checked);
+  };
+
   const checkboxChildren = children ? (
     children
   ) : (
@@ -83,18 +84,19 @@ const Checkbox = ({
     </>
   );
   return (
-    <CheckboxComponent
+    <CheckboxRootComponent
       {...props}
-      value={(value ?? '').toString()}
-      isDisabled={disabled}
-      isChecked={checked}
+      value={value}
+      disabled={checkboxDisabled}
+      checked={checked}
+      onPress={handlePress}
     >
       {checkboxType === 'tile' ? (
         <CheckboxTileRoot>{checkboxChildren}</CheckboxTileRoot>
       ) : (
         checkboxChildren
       )}
-    </CheckboxComponent>
+    </CheckboxRootComponent>
   );
 };
 const CheckboxTile = ({ type = 'tile', ...props }: CheckboxProps) => {
@@ -105,6 +107,6 @@ CheckboxTile.displayName = 'CheckboxTile';
 
 Checkbox.displayName = 'Checkbox';
 
-export { Checkbox, CheckboxGroup, CheckboxIcon, CheckboxIndicator, CheckboxLabel, CheckboxTile };
+export { Checkbox, CheckboxIcon, CheckboxIndicator, CheckboxLabel, CheckboxTile };
 
 export default Checkbox;

@@ -3,6 +3,6 @@ export {
   RadioCardIndicator,
   RadioCardLabel,
   RadioCardIcon,
-  RadioCardGroup,
 } from './RadioCard';
 export type { default as RadioCardProps } from './RadioCard.props';
+export { default as RadioCardGroup } from './RadioCardGroup';

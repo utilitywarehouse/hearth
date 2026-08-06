@@ -12,6 +12,8 @@ export const RadioCardGroupContext = createContext<{
     | 'space-evenly';
   alignItems?: 'flex-start' | 'flex-end' | 'center' | 'stretch' | 'baseline';
   disabled?: boolean;
+  selectedValue?: string;
+  select?: (value: string) => void;
 }>({});
 
 export const useRadioCardGroupContext = () => useContext(RadioCardGroupContext);

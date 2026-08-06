@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 
-import { Pressable, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { RadioCardContext } from './RadioCard.context';
 import type RadioCardProps from './RadioCard.props';
 import { useRadioCardGroupContext } from './RadioCardGroup.context';
@@ -9,14 +9,16 @@ import { useRadioCardGroupContext } from './RadioCardGroup.context';
 const RadioCardRoot = ({
   children,
   style,
-  states,
   disabled,
+  checked,
+  onPressIn,
+  onPressOut,
   ...props
-}: RadioCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
-  const { checked, active } = states ?? {};
-
-  const { flexDirection, disabled: groupDisabled } = useRadioCardGroupContext() ?? {};
-  const isDisabled = groupDisabled ?? disabled ?? undefined;
+}: RadioCardProps & { checked?: boolean }) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const { flexDirection } = useRadioCardGroupContext();
+  const isDisabled = disabled ?? undefined;
+  const active = touchPressed;
 
   const value = useMemo(
     () => ({
@@ -32,9 +34,32 @@ const RadioCardRoot = ({
     disabled: isDisabled,
   });
 
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <RadioCardContext.Provider value={value}>
-      <Pressable {...props} disabled={isDisabled} style={[styles.container, style as ViewStyle]}>
+      <Pressable
+        accessibilityRole="radio"
+        disabled={isDisabled}
+        {...props}
+        accessibilityState={{
+          ...props.accessibilityState,
+          checked: !!checked,
+          disabled: !!isDisabled,
+        }}
+        aria-checked={!!checked}
+        style={[styles.container, style as ViewStyle]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
         {children}
       </Pressable>
     </RadioCardContext.Provider>

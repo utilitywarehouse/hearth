@@ -787,21 +787,12 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@gluestack-ui/checkbox':
-        specifier: 0.1.32
-        version: 0.1.32(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/form-control':
-        specifier: 0.1.19
-        version: 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@gluestack-ui/icon':
         specifier: 0.1.22
         version: 0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@gluestack-ui/pressable':
         specifier: 0.1.16
         version: 0.1.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/radio':
-        specifier: 0.1.33
-        version: 0.1.33(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@quidone/react-native-wheel-picker':
         specifier: ^1.6.1
         version: 1.7.0(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -1070,30 +1061,6 @@ packages:
 
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
-
-  '@adobe/react-spectrum-ui@1.2.1':
-    resolution: {integrity: sha512-wcrbEE2O/9WnEn6avBnaVRRx88S5PLFsPLr4wffzlbMfXeQsy+RMQwaJd3cbzrn18/j04Isit7f7Emfn0dhrJA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@adobe/react-spectrum-workflow@2.3.5':
-    resolution: {integrity: sha512-b53VIPwPWKb/T5gzE3qs+QlGP5gVrw/LnWV3xMksDU+CRl3rzOKUwxIGiZO8ICyYh1WiyqY4myGlPU/nAynBUg==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@adobe/react-spectrum@3.47.1':
-    resolution: {integrity: sha512-mijNyd8XmA6KoBMbqKc4Rp+S2voKdZkPydJFjQbG0SkOjOKcgqVpJdKGsKdLMZBn9Jk5SgEuklyrhc7Uvot2tA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@adobe/react-spectrum@3.47.2':
-    resolution: {integrity: sha512-QxsE7bPBGpzwYofACF0RAL/Zs3p0u9HNvCDf9LEN87rEGFpkagIB+T+TSZ0xbl6BJ6z7S02m3zAFk3s9FoHJpQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -2611,18 +2578,6 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@gluestack-ui/checkbox@0.1.32':
-    resolution: {integrity: sha512-46MlrDAYq0ZgcerXp8VoCZEcBSAHnDH/YI4c6cpxgLKbtDSkvqgQ5K7WR+x9LQie3MNP72L9QAgWNxFAZvxliA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/form-control@0.1.19':
-    resolution: {integrity: sha512-6YbPbi/RZrXc5DyVPbxPV17FYaBoEl1yAdSwut8iE6n+yQekjluINrh2q5ZPWF2SGmyo7VSNcL85yeU5I97xHg==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@gluestack-ui/icon@0.1.22':
     resolution: {integrity: sha512-6E8N0OEEike0p6ITRJoEYpRlHqjRAabekEVSOk/HM/v+MJONT613TlQari5ozBHcaNLn/JhJqRxNHxNrzxd+ZQ==}
     peerDependencies:
@@ -2637,12 +2592,6 @@ packages:
 
   '@gluestack-ui/provider@0.1.19':
     resolution: {integrity: sha512-+MbL2VpGK7kkSNccgNeMay/nslDA4BzgjHFWwnys+dSvyCMgt7yfSxrfWziTvAyaQ4cRkq/lXCfJK0B1nuCZ4A==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/radio@0.1.33':
-    resolution: {integrity: sha512-x93F8MTvS8EF1B0VllXcnVFpK+dlfQYjQCC0+x5G9TyXYU/z6C2Y4wq0YS6ivqRtq00diHW3b1xXz1TOgR2j6g==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -4053,17 +4002,6 @@ packages:
   '@radix-ui/rect@1.1.2':
     resolution: {integrity: sha512-xnXE7wG13PI+cxieVssYXlQJuYVRhH9NBoxt3KNwzghDIA69GMm7d4wXRouHIYjE+KvS6U/MsMO73NdS2MH9ZA==}
 
-  '@react-aria/checkbox@3.17.1':
-    resolution: {integrity: sha512-742B+UhH87TK02SYsFJZOgQ9VZpFEythH5LXRnwxt/xShoKOp+eqXPaVah79s/+B9sxY1mF0wNORQ2RVAQFSKw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-aria/checkbox@3.2.1':
-    resolution: {integrity: sha512-XnypnlVIfhB3CD7eSjSds8hNkzHgnhu0t48I1D0jYdL1O6tQC4UytPdIqlemRYBVHDloZkWerbjenpHnxhv8iA==}
-    peerDependencies:
-      react: 19.1.0
-
   '@react-aria/focus@3.22.1':
     resolution: {integrity: sha512-CPxtkyrBi/HYY5P3lE/57sQ6qfa0lN8E55TOm89H0kNGv0lKt+/0zP7lWERzBjRr5IxBVrQX4gFEowBN52LPaA==}
     peerDependencies:
@@ -4076,27 +4014,9 @@ packages:
       react: 19.1.0
       react-dom: 19.1.0
 
-  '@react-aria/label@3.8.1':
-    resolution: {integrity: sha512-zf6hG22PnxZ9kEUwxORClBicHK5pcvucDU+lotGsI6ENbdIvJAMNn9X0oiPPae56CVf2T0KEL9NB8LKdAfzCIw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-aria/radio@3.13.1':
-    resolution: {integrity: sha512-Rsl/knBduhNKQfHGO3i+Jc3P3tFo213UPD3HU3W1GjZtYlUEBYL0m5ehA6cT7alse3aCWp/icoXCcYbgBHBQHw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@react-aria/ssr@3.10.1':
     resolution: {integrity: sha512-jn038/ZYmu6DpfXJ6r2U9zFFppjbc9wnApPJSCxao2RZVEqep4YyoniHSy8qv6V21/xyS4IV7W9a+X2jOjSuag==}
     engines: {node: '>= 12'}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-aria/toggle@3.13.1':
-    resolution: {integrity: sha512-1SPMBSrbT94Jsy7Wuv9SH2uPv7szGP7KgO4QGIAcF3e5kHwvGQJdMHY6+xR17slk8ICXfFojBqUKgpJjyY2+KQ==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -4106,18 +4026,6 @@ packages:
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
-
-  '@react-aria/visually-hidden@3.9.1':
-    resolution: {integrity: sha512-PWuth+NTmUiBJAIyrfk7dJ5BxOBupDt0iFGlBiYr5FElSYvwN9LAk1kgkzm6hT2qzq4FmYdQgBSPkGeaxOui6w==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-native-aria/checkbox@0.2.10':
-    resolution: {integrity: sha512-SpjAHmu+NmoztkHggtlBsygOapszjomjo8PtbGxP7rV+3b5iWhmrD2Ztf3Vc4tZMBl/GFslLA3NXp5h47T9Utg==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
 
   '@react-native-aria/focus@0.2.9':
     resolution: {integrity: sha512-zVgOIzKwnsyyurUxlZnzUKB2ekK/cmK64sQJIKKUlkJKVxd2EAFf7Sjz/NVEoMhTODN3qGRASTv9bMk/pBzzVA==}
@@ -4133,18 +4041,6 @@ packages:
 
   '@react-native-aria/interactions@0.2.16':
     resolution: {integrity: sha512-tJ7mhG0P6cElLTcL4yfV3HSfqdD8tpAwHKjtamyeua8i6tsu7BOxGmfGmPQ5ueJl7/mHqf8xyTv1xGW288CKXQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
-
-  '@react-native-aria/radio@0.2.13':
-    resolution: {integrity: sha512-80FQ+k10738MOnFwOyP3RvAGUAdozYY54vUZNNg2z7MH6GaKyok538cDIzVa9p4cCL58CU8Te8vnd+ItOR3nBg==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
-
-  '@react-native-aria/toggle@0.2.11':
-    resolution: {integrity: sha512-oEmcHDp9dXJ8QM8BYILmvry9m1OB9prsIJJnmRjedSVMHRgeuH7CCPcJ1PUIsy56EvtAo6JbKvLTX5HUTQ/RHg==}
     peerDependencies:
       react: 19.1.0
       react-native: '*'
@@ -4348,69 +4244,14 @@ packages:
   '@react-navigation/routers@7.6.0':
     resolution: {integrity: sha512-lblhDXfS75jLc7G2K7BZGM+7cjqQXk13X/MA4fq/12r62zM+fBhhreLzYflSitrDDXFRJpSvJXy0ziiGU04Xow==}
 
-  '@react-spectrum/checkbox@3.11.1':
-    resolution: {integrity: sha512-SkiKMYA5VMiIC+Zsob7YnGfT+hpuWsolzi+jS/Qd78h4nMIMj/kwPN17bqsYMqb5D3IM1F4YAkNpWUFFGaAeAA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-spectrum/provider@3.11.1':
-    resolution: {integrity: sha512-TsoNdVdmlQ7L+75ILq5Yb3+wp/I1AtIeat0o+Y+ZBxP+TtWpwT1ZtCB5l3cplFVzHzOpZlzO0VaDrDP9ElGYDw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-spectrum/radio@3.8.1':
-    resolution: {integrity: sha512-obI0DjW+dH/yXeO3CMgR5tzCzOSFFUItnbKOvfEQTsvIdWnnmyYcjh+W4do01nm4Q5+aiXVXEvvOuVSeY9ZiRw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-stately/checkbox@3.8.1':
-    resolution: {integrity: sha512-jNYNOkro8cgLkeeea24UQdE+PWpsBz/6hGPPM9CrHBvC7x2Egh3iHy1not61Oqp7BI7Rq1K1+Q4q8J37bOTr6w==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-stately/radio@3.12.1':
-    resolution: {integrity: sha512-sx83ffwQMRhUuMbbRIS4O/FMDyp9DfY1P3bbcSdSgOfglCb6aILJj3ExRJcXSUZdzm79g7cKADNtqzIlW5n6pg==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-stately/toggle@3.10.1':
-    resolution: {integrity: sha512-oj4goolQJWdeQxRp8a1nZdsUjC779nvAU7pyT3oyWMWrxxrk0heW96TLWhdPjksvre8pLvjbRBbI2kgs8RxmOQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@react-stately/utils@3.12.1':
     resolution: {integrity: sha512-NqKfzrknpfwiewx7R2vk1P+CneClInPDsIhw15+jOcUYSEfej0nta4cJywuKQJ2gsPwqX/ojDNixedCve9FWGw==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
 
-  '@react-types/checkbox@3.11.0':
-    resolution: {integrity: sha512-VXacLw/pKBcxgwejr2p4uPZtG/XXBnTb6pJCdFtUL6OuFIIOFt/9eTHD+8x2HRPLxWkmo1DD3bFBOinQ7vfu2g==}
-    peerDependencies:
-      '@react-spectrum/provider': ^3.0.0
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@react-types/radio@3.10.0':
-    resolution: {integrity: sha512-o9vDmAYf8WpI7WelgU6wpX/1acrRIGdKIgeXiVokjBelpjE0pYMY7e/L6/WKB4RUtgxLuf7JavLAU/CWAD/ewQ==}
-    peerDependencies:
-      '@react-spectrum/provider': ^3.0.0
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@react-types/shared@3.35.0':
     resolution: {integrity: sha512-iNWvuzEwANttpQpdlu8nPBtdHb0mcCMj1ZTH//iRB5E/14IAnyRlR25rxH7pNLyzHINsPGEKnWvpwDMCT6vziQ==}
-    peerDependencies:
-      react: 19.1.0
-
-  '@react-types/shared@3.36.0':
-    resolution: {integrity: sha512-DkP/H0C2YjjS7gZWKNqOmU8a16qHPjQNdzMwmTq9SzplM6Iw0kVMTZ0OIoe6FOgGqa+FwMsE2QbPjh/n3g/jXQ==}
     peerDependencies:
       react: 19.1.0
 
@@ -4603,20 +4444,6 @@ packages:
 
   '@sinonjs/fake-timers@10.3.0':
     resolution: {integrity: sha512-V4BG07kuYSUkTCSBHG8G8TNhM+F19jXFWnQtzj+we8DrkpSBCee9Z3Ms8yiGer/dlmhe35/Xdgyo3/0rQKg7YA==}
-
-  '@spectrum-icons/ui@3.7.1':
-    resolution: {integrity: sha512-veQymocUYo5OciXQajSailOdbWe+k6+2ehfF8D4d0V923D4xOUadtT253xXZ5vEQjPat6Kyp2WDKeQNjd7kL1w==}
-    peerDependencies:
-      '@adobe/react-spectrum': ^3.47.0
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@spectrum-icons/workflow@4.3.1':
-    resolution: {integrity: sha512-kDF+/EbFVyLGytotqqdYt4uSij4j/PQmDQO5km/C6DyzKjyuic3FnSBFinR+mA6oFv1OjMcLvrrDBqK3wbqRlA==}
-    peerDependencies:
-      '@adobe/react-spectrum': ^3.47.0
-      react: 19.1.0
-      react-dom: 19.1.0
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -10725,26 +10552,8 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  react-aria-components@1.18.0:
-    resolution: {integrity: sha512-FhRQjuDkH4WhgFv+O2sYTzK3JzdZTGpBeaqfRlfTo+DcSZzD8elJEkytHe7SDpcexVKeire8NVd7OruZHfCVoA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  react-aria-components@1.19.0:
-    resolution: {integrity: sha512-2smSS5nqJ8cGYMQezuUXveZm7eMyHCqTN6mDpylQBYLYbdF5dxCCuW1DHn1VKLe1DybSfPvX/cZtJlDmvFfn8A==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   react-aria@3.49.0:
     resolution: {integrity: sha512-4+oK9FwJQWYhyA5zLfj/feOGY0zZbkE1muoF4gyxMroHVypjcYaRSTlJwvxph2zIlxt757KX6xIK2wJ5Aw1Kog==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  react-aria@3.50.0:
-    resolution: {integrity: sha512-S0Os6QZk33fzUAKu1QLT9afoUaCBt1ZNdoiq0n2YMVgKIdNIQS8zxiZ8O9hYE6QyDkHKjD6q39LQZ+qaSAIgjw==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -11000,11 +10809,6 @@ packages:
 
   react-stately@3.47.0:
     resolution: {integrity: sha512-H3ar+SOWP920EbVg7qWfP3fZjZiwhlEJAEJQqjt+w8oKijCwFgr0+R4941PIHscOXRNRvEOjvWilitImC0DdBg==}
-    peerDependencies:
-      react: 19.1.0
-
-  react-stately@3.48.0:
-    resolution: {integrity: sha512-ImicSAG+lTotAe5izcs1fz49Zk48w7pDusqYg04WaPhCoej8BJ24soMu3iLXIrsi273s4P1gZrYGrqReMfgEEA==}
     peerDependencies:
       react: 19.1.0
 
@@ -12826,50 +12630,6 @@ snapshots:
       graphql: 16.8.1
 
   '@adobe/css-tools@4.5.0': {}
-
-  '@adobe/react-spectrum-ui@1.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@adobe/react-spectrum-workflow@2.3.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@adobe/react-spectrum@3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@react-types/shared': 3.35.0(react@19.1.0)
-      '@spectrum-icons/ui': 3.7.1(@adobe/react-spectrum@3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@spectrum-icons/workflow': 4.3.1(@adobe/react-spectrum@3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      client-only: 0.0.1
-      clsx: 2.1.1
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-aria-components: 1.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.47.0(react@19.1.0)
-      react-transition-group: 4.4.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      use-sync-external-store: 1.6.0(react@19.1.0)
-
-  '@adobe/react-spectrum@3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@react-types/shared': 3.36.0(react@19.1.0)
-      '@spectrum-icons/ui': 3.7.1(@adobe/react-spectrum@3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@spectrum-icons/workflow': 4.3.1(@adobe/react-spectrum@3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      client-only: 0.0.1
-      clsx: 2.1.1
-      react: 19.1.0
-      react-aria: 3.50.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-aria-components: 1.19.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.48.0(react@19.1.0)
-      react-transition-group: 4.4.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      use-sync-external-store: 1.6.0(react@19.1.0)
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -15355,31 +15115,6 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@gluestack-ui/checkbox@0.1.32(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/form-control': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-aria/visually-hidden': 3.9.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/checkbox': 0.2.10(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/utils': 0.2.11(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/checkbox': 3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
-      - react-native
-
-  '@gluestack-ui/form-control@0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - react-native
-
   '@gluestack-ui/icon@0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
       '@gluestack-ui/provider': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -15408,21 +15143,6 @@ snapshots:
       tsconfig: 7.0.0
       typescript: 5.9.2
     transitivePeerDependencies:
-      - react-native
-
-  '@gluestack-ui/radio@0.1.33(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/form-control': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-aria/visually-hidden': 3.9.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/radio': 0.2.13(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/radio': 3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
       - react-native
 
   '@gluestack-ui/utils@0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
@@ -16933,27 +16653,6 @@ snapshots:
 
   '@radix-ui/rect@1.1.2': {}
 
-  '@react-aria/checkbox@3.17.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-aria/checkbox@3.2.1(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@babel/runtime': 7.29.7
-      '@react-aria/label': 3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/toggle': 3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-stately/checkbox': 3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-stately/toggle': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-types/checkbox': 3.11.0(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
-      - react-dom
-
   '@react-aria/focus@3.22.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@swc/helpers': 0.5.23
@@ -16969,29 +16668,7 @@ snapshots:
       react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-dom: 19.1.0(react@19.1.0)
 
-  '@react-aria/label@3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-aria/radio@3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@react-types/shared': 3.35.0(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-
   '@react-aria/ssr@3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-aria/toggle@3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@swc/helpers': 0.5.23
       react: 19.1.0
@@ -17005,26 +16682,6 @@ snapshots:
       react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-dom: 19.1.0(react@19.1.0)
       react-stately: 3.47.0(react@19.1.0)
-
-  '@react-aria/visually-hidden@3.9.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-native-aria/checkbox@0.2.10(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-aria/checkbox': 3.2.1(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/toggle': 0.2.11(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/utils': 0.2.12(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/toggle': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
-      - react-dom
 
   '@react-native-aria/focus@0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
@@ -17052,34 +16709,6 @@ snapshots:
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
     transitivePeerDependencies:
-      - react-dom
-
-  '@react-native-aria/radio@0.2.13(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-aria/radio': 3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/utils': 0.2.12(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/radio': 3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-types/radio': 3.10.0(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
-      - react-dom
-
-  '@react-native-aria/toggle@0.2.11(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-aria/focus': 3.22.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/utils': 0.2.12(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-stately/toggle': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-types/checkbox': 3.11.0(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - '@react-spectrum/provider'
       - react-dom
 
   '@react-native-aria/utils@0.2.11(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
@@ -17527,48 +17156,6 @@ snapshots:
     dependencies:
       nanoid: 3.3.11
 
-  '@react-spectrum/checkbox@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-spectrum/radio@3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-stately/checkbox@3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.47.0(react@19.1.0)
-
-  '@react-stately/radio@3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.47.0(react@19.1.0)
-
-  '@react-stately/toggle@3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.47.0(react@19.1.0)
-
   '@react-stately/utils@3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@swc/helpers': 0.5.23
@@ -17576,31 +17163,7 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
       react-stately: 3.47.0(react@19.1.0)
 
-  '@react-types/checkbox@3.11.0(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@react-aria/checkbox': 3.17.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/toggle': 3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-spectrum/checkbox': 3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-spectrum/provider': 3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-stately/checkbox': 3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-stately/toggle': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@react-types/radio@3.10.0(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@react-aria/radio': 3.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-spectrum/provider': 3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-spectrum/radio': 3.8.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-stately/radio': 3.12.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
   '@react-types/shared@3.35.0(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-
-  '@react-types/shared@3.36.0(react@19.1.0)':
     dependencies:
       react: 19.1.0
 
@@ -17726,40 +17289,6 @@ snapshots:
   '@sinonjs/fake-timers@10.3.0':
     dependencies:
       '@sinonjs/commons': 3.0.1
-
-  '@spectrum-icons/ui@3.7.1(@adobe/react-spectrum@3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@adobe/react-spectrum-ui': 1.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@babel/runtime': 7.29.7
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@spectrum-icons/ui@3.7.1(@adobe/react-spectrum@3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@adobe/react-spectrum-ui': 1.2.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@babel/runtime': 7.29.7
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@spectrum-icons/workflow@4.3.1(@adobe/react-spectrum@3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@adobe/react-spectrum-workflow': 2.3.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
-  '@spectrum-icons/workflow@4.3.1(@adobe/react-spectrum@3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@adobe/react-spectrum': 3.47.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@adobe/react-spectrum-workflow': 2.3.5(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -25740,28 +25269,6 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-aria-components@1.18.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@react-types/shared': 3.35.0(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      client-only: 0.0.1
-      react: 19.1.0
-      react-aria: 3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.47.0(react@19.1.0)
-
-  react-aria-components@1.19.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@react-types/shared': 3.36.0(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      client-only: 0.0.1
-      react: 19.1.0
-      react-aria: 3.50.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.48.0(react@19.1.0)
-
   react-aria@3.49.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@internationalized/date': 3.12.2
@@ -25774,20 +25281,6 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       react-stately: 3.47.0(react@19.1.0)
-      use-sync-external-store: 1.6.0(react@19.1.0)
-
-  react-aria@3.50.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@internationalized/number': 3.6.7
-      '@internationalized/string': 3.2.9
-      '@react-types/shared': 3.36.0(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      aria-hidden: 1.2.6
-      clsx: 2.1.1
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      react-stately: 3.48.0(react@19.1.0)
       use-sync-external-store: 1.6.0(react@19.1.0)
 
   react-datepicker@8.10.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
@@ -26438,16 +25931,6 @@ snapshots:
       '@internationalized/number': 3.6.7
       '@internationalized/string': 3.2.9
       '@react-types/shared': 3.35.0(react@19.1.0)
-      '@swc/helpers': 0.5.23
-      react: 19.1.0
-      use-sync-external-store: 1.6.0(react@19.1.0)
-
-  react-stately@3.48.0(react@19.1.0):
-    dependencies:
-      '@internationalized/date': 3.12.2
-      '@internationalized/number': 3.6.7
-      '@internationalized/string': 3.2.9
-      '@react-types/shared': 3.36.0(react@19.1.0)
       '@swc/helpers': 0.5.23
       react: 19.1.0
       use-sync-external-store: 1.6.0(react@19.1.0)

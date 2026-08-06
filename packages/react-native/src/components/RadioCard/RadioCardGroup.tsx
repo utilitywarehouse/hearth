@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useSingleSelection } from '../../hooks/useSingleSelection';
 import { Grid } from '../Grid';
 import { RadioCardGroupContext } from './RadioCardGroup.context';
 import RadioCardGroupProps from './RadioCardGroup.props';
@@ -15,16 +16,34 @@ const RadioCardGroup = ({
   alignItems,
   columns,
   disabled,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  isDisabled,
+  value,
+  onChange,
+  onValueChange,
   ...props
-}: RadioCardGroupProps & { isDisabled?: boolean }) => {
-  const context = useMemo(() => {
-    return { flexDirection, flexWrap, justifyContent, alignItems, disabled };
-  }, [flexDirection, flexWrap, justifyContent, alignItems, disabled]);
+}: RadioCardGroupProps) => {
+  const { selectedValue, select } = useSingleSelection({
+    value,
+    disabled,
+    onValueChange: groupValue => {
+      onChange?.(groupValue);
+      onValueChange?.(groupValue);
+    },
+  });
+  const context = useMemo(
+    () => ({
+      flexDirection,
+      flexWrap,
+      justifyContent,
+      alignItems,
+      disabled,
+      selectedValue,
+      select,
+    }),
+    [flexDirection, flexWrap, justifyContent, alignItems, disabled, selectedValue, select]
+  );
   return columns ? (
     <RadioCardGroupContext.Provider value={context}>
-      <Grid {...props} gap={gap} columns={columns} style={style}>
+      <Grid {...props} accessibilityRole="radiogroup" gap={gap} columns={columns} style={style}>
         {children as any}
       </Grid>
     </RadioCardGroupContext.Provider>
@@ -32,6 +51,7 @@ const RadioCardGroup = ({
     <RadioCardGroupContext.Provider value={context}>
       <View
         {...props}
+        accessibilityRole="radiogroup"
         style={[
           styles.containerGap(gap),
           {

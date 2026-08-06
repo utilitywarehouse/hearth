@@ -1,5 +1,5 @@
-import { useMemo, useRef } from 'react';
-import { GestureResponderEvent, Platform, Pressable, View, ViewStyle } from 'react-native';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import { ToggleButtonCardContext } from './ToggleButtonCard.context';
@@ -9,14 +9,15 @@ const ToggleButtonCardRoot = ({
   children,
   style,
   label,
-  states,
+  checked,
   onPress,
+  onToggle,
+  onPressIn,
+  onPressOut,
   ...props
-}: ToggleButtonCardProps & {
-  states?: { disabled?: boolean; checked?: boolean; active?: boolean };
-}) => {
-  const { checked, active } = states ?? {};
-  const containerRef = useRef<View>(null);
+}: ToggleButtonCardProps & { checked?: boolean; onToggle?: () => void }) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = touchPressed;
 
   const value = useMemo(
     () => ({
@@ -30,29 +31,28 @@ const ToggleButtonCardRoot = ({
     selected: checked,
   });
 
-  const handlePress = (e: GestureResponderEvent) => {
-    // gluestack's Radio selection state on web is driven by the hidden native
-    // <input type="radio"> receiving a real click (label-forwarding). The
-    // ToggleButton nested inside is itself an interactive element, so browsers
-    // don't forward the click to that hidden input. Click it directly instead.
-    if (Platform.OS === 'web') {
-      const node = containerRef.current as unknown as HTMLElement | null;
-      const input = node?.querySelector?.('input[type="radio"]') as HTMLInputElement | null;
-      if (input && !input.checked) {
-        input.click();
-        return;
-      }
-    }
-    onPress?.(e);
-    props.onChange?.(!checked);
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
+  const handleTogglePress = (event: GestureResponderEvent) => {
+    onPress?.(event);
+    onToggle?.();
   };
 
   return (
     <ToggleButtonCardContext.Provider value={value}>
       <Pressable
         {...props}
-        ref={containerRef}
         onPress={onPress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
         style={[styles.container, style as ViewStyle]}
       >
         {children}
@@ -60,7 +60,7 @@ const ToggleButtonCardRoot = ({
           <ToggleButton
             text={label}
             toggled={checked}
-            onPress={handlePress}
+            onPress={handleTogglePress}
             style={styles.button}
           />
         </View>
