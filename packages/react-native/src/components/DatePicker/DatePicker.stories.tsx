@@ -4,7 +4,7 @@ import { Platform, View } from 'react-native';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { DatePicker, DateType } from '.';
 import { ViewWrap } from '../../../docs/components';
-import { BottomSheetModal } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 
 // Calendar day buttons are exposed with an accessibilityLabel like "Wednesday, July 15",
@@ -44,6 +44,13 @@ const meta = {
   },
   argTypes: {},
   args: {},
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
