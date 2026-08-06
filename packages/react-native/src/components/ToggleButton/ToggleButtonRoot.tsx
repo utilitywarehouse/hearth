@@ -1,42 +1,58 @@
+import { useState } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import type { ToggleButtonProps } from './ToggleButton.props';
 
-const ButtonRoot = ({
+const ToggleButtonRoot = ({
   children,
   onToggle,
   toggled,
-  states,
+  accessibilityRole = 'button',
   onPress,
+  onPressIn,
+  onPressOut,
   ...props
-}: ToggleButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active } = states || {};
+}: ToggleButtonProps) => {
+  const [touchPressed, setTouchPressed] = useState(false);
 
   styles.useVariants({
     toggled,
-    active,
+    active: touchPressed,
   });
 
-  const handlePress = (e: GestureResponderEvent) => {
-    onPress?.(e);
+  const handlePress = (event: GestureResponderEvent) => {
+    onPress?.(event);
     if (onToggle) {
       onToggle(!toggled);
     }
   };
 
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <Pressable
+      accessibilityRole={accessibilityRole}
       {...props}
       accessibilityState={{ selected: toggled, ...props.accessibilityState }}
       style={[styles.container, props.style as ViewStyle]}
       onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
     >
       {children}
     </Pressable>
   );
 };
 
-ButtonRoot.displayName = 'ButtonRoot';
+ToggleButtonRoot.displayName = 'ToggleButtonRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -96,4 +112,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ButtonRoot;
+export default ToggleButtonRoot;

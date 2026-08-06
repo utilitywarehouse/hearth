@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { UnstyledIconButtonContext } from './UnstyledIconButton.context';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
@@ -7,21 +7,39 @@ import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 const UnstyledIconButtonRoot = ({
   size,
   inverted,
-  states,
+  disabled,
+  pressed,
+  onPressIn,
+  onPressOut,
   ...props
-}: UnstyledIconButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active, disabled } = states || {};
+}: UnstyledIconButtonProps) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = pressed || touchPressed;
   styles.useVariants({ disabled, size });
   const value = useMemo(
     () => ({ disabled, active, inverted, size }),
     [disabled, active, inverted, size]
   );
+
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <UnstyledIconButtonContext.Provider value={value}>
       <Pressable
+        disabled={disabled}
         {...props}
         accessibilityState={{ disabled: !!disabled, ...props.accessibilityState }}
         style={[styles.container, props.style as ViewStyle]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
       />
     </UnstyledIconButtonContext.Provider>
   );
