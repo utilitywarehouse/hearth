@@ -787,9 +787,6 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@gluestack-ui/button':
-        specifier: 1.0.7
-        version: 1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@gluestack-ui/checkbox':
         specifier: 0.1.32
         version: 0.1.32(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -2614,12 +2611,6 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@gluestack-ui/button@1.0.7':
-    resolution: {integrity: sha512-6hz5BPoB+iHMpDvys6AbIpeRPbnFiqyE3SnnbKPSCj8lgl3Dr9sFln41BvDmqmZ98d0usJluk50rz8pVNRZRgw==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@gluestack-ui/checkbox@0.1.32':
     resolution: {integrity: sha512-46MlrDAYq0ZgcerXp8VoCZEcBSAHnDH/YI4c6cpxgLKbtDSkvqgQ5K7WR+x9LQie3MNP72L9QAgWNxFAZvxliA==}
     peerDependencies:
@@ -2652,12 +2643,6 @@ packages:
 
   '@gluestack-ui/radio@0.1.33':
     resolution: {integrity: sha512-x93F8MTvS8EF1B0VllXcnVFpK+dlfQYjQCC0+x5G9TyXYU/z6C2Y4wq0YS6ivqRtq00diHW3b1xXz1TOgR2j6g==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/utils@0.1.13':
-    resolution: {integrity: sha512-L9+ddAn5FLtNJYut7KBGChelt+SvDW3C+6dXduZyP9DD1BoDVTRVwPVYblvbefZf2ZOdTALtHIIO3n/n1bWlbg==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -15370,16 +15355,6 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@gluestack-ui/button@1.0.7(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/utils': 0.1.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - react-native
-
   '@gluestack-ui/checkbox@0.1.32(@react-spectrum/provider@3.11.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
       '@gluestack-ui/form-control': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -15448,14 +15423,6 @@ snapshots:
       react-dom: 19.1.0(react@19.1.0)
     transitivePeerDependencies:
       - '@react-spectrum/provider'
-      - react-native
-
-  '@gluestack-ui/utils@0.1.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
       - react-native
 
   '@gluestack-ui/utils@0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':

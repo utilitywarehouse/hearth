@@ -1,20 +1,11 @@
-import { createButton } from '@gluestack-ui/button';
 import { IconButtonProps } from './IconButton.props';
 import IconButtonRootComponent from './IconButtonRoot';
 import IconButtonIconComponent from './IconButtonIcon';
 import IconButtonSpinerComponent from './IconButtonSpinner';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
 
-const IconButtonComponent = createButton({
-  Root: IconButtonRootComponent,
-  Icon: IconButtonIconComponent,
-  Group: () => null,
-  Text: () => null,
-  Spinner: IconButtonSpinerComponent,
-});
-
-const IconButtonSpinner = IconButtonComponent.Spinner;
-const IconButtonIcon = IconButtonComponent.Icon;
+const IconButtonSpinner = IconButtonSpinerComponent;
+const IconButtonIcon = IconButtonIconComponent;
 
 IconButtonSpinner.displayName = 'IconButtonSpinner';
 IconButtonIcon.displayName = 'IconButtonIcon';
@@ -26,9 +17,9 @@ const IconButton = ({ icon, disabled = false, pressed, ...props }: IconButtonPro
   const buttonDisabled = isLoading || (disabled ?? groupDisabled);
 
   return (
-    <IconButtonComponent {...props} icon={icon} isDisabled={buttonDisabled} isPressed={pressed}>
+    <IconButtonRootComponent {...props} icon={icon} disabled={buttonDisabled} pressed={pressed}>
       {loading ? <IconButtonSpinner /> : <IconButtonIcon as={icon} />}
-    </IconButtonComponent>
+    </IconButtonRootComponent>
   );
 };
 

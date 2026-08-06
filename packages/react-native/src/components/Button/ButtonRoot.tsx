@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useCardPressHandlerContext } from '../Card';
 import { ButtonContext } from './Button.context';
@@ -11,13 +11,18 @@ const ButtonRoot = ({
   variant = 'solid',
   size = 'md',
   inverted = false,
-  states,
+  disabled = false,
+  pressed,
+  accessibilityRole = 'button',
   onPress,
+  onPressIn,
+  onPressOut,
   paddingNone = false,
   ...props
-}: BaseButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active, disabled = false } = states || {};
-  const { pressed } = useCardPressHandlerContext();
+}: BaseButtonProps) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const { pressed: cardPressed } = useCardPressHandlerContext();
+  const active = pressed || touchPressed || cardPressed;
 
   styles.useVariants({
     variant,
@@ -25,7 +30,7 @@ const ButtonRoot = ({
     colorScheme,
     disabled,
     inverted,
-    active: active || pressed,
+    active,
     paddingNone,
   });
 
@@ -33,9 +38,28 @@ const ButtonRoot = ({
     () => ({ colorScheme, variant, size, inverted, disabled, active }),
     [colorScheme, variant, size, inverted, disabled, active]
   );
+
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <ButtonContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, props.style as ViewStyle]} onPress={onPress}>
+      <Pressable
+        accessibilityRole={accessibilityRole}
+        disabled={disabled}
+        {...props}
+        style={[styles.container, props.style as ViewStyle]}
+        onPress={onPress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
         {children}
       </Pressable>
     </ButtonContext.Provider>

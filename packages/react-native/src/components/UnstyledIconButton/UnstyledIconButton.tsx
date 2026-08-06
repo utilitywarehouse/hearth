@@ -1,4 +1,3 @@
-import { createButton } from '@gluestack-ui/button';
 import { ViewStyle } from 'react-native';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
 import { UnstyledIconButtonProps } from './UnstyledIconButton.props';
@@ -6,16 +5,8 @@ import UnstyledIconButtonIconComponent from './UnstyledIconButtonIcon';
 import UnstyledIconButtonRootComponent from './UnstyledIconButtonRoot';
 import UnstyledIconButtonSpinerComponent from './UnstyledIconButtonSpinner';
 
-const UnstyledIconButtonComponent = createButton({
-  Root: UnstyledIconButtonRootComponent,
-  Icon: UnstyledIconButtonIconComponent,
-  Group: () => null,
-  Text: () => null,
-  Spinner: UnstyledIconButtonSpinerComponent,
-});
-
-const UnstyledIconButtonSpinner = UnstyledIconButtonComponent.Spinner;
-const UnstyledIconButtonIcon = UnstyledIconButtonComponent.Icon;
+const UnstyledIconButtonSpinner = UnstyledIconButtonSpinerComponent;
+const UnstyledIconButtonIcon = UnstyledIconButtonIconComponent;
 
 UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
 UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
@@ -43,12 +34,12 @@ const UnstyledIconButton = ({
   const buttonDisabled = isLoading || (disabled ?? groupDisabled);
 
   return (
-    <UnstyledIconButtonComponent
+    <UnstyledIconButtonRootComponent
       {...restProps}
       size={size}
       inverted={inverted}
-      isDisabled={buttonDisabled}
-      isPressed={pressed}
+      disabled={buttonDisabled}
+      pressed={pressed}
       accessibilityRole={accessibilityRole}
       accessible={accessible}
       focusable={focusable}
@@ -60,7 +51,7 @@ const UnstyledIconButton = ({
       ) : (
         <UnstyledIconButtonIcon as={icon} style={iconStyle as ViewStyle} />
       )}
-    </UnstyledIconButtonComponent>
+    </UnstyledIconButtonRootComponent>
   );
 };
 UnstyledIconButton.displayName = 'UnstyledIconButton';

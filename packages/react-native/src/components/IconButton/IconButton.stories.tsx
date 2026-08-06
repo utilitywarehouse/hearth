@@ -92,8 +92,8 @@ export const Playground: Story = {
 
     await userEvent.click(button);
 
-    // Pressing an enabled button fires the `onPress` handler passed through from
-    // the underlying `createButton()` Pressable.
+    // Pressing an enabled button fires the `onPress` handler passed through to
+    // the underlying `Pressable`.
     await expect(args.onPress).toHaveBeenCalledOnce();
   },
 };
