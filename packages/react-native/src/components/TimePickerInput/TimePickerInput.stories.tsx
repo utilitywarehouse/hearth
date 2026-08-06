@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Platform } from 'react-native';
 import { TimePickerInput, View } from '..';
 import { VariantTitle, ViewWrap } from '../../../docs/components';
+import { BottomSheetModalProvider } from '../BottomSheet';
 import type { DateType } from '../DatePicker';
 import { Flex } from '../Flex';
 import { FormField } from '../FormField';
@@ -61,6 +62,13 @@ const meta = {
     autoCloseOnSelect: false,
     placeholder: undefined,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof TimePickerInput>;
 
 export default meta;
