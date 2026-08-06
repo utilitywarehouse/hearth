@@ -1,4 +1,3 @@
-import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
 import { config } from '@utilitywarehouse/hearth-storybook-utils';
 import '@utilitywarehouse/hearth-storybook-utils/styles/diff-highlighting.css';
@@ -163,9 +162,7 @@ const preview = {
 
       return (
         <SafeAreaProvider>
-          <BottomSheetModalProvider>
-            <Story args={{ ...args, darkMode: isDarkMode }} />
-          </BottomSheetModalProvider>
+          <Story args={{ ...args, darkMode: isDarkMode }} />
         </SafeAreaProvider>
       );
     },

@@ -10,6 +10,7 @@ import {
 import { useRef } from 'react';
 import { Platform, View } from 'react-native';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
+import { BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 import { Menu, MenuItem, MenuTrigger } from './';
 import type { MenuMethods } from './Menu.props';
@@ -27,6 +28,13 @@ const meta: Meta<typeof Menu> = {
   args: {
     heading: 'Menu Options',
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 };
 
 export default meta;

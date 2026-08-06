@@ -12,6 +12,13 @@ const meta = {
   component: UnstyledIconButton,
   parameters: {
     layout: 'centered',
+    // Play functions here click a Pressable whose colorScheme/variant is animated by
+    // react-native-unistyles' reanimated-backed color transition, which throws a stray
+    // `UpdatePropsManager` ReanimatedError on web (react-native-reanimated has no web
+    // implementation for that native-only code path). All assertions still pass — see UWDS-4922.
+    test: {
+      dangerouslyIgnoreUnhandledErrors: true,
+    },
   },
   argTypes: {
     size: {

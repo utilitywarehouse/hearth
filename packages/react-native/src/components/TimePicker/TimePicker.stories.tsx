@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { Platform, View } from 'react-native';
 import { DateType, TimePicker } from '.';
 import { ViewWrap } from '../../../docs/components';
-import { BottomSheetModal } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 
 const meta = {
@@ -28,6 +28,13 @@ const meta = {
     use12Hours: false,
     minuteInterval: 1,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof TimePicker>;
 
 export default meta;

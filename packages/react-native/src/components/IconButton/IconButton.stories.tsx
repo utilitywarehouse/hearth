@@ -21,6 +21,14 @@ const meta = {
   component: IconButton,
   parameters: {
     layout: 'centered',
+    // The Playground play function clicks a Pressable whose colorScheme/variant
+    // is animated by react-native-unistyles' reanimated-backed color transition,
+    // which throws a stray `UpdatePropsManager` ReanimatedError on web (react-native-reanimated
+    // has no web implementation for that native-only code path). All assertions still
+    // pass — see UWDS-4922.
+    test: {
+      dangerouslyIgnoreUnhandledErrors: true,
+    },
   },
   argTypes: {
     size: {
