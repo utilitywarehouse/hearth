@@ -1,9 +1,9 @@
 /*
- * elements with aria-disabled="true", or data-disabled and their children,
- * unless the children also have data-disabled, or aria-disabled="true"
+ * elements with aria-disabled="true", or data-disabled="true" and their children,
+ * unless the children also have data-disabled="true", or aria-disabled="true"
  */
-:where([data-disabled], [data-disabled] &, [aria-disabled='true']):not(
-  [data-disabled] [data-disabled],
+:where([data-disabled='true'], [data-disabled='true'] &, [aria-disabled='true']):not(
+  [data-disabled='true'] [data-disabled='true'],
   [aria-disabled='true'] [aria-disabled='true']
 ) {
   opacity: var(--h-opacity-disabled);
