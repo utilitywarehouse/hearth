@@ -7,7 +7,7 @@
 - [Adding Shadows](llms/docs/adding-shadows.md)
   - Using Predefined Shadows
   - Components with Shadow Props
-- [AI Tooling](llms/docs/ai-tooling.md)
+- [AI Toolkit](llms/docs/ai-toolkit.md)
   - Plugin
   - llms.txt and markdown docs
   - Agent Skill

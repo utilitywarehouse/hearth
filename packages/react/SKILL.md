@@ -136,6 +136,8 @@ pairing with someone, ask for it here too.
 
 ## Use layout components
 
+(Source of truth: [`public/llms/docs/layout.md`](public/llms/docs/layout.md))
+
 Use layout components to structure and space content. Do not add margin to
 individual UI elements to achieve spacing — keep spacing decisions at the layout
 level so UI components stay composable.
@@ -296,6 +298,7 @@ no import needed.
 
 Many props accept a `Responsive` object with breakpoint keys. Breakpoints are
 **mobile-first**: a value applies from that breakpoint upward until overridden.
+
 (Source of truth: [`public/llms/docs/responsive-design/breakpoints.md`](public/llms/docs/responsive-design/breakpoints.md))
 
 Breakpoints: `mobile` | `tablet` | `desktop` | `wide`
