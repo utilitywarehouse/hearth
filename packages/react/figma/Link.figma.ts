@@ -19,4 +19,5 @@ export default {
   example: figma.code`<Link${figma.helpers.react.renderProp('inverted', inverted)} href="#">${figma.helpers.react.renderChildren(iconLeft)}${figma.helpers.react.renderChildren(children)}${figma.helpers.react.renderChildren(iconRight)}</Link>`,
   imports: ['import { Link } from "@utilitywarehouse/hearth-react"'],
   id: 'link',
+  metadata: { nestable: true },
 };
