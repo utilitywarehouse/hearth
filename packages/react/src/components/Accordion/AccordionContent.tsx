@@ -1,13 +1,13 @@
 'use client';
 
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { warn } from '../../helpers/logger';
 import type { AccordionContentProps } from './AccordionContent.props';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { BodyText } from '../BodyText/BodyText';
 import type { ComponentRef } from 'react';
-import { forwardRef, useLayoutEffect, useRef } from 'react';
-import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'AccordionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -15,101 +15,24 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type AccordionContentElement = ComponentRef<'div'>;
 
 export const AccordionContent = forwardRef<AccordionContentElement, AccordionContentProps>(
-  ({ className, children, forceMount, ...props }, ref) => {
-    const internalRef = useRef<AccordionContentElement>(null);
-    const mergedRef = useMergedRefs(internalRef, ref);
-
-    useLayoutEffect(() => {
-      const node = internalRef.current;
-      if (!node || !forceMount) return;
-
-      node.hidden = node.dataset.state !== 'open';
-
-      let pendingCleanup: (() => void) | undefined;
-
-      const observer = new MutationObserver(() => {
-        pendingCleanup?.();
-        pendingCleanup = undefined;
-
-        if (node.dataset.state === 'open') {
-          node.hidden = false;
-        } else {
-          // The h-slide-up keyframes are only defined inside
-          // @media (prefers-reduced-motion: no-preference) (see Accordion.css).
-          // When reduced motion is preferred the animation never runs, so
-          // animationend never fires — hide immediately instead of waiting.
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            node.hidden = true;
-            return;
-          }
-
-          // When forceMount is set, Radix's layout effect measures the element while it's
-          // hidden (display:none), so getBoundingClientRect() returns 0. This corrupts
-          // --radix-accordion-content-height, causing the h-slide-up animation to have
-          // no valid `from` height. This observer fires after layout effects but before
-          // paint, so we can re-measure the real height, correct the property, and restart
-          // the animation before the first frame renders.
-          const h = node.getBoundingClientRect().height;
-          if (h > 0) {
-            node.style.setProperty('--radix-accordion-content-height', `${h}px`);
-            // Cancel and restart the animation so it picks up the corrected property.
-            // The forced reflow between 'none' and '' commits the cancelled state before
-            // the browser starts the fresh animation.
-            node.style.animationName = 'none';
-            void node.offsetHeight;
-            node.style.animationName = '';
-          }
-
-          // Derive the fallback timeout from the computed animation duration so it
-          // stays in sync if the CSS duration ever changes, rather than hardcoding it.
-          const durationStr = getComputedStyle(node).animationDuration;
-          const durationMs = durationStr.endsWith('ms')
-            ? parseFloat(durationStr)
-            : parseFloat(durationStr) * 1000;
-          const fallbackMs = Number.isFinite(durationMs) && durationMs > 0 ? durationMs + 50 : 250;
-
-          // eslint-disable-next-line prefer-const
-          let timer: ReturnType<typeof setTimeout>;
-          const onAnimationEnd = (e: AnimationEvent) => {
-            if (e.target !== node) return;
-            clearTimeout(timer);
-            node.removeEventListener('animationend', onAnimationEnd);
-            node.hidden = true;
-          };
-
-          node.addEventListener('animationend', onAnimationEnd);
-          timer = setTimeout(() => {
-            node.removeEventListener('animationend', onAnimationEnd);
-            node.hidden = true;
-          }, fallbackMs);
-
-          pendingCleanup = () => {
-            clearTimeout(timer);
-            node.removeEventListener('animationend', onAnimationEnd);
-          };
-        }
-      });
-
-      observer.observe(node, { attributes: true, attributeFilter: ['data-state'] });
-
-      return () => {
-        observer.disconnect();
-        pendingCleanup?.();
-        node.hidden = false;
-      };
-    }, [forceMount]);
+  ({ className, children, keepMounted, forceMount, ...props }, ref) => {
+    warn(
+      forceMount !== undefined,
+      'AccordionContent: `forceMount` is deprecated. Use `keepMounted` instead.'
+    );
+    const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
 
     return (
-      <AccordionPrimitive.Content
-        ref={mergedRef}
+      <AccordionPrimitive.Panel
+        ref={ref}
         className={cn(componentClassName, className)}
-        forceMount={forceMount}
+        keepMounted={resolvedKeepMounted}
         {...props}
       >
         <BodyText as="div" className={`${componentClassName}Text`}>
           {children}
         </BodyText>
-      </AccordionPrimitive.Content>
+      </AccordionPrimitive.Panel>
     );
   }
 );
