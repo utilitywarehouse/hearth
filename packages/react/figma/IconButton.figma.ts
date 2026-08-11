@@ -23,8 +23,8 @@ const size = instance.getEnum('Size', {
   'SM-32': 'sm',
 });
 const inverted = instance.getEnum('Inverted?', {
-  'true': true,
-  'False': false,
+  true: true,
+  False: false,
 });
 const state = instance.getEnum('State', {
   Default: 'default',

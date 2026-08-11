@@ -15,9 +15,10 @@ const validationStatus = instance.getEnum('State', {
 });
 
 const validationTextInstance = instance.findInstance('Validation Text');
-const validationText = validationTextInstance && validationTextInstance.type !== 'ERROR'
-  ? validationTextInstance.getString('Text')
-  : undefined;
+const validationText =
+  validationTextInstance && validationTextInstance.type !== 'ERROR'
+    ? validationTextInstance.getString('Text')
+    : undefined;
 
 // Trailing content contains a Link component. Link's Code Connect file is still the
 // legacy .figma.tsx format (UWDS-4757), so it can't be resolved via executeTemplate()

@@ -20,8 +20,6 @@ export default {
   <TabsList>${tabs.flat()}</TabsList>
   <TabContent value="tab-1">{/* content */}</TabContent>
 </Tabs>`,
-  imports: [
-    'import { Tabs, TabsList, Tab, TabContent } from "@utilitywarehouse/hearth-react"',
-  ],
+  imports: ['import { Tabs, TabsList, Tab, TabContent } from "@utilitywarehouse/hearth-react"'],
   id: 'tabs',
 };

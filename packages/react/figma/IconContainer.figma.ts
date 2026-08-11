@@ -5,12 +5,8 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const icon20 = instance
-  .getInstanceSwap('Icon-20')
-  ?.executeTemplate().example;
-const icon24 = instance
-  .getInstanceSwap('Icon-24')
-  ?.executeTemplate().example;
+const icon20 = instance.getInstanceSwap('Icon-20')?.executeTemplate().example;
+const icon24 = instance.getInstanceSwap('Icon-24')?.executeTemplate().example;
 const size = instance.getEnum('Size', {
   'MD-48': 'md',
   'SM-32': 'sm',

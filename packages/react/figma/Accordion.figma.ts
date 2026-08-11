@@ -9,7 +9,9 @@ const sectionHeaderInstance = showSectionHeader
   ? instance.findInstance('Section Header')
   : undefined;
 const sectionHeader =
-  sectionHeaderInstance && sectionHeaderInstance.type !== 'ERROR' ? sectionHeaderInstance : undefined;
+  sectionHeaderInstance && sectionHeaderInstance.type !== 'ERROR'
+    ? sectionHeaderInstance
+    : undefined;
 
 const heading = sectionHeader?.getString('Heading');
 const helperText = sectionHeader?.getBoolean('Helper text?')

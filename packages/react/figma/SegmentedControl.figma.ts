@@ -10,9 +10,12 @@ const size = instance.getEnum('Size', {
 });
 
 const optionLayers = instance.findLayers(n => n.type === 'INSTANCE');
-const option0 = optionLayers[0]?.type === 'INSTANCE' ? optionLayers[0].executeTemplate().example : undefined;
-const option1 = optionLayers[1]?.type === 'INSTANCE' ? optionLayers[1].executeTemplate().example : undefined;
-const option2 = optionLayers[2]?.type === 'INSTANCE' ? optionLayers[2].executeTemplate().example : undefined;
+const option0 =
+  optionLayers[0]?.type === 'INSTANCE' ? optionLayers[0].executeTemplate().example : undefined;
+const option1 =
+  optionLayers[1]?.type === 'INSTANCE' ? optionLayers[1].executeTemplate().example : undefined;
+const option2 =
+  optionLayers[2]?.type === 'INSTANCE' ? optionLayers[2].executeTemplate().example : undefined;
 
 export default {
   example: figma.code`<SegmentedControl size="${size}" defaultValue={[/* first option value */]}>

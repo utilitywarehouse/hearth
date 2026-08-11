@@ -12,11 +12,13 @@ const icon = instance.getBoolean('Icon?', {
 const showDismissButton = instance.getBoolean('Dismiss?');
 const showLink = instance.getBoolean('Link?');
 const linkInstance = showLink ? instance.findInstance('Link') : undefined;
-const linkChild = linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.executeTemplate().example : undefined;
+const linkChild =
+  linkInstance && linkInstance.type !== 'ERROR'
+    ? linkInstance.executeTemplate().example
+    : undefined;
 
 export default {
   example: figma.code`<Toast${figma.helpers.react.renderProp('description', description)}${icon ? figma.code` icon={${icon}}` : ''}${figma.helpers.react.renderProp('showDismissButton', showDismissButton)}>${figma.helpers.react.renderChildren(linkChild)}</Toast>`,
   imports: ['import { Toast } from "@utilitywarehouse/hearth-react"'],
   id: 'toast',
 };
-

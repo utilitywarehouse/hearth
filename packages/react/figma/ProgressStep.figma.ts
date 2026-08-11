@@ -17,4 +17,3 @@ export default {
   id: 'progress-step',
   metadata: { nestable: true },
 };
-

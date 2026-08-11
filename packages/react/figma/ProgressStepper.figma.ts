@@ -16,4 +16,3 @@ export default {
   imports: ['import { ProgressStepper } from "@utilitywarehouse/hearth-react"'],
   id: 'progress-stepper',
 };
-

@@ -17,11 +17,11 @@ const validationStatus = instance.getEnum('State', {
   Default: undefined,
   Invalid: 'invalid',
 });
-const validationText = validationStatus === 'invalid' ? instance.getString('Validation') : undefined;
+const validationText =
+  validationStatus === 'invalid' ? instance.getString('Validation') : undefined;
 
 export default {
   example: figma.code`<VerificationInput${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp('labelVariant', labelVariant)}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)}/>`,
   imports: ['import { VerificationInput } from "@utilitywarehouse/hearth-react"'],
   id: 'verification-input',
 };
-

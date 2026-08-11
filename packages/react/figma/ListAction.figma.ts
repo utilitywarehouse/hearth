@@ -13,9 +13,7 @@ export default {
 <ListItem>
   <ListActionButton>${figma.helpers.react.renderChildren(children)}</ListActionButton>
 </ListItem>`,
-  imports: [
-    'import { ListItem, ListActionButton } from "@utilitywarehouse/hearth-react"',
-  ],
+  imports: ['import { ListItem, ListActionButton } from "@utilitywarehouse/hearth-react"'],
   id: 'list-action-button',
   metadata: { nestable: true },
 };

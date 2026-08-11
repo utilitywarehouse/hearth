@@ -27,13 +27,10 @@ const readOnly = variant === 'readonly';
 export default {
   example: figma.code`<DatePicker${figma.helpers.react.renderProp(
     'label',
-    label,
-  )}${figma.helpers.react.renderProp(
-    'helperText',
-    helperText,
-  )}${figma.helpers.react.renderProp(
+    label
+  )}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp(
     'validationText',
-    validationText,
+    validationText
   )}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${
     disabled ? figma.code` disabled` : ''
   }${readOnly ? figma.code` readOnly` : ''} />`,

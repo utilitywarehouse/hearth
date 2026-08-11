@@ -6,8 +6,8 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const condensed = instance.getEnum('Condensed?', {
-  'False': false,
-  'True': true,
+  False: false,
+  True: true,
 });
 
 const hideSkipButtons = instance.getBoolean('Skip?', {

@@ -17,7 +17,9 @@ const image = imageSlot?.connectedInstances.map(item => item.executeTemplate().e
 const hasBadge = instance.getBoolean('Badge?');
 const badgeInstance = hasBadge ? instance.findInstance('Badge') : undefined;
 const badge =
-  badgeInstance && badgeInstance.type !== 'ERROR' ? badgeInstance.executeTemplate().example : undefined;
+  badgeInstance && badgeInstance.type !== 'ERROR'
+    ? badgeInstance.executeTemplate().example
+    : undefined;
 
 export default {
   id: 'radio-tile',

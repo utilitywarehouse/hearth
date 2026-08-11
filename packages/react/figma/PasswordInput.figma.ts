@@ -23,9 +23,7 @@ const validationText = validationStatus ? instance.getString('Validation') : und
 export default {
   example: figma.code`<PasswordInput${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp('labelVariant', labelVariant)}${figma.helpers.react.renderProp('helperText', helperText)}${
     validationStatus ? figma.code` validationStatus="${validationStatus}"` : ''
-  }${
-    validationText ? figma.code` validationText="${validationText}"` : ''
-  } />`,
+  }${validationText ? figma.code` validationText="${validationText}"` : ''} />`,
   imports: ['import { PasswordInput } from "@utilitywarehouse/hearth-react"'],
   id: 'password-input',
 };

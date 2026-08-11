@@ -22,7 +22,7 @@ const fullScreen = instance.getBoolean('Full screen?');
 // prop cannot be automatically generated from the Figma instance
 const hasCustomContent = instance.getBoolean('Custom content?');
 const children = hasCustomContent
-  ? instance.getSlot('Slot')?.connectedInstances.map(i => i.executeTemplate().example) ?? []
+  ? (instance.getSlot('Slot')?.connectedInstances.map(i => i.executeTemplate().example) ?? [])
   : undefined;
 
 export default {

@@ -21,9 +21,7 @@ const colorScheme = instance.getEnum('Color Scheme', {
 export default {
   example: figma.code`<MenuItem${figma.helpers.react.renderProp('colorScheme', colorScheme)}>${
     iconLeft ? iconLeft : ''
-  }${figma.helpers.react.renderChildren(text)}${
-    iconRight ? iconRight : ''
-  }</MenuItem>`,
+  }${figma.helpers.react.renderChildren(text)}${iconRight ? iconRight : ''}</MenuItem>`,
   imports: ['import { MenuItem } from "@utilitywarehouse/hearth-react"'],
   id: 'menu-item',
   metadata: { nestable: true },

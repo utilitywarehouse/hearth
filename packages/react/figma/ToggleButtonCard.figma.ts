@@ -10,7 +10,8 @@ const label =
     ? toggleButtonInstance.getString('Label')
     : undefined;
 
-const content = instance.getSlot('Content')?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
+const content =
+  instance.getSlot('Content')?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
 
 export default {
   example: figma.code`<ToggleButtonCard${figma.helpers.react.renderProp('label', label)}>${content.flat()}</ToggleButtonCard>`,

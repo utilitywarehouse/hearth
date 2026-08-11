@@ -14,9 +14,7 @@ const validationStatus = instance.getEnum('Variant', {
   Invalid: 'invalid',
   Loading: undefined,
 });
-const validationText = validationStatus
-  ? instance.getString('Validation')
-  : undefined;
+const validationText = validationStatus ? instance.getString('Validation') : undefined;
 const loading = instance.getEnum('Variant', {
   Default: false,
   Invalid: false,

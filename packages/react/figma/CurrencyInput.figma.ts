@@ -13,9 +13,7 @@ const validationStatus = instance.getEnum('State', {
   Default: undefined,
   Invalid: 'invalid',
 });
-const validationText = validationStatus
-  ? instance.getString('Validation')
-  : undefined;
+const validationText = validationStatus ? instance.getString('Validation') : undefined;
 const labelVariant = instance.getEnum('Label variant', {
   Body: 'body',
   Heading: 'heading',

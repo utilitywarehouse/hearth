@@ -16,4 +16,3 @@ export default {
   imports: ['import { ProgressBar } from "@utilitywarehouse/hearth-react"'],
   id: 'progress-bar-linear',
 };
-

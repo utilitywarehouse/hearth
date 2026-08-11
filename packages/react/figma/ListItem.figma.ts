@@ -15,30 +15,38 @@ const helperText = instance.getBoolean('Helper text?')
 
 const hasBadge = instance.getBoolean('Badge?');
 const badgeInstance = hasBadge ? instance.findInstance('Badge') : undefined;
-const badge = badgeInstance && badgeInstance.type !== 'ERROR'
-  ? badgeInstance.executeTemplate().example
-  : undefined;
+const badge =
+  badgeInstance && badgeInstance.type !== 'ERROR'
+    ? badgeInstance.executeTemplate().example
+    : undefined;
 
 const hasLeadingContent = instance.getBoolean('Leading content?');
-const leadingContentInstance = hasLeadingContent ? instance.findInstance('Leading content') : undefined;
-const leadingContent = leadingContentInstance && leadingContentInstance.type !== 'ERROR'
-  ? leadingContentInstance.getEnum('Variant', {
-      Icon: leadingContentInstance.getInstanceSwap('Icon-24')?.executeTemplate().example,
-    })
+const leadingContentInstance = hasLeadingContent
+  ? instance.findInstance('Leading content')
   : undefined;
+const leadingContent =
+  leadingContentInstance && leadingContentInstance.type !== 'ERROR'
+    ? leadingContentInstance.getEnum('Variant', {
+        Icon: leadingContentInstance.getInstanceSwap('Icon-24')?.executeTemplate().example,
+      })
+    : undefined;
 
 const hasTrailingContent = instance.getBoolean('Trailing Content?');
-const trailingContentInstance = hasTrailingContent ? instance.findInstance('Trailing content') : undefined;
-const trailingContent = trailingContentInstance && trailingContentInstance.type !== 'ERROR'
-  ? trailingContentInstance.getEnum('Variant', {
-      Icon: trailingContentInstance.getInstanceSwap('Icon-20')?.executeTemplate().example,
-    })
+const trailingContentInstance = hasTrailingContent
+  ? instance.findInstance('Trailing content')
   : undefined;
+const trailingContent =
+  trailingContentInstance && trailingContentInstance.type !== 'ERROR'
+    ? trailingContentInstance.getEnum('Variant', {
+        Icon: trailingContentInstance.getInstanceSwap('Icon-20')?.executeTemplate().example,
+      })
+    : undefined;
 
 // Variant=Custom swaps the whole ListItemButton/ListItemContent structure for the item's own
 // "Slot" property - fully custom, design-authored content.
 const customSlot = variant === 'custom' ? instance.getSlot('Slot') : undefined;
-const customContent = customSlot?.connectedInstances.map(item => item.executeTemplate().example) ?? [];
+const customContent =
+  customSlot?.connectedInstances.map(item => item.executeTemplate().example) ?? [];
 
 export default {
   example:
@@ -52,9 +60,7 @@ export default {
           trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''
         } />
 </ListItem>`,
-  imports: [
-    'import { ListItem, ListItemButton } from "@utilitywarehouse/hearth-react"',
-  ],
+  imports: ['import { ListItem, ListItemButton } from "@utilitywarehouse/hearth-react"'],
   id: 'list-item',
   metadata: { nestable: true },
 };

@@ -41,19 +41,16 @@ export default {
   imports: ['import { TextArea } from "@utilitywarehouse/hearth-react"'],
   example: figma.code`<TextArea${figma.helpers.react.renderProp(
     'label',
-    label,
-  )}${figma.helpers.react.renderProp(
-    'labelVariant',
-    labelVariant,
-  )}${figma.helpers.react.renderProp(
+    label
+  )}${figma.helpers.react.renderProp('labelVariant', labelVariant)}${figma.helpers.react.renderProp(
     'helperText',
-    helperText,
+    helperText
   )}${figma.helpers.react.renderProp('value', value)}${figma.helpers.react.renderProp(
     'validationStatus',
-    validationStatus,
+    validationStatus
   )}${figma.helpers.react.renderProp(
     'validationText',
-    validationText,
+    validationText
   )}${figma.helpers.react.renderProp('required', required)}${
     disabled ? figma.code` disabled` : ''
   }${readOnly ? figma.code` readOnly` : ''} />`,
