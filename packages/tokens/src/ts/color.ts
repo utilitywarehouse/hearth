@@ -90,6 +90,8 @@ export const orange = {
 } as const;
 
 export const piggyPink = {
+  '0': '#faf5fa',
+  '100': '#f9eafa',
   '200': '#f9ceff',
   '300': '#f295ff',
   '800': '#8f358f',

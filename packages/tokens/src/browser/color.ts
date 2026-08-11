@@ -78,6 +78,8 @@ export const color = {
     '900': 'var(--h-color-orange-900)',
   },
   piggyPink: {
+    '0': 'var(--h-color-piggy-pink-0)',
+    '100': 'var(--h-color-piggy-pink-100)',
     '200': 'var(--h-color-piggy-pink-200)',
     '300': 'var(--h-color-piggy-pink-300)',
     '800': 'var(--h-color-piggy-pink-800)',
