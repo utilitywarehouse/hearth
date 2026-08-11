@@ -82,6 +82,7 @@ export declare const color: {
     readonly '100': 'var(--h-color-piggy-pink-100)';
     readonly '200': 'var(--h-color-piggy-pink-200)';
     readonly '300': 'var(--h-color-piggy-pink-300)';
+    readonly '400': 'var(--h-color-piggy-pink-400)';
     readonly '800': 'var(--h-color-piggy-pink-800)';
     readonly '900': 'var(--h-color-piggy-pink-900)';
   };
