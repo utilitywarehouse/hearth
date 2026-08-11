@@ -442,8 +442,6 @@ appropriate styles.
 A semantic HTML `button` is rendered by default, however you can change the
 underlying HTML element by using the `asChild` prop.
 
-**NOTE:** Be aware that you cannot currently use `asChild` with the `emphasis` variant.
-
 When `asChild` is set to true, we will not render a default DOM element,
 instead cloning the child and passing it the props and behaviour required to
 make it functional.
@@ -457,6 +455,10 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
     <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
   </Button>
   <Button asChild loading>
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
+  </Button>
+  <Button asChild variant="emphasis">
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
   </Button>
