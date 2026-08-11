@@ -219,6 +219,12 @@ export const AsLink: Story = {
             <AddMediumIcon />
           </a>
         </IconButton>
+        <IconButton {...args} asChild variant="emphasis" label="add">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+            <AddMediumIcon />
+          </a>
+        </IconButton>
       </Flex>
     );
   },
