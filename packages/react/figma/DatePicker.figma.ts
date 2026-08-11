@@ -5,7 +5,7 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const label = instance.getString('Label');
-const helperText = instance.getBoolean('Helper  text?', {
+const helperText = instance.getBoolean('Helper text?', {
   true: instance.getString('Helper text'),
   false: undefined,
 });
