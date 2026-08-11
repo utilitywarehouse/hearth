@@ -26,9 +26,10 @@ const required = instance.getBoolean('Optional?', {
 });
 const valueType = instance.getEnum('Value type', { Placeholder: 'placeholder' });
 const placeholder = valueType === 'placeholder' ? instance.getString('Value') : undefined;
+const triggerOnlyOnType = !instance.getBoolean('Icon right?');
 
 export default {
-  example: figma.code`<Combobox${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)}${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('required', required)}${figma.helpers.react.renderProp('placeholder', placeholder)}/>`,
+  example: figma.code`<Combobox${figma.helpers.react.renderProp('label', label)}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)}${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('required', required)}${figma.helpers.react.renderProp('placeholder', placeholder)}${figma.helpers.react.renderProp('triggerOnlyOnType', triggerOnlyOnType)}/>`,
   imports: ['import { Combobox } from "@utilitywarehouse/hearth-react"'],
   id: 'combobox',
   metadata: { nestable: true },
