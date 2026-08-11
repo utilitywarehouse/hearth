@@ -28,7 +28,9 @@ const closable = instance.getBoolean('Close?');
 
 export default {
   example: figma.code`<Alert${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('title', title)}${figma.helpers.react.renderProp('text', text)}${closable ? figma.code` onClose={() => {}}` : ''} ${showChild ? '' : '/'}>${showLink ? figma.code`<AlertLink${figma.helpers.react.renderProp('text', link.text)} />` : ''}${showIconButton ? figma.code`<AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />` : ''}${showChild ? figma.code`</Alert>` : ''}`,
-  imports: ['import { Alert } from "@utilitywarehouse/hearth-react"'],
+  imports: [
+    `import { Alert${showLink ? ', AlertLink' : ''}${showIconButton ? ', AlertIconButton' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'alert',
   metadata: { nestable: true },
 };
