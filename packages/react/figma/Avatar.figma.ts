@@ -8,13 +8,11 @@ const size = instance.getEnum('Size', {
   'SM-32': 'sm',
   'MD-48': 'md',
 });
+const isImageVariant = instance.getEnum('Variant', { Image: true });
 const name = instance.getString('Initials');
-// Variant=Image (with its Image instance-swap) is deliberately unmapped: `src` needs a real
-// image URL string, and the Figma swap only points to a decorative placeholder instance, not a
-// URL - there's no live data to bind to `src`.
 
 export default {
-  example: figma.code`<Avatar${figma.helpers.react.renderProp('size', size)}${figma.helpers.react.renderProp('name', name)} />`,
+  example: figma.code`<Avatar${figma.helpers.react.renderProp('size', size)}${figma.helpers.react.renderProp('name', name)}${isImageVariant ? figma.code`src="https://your-image-url"` : ''} />`,
   imports: ['import { Avatar } from "@utilitywarehouse/hearth-react"'],
   id: 'avatar',
   metadata: { nestable: true },
