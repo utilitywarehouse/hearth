@@ -299,6 +299,14 @@
       }
     },
     "piggy-pink": {
+      "0": {
+        "type": "color",
+        "value": "#faf5fa"
+      },
+      "100": {
+        "type": "color",
+        "value": "#f9eafa"
+      },
       "200": {
         "type": "color",
         "value": "#f9ceff"
