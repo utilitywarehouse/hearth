@@ -14,7 +14,7 @@ const helperText = instance.getBoolean('Helper text?', {
   false: undefined,
 });
 const validationStatus = instance.getEnum('State', {
-  Default: 'valid',
+  Default: undefined,
   Invalid: 'invalid',
 });
 const validationText = instance.getEnum('State', {
