@@ -315,6 +315,10 @@
         "type": "color",
         "value": "#f295ff"
       },
+      "400": {
+        "type": "color",
+        "value": "#ed66ff"
+      },
       "800": {
         "type": "color",
         "value": "#8f358f"

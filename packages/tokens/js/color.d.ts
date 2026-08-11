@@ -84,6 +84,7 @@ export declare const piggyPink: {
   readonly '100': '#f9eafa';
   readonly '200': '#f9ceff';
   readonly '300': '#f295ff';
+  readonly '400': '#ed66ff';
   readonly '800': '#8f358f';
   readonly '900': '#7a1f7e';
 };
@@ -708,6 +709,7 @@ declare const color: {
     readonly '100': '#f9eafa';
     readonly '200': '#f9ceff';
     readonly '300': '#f295ff';
+    readonly '400': '#ed66ff';
     readonly '800': '#8f358f';
     readonly '900': '#7a1f7e';
   };
