@@ -4,6 +4,27 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.31.4
+
+### Patch Changes
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Button` and `IconButton` lost all styling when `asChild` was used with the `emphasis` variant
+
+  Using `asChild` together with `variant="emphasis"` rendered the slotted
+  element with no classes, ARIA attributes, or event handlers at all, leaving it
+  completely unstyled and non-functional.
+
+  **Components affected**:
+  - `Button`
+  - `IconButton`
+
+  **Developer changes**:
+
+  No action required. `asChild` and `variant="emphasis"` can now be combined as
+  expected.
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Emphasis `Button` styles on hover
+
 ## 0.31.3
 
 ### Patch Changes
