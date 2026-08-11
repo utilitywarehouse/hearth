@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.5
+
+### Patch Changes
+
+- [#1511](https://github.com/utilitywarehouse/hearth/pull/1511) [`44c6f7d`](https://github.com/utilitywarehouse/hearth/commit/44c6f7d4f6a9fe8b34d0f27880617e5fc405411e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add back in piggy-pink-0 and piggy-pink-100 tokens
+
 ## 0.31.4
 
 ### Patch Changes
