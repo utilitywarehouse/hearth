@@ -7,7 +7,6 @@ import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { buttonPropDefs } from './Button.props';
 import type { ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
-import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { forwardRef } from 'react';
 
@@ -19,7 +18,16 @@ export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) =>
     props,
     buttonPropDefs
   );
-  const Component = asChild ? Slot.Root : 'button';
+  const content = loading
+    ? getSubtree({ asChild, children }, children => (
+        <div className={`${componentClassName}Loading`}>
+          <div>
+            <Spinner size="xs" currentColor />
+          </div>
+          <span className={`${componentClassName}Hidden`}>{children}</span>
+        </div>
+      ))
+    : children;
   return (
     <ButtonBase
       ref={ref}
@@ -27,21 +35,10 @@ export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) =>
       disabled={disabled || loading}
       aria-label={loading ? 'Loading' : undefined}
       data-testid={componentClassName}
-      asChild
+      asChild={asChild}
       {...buttonProps}
     >
-      <Component>
-        {loading
-          ? getSubtree({ asChild, children }, children => (
-              <div className={`${componentClassName}Loading`}>
-                <div>
-                  <Spinner size="xs" currentColor />
-                </div>
-                <span className={`${componentClassName}Hidden`}>{children}</span>
-              </div>
-            ))
-          : children}
-      </Component>
+      {content}
     </ButtonBase>
   );
 });
