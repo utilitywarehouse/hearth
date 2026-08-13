@@ -10,10 +10,6 @@ export interface BaseModalProps
   hideCloseButton?: boolean;
   fullScreen?: boolean;
   image?: ReactNode;
-  /**
-   * @deprecated Please use loadingHeading and loadingDescription instead
-   */
-  loadingText?: string;
   loadingHeading?: string;
   loadingDescription?: string;
 }

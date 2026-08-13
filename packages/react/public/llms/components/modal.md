@@ -294,9 +294,9 @@ more of the viewport height, and centre aligning the text and actions.
 
 ## Loading
 
-Use the `loading` and `loadingText` props to indicate a loading state within the modal.
+Use the `loading` and `loadingHeading` props to indicate a loading state within the modal.
 
-When `loading` is `true` the `loadingText` is required for accessibility purposes.
+When `loading` is `true` the `loadingHeading` is required for accessibility purposes.
 
 ```tsx
 <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -376,7 +376,6 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `description`          | `string`                                                          | —       |                                                                                                                                                                                           |
 | `hideCloseButton`      | `boolean`                                                         | —       |                                                                                                                                                                                           |
 | `fullScreen`           | `boolean`                                                         | —       |                                                                                                                                                                                           |
-| `loadingText`          | `string`                                                          | —       | @deprecated Please use loadingHeading and loadingDescription instead                                                                                                                      |
 | `loadingHeading`       | `string`                                                          | —       |                                                                                                                                                                                           |
 | `loadingDescription`   | `string`                                                          | —       |                                                                                                                                                                                           |
 | `loading`              | `boolean`                                                         | —       |                                                                                                                                                                                           |
