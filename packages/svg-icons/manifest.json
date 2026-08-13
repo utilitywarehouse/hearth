@@ -261,6 +261,11 @@
       "hash": "702a230d7e8a3c11b22cb6003569fdb5effc8821e7abbaf67c750d42a54b0cd2"
     },
     {
+      "name": "MotorInsuranceSmallIcon",
+      "path": "motor-insurance-small-icon.svg",
+      "hash": "3d8f0c51cd55870854f972dc5ad125831571befe6ae3bd2224c7b574cb544af2"
+    },
+    {
       "name": "OpenSmallIcon",
       "path": "open-small-icon.svg",
       "hash": "a9eb4b43dd4ac4c8e25342bcec21b25b207bc49368c675a1c374e8fdb3f7f8a9"
@@ -789,6 +794,11 @@
       "name": "MoreMediumIcon",
       "path": "more-medium-icon.svg",
       "hash": "de45196520e9f46c4622d9545c5d5a88c9679f7655bf8c1510c3366fce575ce4"
+    },
+    {
+      "name": "MotorInsuranceMediumIcon",
+      "path": "motor-insurance-medium-icon.svg",
+      "hash": "c0951aa5a2d63e1a66a0fbe87ab20cf1f0e758d4a4e4e12ed6f94abad707b5aa"
     },
     {
       "name": "OpenMediumIcon",

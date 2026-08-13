@@ -52,6 +52,7 @@ import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-i
 import MinusSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-small-icon.svg';
 import MobileSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
+import MotorInsuranceSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/motor-insurance-small-icon.svg';
 import OpenSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-small-icon.svg';
 import PhoneSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/phone-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
@@ -158,6 +159,7 @@ import MenuMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/menu-medium-i
 import MobileMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-medium-icon.svg';
 import MoonMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-medium-icon.svg';
 import MoreMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-medium-icon.svg';
+import MotorInsuranceMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/motor-insurance-medium-icon.svg';
 import OpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-medium-icon.svg';
 import PaymentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/payment-medium-icon.svg';
 import PlaceholderMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-medium-icon.svg';
@@ -249,6 +251,7 @@ export const svgIcons = [
   MinusSmallIcon,
   MobileSmallIcon,
   MoreSmallIcon,
+  MotorInsuranceSmallIcon,
   OpenSmallIcon,
   PhoneSmallIcon,
   PlaceholderSmallIcon,
@@ -355,6 +358,7 @@ export const svgIcons = [
   MobileMediumIcon,
   MoonMediumIcon,
   MoreMediumIcon,
+  MotorInsuranceMediumIcon,
   OpenMediumIcon,
   PaymentMediumIcon,
   PlaceholderMediumIcon,
