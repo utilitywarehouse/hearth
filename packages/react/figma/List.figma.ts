@@ -8,15 +8,11 @@ const showSectionHeader = instance.getBoolean('Section header?');
 const sectionHeaderInstance = showSectionHeader
   ? instance.findInstance('Section Header')
   : undefined;
-const sectionHeader =
+const sectionHeaderTemplate =
   sectionHeaderInstance && sectionHeaderInstance.type !== 'ERROR'
-    ? sectionHeaderInstance
+    ? sectionHeaderInstance.executeTemplate()
     : undefined;
-
-const heading = sectionHeader?.getString('Heading');
-const helperText = sectionHeader?.getBoolean('Helper text?')
-  ? sectionHeader.getString('Helper text')
-  : undefined;
+const sectionHeader = sectionHeaderTemplate?.metadata.props;
 
 const variant = instance.getEnum('Container', {
   'Emphasis Warm White': 'emphasis',
@@ -38,7 +34,13 @@ const itemsSlot = instance.getSlot('List Container');
 const items = itemsSlot?.connectedInstances.map(item => item.executeTemplate().example) ?? [];
 
 export default {
-  example: figma.code`<List${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${figma.helpers.react.renderProp('variant', variant)}${figma.helpers.react.renderProp('colorScheme', colorScheme)}>${items.flat()}</List>`,
-  imports: ['import { List } from "@utilitywarehouse/hearth-react"'],
+  example: figma.code`<List${figma.helpers.react.renderProp('heading', sectionHeader?.heading)}${figma.helpers.react.renderProp('helperText', sectionHeader?.helperText)}${
+    sectionHeader?.trailingContent
+      ? figma.code` trailingContent={${sectionHeader.trailingContent}}`
+      : ''
+  }${figma.helpers.react.renderProp('validationStatus', sectionHeader?.validationStatus)}${figma.helpers.react.renderProp('validationText', sectionHeader?.validationText)}${figma.helpers.react.renderProp('variant', variant)}${figma.helpers.react.renderProp('colorScheme', colorScheme)}>${items.flat()}</List>`,
+  imports: [
+    `import { List${sectionHeaderTemplate?.metadata.needsLinkImport ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'list',
 };

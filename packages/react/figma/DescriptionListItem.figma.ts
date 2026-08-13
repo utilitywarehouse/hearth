@@ -20,13 +20,24 @@ const validationText =
     ? validationTextInstance.getString('Text')
     : undefined;
 
-// Trailing content contains a Link component. Link's Code Connect file is still the
-// legacy .figma.tsx format (UWDS-4757), so it can't be resolved via executeTemplate()
-// yet — omitting for now.
+const showTrailingContent = instance.getBoolean('Trailing content?');
+const trailingContentInstance = showTrailingContent
+  ? instance.findInstance('Trailing content')
+  : undefined;
+const linkInstance =
+  trailingContentInstance && trailingContentInstance.type !== 'ERROR'
+    ? trailingContentInstance.findInstance('Link')
+    : undefined;
+const linkText =
+  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
 
 export default {
-  example: figma.code`<DescriptionListItem${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)} />`,
-  imports: ['import { DescriptionListItem } from "@utilitywarehouse/hearth-react"'],
+  example: figma.code`<DescriptionListItem${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${
+    showTrailingContent ? figma.code` link={<Link href="#">${linkText}</Link>}` : ''
+  }${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)} />`,
+  imports: [
+    `import { DescriptionListItem${showTrailingContent ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'description-list-item',
   metadata: { nestable: true },
 };

@@ -8,19 +8,11 @@ const showSectionHeader = instance.getBoolean('Section header?');
 const sectionHeaderInstance = showSectionHeader
   ? instance.findInstance('Section Header')
   : undefined;
-const sectionHeader =
+const sectionHeaderTemplate =
   sectionHeaderInstance && sectionHeaderInstance.type !== 'ERROR'
-    ? sectionHeaderInstance
+    ? sectionHeaderInstance.executeTemplate()
     : undefined;
-
-const heading = sectionHeader?.getString('Heading');
-const helperText = sectionHeader?.getBoolean('Helper text?')
-  ? sectionHeader.getString('Helper text')
-  : undefined;
-// Badge is a Figma-only decorative element with no React prop equivalent.
-const trailingContent = sectionHeader?.getBoolean('Link?')
-  ? sectionHeader.findInstance('Link')?.executeTemplate().example
-  : undefined;
+const sectionHeader = sectionHeaderTemplate?.metadata.props;
 
 const itemLayers = instance.findLayers(n => n.type === 'INSTANCE' && n.name === 'Item');
 const children = itemLayers
@@ -28,10 +20,14 @@ const children = itemLayers
   .filter(Boolean);
 
 export default {
-  example: figma.code`<DescriptionList${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${
-    trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''
-  }>${children.flat()}</DescriptionList>`,
-  imports: ['import { DescriptionList } from "@utilitywarehouse/hearth-react"'],
+  example: figma.code`<DescriptionList${figma.helpers.react.renderProp('heading', sectionHeader?.heading)}${figma.helpers.react.renderProp('helperText', sectionHeader?.helperText)}${
+    sectionHeader?.trailingContent
+      ? figma.code` trailingContent={${sectionHeader.trailingContent}}`
+      : ''
+  }${figma.helpers.react.renderProp('validationStatus', sectionHeader?.validationStatus)}${figma.helpers.react.renderProp('validationText', sectionHeader?.validationText)}>${children.flat()}</DescriptionList>`,
+  imports: [
+    `import { DescriptionList${sectionHeaderTemplate?.metadata.needsLinkImport ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'description-list',
   metadata: { nestable: true },
 };

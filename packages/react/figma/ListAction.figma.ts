@@ -9,8 +9,8 @@ const children = instance.getString('Action heading');
 export default {
   // Per List.docs.mdx and the List.stories.tsx ListActions story, ListActionButton/ListActionLink
   // must be wrapped in a ListItem.
-  example: figma.code`{/* ListActionLink is also available for links. */}
-<ListItem>
+  example: figma.code`<ListItem>
+  {/* ListActionLink is also available for links. */}
   <ListActionButton>${figma.helpers.react.renderChildren(children)}</ListActionButton>
 </ListItem>`,
   imports: ['import { ListItem, ListActionButton } from "@utilitywarehouse/hearth-react"'],

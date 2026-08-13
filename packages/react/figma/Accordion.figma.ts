@@ -17,11 +17,19 @@ const heading = sectionHeader?.getString('Heading');
 const helperText = sectionHeader?.getBoolean('Helper text?')
   ? sectionHeader.getString('Helper text')
   : undefined;
-// Section Header's trailing slot can show a Badge or a Link.
+
+// Section Header's trailing slot can show a Badge or a Link. Badge resolves via
+// executeTemplate(), but Link's Code Connect file is still legacy .figma.tsx
+// (UWDS-4757), so its example is hardcoded instead.
+const linkInstance = sectionHeader?.getBoolean('Link?')
+  ? sectionHeader.findInstance('Link')
+  : undefined;
+const linkText =
+  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
 const trailingContent = sectionHeader?.getBoolean('Badge?')
   ? sectionHeader.findInstance('Badge')?.executeTemplate().example
-  : sectionHeader?.getBoolean('Link?')
-    ? sectionHeader.findInstance('Link')?.executeTemplate().example
+  : linkInstance
+    ? figma.code`<Link href="#">${linkText}</Link>`
     : undefined;
 
 const itemsSlot = instance.getSlot('Accordion items');
@@ -31,6 +39,8 @@ export default {
   example: figma.code`<Accordion type="single"${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${
     trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''
   }>${items.flat()}</Accordion>`,
-  imports: ['import { Accordion } from "@utilitywarehouse/hearth-react"'],
+  imports: [
+    `import { Accordion${linkInstance ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'accordion',
 };

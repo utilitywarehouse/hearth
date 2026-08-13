@@ -13,8 +13,6 @@ const badge = instance.getBoolean('Badge?', {
   true: instance.findInstance('Badge')?.executeTemplate().example,
   false: undefined,
 });
-// Trailing content's Link/Button Code Connect files are still legacy .figma.tsx format (UWDS-4757),
-// so they can't be resolved via executeTemplate() yet.
 const validationStatus = instance.getEnum('State', {
   Invalid: 'invalid',
 });
@@ -25,8 +23,46 @@ const validationText =
     ? validationTextInstance.getString('Text')
     : undefined;
 
+const showTrailingContent = instance.getBoolean('Trailing content?');
+const trailingContentInstance = showTrailingContent
+  ? instance.findInstance('Trailing content')
+  : undefined;
+
+const trailingContentType =
+  trailingContentInstance && trailingContentInstance.type !== 'ERROR'
+    ? trailingContentInstance.getEnum('Variant', {
+        Button: 'button',
+        Link: 'link',
+      })
+    : undefined;
+
+const linkInstance =
+  trailingContentInstance && trailingContentInstance.type !== 'ERROR'
+    ? trailingContentInstance.findInstance('Link')
+    : undefined;
+const linkText =
+  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
+
+const trailingContent = Boolean(badge)
+  ? badge
+  : showTrailingContent
+    ? trailingContentType === 'link'
+      ? figma.code`<Link href="#">${linkText}</Link>`
+      : trailingContentType === 'button'
+        ? figma.code`<Link href="#" asChild><button>${linkText}</button></Link>`
+        : undefined
+    : undefined;
+
+const needsLinkImport = !Boolean(badge) && showTrailingContent;
+
 export default {
-  example: figma.code`<SectionHeader${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${badge ? figma.code` trailingContent={${badge}}` : ''}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)} />`,
-  imports: ['import { SectionHeader } from "@utilitywarehouse/hearth-react"'],
+  example: figma.code`<SectionHeader${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''}${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)} />`,
+  imports: [
+    `import { SectionHeader${needsLinkImport ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
+  ],
   id: 'section-header',
+  metadata: {
+    props: { heading, helperText, trailingContent, validationStatus, validationText },
+    needsLinkImport,
+  },
 };
