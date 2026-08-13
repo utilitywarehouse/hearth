@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.9.2
+
+### Patch Changes
+
+- [#1521](https://github.com/utilitywarehouse/hearth/pull/1521) [`bc71db3`](https://github.com/utilitywarehouse/hearth/commit/bc71db34d77d3b2b0883a16449a7fd98ea8c3ba3) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - AiGeneratedSmallIcon
+  - AiGeneratedMediumIcon
+
+  ## CHANGED ICONS
+  - LaunchSmallIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.9.1
 
 ### Patch Changes
