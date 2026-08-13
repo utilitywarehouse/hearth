@@ -1,6 +1,7 @@
 /* Don't edit this file directly, it was auto generated */
 export const icons = [
   { reactName: 'AddSmallIcon', svgName: 'add-small-icon.svg' },
+  { reactName: 'AiGeneratedSmallIcon', svgName: 'ai-generated-small-icon.svg' },
   { reactName: 'AttachSmallIcon', svgName: 'attach-small-icon.svg' },
   { reactName: 'BasketSmallIcon', svgName: 'basket-small-icon.svg' },
   { reactName: 'BellSmallIcon', svgName: 'bell-small-icon.svg' },
@@ -83,6 +84,7 @@ export const icons = [
   { reactName: 'WhatsAppSmallIcon', svgName: 'whats-app-small-icon.svg' },
   { reactName: 'WithdrawSmallIcon', svgName: 'withdraw-small-icon.svg' },
   { reactName: 'AddMediumIcon', svgName: 'add-medium-icon.svg' },
+  { reactName: 'AiGeneratedMediumIcon', svgName: 'ai-generated-medium-icon.svg' },
   { reactName: 'AttachMediumIcon', svgName: 'attach-medium-icon.svg' },
   { reactName: 'BankMediumIcon', svgName: 'bank-medium-icon.svg' },
   { reactName: 'BasketMediumIcon', svgName: 'basket-medium-icon.svg' },

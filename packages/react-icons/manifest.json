@@ -2,6 +2,8 @@
   "reactIcons": [
     "AddMediumIcon",
     "AddSmallIcon",
+    "AiGeneratedMediumIcon",
+    "AiGeneratedSmallIcon",
     "AttachMediumIcon",
     "AttachSmallIcon",
     "BankMediumIcon",

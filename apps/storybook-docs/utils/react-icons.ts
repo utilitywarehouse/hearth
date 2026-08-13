@@ -1,6 +1,8 @@
 /* Don't edit this file directly, it was auto generated */
 import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddMediumIcon';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddSmallIcon';
+import { AiGeneratedMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AiGeneratedMediumIcon';
+import { AiGeneratedSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AiGeneratedSmallIcon';
 import { AttachMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachMediumIcon';
 import { AttachSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachSmallIcon';
 import { BankMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BankMediumIcon';
@@ -200,6 +202,8 @@ import { YoutubeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Yout
 export const reactIcons = [
   AddMediumIcon,
   AddSmallIcon,
+  AiGeneratedMediumIcon,
+  AiGeneratedSmallIcon,
   AttachMediumIcon,
   AttachSmallIcon,
   BankMediumIcon,

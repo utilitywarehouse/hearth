@@ -6,6 +6,11 @@
       "hash": "0da543b5a33bb32a5669ea8cd777e2264f854b02690c231e44d845de327781a5"
     },
     {
+      "name": "AiGeneratedSmallIcon",
+      "path": "ai-generated-small-icon.svg",
+      "hash": "525bb6e41309a7055e64486fc6243858502019c4041699476c72c6f03de0d55b"
+    },
+    {
       "name": "AttachSmallIcon",
       "path": "attach-small-icon.svg",
       "hash": "66351a458536c7d8579dcb922088cec43bb861cccc1c9116b0b129dd6fd90269"
@@ -203,7 +208,7 @@
     {
       "name": "LaunchSmallIcon",
       "path": "launch-small-icon.svg",
-      "hash": "a950d81ec0b256d606370066d949a251eacea659d7871c2b57913415646dc737"
+      "hash": "2751e2dacc3aef83e3d94a1d2c903fd324580e2b3e9c64ae252e163707d8347f"
     },
     {
       "name": "ListSmallIcon",
@@ -414,6 +419,11 @@
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg",
       "hash": "6640e98c63d7a0639b44c69473e3f49ac527fa569349f5e0cd54c49cacd281f5"
+    },
+    {
+      "name": "AiGeneratedMediumIcon",
+      "path": "ai-generated-medium-icon.svg",
+      "hash": "d21842985d3ddaa5b7443f3bdb7dafa18aa379fd7333be43ad2994e3acbce546"
     },
     {
       "name": "AttachMediumIcon",
