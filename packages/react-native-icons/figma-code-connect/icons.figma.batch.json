@@ -366,6 +366,13 @@
       "source": "../lib/MoreSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:134&m=dev",
+      "id": "motor-insurance-small-icon",
+      "name": "MotorInsuranceSmallIcon",
+      "component": "MotorInsuranceSmallIcon",
+      "source": "../lib/MotorInsuranceSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2015:19&m=dev",
       "id": "open-small-icon",
       "name": "OpenSmallIcon",
@@ -1106,6 +1113,13 @@
       "name": "MoreMediumIcon",
       "component": "MoreMediumIcon",
       "source": "../lib/MoreMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:151&m=dev",
+      "id": "motor-insurance-medium-icon",
+      "name": "MotorInsuranceMediumIcon",
+      "component": "MotorInsuranceMediumIcon",
+      "source": "../lib/MotorInsuranceMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:688&m=dev",

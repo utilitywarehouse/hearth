@@ -129,6 +129,8 @@ import { MoonLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonLarg
 import { MoonMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonMediumIcon';
 import { MoreMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreMediumIcon';
 import { MoreSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreSmallIcon';
+import { MotorInsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MotorInsuranceMediumIcon';
+import { MotorInsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MotorInsuranceSmallIcon';
 import { OpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenMediumIcon';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenSmallIcon';
 import { PaymentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PaymentMediumIcon';
@@ -326,6 +328,8 @@ export const reactIcons = [
   MoonMediumIcon,
   MoreMediumIcon,
   MoreSmallIcon,
+  MotorInsuranceMediumIcon,
+  MotorInsuranceSmallIcon,
   OpenMediumIcon,
   OpenSmallIcon,
   PaymentMediumIcon,

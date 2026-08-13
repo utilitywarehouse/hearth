@@ -208,6 +208,10 @@
     "name": "MoreSmallIcon"
   },
   {
+    "id": "2736:134",
+    "name": "MotorInsuranceSmallIcon"
+  },
+  {
     "id": "2015:19",
     "name": "OpenSmallIcon"
   },
@@ -630,6 +634,10 @@
   {
     "id": "6:633",
     "name": "MoreMediumIcon"
+  },
+  {
+    "id": "2736:151",
+    "name": "MotorInsuranceMediumIcon"
   },
   {
     "id": "6:688",
