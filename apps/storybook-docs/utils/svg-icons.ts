@@ -1,6 +1,7 @@
 /* Don't edit this file directly, it was auto generated */
 // @ts-nocheck
 import AddSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-small-icon.svg';
+import AiGeneratedSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/ai-generated-small-icon.svg';
 import AttachSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/attach-small-icon.svg';
 import BasketSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/basket-small-icon.svg';
 import BellSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-small-icon.svg';
@@ -83,6 +84,7 @@ import WarningSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/warning-sma
 import WhatsAppSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/whats-app-small-icon.svg';
 import WithdrawSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/withdraw-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
+import AiGeneratedMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/ai-generated-medium-icon.svg';
 import AttachMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/attach-medium-icon.svg';
 import BankMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/bank-medium-icon.svg';
 import BasketMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/basket-medium-icon.svg';
@@ -200,6 +202,7 @@ import SunLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-large-icon.
 
 export const svgIcons = [
   AddSmallIcon,
+  AiGeneratedSmallIcon,
   AttachSmallIcon,
   BasketSmallIcon,
   BellSmallIcon,
@@ -282,6 +285,7 @@ export const svgIcons = [
   WhatsAppSmallIcon,
   WithdrawSmallIcon,
   AddMediumIcon,
+  AiGeneratedMediumIcon,
   AttachMediumIcon,
   BankMediumIcon,
   BasketMediumIcon,

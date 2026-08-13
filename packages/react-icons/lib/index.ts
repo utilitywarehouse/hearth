@@ -1,5 +1,7 @@
 export { AddMediumIcon } from './AddMediumIcon';
 export { AddSmallIcon } from './AddSmallIcon';
+export { AiGeneratedMediumIcon } from './AiGeneratedMediumIcon';
+export { AiGeneratedSmallIcon } from './AiGeneratedSmallIcon';
 export { AttachMediumIcon } from './AttachMediumIcon';
 export { AttachSmallIcon } from './AttachSmallIcon';
 export { BankMediumIcon } from './BankMediumIcon';
