@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useSingleSelection } from '../../hooks/useSingleSelection';
@@ -37,14 +37,16 @@ const RadioGroup = ({
       onValueChange?.(groupValue);
     },
   });
-  const handleSelect = (itemValue: string) => {
-    if (readonly) return;
-    select(itemValue);
-  };
+  const handleSelect = useCallback(
+    (itemValue: string) => {
+      if (readonly) return;
+      select(itemValue);
+    },
+    [readonly, select]
+  );
   const contextValue = useMemo(
     () => ({ disabled, validationStatus, type, direction, selectedValue, select: handleSelect }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [disabled, validationStatus, type, direction, selectedValue, readonly]
+    [disabled, validationStatus, type, direction, selectedValue, handleSelect]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);

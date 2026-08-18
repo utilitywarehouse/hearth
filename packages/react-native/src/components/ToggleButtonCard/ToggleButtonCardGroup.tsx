@@ -29,7 +29,7 @@ const ToggleButtonCardGroup = ({
   const contextValue = { selectedValue, select };
   return columns ? (
     <ToggleButtonCardGroupContext.Provider value={contextValue}>
-      <Grid {...props} accessibilityRole="radiogroup" gap={gap} columns={columns} style={style}>
+      <Grid {...props} gap={gap} columns={columns} style={style}>
         {children as any}
       </Grid>
     </ToggleButtonCardGroupContext.Provider>
@@ -37,7 +37,6 @@ const ToggleButtonCardGroup = ({
     <ToggleButtonCardGroupContext.Provider value={contextValue}>
       <View
         {...props}
-        accessibilityRole="radiogroup"
         style={[
           styles.containerGap(gap),
           {

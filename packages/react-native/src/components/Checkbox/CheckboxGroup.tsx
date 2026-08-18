@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Helper } from '../Helper';
@@ -34,17 +34,19 @@ const CheckboxGroup = ({
     controlledValue,
     uncontrolledValue,
   });
-  const select = (itemValue: string) => {
-    if (disabled || readonly) return;
-    const nextValues = toggleSelectedValue(selectedValues, itemValue);
-    if (controlledValue === undefined) setUncontrolledValue(nextValues);
-    onChange?.(nextValues);
-    onValueChange?.(nextValues);
-  };
+  const select = useCallback(
+    (itemValue: string) => {
+      if (disabled || readonly) return;
+      const nextValues = toggleSelectedValue(selectedValues, itemValue);
+      if (controlledValue === undefined) setUncontrolledValue(nextValues);
+      onChange?.(nextValues);
+      onValueChange?.(nextValues);
+    },
+    [disabled, readonly, selectedValues, controlledValue, onChange, onValueChange]
+  );
   const contextValue = useMemo(
     () => ({ disabled, validationStatus, type, direction, selectedValues, select }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [disabled, validationStatus, type, direction, selectedValues, readonly]
+    [disabled, validationStatus, type, direction, selectedValues, select]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);
