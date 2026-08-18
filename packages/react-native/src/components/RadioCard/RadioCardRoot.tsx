@@ -24,8 +24,9 @@ const RadioCardRoot = ({
     () => ({
       checked,
       active,
+      disabled: !!isDisabled,
     }),
-    [checked, active]
+    [checked, active, isDisabled]
   );
 
   styles.useVariants({

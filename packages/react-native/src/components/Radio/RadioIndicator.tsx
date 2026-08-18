@@ -3,10 +3,11 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useRadioContext } from './Radio.context';
 
 const RadioIndicator = (props: ViewProps) => {
-  const { checked, active } = useRadioContext();
+  const { checked, active, disabled } = useRadioContext();
   styles.useVariants({
     checked,
     active,
+    disabled: !!disabled,
   });
   return (
     <View {...props} style={[styles.container, props.style]}>
@@ -31,17 +32,6 @@ const styles = StyleSheet.create(theme => ({
     outlineWidth: theme.components.radio.outlineWidth,
     outlineStyle: 'solid',
     outlineColor: 'transparent',
-    _web: {
-      _hover: {
-        outlineColor: theme.components.radio.outlineColorHover,
-      },
-      // '_focus-within': {
-      //   ...theme.helpers.focusVisible,
-      // },
-      _active: {
-        outlineColor: theme.components.radio.outlineColorActive,
-      },
-    },
     variants: {
       checked: {
         true: {
@@ -52,6 +42,18 @@ const styles = StyleSheet.create(theme => ({
       active: {
         true: {
           outlineColor: theme.components.radio.outlineColorActive,
+        },
+      },
+      disabled: {
+        false: {
+          _web: {
+            _hover: {
+              outlineColor: theme.components.radio.outlineColorHover,
+            },
+            _active: {
+              outlineColor: theme.components.radio.outlineColorActive,
+            },
+          },
         },
       },
     },

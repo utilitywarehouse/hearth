@@ -59,9 +59,7 @@ const Radio = ({
     children
   ) : (
     <>
-      <RadioIndicator>
-        <RadioIcon />
-      </RadioIndicator>
+      <RadioIndicator>{checked && <RadioIcon />}</RadioIndicator>
       {image ? image : null}
       <RadioTextContent>
         {!!label && <RadioLabel>{label}</RadioLabel>}

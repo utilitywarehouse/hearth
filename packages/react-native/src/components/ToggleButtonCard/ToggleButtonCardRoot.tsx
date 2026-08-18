@@ -10,6 +10,7 @@ const ToggleButtonCardRoot = ({
   style,
   label,
   checked,
+  disabled,
   onPress,
   onToggle,
   onPressIn,
@@ -50,6 +51,7 @@ const ToggleButtonCardRoot = ({
     <ToggleButtonCardContext.Provider value={value}>
       <Pressable
         {...props}
+        disabled={disabled}
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
@@ -60,6 +62,7 @@ const ToggleButtonCardRoot = ({
           <ToggleButton
             text={label}
             toggled={checked}
+            disabled={disabled}
             onPress={handleTogglePress}
             style={styles.button}
           />

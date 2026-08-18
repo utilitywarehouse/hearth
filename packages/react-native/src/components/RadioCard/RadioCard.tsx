@@ -42,9 +42,7 @@ const RadioCard = ({
       onPress={handlePress}
     >
       <View style={styles.radioContainer}>
-        <RadioCardIndicator>
-          <RadioCardIcon />
-        </RadioCardIndicator>
+        <RadioCardIndicator>{checked && <RadioCardIcon />}</RadioCardIndicator>
         {!!label && <RadioCardLabel variant={labelVariant}>{label}</RadioCardLabel>}
       </View>
       {!!children && <View style={[computedStyles, contentStyle]}>{children}</View>}
