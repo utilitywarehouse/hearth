@@ -20,12 +20,17 @@ const hideCloseButton = instance.getBoolean('Close?', {
 const fullScreen = instance.getBoolean('Full screen?');
 
 const illustrationInstance = instance.findInstance('Modal illustration');
-const illustration =
+const illustrationSwap =
   illustrationInstance && illustrationInstance.type !== 'ERROR'
-    ? illustrationInstance.getInstanceSwap('Illustration')?.executeTemplate().example
+    ? illustrationInstance.getInstanceSwap('Illustration')
     : undefined;
+// The swapped instance is a local wrapper frame (e.g. "Spot-Piggy Bank") with no Code
+// Connect of its own — the actual asset with a Code Connect definition is nested inside
+// it, so find that connected descendant rather than assuming a fixed layer name/depth.
+const illustrationAsset = illustrationSwap?.findConnectedInstances(() => true)[0];
+const illustration = illustrationAsset?.executeTemplate().example;
 const image = instance.getBoolean('Image?', {
-  true: illustration, //Instance.getInstanceSwap('Illustration')?.executeTemplate().example,
+  true: illustration,
   false: undefined,
 });
 
