@@ -592,7 +592,9 @@ const DateTimePicker = (
   );
 
   const handleChange = useCallback((index: number) => {
-    if (index > -1) {
+    // react-native-web's findNodeHandle always throws, and the focus/announce calls
+    // it feeds are no-ops there anyway, so skip this native-only accessibility step on web.
+    if (index > -1 && Platform.OS !== 'web') {
       // Add a small delay to ensure the bottom sheet is fully rendered
       setTimeout(() => {
         // Announce to screen readers
