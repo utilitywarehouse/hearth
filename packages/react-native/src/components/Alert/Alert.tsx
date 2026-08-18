@@ -44,7 +44,10 @@ const Alert = ({
     <AlertContext.Provider value={value}>
       <Pressable
         {...props}
-        style={[styles.container, style as ViewProps['style']]}
+        style={state => [
+          styles.container,
+          (typeof style === 'function' ? style(state) : style) as ViewProps['style'],
+        ]}
         onPress={onPress}
         disabled={!onPress}
       >

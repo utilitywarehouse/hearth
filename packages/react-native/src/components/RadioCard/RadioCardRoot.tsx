@@ -57,7 +57,10 @@ const RadioCardRoot = ({
           disabled: !!isDisabled,
         }}
         aria-checked={!!checked}
-        style={[styles.container, style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof style === 'function' ? style(state) : style) as ViewStyle,
+        ]}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
       >

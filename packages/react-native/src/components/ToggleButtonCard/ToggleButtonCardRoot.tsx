@@ -55,7 +55,10 @@ const ToggleButtonCardRoot = ({
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
-        style={[styles.container, style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof style === 'function' ? style(state) : style) as ViewStyle,
+        ]}
       >
         {children}
         <View style={styles.buttonContainer}>

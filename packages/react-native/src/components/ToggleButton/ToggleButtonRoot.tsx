@@ -43,7 +43,10 @@ const ToggleButtonRoot = ({
       accessibilityRole={accessibilityRole}
       {...props}
       accessibilityState={{ ...props.accessibilityState, selected: toggled }}
-      style={[styles.container, props.style as ViewStyle]}
+      style={state => [
+        styles.container,
+        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+      ]}
       onPress={handlePress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}

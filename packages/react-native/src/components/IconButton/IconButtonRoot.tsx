@@ -45,7 +45,7 @@ const IconButtonRoot = ({
         accessibilityRole={accessibilityRole}
         disabled={disabled}
         {...props}
-        style={[
+        style={state => [
           styles.container,
           styles.overrides({
             backgroundColor,
@@ -54,7 +54,7 @@ const IconButtonRoot = ({
             active,
             variant,
           }),
-          props.style as ViewStyle,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
         ]}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
