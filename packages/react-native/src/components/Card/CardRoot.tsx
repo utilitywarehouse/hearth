@@ -116,7 +116,11 @@ const Card = ({
       <Pressable
         {...remainingProps}
         disabled={disabled}
-        style={[styles.card, computedStyles, style as ViewStyle]}
+        style={state => [
+          styles.card,
+          computedStyles,
+          (typeof style === 'function' ? style(state) : style) as ViewStyle,
+        ]}
         onPress={handlePress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}

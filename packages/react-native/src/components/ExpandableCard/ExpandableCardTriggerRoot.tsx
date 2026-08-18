@@ -121,7 +121,10 @@ const ExpandableCardTriggerRoot = ({
     <Pressable
       {...props}
       testID={testID}
-      style={[styles.container, props.style as ViewStyle]}
+      style={state => [
+        styles.container,
+        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+      ]}
       disabled={disabled}
       accessibilityRole="button"
       accessibilityState={{ expanded: isExpanded, disabled }}

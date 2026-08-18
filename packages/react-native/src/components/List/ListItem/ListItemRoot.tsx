@@ -98,7 +98,10 @@ const ListItemRoot = ({
       <Pressable
         {...props}
         testID={loadingTestID}
-        style={[styles.container, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
         disabled={isDisabled}
       >
         {leadingContent ? <Skeleton width={24} height={24} /> : null}
@@ -116,7 +119,10 @@ const ListItemRoot = ({
       <Pressable
         {...props}
         testID={testID}
-        style={[styles.container, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
         disabled={isDisabled}
         accessibilityRole={props.accessibilityRole ?? (onPress ? 'button' : undefined)}
         onPressIn={handlePressIn}

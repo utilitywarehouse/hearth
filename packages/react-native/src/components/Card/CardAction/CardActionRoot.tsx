@@ -94,7 +94,11 @@ const CardActionRoot = ({
       <Pressable
         {...props}
         testID={loadingTestID}
-        style={[styles.container, styles.alignCenter, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          styles.alignCenter,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
         disabled={isDisabled}
       >
         {leadingContent || leadingIcon ? (
@@ -116,7 +120,10 @@ const CardActionRoot = ({
       <Pressable
         {...props}
         testID={testID}
-        style={[styles.container, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
         disabled={isDisabled}
         accessibilityRole={onPress ? 'button' : undefined}
         onPressIn={handlePressIn}
