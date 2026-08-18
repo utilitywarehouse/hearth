@@ -14,6 +14,15 @@ import CardAction from './CardAction';
 const meta: Meta<typeof CardAction> = {
   title: 'Stories / CardAction',
   component: CardAction,
+  parameters: {
+    // Play functions here click a Pressable whose colorScheme/variant is animated by
+    // react-native-unistyles' reanimated-backed color transition, which throws a stray
+    // `UpdatePropsManager` ReanimatedError on web (react-native-reanimated has no web
+    // implementation for that native-only code path). All assertions still pass — see UWDS-4922.
+    test: {
+      dangerouslyIgnoreUnhandledErrors: true,
+    },
+  },
   argTypes: {
     heading: { control: 'text' },
     helperText: { control: 'text' },
