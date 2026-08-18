@@ -54,10 +54,10 @@ const ListAction = ({ heading, disabled, variant = 'subtle', loading, ...props }
       {...props}
       accessibilityRole={props.accessibilityRole ?? 'button'}
       testID={testID}
-      style={({ pressed }) => [
+      style={state => [
         styles.container,
-        pressed && styles.containerPressed,
-        props.style as ViewStyle,
+        state.pressed && styles.containerPressed,
+        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
       ]}
       disabled={isDisabled || !onPress}
     >

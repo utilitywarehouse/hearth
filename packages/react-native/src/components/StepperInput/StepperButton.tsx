@@ -20,10 +20,10 @@ const StepperButton = ({ icon, disabled, ...props }: StepperButtonProps) => {
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled, ...props.accessibilityState }}
       disabled={isDisabled}
-      style={({ pressed }) => [
+      style={state => [
         styles.button,
-        pressed && styles.buttonPressed,
-        props.style as ViewStyle,
+        state.pressed && styles.buttonPressed,
+        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
       ]}
     >
       <Icon as={icon} size="sm" style={styles.icon} />
