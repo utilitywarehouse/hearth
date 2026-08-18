@@ -1,5 +1,5 @@
-import { createIcon } from '@gluestack-ui/icon';
 import { Path, Svg } from 'react-native-svg';
+import { createIcon } from '../Icon/createIcon';
 
 const CircleIcon = createIcon({
   Root: Svg,
