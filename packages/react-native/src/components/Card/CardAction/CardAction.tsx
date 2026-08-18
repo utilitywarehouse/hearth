@@ -1,10 +1,5 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import CardActionRoot from './CardActionRoot';
 
-const CardAction = createPressable({
-  Root: CardActionRoot,
-});
+CardActionRoot.displayName = 'CardAction';
 
-CardAction.displayName = 'CardAction';
-
-export default CardAction;
+export default CardActionRoot;

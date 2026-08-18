@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
@@ -21,14 +21,13 @@ const Card = ({
   shadowColor,
   noPadding = false,
   style,
-  states,
   spacing,
   space,
   disabled = false,
   onPress,
   ...rest
-}: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active } = states || { active: false };
+}: CardProps) => {
+  const [active, setActive] = useState(false);
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
   const hasActions = checkForComponentType(children as ReactNode, CardActions);
   const hasContent = checkForComponentType(children as ReactNode, CardContent);
@@ -41,6 +40,16 @@ const Card = ({
     }
 
     childActionHandlers.forEach(fn => fn(e));
+  };
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    remainingProps.onPressIn?.(e);
+    setActive(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    remainingProps.onPressOut?.(e);
+    setActive(false);
   };
 
   const inheritChildAction = childActionHandlers.length > 0;
@@ -107,8 +116,14 @@ const Card = ({
       <Pressable
         {...remainingProps}
         disabled={disabled}
-        style={[styles.card, computedStyles, style as ViewStyle]}
+        style={state => [
+          styles.card,
+          computedStyles,
+          (typeof style === 'function' ? style(state) : style) as ViewStyle,
+        ]}
         onPress={handlePress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
         accessible={showPressed}
         importantForAccessibility={showPressed ? 'yes' : 'no'}
       >

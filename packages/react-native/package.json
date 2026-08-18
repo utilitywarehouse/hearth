@@ -46,7 +46,6 @@
     "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
-    "@gluestack-ui/pressable": "0.1.16",
     "@quidone/react-native-wheel-picker": "^1.6.1",
     "@react-stately/utils": "^3.12.1",
     "dayjs": "^1.11.13",

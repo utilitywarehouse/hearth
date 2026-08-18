@@ -1,26 +1,30 @@
-import { createPressable } from '@gluestack-ui/pressable';
-import { Pressable } from 'react-native';
+import { useState } from 'react';
+import { GestureResponderEvent, Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import type { PillProps } from './Pill.props';
 import { usePillGroupContext } from './PillGroup.context';
 
-const PillRoot = ({
-  value,
-  label,
-  icon,
-  states = {},
-  ...props
-}: PillProps & { states?: { active?: boolean } }) => {
-  const { active } = states;
+export const Pill = ({ value, label, icon, ...props }: PillProps) => {
+  const [pressed, setPressed] = useState(false);
   const context = usePillGroupContext();
   const isSelected = context?.value.includes(value) ?? false;
 
-  styles.useVariants({ selected: isSelected, active });
+  styles.useVariants({ selected: isSelected, active: pressed });
 
   const handlePress = () => {
     context?.onChange(value);
+  };
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setPressed(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setPressed(false);
   };
 
   return (
@@ -30,6 +34,8 @@ const PillRoot = ({
       accessibilityRole="button"
       accessibilityState={{ selected: isSelected }}
       onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
     >
       {icon && <Icon as={icon} size="sm" style={styles.icon} />}
       <BodyText weight="semibold" style={styles.text}>
@@ -38,8 +44,6 @@ const PillRoot = ({
     </Pressable>
   );
 };
-
-export const Pill = createPressable({ Root: PillRoot });
 
 Pill.displayName = 'Pill';
 

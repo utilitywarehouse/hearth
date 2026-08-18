@@ -1,4 +1,3 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useId, useLayoutEffect } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
@@ -11,18 +10,10 @@ import ListActionText from './ListActionText';
 import ListActionTrailingContent from './ListActionTrailingContent';
 import ListActionTrailingIcon from './ListActionTrailingIcon';
 
-const ListActionRoot = ({
-  heading,
-  disabled,
-  variant = 'subtle',
-  loading,
-  ...props
-}: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+const ListAction = ({ heading, disabled, variant = 'subtle', loading, ...props }: ListActionProps) => {
   const { onPress } = props;
   const listContext = useListContext();
   const { registerItem, firstItemId } = listContext;
-
-  const { active } = props.states || { active: false };
 
   const getListContainer = (): ListActionProps['variant'] => {
     if (listContext?.container?.includes('subtle')) {
@@ -53,7 +44,6 @@ const ListActionRoot = ({
   styles.useVariants({
     variant: listItemVariant,
     disabled: isDisabled,
-    active,
     showDisabled: !listContext?.disabled && disabled,
     isFirstChild,
     container: listContext?.container,
@@ -64,7 +54,11 @@ const ListActionRoot = ({
       {...props}
       accessibilityRole={props.accessibilityRole ?? 'button'}
       testID={testID}
-      style={[styles.container, props.style as ViewStyle]}
+      style={state => [
+        styles.container,
+        state.pressed && styles.containerPressed,
+        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+      ]}
       disabled={isDisabled || !onPress}
     >
       {loading ? (
@@ -85,10 +79,6 @@ const ListActionRoot = ({
     </Pressable>
   );
 };
-
-const ListAction = createPressable({
-  Root: ListActionRoot,
-});
 
 ListAction.displayName = 'ListAction';
 
@@ -112,11 +102,6 @@ const styles = StyleSheet.create(theme => ({
         },
         emphasis: {
           borderTopColor: theme.color.border.strong,
-        },
-      },
-      active: {
-        true: {
-          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
         },
       },
       disabled: {
@@ -150,6 +135,9 @@ const styles = StyleSheet.create(theme => ({
         emphasisWarmWhite: {},
       },
     },
+  },
+  containerPressed: {
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
   },
   centeredTrailingIcon: {
     justifyContent: 'center',
