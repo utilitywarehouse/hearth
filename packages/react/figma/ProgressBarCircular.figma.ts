@@ -14,9 +14,13 @@ const size = instance.getEnum('Size', {
   'MD-140': 'md',
   'SM-80': 'sm',
 });
+const hideLabel = instance.getBoolean('Label?', {
+  true: false,
+  false: true,
+});
 
 export default {
-  example: figma.code`<ProgressBar label="${label}"${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('size', size)} value={10} variant="circular" />`,
+  example: figma.code`<ProgressBar label="${label}"${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('size', size)}${figma.helpers.react.renderProp('hideLabel', hideLabel)} value={10} variant="circular" />`,
   imports: ['import { ProgressBar } from "@utilitywarehouse/hearth-react"'],
   id: 'progress-bar-circular',
 };

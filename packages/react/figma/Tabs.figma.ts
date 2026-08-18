@@ -17,7 +17,11 @@ const tabs = tabLayers
 
 export default {
   example: figma.code`<Tabs${figma.helpers.react.renderProp('size', size)} defaultValue="tab-1">
-  <TabsList>${tabs.flat()}</TabsList>
+  <TabsList>
+  <Tab value="tab-1">Tab item</Tab>
+  ${tabs.flat()}
+  </TabsList>
+  {/* Example TabPanel content, make sure they match the value of your Tab items */}
   <TabContent value="tab-1">{/* content */}</TabContent>
 </Tabs>`,
   imports: ['import { Tabs, TabsList, Tab, TabContent } from "@utilitywarehouse/hearth-react"'],

@@ -10,9 +10,13 @@ const colorScheme = instance.getEnum('Color Scheme', {
   Success: 'success',
   Danger: 'danger',
 });
+const hideLabel = instance.getBoolean('Label?', {
+  true: false,
+  false: true,
+});
 
 export default {
-  example: figma.code`<ProgressBar label="${label}"${figma.helpers.react.renderProp('colorScheme', colorScheme)} value={10} variant="linear" />`,
+  example: figma.code`<ProgressBar label="${label}"${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('hideLabel', hideLabel)} value={10} variant="linear" />`,
   imports: ['import { ProgressBar } from "@utilitywarehouse/hearth-react"'],
   id: 'progress-bar-linear',
 };

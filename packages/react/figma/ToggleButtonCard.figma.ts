@@ -14,7 +14,8 @@ const content =
   instance.getSlot('Content')?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
 
 export default {
-  example: figma.code`<ToggleButtonCard${figma.helpers.react.renderProp('label', label)}>${content.flat()}</ToggleButtonCard>`,
+  example: figma.code`/* Related ToggleButtonCard components must be wrapped in a ToggleGroup */
+  <ToggleButtonCard${figma.helpers.react.renderProp('label', label)}>${content.flat()}</ToggleButtonCard>`,
   imports: ['import { ToggleButtonCard } from "@utilitywarehouse/hearth-react"'],
   id: 'toggle-button-card',
   metadata: { nestable: true },
