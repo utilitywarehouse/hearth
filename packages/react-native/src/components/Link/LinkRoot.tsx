@@ -62,7 +62,10 @@ const LinkRoot = ({
         onPress={handlePress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
-        style={[styles.container, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
       >
         {children}
       </Pressable>

@@ -55,7 +55,10 @@ const ButtonRoot = ({
         accessibilityRole={accessibilityRole}
         disabled={disabled}
         {...props}
-        style={[styles.container, props.style as ViewStyle]}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
