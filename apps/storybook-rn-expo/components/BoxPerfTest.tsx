@@ -32,7 +32,7 @@ const BoxComp = () => (
   <View style={styles.boxContainer}>
     {new Array(COUNT).fill(0).map((_, i) => (
       <Box
-        key={`gluestack-box-${i}`}
+        key={`box-${i}`}
         bg={i % 2 === 0 ? 'blue500' : 'grey500'}
         borderColor="rgb(255, 0, 0)"
         borderWidth={2}
