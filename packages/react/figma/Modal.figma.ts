@@ -18,8 +18,17 @@ const hideCloseButton = instance.getBoolean('Close?', {
   false: true,
 });
 const fullScreen = instance.getBoolean('Full screen?');
-// Modal illustration is a Figma-only component without a Code Connect file, so the image
-// prop cannot be automatically generated from the Figma instance
+
+const illustrationInstance = instance.findInstance('Modal illustration');
+const illustration =
+  illustrationInstance && illustrationInstance.type !== 'ERROR'
+    ? illustrationInstance.getInstanceSwap('Illustration')?.executeTemplate().example
+    : undefined;
+const image = instance.getBoolean('Image?', {
+  true: illustration, //Instance.getInstanceSwap('Illustration')?.executeTemplate().example,
+  false: undefined,
+});
+
 const hasCustomContent = instance.getBoolean('Custom content?');
 const children = hasCustomContent
   ? (instance.getSlot('Slot')?.connectedInstances.map(i => i.executeTemplate().example) ?? [])
@@ -30,7 +39,7 @@ export default {
         <ModalTrigger>
           <Button>Open modal</Button>
         </ModalTrigger>
-        <Modal${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp('loadingHeading', loadingHeading)}${figma.helpers.react.renderProp('loadingDescription', loadingDescription)}${figma.helpers.react.renderProp('hideCloseButton', hideCloseButton)}${figma.helpers.react.renderProp('fullScreen', fullScreen)}>
+        <Modal${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp('loadingHeading', loadingHeading)}${figma.helpers.react.renderProp('loadingDescription', loadingDescription)}${figma.helpers.react.renderProp('hideCloseButton', hideCloseButton)}${figma.helpers.react.renderProp('fullScreen', fullScreen)}${figma.helpers.react.renderProp('image', image)}>
           ${children ? children.flat() : ''}
           <ModalFooter>
             <ModalClose>
