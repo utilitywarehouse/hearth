@@ -787,9 +787,6 @@ importers:
 
   packages/react-native:
     dependencies:
-      '@gluestack-ui/icon':
-        specifier: 0.1.22
-        version: 0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       '@gluestack-ui/pressable':
         specifier: 0.1.16
         version: 0.1.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -2578,20 +2575,8 @@ packages:
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
 
-  '@gluestack-ui/icon@0.1.22':
-    resolution: {integrity: sha512-6E8N0OEEike0p6ITRJoEYpRlHqjRAabekEVSOk/HM/v+MJONT613TlQari5ozBHcaNLn/JhJqRxNHxNrzxd+ZQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
   '@gluestack-ui/pressable@0.1.16':
     resolution: {integrity: sha512-SGUqCCZyMgRtlDN5mO7CN0NM+NMG9S2M3BdhdjI48Jnaks1DdWxzZeaD5xlEhg+Ww/KtmGzVrlSKqPDvVyROiA==}
-    peerDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0
-
-  '@gluestack-ui/provider@0.1.19':
-    resolution: {integrity: sha512-+MbL2VpGK7kkSNccgNeMay/nslDA4BzgjHFWwnys+dSvyCMgt7yfSxrfWziTvAyaQ4cRkq/lXCfJK0B1nuCZ4A==}
     peerDependencies:
       react: 19.1.0
       react-dom: 19.1.0
@@ -4039,20 +4024,8 @@ packages:
       react: 19.1.0
       react-native: '*'
 
-  '@react-native-aria/interactions@0.2.16':
-    resolution: {integrity: sha512-tJ7mhG0P6cElLTcL4yfV3HSfqdD8tpAwHKjtamyeua8i6tsu7BOxGmfGmPQ5ueJl7/mHqf8xyTv1xGW288CKXQ==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
-
   '@react-native-aria/utils@0.2.11':
     resolution: {integrity: sha512-8MzE25pYDo1ZQtu7N9grx2Q+2uK58Tvvg4iJ7Nvx3PXTEz2XKU8G//yX9un97f7zCM6ptL8viRdKbSYDBmQvsA==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
-
-  '@react-native-aria/utils@0.2.12':
-    resolution: {integrity: sha512-752/tQ5fjDdc/3Gw8cKqml4NucfiFrO8wPmlg0bBgaCvfQDJaUMi4grme3/fBPCUoK2wk9/yJHfwkv45Gi5Eew==}
     peerDependencies:
       react: 19.1.0
       react-native: '*'
@@ -5124,12 +5097,6 @@ packages:
 
   '@types/stack-utils@2.0.3':
     resolution: {integrity: sha512-9aEbYZ3TbYMznPdcdr3SmIrLXwC/AKZXQeCf9Pgao5CKb8CyHuEX5jzWPTkvregvhRJHcpRO6BFoGW9ycaOkYw==}
-
-  '@types/strip-bom@3.0.0':
-    resolution: {integrity: sha512-xevGOReSYGM7g/kUBZzPqCrR/KYAo+F0yiPc85WFTJa0MSLtyFTVTU6cJu/aV4mid7IffDIWqo69THF2o4JiEQ==}
-
-  '@types/strip-json-comments@0.0.30':
-    resolution: {integrity: sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -11832,9 +11799,6 @@ packages:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
 
-  tsconfig@7.0.0:
-    resolution: {integrity: sha512-vZXmzPrL+EmC4T/4rVlT2jNVMWCi/O4DIiSj3UHg1OE5kCKbk4mfrXc6dZksLgRM/TZlKnousKH9bbTazUWRRw==}
-
   tslib@2.4.1:
     resolution: {integrity: sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA==}
 
@@ -15115,16 +15079,6 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@gluestack-ui/icon@0.1.22(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@gluestack-ui/provider': 0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      '@react-native-aria/focus': 0.2.9(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - react-native
-
   '@gluestack-ui/pressable@0.1.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
       '@gluestack-ui/utils': 0.1.15(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
@@ -15132,16 +15086,6 @@ snapshots:
       '@react-native-aria/interactions': 0.2.13(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-    transitivePeerDependencies:
-      - react-native
-
-  '@gluestack-ui/provider@0.1.19(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-native-aria/interactions': 0.2.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      tsconfig: 7.0.0
-      typescript: 5.9.2
     transitivePeerDependencies:
       - react-native
 
@@ -16701,26 +16645,7 @@ snapshots:
     transitivePeerDependencies:
       - react-dom
 
-  '@react-native-aria/interactions@0.2.16(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-aria/interactions': 3.28.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-native-aria/utils': 0.2.12(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - react-dom
-
   '@react-native-aria/utils@0.2.11(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
-    dependencies:
-      '@react-aria/ssr': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1)
-    transitivePeerDependencies:
-      - react-dom
-
-  '@react-native-aria/utils@0.2.12(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.29.7)(@types/react@19.1.17)(react@19.1.0)(supports-color@8.1.1))(react@19.1.0)':
     dependencies:
       '@react-aria/ssr': 3.10.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       '@react-aria/utils': 3.34.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -18287,10 +18212,6 @@ snapshots:
       '@types/send': 0.17.6
 
   '@types/stack-utils@2.0.3': {}
-
-  '@types/strip-bom@3.0.0': {}
-
-  '@types/strip-json-comments@0.0.30': {}
 
   '@types/unist@3.0.3': {}
 
@@ -27110,13 +27031,6 @@ snapshots:
       json5: 2.2.3
       minimist: 1.2.8
       strip-bom: 3.0.0
-
-  tsconfig@7.0.0:
-    dependencies:
-      '@types/strip-bom': 3.0.0
-      '@types/strip-json-comments': 0.0.30
-      strip-bom: 3.0.0
-      strip-json-comments: 2.0.1
 
   tslib@2.4.1: {}
 

@@ -74,5 +74,3 @@ export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } 
 export { Pressable } from 'react-native';
 
 export { SafeAreaView } from 'react-native-safe-area-context';
-
-export { createIcon } from '@gluestack-ui/icon';
