@@ -109,8 +109,13 @@ export const Disabled: Story = {
     const option1 = await canvas.findByRole('radio', { name: 'Label 1' });
     const option2 = canvas.getByRole('radio', { name: 'Label 2' });
 
-    // A disabled RadioCardGroup does not respond to a press on any of its RadioCards.
-    await userEvent.click(option2);
+    // A disabled RadioCard renders as a <div role="radio">, not a native form
+    // control, so react-native-web exposes its disabled state via aria-disabled
+    // rather than the HTML disabled attribute. It also can't receive a real user
+    // click at all (userEvent.click throws on an element with pointer-events: none),
+    // so this aria state is the characterization itself.
+    expect(option1).toHaveAttribute('aria-disabled', 'true');
+    expect(option2).toHaveAttribute('aria-disabled', 'true');
     expect(option1).not.toBeChecked();
     expect(option2).not.toBeChecked();
   },

@@ -240,10 +240,13 @@ export const Variants: Story = {
     expect(defaultOption1).toBeChecked();
     expect(disabledOption3).toBeChecked();
 
-    // A disabled Radio does not respond to a press - the shared controlled value
-    // (mirrored across both groups here) is unaffected.
-    await userEvent.click(disabledOption4);
-    expect(disabledOption3).toBeChecked();
+    // A disabled Radio renders as a <div role="radio">, not a native form control,
+    // so react-native-web exposes its disabled state via aria-disabled rather than
+    // the HTML disabled attribute. It also can't receive a real user click at all
+    // (userEvent.click throws on an element with pointer-events: none), so this aria
+    // state is the characterization itself.
+    expect(disabledOption3).toHaveAttribute('aria-disabled', 'true');
+    expect(disabledOption4).toHaveAttribute('aria-disabled', 'true');
     expect(disabledOption4).not.toBeChecked();
     expect(defaultOption1).toBeChecked();
 

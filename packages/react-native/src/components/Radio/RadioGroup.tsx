@@ -1,17 +1,19 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useSingleSelection } from '../../hooks/useSingleSelection';
 import { Helper } from '../Helper';
 import { Label } from '../Label';
-import { RadioGroup as RadioGroupComponent } from './Radio';
 import { RadioGroupContext } from './RadioGroup.context';
 import RadioGroupProps from './RadioGroup.props';
+import RadioGroupRoot from './RadioGroupRoot';
 import RadioGroupTextContent from './RadioGroupTextContent';
 
 const RadioGroup = ({
   children,
   disabled,
   readonly,
+  value: controlledValue,
   onChange,
   onValueChange,
   validationStatus,
@@ -27,9 +29,24 @@ const RadioGroup = ({
   gap,
   ...props
 }: RadioGroupProps) => {
-  const value = useMemo(
-    () => ({ disabled, validationStatus, type, direction }),
-    [disabled, validationStatus, type, direction]
+  const { selectedValue, select } = useSingleSelection({
+    value: controlledValue,
+    disabled,
+    onValueChange: groupValue => {
+      onChange?.(groupValue);
+      onValueChange?.(groupValue);
+    },
+  });
+  const handleSelect = useCallback(
+    (itemValue: string) => {
+      if (readonly) return;
+      select(itemValue);
+    },
+    [readonly, select]
+  );
+  const contextValue = useMemo(
+    () => ({ disabled, validationStatus, type, direction, selectedValue, select: handleSelect }),
+    [disabled, validationStatus, type, direction, selectedValue, handleSelect]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);
@@ -43,17 +60,8 @@ const RadioGroup = ({
     );
   styles.useVariants({ type: childIsCard ? 'tile' : 'radio', direction });
   return (
-    <RadioGroupContext.Provider value={value}>
-      <RadioGroupComponent
-        {...props}
-        onChange={(groupValue: string) => {
-          onChange?.(groupValue);
-          onValueChange?.(groupValue);
-        }}
-        isDisabled={disabled}
-        isReadOnly={readonly}
-        isCard={childIsCard}
-      >
+    <RadioGroupContext.Provider value={contextValue}>
+      <RadioGroupRoot {...props} accessibilityRole="radiogroup" isCard={childIsCard}>
         {showHeader && (
           <RadioGroupTextContent>
             {!!label && (
@@ -81,7 +89,7 @@ const RadioGroup = ({
           </RadioGroupTextContent>
         )}
         <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
-      </RadioGroupComponent>
+      </RadioGroupRoot>
     </RadioGroupContext.Provider>
   );
 };

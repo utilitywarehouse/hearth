@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { BodyText } from '../BodyText';
 
@@ -53,10 +53,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnValueChange = fn();
+
 export const Playground: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, ...args }) => (
-    <ToggleButtonCardGroup {...args}>
+    <ToggleButtonCardGroup {...args} onValueChange={playgroundOnValueChange}>
       <ToggleButtonCard
         aria-label="Label 1"
         label="Option 1"
@@ -88,28 +90,20 @@ export const Playground: Story = {
 
     const toggle1 = await canvas.findByRole('button', { name: 'Option 1' });
     const toggle2 = canvas.getByRole('button', { name: /Option 2/ });
-    const inputs = Array.from(
-      canvasElement.querySelectorAll('input[type="radio"]')
-    ) as HTMLInputElement[];
 
-    expect(inputs.every(input => !input.checked)).toBe(true);
-
+    // Selection state moved off gluestack's createRadio(), which rendered a
+    // hidden native <input type="radio"> per option as its source of truth.
+    // The migrated ToggleButtonCard/ToggleButtonCardGroup share selection via
+    // plain React state (see useSingleSelection) with no backing <input>, so
+    // this characterizes selection through the onValueChange callback
+    // contract instead of querying for an input element that no longer
+    // exists (mirrors PillGroup's approach - see UWDS-4909 for the broader
+    // gap around asserting selected/checked state via rendered DOM/style on
+    // react-native-web).
     await userEvent.click(toggle2);
-
-    // Pressing a ToggleButtonCard's inner toggle button now flips the shared
-    // createRadio() selection state - the hidden radio input backing the pressed
-    // card becomes checked (and, per native radio-group semantics, any other
-    // checked input in the group would become unchecked). Previously this was
-    // a no-op because the click never reached the hidden input. `checked` is a
-    // real native DOM property (not a Unistyles-computed style), so it's a
-    // reliable signal here.
-    expect(inputs.filter(input => input.checked)).toHaveLength(1);
-    expect(inputs.find(input => input.checked)?.value).toBe('Option 2');
+    expect(playgroundOnValueChange).toHaveBeenLastCalledWith('Option 2');
 
     await userEvent.click(toggle1);
-
-    // Selecting toggle1 swaps the selection within the shared group.
-    expect(inputs.filter(input => input.checked)).toHaveLength(1);
-    expect(inputs.find(input => input.checked)?.value).toBe('Option 1');
+    expect(playgroundOnValueChange).toHaveBeenLastCalledWith('Option 1');
   },
 };

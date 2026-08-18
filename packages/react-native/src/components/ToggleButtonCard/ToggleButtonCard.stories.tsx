@@ -1,6 +1,6 @@
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText';
 
 const meta = {
@@ -24,6 +24,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnChange = fn();
+
 export const Playground: Story = {
   args: {
     value: 'Option 1',
@@ -33,9 +35,7 @@ export const Playground: Story = {
     <ToggleButtonCardGroup>
       <ToggleButtonCard
         aria-label="Label 1"
-        onChange={(checked: boolean) => {
-          console.log(checked, '###');
-        }}
+        onChange={playgroundOnChange}
         nativeID="ToggleButtonCard-1"
         {...args}
       >
@@ -47,19 +47,17 @@ export const Playground: Story = {
     const canvas = within(canvasElement);
 
     const toggle = await canvas.findByRole('button', { name: 'Label' });
-    const hiddenInput = canvasElement.querySelector('input[type="radio"]') as HTMLInputElement;
 
-    expect(hiddenInput.checked).toBe(false);
-
+    // Selection state moved off gluestack's createRadio(), which rendered a
+    // hidden native <input type="radio"> as its source of truth. The
+    // migrated ToggleButtonCard shares selection via plain React state (see
+    // useSingleSelection) with no backing <input>, so this characterizes the
+    // press through the item's own onChange callback contract instead
+    // (mirrors PillGroup's approach - see UWDS-4909 for the broader gap
+    // around asserting selected/checked state via rendered DOM/style on
+    // react-native-web).
     await userEvent.click(toggle);
 
-    // Pressing the ToggleButtonCard's inner toggle button fires the per-item onChange
-    // callback (see the onChange handler passed to this story's args) and now also
-    // flips the underlying createRadio() radio input's checked state. Previously the
-    // click never reached the hidden radio input (the nested ToggleButton intercepted
-    // it); ToggleButtonCardRoot now clicks the hidden input directly on web when it's
-    // unchecked - see ToggleButtonCardGroup's Playground story for the multi-item
-    // characterization.
-    expect(hiddenInput.checked).toBe(true);
+    expect(playgroundOnChange).toHaveBeenLastCalledWith(true);
   },
 };

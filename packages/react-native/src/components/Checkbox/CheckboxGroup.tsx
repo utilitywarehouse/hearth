@@ -1,17 +1,19 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Helper } from '../Helper';
 import { Label } from '../Label';
-import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
 import { CheckboxGroupContext } from './CheckboxGroup.context';
 import CheckboxGroupProps from './CheckboxGroup.props';
+import CheckboxGroupRoot from './CheckboxGroupRoot';
 import CheckboxGroupTextContent from './CheckboxGroupTextContent';
+import { resolveActiveSelection, toggleSelectedValue } from './CheckboxGroup.utils';
 
 const CheckboxGroup = ({
   children,
   disabled,
   readonly,
+  value: controlledValue,
   onChange,
   onValueChange,
   validationStatus,
@@ -27,9 +29,24 @@ const CheckboxGroup = ({
   gap,
   ...props
 }: CheckboxGroupProps) => {
-  const value = useMemo(
-    () => ({ disabled, validationStatus, type, direction }),
-    [disabled, validationStatus, type, direction]
+  const [uncontrolledValue, setUncontrolledValue] = useState<string[]>([]);
+  const selectedValues = resolveActiveSelection({
+    controlledValue,
+    uncontrolledValue,
+  });
+  const select = useCallback(
+    (itemValue: string) => {
+      if (disabled || readonly) return;
+      const nextValues = toggleSelectedValue(selectedValues, itemValue);
+      if (controlledValue === undefined) setUncontrolledValue(nextValues);
+      onChange?.(nextValues);
+      onValueChange?.(nextValues);
+    },
+    [disabled, readonly, selectedValues, controlledValue, onChange, onValueChange]
+  );
+  const contextValue = useMemo(
+    () => ({ disabled, validationStatus, type, direction, selectedValues, select }),
+    [disabled, validationStatus, type, direction, selectedValues, select]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);
@@ -43,18 +60,8 @@ const CheckboxGroup = ({
     );
   styles.useVariants({ type: childIsCard ? 'tile' : 'checkbox', direction });
   return (
-    <CheckboxGroupContext.Provider value={value}>
-      <CheckboxGroupComponent
-        {...props}
-        value={props.value as Array<string>}
-        onChange={(groupValue: Array<string>) => {
-          onChange?.(groupValue);
-          onValueChange?.(groupValue);
-        }}
-        isDisabled={disabled}
-        isReadOnly={readonly}
-        isCard={childIsCard}
-      >
+    <CheckboxGroupContext.Provider value={contextValue}>
+      <CheckboxGroupRoot {...props} isCard={childIsCard}>
         {showHeader && (
           <CheckboxGroupTextContent>
             {!!label && (
@@ -82,7 +89,7 @@ const CheckboxGroup = ({
           </CheckboxGroupTextContent>
         )}
         <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
-      </CheckboxGroupComponent>
+      </CheckboxGroupRoot>
     </CheckboxGroupContext.Provider>
   );
 };

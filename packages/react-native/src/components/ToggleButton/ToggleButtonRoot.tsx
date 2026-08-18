@@ -18,6 +18,7 @@ const ToggleButtonRoot = ({
   styles.useVariants({
     toggled,
     active: touchPressed,
+    disabled: !!props.disabled,
   });
 
   const handlePress = (event: GestureResponderEvent) => {
@@ -72,32 +73,21 @@ const styles = StyleSheet.create(theme => ({
     height: theme.components.toggleButton.height,
     _web: {
       '_focus-visible': theme.helpers.focusVisible,
-      _hover: {
-        backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
-      },
-      _active: {
-        backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
-      },
     },
     variants: {
       toggled: {
         true: {
           backgroundColor: theme.color.interactive.brand.surface.strong.default,
           borderColor: theme.color.interactive.brand.border.strong,
-          _web: {
-            _hover: {
-              backgroundColor: theme.color.interactive.brand.surface.strong.hover,
-            },
-            _active: {
-              backgroundColor: theme.color.interactive.brand.surface.strong.active,
-            },
-          },
         },
       },
       active: {
         true: {
           backgroundColor: theme.color.interactive.brand.surface.strong.active,
         },
+      },
+      disabled: {
+        true: {},
       },
     },
     compoundVariants: [
@@ -106,6 +96,34 @@ const styles = StyleSheet.create(theme => ({
         active: true,
         styles: {
           backgroundColor: theme.color.interactive.brand.surface.strong.active,
+        },
+      },
+      {
+        disabled: false,
+        toggled: false,
+        styles: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+            },
+          },
+        },
+      },
+      {
+        disabled: false,
+        toggled: true,
+        styles: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.brand.surface.strong.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.brand.surface.strong.active,
+            },
+          },
         },
       },
     ],
