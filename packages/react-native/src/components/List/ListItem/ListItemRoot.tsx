@@ -1,6 +1,6 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useId, useLayoutEffect, useMemo } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import { useId, useLayoutEffect, useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { Skeleton } from '../../Skeleton';
@@ -22,7 +22,6 @@ const ListItemRoot = ({
   disabled,
   loading,
   children,
-  states,
   variant = 'subtle',
   badge,
   badgePosition = 'bottom',
@@ -30,11 +29,11 @@ const ListItemRoot = ({
   truncateHeading = false,
   truncateHelperText = false,
   ...props
-}: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+}: ListItemProps) => {
   const { onPress } = props;
   const listContext = useListContext();
   const { registerItem, firstItemId } = listContext;
-  const { active } = states || { active: false };
+  const [active, setActive] = useState(false);
   const itemId = useId();
 
   useLayoutEffect(() => {
@@ -64,6 +63,16 @@ const ListItemRoot = ({
 
   const testID = props.testID || 'list-item';
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setActive(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setActive(false);
+  };
 
   styles.useVariants({
     variant: listItemVariant,
@@ -110,6 +119,8 @@ const ListItemRoot = ({
         style={[styles.container, props.style as ViewStyle]}
         disabled={isDisabled}
         accessibilityRole={props.accessibilityRole ?? (onPress ? 'button' : undefined)}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
       >
         {children ? (
           children

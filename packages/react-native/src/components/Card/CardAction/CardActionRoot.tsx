@@ -1,6 +1,6 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useId, useLayoutEffect, useMemo } from 'react';
-import { Pressable, View, ViewStyle } from 'react-native';
+import { useId, useLayoutEffect, useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconContainer } from '../../IconContainer';
 import { Skeleton } from '../../Skeleton';
@@ -24,7 +24,6 @@ const CardActionRoot = ({
   disabled,
   loading,
   children,
-  states,
   badge,
   badgePosition = 'bottom',
   iconContainer = true,
@@ -34,9 +33,9 @@ const CardActionRoot = ({
   trailingIcon = ChevronRightSmallIcon,
   size = 'md',
   ...props
-}: CardActionProps & { states?: { active?: boolean; disabled?: boolean }; isFirst?: boolean }) => {
+}: CardActionProps & { isFirst?: boolean }) => {
   const { onPress } = props;
-  const { active } = states || { active: false };
+  const [active, setActive] = useState(false);
 
   const isLoading = loading;
   const showPressed = isLoading ? false : !!onPress;
@@ -59,6 +58,16 @@ const CardActionRoot = ({
 
   const isFirstFromContext = actionsContext?.firstActionId === actionId;
   const isFirst = props.isFirst ?? isFirstFromContext;
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setActive(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setActive(false);
+  };
 
   styles.useVariants({
     showPressed,
@@ -110,6 +119,8 @@ const CardActionRoot = ({
         style={[styles.container, props.style as ViewStyle]}
         disabled={isDisabled}
         accessibilityRole={onPress ? 'button' : undefined}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
       >
         {children ? (
           children

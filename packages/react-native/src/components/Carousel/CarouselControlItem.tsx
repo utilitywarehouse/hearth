@@ -1,11 +1,10 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CarouselContext from './Carousel.context';
 import { CarouselControlsItemProps } from './Carousel.props';
 
-export const CarouselControlItemRoot = ({
+const CarouselControlItem = ({
   active,
   style,
   index,
@@ -13,7 +12,7 @@ export const CarouselControlItemRoot = ({
   onPress,
   disabled,
   ...props
-}: CarouselControlsItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+}: CarouselControlsItemProps) => {
   const { inverted, numItems } = useContext(CarouselContext);
   styles.useVariants({ active, inverted });
   return (
@@ -28,10 +27,6 @@ export const CarouselControlItemRoot = ({
     </Pressable>
   );
 };
-
-const CarouselControlItem = createPressable({
-  Root: CarouselControlItemRoot,
-});
 
 CarouselControlItem.displayName = 'CarouselControlItem';
 

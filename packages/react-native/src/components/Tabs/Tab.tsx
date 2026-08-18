@@ -1,21 +1,12 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { useCallback, useRef } from 'react';
-import { Platform, Pressable, View } from 'react-native';
+import { Platform, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import type TabProps from './Tab.props';
 import { useTabsContext } from './Tabs.context';
 
-const Tab = ({
-  value,
-  children,
-  icon,
-  disabled,
-  style,
-  states,
-  ...props
-}: TabProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+const Tab = ({ value, children, icon, disabled, style, ...props }: TabProps) => {
   const {
     value: active,
     select,
@@ -23,9 +14,8 @@ const Tab = ({
     disabled: allDisabled,
     registerTabLayout,
   } = useTabsContext();
-  const { active: pressed } = states || { active: false };
   const isActive = active === value;
-  styles.useVariants({ size, pressed });
+  styles.useVariants({ size });
   const ref = useRef<View | null>(null);
   const handlePress = () => {
     if (disabled || allDisabled) return;
@@ -45,7 +35,7 @@ const Tab = ({
       accessibilityState={{ selected: isActive, disabled: !!(disabled || allDisabled) }}
       onPress={handlePress}
       onLayout={handleLayout}
-      style={[styles.tab, style]}
+      style={({ pressed }) => [styles.tab, pressed && styles.tabPressed, style as ViewStyle]}
       {...(Platform.OS === 'web'
         ? { id: `tab-${value}`, 'aria-controls': `tabpanel-${value}`, 'aria-selected': isActive }
         : null)}
@@ -89,13 +79,10 @@ const styles = StyleSheet.create(theme => ({
         md: { minHeight: theme.components.tabs.md.height },
         lg: { minHeight: theme.components.tabs.lg.height },
       },
-      pressed: {
-        true: {
-          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
-        },
-        false: {},
-      },
     },
+  },
+  tabPressed: {
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
   },
   content: {
     flexDirection: 'row',
@@ -107,8 +94,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const PressableTab = createPressable({ Root: Tab });
-
-PressableTab.displayName = 'Tab';
-
-export default PressableTab;
+export default Tab;

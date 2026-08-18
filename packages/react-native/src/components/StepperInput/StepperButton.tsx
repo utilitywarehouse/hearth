@@ -1,4 +1,3 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import type { ComponentType } from 'react';
 import type { PressableProps, ViewStyle } from 'react-native';
 import { Pressable } from 'react-native';
@@ -10,16 +9,10 @@ type StepperButtonProps = {
   disabled?: boolean;
 } & Omit<PressableProps, 'children'>;
 
-const StepperButtonRoot = ({
-  icon,
-  disabled,
-  states,
-  ...props
-}: StepperButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const isDisabled = disabled ?? states?.disabled ?? false;
-  const isActive = states?.active ?? false;
+const StepperButton = ({ icon, disabled, ...props }: StepperButtonProps) => {
+  const isDisabled = disabled ?? false;
 
-  styles.useVariants({ active: isActive, disabled: isDisabled });
+  styles.useVariants({ disabled: isDisabled });
 
   return (
     <Pressable
@@ -27,14 +20,16 @@ const StepperButtonRoot = ({
       accessibilityRole="button"
       accessibilityState={{ disabled: isDisabled, ...props.accessibilityState }}
       disabled={isDisabled}
-      style={[styles.button, props.style as ViewStyle]}
+      style={({ pressed }) => [
+        styles.button,
+        pressed && styles.buttonPressed,
+        props.style as ViewStyle,
+      ]}
     >
       <Icon as={icon} size="sm" style={styles.icon} />
     </Pressable>
   );
 };
-
-const StepperButton = createPressable({ Root: StepperButtonRoot });
 
 StepperButton.displayName = 'StepperButton';
 
@@ -63,17 +58,15 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     variants: {
-      active: {
-        true: {
-          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
-        },
-      },
       disabled: {
         true: {
           opacity: theme.opacity.disabled,
         },
       },
     },
+  },
+  buttonPressed: {
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
   },
   icon: {
     color: theme.color.icon.primary,

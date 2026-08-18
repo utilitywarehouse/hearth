@@ -2,7 +2,8 @@ import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { Pressable, ViewStyle } from 'react-native';
+import { useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import ExpandableCardContent from './ExpandableCardContent';
@@ -26,18 +27,27 @@ const ExpandableCardTriggerRoot = ({
   isExpanded,
   showChevron = true,
   disabled,
-  states,
   children,
   ...props
-}: ExpandableCardTriggerProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active } = states || { active: false };
+}: ExpandableCardTriggerProps) => {
+  const [pressed, setPressed] = useState(false);
 
   const testID = props.testID || 'expandable-card-trigger';
 
   styles.useVariants({
-    active,
+    active: pressed,
     disabled: !!disabled,
   });
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setPressed(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setPressed(false);
+  };
 
   const renderLeadingContent = () => {
     if (leadingIcon) {
@@ -116,6 +126,8 @@ const ExpandableCardTriggerRoot = ({
       accessibilityRole="button"
       accessibilityState={{ expanded: isExpanded, disabled }}
       accessibilityLabel={props.accessibilityLabel || defaultAccessibilityLabel || undefined}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
     >
       {triggerBody}
     </Pressable>
