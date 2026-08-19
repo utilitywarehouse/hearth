@@ -436,6 +436,7 @@ export const WithFlatList: Story = {
 export const KitchenSink: Story = {
   parameters: {
     controls: { include: [] },
+    chromatic: { disableSnapshot: false },
   },
   render: () => {
     const list = [
@@ -443,6 +444,7 @@ export const KitchenSink: Story = {
       { text: 'List Item 2', helperText: 'Supporting Text 2' },
       { text: 'List Item 3', helperText: 'Supporting Text 3' },
     ];
+    const [notifications, setNotifications] = useState(true);
     return (
       <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="List with title and supporting text">
@@ -527,6 +529,72 @@ export const KitchenSink: Story = {
                 onPress={() => console.log('List Item Pressed')}
               />
             ))}
+          </List>
+        </VariantTitle>
+        <VariantTitle title="Container variants">
+          <Flex direction="column" spacing="md">
+            <List container="subtleWhite">
+              <ListItem heading="Subtle white" helperText="Supporting text" />
+            </List>
+            <List container="subtleWarmWhite">
+              <ListItem heading="Subtle warm white" helperText="Supporting text" />
+            </List>
+            <List container="emphasisWhite">
+              <ListItem heading="Emphasis white" helperText="Supporting text" />
+            </List>
+            <List container="emphasisWarmWhite">
+              <ListItem heading="Emphasis warm white" helperText="Supporting text" />
+            </List>
+          </Flex>
+        </VariantTitle>
+        <VariantTitle title="List with badge">
+          <List>
+            <ListItem
+              heading="Electricity"
+              helperText="Last reading 23/03/24"
+              leadingContent={
+                <IconContainer
+                  icon={ElectricityMediumIcon}
+                  size="md"
+                  variant="emphasis"
+                  color="energy"
+                />
+              }
+              badge={<Badge text="Smart Meter" />}
+            />
+          </List>
+        </VariantTitle>
+        <VariantTitle title="List with switch">
+          <List container="subtleWhite">
+            <ListItem
+              heading="Enable notifications"
+              helperText="Receive updates and alerts"
+              trailingContent={
+                <Switch size="small" value={notifications} onValueChange={setNotifications} />
+              }
+            />
+          </List>
+        </VariantTitle>
+        <VariantTitle title="List with numeric value">
+          <List container="subtleWhite">
+            <ListItem heading="Steps today" numericValue="8,542" />
+          </List>
+        </VariantTitle>
+        <VariantTitle title="List with link">
+          <List container="subtleWhite">
+            <ListItem
+              heading="Terms of Service"
+              trailingContent={<Link onPress={() => console.log('View link pressed')}>View</Link>}
+            />
+          </List>
+        </VariantTitle>
+        <VariantTitle title="List action">
+          <List container="subtleWarmWhite">
+            <ListItem
+              heading="Manage payment methods"
+              helperText="Update your credit or debit cards"
+            />
+            <ListAction heading="Contact support" onPress={() => console.log('Contact pressed')} />
           </List>
         </VariantTitle>
       </Flex>
