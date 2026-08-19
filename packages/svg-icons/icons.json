@@ -4,6 +4,10 @@
     "name": "AddSmallIcon"
   },
   {
+    "id": "2749:50",
+    "name": "AiGeneratedSmallIcon"
+  },
+  {
     "id": "2275:794",
     "name": "AttachSmallIcon"
   },
@@ -208,6 +212,10 @@
     "name": "MoreSmallIcon"
   },
   {
+    "id": "2736:134",
+    "name": "MotorInsuranceSmallIcon"
+  },
+  {
     "id": "2015:19",
     "name": "OpenSmallIcon"
   },
@@ -326,6 +334,10 @@
   {
     "id": "6:275",
     "name": "AddMediumIcon"
+  },
+  {
+    "id": "2749:58",
+    "name": "AiGeneratedMediumIcon"
   },
   {
     "id": "2268:24",
@@ -630,6 +642,10 @@
   {
     "id": "6:633",
     "name": "MoreMediumIcon"
+  },
+  {
+    "id": "2736:151",
+    "name": "MotorInsuranceMediumIcon"
   },
   {
     "id": "6:688",

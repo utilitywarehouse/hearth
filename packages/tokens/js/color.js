@@ -80,8 +80,11 @@ export const orange = {
   900: '#893900',
 };
 export const piggyPink = {
+  0: '#faf5fa',
+  100: '#f9eafa',
   200: '#f9ceff',
   300: '#f295ff',
+  400: '#ed66ff',
   800: '#8f358f',
   900: '#7a1f7e',
 };

@@ -90,6 +90,8 @@ import SpotCalendarLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-cale
 import SpotCalendarDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-calendar-dark.svg';
 import SpotBookAppointmentLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-light.svg';
 import SpotBookAppointmentDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-dark.svg';
+import SpotMotorInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-light.svg';
+import SpotMotorInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-dark.svg';
 import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg';
 import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg';
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg';
@@ -200,6 +202,10 @@ import TechnicalRouterStatusGreenLight from '@utilitywarehouse/hearth-svg-assets
 import TechnicalRouterStatusGreenDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-dark.svg';
 import TechnicalOntRouterConnxLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-light.svg';
 import TechnicalOntRouterConnxLabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-dark.svg';
+import TechnicalCentralRailKeyOperatedLock1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-central-rail-key-operated-lock-1-light.svg';
+import TechnicalCentralRailKeyOperatedLock1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-central-rail-key-operated-lock-1-dark.svg';
+import TechnicalTopAndBottomKeyOperatedLock1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-light.svg';
+import TechnicalTopAndBottomKeyOperatedLock1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-dark.svg';
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
@@ -339,6 +345,16 @@ export const svgAssets = [
     name: 'SpotBookAppointmentDark',
     src: SpotBookAppointmentDark,
     path: 'spot-book-appointment-dark.svg',
+  },
+  {
+    name: 'SpotMotorInsuranceLight',
+    src: SpotMotorInsuranceLight,
+    path: 'spot-motor-insurance-light.svg',
+  },
+  {
+    name: 'SpotMotorInsuranceDark',
+    src: SpotMotorInsuranceDark,
+    path: 'spot-motor-insurance-dark.svg',
   },
   { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
   { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
@@ -765,5 +781,25 @@ export const svgAssets = [
     name: 'TechnicalOntRouterConnxLabelledDark',
     src: TechnicalOntRouterConnxLabelledDark,
     path: 'technical-ont-router-connx-labelled-dark.svg',
+  },
+  {
+    name: 'TechnicalCentralRailKeyOperatedLock1Light',
+    src: TechnicalCentralRailKeyOperatedLock1Light,
+    path: 'technical-central-rail-key-operated-lock-1-light.svg',
+  },
+  {
+    name: 'TechnicalCentralRailKeyOperatedLock1Dark',
+    src: TechnicalCentralRailKeyOperatedLock1Dark,
+    path: 'technical-central-rail-key-operated-lock-1-dark.svg',
+  },
+  {
+    name: 'TechnicalTopAndBottomKeyOperatedLock1Light',
+    src: TechnicalTopAndBottomKeyOperatedLock1Light,
+    path: 'technical-top-and-bottom-key-operated-lock-1-light.svg',
+  },
+  {
+    name: 'TechnicalTopAndBottomKeyOperatedLock1Dark',
+    src: TechnicalTopAndBottomKeyOperatedLock1Dark,
+    path: 'technical-top-and-bottom-key-operated-lock-1-dark.svg',
   },
 ];
