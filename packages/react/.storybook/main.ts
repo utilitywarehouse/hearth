@@ -28,6 +28,7 @@ const config: StorybookConfig = {
       },
     },
     getAbsolutePath('@storybook/addon-mcp'),
+    getAbsolutePath('storybook-addon-oversight'),
   ],
   staticDirs: ['../public'],
   framework: getAbsolutePath('@storybook/react-vite'),

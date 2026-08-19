@@ -1,5 +1,38 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.6
+
+### Patch Changes
+
+- [#1516](https://github.com/utilitywarehouse/hearth/pull/1516) [`844f463`](https://github.com/utilitywarehouse/hearth/commit/844f4635d1bb30939e1512ae335925176a4b8c80) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add piggy-pink-400
+
+## 0.31.5
+
+### Patch Changes
+
+- [#1511](https://github.com/utilitywarehouse/hearth/pull/1511) [`44c6f7d`](https://github.com/utilitywarehouse/hearth/commit/44c6f7d4f6a9fe8b34d0f27880617e5fc405411e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add back in piggy-pink-0 and piggy-pink-100 tokens
+
+## 0.31.4
+
+### Patch Changes
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Button` and `IconButton` lost all styling when `asChild` was used with the `emphasis` variant
+
+  Using `asChild` together with `variant="emphasis"` rendered the slotted
+  element with no classes, ARIA attributes, or event handlers at all, leaving it
+  completely unstyled and non-functional.
+
+  **Components affected**:
+  - `Button`
+  - `IconButton`
+
+  **Developer changes**:
+
+  No action required. `asChild` and `variant="emphasis"` can now be combined as
+  expected.
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Emphasis `Button` styles on hover
+
 ## 0.31.3
 
 ### Patch Changes

@@ -9,6 +9,13 @@
       "source": "../lib/AddSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:50&m=dev",
+      "id": "ai-generated-small-icon",
+      "name": "AiGeneratedSmallIcon",
+      "component": "AiGeneratedSmallIcon",
+      "source": "../lib/AiGeneratedSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:794&m=dev",
       "id": "attach-small-icon",
       "name": "AttachSmallIcon",
@@ -366,6 +373,13 @@
       "source": "../lib/MoreSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:134&m=dev",
+      "id": "motor-insurance-small-icon",
+      "name": "MotorInsuranceSmallIcon",
+      "component": "MotorInsuranceSmallIcon",
+      "source": "../lib/MotorInsuranceSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2015:19&m=dev",
       "id": "open-small-icon",
       "name": "OpenSmallIcon",
@@ -574,6 +588,13 @@
       "name": "AddMediumIcon",
       "component": "AddMediumIcon",
       "source": "../lib/AddMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:58&m=dev",
+      "id": "ai-generated-medium-icon",
+      "name": "AiGeneratedMediumIcon",
+      "component": "AiGeneratedMediumIcon",
+      "source": "../lib/AiGeneratedMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:24&m=dev",
@@ -1106,6 +1127,13 @@
       "name": "MoreMediumIcon",
       "component": "MoreMediumIcon",
       "source": "../lib/MoreMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:151&m=dev",
+      "id": "motor-insurance-medium-icon",
+      "name": "MotorInsuranceMediumIcon",
+      "component": "MotorInsuranceMediumIcon",
+      "source": "../lib/MotorInsuranceMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:688&m=dev",
