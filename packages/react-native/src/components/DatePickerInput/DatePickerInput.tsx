@@ -3,7 +3,7 @@ import { CalendarSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-reac
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Keyboard, Platform, TextInputFocusEvent } from 'react-native';
+import { BlurEvent, FocusEvent, Keyboard, Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DatePicker } from '../DatePicker';
 import type { DateType } from '../DatePicker/DatePicker.props';
@@ -136,14 +136,14 @@ const DatePickerInput = ({
   );
 
   const handleBlur = useCallback(
-    (event: TextInputFocusEvent) => {
+    (event: BlurEvent) => {
       onBlur?.(event);
     },
     [onBlur]
   );
 
   const handleFocus = useCallback(
-    (event: TextInputFocusEvent) => {
+    (event: FocusEvent) => {
       onFocus?.(event);
     },
     [onFocus]

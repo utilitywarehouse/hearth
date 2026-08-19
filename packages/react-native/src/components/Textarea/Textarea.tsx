@@ -1,4 +1,5 @@
 import type TextareaProps from './Textarea.props';
+import type { TextareaWithoutChildrenProps } from './Textarea.props';
 
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import {
@@ -204,7 +205,11 @@ const Textarea = ({
           <>{children}</>
         ) : (
           <>
-            <TextareaField {...props} onLayout={onLayout} style={[styles.textarea, inputStyle]} />
+            <TextareaField
+              {...(props as TextareaWithoutChildrenProps)}
+              onLayout={onLayout}
+              style={[styles.textarea, inputStyle]}
+            />
           </>
         )}
         {resizable && !textareaDisabled ? (

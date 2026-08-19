@@ -1,9 +1,12 @@
-/** @type{import("@storybook/react-native").StorybookConfig} */
-module.exports = {
-  // stories: ["../../../packages/react-native/**/*.stories.?(ts|tsx|js|jsx)"],
+// .rnstorybook/main.ts
+import type { StorybookConfig } from '@storybook/react-native';
+
+const main: StorybookConfig = {
   stories: [
     '../components/**/*.stories.?(ts|tsx|js|jsx)',
     '../../../packages/react-native/**/*.stories.?(ts|tsx|js|jsx)',
   ],
-  addons: ['@storybook/addon-ondevice-controls', '@storybook/addon-ondevice-actions'],
+  deviceAddons: ['@storybook/addon-ondevice-controls', '@storybook/addon-ondevice-actions'],
 };
+
+export default main;
