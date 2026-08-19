@@ -294,7 +294,7 @@ export const KitchenSink: Story = {
               text={text}
               colorScheme="functional"
               variant="ghost"
-              size={size}
+              size="sm"
               inverted={inverted}
               paddingNone
             />
