@@ -94,6 +94,9 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {};
 
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
   render: args => (
     <Box gap="200">
       <VariantTitle title="SM">
@@ -114,6 +117,16 @@ export const KitchenSink: Story = {
       <VariantTitle title="XL">
         <Heading {...args} size="xl">
           Hello there, I'm a heading!
+        </Heading>
+      </VariantTitle>
+      <VariantTitle title="2XL">
+        <Heading {...args} size="2xl">
+          Hello there, I'm a heading!
+        </Heading>
+      </VariantTitle>
+      <VariantTitle title="Underline">
+        <Heading {...args} underline>
+          Hello there, an underlined Heading!
         </Heading>
       </VariantTitle>
     </Box>
