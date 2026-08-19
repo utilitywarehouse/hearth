@@ -1,19 +1,9 @@
 import { BottomSheetFlatList as FlatList } from '@gorhom/bottom-sheet';
-import {
-  BottomSheetFlatListMethods,
-  BottomSheetFlatListProps,
-} from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import { BottomSheetFlatListProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';
 
-type BottomSheetFlatListComponent = ForwardRefExoticComponent<
-  Omit<BottomSheetFlatListProps<any>, 'ref'> & RefAttributes<BottomSheetFlatListMethods>
->;
-
-const StyledBottomSheetFlatList = withUnistyles(
-  FlatList as unknown as BottomSheetFlatListComponent
-) as unknown as BottomSheetFlatListComponent;
+const StyledBottomSheetFlatList = withUnistyles(FlatList);
 
 const BottomSheetFlatList = ({
   style,
