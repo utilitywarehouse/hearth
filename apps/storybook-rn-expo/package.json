@@ -18,6 +18,8 @@
     "typecheck": "tsc --noEmit",
     "android": "expo run:android",
     "ios": "expo run:ios",
+    "chromatic:build:ios": "chromatic react-native-build --platform=ios --output-dir=build",
+    "chromatic:build:android": "chromatic react-native-build --platform=android --output-dir=build",
     "clean": "rm -rf node_modules storybook-static .turbo"
   },
   "dependencies": {
