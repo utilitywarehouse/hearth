@@ -93,19 +93,48 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90 # v1.7.0
+        with:
+          xcode-version: latest-stable
+      - name: Setup EAS
+        uses: expo/expo-github-action@c7b66a9c327a43a8fa7c0158e7f30d6040d2481e # v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
+      - name: Cache CocoaPods spec repo
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: ~/.cocoapods
+          key: cocoapods-specs-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
+          restore-keys: |
+            cocoapods-specs-
+      - name: Cache Pods directory
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: apps/storybook-rn-expo/ios/Pods
+          key: ios-pods-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
+          restore-keys: |
+            ios-pods-
+
       - name: Build iOS Storybook
         working-directory: apps/storybook-rn-expo
         run: pnpm run chromatic:build:ios
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
       - name: Upload iOS build
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: ios-build
-          path: apps/storybook-rn-expo/build/
+          # Upload the parent dir, not storybook.app itself — upload-artifact hoists a
+          # single directory's *contents* to the archive root, which would drop the
+          # "storybook.app" name Chromatic requires.
+          path: apps/storybook-rn-expo/build/chromatic
           retention-days: 1
 
   build-android:
@@ -130,19 +159,41 @@ jobs:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
+      - name: Setup Java
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - name: Setup EAS
+        uses: expo/expo-github-action@c7b66a9c327a43a8fa7c0158e7f30d6040d2481e # v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
+      - name: Cache Gradle wrapper and dependencies
+        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
+        with:
+          path: |
+            ~/.gradle/wrapper
+            ~/.gradle/caches
+          key: gradle-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
+          restore-keys: |
+            gradle-
+
       - name: Build Android Storybook
         working-directory: apps/storybook-rn-expo
         run: pnpm run chromatic:build:android
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
       - name: Upload Android build
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: android-build
-          path: apps/storybook-rn-expo/build/
+          path: apps/storybook-rn-expo/build/chromatic
           retention-days: 1
 
   chromatic:
@@ -164,19 +215,13 @@ jobs:
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: ios-build
-          path: build/ios
+          path: storybook-static
 
       - name: Download Android build
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
         with:
           name: android-build
-          path: build/android
-
-      - name: Assemble storybook-static
-        run: |
-          mkdir -p storybook-static
-          mv build/ios/*.app storybook-static/storybook.app
-          mv build/android/*.apk storybook-static/storybook.apk
+          path: storybook-static
 
       - name: Run Chromatic
         uses: chromaui/action@14cfaef73576e69f95f47f60058063f46ca38719 # latest
