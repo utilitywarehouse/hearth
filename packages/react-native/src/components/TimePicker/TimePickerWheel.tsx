@@ -132,7 +132,7 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
   },
   overlayContainer: {
-    ...RNStyleSheet.absoluteFillObject,
+    ...RNStyleSheet.absoluteFill,
     justifyContent: 'center',
     alignItems: 'center',
   },
