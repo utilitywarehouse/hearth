@@ -35,8 +35,6 @@ export default {
   example: figma.code`<Accordion type="single"${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${
     trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''
   }>${items.flat()}</Accordion>`,
-  imports: [
-    `import { Accordion${linkInstance ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,
-  ],
+  imports: [`import { Accordion } from "@utilitywarehouse/hearth-react"`],
   id: 'accordion',
 };
