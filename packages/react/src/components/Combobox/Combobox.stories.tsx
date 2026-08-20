@@ -4,7 +4,7 @@ import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useState, useDeferredValue, useRef, useCallback, useMemo } from 'react';
-import { BodyText } from '../Bodytext/Bodytext';
+import { BodyText } from '../BodyText/BodyText';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components / Combobox',
