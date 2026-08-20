@@ -4,6 +4,7 @@ import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useState, useDeferredValue, useRef, useCallback, useMemo } from 'react';
+import { BodyText } from '../Bodytext/Bodytext';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components / Combobox',
@@ -14,6 +15,8 @@ const meta: Meta<typeof Combobox> = {
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     noOptionsFoundText: { control: { type: 'text' } },
+    triggerOnlyOnType: { control: { type: 'boolean' } },
+    multiple: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
     statusText: { control: { type: 'text' } },
   },
@@ -26,6 +29,7 @@ const meta: Meta<typeof Combobox> = {
     required: false,
     triggerOnlyOnType: false,
     loading: false,
+    multiple: false,
   },
 };
 
@@ -55,6 +59,22 @@ export const ItemsAsChildren: Story = {
         {fruits.map(fruit => (
           <ComboboxItem key={fruit} value={fruit}>
             {fruit}
+          </ComboboxItem>
+        ))}
+      </Combobox>
+    );
+  },
+};
+
+export const ItemsWithCustomContent: Story = {
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return (
+      <Combobox {...args}>
+        {fruits.map(fruit => (
+          <ComboboxItem key={fruit} value={fruit} justifyContent="between" alignItems="center">
+            <BodyText>{fruit}</BodyText>
+            <BodyText>Add +</BodyText>
           </ComboboxItem>
         ))}
       </Combobox>
