@@ -8,7 +8,7 @@ argument-hint: "Component name, package (react or react-native), and Figma URL"
 
 Every new component should have a Figma Code Connect file. Code Connect maps the Figma component to a live code snippet shown in the Figma Dev Mode inspector.
 
-Both `packages/react` and `packages/react-native` use the **template format** (`.figma.ts`, built on `figma.selectedInstance`). This replaced the older `figma.connect()`-based `.figma.tsx` connect API — see [Legacy connect API](#legacy-connect-api-historical-context) at the bottom if you run into an old `.figma.tsx` file that hasn't been migrated yet.
+Both `packages/react` and `packages/react-native` use the **template format** (`.figma.ts`, built on `figma.selectedInstance`). This replaced the older `figma.connect()`-based `.figma.tsx` connect API. As of this writing, migration is complete — there are no `.figma.tsx` files left in either package — but see [Legacy connect API](#legacy-connect-api-historical-context) at the bottom for historical context, or in the rare case a new one shows up.
 
 Reference docs for everything in this file:
 * Template Files — https://developers.figma.com/docs/code-connect/template-files/ (file structure, the migration script, slots)
@@ -87,6 +87,16 @@ Everything hangs off `figma.selectedInstance` (an `InstanceHandle`), or off a ha
 
 Prefer the typed getters (`getBoolean`/`getEnum`/`getString`/`getInstanceSwap`/`getSlot`) over `getPropertyValue()` — if you're refactoring a migrated file and see `getPropertyValue()`, replace it with the typed equivalent.
 
+**Lookup methods return an error handle, not `undefined`, when they fail.** `findInstance`, `findText`, and similar layer lookups return an object typed `{ type: 'ERROR' }` when the layer doesn't exist — e.g. it's absent entirely from the currently selected variant, not just hidden. This is **not** `null`/`undefined`, so optional chaining (`?.`) does not guard against it — chaining a method call straight onto the result throws (e.g. `<result>.getInstanceSwap is not a function`) instead of short-circuiting. Always check `.type !== 'ERROR'` before calling anything else on a lookup result:
+
+```ts
+const badgeInstance = instance.findInstance('Badge');
+const badge =
+  badgeInstance && badgeInstance.type !== 'ERROR' ? badgeInstance.executeTemplate().example : undefined;
+```
+
+This bites most often when a nested instance only exists conditionally — e.g. it's present in the `true` variant of a boolean toggle but removed entirely (not just hidden) in the `false` variant.
+
 ### `figma.helpers.react`
 
 Use these instead of hand-rolling conditional template branches — they handle prop/children formatting for you:
@@ -113,6 +123,18 @@ const icon = instance.getBoolean('Icon?', {
   true: instance.getInstanceSwap('Icon-20')?.executeTemplate().example,
   false: '',
 });
+```
+
+If the swapped-in instance itself has no Code Connect definition — e.g. it's a local wrapper frame around the real asset, common with illustration/spot-asset libraries where the wrapper lives in the design file but the actual connected component is a nested instance from a separate published library — `.executeTemplate()` on the swap result directly won't resolve. Use `findConnectedInstances()` to search its descendants for the first one that does have a Code Connect definition, rather than assuming a fixed layer name or nesting depth (both can vary per swapped-in asset):
+
+```ts
+const illustrationInstance = instance.findInstance('Modal illustration');
+const illustrationSwap =
+  illustrationInstance && illustrationInstance.type !== 'ERROR'
+    ? illustrationInstance.getInstanceSwap('Illustration')
+    : undefined;
+const illustrationAsset = illustrationSwap?.findConnectedInstances(() => true)[0];
+const illustration = illustrationAsset?.executeTemplate().example;
 ```
 
 ### Slots
@@ -163,6 +185,45 @@ export default {
 
 Every Figma component that can appear nested inside a parent's template needs its **own** `.figma.ts` file with `metadata: { nestable: true }` — a parent can only resolve children that have their own Code Connect definition (via `getSlot()`/`findConnectedInstances`) or that it locates directly by layer (via `findLayers`).
 
+### Reusing a sibling template's resolved values
+
+`metadata` isn't limited to `{ nestable: true }` or rendering a child inline — a template can also expose its resolved values so a *different* template flattens them onto its own props, instead of duplicating the same resolution logic. This comes up when several components each embed the same shared sub-component and flatten its props directly onto their own (rather than rendering it as a nested element) — e.g. multiple components embed a `Section Header` instance and each expose `heading`/`helperText`/`trailingContent` as their own top-level props:
+
+```ts
+// SectionHeader.figma.ts
+const heading = instance.getString('Heading');
+const helperText = instance.getBoolean('Helper text?', {
+  true: instance.getString('Helper text'),
+  false: undefined,
+});
+// ...more resolution...
+
+export default {
+  example: figma.code`<SectionHeader ... />`,
+  id: 'section-header',
+  metadata: { props: { heading, helperText, trailingContent } },
+};
+```
+
+```ts
+// DescriptionList.figma.ts — embeds a Section Header instance
+const sectionHeaderInstance = instance.findInstance('Section Header');
+const sectionHeaderTemplate =
+  sectionHeaderInstance && sectionHeaderInstance.type !== 'ERROR'
+    ? sectionHeaderInstance.executeTemplate()
+    : undefined;
+const sectionHeader = sectionHeaderTemplate?.metadata.props;
+
+export default {
+  example: figma.code`<DescriptionList${figma.helpers.react.renderProp('heading', sectionHeader?.heading)}${figma.helpers.react.renderProp('helperText', sectionHeader?.helperText)}>...</DescriptionList>`,
+  id: 'description-list',
+};
+```
+
+Only do this when the embedded instance is genuinely the *same, current* component your other template already resolves — check the live Figma structure (`get_context_for_code_connect`) first. A layer that looks like the same sub-component by name (e.g. an older "Section Header" variant with different properties, left over from before a component was updated) can silently produce wrong or `undefined` values if you assume the shared shape without checking.
+
+`metadata` can carry other custom keys beyond `props` too, for data that isn't itself a resolved prop — e.g. a boolean flag like `needsLinkImport` the embedding template needs to decide whether to add an extra import, since `executeTemplate()` only ever returns `{ example, metadata }`, never `imports`.
+
 ## Batch files
 
 If a single source file has 10+ Code Connect docs following an identical shape (e.g. an icon library), `npx figma connect migrate` may produce a `.figma.batch.ts` (the shared template) + `.figma.batch.json` (per-component data: URL, name, id, import path) pair instead of one file per component. This is expected to be rare in Hearth — most components here have a handful of connections, well under the batch threshold. If you do hit one, don't split it back into individual files; per-component values come from `figma.batch.*` inside the template rather than being hardcoded.
@@ -204,7 +265,7 @@ pnpm figma:publish -- --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 ## Legacy connect API (historical context)
 
-Older `.figma.tsx` files (still present in React Native until migrated) use `figma.connect()` from `@figma/code-connect` instead of the template API:
+Fully migrated as of this writing — there are no `.figma.tsx` files left in `packages/react` or `packages/react-native`. Older files used `figma.connect()` from `@figma/code-connect` instead of the template API:
 
 ```tsx
 import figma from '@figma/code-connect';
