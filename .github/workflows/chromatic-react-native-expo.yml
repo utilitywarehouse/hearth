@@ -15,6 +15,10 @@ on:
       - 'packages/react-native/**'
       - '.github/workflows/chromatic-react-native-expo.yml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -131,9 +135,13 @@ jobs:
         # likely cause of "works locally, fails in CI" for this exact build step.
         # NODE_OPTIONS: release builds enable minification, which is far more memory-
         # hungry than the dev bundle this app is normally built with.
+        # --exit-zero-on-changes: a brand-new Chromatic project has no baseline, so
+        # every story is reported as a "change" needing review — that's expected,
+        # not a failure, so don't let it fail the CI job. Genuine build/test errors
+        # still exit non-zero and fail this step.
         run: |
           ulimit -n 65536 || true
-          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
+          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN" --exit-zero-on-changes
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
           NODE_OPTIONS: --max-old-space-size=8192
