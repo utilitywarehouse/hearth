@@ -98,10 +98,32 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
       - name: Build and publish to Chromatic
+        id: chromatic
         # Must run from apps/storybook-rn-expo itself — running chromatic from the
         # workspace root makes it treat the monorepo root as the Expo project and
         # run `expo prebuild` against it, corrupting root package.json/app.json.
         working-directory: apps/storybook-rn-expo
+        continue-on-error: true
         run: npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
+
+      - name: Collect Chromatic build log on failure
+        if: steps.chromatic.outcome == 'failure'
+        run: |
+          mkdir -p chromatic-logs
+          find "${TMPDIR:-/tmp}" -maxdepth 4 -path '*chromatic--*/.chromatic/react-native-build.log' -exec cp {} chromatic-logs/ \; 2>/dev/null || true
+          ls -la chromatic-logs || true
+
+      - name: Upload Chromatic build log
+        if: steps.chromatic.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: chromatic-react-native-build-log
+          path: chromatic-logs/
+          if-no-files-found: warn
+          retention-days: 5
+
+      - name: Fail job if Chromatic build failed
+        if: steps.chromatic.outcome == 'failure'
+        run: exit 1
