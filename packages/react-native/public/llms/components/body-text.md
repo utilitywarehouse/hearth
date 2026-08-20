@@ -77,5 +77,20 @@ The `BodyText` component has different sizes to style the text.
       Hello there, I'm some body text!
     </BodyText>
   </VariantTitle>
+  <VariantTitle title="Semibold">
+    <BodyText {...args} weight="semibold">
+      Hello there, I'm some semi bold body text!
+    </BodyText>
+  </VariantTitle>
+  <VariantTitle title="Bold">
+    <BodyText {...args} weight="bold">
+      Hello there, I'm some bold body text!
+    </BodyText>
+  </VariantTitle>
+  <VariantTitle title="Underline">
+    <BodyText {...args} underline>
+      Hello there, I'm some underlined body text!
+    </BodyText>
+  </VariantTitle>
 </Box>
 ```

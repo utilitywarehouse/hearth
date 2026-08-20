@@ -1,5 +1,19 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.7
+
+### Patch Changes
+
+- [#1539](https://github.com/utilitywarehouse/hearth/pull/1539) [`411a6f5`](https://github.com/utilitywarehouse/hearth/commit/411a6f51ea22d066243396af477fc77de0d009d4) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `ComboboxItem` supports layout props for custom content
+
+  `ComboboxItem` now accepts `flex`, `flexBasis`, `flexShrink`, `flexGrow`,
+  `alignItems`, `justifyContent`, and `gap` props, making it easier to lay out
+  custom multi-element item content (e.g. a label alongside a trailing action)
+  without wrapping children in extra markup.
+
+  **Components affected**:
+  - `ComboboxItem`
+
 ## 0.31.6
 
 ### Patch Changes

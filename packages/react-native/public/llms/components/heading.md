@@ -70,6 +70,16 @@ The `Heading` component has different sizes to style the text.
       Hello there, I'm a heading!
     </Heading>
   </VariantTitle>
+  <VariantTitle title="2XL">
+    <Heading {...args} size="2xl">
+      Hello there, I'm a heading!
+    </Heading>
+  </VariantTitle>
+  <VariantTitle title="Underline">
+    <Heading {...args} underline>
+      Hello there, an underlined Heading!
+    </Heading>
+  </VariantTitle>
 </Box>
 ```
 
