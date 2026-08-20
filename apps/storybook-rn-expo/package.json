@@ -30,7 +30,7 @@
     "@storybook/addon-ondevice-actions": "10.5.4",
     "@storybook/addon-ondevice-controls": "10.5.4",
     "@storybook/react-native": "^10.5.4",
-    "@types/react": "~19.2.18",
+    "@types/react": "^19.2.18",
     "@utilitywarehouse/hearth-react-native": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",
     "@utilitywarehouse/hearth-storybook-utils": "workspace:*",

@@ -24,8 +24,8 @@
   "devDependencies": {
     "@figma/eslint-plugin-figma-plugins": "0.16.1",
     "@figma/plugin-typings": "^1.114.0",
-    "@types/react": "~19.2.18",
-    "@types/react-dom": "~19.2.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.3",
     "acorn-import-attributes": "^1.9.5",
     "css-loader": "^6.7.1",
     "html-webpack-plugin": "^5.5.0",
