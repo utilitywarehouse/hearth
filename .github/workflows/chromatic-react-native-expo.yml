@@ -97,6 +97,14 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
+      - name: Build workspace dependencies
+        # @utilitywarehouse/hearth-react-native's package.json `main` points at
+        # build/index.js (tsc output) — pnpm install alone doesn't produce that.
+        # Locally it already exists from prior `pnpm build` runs; a fresh CI
+        # checkout has no such artifact, so Metro fails to resolve the package.
+        # Scope to storybook-rn-expo's own dependency graph, not the whole repo.
+        run: pnpm turbo run build --filter=hearth-react-native-expo...
+
       - name: Build and publish to Chromatic
         id: chromatic
         # Must run from apps/storybook-rn-expo itself — running chromatic from the
