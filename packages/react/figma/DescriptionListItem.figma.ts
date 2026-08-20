@@ -28,12 +28,12 @@ const linkInstance =
   trailingContentInstance && trailingContentInstance.type !== 'ERROR'
     ? trailingContentInstance.findInstance('Link')
     : undefined;
-const linkText =
-  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
+const linkExample =
+  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.executeTemplate().example : undefined;
 
 export default {
   example: figma.code`<DescriptionListItem${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${
-    showTrailingContent ? figma.code` link={<Link href="#">${linkText}</Link>}` : ''
+    showTrailingContent ? figma.code` link={${linkExample}}` : ''
   }${figma.helpers.react.renderProp('validationStatus', validationStatus)}${figma.helpers.react.renderProp('validationText', validationText)} />`,
   imports: [
     `import { DescriptionListItem${showTrailingContent ? ', Link' : ''} } from "@utilitywarehouse/hearth-react"`,

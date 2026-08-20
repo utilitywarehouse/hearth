@@ -18,18 +18,14 @@ const helperText = sectionHeader?.getBoolean('Helper text?')
   ? sectionHeader.getString('Helper text')
   : undefined;
 
-// Section Header's trailing slot can show a Badge or a Link. Badge resolves via
-// executeTemplate(), but Link's Code Connect file is still legacy .figma.tsx
-// (UWDS-4757), so its example is hardcoded instead.
+// Section Header's trailing slot can show a Badge or a Link.
 const linkInstance = sectionHeader?.getBoolean('Link?')
   ? sectionHeader.findInstance('Link')
   : undefined;
-const linkText =
-  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
 const trailingContent = sectionHeader?.getBoolean('Badge?')
   ? sectionHeader.findInstance('Badge')?.executeTemplate().example
-  : linkInstance
-    ? figma.code`<Link href="#">${linkText}</Link>`
+  : linkInstance && linkInstance.type !== 'ERROR'
+    ? linkInstance.executeTemplate().example
     : undefined;
 
 const itemsSlot = instance.getSlot('Accordion items');

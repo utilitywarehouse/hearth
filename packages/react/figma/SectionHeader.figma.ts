@@ -42,12 +42,14 @@ const linkInstance =
     : undefined;
 const linkText =
   linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.getString('Text') : undefined;
+const linkExample =
+  linkInstance && linkInstance.type !== 'ERROR' ? linkInstance.executeTemplate().example : undefined;
 
 const trailingContent = Boolean(badge)
   ? badge
   : showTrailingContent
     ? trailingContentType === 'link'
-      ? figma.code`<Link href="#">${linkText}</Link>`
+      ? linkExample
       : trailingContentType === 'button'
         ? figma.code`<Link href="#" asChild><button>${linkText}</button></Link>`
         : undefined
