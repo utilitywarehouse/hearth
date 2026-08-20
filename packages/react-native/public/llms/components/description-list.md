@@ -94,6 +94,38 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
       ))}
     </DescriptionList>
   </VariantTitle>
+  <VariantTitle title="With links">
+    <DescriptionList direction="row">
+      <DescriptionListItem
+        heading="Account Number"
+        description="123456789"
+        trailingContent={<Link href="https://example.com/account">Manage account</Link>}
+      />
+      <DescriptionListItem
+        heading="Status"
+        description="Active"
+        trailingContent={
+          <Link href="https://example.com/status" showIcon={false}>
+            Change
+          </Link>
+        }
+      />
+    </DescriptionList>
+  </VariantTitle>
+  <VariantTitle title="With numeric values">
+    <DescriptionList direction="row">
+      <DescriptionListItem
+        heading="Account Balance"
+        description="Current balance"
+        numericValue="£5,432.10"
+      />
+      <DescriptionListItem
+        heading="Available Credit"
+        description="Credit limit minus current balance"
+        numericValue="£1,234.56"
+      />
+    </DescriptionList>
+  </VariantTitle>
 </Flex>
 ```
 
