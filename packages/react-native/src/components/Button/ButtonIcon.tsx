@@ -12,10 +12,9 @@ const ButtonIcon = ({ children, ...props }: IconProps) => {
     <Icon
       {...props}
       style={
-        Platform.OS === 'web'
-          ? // @ts-expect-error - style prop type issue
-            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
-          : [styles.icon as StyleProp<ViewStyle>, props.style]
+        (Platform.OS === 'web'
+          ? { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
+          : [styles.icon as StyleProp<ViewStyle>, props.style]) as IconProps['style']
       }
     >
       {children}

@@ -19,8 +19,7 @@ const ButtonIcon = ({
       {...props}
       style={
         Platform.OS === 'web'
-          ? // @ts-expect-error - Spread types may only be created from object types.
-            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
+          ? { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : [styles.icon as StyleProp<ViewStyle>, props.style]
       }
     >

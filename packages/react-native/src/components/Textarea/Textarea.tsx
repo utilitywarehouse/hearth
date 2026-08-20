@@ -1,5 +1,6 @@
 import { createTextarea } from '@gluestack-ui/textarea';
 import type TextareaProps from './Textarea.props';
+import type { TextareaWithoutChildrenProps } from './Textarea.props';
 
 import { useEffect, useMemo, useRef } from 'react';
 import {
@@ -157,7 +158,11 @@ const Textarea = ({
           <>{children}</>
         ) : (
           <>
-            <TextareaField {...props} onLayout={onLayout} style={[styles.textarea, inputStyle]} />
+            <TextareaField
+              {...(props as TextareaWithoutChildrenProps)}
+              onLayout={onLayout}
+              style={[styles.textarea, inputStyle]}
+            />
           </>
         )}
         {resizable && !textareaDisabled ? (

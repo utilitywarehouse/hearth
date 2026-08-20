@@ -2,13 +2,13 @@ import { ComponentType, ReactNode } from 'react';
 import type { PressableProps, ViewProps } from 'react-native';
 import { IconContainerProps } from '../../IconContainer';
 
-interface CardActionBaseProps extends Omit<PressableProps, 'children'> {
+export interface CardActionBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
   disabled?: boolean;
   size?: 'md' | 'lg';
 }
 
-interface CardActionContentProps {
+export interface CardActionContentProps {
   heading: string;
   helperText?: string;
   badge?: ReactNode;
