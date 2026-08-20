@@ -71,162 +71,37 @@ jobs:
             echo "should_run=false" >> "$GITHUB_OUTPUT"
           fi
 
-  build-ios:
-    name: Build iOS Storybook
-    needs: check
-    if: needs.check.outputs.should_run == 'true'
-    runs-on: macos_xl
-    steps:
-      - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
-        with:
-          egress-policy: audit
-
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
-        with:
-          version: 11.8.0
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-        with:
-          node-version: '22.x'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-      - name: Select Xcode
-        uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90 # v1.7.0
-        with:
-          xcode-version: latest-stable
-      - name: Setup EAS
-        uses: expo/expo-github-action@c7b66a9c327a43a8fa7c0158e7f30d6040d2481e # v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
-      - run: pnpm install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-
-      - name: Cache CocoaPods spec repo
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
-        with:
-          path: ~/.cocoapods
-          key: cocoapods-specs-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
-          restore-keys: |
-            cocoapods-specs-
-      - name: Cache Pods directory
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
-        with:
-          path: apps/storybook-rn-expo/ios/Pods
-          key: ios-pods-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
-          restore-keys: |
-            ios-pods-
-
-      - name: Build iOS Storybook
-        working-directory: apps/storybook-rn-expo
-        run: pnpm run chromatic:build:ios
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-
-      - name: Upload iOS build
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: ios-build
-          # Upload the parent dir, not storybook.app itself — upload-artifact hoists a
-          # single directory's *contents* to the archive root, which would drop the
-          # "storybook.app" name Chromatic requires.
-          path: apps/storybook-rn-expo/build/chromatic
-          retention-days: 1
-
-  build-android:
-    name: Build Android Storybook
-    needs: check
-    if: needs.check.outputs.should_run == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
-        with:
-          egress-policy: audit
-
-      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
-        with:
-          version: 11.8.0
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-        with:
-          node-version: '22.x'
-          registry-url: 'https://registry.npmjs.org'
-          cache: 'pnpm'
-      - name: Setup Java
-        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5.7.0
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-      - name: Setup EAS
-        uses: expo/expo-github-action@c7b66a9c327a43a8fa7c0158e7f30d6040d2481e # v8
-        with:
-          eas-version: latest
-          token: ${{ secrets.EXPO_TOKEN }}
-      - run: pnpm install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-
-      - name: Cache Gradle wrapper and dependencies
-        uses: actions/cache@2c8a9bd7457de244a408f35966fab2fb45fda9c8 # v6.0.0
-        with:
-          path: |
-            ~/.gradle/wrapper
-            ~/.gradle/caches
-          key: gradle-${{ hashFiles('apps/storybook-rn-expo/package.json', 'apps/storybook-rn-expo/app.config.ts') }}
-          restore-keys: |
-            gradle-
-
-      - name: Build Android Storybook
-        working-directory: apps/storybook-rn-expo
-        run: pnpm run chromatic:build:android
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-
-      - name: Upload Android build
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: android-build
-          path: apps/storybook-rn-expo/build/chromatic
-          retention-days: 1
-
   chromatic:
-    name: Run Chromatic
-    needs: [check, build-ios, build-android]
+    name: Build and publish to Chromatic
+    needs: check
     if: needs.check.outputs.should_run == 'true'
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
         with:
           egress-policy: audit
 
+      - uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+        with:
+          version: 11.8.0
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           fetch-depth: 0
-
-      - name: Download iOS build
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
-          name: ios-build
-          path: storybook-static
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
-      - name: Download Android build
-        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
-        with:
-          name: android-build
-          path: storybook-static
-
-      - name: Run Chromatic
-        uses: chromaui/action@14cfaef73576e69f95f47f60058063f46ca38719 # latest
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
-          storybookBuildDir: storybook-static
-          exitZeroOnChanges: true
-          autoAcceptChanges: 'main'
+      - name: Build and publish to Chromatic
+        # Must run from apps/storybook-rn-expo itself — running chromatic from the
+        # workspace root makes it treat the monorepo root as the Expo project and
+        # run `expo prebuild` against it, corrupting root package.json/app.json.
+        working-directory: apps/storybook-rn-expo
+        run: npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}

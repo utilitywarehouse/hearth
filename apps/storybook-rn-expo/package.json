@@ -18,8 +18,6 @@
     "typecheck": "tsc --noEmit",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "chromatic:build:ios": "bash scripts/chromatic-build.sh ios",
-    "chromatic:build:android": "bash scripts/chromatic-build.sh android",
     "clean": "rm -rf node_modules storybook-static .turbo"
   },
   "dependencies": {
