@@ -102,11 +102,21 @@ jobs:
         # build/index.js (tsc output) — pnpm install alone doesn't produce that.
         # Locally it already exists from prior `pnpm build` runs; a fresh CI
         # checkout has no such artifact, so Metro fails to resolve the package.
-        # Scope to storybook-rn-expo's own dependency graph, not the whole repo.
-        # --no-daemon: turbo's persistent daemon fails to spawn on this ephemeral
-        # macOS runner ("unable to spawn child process: No such file or directory")
-        # — build.yml's `pnpm build` works fine, but only ever runs on ubuntu-latest.
-        run: pnpm turbo run build --filter=hearth-react-native-expo... --no-daemon
+        #
+        # Not using turbo here: `turbo run build` (with or without --no-daemon,
+        # which turned out to be a deprecated no-op) fails outright on this
+        # runner — "unable to spawn child process: No such file or directory" for
+        # every package's build script regardless of what that script actually
+        # runs, in under 300ms. Something about turbo's own process-spawning is
+        # broken on this macOS runner; plain `pnpm --filter` spawning works fine
+        # (this job's own `pnpm install` step already ran postinstall scripts
+        # successfully), so build the packages storybook-rn-expo actually needs
+        # directly instead of routing through turbo's task graph.
+        run: |
+          pnpm --filter @utilitywarehouse/hearth-fonts run build
+          pnpm --filter @utilitywarehouse/hearth-react-icons run build
+          pnpm --filter @utilitywarehouse/hearth-react-native-icons run build
+          pnpm --filter @utilitywarehouse/hearth-react-native run build
 
       - name: Build and publish to Chromatic
         id: chromatic
