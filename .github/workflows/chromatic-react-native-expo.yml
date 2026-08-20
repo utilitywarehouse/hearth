@@ -104,9 +104,18 @@ jobs:
         # run `expo prebuild` against it, corrupting root package.json/app.json.
         working-directory: apps/storybook-rn-expo
         continue-on-error: true
-        run: npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
+        # ulimit: metro.config.js sets watchFolders to the whole monorepo root, which
+        # crawls far more files than the default macOS open-file limit allows on a
+        # fresh runner (vs. a dev machine where this is usually raised already) — a
+        # likely cause of "works locally, fails in CI" for this exact build step.
+        # NODE_OPTIONS: release builds enable minification, which is far more memory-
+        # hungry than the dev bundle this app is normally built with.
+        run: |
+          ulimit -n 65536 || true
+          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
+          NODE_OPTIONS: --max-old-space-size=8192
 
       - name: Collect Chromatic build log on failure
         if: steps.chromatic.outcome == 'failure'
