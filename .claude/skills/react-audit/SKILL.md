@@ -97,7 +97,7 @@ grep -rnE 'sourceState="(shown|hidden)"' src/
 grep -rn "from '.*shared/storybook/StorybookLink'" src/
 
 # List all components missing a Code Connect file
-find src/components -maxdepth 1 -type d | while read -r d; do
+find src/components -mindepth 1 -maxdepth 1 -type d | while read -r d; do
   ls "$d"/*.figma.ts >/dev/null 2>&1 || echo "$d"
 done
 
