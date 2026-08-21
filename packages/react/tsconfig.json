@@ -33,7 +33,8 @@
   },
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "src/**/*.figma.ts"
   ],
   "include": [
     "src/**/*"

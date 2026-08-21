@@ -21,9 +21,9 @@ Both packages use `.figma.ts` template files. Only these differ:
 
 | | `packages/react` | `packages/react-native` |
 |---|---|---|
-| **Location** | `packages/react/figma/<Name>.figma.ts` (flat directory) | `packages/react-native/src/components/<Name>/<Name>.figma.ts` (co-located with the component) |
+| **Location** | `packages/react/src/components/<Name>/<Name>.figma.ts` (co-located with the component) | `packages/react-native/src/components/<Name>/<Name>.figma.ts` (co-located with the component) |
 | **Config** | `packages/react/figma.config.json` | `packages/react-native/figma.config.json` |
-| **`// source=` comment** | Relative path back to the component, e.g. `../src/components/ExpandableCard/ExpandableCard.tsx` | Full GitHub blob URL, e.g. `https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Badge/Badge.tsx` |
+| **`// source=` comment** | Relative path to the component in the same folder, e.g. `./ExpandableCard.tsx` | Full GitHub blob URL, e.g. `https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Badge/Badge.tsx` |
 
 **Import convention is the same for both**: import from the published package name (`@utilitywarehouse/hearth-react` or `@utilitywarehouse/hearth-react-native`), not a relative path. This is resolved via the `importPaths` mapping in each package's `figma.config.json`. (The legacy `.figma.tsx` connect format for React Native required importing from the component's local `'../'` to avoid a resolution issue — that workaround does not apply to `.figma.ts` templates; `npx figma connect migrate` rewrites these imports to the package name automatically.)
 
@@ -236,7 +236,7 @@ This is the workflow for turning an existing `.figma.tsx` (legacy connect API) f
    ```sh
    npx figma connect migrate --file src/components/<Name>/<Name>.figma.tsx
    ```
-   (React: `figma/<Name>.figma.tsx`). This is a local, offline transform — it does not call the Figma API. Pass multiple `--file` paths together for a parent + its subcomponents.
+   This is a local, offline transform — it does not call the Figma API. Pass multiple `--file` paths together for a parent + its subcomponents.
 2. **Review** — don't trust the migrated output blindly:
    - Check every mapped prop against the component's own `<Name>.props.ts` and `<Name>.docs.mdx`.
    - Cross-check against the **live** Figma component's current properties/variants/slots — use the Figma MCP `get_context_for_code_connect` tool (fileKey + nodeId from the file's `// url=` comment) to get the authoritative property list, including each property's `type`. Components drift from their original Code Connect mapping over time, and some now expose `SLOT`-type properties that didn't exist when the file was first authored.
@@ -257,7 +257,7 @@ This is the workflow for turning an existing `.figma.tsx` (legacy connect API) f
 
 ```sh
 # React — from packages/react
-npx figma connect publish --file figma/MyComponent.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
+npx figma connect publish --file src/components/MyComponent/MyComponent.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 # React Native — from packages/react-native
 pnpm figma:publish -- --token "$FIGMA_CODE_CONNECT_TOKEN"

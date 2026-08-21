@@ -73,13 +73,7 @@ Each user-facing component under `src/components/<Name>/` follows a fixed file s
 <Name>.stories.tsx   # Storybook stories
 <Name>.docs.mdx      # Storybook docs page
 <Name>.context.ts    # React context — compound components only
-```
-
-Figma Code Connect files live in the **package-level `figma/` directory** (not in `src/`):
-
-```
-figma/<Name>.figma.ts
-figma/<Name>.figma.tsx
+<Name>.figma.ts       # Figma Code Connect template (co-located, matches packages/react-native)
 ```
 
 - There is **no `index.ts` per component folder** — components are exported directly from `src/index.ts`.
@@ -125,7 +119,7 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 
 ### Figma Code Connect
 
-- Code Connect files live in `figma/<Name>.figma.ts` **or** `figma/<Name>.figma.tsx` at the package root, **not** inside `src/`.
+- Code Connect files live at `src/components/<Name>/<Name>.figma.ts`, co-located with the component (same convention as `packages/react-native`).
 - Config: `figma.config.json`.
 - Publish: `pnpm figma:publish`.
-- For `.figma.ts`, use the `figma-code-connect` skill; for `.figma.tsx`, follow existing `figma.connect(...)` mappings in `packages/react/figma/`.
+- Use the `figma-code-connect` skill.
