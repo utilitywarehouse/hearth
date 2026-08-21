@@ -102,7 +102,7 @@ find src/components -mindepth 1 -maxdepth 1 -type d | while read -r d; do
 done
 
 # Preview a Code Connect file output
-npx figma connect print --file src/components/<Name>/<Name>.figma.ts
+npx figma connect preview --file src/components/<Name>/<Name>.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 # Start Storybook to verify docs visually
 pnpm dev:react
