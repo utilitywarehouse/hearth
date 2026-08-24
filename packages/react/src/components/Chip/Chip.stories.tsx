@@ -64,7 +64,7 @@ export const Group: Story = {
 /** ChipGroup wraps its Chips onto multiple lines once they no longer fit the available width. */
 export const Wrapping: Story = {
   render: () => (
-    <Box maxWidth="320px">
+    <Box maxWidth="600px">
       <ChipGroup label="Currently showing:">
         <Chip>Gas</Chip>
         <Chip>Electricity</Chip>
