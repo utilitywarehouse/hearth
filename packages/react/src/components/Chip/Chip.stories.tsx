@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
+import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 import { Chip } from './Chip';
 import { ChipGroup } from './ChipGroup';
@@ -57,6 +58,22 @@ export const Group: Story = {
       <Chip>Electricity</Chip>
       <Chip>Broadband</Chip>
     </ChipGroup>
+  ),
+};
+
+/** ChipGroup wraps its Chips onto multiple lines once they no longer fit the available width. */
+export const Wrapping: Story = {
+  render: () => (
+    <Box maxWidth="320px">
+      <ChipGroup label="Currently showing:">
+        <Chip>Gas</Chip>
+        <Chip>Electricity</Chip>
+        <Chip>Mobile</Chip>
+        <Chip>Broadband</Chip>
+        <Chip>Insurance</Chip>
+        <Chip>Cashback</Chip>
+      </ChipGroup>
+    </Box>
   ),
 };
 

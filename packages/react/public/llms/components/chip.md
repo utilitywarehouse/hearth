@@ -68,6 +68,22 @@ e.g. "Currently showing:".
 </ChipGroup>
 ```
 
+ChipGroup wraps its Chips onto multiple lines once they no longer fit the
+available width.
+
+```tsx
+<Box maxWidth="320px">
+  <ChipGroup label="Currently showing:">
+    <Chip>Gas</Chip>
+    <Chip>Electricity</Chip>
+    <Chip>Mobile</Chip>
+    <Chip>Broadband</Chip>
+    <Chip>Insurance</Chip>
+    <Chip>Cashback</Chip>
+  </ChipGroup>
+</Box>
+```
+
 Chips are commonly added to and removed from a ChipGroup over time, such as
 when a user applies or clears filters.
 
