@@ -32,10 +32,9 @@ export const Chip = forwardRef<ChipElement, ChipProps>((props, ref) => {
   } = extractProps(props, marginPropDefs);
 
   // A Chip's only interaction is removal, so its accessible name should say
-  // so rather than just repeating the visible label (see
-  // https://github.com/radix-ui/primitives/issues/987#issuecomment-974122715).
+  // so rather than just repeating the visible label.
   // Pass `aria-label` to override this for a different action or wording.
-  const defaultAriaLabel = typeof children === 'string' ? `Remove ${children}` : undefined;
+  const defaultAriaLabel = typeof children === 'string' ? `Remove ${children} filter` : undefined;
 
   return (
     <button
