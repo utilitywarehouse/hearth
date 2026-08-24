@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex/Flex';
+import { Button } from '../Button/Button';
 import { Chip } from './Chip';
+import { ChipGroup } from './ChipGroup';
 
 const meta: Meta<typeof Chip> = {
   title: 'Components / Chip',
@@ -44,4 +47,61 @@ export const Removable: Story = {
 /** Set disabled to prevent the Chip from being removed. */
 export const Disabled: Story = {
   render: () => <Chip disabled>Label</Chip>,
+};
+
+/** Use ChipGroup to lay out multiple Chips, optionally introduced by a label. */
+export const Group: Story = {
+  render: () => (
+    <ChipGroup label="Currently showing:">
+      <Chip>Gas</Chip>
+      <Chip>Electricity</Chip>
+      <Chip>Broadband</Chip>
+    </ChipGroup>
+  ),
+};
+
+const services = ['Gas', 'Electricity', 'Mobile', 'Broadband', 'Insurance', 'Cashback'];
+
+const AddAndRemoveExample = () => {
+  const [selected, setSelected] = useState<Array<string>>(['Gas', 'Electricity']);
+  const available = services.filter(service => !selected.includes(service));
+
+  return (
+    <Flex direction="column" gap="200">
+      {selected.length > 0 ? (
+        <ChipGroup label="Currently showing:">
+          {selected.map(service => (
+            <Chip
+              key={service}
+              onClick={() => setSelected(prev => prev.filter(s => s !== service))}
+            >
+              {service}
+            </Chip>
+          ))}
+        </ChipGroup>
+      ) : null}
+      <Flex gap="100" wrap="wrap">
+        {available.map(service => (
+          <Button
+            key={service}
+            size="sm"
+            variant="outline"
+            onClick={() => setSelected(prev => [...prev, service])}
+          >
+            Add {service}
+          </Button>
+        ))}
+      </Flex>
+    </Flex>
+  );
+};
+
+/**
+ * Click a Chip to remove it from the group, or use the buttons below to add
+ * one back. Demonstrates a typical filter-list pattern where ChipGroup
+ * reflects state that's added to and removed from over time.
+ */
+export const AddAndRemove: Story = {
+  tags: ['!manifest'],
+  render: () => <AddAndRemoveExample />,
 };
