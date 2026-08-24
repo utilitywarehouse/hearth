@@ -43,6 +43,7 @@ export const Chip = forwardRef<ChipElement, ChipProps>((props, ref) => {
       aria-disabled={disabled || undefined}
       aria-label={ariaLabel ?? defaultAriaLabel}
       onClick={disabled ? undefined : onClick}
+      type="button"
       data-testid={componentClassName}
       {...chipProps}
     >
