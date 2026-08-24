@@ -17,6 +17,7 @@ a single click.
 - [Removable](#removable)
 - [Disabled](#disabled)
 - [Chip Group](#chip-group)
+- [Accessibility](#accessibility)
 - [API](#api)
 
 <Canvas of={Stories.KitchenSink} sourceState="show" />
@@ -69,6 +70,32 @@ Chips are commonly added to and removed from a ChipGroup over time, such as
 when a user applies or clears filters.
 
 <Canvas of={Stories.AddAndRemove} sourceState="show" />
+
+## Accessibility
+
+A Chip's only interaction is removal, so its accessible name defaults to
+`Remove {children}` rather than just the visible label — a screen reader
+announcing only the label (e.g. "Gas, button") wouldn't convey that
+activating it removes something. This follows guidance from an
+[accessibility discussion on the Radix UI repo](https://github.com/radix-ui/primitives/issues/987#issuecomment-974122715)
+that these kinds of tags "should be labelled by the thing they're tagging".
+Pass `aria-label` to override this, e.g. for non-text `children` or different
+wording.
+
+The close icon is purely decorative and doesn't need labelling itself — icons
+from the Hearth Icons packages already set `aria-hidden="true"` by default.
+
+`ChipGroup` sets `role="group"` and associates its `label` (when provided)
+as the group's accessible name via `aria-labelledby`, so assistive
+technology announces the chips as a labelled collection rather than a run of
+unrelated buttons. Pass `aria-labelledby` (or `aria-label`) directly to
+override this.
+
+Chip and ChipGroup only cover a single removable tag and a static
+collection of them. A pattern where chips are added and removed as part of a
+combobox-style multi-select input — with, for example, backspace-to-delete
+keyboard support — is a different, more complex component and isn't covered
+here.
 
 ## API
 
