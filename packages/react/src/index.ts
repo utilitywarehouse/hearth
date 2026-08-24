@@ -324,3 +324,6 @@ export type { SegmentedControlOptionProps } from './components/SegmentedControl/
 
 export { HearthProvider } from './components/HearthProvider/HearthProvider';
 export type { HearthProviderProps } from './components/HearthProvider/HearthProvider.props';
+
+export { Chip } from './components/Chip/Chip';
+export type { ChipProps } from './components/Chip/Chip.props';

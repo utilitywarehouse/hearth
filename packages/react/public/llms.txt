@@ -50,6 +50,7 @@
 - [Checkbox](llms/components/checkbox.md): The `Checkbox` component is a dual-state checkbox allowing users to toggle
 - [CheckboxGroup](llms/components/checkbox-group.md): `CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.
 - [CheckboxTile](llms/components/checkbox-tile.md): The `CheckboxTile` component is a dual-state checkbox allowing users to toggle between checked and not checked. `CheckboxTile` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.
+- [Chip](llms/components/chip.md): Chip is a compact, interactive element that represents an input, attribute, or
 - [Combobox](llms/components/combobox.md): `Combobox` allows users to both type to filter results and select from a predefined list.
 - [Container](llms/components/container.md): ```tsx
 - [CurrencyInput](llms/components/currency-input.md): `CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
