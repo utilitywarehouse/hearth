@@ -6,7 +6,9 @@ const instance = figma.selectedInstance;
 
 // "Card Accordion" has no items slot in Figma, so items are located by layer
 // name/type rather than `getSlot()` (see skill: compound components without a slot).
-const itemLayers = instance.findLayers(node => node.type === 'INSTANCE' && node.name === 'Accordion Item');
+const itemLayers = instance.findLayers(
+  node => node.type === 'INSTANCE' && node.name === 'Accordion Item'
+);
 const items = itemLayers
   .filter(layer => layer.type === 'INSTANCE')
   .map(layer => layer.executeTemplate().example);
