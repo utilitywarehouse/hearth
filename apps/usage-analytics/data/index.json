@@ -1603,6 +1603,241 @@
           }
         }
       }
+    },
+    {
+      "date": "2026-08-24",
+      "file": "snapshots/2026-08-24.json",
+      "legacyTotals": {
+        "reposUsingAnyLegacy": 26,
+        "totalLegacyFiles": 1225,
+        "totalLegacyRefs": 8307
+      },
+      "orgTotals": {
+        "reposUsingAnyHearth": 20,
+        "totalHearthFiles": 3264,
+        "totalHearthRefs": 40646
+      },
+      "packages": {
+        "@utilitywarehouse/colour-system": {
+          "fileCount": 351,
+          "legacy": true,
+          "refCount": 1408,
+          "repoCount": 20,
+          "versions": {
+            "0.3.2": 1,
+            "0.5.0": 1,
+            "^0.0.5": 2,
+            "^0.1.0": 1,
+            "^0.3.0": 2,
+            "^0.3.2": 3,
+            "^0.4.1": 2,
+            "^0.5.0": 10
+          }
+        },
+        "@utilitywarehouse/css-reset": {
+          "fileCount": 8,
+          "legacy": true,
+          "refCount": 8,
+          "repoCount": 6,
+          "versions": {
+            "0.1.0": 1,
+            "^0.1.0": 6,
+            "^0.1.1": 2
+          }
+        },
+        "@utilitywarehouse/design-tokens": {
+          "fileCount": 0,
+          "legacy": true,
+          "refCount": 0,
+          "repoCount": 0
+        },
+        "@utilitywarehouse/hearth-css-reset": {
+          "fileCount": 0,
+          "legacy": false,
+          "refCount": 0,
+          "repoCount": 0,
+          "versions": {
+            "^0.1.5": 1
+          }
+        },
+        "@utilitywarehouse/hearth-fonts": {
+          "fileCount": 19,
+          "legacy": false,
+          "refCount": 19,
+          "repoCount": 14,
+          "versions": {
+            "0.0.4": 1,
+            "^0.0.4": 15,
+            "^0.1.1": 3
+          }
+        },
+        "@utilitywarehouse/hearth-json-assets": {
+          "fileCount": 11,
+          "legacy": false,
+          "refCount": 11,
+          "repoCount": 3,
+          "versions": {
+            "^0.4.0": 1,
+            "^0.4.1": 1,
+            "^0.5.0": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react": {
+          "fileCount": 1397,
+          "legacy": false,
+          "refCount": 25473,
+          "repoCount": 15,
+          "versions": {
+            "^0.23.4": 1,
+            "^0.24.3": 1,
+            "^0.26.0": 1,
+            "^0.27.1": 1,
+            "^0.27.11": 1,
+            "^0.27.13": 1,
+            "^0.28.1": 2,
+            "^0.28.2": 1,
+            "^0.28.3": 1,
+            "^0.28.4": 1,
+            "^0.28.7": 1,
+            "^0.29.8": 1,
+            "^0.31.0": 2,
+            "^0.31.2": 1,
+            "latest": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react-icons": {
+          "fileCount": 283,
+          "legacy": false,
+          "refCount": 1019,
+          "repoCount": 12,
+          "versions": {
+            "0.8.0": 1,
+            "^0.7.2": 2,
+            "^0.7.4": 2,
+            "^0.8.0": 8,
+            "^0.8.6": 1,
+            "^0.8.7": 1,
+            "^0.9.0": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react-native": {
+          "fileCount": 813,
+          "legacy": false,
+          "refCount": 12003,
+          "repoCount": 5,
+          "versions": {
+            "0.35.9": 1,
+            "^0.18.0": 1,
+            "^0.32.2": 1,
+            "^0.35.2": 1,
+            "^0.35.5": 1,
+            "^0.35.7": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react-native-icons": {
+          "fileCount": 224,
+          "legacy": false,
+          "refCount": 906,
+          "repoCount": 4,
+          "versions": {
+            "^0.7.4": 1,
+            "^0.8.0": 3,
+            "^0.9.0": 1
+          }
+        },
+        "@utilitywarehouse/hearth-svg-assets": {
+          "fileCount": 292,
+          "legacy": false,
+          "refCount": 466,
+          "repoCount": 9,
+          "versions": {
+            "^0.5.0": 6,
+            "^0.6.1": 2,
+            "^0.6.5": 4
+          }
+        },
+        "@utilitywarehouse/hearth-svg-icons": {
+          "fileCount": 0,
+          "legacy": false,
+          "refCount": 0,
+          "repoCount": 0,
+          "versions": {
+            "^0.7.4": 1,
+            "^0.8.2": 1
+          }
+        },
+        "@utilitywarehouse/hearth-tokens": {
+          "fileCount": 225,
+          "legacy": false,
+          "refCount": 749,
+          "repoCount": 14,
+          "versions": {
+            "^0.2.2": 6,
+            "^0.2.3": 1,
+            "^0.2.4": 6,
+            "^0.3.1": 1,
+            "^0.4.2": 2,
+            "^0.4.4": 1
+          }
+        },
+        "@utilitywarehouse/native-ui": {
+          "fileCount": 129,
+          "legacy": true,
+          "refCount": 1704,
+          "repoCount": 1,
+          "versions": {
+            "1.1.2": 1
+          }
+        },
+        "@utilitywarehouse/react-icons": {
+          "fileCount": 442,
+          "legacy": true,
+          "refCount": 2090,
+          "repoCount": 8,
+          "versions": {
+            "1.9.0": 1,
+            "^1.1.1": 1,
+            "^1.11.0": 1,
+            "^1.14.0": 4,
+            "^1.6.0": 1,
+            "^1.7.1": 1,
+            "workspace:^": 1
+          }
+        },
+        "@utilitywarehouse/react-native-icons": {
+          "fileCount": 31,
+          "legacy": true,
+          "refCount": 85,
+          "repoCount": 1,
+          "versions": {
+            "1.14.0": 1
+          }
+        },
+        "@utilitywarehouse/svg-icons": {
+          "fileCount": 1,
+          "legacy": true,
+          "refCount": 381,
+          "repoCount": 1,
+          "versions": {
+            "^1.3.0": 1,
+            "workspace:^": 1
+          }
+        },
+        "@utilitywarehouse/web-ui": {
+          "fileCount": 263,
+          "legacy": true,
+          "refCount": 2631,
+          "repoCount": 11,
+          "versions": {
+            "1.1.0": 1,
+            "^0.5.2": 2,
+            "^0.5.4": 1,
+            "^0.6.1": 1,
+            "^0.9.1": 1,
+            "^1.1.0": 5
+          }
+        }
+      }
     }
   ]
 }
