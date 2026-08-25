@@ -61,12 +61,5 @@ export interface CardProps
    * Sets the card shadow colour
    */
   shadowColor?:
-    | 'brand'
-    | 'energy'
-    | 'broadband'
-    | 'mobile'
-    | 'insurance'
-    | 'cashback'
-    | 'pig'
-    | 'functional';
+    'brand' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'pig' | 'functional';
 }

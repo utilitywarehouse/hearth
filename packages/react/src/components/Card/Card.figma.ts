@@ -5,7 +5,17 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const contentSlot = instance.getSlot('Content');
-const children = contentSlot?.connectedInstances.map(item => item.executeTemplate().example) ?? [];
+const connectedInstances = contentSlot?.connectedInstances ?? [];
+const connectedTemplates = connectedInstances.map(i => i.executeTemplate());
+
+// `connectedInstances` is shallow and only ever includes code-connected instances placed
+// directly in the slot — it omits plain text and unconnected layers entirely (per the Code
+// Connect Template API docs). Card itself has no other text outside its slotted content, so
+// search the whole instance for text layers to also pick that up.
+const slotTextLayers = instance
+  .findLayers((node: { type: string }) => node.type === 'TEXT')
+  .filter((node: { type: string }) => node.type === 'TEXT') as { textContent: string }[];
+
 const variant = instance.getEnum('Variant', {
   Emphasis: 'emphasis',
   Subtle: 'subtle',
@@ -29,17 +39,16 @@ const paddingNone = instance.getBoolean('Padding None?');
 // Detected from the rendered code itself (custom metadata.props fields that aren't referenced in
 // a template's own `example` don't survive publish/resolve, so componentName-style flags can't be
 // used here) — strip any leading comment lines, then check the JSX tag.
-const contentResults = (figma.selectedInstance.getSlot('Content')?.connectedInstances ?? []).map(
-  (i: { executeTemplate: () => any }) => i.executeTemplate()
-);
-const rootCode = (contentResults.length === 1 ? contentResults[0].example : [])
+const singleConnectedTemplate =
+  connectedTemplates?.length === 1 ? connectedTemplates[0] : undefined;
+const rootCode = (singleConnectedTemplate ? singleConnectedTemplate.example : [])
   .filter((section: { type: string }) => section.type === 'CODE')
   .map((section: { code: any }) => section.code)
   .join('')
   .replace(/^\s*\/\/.*$/gm, '')
   .trim();
 const standaloneContent = /^<(HighlightBanner)[\s/>]/.test(rootCode)
-  ? contentResults[0].example
+  ? singleConnectedTemplate?.example
   : undefined;
 
 export default {
@@ -47,6 +56,6 @@ export default {
   imports: standaloneContent ? [] : ["import { Card } from '@utilitywarehouse/hearth-react'"],
   example: standaloneContent
     ? figma.code`${standaloneContent}`
-    : figma.code`<Card${figma.helpers.react.renderProp('variant', variant)}${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('paddingNone', paddingNone)}>${children.flat()}</Card>`,
+    : figma.code`<Card${figma.helpers.react.renderProp('variant', variant)}${figma.helpers.react.renderProp('colorScheme', colorScheme)}${figma.helpers.react.renderProp('paddingNone', paddingNone)}>${slotTextLayers.map(t => t.textContent).join('')}${contentSlot ?? ''}</Card>`,
   metadata: { nestable: true },
 };
