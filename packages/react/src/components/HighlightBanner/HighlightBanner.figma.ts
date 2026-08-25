@@ -50,6 +50,7 @@ export default {
     </HighlightBanner>`,
   metadata: {
     nestable: true,
+    isHighlightBanner: true,
     props: { heading, headingColor, description, image, link, button },
   },
 };
