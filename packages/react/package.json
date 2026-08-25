@@ -54,7 +54,9 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"{src,public,docs,scripts}/**/*.{js,ts*,md*,css}\" {README,SKILL}.md",
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx,css}\"",
+    "figma": "figma connect",
     "figma:publish": "figma connect publish",
+    "figma:preview": "figma connect preview",
     "build:storybook": "pnpm generate:llm-docs && storybook build",
     "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
     "copy:changelog": "node ./scripts/copy-changelog.js",
@@ -128,6 +130,7 @@
     "stylelint-value-no-unknown-custom-properties": "^6.0.1",
     "tsup": "^8.5.1",
     "tsx": "^4.19.3",
+    "vite": "^7.1.3",
     "vitest": "^4.1.7"
   }
 }
