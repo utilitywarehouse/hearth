@@ -1,0 +1,6 @@
+.h-ChipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--h-chip-group-gap);
+}
