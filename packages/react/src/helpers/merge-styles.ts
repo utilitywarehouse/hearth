@@ -1,5 +1,7 @@
 type InlineStyle =
-  React.CSSProperties | Record<string, string | number | null | undefined> | undefined;
+  | React.CSSProperties
+  | Record<string, string | number | null | undefined>
+  | undefined;
 
 // Merges CSS styles like `classNames` merges CSS classes
 export function mergeStyles(...styles: Array<InlineStyle>): InlineStyle {

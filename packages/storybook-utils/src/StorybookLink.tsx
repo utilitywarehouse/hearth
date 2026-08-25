@@ -22,7 +22,8 @@ export const StorybookLink = (props: StorybookLinkProps) => {
 
   const handleActivate = (...args: Array<unknown>) => {
     const event = args[0] as
-      { defaultPrevented?: boolean; preventDefault?: () => void } | undefined;
+      | { defaultPrevented?: boolean; preventDefault?: () => void }
+      | undefined;
     onClick?.(event as React.MouseEvent);
     onPress?.(...args);
     if (event?.defaultPrevented) {
