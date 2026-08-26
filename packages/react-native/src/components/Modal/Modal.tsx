@@ -340,7 +340,6 @@ const styles = StyleSheet.create((theme, rt) => ({
       {
         noButtons: true,
         useSafeAreaInsets: true,
-        stickyFooter: false,
         styles: {
           paddingBottom:
             rt.insets.bottom +
@@ -397,6 +396,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     justifyContent: 'center',
     minHeight: 140,
     gap: theme.components.modal.content.gap,
+    // paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
   },
   footer: {
     gap: theme.components.modal.action.gap,
