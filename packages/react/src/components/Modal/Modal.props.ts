@@ -45,8 +45,6 @@ export interface BaseModalProps
 
 type NonLoadingState = {
   /**
-   * Whether the modal is in a loading state.
-   *
    * @default false
    */
   loading?: false;
