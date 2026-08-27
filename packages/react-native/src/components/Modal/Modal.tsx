@@ -340,7 +340,6 @@ const styles = StyleSheet.create((theme, rt) => ({
       {
         noButtons: true,
         useSafeAreaInsets: true,
-        stickyFooter: false,
         styles: {
           paddingBottom:
             rt.insets.bottom +

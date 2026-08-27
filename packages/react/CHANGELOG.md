@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.9
+
+### Patch Changes
+
+- [#1553](https://github.com/utilitywarehouse/hearth/pull/1553) [`6483208`](https://github.com/utilitywarehouse/hearth/commit/6483208279badb5cdc4d5c45ffa2702765835f66) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Bump react-icons peer dependency
+
 ## 0.31.8
 
 ### Patch Changes

@@ -13,9 +13,23 @@
   "exports": {
     ".": "./js/index.js",
     "./browser": "./browser/index.js",
-    "./browser/*": "./browser/*",
+    "./browser/*.js": {
+      "types": "./browser/*.d.ts",
+      "default": "./browser/*.js"
+    },
+    "./browser/*": {
+      "types": "./browser/*.d.ts",
+      "default": "./browser/*.js"
+    },
     "./js": "./js/index.js",
-    "./js/*": "./js/*",
+    "./js/*.js": {
+      "types": "./js/*.d.ts",
+      "default": "./js/*.js"
+    },
+    "./js/*": {
+      "types": "./js/*.d.ts",
+      "default": "./js/*.js"
+    },
     "./css": "./css/index.css",
     "./css/*": "./css/*",
     "./index.css": "./index.css",
