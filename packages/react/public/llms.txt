@@ -41,11 +41,11 @@
 - [Alert](llms/components/alert.md): Use Alert to display a short, important message that attracts the user's
 - [Avatar](llms/components/avatar.md): Use Avatar to help humanise the product experience by connecting users with
 - [Badge](llms/components/badge.md): Use Badge to convey status or highlight content with a small, read-only
-- [BodyText](llms/components/body-text.md): Use BodyText for the main paragraph or body copy of a page — it renders a
+- [BodyText](llms/components/body-text.md): Use BodyText for the main paragraph or body copy of a page. It renders a
 - [Box](llms/components/box.md): Use Box as the generic, all-purpose layout primitive when no other layout
 - [Breadcrumbs](llms/components/breadcrumbs.md): Use Breadcrumbs to help users understand where they are within a site's
 - [Button](llms/components/button.md): Use Button to trigger an action or event, such as submitting a form or
-- [Card](llms/components/card.md): Use Card as a container for concise information about a single subject —
+- [Card](llms/components/card.md): Use Card as a container for concise information about a single subject:
 - [CardAccordion](llms/components/card-accordion.md): Use CardAccordion to break a form journey into multiple collapsible cards,
 - [Checkbox](llms/components/checkbox.md): Use Checkbox to let a user toggle a dual-state option between checked and
 - [CheckboxGroup](llms/components/checkbox-group.md): Use CheckboxGroup to present a set of `Checkbox` controls where multiple

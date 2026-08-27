@@ -1,7 +1,7 @@
 # Strong
 
 Use Strong to mark up text of strong importance, seriousness, or urgency
-within a larger body of text — it renders a `strong` element by default,
+within a larger body of text. It renders a `strong` element by default,
 and should be wrapped in a BodyText component so it inherits its styles.
 It can also be used within Heading, though this is discouraged since
 Heading has only one font-weight and so there's no visual distinction.

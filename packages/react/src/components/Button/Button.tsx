@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 /**
  * Use Button to trigger an action or event, such as submitting a form or
- * displaying a dialog. Use the `variant` prop to convey emphasis — `emphasis`
+ * displaying a dialog. Use the `variant` prop to convey emphasis: `emphasis`
  * and `solid` for primary actions, `outline` for medium-emphasis, non-critical
  * actions, and `ghost` for the lowest-prominence actions. For actions that
  * navigate somewhere, use a link instead, or render Button `asChild` with an

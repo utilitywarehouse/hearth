@@ -60,7 +60,7 @@ function App({ children }) {
 
 `HearthProvider` currently includes the following providers:
 
-- `TooltipProvider` — required for the `Tooltip` component.
+- `TooltipProvider`: required for the `Tooltip` component.
 
 ## Start building
 

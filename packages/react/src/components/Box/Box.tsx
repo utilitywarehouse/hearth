@@ -35,7 +35,7 @@ type BoxElement = ComponentRef<'div'>;
 
 /**
  * Use Box as the generic, all-purpose layout primitive when no other layout
- * component (Container, Grid, Flex) fits — it renders a plain `div` (or
+ * component (Container, Grid, Flex) fits. It renders a plain `div` (or
  * `span` via `as`) with the full set of common style props available.
  * For page content with responsive padding and gutters, use Container instead.
  * For grid layouts, use Grid instead. For flexbox-based stacked or inline

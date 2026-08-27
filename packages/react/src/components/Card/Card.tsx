@@ -20,7 +20,7 @@ const COMPONENT_NAME = 'Card';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 /**
- * Use Card as a container for concise information about a single subject —
+ * Use Card as a container for concise information about a single subject:
  * featured information, related content, or navigational choices. In groups,
  * cards present collections of similar content and should be rendered as list
  * items. Cards are static by default; wrap an interactive child (a link or

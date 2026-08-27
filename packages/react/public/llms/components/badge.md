@@ -1,7 +1,7 @@
 # Badge
 
 Use Badge to convey status or highlight content with a small, read-only
-visual label. Badges are not interactive — for a similar but interactive
+visual label. Badges are not interactive; for a similar but interactive
 element, use Chip instead. Use `colorScheme` to convey semantic meaning and
 `variant` to control the visual style; note some `colorScheme`/`variant`
 combinations (e.g. `highlight` with `emphasis`) are not supported.
@@ -122,7 +122,7 @@ The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-l
 
 ## Icons
 
-You can enhance the your badge's meaning by adding a small icon to the
+You can enhance your badge's meaning by adding a small icon to the
 left. This icon is not an interactive icon button; its purpose is to reinforce
 the meaning of the text.
 

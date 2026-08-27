@@ -70,7 +70,7 @@ asynchronously loaded list.
 ## useComboboxFilter
 
 The `useComboboxFilter` hook provides robust string matching using `Intl.Collator`.
-It returns three filter functions — `contains`, `startsWith`, and `endsWith` —
+It returns three filter functions (`contains`, `startsWith`, and `endsWith`)
 that can be passed to the `filter` prop on `Combobox`.
 
 When using `useComboboxFilter`, pass the `items` prop to provide the full list

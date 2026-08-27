@@ -264,8 +264,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default colour scheme for primary actions,
+so it's only available for Emphasis and Solid Button variants.
 
 ```tsx
 <Flex gap="400">

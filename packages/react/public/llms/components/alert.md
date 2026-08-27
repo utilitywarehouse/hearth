@@ -1,12 +1,12 @@
 # Alert
 
 Use Alert to display a short, important message that attracts the user's
-attention without interrupting their task — for example an error, warning,
+attention without interrupting their task, for example an error, warning,
 success, or informational message. Provide a `title`, `text`, or both, and
 an `onClose` handler to make it dismissable. Compose with `AlertLink` for
 navigational links and `AlertIconButton` for interactive actions inside the
 alert. By default it uses `role="alert"` for an assertive live-region
-announcement — override `role` for less urgent messages (e.g. `"status"`).
+announcement. Override `role` for less urgent messages (e.g. `"status"`).
 
 ```tsx
 <Alert

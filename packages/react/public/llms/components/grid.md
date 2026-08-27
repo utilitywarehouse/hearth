@@ -68,9 +68,9 @@ responsively set the number of grid columns.
 
 ### Default Columns
 
-In an effort to be more explicit about the behaviour of the `Grid` component,
-there are no default columns set. You can, however, use the
-`defaultResponsiveColumns` prop to set our recommended responsive columns:
+The `Grid` component sets no default columns, to keep its behaviour explicit.
+Use the `defaultResponsiveColumns` prop to apply our recommended responsive
+columns:
 
 - 4 columns on `mobile`
 - 8 columns on `tablet`

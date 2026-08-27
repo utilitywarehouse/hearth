@@ -16,7 +16,7 @@ type BadgeElement = ComponentRef<'span'>;
 
 /**
  * Use Badge to convey status or highlight content with a small, read-only
- * visual label. Badges are not interactive — for a similar but interactive
+ * visual label. Badges are not interactive; for a similar but interactive
  * element, use Chip instead. Use `colorScheme` to convey semantic meaning and
  * `variant` to control the visual style; note some `colorScheme`/`variant`
  * combinations (e.g. `highlight` with `emphasis`) are not supported.

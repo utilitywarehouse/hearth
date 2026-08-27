@@ -16,8 +16,8 @@ type SectionHeaderElement = ComponentRef<'div'>;
 
 /**
  * Use SectionHeader to introduce and visually separate a section of content
- * within a screen, improving structure and page scannability. Pass
- * `trailingContent` to add a Link, Button, or Badge alongside the heading.
+ * within a screen. Pass `trailingContent` to add a Link, Button, or Badge
+ * alongside the heading.
  *
  * @summary A heading used to introduce and separate a section of content.
  */

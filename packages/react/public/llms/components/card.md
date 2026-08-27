@@ -1,6 +1,6 @@
 # Card
 
-Use Card as a container for concise information about a single subject —
+Use Card as a container for concise information about a single subject:
 featured information, related content, or navigational choices. In groups,
 cards present collections of similar content and should be rendered as list
 items. Cards are static by default; wrap an interactive child (a link or
@@ -58,7 +58,7 @@ The `variant` prop controls the visual weight of the card. Use `subtle` for a lo
 
 ## Color Scheme
 
-The `colorScheme` prop sets the colour family applied to the card surface. It works in combination with `variant` — `subtle` applies a light tint of the colour, while `emphasis` uses a stronger fill. All available colour schemes are shown below, each with both variants.
+The `colorScheme` prop sets the colour family applied to the card surface. It works in combination with `variant`: `subtle` applies a light tint of the colour, while `emphasis` uses a stronger fill. All available colour schemes are shown below, each with both variants.
 
 > **Note:** The `highlight` colour scheme is only available with the `subtle` variant.
 
@@ -414,7 +414,7 @@ clickable, but do not overlay the primary action.
 
 You can set a shadow on the `Card` component using the `shadowColor` prop.
 
-Shadows serve as a visual cue for interactivity. While interactive cards do not
+Shadows are a visual cue for interactivity. While interactive cards do not
 require a shadow, shadows should only be applied to cards that contain an
 action. Don't apply a shadow to a static card.
 

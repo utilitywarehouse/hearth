@@ -20,7 +20,7 @@ type CardAccordionElement = ComponentRef<'div'>;
  * Use CardAccordion to break a form journey into multiple collapsible cards,
  * letting users progress step-by-step on a single page while keeping
  * previously completed steps visible and editable. Compose it with
- * `CardAccordionItem` for each step — each requires a unique `value` — and
+ * `CardAccordionItem` for each step (each requires a unique `value`) and
  * `CardAccordionFooter`/`CardAccordionButton` for step navigation. Requires at
  * least one `CardAccordionItem` child.
  *

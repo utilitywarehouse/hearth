@@ -20,7 +20,7 @@ type UnstyledIconButtonElement = ComponentRef<'button'>;
 
 /**
  * Use UnstyledIconButton for an icon-only button with no visual styling of
- * its own — a plain, unstyled base for building custom icon button variants.
+ * its own: a plain, unstyled base for building custom icon button variants.
  * For a fully-styled icon button, use IconButton instead. A `label` is
  * required, since the button contains only an icon with no visible text.
  *

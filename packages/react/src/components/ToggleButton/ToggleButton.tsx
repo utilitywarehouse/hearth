@@ -18,7 +18,7 @@ type ToggleButtonElement = ComponentRef<'button'>;
 
 /**
  * Use ToggleButton as a standalone toggle option within a ToggleGroup, when
- * you need just the button itself without a card wrapper — for example
+ * you need just the button itself without a card wrapper, for example
  * inside a custom layout like a comparison table. For a toggle presented as
  * a selectable card, use ToggleButtonCard instead. Must be used within a
  * ToggleGroup, and requires a unique `value` prop.

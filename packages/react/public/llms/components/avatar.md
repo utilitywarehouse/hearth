@@ -2,7 +2,7 @@
 
 Use Avatar to help humanise the product experience by connecting users with
 the product and with each other. Pass a `name` to display initials, or a
-valid `src` to display an image — when using `src`, always also pass `name`
+valid `src` to display an image. When using `src`, always also pass `name`
 so it can be used as the image's accessible description. With neither prop,
 a generic user icon is shown.
 
@@ -66,7 +66,7 @@ the `name` prop so it can be used as an accessible description for the image.
 
 By default the image will only render when it has loaded. While the image is
 loading, or if there has been an error, the user's initials will be rendered.
-there was an error. If you notice a flash during loading, you can provide a
+If you notice a flash during loading, you can provide a
 `delayMs` prop to delay its rendering so it only renders for those with slower
 connections.
 

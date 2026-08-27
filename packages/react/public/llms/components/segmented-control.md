@@ -88,7 +88,7 @@ For binary on/off settings, use Switch instead.
 
 ## Usage
 
-Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option requires a unique `value`. Always provide a `defaultValue` — a Segmented Control cannot be used without a selected option.
+Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option requires a unique `value`. Always provide a `defaultValue`: a Segmented Control cannot be used without a selected option.
 
 ```tsx
 <SegmentedControl defaultValue={['gas']}>
@@ -118,7 +118,7 @@ Two sizes are available: `sm` (32px, default) and `md` (48px). The `size` prop i
 
 ## Icons
 
-Use the `icon` prop to display an icon before the label. Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`. Either add icons to all options or none — do not mix.
+Use the `icon` prop to display an icon before the label. Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`. Either add icons to all options or none; do not mix.
 
 ```tsx
 <SegmentedControl defaultValue={['gas']} size="sm">

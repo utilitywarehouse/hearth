@@ -1,6 +1,6 @@
 # BodyText
 
-Use BodyText for the main paragraph or body copy of a page — it renders a
+Use BodyText for the main paragraph or body copy of a page. It renders a
 `p` element by default, with responsive `size` and `weight` props.
 For smaller, secondary or supporting text, use DetailText instead.
 For heading-level text, use Heading instead. For inline emphasis or strong

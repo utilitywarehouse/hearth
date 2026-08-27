@@ -23,7 +23,7 @@ type ListElement = ComponentRef<'ol'>;
  * `colorScheme` must be used together — if either is left `undefined`, the
  * list falls back to its default appearance.
  *
- * @summary A flexible, customizable list of items with optional heading and styling.
+ * @summary A list of items with an optional heading, helper text, and style variants.
  */
 export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   const {
