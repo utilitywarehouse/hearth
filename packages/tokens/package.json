@@ -13,11 +13,19 @@
   "exports": {
     ".": "./js/index.js",
     "./browser": "./browser/index.js",
+    "./browser/*.js": {
+      "types": "./browser/*.d.ts",
+      "default": "./browser/*.js"
+    },
     "./browser/*": {
       "types": "./browser/*.d.ts",
       "default": "./browser/*.js"
     },
     "./js": "./js/index.js",
+    "./js/*.js": {
+      "types": "./js/*.d.ts",
+      "default": "./js/*.js"
+    },
     "./js/*": {
       "types": "./js/*.d.ts",
       "default": "./js/*.js"

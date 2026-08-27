@@ -10,4 +10,5 @@ wildcard pass-throughs, so under `moduleResolution: "node"` (which ignores
 `"nodenext"` the wildcard substitution produced an extensionless path with no
 matching file on disk. These entries now explicitly map to `.d.ts`/`.js` files,
 so extensionless deep subpath imports resolve correctly under all resolution
-modes.
+modes. A dedicated `*.js` pattern is matched first, so imports that already
+include the `.js` extension continue to resolve as before.
