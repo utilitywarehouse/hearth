@@ -1,7 +1,8 @@
 # VerificationInput
 
-`VerificationInput` allows users to enter a one-time password (OTP) sent via
-SMS, email, or authenticator apps.
+Use VerificationInput to let users enter a one-time password (OTP) sent via
+SMS, email, or an authenticator app. For general text entry, use TextInput;
+for passwords, use PasswordInput instead. A `label` is required.
 
 ```tsx
 <VerificationInput label="Label" helperText="Helper text" validationText="Validation text" />

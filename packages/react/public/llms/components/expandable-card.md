@@ -1,7 +1,11 @@
 # ExpandableCard
 
-Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
-can be expanded to reveal additional content.
+Use ExpandableCard to show a summary header — with an optional leading
+icon, helper text, badge, and numeric value — that can be expanded to
+reveal additional content. Group multiple cards with ExpandableCardGroup.
+
+For multiple sections of content that need to expand and collapse
+independently as a related set, use Accordion instead.
 
 - [Leading icon](#leading-icon)
 - [Default open](#default-open)

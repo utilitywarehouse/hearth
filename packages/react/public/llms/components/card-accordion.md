@@ -1,10 +1,11 @@
 # CardAccordion
 
-`CardAccordion` breaks a form journey into multiple collapsible cards, allowing
-users to progress step-by-step on a single page while keeping previously
-completed steps visible and editable. Each card represents one logical step in
-the journey. As the user progresses, completed cards collapse into a summary
-view while the next card expands.
+Use CardAccordion to break a form journey into multiple collapsible cards,
+letting users progress step-by-step on a single page while keeping
+previously completed steps visible and editable. Compose it with
+`CardAccordionItem` for each step — each requires a unique `value` — and
+`CardAccordionFooter`/`CardAccordionButton` for step navigation. Requires at
+least one `CardAccordionItem` child.
 
 - [Usage](#usage)
 - [Current content](#current-content)

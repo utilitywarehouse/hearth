@@ -1,6 +1,10 @@
 # CurrencyInput
 
-`CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
+Use CurrencyInput for entering monetary amounts, such as in Cashback and
+payment areas. It displays values with comma-separated thousands by default
+and returns the underlying value without formatting via `onChange`.
+
+For general text entry, use TextInput instead.
 
 ```tsx
 <Flex direction="column" gap="400">

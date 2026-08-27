@@ -1,6 +1,9 @@
 # PasswordInput
 
-`PasswordInput` is an interactive field that is used to securely collect users passwords.
+Use PasswordInput to securely collect a user's password, with a built-in
+control for toggling visibility of the entered value. It automatically
+resets to hidden when its parent form is submitted. For general text entry
+use TextInput instead, and for search input use SearchInput.
 
 ```tsx
 <PasswordInput {...args} />

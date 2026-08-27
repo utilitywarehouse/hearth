@@ -1,6 +1,11 @@
 # SegmentedControl
 
-Use a Segmented Control to switch between alternative views of closely related content.
+Use SegmentedControl to switch between alternative views of closely related content.
+Always provide a `defaultValue` or controlled `value` — a SegmentedControl cannot
+be used without a default selected option.
+
+For navigation between pages or sections, use Tabs instead.
+For binary on/off settings, use Switch instead.
 
 - [Usage](#usage)
 - [Sizes](#sizes)

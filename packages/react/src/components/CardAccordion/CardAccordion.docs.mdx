@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './CardAccordion.stories';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -14,11 +14,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="CardAccordion" to="components/card-accordion" />
 
-`CardAccordion` breaks a form journey into multiple collapsible cards, allowing
-users to progress step-by-step on a single page while keeping previously
-completed steps visible and editable. Each card represents one logical step in
-the journey. As the user progresses, completed cards collapse into a summary
-view while the next card expands.
+<Description of={CardAccordion} />
 
 - [Usage](#usage)
 - [Current content](#current-content)

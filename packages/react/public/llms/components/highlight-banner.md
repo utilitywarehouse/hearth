@@ -1,6 +1,9 @@
 # HighlightBanner
 
-`HighlightBanner` can be used to highlight key information or marketing messaging.
+Use HighlightBanner to highlight key information or marketing messaging,
+such as a promotion tied to a specific product or category. Compose it
+with HighlightBannerContent for the main content and HighlightBannerFooter
+for footer content.
 
 ```tsx
 <Flex gap="400" width="800px">

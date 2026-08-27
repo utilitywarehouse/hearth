@@ -1,8 +1,10 @@
 # Divider
 
-Used to provide a visual break and semantically divide content. Supports
-vertical and horizontal orientations. Vertical dividers will only be visible
-when contained inside an element with display set to `flex` or `grid`.
+Use Divider to provide a visual break and semantically divide content.
+It renders an `hr` with a `separator` role by default — use the
+`decorative` prop instead of CSS styling when you need a purely visual
+separation removed from the accessibility tree. A vertical orientation
+is only visible inside a flex or grid container.
 
 ```tsx
 <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">

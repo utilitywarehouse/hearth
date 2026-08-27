@@ -1,9 +1,11 @@
 # Menu
 
-Use the `Menu` component to present a short list of actions or options in
-response to a user’s interaction. Menus are ideal for actions like sorting,
-filtering, or providing additional options without navigating away from the
-current screen.
+Use Menu to present a short list of actions or options in response to a
+user's interaction, such as sorting, filtering, or additional options,
+without navigating away from the current screen. Compose the root Menu
+with MenuTrigger and MenuContent, which wraps any number of MenuItem
+components. Set `modal={false}` when multiple Menu components are used
+together, such as in a navigation bar.
 
 - [Usage](#usage)
 - [MenuTrigger](#menutrigger)

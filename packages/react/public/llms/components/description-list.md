@@ -1,6 +1,9 @@
 # DescriptionList
 
-Use the `DescriptionList` component when you need to present pairs of related information together.
+Use DescriptionList to present pairs of related information together, such
+as contact details or account information. Wrap any number of
+DescriptionListItem components, which render as `dt`/`dd` pairs inside a
+semantic `dl` element.
 
 ```tsx
 <Box width="550px">

@@ -1,6 +1,10 @@
 # CheckboxGroup
 
-`CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.
+Use CheckboxGroup to present a set of `Checkbox` controls where multiple
+options can be selected at once. It groups related checkboxes in a
+`fieldset` and handles their shared label, helper text, validation, and
+disabled state, as well as their layout. For single-select options, use
+RadioGroup instead.
 
 ```tsx
 <Flex asChild>

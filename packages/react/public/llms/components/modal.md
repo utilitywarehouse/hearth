@@ -1,9 +1,11 @@
 # Modal
 
-A `Modal` overlays content to request a decision or inform users of important information. When
-users need to interact with the application without navigating to a new page or disrupting their
-workflow, a `Modal` creates a floating layer over the current page to gather feedback or display
-information.
+Use Modal to overlay content that requests a decision from the user or
+informs them of important information, without navigating to a new page.
+Modal must be wrapped in a ModalRoot, and is typically composed with
+ModalTrigger, ModalContent, ModalFooter, and ModalClose. Pass `heading` and
+`description` for standard content, or custom children alongside
+ModalFooter for more control over layout.
 
 - [Usage Guidelines](#usage-guidelines)
 - [Content](#content)
@@ -379,4 +381,4 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `loadingText`          | `string`                                                          | —       | @deprecated Please use loadingHeading and loadingDescription instead                                                                                                                      |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
 | `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |
-| `loading`              | `boolean`                                                         | `false` | Whether the modal is in a loading state. Whether the modal is in a loading state. When `true`, a loading heading (via `loadingHeading`) is required for accessibility purposes.           |
+| `loading`              | `boolean`                                                         | `false` | Whether the modal is in a loading state. When `true`, a loading heading (via `loadingHeading`) is required for accessibility purposes.                                                    |

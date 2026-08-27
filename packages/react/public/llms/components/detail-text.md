@@ -1,5 +1,11 @@
 # DetailText
 
+Use DetailText for smaller, secondary text such as captions, metadata, or
+form field hints — it renders a `span` element by default, with responsive
+`size` and `color` props including built-in `valid`/`invalid` states.
+For the main body copy of a page, use BodyText instead.
+For heading-level text, use Heading instead.
+
 ```tsx
 <Flex direction="column" gap="100">
   <DetailText size="sm">Hamburgefons (sm)</DetailText>

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Grid.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,6 +10,8 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Layout / Grid" />
 
 <MarkdownDocHeader title="Grid" to="components/grid" />
+
+<Description of={Grid} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

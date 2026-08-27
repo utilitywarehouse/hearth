@@ -1,6 +1,11 @@
 # Combobox
 
-`Combobox` allows users to both type to filter results and select from a predefined list.
+Use Combobox to let users type to filter results and select from a
+predefined list of options. Pass options via the `items` prop to have them
+rendered automatically, or render `ComboboxItem` children yourself for more
+control. Set `triggerOnlyOnType` when the user must type before options are
+surfaced (e.g. a postcode or address lookup); leave it unset when there is a
+predefined list to choose from by clicking.
 
 - [Usage](#usage)
 - [Trigger only on type](#trigger-only-on-type)

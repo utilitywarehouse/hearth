@@ -1,6 +1,11 @@
 # CheckboxTile
 
-The `CheckboxTile` component is a dual-state checkbox allowing users to toggle between checked and not checked. `CheckboxTile` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.
+Use CheckboxTile to let a user toggle a dual-state option between checked
+and not checked, presented as a larger, tile-style control rather than a
+standard checkbox. It can be used independently, but when presenting
+multiple options together use `CheckboxGroup` instead, which handles their
+state and layout. If not using the `label` prop, provide an `aria-label` or
+`aria-labelledby` so the tile has an accessible name.
 
 ```tsx
 <CheckboxTile {...args} />

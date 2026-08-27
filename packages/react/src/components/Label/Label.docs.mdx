@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Label.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -9,6 +9,8 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Typography / Label" />
 
 <MarkdownDocHeader title="Label" to="components/label" />
+
+<Description of={Label} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

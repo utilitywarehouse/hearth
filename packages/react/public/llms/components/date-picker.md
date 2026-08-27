@@ -1,6 +1,11 @@
 # DatePicker
 
-`DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.
+Use DatePicker when a user needs to specify a single date via an
+expandable calendar. It is built on the React Datepicker library and only
+supports single-date selection — range and multi-date selection are not
+supported.
+
+For faster, manual date entry without a calendar, use DateInput instead.
 
 ```tsx
 <DatePicker

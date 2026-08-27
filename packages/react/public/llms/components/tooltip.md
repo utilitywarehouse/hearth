@@ -1,8 +1,9 @@
 # Tooltip
 
-Use `Tooltip` to temporarily display short, contextual text, that
-is not critical information, related to an element when
-the element receives keyboard focus or the mouse hovers over it.
+Use Tooltip to temporarily display short, non-critical contextual text
+related to an element when it receives keyboard focus or is hovered. It
+requires a single child element as its trigger, and must be used within a
+TooltipProvider (or the global HearthProvider).
 
 - [Setup](#setup)
 - [Usage](#usage)

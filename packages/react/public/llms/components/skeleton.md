@@ -67,8 +67,10 @@ is active, giving users context about what is being loaded.
 
 ## SkeletonBodyText
 
-Use `SkeletonBodyText` when you need a placeholder for body text content. It
-supports multiple lines and the same size props as `BodyText`.
+Use SkeletonBodyText as a loading placeholder for BodyText content, inside
+a Skeleton wrapper. It supports multiple lines via the `lines` prop and the
+same size props as BodyText. For placeholder headings, use SkeletonHeading;
+for arbitrary shapes like images or avatars, use SkeletonBox instead.
 
 ```tsx
 <Skeleton loadingTitle="sizes story">
@@ -82,8 +84,9 @@ supports multiple lines and the same size props as `BodyText`.
 
 ## SkeletonHeading
 
-Use `SkeletonHeading` when you need a placeholder for `Heading` content. It
-supports the same size props as `Heading`.
+Use SkeletonHeading as a loading placeholder for Heading content, inside a
+Skeleton wrapper. It supports the same size props as Heading. For body text
+placeholders, use SkeletonBodyText; for arbitrary shapes, use SkeletonBox.
 
 ```tsx
 <Skeleton loadingTitle="sizes story">
@@ -97,7 +100,9 @@ supports the same size props as `Heading`.
 
 ## SkeletonBox
 
-Use `SkeletonBox` when you need explicit control over shape and dimensions.
+Use SkeletonBox as a loading placeholder for shapes such as images, avatars,
+or other rectangular or circular content, inside a Skeleton wrapper. For
+text placeholders, use SkeletonHeading or SkeletonBodyText instead.
 
 ```tsx
 <Skeleton loadingTitle="blocks story">

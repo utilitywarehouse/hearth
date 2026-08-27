@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Combobox.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Combobox } from './Combobox';
@@ -9,7 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Combobox" to="components/combobox" />
 
-`Combobox` allows users to both type to filter results and select from a predefined list.
+<Description of={Combobox} />
 
 - [Usage](#usage)
 - [Trigger only on type](#trigger-only-on-type)

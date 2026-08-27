@@ -1,6 +1,8 @@
 # IconButton
 
-Icon Buttons are used to trigger an action on a page or to complete tasks in other components. Use Icon Buttons when you want to display an action quickly and visually, and when space is limited.
+Use IconButton to trigger an action using a single icon, when space is
+limited or an action needs to be shown quickly and visually. Since it has
+no visible text, a `label` prop is required to provide an accessible name.
 
 ```tsx
 <Flex direction="column" gap="600">

@@ -1,9 +1,10 @@
 # Checkbox
 
-The `Checkbox` component is a dual-state checkbox allowing users to toggle
-between checked and not checked. `Checkbox` can be used independently, however
-multiple checkboxes should be used within a `CheckboxGroup` to handle the state
-control and layout.
+Use Checkbox to let a user toggle a dual-state option between checked and
+not checked. It can be used independently, but when presenting multiple
+checkboxes together use `CheckboxGroup` instead, which handles their state
+and layout. If not using the `label` prop, provide an `aria-label` or
+`aria-labelledby` so the checkbox has an accessible name.
 
 ```tsx
 <Checkbox {...args} />

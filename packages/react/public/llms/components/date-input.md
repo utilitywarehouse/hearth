@@ -1,6 +1,12 @@
 # DateInput
 
-`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.
+Use DateInput when users need to enter a date manually, using separate
+fields for day, month, and year. Use the `hideDay`, `hideMonth`, and
+`hideYear` props to show only the segments you need.
+
+For a date picker with a visual calendar, use DatePicker instead.
+DateInput renders the visual `valid`/`invalid` states but does not perform
+validation internally — validation logic must be supplied by the consumer.
 
 ```tsx
 <DateInput label="Date" helperText="Helper text" dayValue="15" monthValue="06" yearValue="1990" />

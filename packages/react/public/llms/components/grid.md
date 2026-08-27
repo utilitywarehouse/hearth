@@ -1,5 +1,13 @@
 # Grid
 
+Use Grid to build CSS grid-based layouts, with responsive `columns`,
+`template*` and `auto*` props, or the `defaultResponsiveColumns` prop for
+the recommended 4/8/12 column breakpoints. Any layout primitive (Box, Flex,
+or another Grid) can be used as a grid item and supports the grid item props.
+For primitive styling with no grid behaviour, use Box instead.
+For page content with built-in max-width and centering, use Container instead.
+For flexbox-based layouts, use Flex instead.
+
 ```tsx
 <Grid {...args}>
   <Placeholder padding="400" />

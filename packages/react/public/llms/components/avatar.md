@@ -1,6 +1,10 @@
 # Avatar
 
-Use `Avatar` to help humanise the product experience by connecting users with the product and to each other.
+Use Avatar to help humanise the product experience by connecting users with
+the product and with each other. Pass a `name` to display initials, or a
+valid `src` to display an image — when using `src`, always also pass `name`
+so it can be used as the image's accessible description. With neither prop,
+a generic user icon is shown.
 
 ```tsx
 <Flex direction="row" gap="400">

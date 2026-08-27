@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Chip.stories';
 import { Chip } from './Chip';
 import { ChipGroup } from './ChipGroup';
@@ -9,9 +9,7 @@ import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 
 <MarkdownDocHeader title="Chip" to="components/chip" />
 
-Chip is a compact, interactive element that represents an input, attribute, or
-filter. It lets users see active selections at a glance and remove them with
-a single click.
+<Description of={Chip} />
 
 - [Usage](#usage)
 - [Removable](#removable)

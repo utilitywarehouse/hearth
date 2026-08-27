@@ -1,6 +1,10 @@
 # Badge
 
-A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.
+Use Badge to convey status or highlight content with a small, read-only
+visual label. Badges are not interactive — for a similar but interactive
+element, use Chip instead. Use `colorScheme` to convey semantic meaning and
+`variant` to control the visual style; note some `colorScheme`/`variant`
+combinations (e.g. `highlight` with `emphasis`) are not supported.
 
 ```tsx
 <Flex direction="column" gap="500">

@@ -1,6 +1,10 @@
 # Table
 
-Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.
+Use Table to arrange data in rows and columns, to communicate relationships
+between content and to display references, comparisons, and choices. Compose
+it with TableHeader, TableBody, TableRow, TableHeaderCell, and TableCell.
+Pass `variant` to wrap the table in a Card container; omit it for a minimal,
+unwrapped table.
 
 - [Usage](#usage)
 - [Variants](#variants)

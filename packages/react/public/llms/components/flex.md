@@ -1,5 +1,12 @@
 # Flex
 
+Use Flex to build flexbox-based layouts — stacked, inline, or wrapped
+arrangements of children — with responsive `direction`, `wrap`, alignment,
+and gap props.
+For primitive styling with no flexbox behaviour, use Box instead.
+For page content with built-in max-width and centering, use Container instead.
+For CSS grid layouts, use Grid instead.
+
 ```tsx
 <Flex {...args}>
   <Placeholder padding="600" />

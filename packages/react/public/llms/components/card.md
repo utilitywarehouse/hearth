@@ -1,6 +1,11 @@
 # Card
 
-Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.
+Use Card as a container for concise information about a single subject —
+featured information, related content, or navigational choices. In groups,
+cards present collections of similar content and should be rendered as list
+items. Cards are static by default; wrap an interactive child (a link or
+button) in `CardInteraction` to make the whole card clickable. For
+highlighting key marketing messaging, use HighlightBanner instead.
 
 - [Components](#components)
 - [Alternatives](#alternatives)

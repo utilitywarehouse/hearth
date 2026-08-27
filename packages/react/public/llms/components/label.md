@@ -1,5 +1,9 @@
 # Label
 
+Use Label to caption a form field or other input — it renders a `label`
+element by default, styled as `BodyText`. Set `variant="heading"` to style
+it as a `Heading` instead, for labels that need more visual weight.
+
 ```tsx
 <Label marginTop="300">Label</Label>
 ```

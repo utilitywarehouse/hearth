@@ -1,6 +1,8 @@
 # TextArea
 
-`TextArea` is a multi-line text input field that allows users to enter longer text content.
+Use TextArea for a multi-line text input, such as a comment, message, or
+description field. For single-line input, use TextInput instead. A `label`
+is required — it should clearly describe the purpose of the field.
 
 ```tsx
 <TextArea {...args} />

@@ -1,4 +1,4 @@
-import { Meta, Canvas, Source, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Source, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Badge.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Badge } from './Badge';
@@ -9,7 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Badge" to="components/badge" />
 
-A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.
+<Description of={Badge} />
 
 <Canvas of={Stories.KitchenSink} sourceState="hide" />
 

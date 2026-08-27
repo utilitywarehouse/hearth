@@ -1,8 +1,11 @@
 # Accordion
 
-Use `Accordion` to allow users to expand or collapse individual content
-sections, providing a compact way to present a large amount of information
-while maintaining a clean and organised interface.
+Use Accordion to let users expand or collapse individual content sections,
+presenting a large amount of information in a compact, organised interface.
+Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
+`AccordionContent` for each disclosure item. The `type` prop is required and
+determines whether one (`single`) or multiple (`multiple`) items can be
+expanded at once.
 
 - [Accordion type](#accordion-type)
 - [Collapsible](#collapsible)

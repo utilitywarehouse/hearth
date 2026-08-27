@@ -1,6 +1,9 @@
 # Select
 
-`Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.
+Use Select to let users choose a single option from a list, when the choice
+requires a final submit action to confirm — for a choice that applies
+immediately, consider SegmentedControl instead. Wrap SelectItem children to
+define the options, and always provide a `label`.
 
 ```tsx
 <Select {...args}>

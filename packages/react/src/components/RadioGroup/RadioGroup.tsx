@@ -17,8 +17,9 @@ type RadioGroupElement = ComponentRef<'fieldset'>;
 /**
  * Use RadioGroup to group a set of Radio, RadioTile, or RadioCard components
  * so a user can select a single option from a set. It manages the shared
- * value, label, helper text, and validation state for its children. For
- * multi-select options, use CheckboxGroup instead.
+ * value, label, helper text, and validation state for its children, and
+ * follows the WAI-ARIA Radio Group pattern for groups not contained in a
+ * toolbar. For multi-select options, use CheckboxGroup instead.
  *
  * @summary Groups Radio, RadioTile, or RadioCard options for single selection.
  */

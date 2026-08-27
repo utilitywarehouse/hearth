@@ -1,6 +1,9 @@
 # Toast
 
-A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.
+Use Toast for a brief, non-intrusive message that provides feedback on an
+action or notifies users of important information, auto-dismissing after a
+set duration. It must be rendered inside a ToastProvider. For messages that
+require the user to make a decision, use Alert instead.
 
 - [Usage](#usage)
 - [Icon](#icon)

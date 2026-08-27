@@ -1,5 +1,11 @@
 # Heading
 
+Use Heading for section and page headings — it renders an `h2` element by
+default, with non-responsive `size` steps that are already responsive
+internally. Use the `as` prop to render the semantically correct heading
+level (`h1`–`h4`) for the document outline, independent of visual size.
+For body or detail copy, use BodyText or DetailText instead.
+
 ```tsx
 <Flex direction="column" gap="100">
   <Heading size="sm">Hamburgefons (sm)</Heading>

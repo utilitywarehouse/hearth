@@ -1,6 +1,8 @@
 # Tabs
 
-Use Tabs to organize and navigate between content sections within the same context without leaving the page.
+Use Tabs to organize and navigate between content sections within the same
+page context, without leaving the page. Must be used together with
+TabsList, Tab, and TabContent.
 
 - [Usage](#usage)
 - [Examples](#examples)

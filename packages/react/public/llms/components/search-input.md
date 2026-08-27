@@ -1,6 +1,11 @@
 # SearchInput
 
-`SearchInput` allows users to enter a specific keyword or phrase and obtain results related to the context in which it is placed.
+Use SearchInput to let users enter a keyword or phrase to search content
+related to the context it's placed in. Pass an `onClear` handler to show a
+clear button, and set `loading` to display a spinner while results are
+fetched. On desktop and tablet it must be paired with a button to trigger
+the search; on mobile the keyboard's search action can trigger it instead.
+For general text entry use TextInput instead.
 
 - [Alternatives](#alternatives)
 - [Accessibility](#accessibility)
