@@ -13,6 +13,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TooltipContentElement = ComponentRef<'div'>;
 
+/**
+ * Use Tooltip to temporarily display short, non-critical contextual text
+ * related to an element when it receives keyboard focus or is hovered. It
+ * requires a single child element as its trigger, and must be used within a
+ * TooltipProvider (or the global HearthProvider).
+ *
+ * @summary A contextual popup that displays short text on hover or focus.
+ */
 export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
   (
     {

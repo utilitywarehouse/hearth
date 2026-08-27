@@ -1,5 +1,11 @@
 # Heading
 
+Use Heading for section and page headings — it renders an `h2` element by
+default, with non-responsive `size` steps that are already responsive
+internally. Use the `as` prop to render the semantically correct heading
+level (`h1`–`h4`) for the document outline, independent of visual size.
+For body or detail copy, use BodyText or DetailText instead.
+
 ```tsx
 <Flex direction="column" gap="100">
   <Heading size="sm">Hamburgefons (sm)</Heading>
@@ -56,7 +62,7 @@ This component is based on the `h2` element and supports the following common pr
 
 | Prop       | Type                                    | Default | Description                                                                                          |
 | ---------- | --------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `as`       | `"h2" \| "h1" \| "h3" \| "h4"`          | `h2`    |                                                                                                      |
+| `as`       | `"h2" \| "h1" \| "h3" \| "h4"`          | `h2`    | Shorthand for changing the default rendered element into a semantically appropriate alternative.     |
 | `asChild`  | `boolean`                               | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
 | `size`     | `"sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `md`    | Set the text size styles.                                                                            |
 | `inverted` | `boolean`                               | —       | Inverts the component colours, for use on darker surface colours.                                    |

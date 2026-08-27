@@ -10,5 +10,8 @@ export const colorPropDefs = {
 };
 
 export interface ColorProps {
+  /**
+   * Sets the text `color` CSS property.
+   */
   color?: (typeof values)[number] | CssTokenVariable;
 }

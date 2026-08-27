@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './ProgressBar.stories';
 import { Box } from '../Box/Box';
 import { BodyText } from '../BodyText/BodyText';
@@ -12,7 +12,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="ProgressBar" to="components/progress-bar" />
 
-`ProgressBar` displays the progress of a task or process in a linear bar format, with support for different visual states.
+<Description of={ProgressBar} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

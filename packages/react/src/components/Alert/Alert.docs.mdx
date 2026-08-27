@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Alert.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,10 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Alert" to="components/alert" />
 
-The `Alert` component displays a short, important message in a way that
-attracts the user's attention without interrupting the user's task. This
-component should be used to flag information of high importance, whether it be
-an error, warning, success or information.
+<Description of={Alert} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

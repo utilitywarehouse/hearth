@@ -15,6 +15,15 @@ type CheckboxGroupElement = ComponentRef<'fieldset'>;
 const COMPONENT_NAME = 'CheckboxGroup';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CheckboxGroup to present a set of `Checkbox` controls where multiple
+ * options can be selected at once. It groups related checkboxes in a
+ * `fieldset` and handles their shared label, helper text, validation, and
+ * disabled state, as well as their layout. For single-select options, use
+ * RadioGroup instead.
+ *
+ * @summary A fieldset grouping multiple related checkboxes that can each be selected independently.
+ */
 export const CheckboxGroup = forwardRef<CheckboxGroupElement, CheckboxGroupProps>((props, ref) => {
   const {
     disabled,

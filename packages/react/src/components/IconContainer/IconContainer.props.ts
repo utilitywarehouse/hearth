@@ -61,14 +61,24 @@ export interface IconContainerProps extends ComponentPropsWithRef<'span'>, Margi
    * Fill the container height, width or both, rather than having a constrained size
    */
   fill?: 'height' | 'width' | 'both';
-  /* Set the border radius. */
+  /**
+   * Sets the border radius on all corners.
+   */
   borderRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-top-left radius. */
+  /**
+   * Sets the border radius on the top-left corner.
+   */
   borderTopLeftRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-top-right radius. */
+  /**
+   * Sets the border radius on the top-right corner.
+   */
   borderTopRightRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-bottom-right radius. */
+  /**
+   * Sets the border radius on the bottom-right corner.
+   */
   borderBottomRightRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-bottom-left radius. */
+  /**
+   * Sets the border radius on the bottom-left corner.
+   */
   borderBottomLeftRadius?: Responsive<(typeof borderRadiusValues)[number]>;
 }

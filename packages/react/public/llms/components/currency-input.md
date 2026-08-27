@@ -1,6 +1,10 @@
 # CurrencyInput
 
-`CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
+Use CurrencyInput for entering monetary amounts, such as in Cashback and
+payment areas. It displays values with comma-separated thousands by default
+and returns the underlying value without formatting via `onChange`.
+
+For general text entry, use TextInput instead.
 
 ```tsx
 <Flex direction="column" gap="400">
@@ -63,16 +67,16 @@ This component is based on the `TextInput` component and supports the following 
 
 - Margin
 
-| Prop                     | Type                   | Default | Description                                                                 |
-| ------------------------ | ---------------------- | ------- | --------------------------------------------------------------------------- |
-| `label`                  | `string`               | —       | The label for the form field, describing its purpose.                       |
-| `defaultValue`           | `string \| number`     | —       | The initial value of the input when rendered.                               |
-| `value`                  | `string \| number`     | —       | The controlled value of the input. Must be used with an `onChange` handler. |
-| `labelId`                | `string`               | —       |                                                                             |
-| `helperTextId`           | `string`               | —       |                                                                             |
-| `validationTextId`       | `string`               | —       |                                                                             |
-| `labelVariant`           | `"body" \| "heading"`  | —       | Change the label variant                                                    |
-| `helperText`             | `string`               | —       | Optional helper text to provide additional context or instructions.         |
-| `validationText`         | `string`               | —       | Text to display when the `validationStatus` is set.                         |
-| `validationStatus`       | `"valid" \| "invalid"` | —       | Indicates the validation status.                                            |
-| `disableGroupSeparators` | `boolean`              | —       |                                                                             |
+| Prop                     | Type                   | Default | Description                                                                                        |
+| ------------------------ | ---------------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `label`                  | `string`               | —       | The label for the form field, describing its purpose.                                              |
+| `defaultValue`           | `string \| number`     | —       | The initial value of the input when rendered.                                                      |
+| `value`                  | `string \| number`     | —       | The controlled value of the input. Must be used with an `onChange` handler.                        |
+| `labelId`                | `string`               | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.            |
+| `helperTextId`           | `string`               | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.     |
+| `validationTextId`       | `string`               | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association. |
+| `labelVariant`           | `"body" \| "heading"`  | —       | Change the label variant                                                                           |
+| `helperText`             | `string`               | —       | Optional helper text to provide additional context or instructions.                                |
+| `validationText`         | `string`               | —       | Text to display when the `validationStatus` is set.                                                |
+| `validationStatus`       | `"valid" \| "invalid"` | —       | Indicates the validation status.                                                                   |
+| `disableGroupSeparators` | `boolean`              | `false` | Disables comma-separated thousands grouping in the displayed value.                                |

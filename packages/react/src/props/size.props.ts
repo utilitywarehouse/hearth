@@ -18,10 +18,28 @@ export const sizePropDefs = {
 };
 
 export interface SizeProps {
+  /**
+   * Set the width of the component.
+   */
   width?: Responsive<string>;
+  /**
+   * Set the maximum width the component can grow to.
+   */
   maxWidth?: Responsive<string>;
+  /**
+   * Set the minimum width the component can shrink to.
+   */
   minWidth?: Responsive<string>;
+  /**
+   * Set the height of the component.
+   */
   height?: Responsive<string>;
+  /**
+   * Set the maximum height the component can grow to.
+   */
   maxHeight?: Responsive<string>;
+  /**
+   * Set the minimum height the component can shrink to.
+   */
   minHeight?: Responsive<string>;
 }

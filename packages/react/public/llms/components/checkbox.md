@@ -1,9 +1,10 @@
 # Checkbox
 
-The `Checkbox` component is a dual-state checkbox allowing users to toggle
-between checked and not checked. `Checkbox` can be used independently, however
-multiple checkboxes should be used within a `CheckboxGroup` to handle the state
-control and layout.
+Use Checkbox to let a user toggle a dual-state option between checked and
+not checked. It can be used independently, but when presenting multiple
+checkboxes together use `CheckboxGroup` instead, which handles their state
+and layout. If not using the `label` prop, provide an `aria-label` or
+`aria-labelledby` so the checkbox has an accessible name.
 
 ```tsx
 <Checkbox {...args} />
@@ -93,7 +94,7 @@ This component is based on the `button` element and supports the following commo
 | `value`            | `string`                       | —       | The value given as data when submitted with a `name`.                                                                                           |
 | `onCheckedChange`  | `((checked: boolean) => void)` | —       | Event handler called when the checked state of the checkbox changes.                                                                            |
 | `defaultChecked`   | `boolean`                      | —       | The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.                         |
-| `defaultValue`     | `string`                       | —       |                                                                                                                                                 |
+| `defaultValue`     | `string`                       | —       | The value given as data when submitted with a `name`, when the checkbox is initially rendered uncontrolled.                                     |
 | `checked`          | `boolean`                      | —       | The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange.                                                 |
 | `required`         | `boolean`                      | —       |                                                                                                                                                 |
 | `helperText`       | `ReactNode`                    | —       | Helper text for the Checkbox. Will not display if the checkbox group has `helperText` set.                                                      |

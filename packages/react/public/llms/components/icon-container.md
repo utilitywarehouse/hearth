@@ -1,6 +1,9 @@
 # IconContainer
 
-Use the `IconContainer` when using icons that sit within a coloured container.
+Use IconContainer to render an icon inside a coloured, sized container,
+such as an icon from `@utilitywarehouse/hearth-react-icons`. Note that some
+combinations of `colorScheme` and `variant` (e.g. `emphasis` and
+`highlight`) are not supported and will render without colour.
 
 ```tsx
 <Flex direction="column" gap="500">

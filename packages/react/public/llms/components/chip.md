@@ -1,8 +1,8 @@
 # Chip
 
-Chip is a compact, interactive element that represents an input, attribute, or
-filter. It lets users see active selections at a glance and remove them with
-a single click.
+Use Chip to represent an input, attribute, or filter that a user can remove
+with a single click. Commonly used to show active filters applied to a list
+of results.
 
 - [Usage](#usage)
 - [Removable](#removable)

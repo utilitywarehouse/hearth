@@ -68,10 +68,28 @@ export interface DateInputProps
    * Callback fired when the year value changes.
    */
   onYearChange?: InputBaseProps['onChange'];
+  /**
+   * Callback fired when the day segment receives focus.
+   */
   onDayFocus?: InputBaseProps['onFocus'];
+  /**
+   * Callback fired when the month segment receives focus.
+   */
   onMonthFocus?: InputBaseProps['onFocus'];
+  /**
+   * Callback fired when the year segment receives focus.
+   */
   onYearFocus?: InputBaseProps['onFocus'];
+  /**
+   * Callback fired when the day segment loses focus.
+   */
   onDayBlur?: InputBaseProps['onBlur'];
+  /**
+   * Callback fired when the month segment loses focus.
+   */
   onMonthBlur?: InputBaseProps['onBlur'];
+  /**
+   * Callback fired when the year segment loses focus.
+   */
   onYearBlur?: InputBaseProps['onBlur'];
 }

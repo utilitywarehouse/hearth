@@ -4,9 +4,21 @@ import { LabelProps } from '../Label/Label.props';
 
 export interface FormFieldProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultValue'> {
   id?: string;
+  /**
+   * The `id` of the element rendering the field's label, for `aria-labelledby` association.
+   */
   labelId?: string;
+  /**
+   * The `id` of the element rendering the field's helper text, for `aria-describedby` association.
+   */
   helperTextId?: string;
+  /**
+   * The `id` of the element rendering the field's validation text, for `aria-describedby` association.
+   */
   validationTextId?: string;
+  /**
+   * Marks the field as required.
+   */
   required?: InputBaseProps['required'];
   /**
    * The label for the form field, describing its purpose.

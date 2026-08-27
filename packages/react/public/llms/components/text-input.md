@@ -1,6 +1,9 @@
 # TextInput
 
-`TextInput` is an interactive field that allows users to enter text and data.
+Use TextInput for a single-line text or data entry field. For passwords,
+search, currency, one-time passcodes, or dates, use PasswordInput,
+SearchInput, CurrencyInput, VerificationInput, or DateInput instead. A
+`label` is required and should be clear and descriptive to guide the user.
 
 ```tsx
 <TextInput {...args} />
@@ -205,17 +208,17 @@ This component is based on the `input` element and supports the following common
 
 - Margin
 
-| Prop               | Type                                                                        | Default | Description                                                                 |
-| ------------------ | --------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------- |
-| `label`            | `string`                                                                    | —       | The label for the form field, describing its purpose.                       |
-| `defaultValue`     | `string \| number`                                                          | —       | The initial value of the input when rendered.                               |
-| `type`             | `"number" \| "search" \| "text" \| "email" \| "password" \| "tel" \| "url"` | —       |                                                                             |
-| `value`            | `string \| number`                                                          | —       | The controlled value of the input. Must be used with an `onChange` handler. |
-| `labelId`          | `string`                                                                    | —       |                                                                             |
-| `helperTextId`     | `string`                                                                    | —       |                                                                             |
-| `validationTextId` | `string`                                                                    | —       |                                                                             |
-| `hideLabel`        | `boolean`                                                                   | —       | Visually hide the label.                                                    |
-| `labelVariant`     | `"body" \| "heading"`                                                       | —       | Change the label variant                                                    |
-| `helperText`       | `string`                                                                    | —       | Optional helper text to provide additional context or instructions.         |
-| `validationText`   | `string`                                                                    | —       | Text to display when the `validationStatus` is set.                         |
-| `validationStatus` | `"valid" \| "invalid"`                                                      | —       | Indicates the validation status.                                            |
+| Prop               | Type                                                                        | Default | Description                                                                                                              |
+| ------------------ | --------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `label`            | `string`                                                                    | —       | The label for the form field, describing its purpose.                                                                    |
+| `defaultValue`     | `string \| number`                                                          | —       | The initial value of the input when rendered.                                                                            |
+| `type`             | `"number" \| "search" \| "text" \| "email" \| "password" \| "tel" \| "url"` | `text`  | Sets the input's HTML `type` attribute, which determines the keyboard and validation behavior the browser applies to it. |
+| `value`            | `string \| number`                                                          | —       | The controlled value of the input. Must be used with an `onChange` handler.                                              |
+| `labelId`          | `string`                                                                    | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.                                  |
+| `helperTextId`     | `string`                                                                    | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.                           |
+| `validationTextId` | `string`                                                                    | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association.                       |
+| `hideLabel`        | `boolean`                                                                   | —       | Visually hide the label.                                                                                                 |
+| `labelVariant`     | `"body" \| "heading"`                                                       | —       | Change the label variant                                                                                                 |
+| `helperText`       | `string`                                                                    | —       | Optional helper text to provide additional context or instructions.                                                      |
+| `validationText`   | `string`                                                                    | —       | Text to display when the `validationStatus` is set.                                                                      |
+| `validationStatus` | `"valid" \| "invalid"`                                                      | —       | Indicates the validation status.                                                                                         |

@@ -10,6 +10,17 @@ import { DateInputSegment } from './DateInputSegment';
 const COMPONENT_NAME = 'DateInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use DateInput when users need to enter a date manually, using separate
+ * fields for day, month, and year. Use the `hideDay`, `hideMonth`, and
+ * `hideYear` props to show only the segments you need.
+ *
+ * For a date picker with a visual calendar, use DatePicker instead.
+ * DateInput renders the visual `valid`/`invalid` states but does not perform
+ * validation internally — validation logic must be supplied by the consumer.
+ *
+ * @summary A manual date entry field with separate day, month, and year segments.
+ */
 export const DateInput = ({
   className,
   label,

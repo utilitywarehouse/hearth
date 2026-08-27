@@ -1,9 +1,10 @@
 # ToggleButton
 
-A standalone toggle button for use with `ToggleGroup`. Unlike
-`ToggleButtonCard`, `ToggleButton` is just the button itself - it has no card
-wrapper - making it suitable for layouts where the toggle controls live inside
-a custom container such as a comparison table.
+Use ToggleButton as a standalone toggle option within a ToggleGroup, when
+you need just the button itself without a card wrapper, for example
+inside a custom layout like a comparison table. For a toggle presented as
+a selectable card, use ToggleButtonCard instead. Must be used within a
+ToggleGroup, and requires a unique `value` prop.
 
 ```tsx
 <ToggleGroup type="single" gap="200">

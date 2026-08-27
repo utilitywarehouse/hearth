@@ -14,6 +14,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SkeletonBodyTextElement = ComponentRef<'div'>;
 
+/**
+ * Use SkeletonBodyText as a loading placeholder for BodyText content, inside
+ * a Skeleton wrapper. It supports multiple lines via the `lines` prop and the
+ * same size props as BodyText. For placeholder headings, use SkeletonHeading;
+ * for arbitrary shapes like images or avatars, use SkeletonBox instead.
+ *
+ * @summary A loading placeholder for BodyText content, supporting multiple lines.
+ */
 export const SkeletonBodyText = forwardRef<SkeletonBodyTextElement, SkeletonBodyTextProps>(
   (props, ref) => {
     const {

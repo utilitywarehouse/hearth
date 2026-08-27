@@ -17,6 +17,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TextAreaElement = ComponentRef<'textarea'>;
 
+/**
+ * Use TextArea for a multi-line text input, such as a comment, message, or
+ * description field. For single-line input, use TextInput instead. A `label`
+ * is required and should clearly describe the purpose of the field.
+ *
+ * @summary A multi-line text input field for longer text content.
+ */
 export const TextArea = forwardRef<TextAreaElement, TextAreaProps>((props, ref) => {
   const {
     className,

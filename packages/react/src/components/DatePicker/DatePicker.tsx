@@ -22,6 +22,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DatePickerElement = ComponentRef<'button'>;
 
+/**
+ * Use DatePicker when a user needs to specify a single date via an
+ * expandable calendar. It is built on the React Datepicker library and only
+ * supports single-date selection — range and multi-date selection are not
+ * supported.
+ *
+ * For faster, manual date entry without a calendar, use DateInput instead.
+ *
+ * @summary A field for selecting a single date from an expandable calendar.
+ */
 export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props, ref) => {
   const {
     className,

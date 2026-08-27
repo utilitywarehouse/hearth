@@ -1,5 +1,11 @@
 # InlineLink
 
+Use InlineLink for a hyperlink embedded within a run of text — it renders
+an `a` element by default, and automatically adds an "opens in new tab"
+icon and visually-hidden label when `target="_blank"` is set. Use `asChild`
+to render a routing library's link component (e.g. Next.js `Link`) instead.
+For a standalone link not embedded in text, use Link instead.
+
 - [Alternatives](#alternatives)
 - [Semantic HTML](#semantic-html)
 - [Colour](#colour)
