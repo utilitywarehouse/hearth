@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.36.1
+
+### Patch Changes
+
+- [#1551](https://github.com/utilitywarehouse/hearth/pull/1551) [`86a6935`](https://github.com/utilitywarehouse/hearth/commit/86a6935b6f28d63b6fe63983cce731a286fd0916) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` loading state squeezed at the bottom on devices with safe area insets
+
+  The loading state's content sat flush against the bottom of the sheet (and the home indicator area) instead of respecting the device's bottom safe area inset, most noticeable when `loadingDescription` made the content taller. This affected all loading modals using the default `stickyFooter` behaviour, since no footer is ever shown while `loading` is `true`.
+
+  **Components affected**:
+  - `Modal`
+
 ## 0.36.0
 
 ### Minor Changes

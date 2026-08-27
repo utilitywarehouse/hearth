@@ -407,7 +407,7 @@ If you need to use the `ExpandableCard` component in a more advanced way, you ca
 
 ```tsx
 // Example usage
-<div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
+<View style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
   <ExpandableCard
     expanded={triggerContentExpanded}
     onExpandedChange={setTriggerContentExpanded}
@@ -446,7 +446,7 @@ If you need to use the `ExpandableCard` component in a more advanced way, you ca
       <BodyText>Last Updated: 12/11/25</BodyText>
     </ExpandableCardExpandedContent>
   </ExpandableCard>
-</div>
+</View>
 ```
 
 ```tsx
