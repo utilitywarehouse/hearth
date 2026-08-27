@@ -4,6 +4,8 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
+const variant = instance.getEnum('Variant', { 'Toggle Button': 'toggle-button' });
+
 const toggleButtonInstance = instance.findInstance('Toggle Button');
 const label =
   toggleButtonInstance && toggleButtonInstance.type !== 'ERROR'
@@ -13,10 +15,12 @@ const label =
 const content =
   instance.getSlot('Content')?.connectedInstances.map(i => i.executeTemplate().example) ?? [];
 
-export default {
-  example: figma.code`/* Related ToggleButtonCard components must be wrapped in a ToggleGroup */
+export default variant === 'toggle-button'
+  ? {
+      example: figma.code`/* Related ToggleButtonCard components must be wrapped in a ToggleGroup */
   <ToggleButtonCard${figma.helpers.react.renderProp('label', label)}>${content.flat()}</ToggleButtonCard>`,
-  imports: ['import { ToggleButtonCard } from "@utilitywarehouse/hearth-react"'],
-  id: 'toggle-button-card',
-  metadata: { nestable: true },
-};
+      imports: ['import { ToggleButtonCard } from "@utilitywarehouse/hearth-react"'],
+      id: 'toggle-button-card',
+      metadata: { nestable: true },
+    }
+  : undefined;
