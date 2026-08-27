@@ -13,13 +13,7 @@ The `color` prop accepts the following semantic colour values: `primary`,
 <Box color="inverted" />
 ```
 
-| Value       | CSS custom property       |
-| ----------- | ------------------------- |
-| primary     | var(--h-text-primary)     |
-| secondary   | var(--h-text-secondary)   |
-| brand       | var(--h-text-brand)       |
-| affirmative | var(--h-text-affirmative) |
-| inverted    | var(--h-text-inverted)    |
+<ColorPropsTable />
 
 You can also pass any of the available Hearth prefixed CSS custom properties
 from the Hearth Tokens library.
@@ -41,9 +35,9 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 // <Box color='rebeccapurple'/>
 ```
 
-| Prop    | Type                                                                                         | Default | Description |
-| ------- | -------------------------------------------------------------------------------------------- | ------- | ----------- |
-| `color` | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})`` | —       |             |
+| Prop    | Type                                                                                         | Default | Description                         |
+| ------- | -------------------------------------------------------------------------------------------- | ------- | ----------------------------------- |
+| `color` | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})`` | —       | Sets the text `color` CSS property. |
 
 ## Background colour
 
@@ -55,11 +49,7 @@ The `backgroundColor` prop accepts the following semantic colour values: `primar
 <Box backgroundColor="brand" />
 ```
 
-| Value     | CSS custom property           |
-| --------- | ----------------------------- |
-| primary   | var(--h-background-primary)   |
-| secondary | var(--h-background-secondary) |
-| brand     | var(--h-background-brand)     |
+<BackgroundColorPropsTable />
 
 You can also pass any of the available Hearth prefixed CSS custom properties from the Hearth Tokens library.
 You cannot pass raw strings to the `backgroundColor` prop.
@@ -80,6 +70,6 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 // <Box backgroundColor='rebeccapurple'/>
 ```
 
-| Prop              | Type                                                          | Default | Description |
-| ----------------- | ------------------------------------------------------------- | ------- | ----------- |
-| `backgroundColor` | `"primary" \| "secondary" \| "brand" \| `var(--h-${string})`` | —       |             |
+| Prop              | Type                                                          | Default | Description                               |
+| ----------------- | ------------------------------------------------------------- | ------- | ----------------------------------------- |
+| `backgroundColor` | `"primary" \| "secondary" \| "brand" \| `var(--h-${string})`` | —       | Sets the `background-color` CSS property. |

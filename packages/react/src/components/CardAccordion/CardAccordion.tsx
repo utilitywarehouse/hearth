@@ -16,6 +16,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardAccordionElement = ComponentRef<'div'>;
 
+/**
+ * Use CardAccordion to break a form journey into multiple collapsible cards,
+ * letting users progress step-by-step on a single page while keeping
+ * previously completed steps visible and editable. Compose it with
+ * `CardAccordionItem` for each step — each requires a unique `value` — and
+ * `CardAccordionFooter`/`CardAccordionButton` for step navigation. Requires at
+ * least one `CardAccordionItem` child.
+ *
+ * @summary A form journey broken into multiple collapsible, step-by-step cards.
+ */
 export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps>((props, ref) => {
   const { className, children, value, onValueChange, ...restProps } = extractProps(
     props,

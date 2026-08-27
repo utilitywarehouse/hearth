@@ -234,10 +234,10 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop            | Type                        | Default | Description |
-| --------------- | --------------------------- | ------- | ----------- |
-| `onValueChange` | `((value: string) => void)` | —       |             |
-| `value`         | `string`                    | —       |             |
+| Prop            | Type                        | Default | Description                                                                               |
+| --------------- | --------------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| `onValueChange` | `((value: string) => void)` | —       | Called with the new `value` when the active step changes.                                 |
+| `value`         | `string`                    | —       | The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. |
 
 ### CardAccordionItem
 

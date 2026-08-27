@@ -11,6 +11,9 @@ export type TableProps = ComponentPropsWithRef<'table'> &
      * When undefined, the table is rendered without a Card wrapper.
      */
     variant?: CardProps['variant'];
+    /**
+     * Pagination controls rendered below the table, typically a `TablePagination` element.
+     */
     pagination?: ReactElement<TablePaginationProps>;
   };
 export type TableBodyProps = ComponentPropsWithRef<'tbody'>;

@@ -306,9 +306,9 @@ This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com
 | `onSwipeEnd`        | `((event: SwipeEvent) => void)`    | —       |                                                                                                      |
 | `defaultOpen`       | `boolean`                          | —       |                                                                                                      |
 | `onOpenChange`      | `((open: boolean) => void)`        | —       |                                                                                                      |
-| `description`       | `ReactNode`                        | —       |                                                                                                      |
-| `icon`              | `ReactNode`                        | —       |                                                                                                      |
-| `showDismissButton` | `boolean`                          | —       |                                                                                                      |
+| `description`       | `ReactNode`                        | —       | The content of the Toast message.                                                                    |
+| `icon`              | `ReactNode`                        | —       | An optional icon rendered before the description, such as a status icon.                             |
+| `showDismissButton` | `boolean`                          | —       | Shows a dismiss button that lets users manually close the Toast.                                     |
 
 ### ToastActionLink
 

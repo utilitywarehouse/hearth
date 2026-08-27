@@ -20,6 +20,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ComponentRef<'div'>;
 
+/**
+ * Use Modal to overlay content that requests a decision from the user or
+ * informs them of important information, without navigating to a new page.
+ * Modal must be wrapped in a ModalRoot, and is typically composed with
+ * ModalTrigger, ModalContent, ModalFooter, and ModalClose. Pass `heading` and
+ * `description` for standard content, or custom children alongside
+ * ModalFooter for more control over layout.
+ *
+ * @summary An overlay that requests a decision or displays important information.
+ */
 export const Modal = forwardRef<ModalElement, ModalProps>(
   (
     {

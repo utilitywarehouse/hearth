@@ -9,6 +9,7 @@ export interface SectionHeaderProps
    */
   heading?: string;
   /**
+   * The element type to render the heading as.
    * @default h2
    */
   headingElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'div';

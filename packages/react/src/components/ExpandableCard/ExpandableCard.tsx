@@ -20,6 +20,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ExpandableCardElement = ComponentRef<'div'>;
 
+/**
+ * Use ExpandableCard to show a summary header — with an optional leading
+ * icon, helper text, badge, and numeric value — that can be expanded to
+ * reveal additional content. Group multiple cards with ExpandableCardGroup.
+ *
+ * For multiple sections of content that need to expand and collapse
+ * independently as a related set, use Accordion instead.
+ *
+ * @summary A collapsible card with a summary header that expands to reveal additional content.
+ */
 export const ExpandableCard = forwardRef<ExpandableCardElement, ExpandableCardProps>(
   (props, ref) => {
     const {

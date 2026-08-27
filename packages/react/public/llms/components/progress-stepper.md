@@ -108,10 +108,10 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop         | Type             | Default | Description                 |
-| ------------ | ---------------- | ------- | --------------------------- |
-| `hideLabels` | `boolean`        | `false` | Whether to hide step labels |
-| `as`         | `"div" \| "nav"` | —       |                             |
+| Prop         | Type             | Default | Description                                                                                      |
+| ------------ | ---------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `hideLabels` | `boolean`        | `false` | Whether to hide step labels                                                                      |
+| `as`         | `"div" \| "nav"` | `div`   | Shorthand for changing the default rendered element into a semantically appropriate alternative. |
 
 ### ProgressStep API
 

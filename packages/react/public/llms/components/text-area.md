@@ -118,17 +118,17 @@ This component is based on the `textarea` element, and supports the following co
 
 - Margin
 
-| Prop               | Type                                             | Default  | Description                                                                    |
-| ------------------ | ------------------------------------------------ | -------- | ------------------------------------------------------------------------------ |
-| `label`            | `string`                                         | —        | The label for the form field, describing its purpose.                          |
-| `value`            | `string`                                         | —        | The controlled value of the TextArea. Must be used with an `onChange` handler. |
-| `labelId`          | `string`                                         | —        |                                                                                |
-| `helperTextId`     | `string`                                         | —        |                                                                                |
-| `validationTextId` | `string`                                         | —        |                                                                                |
-| `labelVariant`     | `"body" \| "heading"`                            | —        | Change the label variant                                                       |
-| `helperText`       | `string`                                         | —        | Optional helper text to provide additional context or instructions.            |
-| `validationText`   | `string`                                         | —        | Text to display when the `validationStatus` is set.                            |
-| `validationStatus` | `"valid" \| "invalid"`                           | —        | Indicates the validation status.                                               |
-| `resize`           | `"none" \| "both" \| "horizontal" \| "vertical"` | `"both"` | Controls the resize behavior of the TextArea.                                  |
-| `minHeight`        | `Responsive<string>`                             | —        | Sets the minimum height of the TextArea.                                       |
-| `maxHeight`        | `Responsive<string>`                             | —        | Sets the maximum height of the TextArea.                                       |
+| Prop               | Type                                             | Default  | Description                                                                                        |
+| ------------------ | ------------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------- |
+| `label`            | `string`                                         | —        | The label for the form field, describing its purpose.                                              |
+| `value`            | `string`                                         | —        | The controlled value of the TextArea. Must be used with an `onChange` handler.                     |
+| `labelId`          | `string`                                         | —        | The `id` of the element rendering the field's label, for `aria-labelledby` association.            |
+| `helperTextId`     | `string`                                         | —        | The `id` of the element rendering the field's helper text, for `aria-describedby` association.     |
+| `validationTextId` | `string`                                         | —        | The `id` of the element rendering the field's validation text, for `aria-describedby` association. |
+| `labelVariant`     | `"body" \| "heading"`                            | —        | Change the label variant                                                                           |
+| `helperText`       | `string`                                         | —        | Optional helper text to provide additional context or instructions.                                |
+| `validationText`   | `string`                                         | —        | Text to display when the `validationStatus` is set.                                                |
+| `validationStatus` | `"valid" \| "invalid"`                           | —        | Indicates the validation status.                                                                   |
+| `resize`           | `"none" \| "both" \| "horizontal" \| "vertical"` | `"both"` | Controls the resize behavior of the TextArea.                                                      |
+| `minHeight`        | `Responsive<string>`                             | —        | Sets the minimum height of the TextArea.                                                           |
+| `maxHeight`        | `Responsive<string>`                             | —        | Sets the maximum height of the TextArea.                                                           |

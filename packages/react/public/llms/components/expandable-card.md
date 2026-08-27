@@ -191,17 +191,18 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop                              | Type                                                                                       | Default | Description |
-| --------------------------------- | ------------------------------------------------------------------------------------------ | ------- | ----------- |
-| `heading`                         | `string`                                                                                   | —       |             |
-| `helperText`                      | `string`                                                                                   | —       |             |
-| `leadingIcon`                     | `ReactNode`                                                                                | —       |             |
-| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —       |             |
-| `badge`                           | `ReactNode`                                                                                | —       |             |
-| `numericValue`                    | `string`                                                                                   | —       |             |
-| `open`                            | `boolean`                                                                                  | —       |             |
-| `defaultOpen`                     | `boolean`                                                                                  | —       |             |
-| `onOpenChange`                    | `((open: boolean) => void)`                                                                | —       |             |
+| Prop                              | Type                                                                                       | Default | Description                                                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                   | —       | The heading shown in the card's summary header, always visible regardless of expanded state.                                 |
+| `helperText`                      | `string`                                                                                   | —       | Additional helper text shown below the heading in the summary header.                                                        |
+| `leadingIcon`                     | `ReactNode`                                                                                | —       | An icon rendered to the left of the heading. Pass `aria-hidden` on the icon to ensure it is not announced to screen readers. |
+| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —       | Wraps `leadingIcon` in a coloured `IconContainer` using the given colour scheme.                                             |
+| `badge`                           | `ReactNode`                                                                                | —       | An optional badge rendered below the heading and helper text in the summary header.                                          |
+| `numericValue`                    | `string`                                                                                   | —       | A numeric value rendered on the right side of the summary header.                                                            |
+| `children`                        | `ReactNode`                                                                                | —       | The content revealed when the card is expanded.                                                                              |
+| `open`                            | `boolean`                                                                                  | —       |                                                                                                                              |
+| `defaultOpen`                     | `boolean`                                                                                  | —       |                                                                                                                              |
+| `onOpenChange`                    | `((open: boolean) => void)`                                                                | —       |                                                                                                                              |
 
 ### ExpandableCardGroup API
 

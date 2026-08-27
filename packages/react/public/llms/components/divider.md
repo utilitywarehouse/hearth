@@ -77,5 +77,5 @@ This component is based on the `hr` element, and supports the following common p
 
 | Prop          | Type                         | Default      | Description                                                                                                                                                                          |
 | ------------- | ---------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `orientation` | `"horizontal" \| "vertical"` | `horizontal` |                                                                                                                                                                                      |
+| `orientation` | `"horizontal" \| "vertical"` | `horizontal` | Sets whether the divider is drawn as a horizontal or vertical line.                                                                                                                  |
 | `decorative`  | `boolean`                    | —            | Whether or not the component is purely decorative. When true, accessibility-related attributes are updated so that that the rendered element is removed from the accessibility tree. |

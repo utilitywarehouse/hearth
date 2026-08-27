@@ -19,6 +19,16 @@ type CardElement = ComponentRef<'div'>;
 const COMPONENT_NAME = 'Card';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use Card as a container for concise information about a single subject —
+ * featured information, related content, or navigational choices. In groups,
+ * cards present collections of similar content and should be rendered as list
+ * items. Cards are static by default; wrap an interactive child (a link or
+ * button) in `CardInteraction` to make the whole card clickable. For
+ * highlighting key marketing messaging, use HighlightBanner instead.
+ *
+ * @summary A container for concise information about a single subject.
+ */
 export const Card = forwardRef<CardElement, CardProps>((props, ref) => {
   const {
     className,

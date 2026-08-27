@@ -121,7 +121,7 @@ This component is based on the `div` element and supports the following common p
 | Prop              | Type                                 | Default     | Description                                                                           |
 | ----------------- | ------------------------------------ | ----------- | ------------------------------------------------------------------------------------- |
 | `label`           | `string`                             | —           | The required text label. Can be visually hidden with the `hideLabel` prop.            |
-| `variant`         | `"linear" \| "circular"`             | —           |                                                                                       |
+| `variant`         | `"linear" \| "circular"`             | `'linear'`  | Sets the visual style of the progress indicator.                                      |
 | `colorScheme`     | `"default" \| "success" \| "danger"` | `'default'` | Set the visual apearance.                                                             |
 | `size`            | `Responsive<"sm" \| "md">`           | `md`        | Sets the circular variant size. Does not affect the appearance of the linear variant. |
 | `value`           | `number`                             | —           | The current progress value.                                                           |

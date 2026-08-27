@@ -10,5 +10,9 @@ export const alignItemsPropDefs = {
 };
 
 export interface AlignItemsProps {
+  /**
+   * Set how a flex or grid container aligns its items along the cross axis.
+   * Supports responsive values.
+   */
   alignItems?: Responsive<(typeof values)[number]>;
 }

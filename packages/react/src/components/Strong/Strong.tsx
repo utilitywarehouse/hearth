@@ -17,6 +17,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type StrongElement = ComponentRef<'strong'>;
 
+/**
+ * Use Strong to mark up text of strong importance, seriousness, or urgency
+ * within a larger body of text — it renders a `strong` element by default,
+ * and should be wrapped in a BodyText component so it inherits its styles.
+ * For stress emphasis rather than strong importance, use Em instead.
+ *
+ * @summary Inline text of strong importance, rendered as a `strong` element.
+ */
 export const Strong = forwardRef<StrongElement, StrongProps>((props, ref) => {
   const { className, asChild, children, truncate, ...strongProps } = extractProps(
     props,

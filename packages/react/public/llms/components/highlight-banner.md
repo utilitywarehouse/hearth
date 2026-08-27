@@ -108,9 +108,9 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop           | Type                                                                                                   | Default | Description                 |
-| -------------- | ------------------------------------------------------------------------------------------------------ | ------- | --------------------------- |
-| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"` | —       | Sets the card shadow colour |
-| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                   | —       |                             |
-| `heading`      | `string`                                                                                               | —       |                             |
-| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`             | —       |                             |
+| Prop           | Type                                                                                                   | Default | Description                                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"` | —       | Sets the card shadow colour                                                                                                             |
+| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                   | —       | The background colour scheme of the banner.                                                                                             |
+| `heading`      | `string`                                                                                               | —       | The heading text shown at the top of the banner.                                                                                        |
+| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`             | —       | The colour of the heading, typically matched to the product or category the banner relates to (e.g. use a Pig colour with Pig content). |

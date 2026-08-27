@@ -26,13 +26,40 @@ export const borderRadiusPropDefs = {
 };
 
 export interface BorderRadiusProps {
+  /**
+   * Sets the responsive `border-radius` CSS property on all corners of the element.
+   */
   borderRadius?: Responsive<(typeof values)[number]>;
+  /**
+   * Removes the border radius from the top-left corner.
+   */
   borderRadiusTopLeftNone?: boolean;
+  /**
+   * Removes the border radius from the top-right corner.
+   */
   borderRadiusTopRightNone?: boolean;
+  /**
+   * Removes the border radius from the bottom-left corner.
+   */
   borderRadiusBottomLeftNone?: boolean;
+  /**
+   * Removes the border radius from the bottom-right corner.
+   */
   borderRadiusBottomRightNone?: boolean;
+  /**
+   * Removes the border radius from the top-left and top-right corners.
+   */
   borderRadiusTopNone?: boolean;
+  /**
+   * Removes the border radius from the top-right and bottom-right corners.
+   */
   borderRadiusRightNone?: boolean;
+  /**
+   * Removes the border radius from the bottom-left and bottom-right corners.
+   */
   borderRadiusBottomNone?: boolean;
+  /**
+   * Removes the border radius from the top-left and bottom-left corners.
+   */
   borderRadiusLeftNone?: boolean;
 }

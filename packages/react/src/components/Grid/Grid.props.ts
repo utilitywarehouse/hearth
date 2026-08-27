@@ -204,6 +204,12 @@ export interface CommonGridProps
   justifyItems?: Responsive<(typeof justifyItemsValues)[number]>;
 }
 
-type GridDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
-type GridSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
+type GridDivProps = {
+  /** Renders a `div` element. This is the default. */
+  as?: 'div';
+} & ComponentPropsWithRef<'div'>;
+type GridSpanProps = {
+  /** Renders a `span` element. */
+  as: 'span';
+} & ComponentPropsWithRef<'span'>;
 export type GridProps = CommonGridProps & (GridSpanProps | GridDivProps);

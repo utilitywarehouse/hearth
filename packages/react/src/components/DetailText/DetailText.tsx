@@ -18,6 +18,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DetailTextElement = ComponentRef<'span'>;
 
+/**
+ * Use DetailText for smaller, secondary text such as captions, metadata, or
+ * form field hints — it renders a `span` element by default, with responsive
+ * `size` and `color` props including built-in `valid`/`invalid` states.
+ * For the main body copy of a page, use BodyText instead.
+ * For heading-level text, use Heading instead.
+ *
+ * @summary Smaller, secondary text for captions, metadata, and detail content.
+ */
 export const DetailText = forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
   const {
     className,

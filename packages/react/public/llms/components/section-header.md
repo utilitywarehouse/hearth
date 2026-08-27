@@ -67,7 +67,7 @@ This component is based on the `div` element and supports the following common p
 | Prop               | Type                                    | Default | Description                                                                                       |
 | ------------------ | --------------------------------------- | ------- | ------------------------------------------------------------------------------------------------- |
 | `heading`          | `string`                                | —       | Actual string to display as section header                                                        |
-| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `div`   |                                                                                                   |
+| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `div`   | The element type to render the heading as.                                                        |
 | `helperText`       | `string`                                | —       | Optional helper text to provide additional context or instructions.                               |
 | `trailingContent`  | `ReactNode`                             | —       | Optional trailing content element                                                                 |
 | `validationStatus` | `"invalid"`                             | —       | Indicates the validation state                                                                    |

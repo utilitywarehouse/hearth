@@ -310,11 +310,11 @@ smooth experience while maintaining the benefits of automatic activation.
 
 ### Tabs
 
-| Prop             | Type                                                               | Default | Description                                                |
-| ---------------- | ------------------------------------------------------------------ | ------- | ---------------------------------------------------------- |
-| `defaultValue`   | `string`                                                           | —       | The value of the tab to select by default, if uncontrolled |
-| `value`          | `string`                                                           | —       | The value for the selected tab, if controlled              |
-| `onValueChange`  | `((value: string) => void)`                                        | —       | A function called when a new tab is selected               |
-| `activationMode` | `"manual" \| "automatic"`                                          | —       | Activation mode for tabs                                   |
-| `size`           | `Responsive<"md" \| "lg">`                                         | —       | Size variant                                               |
-| `spacing`        | `"none" \| "md" \| "lg" \| "2xs" \| "xs" \| "sm" \| "xl" \| "2xl"` | —       |                                                            |
+| Prop             | Type                                                               | Default | Description                                                 |
+| ---------------- | ------------------------------------------------------------------ | ------- | ----------------------------------------------------------- |
+| `defaultValue`   | `string`                                                           | —       | The value of the tab to select by default, if uncontrolled  |
+| `value`          | `string`                                                           | —       | The value for the selected tab, if controlled               |
+| `onValueChange`  | `((value: string) => void)`                                        | —       | A function called when a new tab is selected                |
+| `activationMode` | `"manual" \| "automatic"`                                          | —       | Activation mode for tabs                                    |
+| `size`           | `Responsive<"md" \| "lg">`                                         | —       | Size variant                                                |
+| `spacing`        | `"none" \| "md" \| "lg" \| "2xs" \| "xs" \| "sm" \| "xl" \| "2xl"` | `xl`    | Sets the space between the `TabsList` and the `TabContent`. |

@@ -88,12 +88,12 @@ This component is based on the `button` element, and supports the following comm
 
 - Margin
 
-| Prop              | Type                           | Default | Description                                       |
-| ----------------- | ------------------------------ | ------- | ------------------------------------------------- |
-| `label`           | `string`                       | —       | The label for the Switch, describing its purpose. |
-| `defaultChecked`  | `boolean`                      | —       |                                                   |
-| `asChild`         | `boolean`                      | —       |                                                   |
-| `checked`         | `boolean`                      | —       |                                                   |
-| `size`            | `Responsive<"sm" \| "md">`     | —       |                                                   |
-| `required`        | `boolean`                      | —       |                                                   |
-| `onCheckedChange` | `((checked: boolean) => void)` | —       |                                                   |
+| Prop              | Type                           | Default | Description                                                                                                                               |
+| ----------------- | ------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`           | `string`                       | —       | The label for the Switch, describing its purpose.                                                                                         |
+| `defaultChecked`  | `boolean`                      | —       |                                                                                                                                           |
+| `asChild`         | `boolean`                      | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
+| `checked`         | `boolean`                      | —       |                                                                                                                                           |
+| `size`            | `Responsive<"sm" \| "md">`     | `md`    | Sets the Switch size.                                                                                                                     |
+| `required`        | `boolean`                      | —       |                                                                                                                                           |
+| `onCheckedChange` | `((checked: boolean) => void)` | —       |                                                                                                                                           |

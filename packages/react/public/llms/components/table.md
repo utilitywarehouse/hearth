@@ -187,7 +187,7 @@ This component is based on the `table` element and supports the following common
 | Prop         | Type                                                                       | Default | Description                                                                                         |
 | ------------ | -------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
 | `variant`    | `"emphasis" \| "subtle"`                                                   | —       | Sets the visual variant of the table. When undefined, the table is rendered without a Card wrapper. |
-| `pagination` | `ReactElement<TablePaginationProps, string \| JSXElementConstructor<any>>` | —       |                                                                                                     |
+| `pagination` | `ReactElement<TablePaginationProps, string \| JSXElementConstructor<any>>` | —       | Pagination controls rendered below the table, typically a `TablePagination` element.                |
 
 ### TableHeader API
 
@@ -199,10 +199,10 @@ This component is based on the `th` element and supports the following common pr
 
 - Text Align
 
-| Prop        | Type                                        | Default | Description |
-| ----------- | ------------------------------------------- | ------- | ----------- |
-| `row`       | `boolean`                                   | —       |             |
-| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       |             |
+| Prop        | Type                                        | Default | Description                                                |
+| ----------- | ------------------------------------------- | ------- | ---------------------------------------------------------- |
+| `row`       | `boolean`                                   | —       |                                                            |
+| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component. |
 
 ### TableBody API
 

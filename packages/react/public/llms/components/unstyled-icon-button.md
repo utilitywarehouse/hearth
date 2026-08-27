@@ -166,10 +166,10 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop       | Type                       | Default | Description                                                                                          |
-| ---------- | -------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `label`    | `string`                   | —       |                                                                                                      |
-| `loading`  | `boolean`                  | —       | Indicate when the button is in a loading state, will also disable the button.                        |
-| `asChild`  | `boolean`                  | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
-| `size`     | `Responsive<"sm" \| "md">` | `md`    | Sets the button height.                                                                              |
-| `inverted` | `boolean`                  | —       | Inverts the component colours, for use on darker surface colours.                                    |
+| Prop       | Type                       | Default | Description                                                                                                                                   |
+| ---------- | -------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`    | `string`                   | —       | An accessible label for the button, announced to screen readers. Required since the button contains only an icon and no visible text content. |
+| `loading`  | `boolean`                  | —       | Indicate when the button is in a loading state, will also disable the button.                                                                 |
+| `asChild`  | `boolean`                  | —       | Change the default rendered element for the one passed as a child, merging their props and behavior.                                          |
+| `size`     | `Responsive<"sm" \| "md">` | `md`    | Sets the button height.                                                                                                                       |
+| `inverted` | `boolean`                  | —       | Inverts the component colours, for use on darker surface colours.                                                                             |

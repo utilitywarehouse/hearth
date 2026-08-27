@@ -109,6 +109,7 @@
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
     "globals": "^15.14.0",
+    "oversight-lint": "^0.7.0",
     "playwright": "^1.59.1",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",

@@ -87,4 +87,4 @@ This component is based on the `span` element and supports the following common 
 | `size`     | `Responsive<"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl">` | `md`    | Set the text size styles.                                                                            |
 | `color`    | `(Responsive<"text" \| "valid" \| "invalid"> & string)`               | `text`  | Set the text color                                                                                   |
 | `inverted` | `boolean`                                                             | —       | Inverts the component colours, for use on darker surface colours.                                    |
-| `as`       | `"span" \| "div" \| "p"`                                              | —       |                                                                                                      |
+| `as`       | `"span" \| "div" \| "p"`                                              | —       | Renders a `span` element. This is the default. Renders a `div` element. Renders a `p` element.       |

@@ -19,9 +19,24 @@ export const borderWidthPropDefs = {
 };
 
 export interface BorderWidthProps {
+  /**
+   * Sets the responsive `border-width` CSS property on all sides of the element.
+   */
   borderWidth?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `border-top-width` CSS property.
+   */
   borderTopWidth?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `border-right-width` CSS property.
+   */
   borderRightWidth?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `border-bottom-width` CSS property.
+   */
   borderBottomWidth?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `border-left-width` CSS property.
+   */
   borderLeftWidth?: Responsive<(typeof values)[number] | CssTokenVariable>;
 }

@@ -539,19 +539,19 @@ This component is based on the `ul` element and supports the following common pr
 
 - Margin
 
-| Prop               | Type                                    | Default     | Description                                                                                       |
-| ------------------ | --------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------- |
-| `heading`          | `string`                                | —           | Actual string to display as section header                                                        |
-| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `h2`        |                                                                                                   |
-| `helperText`       | `string`                                | —           | Optional helper text to provide additional context or instructions.                               |
-| `trailingContent`  | `ReactNode`                             | —           | Optional trailing content element                                                                 |
-| `validationStatus` | `"invalid"`                             | —           | Indicates the validation state                                                                    |
-| `validationText`   | `string`                                | —           | Text to display when the `validationStatus` is set.                                               |
-| `direction`        | `Responsive<"row" \| "column">`         | —           | Responsive direction of the section header content. By default, the content is laid out in a row. |
-| `variant`          | `"emphasis" \| "subtle"`                | `undefined` | Sets the visual variant of the list.                                                              |
-| `colorScheme`      | `"neutralStrong" \| "neutralSubtle"`    | —           | Sets the color scheme of the list.                                                                |
-| `as`               | `"ol" \| "ul"`                          | `ul`        | Shorthand for changing the default rendered element into a semantically appropriate alternative.  |
-| `paddingNone`      | `boolean`                               | —           | Remove the inline padding for better alignment with other elements.                               |
+| Prop               | Type                                    | Default     | Description                                                                                                         |
+| ------------------ | --------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------- |
+| `heading`          | `string`                                | —           | Actual string to display as section header                                                                          |
+| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `h2`        | The element type to render the heading as.                                                                          |
+| `helperText`       | `string`                                | —           | Optional helper text to provide additional context or instructions.                                                 |
+| `trailingContent`  | `ReactNode`                             | —           | Optional trailing content element                                                                                   |
+| `validationStatus` | `"invalid"`                             | —           | Indicates the validation state                                                                                      |
+| `validationText`   | `string`                                | —           | Text to display when the `validationStatus` is set.                                                                 |
+| `direction`        | `Responsive<"row" \| "column">`         | —           | Responsive direction of the section header content. By default, the content is laid out in a row.                   |
+| `variant`          | `"emphasis" \| "subtle"`                | `undefined` | Sets the visual variant of the list. Sets the visual variant of the list. Must be used together with `colorScheme`. |
+| `colorScheme`      | `"neutralStrong" \| "neutralSubtle"`    | —           | Sets the color scheme of the list. Must be used together with `variant`. Sets the color scheme of the list.         |
+| `as`               | `"ol" \| "ul"`                          | `ul`        | Shorthand for changing the default rendered element into a semantically appropriate alternative.                    |
+| `paddingNone`      | `boolean`                               | —           | Remove the inline padding for better alignment with other elements.                                                 |
 
 ## ListItem
 

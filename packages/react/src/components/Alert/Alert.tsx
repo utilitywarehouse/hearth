@@ -24,6 +24,17 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertElement = ComponentRef<'div'>;
 
+/**
+ * Use Alert to display a short, important message that attracts the user's
+ * attention without interrupting their task — for example an error, warning,
+ * success, or informational message. Provide a `title`, `text`, or both, and
+ * an `onClose` handler to make it dismissable. Compose with `AlertLink` for
+ * navigational links and `AlertIconButton` for interactive actions inside the
+ * alert. By default it uses `role="alert"` for an assertive live-region
+ * announcement — override `role` for less urgent messages (e.g. `"status"`).
+ *
+ * @summary A short, important message that attracts the user's attention without interrupting their task.
+ */
 export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
   const icons = {
     info: InfoMediumIcon,
