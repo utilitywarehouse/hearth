@@ -9,13 +9,9 @@ export type ListProps = ComponentPropsWithRef<'ol'> &
   (
     | {
         /**
-         * Sets the visual variant of the list.
          * @default undefined
          */
         variant: undefined;
-        /**
-         * Sets the color scheme of the list. Must be used together with `variant`.
-         */
         colorScheme: undefined;
       }
     | {
