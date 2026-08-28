@@ -35,6 +35,7 @@ export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, re
     trailingContent,
     validationText,
     validationStatus,
+    collapsible,
     ...restProps
   } = extractProps(props, marginPropDefs);
 
@@ -47,9 +48,13 @@ export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, re
     validationStatus,
   };
 
-  const accordionProps = { type, ...restProps } as ComponentPropsWithRef<
-    typeof AccordionPrimitive.Root
-  >;
+  const accordionProps = {
+    type,
+    ...restProps,
+    // `collapsible` is only valid for `type="single"` — Radix doesn't strip it for
+    // `type="multiple"`, so passing it regardless would leak onto the DOM node.
+    ...(type === 'single' ? { collapsible } : {}),
+  } as ComponentPropsWithRef<typeof AccordionPrimitive.Root>;
 
   return (
     <div ref={ref} className={cn(componentClassName, className)} data-testid={componentClassName}>
