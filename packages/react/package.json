@@ -60,7 +60,7 @@
     "build:storybook": "pnpm generate:llm-docs && storybook build",
     "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
     "copy:changelog": "node ./scripts/copy-changelog.js",
-    "test:storybook": "vitest run --project=storybook"
+    "test:storybook": "vitest run --project storybook"
   },
   "publishConfig": {
     "access": "public"
