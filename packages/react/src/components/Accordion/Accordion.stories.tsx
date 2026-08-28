@@ -178,6 +178,9 @@ export const Multiple: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
+    // Regression: `collapsible` is not a valid DOM attribute for `type="multiple"`.
+    await expect(canvasElement.querySelector('[collapsible]')).toBeNull();
+
     const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
     const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
 
