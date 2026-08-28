@@ -35,4 +35,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+      # packages/react depends on workspace packages (hearth-react-icons, hearth-fonts, etc.)
+      # whose package.json main/module/exports point at dist/ — build them first so Vite can
+      # resolve those entries, otherwise Storybook fails with "Failed to resolve entry for package".
+      - run: pnpm run build:react
       - run: pnpm run test:react
