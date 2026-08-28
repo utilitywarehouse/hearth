@@ -2,6 +2,6 @@
   "codeConnect": {
     "include": ["**/*.figma.ts"],
     "label": "React Native",
-    "language": "jsx",
+    "language": "jsx"
   }
 }
