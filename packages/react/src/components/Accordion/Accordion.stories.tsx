@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Badge } from '../Badge/Badge';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
@@ -44,6 +45,20 @@ export const Playground: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+    await userEvent.click(trigger);
+    await canvas.findByText('Content 1');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+  },
 };
 
 export const SEOFriendly: Story = {
@@ -60,6 +75,17 @@ export const SEOFriendly: Story = {
         </Accordion>
       </Box>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const content = canvas.getByText('Content 1');
+
+    await expect(content).toBeInTheDocument();
+    await expect(content).not.toBeVisible();
+
+    await userEvent.click(trigger);
+    await expect(content).toBeVisible();
   },
 };
 
@@ -112,6 +138,24 @@ export const DefaultExpanded: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('button', { name: 'Item 1' })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    );
+    await expect(canvas.getByRole('button', { name: 'Item 3' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    await expect(canvas.getByRole('button', { name: 'Item 4' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    await canvas.findByText('Content 3');
+    await canvas.findByText('Content 4');
+  },
 };
 
 export const Multiple: Story = {
@@ -131,6 +175,22 @@ export const Multiple: Story = {
         </Accordion>
       </Box>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
+
+    await userEvent.click(item1Trigger);
+    await canvas.findByText('Content 1');
+
+    await userEvent.click(item2Trigger);
+    await canvas.findByText('Content 2');
+
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(canvas.getByText('Content 1')).toBeInTheDocument();
+    await expect(canvas.getByText('Content 2')).toBeInTheDocument();
   },
 };
 
@@ -153,6 +213,25 @@ export const Single: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
+
+    await userEvent.click(item1Trigger);
+    await canvas.findByText('Content 1');
+
+    await userEvent.click(item2Trigger);
+    await canvas.findByText('Content 2');
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+
+    // not collapsible, so re-clicking the already-open item keeps it open
+    await userEvent.click(item2Trigger);
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(canvas.getByText('Content 2')).toBeInTheDocument();
+  },
 };
 
 export const Collapsible: Story = {
@@ -174,6 +253,18 @@ export const Collapsible: Story = {
         </Accordion>
       </Box>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+
+    await userEvent.click(trigger);
+    await canvas.findByText('Content 1');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
   },
 };
 
