@@ -8,7 +8,6 @@ import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
 import type { SpinnerProps } from '../Spinner/Spinner.props';
-import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 import { forwardRef } from 'react';
@@ -21,7 +20,11 @@ export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props,
     extractProps(props, iconButtonPropDefs);
 
   const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
-  const Component = asChild ? Slot.Root : 'button';
+  const content = loading
+    ? getSubtree({ asChild, children }, () => (
+        <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
+      ))
+    : children;
 
   return (
     <ButtonBase
@@ -30,16 +33,10 @@ export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props,
       aria-label={label}
       disabled={disabled || loading}
       data-testid={componentClassName}
-      asChild
+      asChild={asChild}
       {...iconButtonProps}
     >
-      <Component>
-        {loading
-          ? getSubtree({ asChild, children }, () => (
-              <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
-            ))
-          : children}
-      </Component>
+      {content}
     </ButtonBase>
   );
 });

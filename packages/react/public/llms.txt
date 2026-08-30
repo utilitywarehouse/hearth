@@ -8,7 +8,6 @@
 - [Hearth Tokens](llms/docs/design-tokens.md)
 - [Hearth React](llms/docs/getting-started.md)
 - [Layout](llms/docs/layout.md)
-- [Migrating from Web UI](llms/docs/migrating.md)
 - [Typography](llms/docs/typography.md)
 
 ## Common Props

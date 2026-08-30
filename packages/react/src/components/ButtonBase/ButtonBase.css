@@ -160,7 +160,7 @@
       --h-button-base-background-color-active: var(--h-emphasis-background-color-active);
 
       @media (hover: hover) {
-        &:where(:hover):not([aria-disabled='true']) {
+        &:where(:hover):not([aria-disabled='true'] &) {
           --h-button-base-background-color: var(--h-button-base-background-color-hover);
         }
       }

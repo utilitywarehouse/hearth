@@ -80,8 +80,11 @@ export declare const orange: {
   readonly '900': '#893900';
 };
 export declare const piggyPink: {
+  readonly '0': '#faf5fa';
+  readonly '100': '#f9eafa';
   readonly '200': '#f9ceff';
   readonly '300': '#f295ff';
+  readonly '400': '#ed66ff';
   readonly '800': '#8f358f';
   readonly '900': '#7a1f7e';
 };
@@ -702,8 +705,11 @@ declare const color: {
     readonly '900': '#893900';
   };
   readonly piggyPink: {
+    readonly '0': '#faf5fa';
+    readonly '100': '#f9eafa';
     readonly '200': '#f9ceff';
     readonly '300': '#f295ff';
+    readonly '400': '#ed66ff';
     readonly '800': '#8f358f';
     readonly '900': '#7a1f7e';
   };
