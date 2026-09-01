@@ -1838,6 +1838,202 @@
           }
         }
       }
+    },
+    {
+      "date": "2026-08-31",
+      "file": "snapshots/2026-08-31.json",
+      "legacyTotals": {
+        "reposUsingAnyLegacy": 4,
+        "totalLegacyFiles": 726,
+        "totalLegacyRefs": 6361
+      },
+      "orgTotals": {
+        "reposUsingAnyHearth": 6,
+        "totalHearthFiles": 3848,
+        "totalHearthRefs": 47228
+      },
+      "packages": {
+        "@utilitywarehouse/colour-system": {
+          "fileCount": 218,
+          "legacy": true,
+          "refCount": 893,
+          "repoCount": 4,
+          "versions": {
+            "0.3.2": 1,
+            "^0.0.5": 1,
+            "^0.4.1": 2,
+            "^0.5.0": 1
+          }
+        },
+        "@utilitywarehouse/css-reset": {
+          "fileCount": 2,
+          "legacy": true,
+          "refCount": 2,
+          "repoCount": 1,
+          "versions": {
+            "0.1.0": 1
+          }
+        },
+        "@utilitywarehouse/design-tokens": {
+          "fileCount": 0,
+          "legacy": true,
+          "refCount": 0,
+          "repoCount": 0
+        },
+        "@utilitywarehouse/hearth-css-reset": {
+          "fileCount": 0,
+          "legacy": false,
+          "refCount": 0,
+          "repoCount": 0,
+          "versions": {
+            "^0.1.5": 1
+          }
+        },
+        "@utilitywarehouse/hearth-fonts": {
+          "fileCount": 10,
+          "legacy": false,
+          "refCount": 10,
+          "repoCount": 5,
+          "versions": {
+            "^0.0.4": 3,
+            "^0.1.1": 4
+          }
+        },
+        "@utilitywarehouse/hearth-json-assets": {
+          "fileCount": 16,
+          "legacy": false,
+          "refCount": 16,
+          "repoCount": 3,
+          "versions": {
+            "^0.4.0": 1,
+            "^0.4.1": 2,
+            "^0.5.0": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react": {
+          "fileCount": 1180,
+          "legacy": false,
+          "refCount": 21698,
+          "repoCount": 5,
+          "versions": {
+            "^0.28.3": 1,
+            "^0.29.8": 1,
+            "^0.31.0": 1,
+            "^0.31.8": 1,
+            "^0.31.9": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react-icons": {
+          "fileCount": 256,
+          "legacy": false,
+          "refCount": 881,
+          "repoCount": 5,
+          "versions": {
+            "^0.7.4": 1,
+            "^0.8.0": 1,
+            "^0.8.7": 1,
+            "^0.9.2": 3
+          }
+        },
+        "@utilitywarehouse/hearth-react-native": {
+          "fileCount": 1437,
+          "legacy": false,
+          "refCount": 21864,
+          "repoCount": 3,
+          "versions": {
+            "0.35.9": 1,
+            "0.36.1": 1,
+            "^0.32.2": 1,
+            "^0.35.7": 1
+          }
+        },
+        "@utilitywarehouse/hearth-react-native-icons": {
+          "fileCount": 390,
+          "legacy": false,
+          "refCount": 1517,
+          "repoCount": 3,
+          "versions": {
+            "^0.8.0": 1,
+            "^0.9.2": 2
+          }
+        },
+        "@utilitywarehouse/hearth-svg-assets": {
+          "fileCount": 408,
+          "legacy": false,
+          "refCount": 736,
+          "repoCount": 4,
+          "versions": {
+            "^0.5.0": 2,
+            "^0.6.1": 1,
+            "^0.6.5": 3,
+            "^0.6.6": 1
+          }
+        },
+        "@utilitywarehouse/hearth-svg-icons": {
+          "fileCount": 0,
+          "legacy": false,
+          "refCount": 0,
+          "repoCount": 0,
+          "versions": {
+            "^0.7.4": 1
+          }
+        },
+        "@utilitywarehouse/hearth-tokens": {
+          "fileCount": 151,
+          "legacy": false,
+          "refCount": 506,
+          "repoCount": 6,
+          "versions": {
+            "^0.2.2": 2,
+            "^0.2.4": 2,
+            "^0.4.2": 1,
+            "^0.4.6": 2
+          }
+        },
+        "@utilitywarehouse/native-ui": {
+          "fileCount": 258,
+          "legacy": true,
+          "refCount": 3408,
+          "repoCount": 2,
+          "versions": {
+            "1.1.2": 2
+          }
+        },
+        "@utilitywarehouse/react-icons": {
+          "fileCount": 39,
+          "legacy": true,
+          "refCount": 126,
+          "repoCount": 1,
+          "versions": {
+            "1.9.0": 1,
+            "^1.11.0": 1
+          }
+        },
+        "@utilitywarehouse/react-native-icons": {
+          "fileCount": 60,
+          "legacy": true,
+          "refCount": 166,
+          "repoCount": 2,
+          "versions": {
+            "1.14.0": 2
+          }
+        },
+        "@utilitywarehouse/svg-icons": {
+          "fileCount": 0,
+          "legacy": true,
+          "refCount": 0,
+          "repoCount": 0
+        },
+        "@utilitywarehouse/web-ui": {
+          "fileCount": 149,
+          "legacy": true,
+          "refCount": 1766,
+          "repoCount": 1,
+          "versions": {
+            "1.1.0": 1
+          }
+        }
+      }
     }
   ]
 }
