@@ -15,13 +15,6 @@ export type SelectProps = Omit<
     /** Placeholder text shown when no value is selected. */
     placeholder?: string;
     /**
-     * Merges the component's props onto its immediate child instead of
-     * rendering its own DOM element, so the child determines the rendered tag.
-     *
-     * @default false
-     */
-    asChild?: boolean;
-    /**
      * The controlled value of the selected option. Must be used with an `onValueChange` handler.
      */
     value?: SelectRootProps['value'];
