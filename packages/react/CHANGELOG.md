@@ -1,5 +1,30 @@
 # @utilitywarehouse/hearth-react
 
+## 0.32.0
+
+### Minor Changes
+
+- [#1570](https://github.com/utilitywarehouse/hearth/pull/1570) [`1b18793`](https://github.com/utilitywarehouse/hearth/commit/1b18793e8d3eebf515eeaa5176464f7c75bd2938) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING CHANGE]: `Select` no longer accepts an `asChild` prop
+
+  `asChild` was declared on `SelectProps` but had no effect — `Select` never
+  read it or forwarded it to the underlying trigger. It has been removed from
+  the public API.
+
+  **Developer changes**:
+
+  If you were passing `asChild` to `Select`, remove it — it was already being
+  ignored, so this has no effect on rendered behaviour.
+
+### Patch Changes
+
+- [#1560](https://github.com/utilitywarehouse/hearth/pull/1560) [`f9880ef`](https://github.com/utilitywarehouse/hearth/commit/f9880efdf1344a6b810be297b582d83bb39adeee) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `collapsible` leaking into DOM for Accordion when type="multiple"
+
+- [#1568](https://github.com/utilitywarehouse/hearth/pull/1568) [`6f4a9ea`](https://github.com/utilitywarehouse/hearth/commit/6f4a9ea6b16feeceb5cc2f6c97ffc7e3390225f2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DetailText` `as` prop type didn't reflect that `span` is the default
+
+  Omitting `as` previously type-checked against the `div`/`p` variants instead of
+  `span`, the actual runtime default. `as="span"` is now optional and
+  `as="div"`/`as="p"` are required, matching the rendered output.
+
 ## 0.31.9
 
 ### Patch Changes
