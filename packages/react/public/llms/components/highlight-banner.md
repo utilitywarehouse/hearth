@@ -1,6 +1,9 @@
 # HighlightBanner
 
-`HighlightBanner` can be used to highlight key information or marketing messaging.
+Use HighlightBanner to highlight key information or marketing messaging,
+such as a promotion tied to a specific product or category. Compose it
+with HighlightBannerContent for the main content and HighlightBannerFooter
+for footer content.
 
 ```tsx
 <Flex gap="400" width="800px">
@@ -108,9 +111,9 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop           | Type                                                                                                   | Default | Description                 |
-| -------------- | ------------------------------------------------------------------------------------------------------ | ------- | --------------------------- |
-| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"` | —       | Sets the card shadow colour |
-| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                   | —       |                             |
-| `heading`      | `string`                                                                                               | —       |                             |
-| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`             | —       |                             |
+| Prop           | Type                                                                                                   | Default | Description                                                                                                                             |
+| -------------- | ------------------------------------------------------------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `shadowColor`  | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"` | —       | Sets the card shadow colour                                                                                                             |
+| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                   | —       | The background colour scheme of the banner.                                                                                             |
+| `heading`      | `string`                                                                                               | —       | The heading text shown at the top of the banner.                                                                                        |
+| `headingColor` | `"mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"`             | —       | The colour of the heading, typically matched to the product or category the banner relates to (e.g. use a Pig colour with Pig content). |

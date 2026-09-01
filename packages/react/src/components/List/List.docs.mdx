@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './List.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { List } from './List';
@@ -10,10 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Components / List" />
 
 <MarkdownDocHeader title="List" to="components/list" />
-
-The `List` component is a flexible and customizable component for displaying a
-list of items. It supports various visual variants, color schemes, and
-additional features like helper text and links.
+<Description of={List} />
 
 <Canvas of={Stories.Playground} />
 

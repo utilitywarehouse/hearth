@@ -34,8 +34,17 @@ export interface CommonDetailTextProps
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
 }
-type DetailTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
-type DetailTextSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
-type DetailTextPProps = { as?: 'p' } & ComponentPropsWithRef<'p'>;
+type DetailTextDivProps = {
+  /** Renders a `div` element. */
+  as?: 'div';
+} & ComponentPropsWithRef<'div'>;
+type DetailTextSpanProps = {
+  /** Renders a `span` element. This is the default. */
+  as: 'span';
+} & ComponentPropsWithRef<'span'>;
+type DetailTextPProps = {
+  /** Renders a `p` element. */
+  as?: 'p';
+} & ComponentPropsWithRef<'p'>;
 export type DetailTextProps = CommonDetailTextProps &
   (DetailTextSpanProps | DetailTextDivProps | DetailTextPProps);

@@ -1,6 +1,11 @@
 # Button
 
-Trigger an action or event, such as submitting a form or displaying a dialog.
+Use Button to trigger an action or event, such as submitting a form or
+displaying a dialog. Use the `variant` prop to convey emphasis: `emphasis`
+and `solid` for primary actions, `outline` for medium-emphasis, non-critical
+actions, and `ghost` for the lowest-prominence actions. For actions that
+navigate somewhere, use a link instead, or render Button `asChild` with an
+anchor or router link.
 
 ```tsx
 <Flex direction="column" gap="600">
@@ -220,8 +225,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default color scheme for primary actions,
+so it is only available for Emphasis and Solid Buttons variants.
 
 ```tsx
 <Flex gap="400">
@@ -442,8 +447,6 @@ appropriate styles.
 A semantic HTML `button` is rendered by default, however you can change the
 underlying HTML element by using the `asChild` prop.
 
-**NOTE:** Be aware that you cannot currently use `asChild` with the `emphasis` variant.
-
 When `asChild` is set to true, we will not render a default DOM element,
 instead cloning the child and passing it the props and behaviour required to
 make it functional.
@@ -457,6 +460,10 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
     <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
   </Button>
   <Button asChild loading>
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
+  </Button>
+  <Button asChild variant="emphasis">
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
   </Button>

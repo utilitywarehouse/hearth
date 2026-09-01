@@ -1,5 +1,82 @@
 # @utilitywarehouse/hearth-react
 
+## 0.31.9
+
+### Patch Changes
+
+- [#1553](https://github.com/utilitywarehouse/hearth/pull/1553) [`6483208`](https://github.com/utilitywarehouse/hearth/commit/6483208279badb5cdc4d5c45ffa2702765835f66) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Bump react-icons peer dependency
+
+## 0.31.8
+
+### Patch Changes
+
+- [#1545](https://github.com/utilitywarehouse/hearth/pull/1545) [`2a74705`](https://github.com/utilitywarehouse/hearth/commit/2a74705c4540cc579a849170cdce94c3e820342a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `Chip` & `ChipGroup` components
+
+  `Chip` is a compact, interactive element that represents an input, attribute,
+  or filter, letting users see active selections at a glance and remove them
+  with a single click.
+
+  ```tsx
+  <Chip onClick={() => removeFilter(filter)}>{filter.label}</Chip>
+  ```
+
+  `ChipGroup` lays out a collection of `Chip` components, such as the filters
+  currently applied to a list of results, with an optional leading label.
+
+  ```tsx
+  <ChipGroup label="Currently showing:">
+    <Chip onClick={() => removeFilter('gas')}>Gas</Chip>
+    <Chip onClick={() => removeFilter('electricity')}>Electricity</Chip>
+  </ChipGroup>
+  ```
+
+## 0.31.7
+
+### Patch Changes
+
+- [#1539](https://github.com/utilitywarehouse/hearth/pull/1539) [`411a6f5`](https://github.com/utilitywarehouse/hearth/commit/411a6f51ea22d066243396af477fc77de0d009d4) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `ComboboxItem` supports layout props for custom content
+
+  `ComboboxItem` now accepts `flex`, `flexBasis`, `flexShrink`, `flexGrow`,
+  `alignItems`, `justifyContent`, and `gap` props, making it easier to lay out
+  custom multi-element item content (e.g. a label alongside a trailing action)
+  without wrapping children in extra markup.
+
+  **Components affected**:
+  - `ComboboxItem`
+
+## 0.31.6
+
+### Patch Changes
+
+- [#1516](https://github.com/utilitywarehouse/hearth/pull/1516) [`844f463`](https://github.com/utilitywarehouse/hearth/commit/844f4635d1bb30939e1512ae335925176a4b8c80) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add piggy-pink-400
+
+## 0.31.5
+
+### Patch Changes
+
+- [#1511](https://github.com/utilitywarehouse/hearth/pull/1511) [`44c6f7d`](https://github.com/utilitywarehouse/hearth/commit/44c6f7d4f6a9fe8b34d0f27880617e5fc405411e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add back in piggy-pink-0 and piggy-pink-100 tokens
+
+## 0.31.4
+
+### Patch Changes
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Button` and `IconButton` lost all styling when `asChild` was used with the `emphasis` variant
+
+  Using `asChild` together with `variant="emphasis"` rendered the slotted
+  element with no classes, ARIA attributes, or event handlers at all, leaving it
+  completely unstyled and non-functional.
+
+  **Components affected**:
+  - `Button`
+  - `IconButton`
+
+  **Developer changes**:
+
+  No action required. `asChild` and `variant="emphasis"` can now be combined as
+  expected.
+
+- [#1508](https://github.com/utilitywarehouse/hearth/pull/1508) [`1973e69`](https://github.com/utilitywarehouse/hearth/commit/1973e69ab15b5ed9c0dd17cb5069e1c926924605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Emphasis `Button` styles on hover
+
 ## 0.31.3
 
 ### Patch Changes

@@ -22,11 +22,32 @@ export const paddingPropDefs = {
 };
 
 export interface PaddingProps {
+  /**
+   * Sets the responsive `padding` CSS property on all sides of the element.
+   */
   padding?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-top` CSS property.
+   */
   paddingTop?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-right` CSS property.
+   */
   paddingRight?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-bottom` CSS property.
+   */
   paddingBottom?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-left` CSS property.
+   */
   paddingLeft?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-left` and `padding-right` CSS properties.
+   */
   paddingX?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `padding-top` and `padding-bottom` CSS properties.
+   */
   paddingY?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
 }

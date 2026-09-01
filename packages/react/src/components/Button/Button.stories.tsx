@@ -209,6 +209,10 @@ export const AsLink: Story = {
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
         </Button>
+        <Button asChild variant="emphasis">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
+        </Button>
       </Flex>
     );
   },

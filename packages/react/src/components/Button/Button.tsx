@@ -7,19 +7,37 @@ import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { buttonPropDefs } from './Button.props';
 import type { ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
-import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Button';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use Button to trigger an action or event, such as submitting a form or
+ * displaying a dialog. Use the `variant` prop to convey emphasis: `emphasis`
+ * and `solid` for primary actions, `outline` for medium-emphasis, non-critical
+ * actions, and `ghost` for the lowest-prominence actions. For actions that
+ * navigate somewhere, use a link instead, or render Button `asChild` with an
+ * anchor or router link.
+ *
+ * @summary Triggers an action or event, such as submitting a form or displaying a dialog.
+ */
 export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) => {
   const { className, children, disabled, loading, asChild, ...buttonProps } = extractProps(
     props,
     buttonPropDefs
   );
-  const Component = asChild ? Slot.Root : 'button';
+  const content = loading
+    ? getSubtree({ asChild, children }, children => (
+        <div className={`${componentClassName}Loading`}>
+          <div>
+            <Spinner size="xs" currentColor />
+          </div>
+          <span className={`${componentClassName}Hidden`}>{children}</span>
+        </div>
+      ))
+    : children;
   return (
     <ButtonBase
       ref={ref}
@@ -27,21 +45,10 @@ export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) =>
       disabled={disabled || loading}
       aria-label={loading ? 'Loading' : undefined}
       data-testid={componentClassName}
-      asChild
+      asChild={asChild}
       {...buttonProps}
     >
-      <Component>
-        {loading
-          ? getSubtree({ asChild, children }, children => (
-              <div className={`${componentClassName}Loading`}>
-                <div>
-                  <Spinner size="xs" currentColor />
-                </div>
-                <span className={`${componentClassName}Hidden`}>{children}</span>
-              </div>
-            ))
-          : children}
-      </Component>
+      {content}
     </ButtonBase>
   );
 });

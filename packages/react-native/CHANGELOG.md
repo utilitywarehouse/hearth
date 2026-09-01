@@ -1,5 +1,89 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.36.1
+
+### Patch Changes
+
+- [#1551](https://github.com/utilitywarehouse/hearth/pull/1551) [`86a6935`](https://github.com/utilitywarehouse/hearth/commit/86a6935b6f28d63b6fe63983cce731a286fd0916) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` loading state squeezed at the bottom on devices with safe area insets
+
+  The loading state's content sat flush against the bottom of the sheet (and the home indicator area) instead of respecting the device's bottom safe area inset, most noticeable when `loadingDescription` made the content taller. This affected all loading modals using the default `stickyFooter` behaviour, since no footer is ever shown while `loading` is `true`.
+
+  **Components affected**:
+  - `Modal`
+
+## 0.36.0
+
+### Minor Changes
+
+- [#1500](https://github.com/utilitywarehouse/hearth/pull/1500) [`20772c2`](https://github.com/utilitywarehouse/hearth/commit/20772c265eb3b676b0bafb17527550b04e4a1430) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: `StatusBar` and `NavigationBar` no longer re-exported from `core`
+
+  `react-native-unistyles` 3.3 removed `StatusBar` and `NavigationBar` from its
+  top-level exports, so `@utilitywarehouse/hearth-react-native`'s `core` module
+  (which previously re-exported everything from `react-native-unistyles`) no
+  longer provides them either.
+
+  **Developer changes**:
+
+  If you were importing `StatusBar` or `NavigationBar` from
+  `@utilitywarehouse/hearth-react-native`, they are no longer available. Import
+  directly from `react-native-unistyles` if you still need them, or use React
+  Native's own `StatusBar` API.
+
+### Patch Changes
+
+- [#1500](https://github.com/utilitywarehouse/hearth/pull/1500) [`20772c2`](https://github.com/utilitywarehouse/hearth/commit/20772c265eb3b676b0bafb17527550b04e4a1430) Thanks [@jordmccord](https://github.com/jordmccord)! - 📦 [DEPS]: Update React Native and related native dependencies
+
+  Bumps the versions this package is built and tested against: React
+  19.1→19.2.3, React Native 0.80→0.86.2, `react-native-reanimated` 4.1→4.5,
+  `react-native-worklets` 0.5→0.10, `react-native-unistyles` 3.0→3.3,
+  `react-native-gesture-handler` 2.28→2.32, `react-native-svg` 15.12→15.15,
+  `react-native-safe-area-context` 5.6→5.7, `@gorhom/bottom-sheet` 5.2.6→5.2.14,
+  and TypeScript 6→7.
+
+  **Developer changes**:
+
+  The `peerDependencies` ranges are unchanged, so no consumer action is
+  required. If you use `StatusBar` or `NavigationBar` from this package's
+  `core`, see the separate breaking-change entry for this release.
+
+## 0.35.9
+
+### Patch Changes
+
+- [#1494](https://github.com/utilitywarehouse/hearth/pull/1494) [`b076c99`](https://github.com/utilitywarehouse/hearth/commit/b076c994568fd5290d33fe6b517577019da0d110) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Missing web hover/focus-visible states on several components
+
+  On web, several components were missing hover and/or keyboard focus-visible
+  outlines that already exist in `@utilitywarehouse/hearth-react`, or had them
+  defined but disabled.
+
+  **Components affected**:
+  - `Accordion`
+  - `Card` / `CardAction`
+  - `DatePicker`
+  - `ExpandableCard`
+  - `List` (`ListItem`, `ListAction`)
+  - `RadioCard`
+  - `SegmentedControl`
+  - `Switch`
+  - `Tabs`
+  - `ToggleButton` / `ToggleButtonCard`
+  - `UnstyledIconButton` (and `Toast`'s close button, which reuses it)
+
+  **Developer changes**:
+
+  No action required. This is a visual-only fix for web/Storybook rendering.
+
+- [#1505](https://github.com/utilitywarehouse/hearth/pull/1505) [`2cdfd17`](https://github.com/utilitywarehouse/hearth/commit/2cdfd175af8c46dbaf1c2d6dcae68f871ffa10ec) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🐛 [FIX]: `ListItemHelperText` ignored a consumer-supplied `color` prop
+
+  `ListItemHelperText` always rendered with a hardcoded secondary text colour,
+  even when a `color` prop was passed through. It now uses `BodyText`'s `color`
+  prop internally, so a consumer-supplied `color` is respected as documented.
+
+  **Developer changes**:
+
+  No action required. If you were not passing `color` to `ListItemHelperText`,
+  its appearance is unchanged.
+
 ## 0.35.8
 
 ### Patch Changes

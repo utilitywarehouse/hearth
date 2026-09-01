@@ -1,6 +1,10 @@
 # Table
 
-Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.
+Use Table to arrange data in rows and columns, to communicate relationships
+between content and to display references, comparisons, and choices. Compose
+it with TableHeader, TableBody, TableRow, TableHeaderCell, and TableCell.
+Pass `variant` to wrap the table in a Card container; omit it for a minimal,
+unwrapped table.
 
 - [Usage](#usage)
 - [Variants](#variants)
@@ -187,7 +191,7 @@ This component is based on the `table` element and supports the following common
 | Prop         | Type                                                                       | Default | Description                                                                                         |
 | ------------ | -------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
 | `variant`    | `"emphasis" \| "subtle"`                                                   | —       | Sets the visual variant of the table. When undefined, the table is rendered without a Card wrapper. |
-| `pagination` | `ReactElement<TablePaginationProps, string \| JSXElementConstructor<any>>` | —       |                                                                                                     |
+| `pagination` | `ReactElement<TablePaginationProps, string \| JSXElementConstructor<any>>` | —       | Pagination controls rendered below the table, typically a `TablePagination` element.                |
 
 ### TableHeader API
 
@@ -199,10 +203,10 @@ This component is based on the `th` element and supports the following common pr
 
 - Text Align
 
-| Prop        | Type                                        | Default | Description |
-| ----------- | ------------------------------------------- | ------- | ----------- |
-| `row`       | `boolean`                                   | —       |             |
-| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       |             |
+| Prop        | Type                                        | Default | Description                                                |
+| ----------- | ------------------------------------------- | ------- | ---------------------------------------------------------- |
+| `row`       | `boolean`                                   | —       |                                                            |
+| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component. |
 
 ### TableBody API
 

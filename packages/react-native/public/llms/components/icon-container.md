@@ -95,5 +95,21 @@ Use the matrix below to compare every combination of size, variant, and color.
       </VariantTitle>
     </Box>
   ))}
+  <Box gap="300">
+    <VariantTitle title="Radius none">
+      <Flex direction="row" wrap="wrap" spacing="md">
+        {colors.map(color => (
+          <IconContainer
+            key={`radius-none-${color}`}
+            icon={icon}
+            size="md"
+            variant="subtle"
+            color={color}
+            radiusNone
+          />
+        ))}
+      </Flex>
+    </VariantTitle>
+  </Box>
 </Flex>
 ```

@@ -100,6 +100,21 @@ The `Badge` component has different sizes to style the spinner.
       </Box>
     );
   })}
+  <VariantTitle title="Flat base">
+    <Flex direction="row" spacing="md">
+      <Badge colorScheme="info" variant="subtle" flatBase>
+        subtle flatBase
+      </Badge>
+      <Badge colorScheme="info" variant="emphasis" flatBase>
+        emphasis flatBase
+      </Badge>
+    </Flex>
+  </VariantTitle>
+  <VariantTitle title="With icon">
+    <Badge colorScheme="info" icon={TickSmallIcon}>
+      With icon
+    </Badge>
+  </VariantTitle>
 </Flex>
 ```
 

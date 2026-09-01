@@ -31,7 +31,7 @@ For each name exported from `src/index.ts`, check:
 
 - [ ] `src/components/<Name>/<Name>.stories.tsx` exists
 - [ ] `src/components/<Name>/<Name>.docs.mdx` exists (or is intentionally covered by a parent component's docs — see exceptions above)
-- [ ] `figma/<Name>.figma.ts` exists (or the component is on the exceptions list)
+- [ ] `src/components/<Name>/<Name>.figma.ts` exists (or the component is on the exceptions list)
 - [ ] `src/index.ts` exports both the component **and** its prop type (`export type`)
 
 ---
@@ -96,11 +96,13 @@ grep -rnE 'sourceState="(shown|hidden)"' src/
 # Find all .docs.mdx files using relative StorybookLink imports
 grep -rn "from '.*shared/storybook/StorybookLink'" src/
 
-# List all components in the figma/ directory
-ls figma/*.figma.ts figma/*.figma.tsx 2>/dev/null
+# List all components missing a Code Connect file
+find src/components -mindepth 1 -maxdepth 1 -type d | while read -r d; do
+  ls "$d"/*.figma.ts >/dev/null 2>&1 || echo "$d"
+done
 
 # Preview a Code Connect file output
-npx figma connect print --file figma/<Name>.figma.ts
+npx figma connect preview --file src/components/<Name>/<Name>.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 # Start Storybook to verify docs visually
 pnpm dev:react

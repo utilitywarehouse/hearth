@@ -141,6 +141,7 @@ const CustomSwitch = ({
 
 const styles = StyleSheet.create(theme => ({
   pressable: {
+    position: 'relative',
     variants: {
       disabled: {
         false: {

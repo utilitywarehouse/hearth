@@ -5,7 +5,7 @@
       "inputs": [
         "$TURBO_DEFAULT$",
         "!**/*.stories.{tsx,jsx,mdx}",
-        "!**/*.figma.tsx",
+        "!**/*.figma.ts",
         "!**/figma-code-connect/**",
         "!figma.config.json",
         "!scripts/generate-figma-code-connect.cjs"

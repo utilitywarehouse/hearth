@@ -1,6 +1,8 @@
 # IconButton
 
-Icon Buttons are used to trigger an action on a page or to complete tasks in other components. Use Icon Buttons when you want to display an action quickly and visually, and when space is limited.
+Use IconButton to trigger an action using a single icon, when space is
+limited or an action needs to be shown quickly and visually. Since it has
+no visible text, a `label` prop is required to provide an accessible name.
 
 ```tsx
 <Flex direction="column" gap="600">
@@ -262,8 +264,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default colour scheme for primary actions,
+so it's only available for Emphasis and Solid Button variants.
 
 ```tsx
 <Flex gap="400">
@@ -459,8 +461,6 @@ const MyComponent = () => (
 A semantic HTML button is rendered by default, however you can change the
 underlying HTML element by using the `asChild` prop.
 
-**NOTE:** Be aware that you cannot currently use `asChild` with the `emphasis` variant.
-
 When `asChild` is set to true, the button will not render a default DOM element,
 instead cloning the child and passing it the props and behaviour required to
 make it functional.
@@ -476,6 +476,12 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
     </a>
   </IconButton>
   <IconButton {...args} asChild loading label="add">
+    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+    <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+      <AddMediumIcon />
+    </a>
+  </IconButton>
+  <IconButton {...args} asChild variant="emphasis" label="add">
     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
     <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
       <AddMediumIcon />

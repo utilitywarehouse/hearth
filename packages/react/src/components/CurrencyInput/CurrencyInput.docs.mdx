@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './CurrencyInput.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,7 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="CurrencyInput" to="components/currency-input" />
 
-`CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.
+<Description of={CurrencyInput} />
 
 <Canvas of={Stories.KitchenSink} sourceState="show" />
 

@@ -1,5 +1,7 @@
 export { AddMediumIcon } from './AddMediumIcon';
 export { AddSmallIcon } from './AddSmallIcon';
+export { AiGeneratedMediumIcon } from './AiGeneratedMediumIcon';
+export { AiGeneratedSmallIcon } from './AiGeneratedSmallIcon';
 export { AttachMediumIcon } from './AttachMediumIcon';
 export { AttachSmallIcon } from './AttachSmallIcon';
 export { BankMediumIcon } from './BankMediumIcon';
@@ -128,6 +130,8 @@ export { MoonLargeIcon } from './MoonLargeIcon';
 export { MoonMediumIcon } from './MoonMediumIcon';
 export { MoreMediumIcon } from './MoreMediumIcon';
 export { MoreSmallIcon } from './MoreSmallIcon';
+export { MotorInsuranceMediumIcon } from './MotorInsuranceMediumIcon';
+export { MotorInsuranceSmallIcon } from './MotorInsuranceSmallIcon';
 export { OpenMediumIcon } from './OpenMediumIcon';
 export { OpenSmallIcon } from './OpenSmallIcon';
 export { PaymentMediumIcon } from './PaymentMediumIcon';

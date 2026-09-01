@@ -2,6 +2,8 @@
   "reactIcons": [
     "AddMediumIcon",
     "AddSmallIcon",
+    "AiGeneratedMediumIcon",
+    "AiGeneratedSmallIcon",
     "AttachMediumIcon",
     "AttachSmallIcon",
     "BankMediumIcon",
@@ -130,6 +132,8 @@
     "MoonMediumIcon",
     "MoreMediumIcon",
     "MoreSmallIcon",
+    "MotorInsuranceMediumIcon",
+    "MotorInsuranceSmallIcon",
     "OpenMediumIcon",
     "OpenSmallIcon",
     "PaymentMediumIcon",

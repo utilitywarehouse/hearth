@@ -1,6 +1,10 @@
 # RadioGroup
 
-`RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.
+Use RadioGroup to group a set of Radio, RadioTile, or RadioCard components
+so a user can select a single option from a set. It manages the shared
+value, label, helper text, and validation state for its children, and
+follows the WAI-ARIA Radio Group pattern for groups not contained in a
+toolbar. For multi-select options, use CheckboxGroup instead.
 
 ```tsx
 <Flex direction="column" gap="400">
@@ -401,7 +405,7 @@ This component is based on the `fieldset` element and supports the following com
 | --------------------- | -------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`               | `ReactNode`                                                          | —        | The label for the formfield group. This should contain the question being answered by the formfield group. If you don't include a label you need to ensure you use the `aria-label` or `aria-labelledby` prop to properly associate a label with the formfield group. |
 | `defaultValue`        | `string`                                                             | —        |                                                                                                                                                                                                                                                                       |
-| `asChild`             | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
+| `asChild`             | `boolean`                                                            | `false`  | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.                                                                                                                             |
 | `name`                | `string`                                                             | —        |                                                                                                                                                                                                                                                                       |
 | `required`            | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
 | `disabled`            | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
@@ -410,10 +414,10 @@ This component is based on the `fieldset` element and supports the following com
 | `onValueChange`       | `((value: string) => void)`                                          | —        |                                                                                                                                                                                                                                                                       |
 | `labelVariant`        | `"body" \| "heading"`                                                | —        | Set the label variant                                                                                                                                                                                                                                                 |
 | `helperText`          | `ReactNode`                                                          | —        | Helper text for the formfield group. Provides a hint such as specific requirements for what to choose. When displayed, child components should not display their own `helperText`.                                                                                    |
-| `validationText`      | `ReactNode`                                                          | —        |                                                                                                                                                                                                                                                                       |
-| `validationStatus`    | `"valid" \| "invalid"`                                               | —        |                                                                                                                                                                                                                                                                       |
-| `validationPlacement` | `"top" \| "bottom"`                                                  | —        |                                                                                                                                                                                                                                                                       |
-| `direction`           | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` | `column` |                                                                                                                                                                                                                                                                       |
+| `validationText`      | `ReactNode`                                                          | —        | Text to display when the `validationStatus` is set.                                                                                                                                                                                                                   |
+| `validationStatus`    | `"valid" \| "invalid"`                                               | —        | Indicates the validation status of the formfield group.                                                                                                                                                                                                               |
+| `validationPlacement` | `"top" \| "bottom"`                                                  | —        | Sets where the validation text is displayed relative to the group's children.                                                                                                                                                                                         |
+| `direction`           | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` | `column` | The layout direction of the radio items within the group.                                                                                                                                                                                                             |
 | `contentWidth`        | `Responsive<string>`                                                 | —        | Set the container width of the RadioGroup children, independent to the width of the parent RadioGroup.                                                                                                                                                                |
 
 ### Radio API
@@ -427,10 +431,10 @@ This component is based on the `button` element and supports the following commo
 | `label`           | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
 | `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
 | `value`           | `string`                  | —       |                                                                                                                                           |
-| `asChild`         | `boolean`                 | —       |                                                                                                                                           |
+| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
 | `checked`         | `boolean`                 | —       |                                                                                                                                           |
 | `required`        | `boolean`                 | —       |                                                                                                                                           |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       |                                                                                                                                           |
+| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |
 | `helperText`      | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                      |
 
 ### RadioTile API
@@ -440,17 +444,17 @@ This component is based on the `button` element and supports the following commo
 - Margin
 - Flex item
 
-| Prop              | Type                      | Default | Description                                                                          |
-| ----------------- | ------------------------- | ------- | ------------------------------------------------------------------------------------ |
-| `label`           | `ReactNode`               | —       |                                                                                      |
-| `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                        |
-| `value`           | `string`                  | —       |                                                                                      |
-| `asChild`         | `boolean`                 | —       |                                                                                      |
-| `checked`         | `boolean`                 | —       |                                                                                      |
-| `required`        | `boolean`                 | —       |                                                                                      |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       |                                                                                      |
-| `helperText`      | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set. |
-| `badge`           | `ReactNode`               | —       |                                                                                      |
+| Prop              | Type                      | Default | Description                                                                                                                                       |
+| ----------------- | ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`           | `ReactNode`               | —       | The label for the RadioTile. If not using please properly associate the RadioTile with a label using the `aria-label` or `aria-labelledby` props. |
+| `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                                     |
+| `value`           | `string`                  | —       |                                                                                                                                                   |
+| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.         |
+| `checked`         | `boolean`                 | —       |                                                                                                                                                   |
+| `required`        | `boolean`                 | —       |                                                                                                                                                   |
+| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                           |
+| `helperText`      | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                              |
+| `badge`           | `ReactNode`               | —       | Optional badge content, displayed below the label and helper text.                                                                                |
 
 ### RadioCard API
 
@@ -463,7 +467,7 @@ This component is based on the `button` element and supports the following commo
 | `label`           | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
 | `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
 | `value`           | `string`                  | —       |                                                                                                                                           |
-| `asChild`         | `boolean`                 | —       |                                                                                                                                           |
+| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
 | `checked`         | `boolean`                 | —       |                                                                                                                                           |
 | `required`        | `boolean`                 | —       |                                                                                                                                           |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       |                                                                                                                                           |
+| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |

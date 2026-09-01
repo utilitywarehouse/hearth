@@ -18,6 +18,15 @@ function isValidOrientation(orientation?: Orientation) {
 
 type DividerElement = ComponentRef<'hr'>;
 
+/**
+ * Use Divider to provide a visual break and semantically divide content.
+ * It renders an `hr` with a `separator` role by default — use the
+ * `decorative` prop instead of CSS styling when you need a purely visual
+ * separation removed from the accessibility tree. A vertical orientation
+ * is only visible inside a flex or grid container.
+ *
+ * @summary A line that provides a visual break and semantic division between content.
+ */
 export const Divider = forwardRef<DividerElement, DividerProps>((props, ref) => {
   const {
     decorative,

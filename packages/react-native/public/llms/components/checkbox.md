@@ -121,7 +121,12 @@ The `CheckboxGroup` component is used to group multiple checkbox inputs together
 
 ```jsx
 // Example usage
-import { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxLabel, } from '@utilitywarehouse/hearth-react-native';
+import {
+  Checkbox,
+  CheckboxGroup,
+  CheckboxIndicator,
+  CheckboxLabel,
+} from '@utilitywarehouse/hearth-react-native';
 
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 

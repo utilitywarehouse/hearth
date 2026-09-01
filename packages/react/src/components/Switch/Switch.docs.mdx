@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Switch.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,9 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Switch" to="components/switch" />
 
-`Switch` is used to indicate switching between two opposing options. Switches
-allow users to turn an individual option on or off. They are usually used to
-activate or deactivate a specific setting.
+<Description of={Switch} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

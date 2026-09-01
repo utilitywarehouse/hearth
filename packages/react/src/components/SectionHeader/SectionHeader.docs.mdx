@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './SectionHeader.stories';
 import { SectionHeader } from './SectionHeader';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -9,9 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="SectionHeader" to="components/section-header" />
 
-Use the `SectionHeader` component to help define and separate content within a
-screen. It provides structure, clarity, and improves page scannability for
-users.
+<Description of={SectionHeader} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

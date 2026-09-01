@@ -32,13 +32,13 @@
   --h-color-green-900: #074b2a;
   --h-color-green-950: #033d21;
   --h-color-green-1000: #002e18;
-  --h-color-grey-0: #ffffff;
+  --h-color-grey-0: #fff;
   --h-color-grey-50: #f7f7f7;
   --h-color-grey-100: #ebebeb;
   --h-color-grey-200: #d3d3d3;
   --h-color-grey-300: #b2afae;
   --h-color-grey-400: #919191;
-  --h-color-grey-500: #888888;
+  --h-color-grey-500: #888;
   --h-color-grey-600: #5b5b5b;
   --h-color-grey-700: #4c4c4c;
   --h-color-grey-800: #3f3f3f;
@@ -63,8 +63,11 @@
   --h-color-orange-700: #cf5d00;
   --h-color-orange-750: #be5400;
   --h-color-orange-900: #893900;
+  --h-color-piggy-pink-0: #faf5fa;
+  --h-color-piggy-pink-100: #f9eafa;
   --h-color-piggy-pink-200: #f9ceff;
   --h-color-piggy-pink-300: #f295ff;
+  --h-color-piggy-pink-400: #ed66ff;
   --h-color-piggy-pink-800: #8f358f;
   --h-color-piggy-pink-900: #7a1f7e;
   --h-color-purple-100: #ddd5eb;

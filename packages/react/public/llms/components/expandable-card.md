@@ -1,7 +1,11 @@
 # ExpandableCard
 
-Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
-can be expanded to reveal additional content.
+Use ExpandableCard to show a summary header — with an optional leading
+icon, helper text, badge, and numeric value — that can be expanded to
+reveal additional content. Group multiple cards with ExpandableCardGroup.
+
+For multiple sections of content that need to expand and collapse
+independently as a related set, use Accordion instead.
 
 - [Leading icon](#leading-icon)
 - [Default open](#default-open)
@@ -73,7 +77,7 @@ icon in a coloured `IconContainer`.
 ## Default open
 
 Use `defaultOpen` to render the card in the open state on initial mount. This is an uncontrolled
-approach — the card manages its own open/closed state internally after mount.
+approach: the card manages its own open/closed state internally after mount.
 
 ```tsx
 <ExpandableCard heading="Heading" helperText="Helper text" defaultOpen>
@@ -191,17 +195,18 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop                              | Type                                                                                       | Default | Description |
-| --------------------------------- | ------------------------------------------------------------------------------------------ | ------- | ----------- |
-| `heading`                         | `string`                                                                                   | —       |             |
-| `helperText`                      | `string`                                                                                   | —       |             |
-| `leadingIcon`                     | `ReactNode`                                                                                | —       |             |
-| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —       |             |
-| `badge`                           | `ReactNode`                                                                                | —       |             |
-| `numericValue`                    | `string`                                                                                   | —       |             |
-| `open`                            | `boolean`                                                                                  | —       |             |
-| `defaultOpen`                     | `boolean`                                                                                  | —       |             |
-| `onOpenChange`                    | `((open: boolean) => void)`                                                                | —       |             |
+| Prop                              | Type                                                                                       | Default | Description                                                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                   | —       | The heading shown in the card's summary header, always visible regardless of expanded state.                                 |
+| `helperText`                      | `string`                                                                                   | —       | Additional helper text shown below the heading in the summary header.                                                        |
+| `leadingIcon`                     | `ReactNode`                                                                                | —       | An icon rendered to the left of the heading. Pass `aria-hidden` on the icon to ensure it is not announced to screen readers. |
+| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —       | Wraps `leadingIcon` in a coloured `IconContainer` using the given colour scheme.                                             |
+| `badge`                           | `ReactNode`                                                                                | —       | An optional badge rendered below the heading and helper text in the summary header.                                          |
+| `numericValue`                    | `string`                                                                                   | —       | A numeric value rendered on the right side of the summary header.                                                            |
+| `children`                        | `ReactNode`                                                                                | —       | The content revealed when the card is expanded.                                                                              |
+| `open`                            | `boolean`                                                                                  | —       |                                                                                                                              |
+| `defaultOpen`                     | `boolean`                                                                                  | —       |                                                                                                                              |
+| `onOpenChange`                    | `((open: boolean) => void)`                                                                | —       |                                                                                                                              |
 
 ### ExpandableCardGroup API
 

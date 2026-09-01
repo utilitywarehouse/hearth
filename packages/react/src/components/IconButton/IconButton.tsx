@@ -8,7 +8,6 @@ import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
 import type { SpinnerProps } from '../Spinner/Spinner.props';
-import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 import { forwardRef } from 'react';
@@ -16,12 +15,23 @@ import { forwardRef } from 'react';
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use IconButton to trigger an action using a single icon, when space is
+ * limited or an action needs to be shown quickly and visually. Since it has
+ * no visible text, a `label` prop is required to provide an accessible name.
+ *
+ * @summary A button that triggers an action using a single icon, with no visible text.
+ */
 export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props, ref) => {
   const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
     extractProps(props, iconButtonPropDefs);
 
   const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
-  const Component = asChild ? Slot.Root : 'button';
+  const content = loading
+    ? getSubtree({ asChild, children }, () => (
+        <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
+      ))
+    : children;
 
   return (
     <ButtonBase
@@ -30,16 +40,10 @@ export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props,
       aria-label={label}
       disabled={disabled || loading}
       data-testid={componentClassName}
-      asChild
+      asChild={asChild}
       {...iconButtonProps}
     >
-      <Component>
-        {loading
-          ? getSubtree({ asChild, children }, () => (
-              <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
-            ))
-          : children}
-      </Component>
+      {content}
     </ButtonBase>
   );
 });
