@@ -50,22 +50,40 @@ There are 2 options for discovering existing components and documentation:
 - MCP server: `hearth-react` MCP hosted on a remote URL
 - Raw markdown files: located in the `public` folder of the `hearth-react` package
 
-**Default to the raw markdown files.** They are local, always available, and
-version-matched to what the app actually has installed — so the API you read is
-the API you get.
+**Default to the MCP server** for component lookups and general/cross-cutting
+guidance (design tokens, layout, typography, getting started, migration). For
+a component, fetch both its plain entry (props + first-3-story code) and its
+`<component-id>--docs` entry (narrative usage, accessibility, and examples) —
+together they cover what the local markdown file documents.
 
-**Use the MCP server for richer exploration** — searching across components,
-fetching story code, or discovering what exists when you're not sure where to
-start. It's worth reaching for when the markdown files don't give you enough
-context, but it requires the server to be configured and reachable.
+**Fall back to the raw markdown files** for:
+
+- **Compound components with subcomponents** — e.g. `Card`'s
+  `CardActionLink`, `CardActionButton`, `CardContent`, `CardBannerContent`.
+  Their `--docs` entry references these via a live `<ArgTypes of={X}/>` tag,
+  which the MCP returns as inert, unresolved text rather than actual prop
+  data. Local markdown documents these subcomponents' props inline.
+- **A specific story's exact code** beyond what's already surfaced by
+  `get-documentation` or `get-documentation-for-story`.
 
 For questions about onboarding, updating to a newer version of this skill, or
-configuring the MCP server, see [`public/llms/docs/a-i-tools.md`](public/llms/docs/a-i-tools.md).
+configuring the MCP server, see [`public/llms/docs/a-i-toolkit.md`](public/llms/docs/a-i-toolkit.md).
 
 Whatever source you use, review what is available before writing any code.
 
 The library is broad — always check whether an existing component covers the
 need before implementing anything custom.
+
+### MCP Server
+
+You can use the **`hearth-react`** MCP server if available:
+
+1. `list-all-documentation` — get an index of all Hearth React components and docs
+2. `get-documentation` — get props, API, and usage examples for a specific
+   component or docs entry. Pass the plain id (e.g. `components-button`) for
+   props and story code, or the `<id>--docs` id (e.g.
+   `components-button--docs`) for narrative usage and accessibility docs
+3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 
@@ -80,14 +98,6 @@ The docs are then at:
 - `<hearth-react-root>/public/llms/components/` — one file per component
 - `<hearth-react-root>/public/llms/docs/` — design tokens, layout, responsive design, getting started
 - `<hearth-react-root>/public/llms.txt` — index of all available docs
-
-### MCP Server
-
-You can use the **`hearth-react`** MCP server if available:
-
-1. `list-all-documentation` — get an index of all Hearth React components
-2. `get-documentation` — get props, API, and usage examples for a specific component
-3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ## Plan before writing
 
