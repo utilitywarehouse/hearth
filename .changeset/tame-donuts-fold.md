@@ -4,6 +4,6 @@
 
 🐛 [FIX]: `DetailText` `as` prop type didn't reflect that `span` is the default
 
-Omitting `as` previously type-checked against the `div` variant instead of
+Omitting `as` previously type-checked against the `div`/`p` variants instead of
 `span`, the actual runtime default. `as="span"` is now optional and
-`as="div"` is required, matching the rendered output.
+`as="div"`/`as="p"` are required, matching the rendered output.
