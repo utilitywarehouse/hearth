@@ -20,6 +20,13 @@ const placementTranslation: Record<string, { side: 'bottom' | 'top'; align: 'sta
   topRight: { side: 'top', align: 'end' },
 };
 
+/**
+ * Use MenuContent to render the popup panel of a `Menu`, positioned relative
+ * to its `MenuTrigger` and scrollable when its contents overflow. Must be
+ * used inside a `Menu`, and should only contain `MenuItem` components.
+ *
+ * @summary The popup panel of a Menu, containing its items.
+ */
 export const MenuContent = forwardRef<MenuContentElement, MenuContentProps>(
   ({ className, children, forceMount, keepMounted, placement = 'bottomLeft', ...props }, ref) => {
     warn(

@@ -219,4 +219,4 @@ This component is based on the `div` element and supports the following common p
 | `heading`         | `string`                       | —       | Actual string to display as section header                          |
 | `helperText`      | `string`                       | —       | Optional helper text to provide additional context or instructions. |
 | `trailingContent` | `ReactNode`                    | —       | Optional trailing content element                                   |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` | —       |                                                                     |
+| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` | —       | Sets the heading element rendered for the group's `heading`.        |

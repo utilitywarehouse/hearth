@@ -8,5 +8,9 @@ export interface CardActionsProps extends ComponentPropsWithRef<'ol'>, MarginPro
    * @default ul
    */
   as?: 'ul' | 'ol';
+  /**
+   * Sets the direction actions are laid out in.
+   * @default row
+   */
   direction?: Responsive<'column' | 'row'>;
 }

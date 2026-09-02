@@ -12,6 +12,13 @@ type CardActionsElement = ComponentRef<'ul'>;
 const COMPONENT_NAME = 'CardActions';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CardActions to group one or more `CardActionLink` or
+ * `CardActionButton` components within a Card. A single action can be
+ * used standalone, without this wrapper.
+ *
+ * @summary A wrapper for one or more Card actions.
+ */
 export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((props, ref) => {
   const {
     className,

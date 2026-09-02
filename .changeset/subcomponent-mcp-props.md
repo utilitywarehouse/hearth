@@ -16,6 +16,12 @@ appeared nested inside their parent's docs page, so the `hearth-react` MCP
 server (used by AI coding agents) couldn't resolve their props — it could
 only resolve props for a component with its own Storybook entry. `packages/react/SKILL.md` has been updated to reflect this.
 
+Most of these components were also missing a component-level description
+and/or per-prop JSDoc comments, which left gaps in what the MCP server (and
+the local markdown docs) could show even once each had its own entry — these
+have been filled in, verified with `oversight-lint` against the published
+Storybook manifest.
+
 **Developer changes**:
 
 No action required — this only affects Storybook navigation and the

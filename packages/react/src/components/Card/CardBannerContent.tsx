@@ -12,6 +12,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardBannerContentElement = ComponentRef<'div'>;
 
+/**
+ * Use CardBannerContent to lay out the heading and description text within a
+ * Card banner, alongside any additional content such as actions. Pair it
+ * with `CardBannerImage` for banners that include an image or illustration.
+ *
+ * @summary Text content layout for a Card banner.
+ */
 export const CardBannerContent = forwardRef<CardBannerContentElement, CardBannerContentProps>(
   ({ heading, description, className, children, textAlign, ...props }, ref) => {
     return (

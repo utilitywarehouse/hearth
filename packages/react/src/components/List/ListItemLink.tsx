@@ -15,6 +15,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemLinkElement = ComponentRef<'a'>;
 
+/**
+ * Use ListItemLink for a `List` item that navigates to another page or
+ * location, rendering an `a` element with a trailing chevron icon by
+ * default. Use `asChild` to render as a different element, such as a
+ * framework `Link` component.
+ *
+ * @summary A List item that renders as a link.
+ */
 export const ListItemLink = forwardRef<ListItemLinkElement, ListItemLinkProps>(
   (
     {

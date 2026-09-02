@@ -19,6 +19,10 @@ export type TableProps = ComponentPropsWithRef<'table'> &
 export type TableBodyProps = ComponentPropsWithRef<'tbody'>;
 export type TableHeaderProps = ComponentPropsWithRef<'thead'>;
 export interface TableHeaderCellProps extends ComponentPropsWithRef<'th'>, TextAlignProps {
+  /**
+   * Sets `scope="row"` on the cell, marking it as a row header rather than a
+   * column header.
+   */
   row?: boolean;
 }
 export type TableRowProps = ComponentPropsWithRef<'tr'>;

@@ -13,6 +13,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableHeaderCellElement = ComponentRef<'th'>;
 
+/**
+ * Use TableHeaderCell for a `th` cell within a `TableRow`, for both column
+ * headers (in `TableHeader`) and row headers (in `TableBody`, with `row`
+ * set).
+ *
+ * @summary A header cell within a Table row.
+ */
 export const TableHeaderCell = forwardRef<TableHeaderCellElement, TableHeaderCellProps>(
   (props, ref) => {
     const { className, children, row, ...thProps } = extractProps(props, textAlignPropDefs);
