@@ -1,8 +1,11 @@
 # Accordion
 
-Use `Accordion` to allow users to expand or collapse individual content
-sections, providing a compact way to present a large amount of information
-while maintaining a clean and organised interface.
+Use Accordion to let users expand or collapse individual content sections,
+presenting a large amount of information in a compact, organised interface.
+Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
+`AccordionContent` for each disclosure item. The `type` prop is required and
+determines whether one (`single`) or multiple (`multiple`) items can be
+expanded at once.
 
 - [Accordion type](#accordion-type)
 - [Collapsible](#collapsible)
@@ -239,7 +242,7 @@ then an alternative disclosure pattern should be used.
 
 By default, `AccordionContent` is removed from the DOM when collapsed, which
 means search engines may not index its content. If the content is important for
-SEO — for example, FAQ answers — use the `forceMount` prop on `AccordionContent`
+SEO (for example, FAQ answers), use the `forceMount` prop on `AccordionContent`
 to keep it in the DOM at all times.
 
 When `forceMount` is set, collapsed content is hidden from view and the
@@ -276,9 +279,9 @@ This component is based on the `div` element and supports the following common p
 | `type`             | `"single" \| "multiple"`                                   | —       |                                                                                                                                                                                                                                                                                                                                                |
 | `value`            | `string \| string[]`                                       | —       | The controlled stateful value of the accordion item whose content is expanded. The controlled stateful value of the accordion items whose contents are expanded.                                                                                                                                                                               |
 | `onValueChange`    | `((value: string) => void) \| ((value: string[]) => void)` | —       | The callback that fires when the state of the accordion changes.                                                                                                                                                                                                                                                                               |
-| `collapsible`      | `boolean`                                                  | —       |                                                                                                                                                                                                                                                                                                                                                |
+| `collapsible`      | `boolean`                                                  | —       | When `type` is `single`, allows an expanded item to be collapsed, closing all items.                                                                                                                                                                                                                                                           |
 | `disabled`         | `boolean`                                                  | —       | Whether or not an accordion is disabled from user interaction. @defaultValue false                                                                                                                                                                                                                                                             |
-| `headingElement`   | `"h1" \| "h2" \| "h3" \| "h4"`                             | —       |                                                                                                                                                                                                                                                                                                                                                |
+| `headingElement`   | `"h1" \| "h2" \| "h3" \| "h4"`                             | `'h2'`  | The heading element to render for the `heading` prop.                                                                                                                                                                                                                                                                                          |
 | `helperText`       | `string`                                                   | —       | Optional helper text to provide additional context or instructions.                                                                                                                                                                                                                                                                            |
 | `trailingContent`  | `ReactNode`                                                | —       | Optional trailing content element                                                                                                                                                                                                                                                                                                              |
 | `validationStatus` | `"invalid"`                                                | —       | Indicates the validation state                                                                                                                                                                                                                                                                                                                 |

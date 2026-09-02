@@ -1,6 +1,11 @@
 # SearchInput
 
-`SearchInput` allows users to enter a specific keyword or phrase and obtain results related to the context in which it is placed.
+Use SearchInput to let users enter a keyword or phrase to search content
+related to the context it's placed in. Pass an `onClear` handler to show a
+clear button, and set `loading` to display a spinner while results are
+fetched. On desktop and tablet it must be paired with a button to trigger
+the search; on mobile the keyboard's search action can trigger it instead.
+For general text entry use TextInput instead.
 
 - [Alternatives](#alternatives)
 - [Accessibility](#accessibility)
@@ -110,16 +115,16 @@ This component is based on the `TextInput` component and supports the following 
 
 - Margin
 
-| Prop               | Type                  | Default | Description                                                                 |
-| ------------------ | --------------------- | ------- | --------------------------------------------------------------------------- |
-| `label`            | `string`              | —       | The label for the form field, describing its purpose.                       |
-| `defaultValue`     | `string \| number`    | —       | The initial value of the input when rendered.                               |
-| `value`            | `string \| number`    | —       | The controlled value of the input. Must be used with an `onChange` handler. |
-| `labelId`          | `string`              | —       |                                                                             |
-| `helperTextId`     | `string`              | —       |                                                                             |
-| `validationTextId` | `string`              | —       |                                                                             |
-| `hideLabel`        | `boolean`             | `true`  | Visually hide the label.                                                    |
-| `labelVariant`     | `"body" \| "heading"` | —       | Change the label variant                                                    |
-| `helperText`       | `string`              | —       | Optional helper text to provide additional context or instructions.         |
-| `onClear`          | `(() => void)`        | —       |                                                                             |
-| `loading`          | `boolean`             | —       |                                                                             |
+| Prop               | Type                  | Default | Description                                                                                                            |
+| ------------------ | --------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `label`            | `string`              | —       | The label for the form field, describing its purpose.                                                                  |
+| `defaultValue`     | `string \| number`    | —       | The initial value of the input when rendered.                                                                          |
+| `value`            | `string \| number`    | —       | The controlled value of the input. Must be used with an `onChange` handler.                                            |
+| `labelId`          | `string`              | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.                                |
+| `helperTextId`     | `string`              | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.                         |
+| `validationTextId` | `string`              | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association.                     |
+| `hideLabel`        | `boolean`             | `true`  | Visually hide the label.                                                                                               |
+| `labelVariant`     | `"body" \| "heading"` | —       | Change the label variant                                                                                               |
+| `helperText`       | `string`              | —       | Optional helper text to provide additional context or instructions.                                                    |
+| `onClear`          | `(() => void)`        | —       | Callback invoked when the clear button is clicked. When provided, a clear button is shown while the input has a value. |
+| `loading`          | `boolean`             | —       | Displays a loading spinner and disables input interaction.                                                             |

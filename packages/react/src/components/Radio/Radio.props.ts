@@ -7,10 +7,18 @@ export interface RadioProps extends Omit<
   'disabled'
 > {
   /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
+  asChild?: boolean;
+  /**
    * The label for the Radio. If not using please properly associate the
    * Radio with a label using the `aria-label` or `aria-labelledby` props.
    */
   label?: ReactNode;
+  /** Overrides the font weight of the label. */
   labelFontWeight?: LabelProps['fontWeight'];
   /** Helper text for the Radio. Will not display if the radio group has `helperText` set. */
   helperText?: ReactNode;

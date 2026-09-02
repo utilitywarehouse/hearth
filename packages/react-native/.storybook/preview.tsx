@@ -94,6 +94,12 @@ const preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
+    chromatic: {
+      // Snapshotting is disabled by default to limit Chromatic usage — opt
+      // individual stories back in (e.g. a component's KitchenSink story)
+      // with `chromatic: { disableSnapshot: false }`.
+      disableSnapshot: true,
+    },
   },
   decorators: [
     (Story, { args, globals }) => {

@@ -1,6 +1,9 @@
 # DescriptionList
 
-Use the `DescriptionList` component when you need to present pairs of related information together.
+Use DescriptionList to present pairs of related information together, such
+as contact details or account information. Wrap any number of
+DescriptionListItem components, which render as `dt`/`dd` pairs inside a
+semantic `dl` element.
 
 ```tsx
 <Box width="550px">
@@ -116,15 +119,15 @@ This component is based on the `dl` element and supports the following common pr
 - Margin
 - Size (width props only)
 
-| Prop               | Type                                    | Default | Description                                                                                       |
-| ------------------ | --------------------------------------- | ------- | ------------------------------------------------------------------------------------------------- |
-| `heading`          | `string`                                | —       | Actual string to display as section header                                                        |
-| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `h2`    |                                                                                                   |
-| `helperText`       | `string`                                | —       | Optional helper text to provide additional context or instructions.                               |
-| `trailingContent`  | `ReactNode`                             | —       | Optional trailing content element                                                                 |
-| `validationStatus` | `"invalid"`                             | —       | Indicates the validation state                                                                    |
-| `validationText`   | `string`                                | —       | Text to display when the `validationStatus` is set.                                               |
-| `direction`        | `Responsive<"row" \| "column">`         | —       | Responsive direction of the section header content. By default, the content is laid out in a row. |
+| Prop               | Type                                    | Default | Description                                                                                         |
+| ------------------ | --------------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
+| `heading`          | `string`                                | —       | Actual string to display as section header                                                          |
+| `headingElement`   | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` | `h2`    | The element type to render the heading as.                                                          |
+| `helperText`       | `string`                                | —       | Optional helper text to provide additional context or instructions.                                 |
+| `trailingContent`  | `ReactNode`                             | —       | Optional trailing content element                                                                   |
+| `validationStatus` | `"invalid"`                             | —       | Indicates the validation state                                                                      |
+| `validationText`   | `string`                                | —       | Text to display when the `validationStatus` is set.                                                 |
+| `direction`        | `Responsive<"row" \| "column">`         | —       | The layout direction of the `DescriptionListItem` children. Responsive — can be set per breakpoint. |
 
 ## DescriptionListItem API
 

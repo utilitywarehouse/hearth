@@ -68,7 +68,7 @@
     "@changesets/cli": "^2.27.9",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/js": "^10.0.1",
-    "@figma/code-connect": "^1.4.9",
+    "@figma/code-connect": "^2.0.0",
     "@utilitywarehouse/prettier-config": "^0.1.1",
     "chromatic": "^17.5.0",
     "eslint": "^10.4.1",

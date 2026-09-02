@@ -1,6 +1,8 @@
 # Tabs
 
-Use Tabs to organize and navigate between content sections within the same context without leaving the page.
+Use Tabs to organize and navigate between content sections within the same
+page context, without leaving the page. Must be used together with
+TabsList, Tab, and TabContent.
 
 - [Usage](#usage)
 - [Examples](#examples)
@@ -291,14 +293,14 @@ The `activationMode` prop controls how keyboard focus activates a tab:
 
 ### Performance considerations
 
-The default `automatic` mode provides the best user experience for most cases.
-However, **use `manual` mode when tab panels contain heavily loaded content**
-that might cause lag during automatic activation. This prevents automatic panel
-switching as users navigate with arrow keys, avoiding performance issues.
+The default `automatic` mode works well for most cases. Use `manual` mode when
+tab panels contain heavy content that could cause lag during automatic
+activation, since it stops the panel switching automatically as users navigate
+with arrow keys.
 
-**Prefetching panel data is the preferred solution** over relying on manual
-activation mode. Consider preloading content for adjacent tabs to provide a
-smooth experience while maintaining the benefits of automatic activation.
+Prefetching panel data is usually a better fix than switching to manual mode.
+Preloading content for adjacent tabs keeps panels responsive without giving up
+automatic activation.
 
 ## Accessibility
 
@@ -310,11 +312,11 @@ smooth experience while maintaining the benefits of automatic activation.
 
 ### Tabs
 
-| Prop             | Type                                                               | Default | Description                                                |
-| ---------------- | ------------------------------------------------------------------ | ------- | ---------------------------------------------------------- |
-| `defaultValue`   | `string`                                                           | —       | The value of the tab to select by default, if uncontrolled |
-| `value`          | `string`                                                           | —       | The value for the selected tab, if controlled              |
-| `onValueChange`  | `((value: string) => void)`                                        | —       | A function called when a new tab is selected               |
-| `activationMode` | `"manual" \| "automatic"`                                          | —       | Activation mode for tabs                                   |
-| `size`           | `Responsive<"md" \| "lg">`                                         | —       | Size variant                                               |
-| `spacing`        | `"none" \| "md" \| "lg" \| "2xs" \| "xs" \| "sm" \| "xl" \| "2xl"` | —       |                                                            |
+| Prop             | Type                                                               | Default | Description                                                 |
+| ---------------- | ------------------------------------------------------------------ | ------- | ----------------------------------------------------------- |
+| `defaultValue`   | `string`                                                           | —       | The value of the tab to select by default, if uncontrolled  |
+| `value`          | `string`                                                           | —       | The value for the selected tab, if controlled               |
+| `onValueChange`  | `((value: string) => void)`                                        | —       | A function called when a new tab is selected                |
+| `activationMode` | `"manual" \| "automatic"`                                          | —       | Activation mode for tabs                                    |
+| `size`           | `Responsive<"md" \| "lg">`                                         | —       | Size variant                                                |
+| `spacing`        | `"none" \| "md" \| "lg" \| "2xs" \| "xs" \| "sm" \| "xl" \| "2xl"` | `xl`    | Sets the space between the `TabsList` and the `TabContent`. |

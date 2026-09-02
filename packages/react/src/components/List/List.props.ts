@@ -9,13 +9,15 @@ export type ListProps = ComponentPropsWithRef<'ol'> &
   (
     | {
         /**
-         * Sets the visual variant of the list.
          * @default undefined
          */
         variant: undefined;
         colorScheme: undefined;
       }
     | {
+        /**
+         * Sets the visual variant of the list. Must be used together with `colorScheme`.
+         */
         variant?: CardProps['variant'];
         /**
          * Sets the color scheme of the list.

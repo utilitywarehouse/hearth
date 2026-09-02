@@ -1,6 +1,9 @@
 # Toast
 
-A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.
+Use Toast for a brief, non-intrusive message that provides feedback on an
+action or notifies users of important information, auto-dismissing after a
+set duration. It must be rendered inside a ToastProvider. For messages that
+require the user to make a decision, use Alert instead.
 
 - [Usage](#usage)
 - [Icon](#icon)
@@ -306,9 +309,9 @@ This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com
 | `onSwipeEnd`        | `((event: SwipeEvent) => void)`    | —       |                                                                                                      |
 | `defaultOpen`       | `boolean`                          | —       |                                                                                                      |
 | `onOpenChange`      | `((open: boolean) => void)`        | —       |                                                                                                      |
-| `description`       | `ReactNode`                        | —       |                                                                                                      |
-| `icon`              | `ReactNode`                        | —       |                                                                                                      |
-| `showDismissButton` | `boolean`                          | —       |                                                                                                      |
+| `description`       | `ReactNode`                        | —       | The content of the Toast message.                                                                    |
+| `icon`              | `ReactNode`                        | —       | An optional icon rendered before the description, such as a status icon.                             |
+| `showDismissButton` | `boolean`                          | —       | Shows a dismiss button that lets users manually close the Toast.                                     |
 
 ### ToastActionLink
 

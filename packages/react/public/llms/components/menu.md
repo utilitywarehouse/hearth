@@ -1,9 +1,11 @@
 # Menu
 
-Use the `Menu` component to present a short list of actions or options in
-response to a user’s interaction. Menus are ideal for actions like sorting,
-filtering, or providing additional options without navigating away from the
-current screen.
+Use Menu to present a short list of actions or options in response to a
+user's interaction, such as sorting, filtering, or additional options,
+without navigating away from the current screen. Compose the root Menu
+with MenuTrigger and MenuContent, which wraps any number of MenuItem
+components. Set `modal={false}` when multiple Menu components are used
+together, such as in a navigation bar.
 
 - [Usage](#usage)
 - [MenuTrigger](#menutrigger)
@@ -101,8 +103,8 @@ You must render either a `Button` or `IconButton` component as a child of the `M
 ### Detached trigger
 
 By default the `MenuTrigger` lives inside `Menu`. When the trigger needs to exist in a
-different part of the component tree — for example in a toolbar while the menu state is
-managed elsewhere — use `Menu.createHandle()` to connect them.
+different part of the component tree (for example in a toolbar while the menu state is
+managed elsewhere), use `Menu.createHandle()` to connect them.
 
 Create the handle once at module level (outside any component), then pass it to both
 `MenuTrigger` and `Menu` via the `handle` prop. `Menu` no longer needs a `MenuTrigger`
@@ -206,7 +208,7 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
 If a `MenuItem` is navigating to another page, use the `asChild` prop to render a
-semantic `<a>` element — all accessible attributes are merged onto the child.
+semantic `<a>` element: all accessible attributes are merged onto the child.
 
 ```tsx
 <MenuContent>
@@ -288,7 +290,7 @@ to manage focus movement among menu items.
 
 By default, `MenuContent` is removed from the DOM when the menu is closed, which
 means search engines may not index its content. If the menu items are important
-for SEO — for example, primary navigation links — use the `keepMounted` prop on
+for SEO (for example, primary navigation links), use the `keepMounted` prop on
 `MenuContent` to keep them in the DOM at all times.
 
 ```tsx
@@ -301,8 +303,8 @@ for SEO — for example, primary navigation links — use the `keepMounted` prop
 
 **`MenuItem` deprecations:**
 
-- `onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation.
-- `textValue` is deprecated. Use `label` instead — it is used for accessibility and keyboard navigation.
+- `onSelect` is deprecated. Use `onClick` instead: it fires for both mouse and keyboard activation.
+- `textValue` is deprecated. Use `label` instead: it is used for accessibility and keyboard navigation.
 
 **`MenuContent` deprecation:**
 

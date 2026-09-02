@@ -1,10 +1,11 @@
 # Strong
 
-The `Strong` component is based on the HTML `strong` element and is used to indicate text that is of
-strong importance, seriousness, or urgency. `Strong` should be wrapped in a `BodyText` component,
-and will inherit its styles from its parent. You can also use this component within the `Heading`
-component, however as `Heading` has only one font-weight there will be no visual distinction, and
-so this is discouraged.
+Use Strong to mark up text of strong importance, seriousness, or urgency
+within a larger body of text. It renders a `strong` element by default,
+and should be wrapped in a BodyText component so it inherits its styles.
+It can also be used within Heading, though this is discouraged since
+Heading has only one font-weight and so there's no visual distinction.
+For stress emphasis rather than strong importance, use Em instead.
 
 ```tsx
 <Flex direction="column" gap="100">

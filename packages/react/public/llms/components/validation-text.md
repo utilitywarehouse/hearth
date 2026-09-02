@@ -1,6 +1,8 @@
 # ValidationText
 
-`ValidationText` should be used with form field components to display validation messages.
+Use ValidationText alongside a form field to display a validation message,
+with an icon and colour that reflect the `status` (`valid` or `invalid`).
+For general, non-validation guidance about a field, use HelperText instead.
 
 ```tsx
 <ValidationText status="valid">Hearth validation text</ValidationText>

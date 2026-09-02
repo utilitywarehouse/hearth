@@ -1,8 +1,9 @@
 # Tooltip
 
-Use `Tooltip` to temporarily display short, contextual text, that
-is not critical information, related to an element when
-the element receives keyboard focus or the mouse hovers over it.
+Use Tooltip to temporarily display short, non-critical contextual text
+related to an element when it receives keyboard focus or is hovered. It
+requires a single child element as its trigger, and must be used within a
+TooltipProvider (or the global HearthProvider).
 
 - [Setup](#setup)
 - [Usage](#usage)
@@ -174,9 +175,9 @@ Adheres to the [WAI-ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/toolt
 
 | Prop                     | Type                                                                                                                         | Default     | Description                                                                                                           |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------- |
-| `align`                  | `"rightCenter" \| "leftCenter" \| "bottomLeft" \| "bottomCenter" \| "bottomRight" \| "topLeft" \| "topCenter" \| "topRight"` | `topCenter` |                                                                                                                       |
+| `align`                  | `"rightCenter" \| "leftCenter" \| "bottomLeft" \| "bottomCenter" \| "bottomRight" \| "topLeft" \| "topCenter" \| "topRight"` | `topCenter` | Sets the position of the tooltip relative to its trigger.                                                             |
 | `aria-label`             | `string`                                                                                                                     | —           | A more descriptive label for accessibility purpose                                                                    |
-| `heading`                | `string`                                                                                                                     | —           |                                                                                                                       |
+| `heading`                | `string`                                                                                                                     | —           | An optional heading shown above the description for more structured tooltip content.                                  |
 | `hideWhenDetached`       | `boolean`                                                                                                                    | —           |                                                                                                                       |
 | `updatePositionStrategy` | `"optimized" \| "always"`                                                                                                    | —           |                                                                                                                       |
 | `forceMount`             | `true`                                                                                                                       | —           | Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. |
@@ -185,4 +186,4 @@ Adheres to the [WAI-ARIA Tooltip](https://www.w3.org/WAI/ARIA/apg/patterns/toolt
 | `open`                   | `boolean`                                                                                                                    | —           |                                                                                                                       |
 | `defaultOpen`            | `boolean`                                                                                                                    | —           |                                                                                                                       |
 | `onOpenChange`           | `((open: boolean) => void)`                                                                                                  | —           |                                                                                                                       |
-| `description`            | `ReactNode`                                                                                                                  | —           |                                                                                                                       |
+| `description`            | `ReactNode`                                                                                                                  | —           | The content of the tooltip.                                                                                           |

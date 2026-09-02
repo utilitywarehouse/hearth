@@ -300,6 +300,7 @@ Use the `image` prop to display an image-centric modal with centered content:
   showCloseButton
   primaryButtonText="Primary"
   secondaryButtonText="Cancel"
+  loadingHeading="Loading"
   onPressCloseButton={() => null}
   onPressPrimaryButton={() => null}
   onPressSecondaryButton={() => null}
@@ -396,6 +397,7 @@ Add custom content between the header and footer sections:
   showCloseButton
   primaryButtonText="Primary"
   secondaryButtonText="Cancel"
+  loadingHeading="Loading"
   onPressCloseButton={() => null}
   onPressPrimaryButton={() => null}
   onPressSecondaryButton={() => null}
@@ -460,6 +462,7 @@ Replace the built-in buttons with a custom sticky footer when you need custom la
   showCloseButton
   primaryButtonText="Primary"
   secondaryButtonText="Cancel"
+  loadingHeading="Loading"
   onPressCloseButton={() => null}
   onPressPrimaryButton={() => null}
   onPressSecondaryButton={() => null}
@@ -519,6 +522,7 @@ Show a loading spinner while processing:
   showCloseButton
   primaryButtonText="Primary"
   secondaryButtonText="Cancel"
+  loadingHeading="Loading"
   onPressCloseButton={() => null}
   onPressPrimaryButton={() => null}
   onPressSecondaryButton={() => null}

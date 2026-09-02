@@ -1,6 +1,11 @@
 # Link
 
-Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.
+Use Link to navigate a user to another page or website, to another place
+on the same page, or to open a resource in a new tab. Renders a semantic
+`a` element by default — use `asChild` to render as a different element
+(e.g. a framework's own Link component) while keeping Link's styling and behavior.
+
+For links within a body of text, use InlineLink instead.
 
 - [Alternatives](#alternatives)
 - [Semantic HTML](#semantic-html)

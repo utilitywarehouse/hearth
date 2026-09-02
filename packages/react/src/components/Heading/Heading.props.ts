@@ -21,6 +21,7 @@ export interface HeadingProps
     TextWrapProps,
     MarginProps {
   /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * @default h2
    */
   as?: 'h1' | 'h2' | 'h3' | 'h4';

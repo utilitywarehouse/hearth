@@ -141,5 +141,5 @@ For the full API reference and advanced patterns, invoke `/anthropic-skills:figm
 - [ ] All `<Canvas>` blocks use valid `sourceState` values: `'show'`, `'hide'`, or `'none'` — not `'shown'`/`'hidden'`
 - [ ] StorybookLink imports use `import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils'` (not a relative path)
 - [ ] `src/index.ts` updated at the bottom with an empty line separating from previous exports
-- [ ] Figma Code Connect template(s) added in `packages/react/figma/`. See [`/figma-code-connect`](./../figma-code-connect/SKILL.md).
+- [ ] Figma Code Connect template(s) added in `src/components/<Name>/`. See [`/figma-code-connect`](./../figma-code-connect/SKILL.md).
 - [ ] TypeScript passes — run `npx --node-options="" tsc --noEmit -p packages/react/tsconfig.json 2>&1 | grep "<ComponentName>"` and confirm no errors beyond the pre-existing `@storybook/react-vite` module declaration error

@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.35.9",
+  "version": "0.36.1",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
   "repository": {
@@ -61,8 +61,8 @@
     "@storybook/addon-vitest": "^10.5.6",
     "@storybook/react-native-web-vite": "^10.5.6",
     "@types/prismjs": "^1.26.5",
-    "@types/react": "~19.2.18",
-    "@types/react-dom": "~19.2.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.3",
     "@utilitywarehouse/hearth-fonts": "workspace:^",
     "@utilitywarehouse/hearth-react-icons": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",

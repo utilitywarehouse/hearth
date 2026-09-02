@@ -24,6 +24,9 @@ import { Responsive } from '../../types/responsive';
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
 
 export const boxPropDefs = {
+  /**
+   * Sets the CSS `display` property. Can be set responsively.
+   */
   display: { className: 'd', tokens: displayValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
@@ -50,9 +53,24 @@ export interface CommonBoxProps
     TextAlignProps,
     TextTransformProps,
     ZIndexProps {
+  /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
   asChild?: boolean;
+  /**
+   * Sets the CSS `display` property. Can be set responsively.
+   */
   display?: Responsive<(typeof displayValues)[number]>;
 }
-type BoxDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
-type BoxSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
+type BoxDivProps = {
+  /** Renders a `div` element. This is the default. */
+  as?: 'div';
+} & ComponentPropsWithRef<'div'>;
+type BoxSpanProps = {
+  /** Renders a `span` element. */
+  as: 'span';
+} & ComponentPropsWithRef<'span'>;
 export type BoxProps = CommonBoxProps & (BoxSpanProps | BoxDivProps);

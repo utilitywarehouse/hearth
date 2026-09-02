@@ -14,6 +14,15 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CurrencyInput for entering monetary amounts, such as in Cashback and
+ * payment areas. It displays values with comma-separated thousands by default
+ * and returns the underlying value without formatting via `onChange`.
+ *
+ * For general text entry, use TextInput instead.
+ *
+ * @summary An input field for entering monetary amounts.
+ */
 export const CurrencyInput = forwardRef<InputBaseElement, CurrencyInputProps>(
   (
     {

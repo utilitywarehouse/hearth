@@ -1,6 +1,6 @@
 # Hearth React
 
-Current version: v0.31.6
+Current version: v0.32.0
 
 - [Install Hearth](#install-hearth)
 - [Import CSS](#import-css)
@@ -60,7 +60,7 @@ function App({ children }) {
 
 `HearthProvider` currently includes the following providers:
 
-- `TooltipProvider` — required for the `Tooltip` component.
+- `TooltipProvider`: required for the `Tooltip` component.
 
 ## Start building
 

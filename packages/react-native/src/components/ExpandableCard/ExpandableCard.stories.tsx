@@ -238,7 +238,7 @@ export const Controlled: Story = {
     const [expanded, setExpanded] = React.useState(false);
 
     return (
-      <div style={{ width: 350 }}>
+      <View style={{ width: 350 }}>
         <BodyText style={{ marginBottom: 8 }}>
           Status: {expanded ? 'Expanded' : 'Collapsed'}
         </BodyText>
@@ -251,7 +251,7 @@ export const Controlled: Story = {
             <BodyText>This card's state is controlled by the parent component.</BodyText>
           }
         />
-      </div>
+      </View>
     );
   },
   play: async ({ canvasElement }) => {
@@ -357,7 +357,7 @@ export const GroupWithMixedContent: Story = {
 
 export const ColorSchemes: Story = {
   render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
+    <View style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
       <ExpandableCard
         heading="Default Card"
         expandedContent={<BodyText>Default color scheme</BodyText>}
@@ -372,7 +372,7 @@ export const ColorSchemes: Story = {
         colorScheme="neutralStrong"
         expandedContent={<BodyText>Strong color scheme</BodyText>}
       />
-    </div>
+    </View>
   ),
 };
 
@@ -382,7 +382,7 @@ export const AdvancedComposition: Story = {
     const [customChildrenExpanded, setCustomChildrenExpanded] = React.useState(false);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
+      <View style={{ display: 'flex', flexDirection: 'column', gap: 16, width: 350 }}>
         <ExpandableCard
           expanded={triggerContentExpanded}
           onExpandedChange={setTriggerContentExpanded}
@@ -424,7 +424,7 @@ export const AdvancedComposition: Story = {
             <BodyText>Last Updated: 12/11/25</BodyText>
           </ExpandableCardExpandedContent>
         </ExpandableCard>
-      </div>
+      </View>
     );
   },
 };

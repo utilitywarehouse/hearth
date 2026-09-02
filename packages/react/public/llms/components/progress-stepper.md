@@ -1,6 +1,11 @@
 # ProgressStepper
 
-Use the `ProgressStepper` component to show users their progress through a multi-step process.
+Use ProgressStepper to show a user's progress through a multi-step process,
+such as a checkout or application flow. Wrap ProgressStep, ProgressStepButton,
+or ProgressStepLink children depending on whether each step is static,
+triggers an action, or navigates — don't mix step types within the same
+stepper. Render `as="nav"` when the stepper represents site or app
+navigation. For a single continuous task's completion, use ProgressBar instead.
 
 - [Usage](#usage)
 - [Step states](#step-states)
@@ -108,10 +113,10 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop         | Type             | Default | Description                 |
-| ------------ | ---------------- | ------- | --------------------------- |
-| `hideLabels` | `boolean`        | `false` | Whether to hide step labels |
-| `as`         | `"div" \| "nav"` | —       |                             |
+| Prop         | Type             | Default | Description                                                                                      |
+| ------------ | ---------------- | ------- | ------------------------------------------------------------------------------------------------ |
+| `hideLabels` | `boolean`        | `false` | Whether to hide step labels                                                                      |
+| `as`         | `"div" \| "nav"` | `div`   | Shorthand for changing the default rendered element into a semantically appropriate alternative. |
 
 ### ProgressStep API
 

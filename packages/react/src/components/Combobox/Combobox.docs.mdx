@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Combobox.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Combobox } from './Combobox';
@@ -9,7 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Combobox" to="components/combobox" />
 
-`Combobox` allows users to both type to filter results and select from a predefined list.
+<Description of={Combobox} />
 
 - [Usage](#usage)
 - [Trigger only on type](#trigger-only-on-type)
@@ -72,7 +72,7 @@ asynchronously loaded list.
 ## useComboboxFilter
 
 The `useComboboxFilter` hook provides robust string matching using `Intl.Collator`.
-It returns three filter functions — `contains`, `startsWith`, and `endsWith` —
+It returns three filter functions (`contains`, `startsWith`, and `endsWith`)
 that can be passed to the `filter` prop on `Combobox`.
 
 When using `useComboboxFilter`, pass the `items` prop to provide the full list
