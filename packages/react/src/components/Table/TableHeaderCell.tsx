@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableHeaderCellElement = ComponentRef<'th'>;
 
 /**
- * Use TableHeaderCell for a `th` cell within a `TableRow`, for both column
+ * Use TableHeaderCell for a `th` cell within atable row, for both column
  * headers (in `TableHeader`) and row headers (in `TableBody`, with `row`
  * set).
  *
