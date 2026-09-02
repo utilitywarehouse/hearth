@@ -56,13 +56,13 @@ a component, fetch both its plain entry (props + first-3-story code) and its
 `<component-id>--docs` entry (narrative usage, accessibility, and examples) —
 together they cover what the local markdown file documents.
 
+Subcomponents (e.g. `CardActionLink`, `AccordionItem`) are listed as their
+own entries in `list-all-documentation` — fetch them directly by their own
+id rather than relying on the parent's `--docs` page, which only shows their
+`<ArgTypes of={X}/>` block as inert, unresolved text.
+
 **Fall back to the raw markdown files** for:
 
-- **Compound components with subcomponents** — e.g. `Card`'s
-  `CardActionLink`, `CardActionButton`, `CardContent`, `CardBannerContent`.
-  Their `--docs` entry references these via a live `<ArgTypes of={X}/>` tag,
-  which the MCP returns as inert, unresolved text rather than actual prop
-  data. Local markdown documents these subcomponents' props inline.
 - **A specific story's exact code** beyond what's already surfaced by
   `get-documentation` or `get-documentation-for-story`.
 
