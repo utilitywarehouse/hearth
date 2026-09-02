@@ -111,7 +111,7 @@
     "globals": "^15.14.0",
     "oversight-lint": "^0.7.0",
     "playwright": "^1.59.1",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.23",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",
     "postcss-import": "^16.1.0",
