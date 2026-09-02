@@ -23,6 +23,7 @@
     "build:tokens": "turbo run @utilitywarehouse/hearth-tokens#build:tokens",
     "lint": "turbo run lint:fix --filter='./packages/*'",
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
+    "lint:storybook": "turbo build lint:storybook",
     "typecheck": "turbo run typecheck",
     "typecheck:packages": "turbo run typecheck --filter='./packages/*'",
     "checks": "pnpm run lint && pnpm run format && pnpm run typecheck:packages",

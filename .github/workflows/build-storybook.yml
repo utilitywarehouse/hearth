@@ -1,4 +1,4 @@
-name: Build Storybook
+name: Storybook Build & Lint
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -31,3 +31,4 @@ jobs:
       - run: pnpm build:storybook
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
+      - run: pnpm lint:storybook
