@@ -117,8 +117,8 @@ Do not repeat the change type as a verb in the heading or description — it is
 already indicated by the emoji and label at the start of the changeset. For
 `[FIX]` changesets, state the problem plainly rather than framing it as an
 action. This applies to any action verb, not just "Fix" or "Correct" —
-"Restore", "Re-introduce", "Resolve", "Address" and "Add back" are equally
-implementation-framed and must be avoided too. For example, "`Button` border
+headings should avoid starting with implementation-framed verbs like "Restore",
+"Re-introduce", "Resolve", or "Add back" (and similar). For example, "`Button` border
 radius incorrect when `size` is `small`" not "Fix `Button` border radius when
 `size` is `small`", "Correct `Button` border radius when `size` is `small`",
 or "Restore `Button` border radius when `size` is `small`". A useful test:
