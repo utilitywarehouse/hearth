@@ -15,6 +15,10 @@
     border-radius: var(--h-border-radius-md);
   }
 
+  .h-r-radius-lg {
+    border-radius: var(--h-border-radius-lg);
+  }
+
   .h-r-radius-xl {
     border-radius: var(--h-border-radius-xl);
   }
