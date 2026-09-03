@@ -203,10 +203,10 @@ This component is based on the `th` element and supports the following common pr
 
 - Text Align
 
-| Prop        | Type                                        | Default | Description                                                |
-| ----------- | ------------------------------------------- | ------- | ---------------------------------------------------------- |
-| `row`       | `boolean`                                   | —       |                                                            |
-| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component. |
+| Prop        | Type                                        | Default | Description                                                                             |
+| ----------- | ------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `row`       | `boolean`                                   | —       | Sets `scope="row"` on the cell, marking it as a row header rather than a column header. |
+| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component.                              |
 
 ### TableBody API
 

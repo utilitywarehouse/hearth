@@ -14,6 +14,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepLinkElement = ComponentRef<'a'>;
 
+/**
+ * Use ProgressStepLink for a step within a `ProgressStepper` that navigates
+ * to a different URL via `href`. Renders as a `ProgressStep` wrapping a
+ * `Link`; use `ProgressStepButton` instead when the step should trigger an
+ * action rather than navigate.
+ *
+ * @summary An interactive ProgressStepper step that navigates via `href`.
+ */
 export const ProgressStepLink = forwardRef<ProgressStepLinkElement, ProgressStepLinkProps>(
   (
     {

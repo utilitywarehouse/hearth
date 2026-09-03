@@ -20,6 +20,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardAccordionItemElement = ComponentRef<'div'>;
 
+/**
+ * Use CardAccordionItem for each step within a CardAccordion. Requires a
+ * unique `value` and a `title`. Once a step becomes `previous`,
+ * `summaryTitle`/`summaryDescription` (if set) replace the current view and
+ * an Edit button (wired via `onEditClick`) lets users return to it.
+ *
+ * @summary A single step within a CardAccordion.
+ */
 export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccordionItemProps>(
   (
     {

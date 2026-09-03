@@ -11,6 +11,14 @@ import { useContext } from 'react';
 const COMPONENT_NAME = 'DescriptionListItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use DescriptionListItem to render a single term/description pair within a
+ * `DescriptionList`. It inherits its layout `direction` from the parent
+ * `DescriptionList` and can optionally show validation feedback or trailing
+ * link content alongside the description.
+ *
+ * @summary A single term/description pair within a DescriptionList.
+ */
 export const DescriptionListItem = ({
   className,
   heading,
