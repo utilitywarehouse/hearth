@@ -217,8 +217,7 @@ const theme = {
 (Better: State the problem directly — "`Modal` close button inaccessible when browser UI bars are visible", "`TextInput` label colour incorrect in dark mode")
 
 ❌ **Any other action verb in place of "Fix" — the verb itself isn't the
-issue, framing the heading as an action instead of a problem is:**
-
+issue; framing the heading as an action instead of a problem is:**
 ```markdown
 🐛 [FIX]: Restore `Button` focus ring on keyboard navigation
 ```
