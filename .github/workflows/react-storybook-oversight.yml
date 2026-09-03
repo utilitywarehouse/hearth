@@ -1,7 +1,9 @@
-name: Storybook Oversight
+name: React Storybook Oversight
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - 'packages/react/**'
 
 permissions:
   contents: read
@@ -28,7 +30,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
-      - run: pnpm build:storybook
+      - run: pnpm build:storybook:react
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
       - run: pnpm lint:oversight
+        working-directory: ./packages/react
