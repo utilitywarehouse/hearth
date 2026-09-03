@@ -1,5 +1,23 @@
 # @utilitywarehouse/hearth-react
 
+## 0.32.1
+
+### Patch Changes
+
+- [#1571](https://github.com/utilitywarehouse/hearth/pull/1571) [`22a5562`](https://github.com/utilitywarehouse/hearth/commit/22a556266e53453ed10f1307075304c2abe5bb25) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `hearth-react` skill now defaults to the MCP server over local markdown
+
+  The skill guidance used by AI coding agents building with this package
+  previously defaulted to reading local markdown files for component lookups.
+  It now defaults to the `hearth-react` MCP server for component lookups and
+  general/cross-cutting guidance, falling back to markdown only for a specific
+  story's exact code beyond what `get-documentation` or
+  `get-documentation-for-story` already surfaces.
+
+  **Developer changes**:
+
+  No action required — this only affects the guidance given to AI coding
+  agents using this library, not the runtime API.
+
 ## 0.32.0
 
 ### Minor Changes
