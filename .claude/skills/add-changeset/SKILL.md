@@ -116,10 +116,18 @@ as outlined below.
 Do not repeat the change type as a verb in the heading or description — it is
 already indicated by the emoji and label at the start of the changeset. For
 `[FIX]` changesets, state the problem plainly rather than framing it as an
-action. For example, "`Button` border radius incorrect when `size` is `small`"
-not "Fix `Button` border radius when `size` is `small`" or "Correct `Button`
-border radius when `size` is `small`". For `[FEATURE]` and `[ENHANCEMENT]`
-changesets, describe the outcome or capability, not the action taken.
+action. This applies to any action verb, not just "Fix" or "Correct" —
+"Restore", "Re-introduce", "Resolve", "Address" and "Add back" are equally
+implementation-framed and must be avoided too. For example, "`Button` border
+radius incorrect when `size` is `small`" not "Fix `Button` border radius when
+`size` is `small`", "Correct `Button` border radius when `size` is `small`",
+or "Restore `Button` border radius when `size` is `small`". A useful test:
+if the heading would still make sense following the word "because" (i.e. it
+names a problem, not a fix), it's framed correctly — "`Button` border radius
+incorrect when `size` is `small`, because ..." reads naturally; "Restore
+`Button` border radius, because ..." does not. For `[FEATURE]` and
+`[ENHANCEMENT]` changesets, describe the outcome or capability, not the
+action taken.
 
 Keep the description focused on what changed and why it matters to users, rather
 than how it was implemented.
