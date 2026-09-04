@@ -8,6 +8,12 @@ const theme = create(config);
 
 addons.setConfig({
   theme,
+  'storybook-addon-oversight': {
+    expectedExtractor: 'react-docgen-typescript',
+    rules: {
+      'prop-descriptions-missing': 'off',
+    },
+  },
   layoutCustomisations: {
     showToolbar(state: State, defaultValue: boolean) {
       return state.viewMode === 'docs' ? false : defaultValue;
