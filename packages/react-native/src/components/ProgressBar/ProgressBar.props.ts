@@ -5,6 +5,10 @@ export type ProgressBarColorScheme = 'default' | 'success' | 'danger';
 export type ProgressBarSize = 'sm' | 'md';
 
 export interface ProgressBarProps extends ViewProps {
+  /**
+   * The progress bar variant.
+   * @default 'linear'
+   */
   variant?: ProgressBarVariant;
   /**
    * Set the visual appearance.

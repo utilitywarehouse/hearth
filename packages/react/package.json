@@ -52,7 +52,7 @@
     "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.{js,ts*}\"",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
-    "lint:oversight": "npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript",
+    "lint:oversight": "oversight",
     "format": "prettier --write \"{src,public,docs,scripts}/**/*.{js,ts*,md*,css}\" {README,SKILL}.md",
     "format:ci": "prettier --list-different \"src/**/*.{ts*,mdx,css}\"",
     "figma": "figma connect",

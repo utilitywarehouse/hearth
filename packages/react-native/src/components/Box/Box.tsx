@@ -13,6 +13,10 @@ import {
 import type BoxProps from './Box.props';
 
 // --- Box component definition ---
+/**
+ * A low-level layout primitive that renders a `View` (or another element via
+ * `as`) with style utility props for spacing, sizing, color, and layout.
+ */
 const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
   const { computedProps } = useMemo(() => {
     const computedProps: Record<string, any> = {};

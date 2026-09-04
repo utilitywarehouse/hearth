@@ -5,6 +5,9 @@ import { DetailText } from '../DetailText';
 import { Input, InputField, InputSlot } from '../Input';
 import type CurrencyInputProps from './CurrencyInput.props';
 
+/**
+ * An input specialised for entering monetary amounts, showing a currency symbol prefix and a decimal keypad where supported.
+ */
 const CurrencyInput = ({
   validationStatus = 'initial',
   disabled,

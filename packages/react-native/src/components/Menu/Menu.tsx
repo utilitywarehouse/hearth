@@ -6,6 +6,7 @@ import { MenuContext } from './Menu.context';
 import type MenuProps from './Menu.props';
 import type { MenuMethods } from './Menu.props';
 
+/** Use Menu to show a bottom sheet of contextual actions or options, built from `MenuItem` children and opened via `MenuTrigger`. */
 const Menu = forwardRef<MenuMethods, MenuProps>(({ heading, children, ...props }, ref) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 

@@ -34,6 +34,11 @@ const DEFAULT_LABELS: Record<RatingValue, string> = {
 const clampRating = (value: number) =>
   Math.min(MAX_RATING, Math.max(0, Math.round(value))) as RatingValue;
 
+/**
+ * Lets a user give a star or emoji rating, and shows a label describing the currently selected
+ * value. Use it to collect quick feedback such as a satisfaction or experience score.
+ * @summary A star or emoji rating input.
+ */
 const Rating = ({
   variant = 'stars',
   value,

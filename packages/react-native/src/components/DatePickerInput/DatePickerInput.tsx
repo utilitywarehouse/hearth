@@ -16,6 +16,10 @@ import DatePickerInputDoneButton from './DatePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
 
+/**
+ * Use DatePickerInput for a text field that accepts a typed date or one picked from an
+ * attached calendar, formatting and parsing the value with Day.js.
+ */
 const DatePickerInput = ({
   validationStatus = 'initial',
   disabled,

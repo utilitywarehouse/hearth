@@ -48,14 +48,22 @@ There are 2 options for discovering existing components and documentation:
 - MCP server: `hearth-react-native` MCP hosted on a remote URL
 - Raw markdown files: located in the `public` folder of the `hearth-react-native` package
 
-**Default to the raw markdown files.** They are local, always available, and
-version-matched to what the app actually has installed — so the API you read is
-the API you get.
+**Default to the MCP server** for component lookups and general/cross-cutting
+guidance (design tokens, styling, layout, getting started, dark mode). For a
+component, fetch both its plain `stories-<component>` entry (props + story
+code) and its `components-<component>--docs` entry (narrative usage,
+accessibility, and examples) — together they cover what the local markdown
+file documents.
 
-**Use the MCP server for richer exploration** — searching across components,
-fetching story code, or discovering what exists when you're not sure where to
-start. It's worth reaching for when the markdown files don't give you enough
-context, but it requires the server to be configured and reachable.
+Subcomponents (e.g. `ModalImage`, `CardAction`) are listed as their own
+`stories-<subcomponent>` entries in `list-all-documentation` — fetch them
+directly by their own id rather than relying on the parent's `--docs` page.
+They don't have a separate `--docs` entry of their own; their narrative usage
+stays documented inline in the parent's `components-<parent>--docs` entry.
+
+**Fall back to the raw markdown files** for a specific story's exact code
+beyond what's already surfaced by `get-documentation` or
+`get-documentation-for-story`.
 
 Whatever source you use, review what is available before writing any code.
 
@@ -67,6 +75,17 @@ that component's own doc page — a local pattern may predate a more direct
 prop the library added later (e.g. `List`'s own `heading`/`helperText` props
 vs. a sibling `SectionHeader` or `Heading`). Prefer the documented, current shorthand over
 an older local convention when they diverge.
+
+### MCP Server
+
+You can use the **`hearth-react-native`** MCP server if available (`https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`):
+
+1. `list-all-documentation` — get an index of all Hearth React Native components and docs
+2. `get-documentation` — get props, API, and usage examples for a specific
+   component or docs entry. Pass the plain `stories-<component>` id (e.g.
+   `stories-modal`) for props and story code, or the `components-<component>--docs`
+   id (e.g. `components-modal--docs`) for narrative usage and accessibility docs
+3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 
@@ -81,14 +100,6 @@ The docs are then at:
 - `<hearth-react-native-root>/public/llms/components/` — one file per component
 - `<hearth-react-native-root>/public/llms/docs/` — design tokens, styling, layout, hooks, dark mode
 - `<hearth-react-native-root>/public/llms.txt` — index of all available docs
-
-### MCP Server
-
-You can use the **`hearth-react-native`** MCP server if available (`https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`):
-
-1. `list-all-documentation` — get an index of all Hearth React Native components
-2. `get-documentation` — get props, API, and usage examples for a specific component
-3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ## Plan before writing
 

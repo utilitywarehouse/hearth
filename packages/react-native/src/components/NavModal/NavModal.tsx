@@ -18,6 +18,14 @@ import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import NavModalProps from './NavModal.props';
 
+/**
+ * Use NavModal for the screen-based modal layout for React Navigation flows, when a screen
+ * is already presented with `presentation: 'modal'` or `presentation: 'fullScreenModal'`.
+ * Provides Hearth's modal structure and action buttons plus the Android close animation, but
+ * does not manage its own dismissal: your screen or navigator owns closing behavior. Use
+ * `Modal` instead for a bottom-sheet modal presented via a ref.
+ * @summary The screen-based modal layout for navigation flows.
+ */
 const NavModal = ({
   ref,
   children,

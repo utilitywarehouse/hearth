@@ -8,6 +8,11 @@ import { RadioGroupContext } from './RadioGroup.context';
 import RadioGroupProps from './RadioGroup.props';
 import RadioGroupTextContent from './RadioGroupTextContent';
 
+/**
+ * Groups a set of `Radio` (or `RadioTile`) options so only one can be selected at a time, and
+ * provides shared label, helper text and validation messaging for the group.
+ * @summary Groups Radio options into a single-choice set with shared validation.
+ */
 const RadioGroup = ({
   children,
   disabled,

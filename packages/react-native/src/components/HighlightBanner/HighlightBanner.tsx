@@ -4,6 +4,11 @@ import { BodyText } from '../BodyText';
 import { Card } from '../Card';
 import type HighlightBannerProps from './HighlightBanner.props';
 
+/**
+ * Use HighlightBanner to feature promotional content, articles, or announcements in a card
+ * with a coloured heading, an optional image, description text, and an optional link or
+ * button.
+ */
 const HighlightBanner = ({
   heading,
   headingColor,

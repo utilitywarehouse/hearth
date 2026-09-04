@@ -4,6 +4,10 @@ import { useStyleProps } from '../../hooks';
 import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 import type DetailTextProps from './DetailText.props';
 
+/**
+ * Renders detail copy, smaller secondary text used for captions, metadata, or supporting
+ * information alongside body content, with size and colour variants.
+ */
 const DetailText = ({
   children,
   color,

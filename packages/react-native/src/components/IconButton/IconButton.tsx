@@ -19,6 +19,11 @@ const IconButtonIcon = IconButtonComponent.Icon;
 IconButtonSpinner.displayName = 'IconButtonSpinner';
 IconButtonIcon.displayName = 'IconButtonIcon';
 
+/**
+ * Use IconButton to trigger an action or event, such as opening a dialog, cancelling an
+ * action, or performing a delete operation, when only an icon is needed rather than a
+ * labelled button.
+ */
 const IconButton = ({ icon, disabled = false, pressed, ...props }: IconButtonProps) => {
   const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
   const { loading } = props;

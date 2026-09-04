@@ -6,6 +6,10 @@ import { getInitials } from '../../utils';
 import BodyText from '../BodyText/BodyText';
 import AvatarProps, { AvatarLoadingStatus } from './Avatar.props';
 
+/**
+ * Displays a user's profile image, initials, or a fallback icon, connecting the
+ * product experience to the person it represents.
+ */
 const Avatar = ({
   src,
   name,

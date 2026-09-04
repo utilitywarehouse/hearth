@@ -31,6 +31,11 @@ export const InputSlot = InputComponent.Slot;
 export const InputField = InputComponent.Input;
 export const InputIcon = InputComponent.Icon;
 
+/**
+ * Use Input for a text field that lets users enter text, numbers, or other data, commonly in forms and search fields.
+ * Renders as a plain, password, or search field, or accepts children for a fully custom layout built from `InputField`, `InputSlot`, and `InputIcon`.
+ * @summary A configurable text field for forms and search.
+ */
 const Input = forwardRef<TextInput, InputProps>(
   (
     {

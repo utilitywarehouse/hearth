@@ -35,6 +35,10 @@ export const AccordionContentText = AccordionComponent.ContentText;
 export const AccordionIcon = AccordionComponent.Icon;
 export const AccordionTitleText = AccordionComponent.TitleText;
 
+/**
+ * A vertically stacked set of interactive headers that each reveal a section of
+ * content. Use it to condense large amounts of information into a more manageable format.
+ */
 const Accordion = ({
   children,
   collapsible,

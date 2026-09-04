@@ -2,6 +2,9 @@ import { Children, cloneElement, isValidElement } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { TableHeaderProps } from './Table.props';
 
+/**
+ * Renders a row of TableHeaderCell elements as the header of a Table.
+ */
 const TableHeader = ({ children, color = 'purple', style, ...props }: TableHeaderProps) => {
   const items = Children.toArray(children);
 

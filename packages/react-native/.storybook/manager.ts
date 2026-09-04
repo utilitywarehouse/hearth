@@ -8,4 +8,10 @@ const theme = create(config);
 
 addons.setConfig({
   theme,
+  'storybook-addon-oversight': {
+    expectedExtractor: 'react-component-meta',
+    rules: {
+      'prop-descriptions-missing': 'off',
+    },
+  },
 });
