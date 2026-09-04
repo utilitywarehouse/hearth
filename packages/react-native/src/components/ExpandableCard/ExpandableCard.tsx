@@ -4,6 +4,10 @@ import type ExpandableCardProps from './ExpandableCard.props';
 import ExpandableCardExpandedContent from './ExpandableCardExpandedContent';
 import ExpandableCardTrigger from './ExpandableCardTrigger';
 
+/**
+ * Use ExpandableCard for a Card that reveals additional content when its trigger is pressed,
+ * with a built-in heading, helper text, leading/trailing content, and expansion animation.
+ */
 const ExpandableCard = ({
   expanded: controlledExpanded,
   onExpandedChange,

@@ -16,6 +16,10 @@ const ToggleButtonCardComponent = createRadio({
 
 const ToggleButtonCardGroupComponent = ToggleButtonCardComponent.Group;
 
+/**
+ * Groups a set of `ToggleButtonCard`s so only one can be selected at a time, laid out as a
+ * flexbox row or a grid. Use it for forms or surveys that present multiple selectable options.
+ */
 const ToggleButtonCardGroup = ({
   onChange,
   onValueChange,
@@ -32,6 +36,10 @@ const ToggleButtonCardGroup = ({
 
 ToggleButtonCardGroup.displayName = 'ToggleButtonCardGroup';
 
+/**
+ * A selectable card used as a single option within a `ToggleButtonCardGroup`. Use it to let
+ * users pick one option from a set of predefined choices in forms or surveys.
+ */
 const ToggleButtonCard = ({ children, contentStyle, ...props }: ToggleButtonCardProps) => {
   const { computedStyles } = useStyleProps(props);
   return (

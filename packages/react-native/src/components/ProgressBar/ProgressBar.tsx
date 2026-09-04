@@ -14,6 +14,11 @@ const valueToPercent = (value: number, min: number, max: number) => {
   return ((value - min) / range) * 100;
 };
 
+/**
+ * Communicates task completion for linear flows and bounded operations. Use the
+ * linear variant for inline layouts and the circular variant when space is tighter
+ * or when progress needs more emphasis.
+ */
 const ProgressBar = ({
   variant = 'linear',
   colorScheme = 'default',

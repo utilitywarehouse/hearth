@@ -23,6 +23,9 @@ const renderContent = (
   return children;
 };
 
+/**
+ * Renders a single header cell within a TableHeader row, or a row header when used with `row`.
+ */
 const TableHeaderCell = ({
   children,
   color = 'white',
@@ -30,7 +33,14 @@ const TableHeaderCell = ({
   style,
   trailingContent,
   ...props
-}: TableHeaderCellProps & { columnIndex?: number; isLast?: boolean; isLastRow?: boolean }) => {
+}: TableHeaderCellProps & {
+  /** Zero-based index of this cell among its siblings, set automatically by TableHeader. */
+  columnIndex?: number;
+  /** Whether this is the last cell in its row, set automatically by TableHeader. */
+  isLast?: boolean;
+  /** Whether this cell belongs to the last body row, used to omit the bottom border. */
+  isLastRow?: boolean;
+}) => {
   const { columnWidths, container, hasPagination } = useTableContext();
   const { columnIndex = 0, isLast, isLastRow, ...rest } = props;
   const removeBottomBorder = Boolean(row && isLastRow && container !== 'none' && !hasPagination);

@@ -32,6 +32,7 @@ export interface TableBodyProps extends ViewProps {
 }
 
 export interface TableHeaderProps extends ViewProps {
+  /** TableHeaderCell elements rendered as the header row. */
   children: ReactNode;
   /**
    * Visual style for header cells.
@@ -49,7 +50,12 @@ export interface TableCellProps extends ViewProps {
 }
 
 export interface TableHeaderCellProps extends ViewProps {
+  /** Cell content; strings and numbers are rendered as body text. */
   children?: ReactNode;
+  /**
+   * Visual style for the cell, normally set automatically by the parent TableHeader.
+   * @default 'white'
+   */
   color?: 'purple' | 'white';
   /**
    * Renders the header cell as a row header within the body.

@@ -10,6 +10,11 @@ import { UnstyledIconButton } from '../UnstyledIconButton';
 import BannerContext from './Banner.context';
 import type BannerProps from './Banner.props';
 
+/**
+ * A versatile card-based component for displaying informational content with an
+ * icon, image, or illustration. Supports horizontal and vertical layouts, a
+ * pressable state, a close button, and an optional button or link action.
+ */
 const Banner = ({
   icon,
   iconContainerVariant = 'subtle',

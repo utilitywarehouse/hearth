@@ -36,6 +36,11 @@ export const FormFieldValidText = HelperText;
 export const FormFieldInvalidText = HelperText;
 export const FormFieldTextContent = View;
 
+/**
+ * Use FormField to wrap a form control with a consistent label, helper text, and
+ * valid/invalid messaging, and to share validation and required/disabled state with its
+ * children.
+ */
 const FormField = ({
   children,
   disabled,

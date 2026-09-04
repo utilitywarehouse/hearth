@@ -29,6 +29,9 @@ CheckboxIndicator.displayName = 'CheckboxIndicator';
 CheckboxIcon.displayName = 'CheckboxIcon';
 CheckboxLabel.displayName = 'CheckboxLabel';
 
+/**
+ * Lets a user select one or more options from a list, with an optional label, helper text, and validation state.
+ */
 const Checkbox = ({
   children,
   label,

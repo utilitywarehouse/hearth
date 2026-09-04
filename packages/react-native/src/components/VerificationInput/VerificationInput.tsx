@@ -7,6 +7,10 @@ import type { VerificationInputHandle, VerificationInputProps } from './Verifica
 import { getNextIndexFromValueChange } from './VerificationInput.utils';
 import { VerificationInputSlot } from './VerificationInputSlot';
 
+/**
+ * Captures a one-time password or other verification code as a sequence of single-character slots.
+ * Use it for OTP and SMS/email verification flows.
+ */
 const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputProps>(
   (
     {

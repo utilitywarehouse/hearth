@@ -5,6 +5,10 @@ import { useTheme } from '../../hooks';
 import { getFlattenedColorValue } from '../../utils';
 import type DividerProps from './Divider.props';
 
+/**
+ * Use Divider to create a visual separation between sections or elements, as a horizontal or
+ * vertical line.
+ */
 const Divider = ({
   orientation = 'horizontal',
   color,

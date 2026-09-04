@@ -16,6 +16,11 @@ import TimePickerInputDoneButton from './TimePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
 
+/**
+ * A text input for entering a time directly, paired with a trigger button that opens a
+ * TimePicker for selecting the same value. Formats and parses input using Day.js.
+ * @summary A text input with a time picker trigger.
+ */
 const TimePickerInput = ({
   validationStatus = 'initial',
   disabled,

@@ -27,9 +27,29 @@ packages/react-native/src/components/<Component>/
   <Component>.docs.mdx
   <Component>.figma.tsx
   index.ts
+  <SubComponent>.tsx        # Sub-components (compound patterns)
+  <SubComponent>.stories.tsx  # Required — see "Sub-component stories" below
 ```
 
 Add additional files as needed (subcomponents, helpers, platform-specific variants).
+
+### Sub-component stories
+
+Every exported sub-component needs its **own** `<SubComponent>.stories.tsx` with its
+own `Meta` (`title: 'Stories / <SubComponent>'`, `component: <SubComponent>`) — even
+though it's already documented via a nested `### <SubComponent> Props` table in the
+parent's `.docs.mdx` (see the [react-native-component-docs](./../react-native-component-docs/SKILL.md)
+skill). The `hearth-react-native` MCP server only lists a component as its own
+resolvable entry in `list-all-documentation` when it has its own Storybook story — a
+sub-component documented only inside its parent's `.docs.mdx` doesn't get one. No
+separate `<SubComponent>.docs.mdx` is needed — mirror
+`src/components/Card/CardAction/CardAction.stories.tsx`: a `Meta` + at least one
+story, wrapped in whatever ancestor context the sub-component needs to render
+meaningfully.
+
+Note: `packages/react-native` has no `react-audit`-equivalent skill to catch this
+gap automatically (unlike `packages/react`) — treat this checklist item as the only
+guard against it regressing until one exists.
 
 ## Implementation Steps
 1. **Props**: Define public props in <Component>.props.ts. Keep types explicit and add JSDoc defaults.
@@ -49,6 +69,8 @@ Add storybook story tests for interaction behviour tests where necessary too.
 - Token usage aligns with components tokens (theme.components.<component>)
 - Stories include a Playground story and at least one variant example
 - Docs include Playground, Usage, Props table, and Figma links when available
+- Every sub-component (compound pattern) has its own `<SubComponent>.stories.tsx` — see [Sub-component stories](#sub-component-stories); required for the MCP server, not optional
+- Run `pnpm build:storybook && npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript` (from `packages/react-native`) and fix any findings — confirms the MCP can actually resolve the new component's description and props, not just that JSDoc was added by eye
 - All Components list updated
 
 ## Notes

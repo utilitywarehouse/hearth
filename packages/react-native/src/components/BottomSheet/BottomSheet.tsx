@@ -12,6 +12,12 @@ const StyledBottomSheetCore = withUnistyles(BottomSheetCore) as React.ForwardRef
 
 type BottomSheet = BottomSheetMethods;
 
+/**
+ * A drawer-like interface that slides up from the bottom of the screen, used to
+ * display additional content or actions without navigating away from the
+ * current screen. Rendered inline with page content, so use `BottomSheetModal`
+ * for most cases instead, since it appears over the page.
+ */
 const BottomSheet = ({
   children,
   containerStyle,
