@@ -14,6 +14,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ExpandableCardGroupElement = ComponentRef<'div'>;
 
+/**
+ * Use ExpandableCardGroup to wrap a set of related `ExpandableCard`
+ * components under a shared, optional heading and helper text.
+ *
+ * @summary Groups related ExpandableCard components under a shared heading.
+ */
 export const ExpandableCardGroup = forwardRef<ExpandableCardGroupElement, ExpandableCardGroupProps>(
   (props, ref) => {
     const {

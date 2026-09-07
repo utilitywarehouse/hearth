@@ -616,14 +616,14 @@ The `ListItemContent` component is used to render more advanced text content.
 
 This component is base on the `div` element.
 
-| Prop              | Type                | Default  | Description                                                         |
-| ----------------- | ------------------- | -------- | ------------------------------------------------------------------- |
-| `heading`         | `string`            | —        |                                                                     |
-| `helperText`      | `ReactNode`         | —        | Optional helper text to provide additional context or instructions. |
-| `leadingContent`  | `ReactNode`         | —        |                                                                     |
-| `trailingContent` | `ReactNode`         | —        |                                                                     |
-| `badge`           | `ReactNode`         | —        |                                                                     |
-| `badgePlacement`  | `"top" \| "bottom"` | `bottom` | Placement of the badge element                                      |
+| Prop              | Type                | Default  | Description                                                              |
+| ----------------- | ------------------- | -------- | ------------------------------------------------------------------------ |
+| `heading`         | `string`            | —        | The list item's main heading text.                                       |
+| `helperText`      | `ReactNode`         | —        | Optional helper text to provide additional context or instructions.      |
+| `leadingContent`  | `ReactNode`         | —        | Optional content rendered before the heading, such as an icon or avatar. |
+| `trailingContent` | `ReactNode`         | —        | Optional content rendered after the heading, such as an icon or chevron. |
+| `badge`           | `ReactNode`         | —        | Optional badge rendered alongside the heading.                           |
+| `badgePlacement`  | `"top" \| "bottom"` | `bottom` | Placement of the badge element                                           |
 
 ## ListItemButton
 

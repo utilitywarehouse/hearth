@@ -15,6 +15,13 @@ type CardActionLinkElement = ComponentRef<'a'>;
 const COMPONENT_NAME = 'CardActionLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CardActionLink within a Card to navigate to another page or
+ * location. Use `CardActionButton` instead when the action doesn't
+ * navigate.
+ *
+ * @summary A Card action that renders a link.
+ */
 export const CardActionLink = forwardRef<CardActionLinkElement, CardActionLinkProps>(
   (props, ref) => {
     const {

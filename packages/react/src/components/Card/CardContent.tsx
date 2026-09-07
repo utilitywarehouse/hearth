@@ -10,6 +10,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardContentElement = ComponentRef<'div'>;
 
+/**
+ * Use CardContent to lay out additional content within a Card alongside
+ * `CardActions`, such as supporting text or media.
+ *
+ * @summary Layout for additional content within a Card.
+ */
 export const CardContent = forwardRef<CardContentElement, CardContentProps>(
   ({ className, paddingBottomNone, ...props }, ref) => {
     return (

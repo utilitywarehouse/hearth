@@ -96,6 +96,13 @@ This component is based on the `button` element.
 <ArgTypes of={MyComponentItem} include={'value|label|icon|disabled'} exclude={'aria-*'} />
 ```
 
+This nested `<ArgTypes of={MyComponentItem}/>` block is correct for the live Storybook
+page and the local markdown fallback, but it is **not** enough on its own — the
+`hearth-react` MCP server can't resolve real props from a secondary `<ArgTypes>` block,
+only from a component with its own Storybook entry. `MyComponentItem` also needs its
+own `<SubComponent>.stories.tsx` (no separate `.docs.mdx`) — see
+[Sub-component stories](../SKILL.md#sub-component-stories) in the main skill file.
+
 ## Optional sections
 
 Include these sections when applicable — do not add them to every component's docs:

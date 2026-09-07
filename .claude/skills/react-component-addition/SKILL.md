@@ -31,9 +31,24 @@ packages/react/src/components/<Component>/
   <Component>.context.ts    # React context (only for composite/compound components)
   <SubComponent>.tsx        # Sub-components (compound patterns)
   <SubComponent>.props.ts
+  <SubComponent>.stories.tsx  # Required — see "Sub-component stories" below
 ```
 
 No `index.ts` per component folder — components are exported directly from the root `src/index.ts`.
+
+### Sub-component stories
+
+Every exported sub-component needs its **own** `<SubComponent>.stories.tsx` with its
+own `Meta` (`title: 'Components / <Parent> / <SubComponent>'`, `component: <SubComponent>`) —
+even though it's already documented via a nested `### <SubComponent> API` section in
+the parent's `.docs.mdx` (see [docs conventions](references/docs-conventions.md)). The
+`hearth-react` MCP server only resolves a component's real props when that component
+has its own Storybook entry; a component that only appears via a secondary
+`<ArgTypes of={X}/>` block on someone else's docs page returns as inert, unresolved
+text via MCP. No separate `<SubComponent>.docs.mdx` is needed — mirror
+`src/components/Radio/Radio.stories.tsx` or `src/components/Skeleton/SkeletonBox.stories.tsx`:
+a `Meta` + at least one story, wrapped in whatever ancestor context the sub-component
+needs to render meaningfully.
 
 ---
 
@@ -138,6 +153,8 @@ For the full API reference and advanced patterns, invoke `/anthropic-skills:figm
 - [ ] `data-*` attributes used for CSS state selectors
 - [ ] `<Component>.stories.tsx` — `KitchenSink`, `Playground`, and at least one feature story
 - [ ] `<Component>.docs.mdx` — description, KitchenSink canvas, Playground canvas, feature sections, ArgTypes
+- [ ] Every sub-component (compound pattern) has its own `<SubComponent>.stories.tsx` — see [Sub-component stories](#sub-component-stories); required for the MCP server, not optional
+- [ ] Run `pnpm build:storybook && npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript` (from `packages/react`) and fix any findings — confirms the MCP can actually resolve the new component's description and props, not just that the JSDoc rules above were followed by eye
 - [ ] All `<Canvas>` blocks use valid `sourceState` values: `'show'`, `'hide'`, or `'none'` — not `'shown'`/`'hidden'`
 - [ ] StorybookLink imports use `import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils'` (not a relative path)
 - [ ] `src/index.ts` updated at the bottom with an empty line separating from previous exports

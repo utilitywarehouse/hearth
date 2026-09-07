@@ -36,11 +36,11 @@ export interface CommonDetailTextProps
 }
 type DetailTextDivProps = {
   /** Renders a `div` element. */
-  as?: 'div';
+  as: 'div';
 } & ComponentPropsWithRef<'div'>;
 type DetailTextSpanProps = {
   /** Renders a `span` element. This is the default. */
-  as: 'span';
+  as?: 'span';
 } & ComponentPropsWithRef<'span'>;
 type DetailTextPProps = {
   /** Renders a `p` element. */

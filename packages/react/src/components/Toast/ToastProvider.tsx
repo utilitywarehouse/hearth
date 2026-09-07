@@ -4,6 +4,12 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const COMPONENT_NAME = 'ToastProvider';
 
+/**
+ * Use ToastProvider to wrap the part of the app where `Toast` components
+ * should render, providing the context and viewport they mount into.
+ *
+ * @summary Provides context and a mount point for Toast components.
+ */
 export const ToastProvider = ({
   children,
   duration = 5000,

@@ -364,8 +364,8 @@ run TypeScript to confirm no type errors remain.
 
 | Prop          | Type                                                          | Default | Description                                                                                                                     |
 | ------------- | ------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `style`       | `CSSProperties`                                               | —       |                                                                                                                                 |
-| `className`   | `string`                                                      | —       |                                                                                                                                 |
+| `style`       | `CSSProperties`                                               | —       | The style applied to the element                                                                                                |
+| `className`   | `string`                                                      | —       | CSS class applied to the element                                                                                                |
 | `disabled`    | `boolean`                                                     | `false` | Whether the component should ignore user interaction.                                                                           |
 | `children`    | `ReactElement<unknown, string \| JSXElementConstructor<any>>` | —       | The content of the MenuTrigger. Should contain a single `Button` or `IconButton` that will be used as the trigger for the Menu. |
 | `closeDelay`  | `number`                                                      | `0`     | How long to wait before closing the menu that was opened on hover. Specified in milliseconds. Requires the `openOnHover` prop.  |
@@ -377,8 +377,8 @@ run TypeScript to confirm no type errors remain.
 
 | Prop          | Type                                                       | Default      | Description                                                                          |
 | ------------- | ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------ |
-| `className`   | `string`                                                   | —            |                                                                                      |
-| `style`       | `CSSProperties`                                            | —            |                                                                                      |
+| `className`   | `string`                                                   | —            | CSS class applied to the element                                                     |
+| `style`       | `CSSProperties`                                            | —            | The style applied to the element                                                     |
 | `placement`   | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` | `bottomLeft` | The placement of the menu relative to the trigger element. Defaults to 'bottomLeft'. |
 | `keepMounted` | `boolean`                                                  | `false`      | Whether the menu should be kept mounted in the DOM when closed. Defaults to false.   |
 | `forceMount`  | `true`                                                     | —            | @deprecated Use `keepMounted` instead. Will be removed in next major.                |
@@ -390,11 +390,11 @@ This component is based on the `div` element.
 | Prop           | Type                                                                     | Default      | Description                                                                                                                                    |
 | -------------- | ------------------------------------------------------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`        | `string`                                                                 | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                      |
-| `className`    | `string`                                                                 | —            |                                                                                                                                                |
+| `className`    | `string`                                                                 | —            | CSS class applied to the element                                                                                                               |
 | `id`           | `string`                                                                 | —            | @ignore                                                                                                                                        |
 | `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)` | —            | The click handler for the menu item.                                                                                                           |
 | `disabled`     | `boolean`                                                                | `false`      | Whether the component should ignore user interaction.                                                                                          |
 | `closeOnClick` | `boolean`                                                                | `true`       | Whether to close the menu when the item is clicked.                                                                                            |
-| `colorScheme`  | `"functional" \| "destructive"`                                          | `functional` |                                                                                                                                                |
+| `colorScheme`  | `"functional" \| "destructive"`                                          | `functional` | Sets the visual colour scheme of the item. Use `destructive` for actions like delete.                                                          |
 | `asChild`      | `boolean`                                                                | —            | Change the default rendered element for the one passed as a child, merging their props and behaviour. Useful for rendering MenuItem as a link. |
 | `textValue`    | `string`                                                                 | —            | Deprecated override of the text label to use when the item is matched during keyboard text navigation. @deprecated Use `label` instead.        |

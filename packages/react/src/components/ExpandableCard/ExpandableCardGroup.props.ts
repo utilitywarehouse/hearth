@@ -7,6 +7,9 @@ export interface ExpandableCardGroupProps
     Omit<ComponentPropsWithRef<'div'>, 'color'>,
     Pick<SectionHeaderProps, 'heading' | 'helperText' | 'trailingContent'>,
     MarginProps {
+  /**
+   * Sets the heading element rendered for the group's `heading`.
+   */
   headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
   children?: ReactNode;
 }

@@ -14,6 +14,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastActionLinkElement = ComponentRef<'a'>;
 
+/**
+ * Use ToastActionLink to render an actionable link inside a `Toast`, such as
+ * an "Undo" or "View" action.
+ *
+ * @summary An actionable link within a Toast.
+ */
 export const ToastActionLink = forwardRef<ToastActionLinkElement, ToastActionLinkProps>(
   ({ className, altText, asChild, children, ...props }, ref) => {
     warn(!altText, 'ToastActionLink: `altText` is required.');

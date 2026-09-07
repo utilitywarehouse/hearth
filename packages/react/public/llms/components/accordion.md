@@ -292,13 +292,13 @@ This component is based on the `div` element and supports the following common p
 
 This component is based on the `div` element.
 
-| Prop             | Type                           | Default | Description                                                                                     |
-| ---------------- | ------------------------------ | ------- | ----------------------------------------------------------------------------------------------- |
-| `title`          | `string`                       | —       |                                                                                                 |
-| `disabled`       | `boolean`                      | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false         |
-| `value`          | `string`                       | —       | A string value for the accordion item. All items within an accordion should use a unique value. |
-| `description`    | `string`                       | —       |                                                                                                 |
-| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"` | —       |                                                                                                 |
+| Prop             | Type                           | Default | Description                                                                                                                                                                  |
+| ---------------- | ------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`          | `string`                       | —       | Shorthand that renders a default `AccordionHeader` + `AccordionTrigger` composition using this as the heading text. Omit to compose the header manually as children instead. |
+| `disabled`       | `boolean`                      | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false                                                                                      |
+| `value`          | `string`                       | —       | A string value for the accordion item. All items within an accordion should use a unique value.                                                                              |
+| `description`    | `string`                       | —       | Helper text shown below the shorthand `title`.                                                                                                                               |
+| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"` | `h3`    | Sets the semantic heading level used for the shorthand header when `title` is set.                                                                                           |
 
 ### AccordionHeader
 

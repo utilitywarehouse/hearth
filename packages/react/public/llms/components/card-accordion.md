@@ -244,17 +244,17 @@ This component is based on the `div` element and supports the following common p
 
 | Prop                 | Type                                   | Default | Description                                                                             |
 | -------------------- | -------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
-| `title`              | `string`                               | —       |                                                                                         |
-| `value`              | `string`                               | —       |                                                                                         |
+| `title`              | `string`                               | —       | The step heading, shown while the step is current.                                      |
+| `value`              | `string`                               | —       | A unique identifier for the step, used to track progress through the CardAccordion.     |
 | `disabled`           | `boolean`                              | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false |
-| `description`        | `string`                               | —       |                                                                                         |
-| `summaryTitle`       | `string`                               | —       |                                                                                         |
-| `summaryDescription` | `ReactNode`                            | —       |                                                                                         |
-| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`         | `h3`    |                                                                                         |
-| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>` | —       |                                                                                         |
+| `description`        | `string`                               | —       | Helper text shown below `title` while the step is current.                              |
+| `summaryTitle`       | `string`                               | —       | Heading shown instead of `title` once the step becomes `previous`.                      |
+| `summaryDescription` | `ReactNode`                            | —       | Content shown below `summaryTitle` once the step becomes `previous`.                    |
+| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`         | `h3`    | Sets the heading element rendered for `title`.                                          |
+| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>` | —       | Called when the user clicks the Edit button on a completed (`previous`) step.           |
 
 ### CardAccordionButton
 
-| Prop     | Type                   | Default | Description |
-| -------- | ---------------------- | ------- | ----------- |
-| `action` | `"next" \| "previous"` | —       |             |
+| Prop     | Type                   | Default | Description                                            |
+| -------- | ---------------------- | ------- | ------------------------------------------------------ |
+| `action` | `"next" \| "previous"` | —       | Sets which step-navigation action the button performs. |

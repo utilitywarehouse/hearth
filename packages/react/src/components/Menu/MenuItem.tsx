@@ -13,6 +13,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type MenuItemElement = ComponentRef<'div'>;
 
+/**
+ * Use MenuItem to render a single selectable action or option inside a
+ * `Menu`'s `MenuContent`. Set `asChild` to render it as a different element,
+ * such as a link.
+ *
+ * @summary A selectable action or option within a Menu.
+ */
 export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
   (
     {
