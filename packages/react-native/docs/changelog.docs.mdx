@@ -9,6 +9,24 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.36.2
+
+### Patch Changes
+
+- [#1578](https://github.com/utilitywarehouse/hearth/pull/1578) [`88e436f`](https://github.com/utilitywarehouse/hearth/commit/88e436f3309d6b08a5fd3abd945571fcdbf80570) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `hearth-react-native` skill now defaults to the MCP server over local markdown
+
+  The skill guidance used by AI coding agents building with this package
+  previously defaulted to reading local markdown files for component lookups.
+  It now defaults to the `hearth-react-native` MCP server for component lookups and
+  general/cross-cutting guidance, falling back to markdown only for a specific
+  story's exact code beyond what `get-documentation` or
+  `get-documentation-for-story` already surfaces.
+
+  **Developer changes**:
+
+  No action required — this only affects the guidance given to AI coding
+  agents using this library, not the runtime API.
+
 ## 0.36.1
 
 ### Patch Changes
