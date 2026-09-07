@@ -6,6 +6,10 @@ import type BadgeProps from './Badge.props';
 import BadgeIcon from './BadgeIcon';
 import BadgeText from './BadgeText';
 
+/**
+ * Draws attention to another interface element or provides additional context,
+ * such as a status. Badge is stateless: it has no pressed, disabled, or active states.
+ */
 const Badge = ({ children, ...props }: BadgeProps) => {
   const {
     variant = 'subtle',

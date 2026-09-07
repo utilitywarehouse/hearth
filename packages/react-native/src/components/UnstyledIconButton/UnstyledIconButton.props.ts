@@ -8,27 +8,28 @@ export type UnstyledIconButtonProps = {
    * @default  false
    */
   disabled?: boolean;
+  /** Whether the button is currently pressed. */
   pressed?: boolean;
-  /*
-   * The icon to display on the button.
-   * @default undefined
+  /**
+   * The icon component displayed on the button.
    */
   icon: ComponentType;
-  /*
+  /**
    * If `true`, the button will show a spinner.
-   * @default  false
+   * @default false
    */
   loading?: boolean;
-  /*
+  /**
    * The size of the button.
-   * @default  'md'
+   * @default 'md'
    */
   size?: 'sm' | 'md';
-  /*
+  /**
    * If `true`, the button colours will be inverted.
-   * @default  false
+   * @default false
    */
   inverted?: boolean;
   children?: React.ReactNode;
+  /** Style applied to the icon. */
   iconStyle?: ViewProps['style'] & { color?: ColorValue };
 } & PressableProps;

@@ -7,10 +7,23 @@ import { BodyText } from '../BodyText';
 import { ProgressStepProps } from './ProgressStepper.props';
 
 interface ProgressStepInternalProps extends ProgressStepProps {
+  /**
+   * Zero-based position of the step within the sequence.
+   * @default 0
+   */
   index?: number;
+  /**
+   * Whether the step is the last one in the sequence.
+   * @default false
+   */
   isLast?: boolean;
 }
 
+/**
+ * Represents a single step within a ProgressStepper, showing whether it is
+ * complete, active, or incomplete. Rendered as a child of ProgressStepper
+ * rather than used on its own.
+ */
 const ProgressStep = ({ status, index = 0, isLast = false, ...rest }: ProgressStepInternalProps) => {
   styles.useVariants({ status, isLast });
 

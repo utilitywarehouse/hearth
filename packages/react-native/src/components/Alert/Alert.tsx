@@ -11,6 +11,10 @@ import AlertLink from './AlertLink';
 import AlertText from './AlertText';
 import AlertTitle from './AlertTitle';
 
+/**
+ * Displays an inline message to draw attention to feedback, a status change, or
+ * information the user needs to act on, styled by colour scheme.
+ */
 const Alert = ({
   text,
   title,

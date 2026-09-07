@@ -23,6 +23,9 @@ import ComboboxOption from './ComboboxOption';
 
 const DEFAULT_SNAP_POINTS = ['25%', '40%', '80%'];
 
+/**
+ * A searchable select field that opens a bottom sheet for choosing a single option from a list.
+ */
 const Combobox = ({
   options = [],
   value,

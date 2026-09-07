@@ -5,6 +5,10 @@ import type BodyTextProps from './BodyText.props';
 
 import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 
+/**
+ * Renders body copy, the default text component for paragraphs and general
+ * reading content, with size, weight, and colour variants.
+ */
 const BodyText = ({
   children,
   color,

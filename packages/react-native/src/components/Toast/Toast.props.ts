@@ -1,7 +1,9 @@
 import type { ReactNode } from 'react';
 
 export interface ToastOptions {
+  /** Custom ID for the toast; auto-generated when omitted. */
   id?: string;
+  /** The main message to display. */
   text: string | ReactNode;
   /** Optional action text to display as a link */
   actionText?: string;
@@ -26,7 +28,12 @@ export interface ToastInstance extends ToastOptions {
 }
 
 export interface ToastProviderProps {
+  /** App content to render below the toast stack. */
   children: ReactNode;
+  /**
+   * Whether to pad the toast stack for the device's safe area insets.
+   * @default true
+   */
   safeAreaPadding?: boolean;
 }
 

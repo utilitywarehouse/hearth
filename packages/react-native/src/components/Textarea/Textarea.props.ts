@@ -42,16 +42,30 @@ export interface TextareaBaseProps {
    * ```
    */
   validationStatus?: 'initial' | 'valid' | 'invalid';
+  /** Makes the textarea read-only. */
   readonly?: boolean;
+  /** Sets focus on the textarea. */
   focused?: boolean;
+  /** Placeholder text shown when the textarea is empty. */
   placeholder?: string;
+  /** Label for the textarea. Only used when the textarea has no children. */
   label?: string;
+  /**
+   * Visual variant of the label text. Only used when the textarea has no children.
+   * @default 'body'
+   */
   labelVariant?: 'heading' | 'body';
+  /** Helper text shown below the textarea. Only used when the textarea has no children. */
   helperText?: string;
+  /** Icon shown alongside the helper text. Only used when the textarea has no children. */
   helperIcon?: React.ComponentType;
+  /** Text shown when `validationStatus` is `'valid'`. Only used when the textarea has no children. */
   validText?: string;
+  /** Text shown when `validationStatus` is `'invalid'`. */
   invalidText?: string;
+  /** Whether the textarea is required. Only used when the textarea has no children. */
   required?: boolean;
+  /** Adjusts styling when the textarea is rendered inside a bottom sheet. */
   isInBottomSheet?: boolean;
 }
 

@@ -31,24 +31,38 @@ dayjs.extend(timezone);
 dayjs.extend(duration);
 
 export interface DatePickerSingleProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'single';
+  /** The selected date, used in single mode. */
   date?: DateType;
+  /** Called after a selection changes. */
   onChange?: SingleChange;
 }
 
 export interface DatePickerRangeProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'range';
+  /** Start of the selected range, used in range mode. */
   startDate?: DateType;
+  /** End of the selected range, used in range mode. */
   endDate?: DateType;
+  /** Called after a selection changes. */
   onChange?: RangeChange;
 }
 
 export interface DatePickerMultipleProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'multiple';
+  /** The selected dates, used in multiple mode. */
   dates?: DateType[];
+  /** Called after a selection changes. */
   onChange?: MultiChange;
 }
 
+/**
+ * Presents a calendar in a bottom sheet so people can choose a single date, a date range, or multiple dates without leaving the current screen.
+ * Supports locale, time zone, and availability rules such as enabled, disabled, minimum, and maximum dates.
+ */
 const DateTimePicker = (
   props: DatePickerSingleProps | DatePickerRangeProps | DatePickerMultipleProps
 ) => {

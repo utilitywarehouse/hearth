@@ -30,6 +30,11 @@ const Footer = ({ onCancel, onConfirm }: FooterProps) => {
   );
 };
 
+/**
+ * Presents a wheel-based hour and minute selector inside a bottom sheet, opened imperatively
+ * via a ref. Supports 12-hour and 24-hour clocks and reports the picked time as a `Date`.
+ * @summary A bottom-sheet time picker.
+ */
 const TimePicker = ({
   timeZone,
   date,

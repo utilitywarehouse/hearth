@@ -5,6 +5,10 @@ import { SectionHeader } from '../SectionHeader';
 import { DescriptionListContext } from './DescriptionList.context';
 import type DescriptionListProps from './DescriptionList.props';
 
+/**
+ * Use DescriptionList to display a list of related heading/description pairs, laid out as
+ * stacked rows or two columns, with an optional heading and helper text above the list.
+ */
 const DescriptionList = ({
   direction = 'column',
   itemHeadingWidth,

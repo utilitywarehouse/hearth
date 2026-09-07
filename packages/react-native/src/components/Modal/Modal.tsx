@@ -21,6 +21,11 @@ import ModalProps from './Modal.props';
 
 type Modal<T = any> = BottomSheetModalMethods<T> & { triggerCloseAnimation?: () => void };
 
+/**
+ * Use Modal for a dialog that slides up from the bottom of the screen, with pre-configured layouts for headers, content, and action buttons.
+ * Built on `BottomSheetModal`; use it to display important information, collect input, or present choices without navigating away from the current screen. Use `NavModal` instead inside a React Navigation modal screen.
+ * @summary A bottom-sheet dialog for confirmations, input, and choices.
+ */
 const Modal = ({
   ref,
   children,

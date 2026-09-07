@@ -10,8 +10,9 @@ import { Platform, View } from 'react-native';
 import { Button } from '../Button';
 import { ToastProvider, useToast } from './';
 
-const meta: Meta = {
+const meta: Meta<typeof ToastProvider> = {
   title: 'Stories / Toast',
+  component: ToastProvider,
   argTypes: {},
 };
 export default meta;

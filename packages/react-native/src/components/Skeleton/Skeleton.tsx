@@ -14,6 +14,7 @@ import { getFlattenedColorValue } from '../../utils';
 import getStyleValue from '../../utils/getStyleValue';
 import type SkeletonProps from './Skeleton.props';
 
+/** A pulsing placeholder block, shown in place of content while it loads. */
 const Skeleton = ({
   width,
   height,

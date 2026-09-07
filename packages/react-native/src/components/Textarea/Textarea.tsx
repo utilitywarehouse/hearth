@@ -30,6 +30,12 @@ const DEFAULT_TEXTAREA_HEIGHT = 96;
 const RESIZE_HANDLE_TOUCH_SIZE = 28;
 const RESIZE_HANDLE_ICON_SIZE = 9;
 
+/**
+ * A multi-line text field for entering longer form content, optionally resizable by dragging
+ * a handle. Renders as a form field with label, helper, and validation text, or as a plain
+ * container when used with children such as TextareaField.
+ * @summary A multi-line text input field.
+ */
 const Textarea = ({
   validationStatus = 'initial',
   children,

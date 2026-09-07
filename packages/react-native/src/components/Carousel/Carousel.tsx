@@ -26,6 +26,9 @@ import { CarouselItemProps, CarouselProps } from './Carousel.props';
 import { CarouselControls } from './CarouselControls';
 import { CarouselItem } from './CarouselItem';
 
+/**
+ * Displays a horizontally scrollable series of `CarouselItem`s, such as images, articles, or products, with built-in pagination controls.
+ */
 const Carousel = ({
   centered = false,
   children,

@@ -5,6 +5,10 @@ import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import type { TimelineItemProps } from './Timeline.props';
 
+/**
+ * A single step within a Timeline, showing a label, optional helper text, and a connector
+ * indicator. Can also be used standalone outside of Timeline.
+ */
 const TimelineItem = ({
   children,
   helperText,

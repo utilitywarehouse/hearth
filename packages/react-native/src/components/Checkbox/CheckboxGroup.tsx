@@ -8,6 +8,9 @@ import { CheckboxGroupContext } from './CheckboxGroup.context';
 import CheckboxGroupProps from './CheckboxGroup.props';
 import CheckboxGroupTextContent from './CheckboxGroupTextContent';
 
+/**
+ * Groups multiple `Checkbox` components together, sharing a common label, helper text, and validation state.
+ */
 const CheckboxGroup = ({
   children,
   disabled,
