@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { Platform } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { DatePickerInput, View } from '..';
 import { VariantTitle, ViewWrap } from '../../../docs/components';
 import type { DateType } from '../DatePicker';
@@ -50,6 +51,11 @@ const meta = {
       description: 'Automatically close the picker after selecting a date',
       defaultValue: false,
     },
+    disableManualEntry: {
+      control: 'boolean',
+      description: 'Block keyboard entry and open the picker when tapping anywhere on the field',
+      defaultValue: false,
+    },
   },
   args: {
     format: 'DD/MM/YYYY',
@@ -60,6 +66,7 @@ const meta = {
     openButtonLabel: 'Open date picker',
     autoCloseOnSelect: false,
     placeholder: 'DD/MM/YYYY',
+    disableManualEntry: false,
   },
 } satisfies Meta<typeof DatePickerInput>;
 
@@ -120,6 +127,55 @@ export const CustomFormat: Story = {
   },
 };
 
+export const DisableManualEntry: Story = {
+  args: {
+    disableManualEntry: true,
+  },
+  render: args => {
+    const [selected, setSelected] = useState<DateType>();
+
+    const picker = (
+      <DatePickerInput
+        {...args}
+        value={selected}
+        onChange={({ date }) => setSelected(date ?? undefined)}
+        onClear={() => setSelected(undefined)}
+      />
+    );
+
+    if (Platform.OS !== 'web') {
+      return picker;
+    }
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>{picker}</ViewWrap>
+      </View>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    expect(input).toHaveAttribute('readonly');
+
+    const openButton = canvas.getByRole('button', { name: 'Open date picker' });
+    expect(openButton).not.toBeDisabled();
+
+    // Tapping anywhere on the field (not just the trailing icon) should open the picker.
+    // The field itself is `pointer-events: none` when manual entry is disabled, so the
+    // tap target is its wrapping Pressable, not the input element.
+    await userEvent.click(input.parentElement as HTMLElement);
+    const okButton = await canvas.findByRole('button', { name: 'Ok' });
+    expect(okButton).toBeInTheDocument();
+
+    // Close the sheet so it doesn't leak into subsequent test/story runs.
+    await userEvent.click(canvas.getByRole('button', { name: 'Cancel' }));
+    await waitFor(() => {
+      expect(canvas.queryByRole('button', { name: 'Ok' })).not.toBeInTheDocument();
+    });
+  },
+};
+
 export const States: Story = {
   parameters: {
     controls: { include: [] },
@@ -146,6 +202,9 @@ export const States: Story = {
         </VariantTitle>
         <VariantTitle title="Readonly">
           <DatePickerInput readonly value={withValue} />
+        </VariantTitle>
+        <VariantTitle title="Disable manual entry">
+          <DatePickerInput disableManualEntry placeholder="DD/MM/YYYY" />
         </VariantTitle>
         <VariantTitle title="Invalid">
           <DatePickerInput validationStatus="invalid" placeholder="DD/MM/YYYY" />

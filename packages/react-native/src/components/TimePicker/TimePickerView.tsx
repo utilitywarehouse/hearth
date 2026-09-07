@@ -7,6 +7,7 @@ import { Numerals } from '../DatePicker/DatePicker.props';
 import { formatNumber, getParsedDate } from '../DatePicker/utils';
 import type { DateType, PickerOption } from './TimePicker.props';
 import TimePickerWheel from './TimePickerWheel';
+import { getClosestOption } from './utils';
 
 export type Period = 'AM' | 'PM';
 
@@ -48,25 +49,6 @@ const createMinuteList = (interval: number, numerals: Numerals): PickerOption[] 
   }));
 };
 
-const getClosestMinute = (value: number, options: PickerOption[]) => {
-  if (!options.length) return value;
-  const values = options.map(option => option.value as number);
-  if (values.includes(value)) return value;
-
-  let closest = values[0] ?? value;
-  let closestDiff = Math.abs(value - closest);
-
-  values.forEach(optionValue => {
-    const diff = Math.abs(value - optionValue);
-    if (diff < closestDiff) {
-      closestDiff = diff;
-      closest = optionValue;
-    }
-  });
-
-  return closest;
-};
-
 const TimePickerView = ({
   currentDate,
   onSelectDate,
@@ -91,7 +73,9 @@ const TimePickerView = ({
 
   const baseDate = currentDate;
   const { hour, hour12, minute, period } = getParsedDate(baseDate);
-  const minuteValue = useMemo(() => getClosestMinute(minute, minutes), [minute, minutes]);
+  const rawHour = use12Hours ? hour12 : hour;
+  const hourValue = useMemo(() => getClosestOption(rawHour, hours), [rawHour, hours]);
+  const minuteValue = useMemo(() => getClosestOption(minute, minutes), [minute, minutes]);
 
   const handleChangeHour = useCallback(
     (value: number) => {
@@ -142,11 +126,7 @@ const TimePickerView = ({
     <View style={styles.container} testID="time-selector">
       <View style={styles.timePickerContainer}>
         <View style={styles.wheelContainer}>
-          <TimePickerWheel
-            value={use12Hours ? hour12 : hour}
-            items={hours}
-            setValue={handleChangeHour}
-          />
+          <TimePickerWheel value={hourValue} items={hours} setValue={handleChangeHour} />
         </View>
         <BodyText style={styles.timeSeparator} size="lg">
           :

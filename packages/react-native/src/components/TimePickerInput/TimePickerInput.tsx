@@ -3,7 +3,7 @@ import { CloseSmallIcon, TimeSmallIcon } from '@utilitywarehouse/hearth-react-na
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { BlurEvent, FocusEvent, Keyboard, Platform } from 'react-native';
+import { BlurEvent, FocusEvent, Keyboard, Platform, Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import type { DateType } from '../DatePicker/DatePicker.props';
 import { useFormFieldContext } from '../FormField';
@@ -31,6 +31,7 @@ const TimePickerInput = ({
   format,
   openButtonLabel = 'Open time picker',
   autoCloseOnSelect = true,
+  disableManualEntry = false,
   label,
   labelVariant,
   helperText,
@@ -204,28 +205,34 @@ const TimePickerInput = ({
         style={styles.wrap}
         accessible={false}
       >
-        <InputField
-          editable={!isReadonly && !isDisabled}
-          value={inputValue}
-          placeholder={placeholderValue}
-          onChangeText={handleTextChange}
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          inBottomSheet={inBottomSheet}
-          keyboardType={resolvedKeyboardType}
-          inputMode={resolvedInputMode}
-          accessibilityHint={resolvedAccessibilityHint}
-          aria-label="Time input"
-          accessibilityLabel={resolvedAccessibilityLabel}
-          accessible={resolvedAccessible}
-          accessibilityState={{
-            disabled: isDisabled || isReadonly,
-          }}
-          importantForAccessibility={resolvedImportantForAccessibility}
-          inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
-          {...textInputProps}
-          style={[styles.input, inputStyle]}
-        />
+        <Pressable
+          style={styles.fieldPressable}
+          disabled={!disableManualEntry || isDisabled || isReadonly}
+          onPress={openPicker}
+        >
+          <InputField
+            value={inputValue}
+            placeholder={placeholderValue}
+            onChangeText={handleTextChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            inBottomSheet={inBottomSheet}
+            keyboardType={resolvedKeyboardType}
+            inputMode={resolvedInputMode}
+            accessibilityHint={resolvedAccessibilityHint}
+            aria-label="Time input"
+            accessibilityLabel={resolvedAccessibilityLabel}
+            accessible={resolvedAccessible}
+            accessibilityState={{
+              disabled: isDisabled || isReadonly,
+            }}
+            importantForAccessibility={resolvedImportantForAccessibility}
+            inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
+            {...textInputProps}
+            editable={!isReadonly && !isDisabled && !disableManualEntry}
+            style={[styles.input, inputStyle, disableManualEntry && styles.noPointerEvents]}
+          />
+        </Pressable>
         {!!inputValue && onClear && !isReadonly && !isDisabled && (
           <InputSlot accessibilityElementsHidden={false}>
             <UnstyledIconButton
@@ -269,9 +276,15 @@ const styles = StyleSheet.create(theme => ({
   wrap: {
     gap: theme.components.input.date.gap,
   },
+  fieldPressable: {
+    flex: 1,
+  },
   input: {
     paddingLeft: 0,
     paddingRight: 0,
+  },
+  noPointerEvents: {
+    pointerEvents: 'none',
   },
 }));
 
