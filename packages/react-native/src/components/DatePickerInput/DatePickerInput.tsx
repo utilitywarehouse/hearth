@@ -203,8 +203,6 @@ const DatePickerInput = ({
           onPress={openPicker}
         >
           <InputField
-            editable={!isReadonly && !isDisabled && !disableManualEntry}
-            pointerEvents={disableManualEntry ? 'none' : undefined}
             value={inputValue}
             placeholder={placeholderValue}
             onChangeText={handleTextChange}
@@ -223,7 +221,8 @@ const DatePickerInput = ({
             importantForAccessibility={resolvedImportantForAccessibility}
             inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
             {...textInputProps}
-            style={[styles.input, inputStyle]}
+            editable={!isReadonly && !isDisabled && !disableManualEntry}
+            style={[styles.input, inputStyle, disableManualEntry && styles.noPointerEvents]}
           />
         </Pressable>
         {!!inputValue && onClear && !isReadonly && !isDisabled && (
@@ -276,6 +275,9 @@ const styles = StyleSheet.create(theme => ({
   input: {
     paddingLeft: 0,
     paddingRight: 0,
+  },
+  noPointerEvents: {
+    pointerEvents: 'none',
   },
 }));
 

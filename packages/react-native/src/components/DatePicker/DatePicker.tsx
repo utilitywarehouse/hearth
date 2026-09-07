@@ -264,6 +264,10 @@ const DateTimePicker = (
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  // Tracks whether a selection was made since the sheet last opened, so Ok doesn't
+  // re-emit onChange for a value it already just committed via onSelectDate.
+  const hasChangedRef = useRef(false);
+
   useEffect(() => {
     const newState = {
       ...initialState,
@@ -365,6 +369,7 @@ const DateTimePicker = (
 
   const onSelectDate = useCallback(
     (selectedDate: DateType) => {
+      hasChangedRef.current = true;
       if (onChange) {
         if (mode === 'single') {
           const newDate = timePicker
@@ -483,7 +488,7 @@ const DateTimePicker = (
   );
 
   const onConfirm = useCallback(() => {
-    if (!onChange) return;
+    if (!onChange || hasChangedRef.current) return;
 
     const current = stateRef.current;
 
@@ -668,6 +673,8 @@ const DateTimePicker = (
 
   const handleChange = useCallback((index: number) => {
     if (index > -1) {
+      hasChangedRef.current = false;
+
       // Add a small delay to ensure the bottom sheet is fully rendered
       setTimeout(() => {
         // Announce to screen readers
