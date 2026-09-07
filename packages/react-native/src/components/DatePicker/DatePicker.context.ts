@@ -15,6 +15,7 @@ export interface DatePickerContextType extends DatePickerBaseProps {
   onSelectYear: (year: number) => void;
   onChangeMonth: (value: number) => void;
   onChangeYear: (value: number) => void;
+  onConfirm: () => void;
   closeDatePicker: () => void;
 }
 

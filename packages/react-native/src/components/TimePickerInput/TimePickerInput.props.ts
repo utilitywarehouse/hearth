@@ -58,6 +58,13 @@ export interface TimePickerInputBaseProps {
    */
   autoCloseOnSelect?: boolean;
   /**
+   * Blocks manual keyboard entry and makes tapping anywhere on the field open the
+   * time picker, instead of only the trailing trigger button. Independent of
+   * `disabled`/`readonly`, which still disable the whole field regardless of this prop.
+   * @default false
+   */
+  disableManualEntry?: boolean;
+  /**
    * Additional props forwarded to the underlying TimePicker instance.
    */
   timePickerProps?: Omit<TimePickerProps, 'date' | 'onChange' | 'ref'>;

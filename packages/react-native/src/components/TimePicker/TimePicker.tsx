@@ -88,8 +88,9 @@ const TimePicker = ({
   }, [closeTimePicker, onCancel]);
 
   const handleConfirm = useCallback(() => {
+    onChange?.({ date: currentDate ? dayjs(currentDate).toDate() : currentDate });
     closeTimePicker();
-  }, [closeTimePicker]);
+  }, [currentDate, onChange, closeTimePicker]);
 
   const handleChange = useCallback((index: number) => {
     if (index > -1) {

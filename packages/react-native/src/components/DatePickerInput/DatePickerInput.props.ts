@@ -52,6 +52,13 @@ export interface DatePickerInputBaseProps {
    */
   autoCloseOnSelect?: boolean;
   /**
+   * Blocks manual keyboard entry and makes tapping anywhere on the field open the
+   * calendar picker, instead of only the trailing calendar button. Independent of
+   * `disabled`/`readonly`, which still disable the whole field regardless of this prop.
+   * @default false
+   */
+  disableManualEntry?: boolean;
+  /**
    * Additional props forwarded to the underlying DatePicker instance.
    */
   datePickerProps?: Omit<DatePickerSingleProps, 'mode' | 'date' | 'onChange' | 'ref'>;

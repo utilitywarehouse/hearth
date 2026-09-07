@@ -482,6 +482,26 @@ const DateTimePicker = (
     [mode, timePicker, min, max, timeZone]
   );
 
+  const onConfirm = useCallback(() => {
+    if (!onChange) return;
+
+    const current = stateRef.current;
+
+    if (mode === 'single' && current.date) {
+      (onChange as SingleChange)({ date: dayjs(current.date).toDate() });
+    } else if (mode === 'range' && current.startDate) {
+      (onChange as RangeChange)({
+        startDate: dayjs(current.startDate).toDate(),
+        endDate: current.endDate ? dayjs(current.endDate).toDate() : current.endDate,
+      });
+    } else if (mode === 'multiple' && current.dates?.length) {
+      (onChange as MultiChange)({
+        dates: current.dates.map(item => dayjs(item).toDate()),
+        change: 'updated',
+      });
+    }
+  }, [mode, onChange]);
+
   // set the active displayed month
   const onSelectMonth = useCallback(
     (value: number) => {
@@ -622,6 +642,7 @@ const DateTimePicker = (
       onSelectYear,
       onChangeMonth,
       onChangeYear,
+      onConfirm,
       onCancel,
     }),
     [
@@ -631,6 +652,7 @@ const DateTimePicker = (
       onSelectYear,
       onChangeMonth,
       onChangeYear,
+      onConfirm,
       onCancel,
     ]
   );
