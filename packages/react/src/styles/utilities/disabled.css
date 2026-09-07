@@ -1,6 +1,6 @@
 /*
- * elements with aria-disabled="true", data-disabled or data-disabled="true" and their children,
- * unless the children also have data-disabled, data-disabled="true", or aria-disabled="true"
+ * elements with data-disabled / data-disabled="true" and their children, plus elements with aria-disabled="true",
+ * unless a child element is itself disabled via data-disabled / data-disabled="true" / aria-disabled="true"
  */
 :where(
   [data-disabled],
