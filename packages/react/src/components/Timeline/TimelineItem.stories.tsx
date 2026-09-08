@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Timeline } from './Timeline';
 import { TimelineItem } from './TimelineItem';
 
-const states = ['complete', 'inactive', 'incomplete'] as const;
+const states = ['complete', 'active', 'incomplete'] as const;
 
 const meta: Meta<typeof TimelineItem> = {
   title: 'Components / Timeline / TimelineItem',

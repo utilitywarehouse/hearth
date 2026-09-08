@@ -15,7 +15,7 @@ type TimelineItemElement = ComponentRef<'li'>;
 
 /**
  * Use TimelineItem as a single event or step within a `Timeline`, showing
- * its `state` — `complete`, `inactive`, or `incomplete` — via an indicator
+ * its `state` — `complete`, `active`, or `incomplete` — via an indicator
  * and connector line alongside its `label`, optional `helperText`, and any
  * additional custom content passed as `children`.
  *

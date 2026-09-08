@@ -17,7 +17,7 @@ the user actively navigates, use ProgressStepper instead.
   {variants.map(variant => (
     <Timeline key={variant} variant={variant}>
       <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
-      <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 May 2026" />
+      <TimelineItem state="active" label="First payment due" helperText="1 April 2026" />
       <TimelineItem state="incomplete" label="Final payment due" helperText="1 June 2026" />
     </Timeline>
   ))}
@@ -34,7 +34,7 @@ supporting detail such as a date or amount.
 <Timeline {...args}>
   <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
   <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026" />
-  <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+  <TimelineItem state="active" label="Second payment due" helperText="1 June 2026" />
   <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026" />
 </Timeline>
 ```
@@ -43,7 +43,7 @@ supporting detail such as a date or amount.
 <Timeline>
   <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
   <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026" />
-  <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+  <TimelineItem state="active" label="Second payment due" helperText="1 June 2026" />
   <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026" />
 </Timeline>
 ```
@@ -83,7 +83,9 @@ per-item content:
   <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026">
     <DetailText>£45.00 collected</DetailText>
   </TimelineItem>
-  <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+  <TimelineItem state="active" label="Second payment due" helperText="1 June 2026">
+    <DetailText>£45.00 due</DetailText>
+  </TimelineItem>
   <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026">
     <DetailText>£45.00 due</DetailText>
   </TimelineItem>
@@ -95,23 +97,11 @@ per-item content:
 Each `TimelineItem` has one of three states:
 
 - `complete`
-- `inactive`
+- `active`
 - `incomplete`
 
 State is expressed purely through the indicator and connector styling —
 there is no separate variant prop on `TimelineItem` itself.
-
-## Accessibility
-
-- `Timeline` renders as an `ol`; each `TimelineItem` renders as an `li`, so
-  the sequence and its length are announced to assistive technology.
-- `role="list"` is set explicitly on the `ol`, since the indicator styling
-  removes the native list marker (`list-style: none`), which would
-  otherwise drop list semantics in some browsers/screen readers.
-- Each item's `aria-label` combines its `label` and `state` (e.g. "Direct
-  debit set up, complete item"), so the state is available to screen
-  reader users without relying on color alone. Any `aria-label` passed to
-  a `TimelineItem` is appended to this default.
 
 ## API
 
@@ -135,8 +125,8 @@ common props:
 
 This component is based on the `li` element.
 
-| Prop         | Type                                       | Default | Description                                                                  |
-| ------------ | ------------------------------------------ | ------- | ---------------------------------------------------------------------------- |
-| `label`      | `string`                                   | —       | The label text to display for this item.                                     |
-| `helperText` | `string`                                   | —       | Optional supporting text to display below the label.                         |
-| `state`      | `"complete" \| "inactive" \| "incomplete"` | —       | The current state of this item, driving the indicator and connector styling. |
+| Prop         | Type                                     | Default | Description                                                                  |
+| ------------ | ---------------------------------------- | ------- | ---------------------------------------------------------------------------- |
+| `label`      | `string`                                 | —       | The label text to display for this item.                                     |
+| `helperText` | `string`                                 | —       | Optional supporting text to display below the label.                         |
+| `state`      | `"complete" \| "active" \| "incomplete"` | —       | The current state of this item, driving the indicator and connector styling. |

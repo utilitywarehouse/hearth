@@ -30,7 +30,7 @@ export const KitchenSink: Story = {
       {variants.map(variant => (
         <Timeline key={variant} variant={variant}>
           <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
-          <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 May 2026" />
+          <TimelineItem state="active" label="First payment due" helperText="1 April 2026" />
           <TimelineItem state="incomplete" label="Final payment due" helperText="1 June 2026" />
         </Timeline>
       ))}
@@ -43,7 +43,7 @@ export const Playground: Story = {
     <Timeline {...args}>
       <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
       <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026" />
-      <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+      <TimelineItem state="active" label="Second payment due" helperText="1 June 2026" />
       <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026" />
     </Timeline>
   ),
@@ -89,7 +89,9 @@ export const BudgetPlanSchedule: Story = {
       <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026">
         <DetailText>£45.00 collected</DetailText>
       </TimelineItem>
-      <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+      <TimelineItem state="active" label="Second payment due" helperText="1 June 2026">
+        <DetailText>£45.00 due</DetailText>
+      </TimelineItem>
       <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026">
         <DetailText>£45.00 due</DetailText>
       </TimelineItem>

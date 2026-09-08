@@ -13,5 +13,5 @@ export interface TimelineItemProps extends ComponentPropsWithRef<'li'> {
    * The current state of this item, driving the indicator and connector
    * styling.
    */
-  state: 'complete' | 'inactive' | 'incomplete';
+  state: 'complete' | 'active' | 'incomplete';
 }

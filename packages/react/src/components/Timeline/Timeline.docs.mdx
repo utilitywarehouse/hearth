@@ -31,7 +31,7 @@ supporting detail such as a date or amount.
 <Timeline>
   <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
   <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026" />
-  <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+  <TimelineItem state="active" label="Second payment due" helperText="1 June 2026" />
   <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026" />
 </Timeline>
 ```
@@ -57,7 +57,7 @@ per-item content:
 Each `TimelineItem` has one of three states:
 
 - `complete`
-- `inactive`
+- `active`
 - `incomplete`
 
 State is expressed purely through the indicator and connector styling —

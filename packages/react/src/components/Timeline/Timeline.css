@@ -1,7 +1,6 @@
 .h-Timeline {
   display: flex;
   flex-direction: column;
-  list-style: none;
 
   &:where(.h-variant-progress) {
     & :where(.h-TimelineItemIndicator) {
@@ -14,6 +13,10 @@
     & :where(.h-TimelineItemIndicator) {
       width: var(--h-timeline-static-circle-width);
       height: var(--h-timeline-static-circle-height);
+
+      & :where(svg) {
+        display: none;
+      }
     }
   }
 
@@ -32,46 +35,61 @@
         justify-content: center;
         flex-shrink: 0;
         border-radius: var(--h-border-radius-full);
+        background-color: var(--h-interactive-brand-surface-strong-default);
+        border: none;
 
-        &:where([data-state='complete']) {
-          background-color: var(--h-interactive-brand-surface-strong-default);
-          border: none;
+        &:where(.h-variant-progress &) {
+          &:where([data-state='complete']) {
+            background-color: var(--h-interactive-brand-surface-strong-default);
+            border: none;
 
-          & > svg {
-            color: var(--h-text-inverted);
+            & > svg {
+              color: var(--h-text-inverted);
+            }
           }
-        }
 
-        &:where([data-state='inactive']) {
-          background-color: var(--h-color-grey-200);
-          border: none;
-        }
+          &:where([data-state='active']) {
+            background-color: var(--h-color-grey-200);
+            border: none;
+          }
 
-        &:where([data-state='incomplete']) {
-          background-color: var(--h-background-primary);
-          border: var(--h-border-width-2) solid var(--h-color-grey-400);
+          &:where([data-state='incomplete']) {
+            background-color: var(--h-background-primary);
+            border: var(--h-border-width-2) solid var(--h-color-grey-400);
+          }
         }
       }
 
       & :where(.h-TimelineItemConnector) {
         flex: 1;
         width: var(--h-timeline-bar-width);
-        margin-block: var(--h-space-25);
+        background-color: var(--h-interactive-brand-surface-strong-default);
 
-        &:where([data-state='complete']) {
-          background-color: var(--h-interactive-brand-surface-strong-default);
-        }
+        &:where(.h-variant-progress &) {
+          &:where([data-state='complete']) {
+            background-color: var(--h-interactive-brand-surface-strong-default);
+          }
 
-        &:where([data-state='inactive'], [data-state='incomplete']) {
-          background-color: var(--h-color-grey-200);
+          &:where([data-state='active'], [data-state='incomplete']) {
+            background-color: var(--h-color-grey-200);
+          }
         }
       }
     }
 
     & :where(.h-TimelineItemContent) {
-      gap: var(--h-timeline-content-gap);
       padding-top: var(--h-timeline-content-padding-top);
       padding-bottom: var(--h-timeline-content-padding-bottom);
+
+      &:where(.h-variant-static &) {
+        /* I eyeballed this */
+        --h-content-alignment-adjustment: 7px;
+
+        margin-top: calc(-1 * var(--h-content-alignment-adjustment));
+        padding-bottom: calc(
+          var(--h-timeline-content-padding-bottom) + var(--h-content-alignment-adjustment)
+        );
+      }
     }
 
     &:where(:last-child) {
