@@ -1,0 +1,79 @@
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
+import * as Stories from './Timeline.stories';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+import { Timeline } from './Timeline';
+import { TimelineItem } from './TimelineItem';
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+
+<Meta title="Components / Timeline" />
+
+<MarkdownDocHeader title="Timeline" to="components/timeline" />
+
+<Description of={Timeline} />
+
+- [Usage](#usage)
+- [Variants](#variants)
+- [States](#states)
+- [Accessibility](#accessibility)
+- [API](#api)
+
+<Canvas of={Stories.KitchenSink} sourceState="show" />
+
+## Usage
+
+Wrap one or more `TimelineItem` components in a `Timeline`. Each item needs a
+`label` and a `state`; `helperText` and `children` are optional for
+supporting detail such as a date or amount.
+
+<Canvas of={Stories.Playground} sourceState="show" />
+
+```tsx
+<Timeline>
+  <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
+  <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026" />
+  <TimelineItem state="inactive" label="Plan paused" helperText="Resumes 1 June 2026" />
+  <TimelineItem state="incomplete" label="Final payment due" helperText="1 July 2026" />
+</Timeline>
+```
+
+## Variants
+
+`variant` controls the size of each item's indicator:
+
+- `static` — a small dot, for a purely informational history or schedule.
+- `progress` — a larger circle that can carry a complete icon, for a
+  sequence the user is advancing through.
+
+<Canvas of={Stories.Static} sourceState="show" />
+<Canvas of={Stories.Progress} sourceState="show" />
+
+A realistic schedule, mixing `helperText` with `children` for extra
+per-item content:
+
+<Canvas of={Stories.BudgetPlanSchedule} sourceState="show" />
+
+## States
+
+Each `TimelineItem` has one of three states:
+
+- `complete`
+- `inactive`
+- `incomplete`
+
+State is expressed purely through the indicator and connector styling —
+there is no separate variant prop on `TimelineItem` itself.
+
+## API
+
+This component is based on the `ol` element and supports the following
+common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={Timeline} exclude={'aria-*'} />
+
+### TimelineItem API
+
+This component is based on the `li` element.
+
+<ArgTypes of={TimelineItem} include={'label|helperText|state'} exclude={'aria-*'} />
