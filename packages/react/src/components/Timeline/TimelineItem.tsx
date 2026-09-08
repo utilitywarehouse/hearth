@@ -4,9 +4,9 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
-import { BodyText } from '../BodyText/BodyText';
-import { DetailText } from '../DetailText/DetailText';
 import type { TimelineItemProps } from './TimelineItem.props';
+import { HelperText } from '../HelperText/HelperText';
+import { Label } from '../Label/Label';
 
 const COMPONENT_NAME = 'TimelineItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -29,6 +29,7 @@ export const TimelineItem = forwardRef<TimelineItemElement, TimelineItemProps>(
       <li
         ref={ref}
         className={cn(componentClassName, className)}
+        data-state={state}
         aria-label={ariaLabelText}
         {...props}
       >
@@ -40,10 +41,12 @@ export const TimelineItem = forwardRef<TimelineItemElement, TimelineItemProps>(
         </Flex>
 
         <Flex direction="column" className={`${componentClassName}Content`}>
-          <BodyText as="div" weight="bold">
-            {label}
-          </BodyText>
-          {helperText ? <DetailText as="div">{helperText}</DetailText> : null}
+          <Flex direction="column">
+            <Label as="span" fontWeight="semibold">
+              {label}
+            </Label>
+            {helperText ? <HelperText>{helperText}</HelperText> : null}
+          </Flex>
           {children}
         </Flex>
       </li>

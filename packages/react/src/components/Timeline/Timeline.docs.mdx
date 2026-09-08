@@ -14,7 +14,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [Usage](#usage)
 - [Variants](#variants)
 - [States](#states)
-- [Accessibility](#accessibility)
+- [Dangling rail](#dangling-rail)
 - [API](#api)
 
 <Canvas of={Stories.KitchenSink} sourceState="show" />
@@ -52,6 +52,11 @@ per-item content:
 
 <Canvas of={Stories.BudgetPlanSchedule} sourceState="show" />
 
+`children` can also render a `Card`, for content that needs its own visual
+grouping — such as an action the user needs to take:
+
+<Canvas of={Stories.WithCard} sourceState="show" />
+
 ## States
 
 Each `TimelineItem` has one of three states:
@@ -63,6 +68,17 @@ Each `TimelineItem` has one of three states:
 State is expressed purely through the indicator and connector styling —
 there is no separate variant prop on `TimelineItem` itself.
 
+## Dangling rail
+
+Set `danglingRail` to extend the final item's connector line beyond the
+list, fading it to transparent, to suggest the timeline continues beyond
+what's shown. It only applies to the `progress` variant, and only takes
+effect when the final item's `state` is `incomplete` — a `complete` or
+`active` final item never gets a dangling rail, since there's nothing left
+to continue into.
+
+<Canvas of={Stories.DanglingRail} sourceState="show" />
+
 ## API
 
 This component is based on the `ol` element and supports the following
@@ -70,7 +86,7 @@ common props:
 
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
-<ArgTypes of={Timeline} exclude={'aria-*'} />
+<ArgTypes of={Timeline} include={'variant|danglingRail'} />
 
 ### TimelineItem API
 

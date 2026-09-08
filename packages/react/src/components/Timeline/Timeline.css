@@ -30,6 +30,7 @@
       flex-shrink: 0;
 
       & :where(.h-TimelineItemIndicator) {
+        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -49,13 +50,22 @@
           }
 
           &:where([data-state='active']) {
-            background-color: var(--h-color-grey-200);
+            background-color: var(--h-interactive-brand-surface-strong-default);
             border: none;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: var(--h-border-width-2);
+              border-radius: var(--h-border-radius-full);
+              background-color: var(--h-interactive-brand-surface-strong-default);
+              border: var(--h-border-width-2) solid var(--h-background-primary);
+            }
           }
 
           &:where([data-state='incomplete']) {
             background-color: var(--h-background-primary);
-            border: var(--h-border-width-2) solid var(--h-color-grey-400);
+            border: var(--h-border-width-2) solid var(--h-border-subtle);
           }
         }
       }
@@ -71,13 +81,14 @@
           }
 
           &:where([data-state='active'], [data-state='incomplete']) {
-            background-color: var(--h-color-grey-200);
+            background-color: var(--h-border-subtle);
           }
         }
       }
     }
 
     & :where(.h-TimelineItemContent) {
+      gap: var(--h-timeline-content-gap);
       padding-top: var(--h-timeline-content-padding-top);
       padding-bottom: var(--h-timeline-content-padding-bottom);
 
@@ -99,6 +110,26 @@
 
       & :where(.h-TimelineItemContent) {
         padding-bottom: 0;
+      }
+    }
+  }
+
+  /*
+   * A dangling rail only makes sense on a final item that hasn't happened
+   * yet — fades to transparent, rather than a solid colour, since whatever
+   * sits behind the timeline can vary. progress only: static's indicator
+   * and connector don't vary by state, so there's nothing to dangle from.
+   */
+  &:where(.h-variant-progress.h-dangling-rail) {
+    & :where(.h-TimelineItem:last-child[data-state='incomplete']) {
+      & :where(.h-TimelineItemConnector) {
+        display: block;
+        background-color: transparent;
+        background-image: linear-gradient(to bottom, var(--h-border-subtle), transparent);
+      }
+
+      & :where(.h-TimelineItemContent) {
+        padding-bottom: var(--h-timeline-content-padding-bottom);
       }
     }
   }
