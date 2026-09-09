@@ -329,3 +329,8 @@ export { Chip } from './components/Chip/Chip';
 export type { ChipProps } from './components/Chip/Chip.props';
 export { ChipGroup } from './components/Chip/ChipGroup';
 export type { ChipGroupProps } from './components/Chip/ChipGroup.props';
+
+export { Timeline } from './components/Timeline/Timeline';
+export type { TimelineProps } from './components/Timeline/Timeline.props';
+export { TimelineItem } from './components/Timeline/TimelineItem';
+export type { TimelineItemProps } from './components/Timeline/TimelineItem.props';
