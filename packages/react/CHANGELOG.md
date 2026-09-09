@@ -1,5 +1,24 @@
 # @utilitywarehouse/hearth-react
 
+## 0.33.0
+
+### Minor Changes
+
+- [#1589](https://github.com/utilitywarehouse/hearth/pull/1589) [`0666aa8`](https://github.com/utilitywarehouse/hearth/commit/0666aa8d483270c876bc141fea8a5fda4e527f84) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `Timeline` and `TimelineItem` components for showing a sequence of events or steps
+
+  `Timeline` renders an ordered list of `TimelineItem`s, each with a `label`,
+  optional `helperText`, and a `state` (`complete`, `active`, or
+  `incomplete`) shown via an indicator and connector line. Use the `static`
+  variant for a purely informational history or schedule, and the `progress`
+  variant when the sequence represents the user's advancement through it. Set
+  `danglingRail` on `Timeline` to extend the final item's connector beyond
+  the list and fade it to transparent, for a final `incomplete` item that
+  suggests the timeline continues.
+
+  **Components affected**:
+  - `Timeline`
+  - `TimelineItem`
+
 ## 0.32.3
 
 ### Patch Changes
