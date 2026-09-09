@@ -34,6 +34,6 @@ jobs:
       - run: pnpm build:storybook:react-native
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
-      - uses: rachelslurs/oversight-lint-action@v1
+      - uses: rachelslurs/oversight-lint-action@b341a3ca91eff7e189f75f64a7783bb84989a35b # v1.2.1
         with:
           working-directory: ./packages/react-native
