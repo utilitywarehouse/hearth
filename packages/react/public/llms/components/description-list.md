@@ -34,13 +34,6 @@ semantic `dl` element.
 </Box>
 ```
 
-- [Usage](#usage)
-- [Heading](#heading)
-- [Trailing content](#trailing-content)
-- [Direction](#direction)
-- [API](#api)
-- [DescriptionListItem API](#descriptionlistitem-api)
-
 ## Usage
 
 Use the `DescriptionList` element to wrap any number of `DescriptionListItem`

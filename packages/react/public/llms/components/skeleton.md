@@ -4,14 +4,6 @@
 content is loading. It helps improve perceived performance and user experience
 by showing a skeleton of the layout before the actual content is rendered.
 
-- [Usage](#usage)
-- [Accessibility](#accessibility)
-  - [Loading title](#loading-title)
-- [SkeletonBodyText](#skeletonbodytext)
-- [SkeletonHeading](#skeletonheading)
-- [SkeletonBox](#skeletonbox)
-- [API](#api)
-
 ```tsx
 <Skeleton loadingTitle="card placeholder story">
   <Flex direction="column" gap="300" width="320px">

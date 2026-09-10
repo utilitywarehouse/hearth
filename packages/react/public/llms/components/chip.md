@@ -4,13 +4,6 @@ Use Chip to represent an input, attribute, or filter that a user can remove
 with a single click. Commonly used to show active filters applied to a list
 of results.
 
-- [Usage](#usage)
-- [Removable](#removable)
-- [Disabled](#disabled)
-- [Chip Group](#chip-group)
-- [Accessibility](#accessibility)
-- [API](#api)
-
 ```tsx
 <Flex gap="200" wrap="wrap">
   <Chip>Default</Chip>

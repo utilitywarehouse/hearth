@@ -14,13 +14,6 @@ ToggleGroup, and requires a unique `value` prop.
 </ToggleGroup>
 ```
 
-- [Usage](#usage)
-- [ToggleGroup type](#togglegroup-type)
-- [Custom layout](#custom-layout)
-- [Accessibility](#accessibility)
-- [ToggleButton API](#togglebutton-api)
-- [ToggleGroup API](#togglegroup-api)
-
 ## Usage
 
 Wrap `ToggleButton` components in a `ToggleGroup`. The `value` prop on each

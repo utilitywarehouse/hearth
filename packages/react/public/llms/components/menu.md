@@ -7,15 +7,6 @@ with MenuTrigger and MenuContent, which wraps any number of MenuItem
 components. Set `modal={false}` when multiple Menu components are used
 together, such as in a navigation bar.
 
-- [Usage](#usage)
-- [MenuTrigger](#menutrigger)
-- [Placement](#placement)
-- [MenuItem](#menuitem)
-- [Accessibility](#accessibility)
-- [SEO](#seo)
-- [Migration](#migration)
-- [API](#api)
-
 ```tsx
 <Menu {...args}>
   <MenuTrigger>
