@@ -58,6 +58,7 @@ export const Playground: Story = {
     await userEvent.click(trigger);
     await expect(trigger).toHaveAttribute('aria-expanded', 'false');
     await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+    trigger.blur();
   },
 };
 
