@@ -7,11 +7,6 @@ triggers an action, or navigates — don't mix step types within the same
 stepper. Render `as="nav"` when the stepper represents site or app
 navigation. For a single continuous task's completion, use ProgressBar instead.
 
-- [Usage](#usage)
-- [Step states](#step-states)
-- [Accessability](#accessability)
-- [API](#api)
-
 ```tsx
 <Flex direction="column" gap="400">
   <BodyText weight="bold">Step {currentStep + 1} Content</BodyText>

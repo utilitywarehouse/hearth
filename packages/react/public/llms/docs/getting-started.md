@@ -2,14 +2,6 @@
 
 Current version: v0.33.0
 
-- [Install Hearth](#install-hearth)
-- [Import CSS](#import-css)
-- [HearthProvider](#hearthprovider)
-- [Start building](#start-building)
-- [CSS reset](#css-reset)
-- [Portals](#portals)
-- [React DevTools](#react-devtools)
-
 ## Install Hearth
 
 There are 3 libraries you'll need to get started:

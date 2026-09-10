@@ -7,11 +7,6 @@ be used without a default selected option.
 For navigation between pages or sections, use Tabs instead.
 For binary on/off settings, use Switch instead.
 
-- [Usage](#usage)
-- [Sizes](#sizes)
-- [Icons](#icons)
-- [API](#api)
-
 ```tsx
 <Flex direction="column" gap="400">
   <BodyText as="p" size="md" weight="semibold">

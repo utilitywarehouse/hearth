@@ -6,12 +6,6 @@ the sequence represents the user's advancement through it; use `static`
 for a purely informational history or schedule. For a multi-step process
 the user actively navigates, use ProgressStepper instead.
 
-- [Usage](#usage)
-- [Variants](#variants)
-- [States](#states)
-- [Dangling rail](#dangling-rail)
-- [API](#api)
-
 ```tsx
 <Flex direction="column" gap="400">
   {variants.map(variant => (

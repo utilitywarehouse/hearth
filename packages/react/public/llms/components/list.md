@@ -67,18 +67,6 @@ list falls back to its default appearance.
 </Box>
 ```
 
-- [Usage](#usage)
-- [Appearance](#appearance)
-  - [Variant](#variant)
-  - [ColorScheme](#colorscheme)
-  - [Padding None](#padding-none)
-- [Heading](#heading)
-- [Leading content](#leading-content)
-- [Trailing content](#trailing-content)
-- [Advanced Content](#advanced-content)
-- [List actions](#list-actions)
-- [API](#api)
-
 ## Usage
 
 - The `List` component can be customized with different variants and color schemes.

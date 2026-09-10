@@ -7,14 +7,6 @@ on the same page, or to open a resource in a new tab. Renders a semantic
 
 For links within a body of text, use InlineLink instead.
 
-- [Alternatives](#alternatives)
-- [Semantic HTML](#semantic-html)
-- [Open in new tab](#open-in-new-tab)
-- [Icons](#icons)
-- [Inverted colours](#inverted-colours)
-- [Usage with Next.js](#usage-with-next.js)
-- [API](#api)
-
 ```tsx
 <Link href="#">Link</Link>
 ```

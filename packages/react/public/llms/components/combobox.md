@@ -7,14 +7,6 @@ control. Set `triggerOnlyOnType` when the user must type before options are
 surfaced (e.g. a postcode or address lookup); leave it unset when there is a
 predefined list to choose from by clicking.
 
-- [Usage](#usage)
-- [Trigger only on type](#trigger-only-on-type)
-- [No options found](#no-options-found)
-- [Status text](#status-text)
-- [useComboboxFilter](#usecomboboxfilter)
-- [Virtualised](#virtualised)
-- [API](#api)
-
 ```tsx
 <Combobox {...args} items={fruits} />
 ```
