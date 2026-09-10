@@ -13,9 +13,12 @@ const meta: Meta<typeof Breadcrumbs> = {
 export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
-// Kitchen sink covers all variations so we don't need a Gallery story
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column">

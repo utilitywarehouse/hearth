@@ -19,7 +19,11 @@ export default meta;
 type Story = StoryObj<typeof Alert>;
 
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="400">
@@ -33,6 +37,9 @@ export const KitchenSink: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   argTypes: {
     colorScheme: { options: colorSchemes, control: { type: 'radio' } },
   },
@@ -44,7 +51,7 @@ export const Playground: Story = {
 };
 
 export const GridChildren: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => {
     return (
       <Grid defaultResponsiveColumns gap="200">
@@ -78,6 +85,11 @@ export const GridChildren: Story = {
 };
 
 export const Dismissable: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Alert
@@ -91,6 +103,11 @@ export const Dismissable: Story = {
 };
 
 export const WithAlertLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
@@ -129,6 +146,11 @@ export const WithAlertLink: Story = {
 };
 
 export const WithAlertButton: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
@@ -151,6 +173,10 @@ export const WithAlertButton: Story = {
 };
 
 export const StaticAlert: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Alert colorScheme="info" title="Static Alert">
       This alert is completely static with no interactive elements.

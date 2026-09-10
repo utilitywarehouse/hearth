@@ -26,7 +26,6 @@ export const KitchenSink: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: () => {
     return (
@@ -57,6 +56,10 @@ export const KitchenSink: Story = {
 };
 
 export const ResponsiveSize: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="row" gap="200" alignItems="center">

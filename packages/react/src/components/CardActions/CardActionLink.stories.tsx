@@ -22,6 +22,11 @@ export default meta;
 type Story = StoryObj<typeof CardActionLink>;
 
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card width="300px">
       <CardActionLink

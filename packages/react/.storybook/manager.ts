@@ -8,6 +8,7 @@ const theme = create(config);
 
 addons.setConfig({
   theme,
+  panelPosition: 'right',
   'storybook-addon-oversight': {
     expectedExtractor: 'react-docgen-typescript',
     rules: {

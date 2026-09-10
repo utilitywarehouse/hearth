@@ -79,6 +79,9 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   args: {
     height: '128px',
     width: '128px',
@@ -92,6 +95,10 @@ export const Playground: Story = {
 };
 
 export const BorderColorVarProps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     paddingY: '200',
     borderWidth: '1',
@@ -105,6 +112,10 @@ export const BorderColorVarProps: Story = {
 };
 
 export const ResponsiveProps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     asChild: true,
     children: 'Responsive props',
@@ -135,6 +146,10 @@ export const ResponsiveProps: Story = {
 };
 
 export const HideContent: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   name: 'Responsively hide content',
   render: () => (
     <Flex gap="300" direction="column">
@@ -182,6 +197,10 @@ const CustomAnchor = ({ onClick, href, ...props }: Props) => {
 };
 
 export const CustomAnchorStory: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   name: 'Custom Component',
   render: () => <CustomAnchor />,
 };

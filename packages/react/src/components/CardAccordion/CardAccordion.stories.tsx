@@ -17,6 +17,10 @@ export default meta;
 type Story = StoryObj<typeof CardAccordion>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   tags: ['!test'],
   render: () => {
     return (

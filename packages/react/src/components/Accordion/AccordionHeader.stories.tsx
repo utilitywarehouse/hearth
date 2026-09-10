@@ -19,6 +19,11 @@ type Story = StoryObj<typeof AccordionHeader>;
 
 export const Playground: Story = {
   tags: ['!test'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="600px">
       <Accordion

@@ -88,6 +88,11 @@ export default meta;
 type Story = StoryObj<typeof Card>;
 
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: ({ children }) => (
     <Flex padding="600" direction="column" gap="300" width="600px">
       <Flex direction="row" gap="300">
@@ -151,6 +156,9 @@ export const KitchenSink: Story = {
 };
 
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   render: ({ children, ...args }) => (
     <Card {...args} width="400px" marginX="auto">
       <BodyText size="md">{children}</BodyText>
@@ -208,9 +216,9 @@ export const ColorScheme: Story = {
 
 export const ShadowColours: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    options: { selectedPanel: 'storybook/a11y/panel' },
   },
   args: {
     width: '300px',
@@ -235,9 +243,9 @@ export const ShadowColours: Story = {
 
 export const InteractiveCards: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    options: { showPanel: false },
   },
   render: args => {
     return (
@@ -532,6 +540,10 @@ export const InteractiveCards: Story = {
 };
 
 export const WithoutLink: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [likedArgos, setLikedArgos] = useState(false);
     const [likedAskItalian, setLikedAskItalian] = useState(false);
@@ -599,6 +611,11 @@ export const WithoutLink: Story = {
 };
 
 export const SingleCardActionLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args}>
@@ -648,6 +665,11 @@ export const SingleCardActionLink: Story = {
 };
 
 export const SingleCardActionButton: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args}>
@@ -694,6 +716,11 @@ export const SingleCardActionButton: Story = {
 };
 
 export const WithOnlyCardActions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Card {...args} width="500px">
       <CardActions direction="column">
@@ -728,6 +755,11 @@ export const WithOnlyCardActions: Story = {
 };
 
 export const WithCardActions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="column" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args} width="fit-content">
@@ -775,6 +807,10 @@ export const WithCardActions: Story = {
 };
 
 export const ConditionalCardActions: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [toggleElement, setToggleElement] = useState(false);
 
@@ -843,6 +879,11 @@ export const ConditionalCardActions: Story = {
 };
 
 export const InteractiveServiceCards: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Container>
       <Grid columns={{ mobile: '1', tablet: '2' }} gap="300">
@@ -918,6 +959,11 @@ export const InteractiveServiceCards: Story = {
 };
 
 export const BannerContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Card spacing="lg" justifyContent="between">
       <CardBannerContent heading="This is a banner heading" description="Put your description here">
@@ -935,6 +981,11 @@ export const BannerContent: Story = {
 };
 
 export const BannerWithIconContainer: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="md">
@@ -978,6 +1029,11 @@ export const BannerWithIconContainer: Story = {
 };
 
 export const BannerWithImage: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="md" maxWidth="420px">
@@ -1008,6 +1064,11 @@ export const BannerWithImage: Story = {
 };
 
 export const BannerWithIllustration: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="lg" colorScheme="pig" variant="subtle" alignItems="center" width="450px">

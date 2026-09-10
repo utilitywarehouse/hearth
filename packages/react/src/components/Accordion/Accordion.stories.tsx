@@ -32,6 +32,10 @@ export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => {
     return (
       <Box width="600px">
@@ -63,6 +67,10 @@ export const Playground: Story = {
 };
 
 export const SEOFriendly: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: { type: 'single', collapsible: true },
   render: args => {
     return (
@@ -91,6 +99,11 @@ export const SEOFriendly: Story = {
 };
 
 export const CustomItemHeader: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Box width="600px">
@@ -121,6 +134,11 @@ export const CustomItemHeader: Story = {
 };
 
 export const DefaultExpanded: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Default expanded items',
     helperText: '',
@@ -160,6 +178,10 @@ export const DefaultExpanded: Story = {
 };
 
 export const Multiple: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Multiple items open at once',
     helperText: '',
@@ -195,10 +217,16 @@ export const Multiple: Story = {
     await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
     await expect(canvas.getByText('Content 1')).toBeInTheDocument();
     await expect(canvas.getByText('Content 2')).toBeInTheDocument();
+    item1Trigger.blur();
+    item2Trigger.blur();
   },
 };
 
 export const Single: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Only a single item open at once',
     helperText: '',
@@ -235,6 +263,8 @@ export const Single: Story = {
     await userEvent.click(item2Trigger);
     await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
     await expect(canvas.getByText('Content 2')).toBeInTheDocument();
+    item1Trigger.blur();
+    item2Trigger.blur();
   },
 };
 
