@@ -17,23 +17,7 @@ export const getNestedValue = (obj: any, path: string[]): any => {
   }, obj);
 };
 
-/**
- * Helper function to resolve a theme value
- * Supports:
- * - Direct lookup (value -> themeMapping[value])
- * - Camel case to nested path (feedbackDangerSurfaceDefault -> themeMapping.feedback.danger.surface.default)
- * - Numeric suffix pattern (broadbandBlue100 -> themeMapping.broadbandBlue[100])
- */
-export const resolveThemeValue = (value: any, themeMapping: any): any => {
-  if (typeof value !== 'string' || !themeMapping || typeof themeMapping !== 'object') {
-    return value;
-  }
-
-  // First, try direct lookup for simple values
-  if (themeMapping[value] !== undefined) {
-    return themeMapping[value];
-  }
-
+const resolveThemeValueSlow = (value: string, themeMapping: any): any => {
   // Try camelCase to nested path conversion (e.g., feedbackDangerSurfaceDefault)
   if (/^[a-z][a-zA-Z]*$/.test(value)) {
     // Only camelCase strings without numbers
@@ -57,6 +41,49 @@ export const resolveThemeValue = (value: any, themeMapping: any): any => {
 
   // If none of the approaches work, return the original value
   return value;
+};
+
+/**
+ * Cache for the slow resolution path (camelCase paths and numeric suffixes), keyed by
+ * theme mapping object. Mapping objects are static for the lifetime of a theme, so each
+ * (mapping, value) pair only pays the regex/split cost once.
+ * resolveThemeValueSlow never returns `undefined` for string values (it falls back to
+ * the input value), so `undefined` is safe as the cache-miss sentinel.
+ */
+const slowResolutionCache = new WeakMap<object, Map<string, any>>();
+
+/**
+ * Helper function to resolve a theme value
+ * Supports:
+ * - Direct lookup (value -> themeMapping[value])
+ * - Camel case to nested path (feedbackDangerSurfaceDefault -> themeMapping.feedback.danger.surface.default)
+ * - Numeric suffix pattern (broadbandBlue100 -> themeMapping.broadbandBlue[100])
+ */
+export const resolveThemeValue = (value: any, themeMapping: any): any => {
+  if (typeof value !== 'string' || !themeMapping || typeof themeMapping !== 'object') {
+    return value;
+  }
+
+  // First, try direct lookup for simple values
+  if (themeMapping[value] !== undefined) {
+    return themeMapping[value];
+  }
+
+  let cache = slowResolutionCache.get(themeMapping);
+  const cached = cache?.get(value);
+  if (cached !== undefined) {
+    return cached;
+  }
+
+  const resolved = resolveThemeValueSlow(value, themeMapping);
+
+  if (!cache) {
+    cache = new Map();
+    slowResolutionCache.set(themeMapping, cache);
+  }
+  cache.set(value, resolved);
+
+  return resolved;
 };
 
 /**
