@@ -18,6 +18,7 @@ const meta: Meta<typeof SegmentedControlOption> = {
 export default meta;
 type Story = StoryObj<typeof SegmentedControlOption>;
 
+/** Interactive sandbox — use the controls panel to explore props such as label and disabled. */
 export const Playground: Story = {
   render: args => (
     <SegmentedControl defaultValue={['option-1']} size="sm">

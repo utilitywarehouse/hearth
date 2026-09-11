@@ -17,6 +17,11 @@ export default meta;
 type Story = StoryObj<typeof ChipGroup>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ChipGroup {...args}>
       <Chip>Gas</Chip>

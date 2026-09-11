@@ -23,9 +23,20 @@ const meta: Meta<typeof Heading> = {
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+};
 
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -40,14 +51,18 @@ export const KitchenSink: Story = {
 };
 
 export const InvertedText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { inverted: true },
   render: args => {
     return (
       <Box backgroundColor="brand" padding="400">
         <Heading {...args}>Inverted text</Heading>
       </Box>
     );
-  },
-  args: {
-    inverted: true,
   },
 };

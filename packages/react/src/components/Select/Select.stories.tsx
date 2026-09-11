@@ -25,6 +25,7 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => {
     return (
@@ -40,6 +41,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set defaultOpen to render the Select with its options already visible. */
 export const DefaultOpen: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   args: { defaultOpen: true, defaultValue: '2' },
@@ -57,6 +59,7 @@ export const DefaultOpen: Story = {
   },
 };
 
+/** A large number of SelectItems scrolls within the option list rather than overflowing the viewport. */
 export const ScrollArea: Story = {
   render: args => {
     return (
@@ -71,6 +74,7 @@ export const ScrollArea: Story = {
   },
 };
 
+/** Long SelectItem text truncates within the trigger and option list rather than wrapping. */
 export const Truncate: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   args: { defaultOpen: true, defaultValue: '2' },

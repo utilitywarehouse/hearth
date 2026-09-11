@@ -13,6 +13,7 @@ const meta: Meta<typeof CardAccordionItem> = {
 export default meta;
 type Story = StoryObj<typeof CardAccordionItem>;
 
+/** A single step within a CardAccordion, with a title and a footer of navigation buttons. */
 export const Playground: Story = {
   tags: ['!test'],
   args: {

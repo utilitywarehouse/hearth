@@ -31,6 +31,7 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -66,6 +67,7 @@ export const Playground: Story = {
   },
 };
 
+/** Use forceMount on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
 export const SEOFriendly: Story = {
   parameters: {
     controls: { disable: true },
@@ -98,6 +100,7 @@ export const SEOFriendly: Story = {
   },
 };
 
+/** Compose AccordionHeader and AccordionTrigger directly to build a custom item header, such as one with a badge. */
 export const CustomItemHeader: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -133,6 +136,7 @@ export const CustomItemHeader: Story = {
   },
 };
 
+/** Use defaultValue to expand one or more items when the Accordion first renders. */
 export const DefaultExpanded: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -177,6 +181,7 @@ export const DefaultExpanded: Story = {
   },
 };
 
+/** Set type to "multiple" to allow more than one item to stay open at once. */
 export const Multiple: Story = {
   parameters: {
     controls: { disable: true },
@@ -222,6 +227,7 @@ export const Multiple: Story = {
   },
 };
 
+/** Set type to "single" so opening an item closes any other open item. */
 export const Single: Story = {
   parameters: {
     controls: { disable: true },
@@ -268,6 +274,7 @@ export const Single: Story = {
   },
 };
 
+/** Set collapsible on a single-type Accordion to allow the open item to be closed again. */
 export const Collapsible: Story = {
   args: {
     heading: 'Collapse all items',
@@ -302,6 +309,7 @@ export const Collapsible: Story = {
   },
 };
 
+/** Use headingElement on Accordion and AccordionItem to control the semantic heading level wrapping each trigger. */
 export const HeadingElement: Story = {
   args: {
     heading: 'Heading element',

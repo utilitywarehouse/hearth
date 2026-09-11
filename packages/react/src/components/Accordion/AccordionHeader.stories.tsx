@@ -17,6 +17,7 @@ const meta: Meta<typeof AccordionHeader> = {
 export default meta;
 type Story = StoryObj<typeof AccordionHeader>;
 
+/** Wraps an AccordionTrigger, letting custom content like a badge sit alongside it. */
 export const Playground: Story = {
   tags: ['!test'],
   parameters: {

@@ -31,6 +31,7 @@ const meta: Meta<typeof SkeletonBox> = {
 export default meta;
 type Story = StoryObj<typeof SkeletonBox>;
 
+/** Interactive sandbox — use the controls panel to explore props such as width, height, and borderRadius. */
 export const Playground: Story = {
   render: args => (
     <Skeleton loadingTitle="playground story">
@@ -39,6 +40,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Stack multiple SkeletonBoxes to placeholder a block of related content. */
 export const Blocks: Story = {
   render: args => (
     <Skeleton loadingTitle="blocks story">
@@ -51,6 +53,7 @@ export const Blocks: Story = {
   ),
 };
 
+/** Set borderRadius to full with equal width and height to placeholder a circular element, such as an avatar. */
 export const Circle: Story = {
   args: { borderRadius: 'full', width: '96px', height: '96px' },
   render: args => (
@@ -60,6 +63,7 @@ export const Circle: Story = {
   ),
 };
 
+/** Combine SkeletonBoxes of different sizes to placeholder a typical card layout. */
 export const CardPlaceholder: Story = {
   render: args => (
     <Skeleton loadingTitle="card placeholder story">

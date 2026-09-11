@@ -13,8 +13,14 @@ const meta: Meta<typeof Em> = {
 export default meta;
 type Story = StoryObj<typeof Em>;
 
+/** Visual matrix of Em across BodyText sizes — used in Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="100">
       {sizes.map(size => (

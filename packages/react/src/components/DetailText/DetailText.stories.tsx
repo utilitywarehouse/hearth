@@ -26,8 +26,13 @@ const meta: Meta<typeof DetailText> = {
 export default meta;
 type Story = StoryObj<typeof DetailText>;
 
+/** Visual matrix of all text sizes, used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    chromatic: { disableSnapshot: false },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -43,10 +48,17 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Playground: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = { parameters: { actions: { disable: true } } };
 
+/** Set size to control the text scale, including a responsive object across breakpoints. */
 export const TextSizes: Story = {
   name: 'Sizes',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -63,7 +75,17 @@ export const TextSizes: Story = {
   },
 };
 
+/** Set inverted to adapt text color for dark backgrounds. */
 export const InvertedText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    inverted: true,
+  },
   render: args => {
     return (
       <Flex direction="column">
@@ -72,8 +94,5 @@ export const InvertedText: Story = {
         </Box>
       </Flex>
     );
-  },
-  args: {
-    inverted: true,
   },
 };

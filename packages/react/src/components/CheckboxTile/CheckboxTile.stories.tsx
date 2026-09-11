@@ -32,11 +32,17 @@ export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
 export const Playground: Story = {
-  render: args => <CheckboxTile {...args} />,
+  parameters: {
+    actions: { disable: true },
+  },
 };
 
-// Kitchen sink covers all variations so we don't need a Gallery story
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Grid gap="400" columns="3" alignItems="start">
@@ -75,6 +81,10 @@ export const KitchenSink: Story = {
 };
 
 export const WithImage: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex width="fit-content" gap="200" direction="column">
       <CheckboxTile
@@ -95,6 +105,10 @@ export const WithImage: Story = {
 };
 
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [checked, setChecked] = useState(false);
     return (

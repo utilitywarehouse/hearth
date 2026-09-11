@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { Modal } from '../Modal/Modal';
@@ -35,8 +36,8 @@ const meta: Meta<typeof DatePicker> = {
 export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     return (
@@ -49,7 +50,38 @@ export const Playground: Story = {
   },
 };
 
+export const WithCalendarDisplayed: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: args => {
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    return (
+      <Flex direction="column" gap="400">
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date: Date | null) => setSelectedDate(date)}
+          data-testid="open-datepicker"
+          {...args}
+        />
+      </Flex>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button');
+    await userEvent.click(trigger);
+  },
+};
+
+/** Use DatePicker inside a native form element. */
 export const FormUsage: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
     return (
@@ -64,7 +96,12 @@ export const FormUsage: Story = {
   },
 };
 
+/** Use DatePicker fields inside a Modal to select a date range. */
 export const UsageInModal: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [selectedFromDate, setSelectedFromDate] = useState<Date | null>();
     const [selectedToDate, setSelectedToDate] = useState<Date | null>();

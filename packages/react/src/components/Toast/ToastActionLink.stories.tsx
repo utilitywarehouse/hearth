@@ -25,6 +25,7 @@ const meta: Meta<typeof ToastActionLink> = {
 export default meta;
 type Story = StoryObj<typeof ToastActionLink>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   tags: ['!test'],
   render: args => {

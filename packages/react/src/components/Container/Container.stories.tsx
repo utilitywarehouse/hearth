@@ -32,6 +32,11 @@ export default meta;
 type Story = StoryObj<typeof Container>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
+  args: { spacing: 'xl' },
   render: args => (
     <Container {...args}>
       <Placeholder
@@ -57,12 +62,13 @@ export const Playground: Story = {
       />
     </Container>
   ),
-  args: {
-    spacing: 'xl',
-  },
 };
 
 export const OverridePadding: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Container {...args}>
       <Placeholder

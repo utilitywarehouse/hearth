@@ -26,6 +26,7 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof Pagination>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: (
     args: Pick<PaginationProps, 'currentPage' | 'totalPages' | 'condensed' | 'hideSkipButtons'>
@@ -36,6 +37,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set condensed to show a compact page range with fewer visible page numbers. */
 export const Condensed: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -51,6 +53,7 @@ export const Condensed: Story = {
   },
 };
 
+/** Set hideSkipButtons to remove the first/last page shortcuts. */
 export const WithoutSkip: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -66,6 +69,7 @@ export const WithoutSkip: Story = {
   },
 };
 
+/** With a small totalPages count, every page number is shown without truncation. */
 export const FewPages: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -74,6 +78,7 @@ export const FewPages: Story = {
   },
 };
 
+/** With a large totalPages count, pages are truncated with an ellipsis around the current page. */
 export const ManyPages: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(5);
@@ -82,6 +87,7 @@ export const ManyPages: Story = {
   },
 };
 
+/** Pagination adapts its truncation near the start, middle, and end of a long page range. */
 export const EdgeCases: Story = {
   render: () => {
     const [nearStartPage, setNearStartPage] = useState(2);

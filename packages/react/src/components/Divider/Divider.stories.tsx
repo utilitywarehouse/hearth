@@ -23,10 +23,19 @@ const meta: Meta<typeof Divider> = {
 export default meta;
 type Story = StoryObj<typeof Divider>;
 
-export const Workshop: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: { actions: { disable: true }, interactions: { disable: true } },
+};
 
+/** Divider used both to separate content within a Flex row and between stacked sections — used in Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
@@ -79,7 +88,12 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Divider also works outside a Flex container — set orientation to vertical when used within a sized parent. */
 export const UsageOutsideFlexbox: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Box width="100%" padding="300">
       <Divider decorative />

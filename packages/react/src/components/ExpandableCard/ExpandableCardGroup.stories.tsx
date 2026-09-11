@@ -26,6 +26,10 @@ export default meta;
 type Story = StoryObj<typeof ExpandableCardGroup>;
 
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="400px" marginX="auto">
       <ExpandableCardGroup {...args}>

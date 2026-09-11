@@ -16,6 +16,7 @@ const meta: Meta<typeof CardActions> = {
 export default meta;
 type Story = StoryObj<typeof CardActions>;
 
+/** Use direction to lay out a list of CardActionButtons in a column instead of a row. */
 export const Playground: Story = {
   parameters: {
     controls: { disable: true },
