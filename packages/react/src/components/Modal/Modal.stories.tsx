@@ -32,6 +32,7 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <ModalRoot>
@@ -56,6 +57,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Nest a Combobox inside the modal to demonstrate content composition. */
 export const WithCombobox: Story = {
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
@@ -84,6 +86,7 @@ export const WithCombobox: Story = {
   },
 };
 
+/** Set defaultOpen on ModalRoot to render the modal open on mount, skipping the trigger. */
 export const DefaultOpen: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
@@ -113,6 +116,7 @@ export const DefaultOpen: Story = {
   ),
 };
 
+/** A long heading wraps onto multiple lines without breaking the layout. */
 export const WithLongHeading: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -142,6 +146,7 @@ export const WithLongHeading: Story = {
   ),
 };
 
+/** Omit description and rely on body content instead. */
 export const WithoutDescription: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -175,6 +180,7 @@ export const WithoutDescription: Story = {
   ),
 };
 
+/** Combine a long heading with hideCloseButton to remove the close affordance. */
 export const WithLongHeadingAndHideCloseButton: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
@@ -202,6 +208,7 @@ export const WithLongHeadingAndHideCloseButton: Story = {
   ),
 };
 
+/** Pass an image to render illustrative artwork above the modal content. */
 export const WithImage: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -230,6 +237,7 @@ export const WithImage: Story = {
   ),
 };
 
+/** Set the viewport to mobile to check the modal's responsive layout. */
 export const OnMobile: Story = {
   tags: ['!test'],
   parameters: {
@@ -259,6 +267,7 @@ export const OnMobile: Story = {
   ),
 };
 
+/** Control ModalRoot's open state externally via the open and onOpenChange props. */
 export const ControlledUsage: Story = {
   render: () => {
     const [open, setOpen] = useState(false);
@@ -282,6 +291,7 @@ export const ControlledUsage: Story = {
   },
 };
 
+/** Set hideCloseButton to remove the close icon from the top corner. */
 export const HideCloseButton: Story = {
   args: { hideCloseButton: true },
   render: args => (
@@ -307,6 +317,7 @@ export const HideCloseButton: Story = {
   ),
 };
 
+/** Set loading with loadingHeading and loadingDescription to show a loading state instead of the main content. */
 export const Loading: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
@@ -329,6 +340,7 @@ export const Loading: Story = {
   ),
 };
 
+/** Nest a Card inside the modal to demonstrate content composition. */
 export const WithCard: Story = {
   render: args => (
     <ModalRoot>
@@ -354,6 +366,7 @@ export const WithCard: Story = {
   ),
 };
 
+/** Set fullScreen with long content inside ModalContent to enable internal scrolling. */
 export const WithLongContent: Story = {
   args: { heading: 'Tariff details', description: undefined, fullScreen: true },
   render: (args, { viewMode }: { viewMode?: string }) => (
@@ -465,6 +478,7 @@ export const WithLongContent: Story = {
   ),
 };
 
+/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
 export const WithLongContentAndImage: Story = {
   tags: ['!test'],
   globals: { viewport: { value: 'mobile' } },
@@ -500,6 +514,7 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
+/** Prevent dismissal via onEscapeKeyDown and onPointerDownOutside for flows that require an explicit action. */
 export const PreventOutsideDismiss: Story = {
   render: args => (
     <ModalRoot>

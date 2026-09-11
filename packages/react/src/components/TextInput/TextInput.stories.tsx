@@ -39,10 +39,12 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 type Story = StoryObj<typeof TextInput>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => <TextInput {...args} />,
 };
 
+/** Set disabled or readOnly to prevent the TextInput from being edited. */
 export const DisabledAndReadOnly: Story = {
   parameters: {
     a11y: {
@@ -71,6 +73,7 @@ export const DisabledAndReadOnly: Story = {
   args: { helperText: undefined },
 };
 
+/** Set validationStatus and validationText to show valid or invalid feedback. */
 export const Validation: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -97,6 +100,7 @@ export const Validation: Story = {
   args: { helperText: undefined },
 };
 
+/** Use InputSlot to add a prefix or suffix, such as a currency symbol or unit. */
 export const PrefixAndSuffix: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -118,6 +122,7 @@ export const PrefixAndSuffix: Story = {
   ),
 };
 
+/** Use InputSlot to add an icon alongside the input. */
 export const WithIcons: Story = {
   render: args => (
     <TextInput {...args}>
@@ -128,6 +133,7 @@ export const WithIcons: Story = {
   ),
 };
 
+/** Group related TextInputs under a shared fieldset legend and description. */
 export const GroupingInputs: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -164,6 +170,7 @@ export const GroupingInputs: Story = {
   ),
 };
 
+/** Integrate TextInput with react-hook-form's Controller for validation. */
 export const ReactHookForm: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

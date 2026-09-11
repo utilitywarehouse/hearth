@@ -14,6 +14,7 @@ const meta: Meta<typeof ToastProvider> = {
 export default meta;
 type Story = StoryObj<typeof ToastProvider>;
 
+/** Wrap your app in ToastProvider so Toasts rendered anywhere inside it can appear. */
 export const Playground: Story = {
   tags: ['!test'],
   render: args => {

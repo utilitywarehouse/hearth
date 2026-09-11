@@ -22,6 +22,7 @@ const meta: Meta<typeof SectionHeader> = {
 export default meta;
 type Story = StoryObj<typeof SectionHeader>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => {
     return (
@@ -40,6 +41,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set direction to a responsive value to switch between row and column layout per breakpoint. */
 export const ResponsiveDirection: Story = {
   args: { direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
@@ -58,6 +60,7 @@ export const ResponsiveDirection: Story = {
   },
 };
 
+/** Pass a Badge as trailingContent to flag status alongside the heading. */
 export const WithBadge: Story = {
   render: args => {
     return (
@@ -68,6 +71,7 @@ export const WithBadge: Story = {
   },
 };
 
+/** Pass a Button as trailingContent for a primary action tied to the section. */
 export const WithButton: Story = {
   render: args => {
     return (
@@ -85,6 +89,7 @@ export const WithButton: Story = {
   },
 };
 
+/** Pass a Link as trailingContent, with the icon placed before or after the label. */
 export const CustomLink: Story = {
   render: () => {
     return (
@@ -113,6 +118,7 @@ export const CustomLink: Story = {
   },
 };
 
+/** Set validationStatus and validationText to surface a validation message. */
 export const ValidationText: Story = {
   render: args => {
     return (

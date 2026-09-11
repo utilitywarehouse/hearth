@@ -36,6 +36,7 @@ export default meta;
 type Story = StoryObj<typeof Button>;
 
 export const Playground: Story = {
+  parameters: { controls: { disable: true } },
   args: {
     variant: 'solid',
     colorScheme: 'highlight',
@@ -43,7 +44,11 @@ export const Playground: Story = {
 };
 
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="600">
@@ -186,6 +191,7 @@ export const KitchenSink: Story = {
 };
 
 export const ResponsiveSize: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   args: {
     children: 'Responsive size button',
     size: {
@@ -198,6 +204,11 @@ export const ResponsiveSize: Story = {
 };
 
 export const AsLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="200">
@@ -219,7 +230,7 @@ export const AsLink: Story = {
 };
 
 export const ButtonVariants: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => {
     return (
       <Flex direction="column" gap="200" alignItems="start">
@@ -253,6 +264,7 @@ export const ButtonVariants: Story = {
 };
 
 export const FullWidth: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex direction="column" gap="200">
       <Flex direction="column" gap="100">
@@ -270,6 +282,7 @@ export const FullWidth: Story = {
 };
 
 export const HighlightColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="emphasis" colorScheme="highlight">
@@ -283,6 +296,7 @@ export const HighlightColorScheme: Story = {
 };
 
 export const FunctionalColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="outline" colorScheme="functional">
@@ -296,6 +310,7 @@ export const FunctionalColorScheme: Story = {
 };
 
 export const DestructiveColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="solid" colorScheme="destructive">
@@ -312,6 +327,7 @@ export const DestructiveColorScheme: Story = {
 };
 
 export const AffirmativeColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="solid" colorScheme="affirmative">
@@ -328,6 +344,7 @@ export const AffirmativeColorScheme: Story = {
 };
 
 export const Sizes: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400" direction="column">
       <Flex gap="400">
@@ -363,6 +380,7 @@ export const Sizes: Story = {
 };
 
 export const DeadPropCombinations: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     // @ts-expect-error: for illustration purposes only
     <Button variant="emphasis" colorScheme="grey">
@@ -372,6 +390,11 @@ export const DeadPropCombinations: Story = {
 };
 
 export const WithIcons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     return (
       <Flex gap="200">
@@ -393,6 +416,11 @@ export const WithIcons: Story = {
 };
 
 export const Inverted: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400" backgroundColor="brand" padding="400">
       <Button variant="emphasis" inverted>
@@ -412,6 +440,11 @@ export const Inverted: Story = {
 };
 
 export const Loading: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     loading: true,
   },
@@ -436,6 +469,11 @@ export const Loading: Story = {
 };
 
 export const PaddingNone: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" alignItems="start" gap="100" padding="200">

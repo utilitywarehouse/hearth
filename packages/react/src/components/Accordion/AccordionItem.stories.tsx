@@ -12,7 +12,13 @@ const meta: Meta<typeof AccordionItem> = {
 export default meta;
 type Story = StoryObj<typeof AccordionItem>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   tags: ['!test'],
   args: {
     title: 'Item 1',

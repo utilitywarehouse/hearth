@@ -30,7 +30,11 @@ export default meta;
 type Story = StoryObj<typeof BodyText>;
 
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -75,9 +79,18 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+};
 
 export const TextSizes: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Sizes',
   render: () => {
     return (
@@ -94,6 +107,10 @@ export const TextSizes: Story = {
 };
 
 export const TextWeights: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Weights',
   render: () => {
     return (
@@ -110,6 +127,11 @@ export const TextWeights: Story = {
 };
 
 export const Colours: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" width="fit-content">
@@ -128,6 +150,11 @@ export const Colours: Story = {
 };
 
 export const TextTruncate: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Truncate',
   args: {
     truncate: true,
@@ -147,6 +174,10 @@ export const TextTruncate: Story = {
 };
 
 export const InvertedText: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: {
     color: 'inverted',
   },
@@ -162,6 +193,12 @@ export const InvertedText: Story = {
 };
 
 export const ParagraphSpacing: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  name: 'Paragraph Spacing',
   args: {
     truncate: true,
     weight: 'regular',

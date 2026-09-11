@@ -18,8 +18,13 @@ const meta: Meta<typeof Alert> = {
 export default meta;
 type Story = StoryObj<typeof Alert>;
 
+/** Visual matrix of Alert colour schemes — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="400">
@@ -32,7 +37,11 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   argTypes: {
     colorScheme: { options: colorSchemes, control: { type: 'radio' } },
   },
@@ -43,8 +52,9 @@ export const Playground: Story = {
   },
 };
 
+/** Set gridColumnSpan to lay Alerts out as children of a Grid. */
 export const GridChildren: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => {
     return (
       <Grid defaultResponsiveColumns gap="200">
@@ -77,7 +87,13 @@ export const GridChildren: Story = {
   },
 };
 
+/** Pass onClose to render a close button that dismisses the Alert. */
 export const Dismissable: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Alert
@@ -90,7 +106,13 @@ export const Dismissable: Story = {
   },
 };
 
+/** Nest an AlertLink to add a text link, icon-only link, or custom action element inside an Alert. */
 export const WithAlertLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
@@ -128,7 +150,13 @@ export const WithAlertLink: Story = {
   ),
 };
 
+/** Nest an AlertIconButton to make the entire Alert clickable in addition to any close button. */
 export const WithAlertButton: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
@@ -150,7 +178,12 @@ export const WithAlertButton: Story = {
   ),
 };
 
+/** An Alert with only children and no title/text/actions renders as plain static content. */
 export const StaticAlert: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Alert colorScheme="info" title="Static Alert">
       This alert is completely static with no interactive elements.

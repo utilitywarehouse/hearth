@@ -26,7 +26,10 @@ type Story = StoryObj<typeof Chip>;
  */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="200" wrap="wrap">
       <Chip>Default</Chip>
@@ -37,21 +40,36 @@ export const KitchenSink: Story = {
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
-  render: args => <Chip {...args} />,
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
 };
 
 /** Use onClick to remove the filter, attribute, or input the Chip represents. */
 export const Removable: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => <Chip onClick={() => alert('Chip removed')}>Label</Chip>,
 };
 
 /** Set disabled to prevent the Chip from being removed. */
 export const Disabled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => <Chip disabled>Label</Chip>,
 };
 
 /** Use ChipGroup to lay out multiple Chips, optionally introduced by a label. */
 export const Group: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <ChipGroup label="Currently showing:">
       <Chip>Gas</Chip>
@@ -63,6 +81,11 @@ export const Group: Story = {
 
 /** ChipGroup wraps its Chips onto multiple lines once they no longer fit the available width. */
 export const Wrapping: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Box maxWidth="600px">
       <ChipGroup label="Currently showing:">
@@ -119,6 +142,10 @@ const AddAndRemoveExample = () => {
  * reflects state that's added to and removed from over time.
  */
 export const AddAndRemove: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   tags: ['!manifest'],
   render: () => <AddAndRemoveExample />,
 };

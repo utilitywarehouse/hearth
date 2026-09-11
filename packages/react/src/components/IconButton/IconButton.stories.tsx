@@ -29,6 +29,7 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <IconButton {...args}>
@@ -37,6 +38,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Visual matrix of every variant, colorScheme, and size — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
@@ -203,6 +205,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Set asChild to render the IconButton as a wrapped anchor instead of a button. */
 export const AsLink: Story = {
   render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
@@ -230,6 +233,7 @@ export const AsLink: Story = {
   },
 };
 
+/** Set variant to emphasis, solid, outline, or ghost. */
 export const Variants: Story = {
   render: () => (
     <Flex gap="400">
@@ -249,6 +253,7 @@ export const Variants: Story = {
   ),
 };
 
+/** Set colorScheme to highlight for emphasis and solid variants. */
 export const HighlightColorScheme: Story = {
   render: () => (
     <Flex gap="400">
@@ -262,6 +267,7 @@ export const HighlightColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to functional for outline and ghost variants. */
 export const FunctionalColorScheme: Story = {
   render: () => (
     <Flex gap="400">
@@ -275,6 +281,7 @@ export const FunctionalColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to destructive to signal a dangerous action. */
 export const DestructiveColorScheme: Story = {
   render: () => (
     <Flex gap="400">
@@ -291,6 +298,7 @@ export const DestructiveColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to affirmative to signal a positive action. */
 export const AffirmativeColorScheme: Story = {
   render: () => (
     <Flex gap="400">
@@ -307,6 +315,7 @@ export const AffirmativeColorScheme: Story = {
   ),
 };
 
+/** Set size to md or sm. */
 export const Sizes: Story = {
   render: () => (
     <Flex gap="400" direction="column">
@@ -342,6 +351,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set size to a responsive object to change the button size per breakpoint. */
 export const ResponsiveSize: Story = {
   render: args => (
     <IconButton {...args} size={{ mobile: 'sm', desktop: 'md' }} label="add">
@@ -355,6 +365,7 @@ export const ResponsiveSize: Story = {
   ),
 };
 
+/** Set inverted when placing the button on a dark or brand-coloured background. */
 export const Inverted: Story = {
   render: () => (
     <Flex gap="400" backgroundColor="brand" padding="400">

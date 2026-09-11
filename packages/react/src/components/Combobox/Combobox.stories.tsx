@@ -37,6 +37,10 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return <Combobox {...args} items={fruits} />;
@@ -44,6 +48,11 @@ export const Playground: Story = {
 };
 
 export const DefaultOpen: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
@@ -52,6 +61,10 @@ export const DefaultOpen: Story = {
 };
 
 export const ItemsAsChildren: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return (
@@ -67,6 +80,12 @@ export const ItemsAsChildren: Story = {
 };
 
 export const ItemsWithCustomContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  args: { defaultOpen: true },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return (
@@ -83,6 +102,10 @@ export const ItemsWithCustomContent: Story = {
 };
 
 export const NoItems: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: false },
   render: args => {
     const addressOptions: Array<string> = [];
@@ -123,6 +146,11 @@ export const NoItems: Story = {
 };
 
 export const ScrollArea: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => {
     return (
@@ -153,6 +181,10 @@ const virtualizedItems: Array<VirtualizedItem> = Array.from({ length: 10000 }, (
 });
 
 export const Virtualised: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [open, setOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
@@ -284,6 +316,10 @@ const fruits = [
 
 export const FilterItems: Story = {
   name: 'Filter Items (contains)',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string | null>(null);
     const { contains } = useComboboxFilter({ value });
@@ -303,6 +339,10 @@ export const FilterItems: Story = {
 
 export const FilterItemsStartsWith: Story = {
   name: 'Filter Items (startsWith)',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string | null>(null);
     const { startsWith } = useComboboxFilter({ value });

@@ -39,7 +39,13 @@ const meta: Meta<typeof HighlightBanner> = {
 export default meta;
 type Story = StoryObj<typeof HighlightBanner>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <HighlightBanner heading="Heading" headingColor="highlight" colorScheme="neutralSubtle">
       <Box height="100px" width="200px" />
@@ -50,45 +56,14 @@ export const Playground: Story = {
   ),
 };
 
-export const Showcase: Story = {
-  render: () => (
-    <Flex gap="400" width="800px">
-      <HighlightBanner heading="Save a bundle" headingColor="highlight" colorScheme="neutralStrong">
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <img src={piggies} height="200px" />
-        <HighlightBannerFooter>
-          <BodyText size="md" wrap="wrap">
-            Homeowners who bundle two or more services with UW and activate the Cashback Card trial
-            will receive up to £150 in credit.
-          </BodyText>
-        </HighlightBannerFooter>
-      </HighlightBanner>
-      <HighlightBanner
-        heading="Save money on your household bills when you get it together"
-        headingColor="pig"
-        colorScheme="neutralStrong"
-      >
-        <HighlightBannerContent>
-          <BodyText size="md" textAlign="center">
-            For almost 30 years, we&apos;ve been providing energy, broadband, mobile and insurance
-            to the nation - and helping our customers save along the way.
-          </BodyText>
-          <BodyText size="md" textAlign="center">
-            Want to talk it through? Our network of friendly, local Partners can help you find ways
-            to save.
-          </BodyText>
-          <Link href="#">
-            Find a UW Partner
-            <ChevronRightSmallIcon />
-          </Link>
-        </HighlightBannerContent>
-      </HighlightBanner>
-    </Flex>
-  ),
-};
-
+/** Visual matrix of every headingColor across both colorScheme values — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex gap="200" direction="column">
       {headingColors.map(color => (
@@ -119,11 +94,60 @@ export const KitchenSink: Story = {
   ),
 };
 
-export const ShadowColours: Story = {
+/**
+ * Real-world examples combining HighlightBannerContent and
+ * HighlightBannerFooter with images and links to compose a full banner.
+ */
+export const Showcase: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    options: { selectedPanel: 'storybook/a11y/panel' },
+    interactions: { disable: true },
+  },
+  render: () => (
+    <Flex gap="400" width="800px">
+      <HighlightBanner heading="Save a bundle" headingColor="highlight" colorScheme="neutralStrong">
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
+        <img src={piggies} height="200px" />
+        <HighlightBannerFooter>
+          <BodyText size="md" textWrap="wrap">
+            Homeowners who bundle two or more services with UW and activate the Cashback Card trial
+            will receive up to £150 in credit.
+          </BodyText>
+        </HighlightBannerFooter>
+      </HighlightBanner>
+      <HighlightBanner
+        heading="Save money on your household bills when you get it together"
+        headingColor="pig"
+        colorScheme="neutralStrong"
+      >
+        <HighlightBannerContent>
+          <BodyText size="md" textAlign="center">
+            For almost 30 years, we&apos;ve been providing energy, broadband, mobile and insurance
+            to the nation - and helping our customers save along the way.
+          </BodyText>
+          <BodyText size="md" textAlign="center">
+            Want to talk it through? Our network of friendly, local Partners can help you find ways
+            to save.
+          </BodyText>
+          <Link href="#">
+            Find a UW Partner
+            <ChevronRightSmallIcon />
+          </Link>
+        </HighlightBannerContent>
+      </HighlightBanner>
+    </Flex>
+  ),
+};
+
+/** Set shadowColor to match the banner's drop shadow to its heading colour. */
+export const ShadowColours: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
   render: () => (
     <Flex gap="400" padding="400" wrap="wrap">

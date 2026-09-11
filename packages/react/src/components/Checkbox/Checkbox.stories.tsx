@@ -33,12 +33,19 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Playground: Story = {
-  render: args => <Checkbox {...args} />,
-};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = { parameters: { actions: { disable: true } } };
 
-// Kitchen sink covers all variations so we don't need a Gallery story
+/**
+ * Visual matrix of Checkbox states — used in docs and Chromatic snapshot testing.
+ * Not a usage reference.
+ */
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Grid gap="400" columns="3">
@@ -80,7 +87,12 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Use image to show an icon or image between the check indicator and label. */
 export const WithImage: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex width="fit-content" gap="200" direction="column">
       <Checkbox
@@ -95,7 +107,12 @@ export const WithImage: Story = {
   ),
 };
 
+/** Use checked and onCheckedChange to control the checked state externally. */
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [checked, setChecked] = useState(false);
     return (

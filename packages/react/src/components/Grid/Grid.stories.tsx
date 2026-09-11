@@ -71,6 +71,16 @@ export default meta;
 type Story = StoryObj<typeof Grid>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    columns: '3',
+    width: '600px',
+    gap: '100',
+  },
   render: args => (
     <Grid {...args}>
       <Placeholder padding="400" />
@@ -81,14 +91,14 @@ export const Playground: Story = {
       <Placeholder padding="400" />
     </Grid>
   ),
-  args: {
-    columns: '3',
-    width: '600px',
-    gap: '100',
-  },
 };
 
 export const ResponsiveGrid: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Grid
       defaultResponsiveColumns // columns={{ mobile: '4', tablet: '8', desktop: '12' }}
@@ -104,6 +114,12 @@ export const ResponsiveGrid: Story = {
 };
 
 export const Spacing: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { spacing: 'lg' },
   render: args => (
     <Grid {...args}>
       <Placeholder padding="600" />
@@ -111,7 +127,4 @@ export const Spacing: Story = {
       <Placeholder padding="600" />
     </Grid>
   ),
-  args: {
-    spacing: 'lg',
-  },
 };

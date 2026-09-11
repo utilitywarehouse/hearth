@@ -35,6 +35,10 @@ export default meta;
 type Story = StoryObj<typeof ExpandableCard>;
 
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => (
     <Box width="400px" marginX="auto">
       <ExpandableCard {...args}>
@@ -48,6 +52,12 @@ export const Playground: Story = {
 };
 
 export const WithLeadingIcon: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex width="400px" direction="column" gap="200">
       <ExpandableCard {...args} leadingIcon={<SettingsMediumIcon aria-hidden />}>
@@ -86,6 +96,12 @@ export const WithLeadingIcon: Story = {
 };
 
 export const WithBadge: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="400px" marginX="auto">
       <ExpandableCard
@@ -106,6 +122,12 @@ export const WithBadge: Story = {
 };
 
 export const WithNumericValue: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex direction="column" width="400px" gap="200">
       <ExpandableCard {...args} numericValue="£100">
@@ -133,6 +155,12 @@ export const WithNumericValue: Story = {
 };
 
 export const WithoutHelperText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="400px" marginX="auto">
       <ExpandableCard heading="Heading only" leadingIcon={<SettingsMediumIcon aria-hidden />}>
@@ -143,6 +171,12 @@ export const WithoutHelperText: Story = {
 };
 
 export const DefaultOpen: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="400px" marginX="auto">
       <ExpandableCard
@@ -160,6 +194,12 @@ export const DefaultOpen: Story = {
 };
 
 export const Group: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="400px" marginX="auto">
       <ExpandableCardGroup heading="My services" helperText="Manage your UW services">
@@ -193,6 +233,11 @@ export const Group: Story = {
 };
 
 export const GroupWithoutSectionHeader: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="400px" marginX="auto">
       <ExpandableCardGroup>
@@ -216,6 +261,11 @@ export const GroupWithoutSectionHeader: Story = {
 };
 
 export const DecemberBill: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="400px" marginX="auto">
       <ExpandableCardGroup

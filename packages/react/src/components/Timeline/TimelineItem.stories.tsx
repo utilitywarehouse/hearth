@@ -22,6 +22,10 @@ const meta: Meta<typeof TimelineItem> = {
 export default meta;
 type Story = StoryObj<typeof TimelineItem>;
 
+/**
+ * Visual matrix of TimelineItem states — used in docs and Chromatic snapshot testing.
+ * Not a usage reference; excluded from AI manifests via the !manifest tag.
+ */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
   parameters: { controls: { hideNoControlsWarning: true } },
@@ -34,6 +38,7 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <Timeline>

@@ -18,4 +18,10 @@ const meta: Meta<typeof HelperText> = {
 export default meta;
 type Story = StoryObj<typeof HelperText>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+};

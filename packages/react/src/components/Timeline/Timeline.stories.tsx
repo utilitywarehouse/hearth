@@ -24,6 +24,10 @@ const meta: Meta<typeof Timeline> = {
 export default meta;
 type Story = StoryObj<typeof Timeline>;
 
+/**
+ * Visual matrix of Timeline variants — used in docs and Chromatic snapshot testing.
+ * Not a usage reference; excluded from AI manifests via the !manifest tag.
+ */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
   parameters: { controls: { hideNoControlsWarning: true } },
@@ -40,6 +44,7 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <Timeline {...args}>
@@ -51,6 +56,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set variant to "static" for a timeline with no active progress indicator. */
 export const Static: Story = {
   args: { variant: 'static' },
   render: args => (
@@ -66,6 +72,7 @@ export const Static: Story = {
   ),
 };
 
+/** Set variant to "progress" to highlight the current step among completed and upcoming ones. */
 export const Progress: Story = {
   args: { variant: 'progress' },
   render: args => (

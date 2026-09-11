@@ -37,6 +37,7 @@ const meta: Meta<typeof IconContainer> = {
 export default meta;
 type Story = StoryObj<typeof IconContainer>;
 
+/** Visual matrix of every size, variant, and colorScheme — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
@@ -77,6 +78,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: (args: Pick<IconContainerProps, 'size' | 'variant' | 'colorScheme'>) => (
     <IconContainer {...args}>
@@ -85,6 +87,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set variant to subtle or emphasis. */
 export const Variants: Story = {
   render: () => (
     <Flex gap="200">
@@ -97,6 +100,7 @@ export const Variants: Story = {
   ),
 };
 
+/** Set size to sm, md, or lg. */
 export const Sizes: Story = {
   render: () => (
     <Flex gap="200">
@@ -109,6 +113,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set colorScheme to match the container's icon to a product or category. */
 export const ColorSchemes: Story = {
   render: () => (
     <Flex gap="200">
@@ -121,6 +126,7 @@ export const ColorSchemes: Story = {
   ),
 };
 
+/** Set borderRadius to none to remove the container's rounded corners. */
 export const RadiusNone: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
@@ -163,6 +169,11 @@ export const RadiusNone: Story = {
   },
 };
 
+/**
+ * Set fill to height, width, or both to have the container fill its parent
+ * instead of using a fixed size, combined with borderRadius="inherit" on the
+ * relevant corners to match the parent's rounding.
+ */
 export const Fill: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {

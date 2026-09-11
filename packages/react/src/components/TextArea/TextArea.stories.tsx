@@ -36,15 +36,18 @@ const meta: Meta<typeof TextArea> = {
 export default meta;
 type Story = StoryObj<typeof TextArea>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => <TextArea {...args} />,
 };
 
+/** Use minHeight and maxHeight to constrain the resizable range. */
 export const Height: Story = {
   args: { minHeight: '200px', maxHeight: '400px' },
   render: args => <TextArea {...args} />,
 };
 
+/** Set disabled or readOnly to prevent the TextArea from being edited. */
 export const DisabledAndReadOnly: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -61,6 +64,7 @@ export const DisabledAndReadOnly: Story = {
   args: { helperText: undefined },
 };
 
+/** Set validationStatus and validationText to show valid or invalid feedback. */
 export const Validation: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -83,6 +87,7 @@ export const Validation: Story = {
   args: { helperText: undefined },
 };
 
+/** Use rows to set the TextArea's initial visible height in text rows. */
 export const CustomRows: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -93,6 +98,7 @@ export const CustomRows: Story = {
   ),
 };
 
+/** Control the value with value and onChange for a controlled TextArea. */
 export const Controlled: Story = {
   tags: ['!test'],
   render: args => {
@@ -108,6 +114,7 @@ export const Controlled: Story = {
   },
 };
 
+/** TextArea alongside TextInput in a typical form layout. */
 export const WithTextInput: Story = {
   render: () => (
     <Flex direction="column" gap="400">
