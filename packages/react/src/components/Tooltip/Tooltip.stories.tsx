@@ -44,6 +44,7 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <Flex justifyContent="center" padding="800">
@@ -56,6 +57,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set defaultOpen (or open, for a controlled Tooltip) to have it visible without user interaction. */
 export const DefaultOpen: Story = {
   args: { defaultOpen: true },
   render: args => (
@@ -74,6 +76,7 @@ export const DefaultOpen: Story = {
   ),
 };
 
+/** Use Tooltip to add supplementary information to any trigger element, such as a Button. */
 export const WithButton: Story = {
   render: args => (
     <Flex justifyContent="center" padding="800">
@@ -86,6 +89,7 @@ export const WithButton: Story = {
   ),
 };
 
+/** Set align to position the Tooltip relative to its trigger. */
 export const Alignment: Story = {
   render: () => (
     <Flex direction="column" alignItems="center" gap="400" padding="800">
@@ -139,6 +143,7 @@ export const Alignment: Story = {
   ),
 };
 
+/** Set heading to add a bold title above the Tooltip's description. */
 export const WithHeading: Story = {
   args: { heading: 'Tooltip heading' },
   render: args => (
@@ -152,6 +157,7 @@ export const WithHeading: Story = {
   ),
 };
 
+/** Tooltip wraps long description text onto multiple lines. */
 export const WithLongDescription: Story = {
   render: () => (
     <Flex direction="column" gap="800" padding="800">
@@ -177,6 +183,7 @@ export const WithLongDescription: Story = {
   ),
 };
 
+/** Pass custom content as description for tooltips that need more than plain text. */
 export const WithCustomContent: Story = {
   render: () => (
     <Flex justifyContent="center" padding="800">

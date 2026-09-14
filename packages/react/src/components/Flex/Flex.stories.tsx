@@ -78,6 +78,7 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -97,6 +98,7 @@ export const Playground: Story = {
   },
 };
 
+/** Pass a responsive object to gap to set different values per breakpoint. */
 export const ResponsiveGap: Story = {
   parameters: {
     controls: { disable: true },
@@ -113,6 +115,7 @@ export const ResponsiveGap: Story = {
   ),
 };
 
+/** Use spacing as a shorthand alternative to gap. */
 export const Spacing: Story = {
   parameters: {
     controls: { disable: true },

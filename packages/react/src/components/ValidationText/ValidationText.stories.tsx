@@ -18,4 +18,5 @@ const meta: Meta<typeof ValidationText> = {
 export default meta;
 type Story = StoryObj<typeof ValidationText>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {};

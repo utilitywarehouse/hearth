@@ -13,6 +13,7 @@ const meta: Meta<typeof Strong> = {
 export default meta;
 type Story = StoryObj<typeof Strong>;
 
+/** Visual matrix of Strong across BodyText sizes — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: () => (

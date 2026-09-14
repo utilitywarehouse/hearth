@@ -25,10 +25,12 @@ const meta: Meta<typeof VerificationInput> = {
 export default meta;
 type Story = StoryObj<typeof VerificationInput>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
 };
 
+/** Control the value with value and onValueChange instead of relying on internal state. */
 export const Controlled: Story = {
   render: args => {
     const [value, setValue] = useState('');
@@ -46,6 +48,7 @@ export const Controlled: Story = {
   },
 };
 
+/** Set type="password" to mask each digit as it's entered. */
 export const PasswordType: Story = {
   render: args => {
     const [value, setValue] = useState<string | undefined>();

@@ -17,6 +17,7 @@ const meta: Meta<typeof TableHeaderCell> = {
 export default meta;
 type Story = StoryObj<typeof TableHeaderCell>;
 
+/** Use TableHeaderCell inside TableHeader for column headers, or set row to mark it as a row header inside TableBody. */
 export const Playground: Story = {
   render: args => (
     <Table>

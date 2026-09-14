@@ -31,6 +31,7 @@ const meta: Meta<typeof Container> = {
 export default meta;
 type Story = StoryObj<typeof Container>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -64,6 +65,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Override Container's default horizontal padding tokens for a specific breakpoint. */
 export const OverridePadding: Story = {
   parameters: {
     controls: { disable: true },

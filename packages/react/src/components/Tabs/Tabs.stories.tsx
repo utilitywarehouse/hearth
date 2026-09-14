@@ -31,6 +31,7 @@ const meta: Meta<typeof Tabs> = {
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => (
     <Tabs {...args}>
@@ -52,6 +53,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set size to md or lg to change the Tabs' dimensions. */
 export const Sizes: Story = {
   args: {
     size: 'md',
@@ -95,6 +97,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** TabsList scrolls horizontally once its Tabs no longer fit the available width. */
 export const WithScrolling: Story = {
   render: () => (
     <Tabs defaultValue="one">
@@ -184,6 +187,7 @@ export const WithScrolling: Story = {
   ),
 };
 
+/** Pair a Tab's label with an icon for added visual context. */
 export const WithIcons: Story = {
   render: () => (
     <Tabs defaultValue="one">
@@ -217,6 +221,7 @@ export const WithIcons: Story = {
   ),
 };
 
+/** Control the active tab with value and onValueChange instead of relying on internal state. */
 export const Controlled: Story = {
   render: () => {
     const [value, setValue] = useState('account');

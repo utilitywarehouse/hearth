@@ -34,6 +34,7 @@ const meta: Meta<typeof ExpandableCard> = {
 export default meta;
 type Story = StoryObj<typeof ExpandableCard>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -51,6 +52,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set leadingIcon to show an icon before the heading, optionally paired with leadingIconContainerColorScheme. */
 export const WithLeadingIcon: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -95,6 +97,7 @@ export const WithLeadingIcon: Story = {
   ),
 };
 
+/** Set badge to show a Badge alongside the heading. */
 export const WithBadge: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -121,6 +124,7 @@ export const WithBadge: Story = {
   ),
 };
 
+/** Set numericValue to show a value (e.g. a price) trailing the heading. */
 export const WithNumericValue: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -154,6 +158,7 @@ export const WithNumericValue: Story = {
   ),
 };
 
+/** Omit helperText to show only the heading above the expandable content. */
 export const WithoutHelperText: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -170,6 +175,7 @@ export const WithoutHelperText: Story = {
   ),
 };
 
+/** Set defaultOpen to start the card expanded. */
 export const DefaultOpen: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -193,6 +199,7 @@ export const DefaultOpen: Story = {
   ),
 };
 
+/** Use ExpandableCardGroup to group multiple ExpandableCards under a shared heading. */
 export const Group: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -232,6 +239,7 @@ export const Group: Story = {
   ),
 };
 
+/** Omit heading and helperText on ExpandableCardGroup to render the group without a section header. */
 export const GroupWithoutSectionHeader: Story = {
   parameters: {
     controls: { disable: true },
@@ -260,6 +268,7 @@ export const GroupWithoutSectionHeader: Story = {
   ),
 };
 
+/** A realistic billing breakdown, combining numericValue, leadingIcon, and trailingContent on the group. */
 export const DecemberBill: Story = {
   parameters: {
     controls: { disable: true },

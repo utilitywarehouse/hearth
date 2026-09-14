@@ -39,7 +39,12 @@ type Story = StoryObj<typeof IconContainer>;
 
 /** Visual matrix of every size, variant, and colorScheme — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { diableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="500">
@@ -80,6 +85,10 @@ export const KitchenSink: Story = {
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: (args: Pick<IconContainerProps, 'size' | 'variant' | 'colorScheme'>) => (
     <IconContainer {...args}>
       {args.size === 'sm' ? <PlaceholderSmallIcon /> : <PlaceholderMediumIcon />}
@@ -89,6 +98,11 @@ export const Playground: Story = {
 
 /** Set variant to subtle or emphasis. */
 export const Variants: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex gap="200">
       {variants.map(variant => (
@@ -102,6 +116,11 @@ export const Variants: Story = {
 
 /** Set size to sm, md, or lg. */
 export const Sizes: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex gap="200">
       {sizes.map(size => (
@@ -115,6 +134,11 @@ export const Sizes: Story = {
 
 /** Set colorScheme to match the container's icon to a product or category. */
 export const ColorSchemes: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex gap="200">
       {colorSchemes.map(colorScheme => (
@@ -128,7 +152,12 @@ export const ColorSchemes: Story = {
 
 /** Set borderRadius to none to remove the container's rounded corners. */
 export const RadiusNone: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="500">
@@ -175,7 +204,12 @@ export const RadiusNone: Story = {
  * relevant corners to match the parent's rounding.
  */
 export const Fill: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="row" gap="200">

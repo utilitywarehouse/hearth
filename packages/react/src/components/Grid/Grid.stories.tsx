@@ -70,6 +70,7 @@ const meta: Meta<typeof Grid> = {
 export default meta;
 type Story = StoryObj<typeof Grid>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -93,6 +94,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set defaultResponsiveColumns, or pass a responsive object to columns, to change the grid per breakpoint. */
 export const ResponsiveGrid: Story = {
   parameters: {
     controls: { disable: true },
@@ -113,6 +115,7 @@ export const ResponsiveGrid: Story = {
   ),
 };
 
+/** Use spacing as a shorthand alternative to gap. */
 export const Spacing: Story = {
   parameters: {
     controls: { disable: true },

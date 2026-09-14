@@ -31,12 +31,18 @@ const meta: Meta<typeof CheckboxTile> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
   },
 };
 
+/**
+ * Visual matrix of CheckboxTile with a label, icon, image, helper text, and
+ * validation text — used for docs and Chromatic snapshot testing, not a
+ * usage reference.
+ */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -80,6 +86,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Pass an image to display a logo or icon alongside the label, e.g. for selecting a card payment type. */
 export const WithImage: Story = {
   parameters: {
     controls: { disable: true },
@@ -104,6 +111,7 @@ export const WithImage: Story = {
   ),
 };
 
+/** Control CheckboxTile's checked state externally via checked and onCheckedChange. */
 export const Controlled: Story = {
   parameters: {
     controls: { disable: true },

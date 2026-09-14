@@ -23,6 +23,7 @@ const meta: Meta<typeof Heading> = {
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
@@ -30,6 +31,7 @@ export const Playground: Story = {
   },
 };
 
+/** Visual matrix of Heading sizes. */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -50,6 +52,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Set inverted to render the heading for use on a brand-colored background. */
 export const InvertedText: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

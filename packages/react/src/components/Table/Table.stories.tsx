@@ -27,6 +27,7 @@ const meta: Meta<typeof Table> = {
 export default meta;
 type Story = StoryObj<typeof Table>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => {
     return (
@@ -52,6 +53,7 @@ export const Playground: Story = {
   },
 };
 
+/** Visual matrix of Table variants. */
 export const KitchenSink: Story = {
   render: () => {
     return (
@@ -81,6 +83,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Nest a Table inside a Card to group it with related content. */
 export const InsideCard: Story = {
   render: () => {
     return (
@@ -175,6 +178,7 @@ function usePaginatedSeededData<T extends { id: string | number }>(
   return { pageData, totalItems };
 }
 
+/** Pass a TablePagination element to the pagination prop to paginate long datasets. */
 export const Pagination: Story = {
   render: args => {
     const [currentPage, setCurrentPage] = useState(1);

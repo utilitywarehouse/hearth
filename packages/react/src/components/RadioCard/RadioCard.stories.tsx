@@ -24,6 +24,7 @@ const meta: Meta<typeof RadioCard> = {
 export default meta;
 type Story = StoryObj<typeof RadioCard>;
 
+/** RadioCard wraps its children as extra content below the label, inside a RadioGroup. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: () => {

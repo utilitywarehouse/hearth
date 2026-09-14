@@ -29,6 +29,7 @@ const meta: Meta<typeof ToggleGroup> = {
 export default meta;
 type Story = StoryObj<typeof ToggleGroup>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
@@ -93,6 +94,7 @@ export const Playground: Story = {
   },
 };
 
+/** Use type="single" on the parent ToggleGroup to allow only one ToggleButtonCard to be selected at a time. */
 export const Single: Story = {
   render: args => {
     return (
@@ -112,6 +114,7 @@ export const Single: Story = {
   },
 };
 
+/** Use type="multiple" on the parent ToggleGroup to allow several ToggleButtonCards to be selected at once. */
 export const Multiple: Story = {
   render: args => {
     return (
@@ -131,6 +134,7 @@ export const Multiple: Story = {
   },
 };
 
+/** Control value and onValueChange to keep a ToggleButtonCard always selected, ignoring attempts to deselect it. */
 export const SingleWithOneAlwaysSelected: Story = {
   render: args => {
     const [value, setValue] = useState('2');
@@ -159,6 +163,7 @@ export const SingleWithOneAlwaysSelected: Story = {
   },
 };
 
+/** Set alignItems="start" to align a ToggleButtonCard's content to the start instead of stretching it. */
 export const StartAligned: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
@@ -225,6 +230,7 @@ export const StartAligned: Story = {
   },
 };
 
+/** Nest interactive elements like CardInteraction inside a ToggleButtonCard's content without triggering selection. */
 export const InteractiveContent: Story = {
   render: args => {
     const [value, setValue] = useState<string>('fixed');
@@ -296,6 +302,7 @@ export const InteractiveContent: Story = {
   },
 };
 
+/** Use ToggleButtonCard inside a Grid column span for a real-world pricing layout. */
 export const LayoutExample: Story = {
   render: args => {
     const [value, setValue] = useState<string>('fixed');
@@ -361,6 +368,7 @@ export const LayoutExample: Story = {
   },
 };
 
+/** Pass a responsive object to direction to change ToggleGroup's layout per breakpoint. */
 export const ResponsiveDirection: Story = {
   render: args => {
     return (

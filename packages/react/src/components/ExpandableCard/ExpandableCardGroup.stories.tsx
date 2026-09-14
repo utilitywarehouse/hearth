@@ -25,6 +25,7 @@ const meta: Meta<typeof ExpandableCardGroup> = {
 export default meta;
 type Story = StoryObj<typeof ExpandableCardGroup>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },

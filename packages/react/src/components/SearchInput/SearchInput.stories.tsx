@@ -28,6 +28,7 @@ const meta: Meta<typeof SearchInput> = {
 export default meta;
 type Story = StoryObj<typeof SearchInput>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => {
     const [value, setValue] = useState<string>('');
@@ -43,6 +44,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set loading to show a spinner and disable input interaction while results are fetched. */
 export const Loading: Story = {
   render: args => {
     const [value, setValue] = useState<string>('Energy');
@@ -58,6 +60,7 @@ export const Loading: Story = {
   },
 };
 
+/** Use SearchInput inside a form with role="search" for semantic search forms. */
 export const FormUsage: Story = {
   render: args => {
     const [value, setValue] = useState<string>('');
@@ -74,6 +77,7 @@ export const FormUsage: Story = {
   },
 };
 
+/** Pair SearchInput with a Button for a combined search bar and submit action. */
 export const UsageWithButton: Story = {
   render: () => {
     const [value, setValue] = useState<string>('');

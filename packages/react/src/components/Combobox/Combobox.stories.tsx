@@ -36,6 +36,7 @@ const meta: Meta<typeof Combobox> = {
 export default meta;
 type Story = StoryObj<typeof Combobox>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -47,6 +48,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set defaultOpen to render the Combobox already expanded. */
 export const DefaultOpen: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -60,6 +62,7 @@ export const DefaultOpen: Story = {
   },
 };
 
+/** Pass ComboboxItem children directly instead of the items prop when option content needs full control. */
 export const ItemsAsChildren: Story = {
   parameters: {
     actions: { disable: true },
@@ -79,6 +82,7 @@ export const ItemsAsChildren: Story = {
   },
 };
 
+/** Render arbitrary content, not just text, inside each ComboboxItem. */
 export const ItemsWithCustomContent: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -101,6 +105,7 @@ export const ItemsWithCustomContent: Story = {
   },
 };
 
+/** Handle an empty result set by combining triggerOnlyOnType with a controlled input value, e.g. for postcode lookup. */
 export const NoItems: Story = {
   parameters: {
     actions: { disable: true },
@@ -145,6 +150,7 @@ export const NoItems: Story = {
   },
 };
 
+/** Combobox scrolls its dropdown once options exceed the available height. */
 export const ScrollArea: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -180,6 +186,7 @@ const virtualizedItems: Array<VirtualizedItem> = Array.from({ length: 10000 }, (
   return { id, name: `Item ${indexLabel}` };
 });
 
+/** Set virtualized and provide filteredItems for large option lists, rendering only the items currently in view. */
 export const Virtualised: Story = {
   parameters: {
     controls: { disable: true },
@@ -314,6 +321,7 @@ const fruits = [
   'Strawberry',
 ];
 
+/** Use the contains matcher from useComboboxFilter to filter options anywhere within their label. */
 export const FilterItems: Story = {
   name: 'Filter Items (contains)',
   parameters: {
@@ -337,6 +345,7 @@ export const FilterItems: Story = {
   },
 };
 
+/** Use the startsWith matcher from useComboboxFilter to filter options by their leading characters. */
 export const FilterItemsStartsWith: Story = {
   name: 'Filter Items (startsWith)',
   parameters: {

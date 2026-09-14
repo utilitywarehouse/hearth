@@ -45,6 +45,10 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
+/**
+ * Visual matrix of every Badge variant, colour scheme, and size combination —
+ * used for docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -101,8 +105,10 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = { parameters: { actions: { disable: true } } };
 
+/** Set variant to switch between subtle, emphasis, and outline styles. */
 export const Variants: Story = {
   parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
@@ -114,6 +120,7 @@ export const Variants: Story = {
   ),
 };
 
+/** Set size to sm or md, or pass a responsive object to size differently per breakpoint. */
 export const Sizes: Story = {
   parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
@@ -125,6 +132,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set colorScheme to apply a semantic or brand colour. */
 export const ColorSchemes: Story = {
   parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
@@ -141,6 +149,7 @@ export const ColorSchemes: Story = {
   ),
 };
 
+/** Set flatBase to remove the bottom radius when the Badge sits directly above another container. */
 export const FlatBase: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -159,6 +168,7 @@ export const FlatBase: Story = {
   ),
 };
 
+/** Render an icon alongside the label to reinforce a status, e.g. success or failure. */
 export const Icons: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -179,6 +189,7 @@ export const Icons: Story = {
   ),
 };
 
+/** Badge colour schemes adapt automatically depending on the surrounding surface colour. */
 export const SurfaceColours: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

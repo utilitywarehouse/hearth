@@ -20,6 +20,7 @@ const meta: Meta<typeof ProgressBar> = {
 export default meta;
 type Story = StoryObj<typeof ProgressBar>;
 
+/** Interactive sandbox — use the controls panel to explore all props, in both linear and circular variants. */
 export const Playground: Story = {
   tags: ['!test'],
   parameters: { chromatic: { disableSnapshot: true } },
@@ -46,6 +47,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set variant to linear or circular. */
 export const Variants: Story = {
   render: () => {
     return (
@@ -57,6 +59,7 @@ export const Variants: Story = {
   },
 };
 
+/** Set colorScheme to default, success, or danger. */
 export const ColorSchemes: Story = {
   render: () => {
     return (
@@ -74,6 +77,7 @@ export const ColorSchemes: Story = {
   },
 };
 
+/** Set size on the circular variant, including a responsive value per breakpoint. */
 export const Sizes: Story = {
   render: () => {
     return (
@@ -91,6 +95,7 @@ export const Sizes: Story = {
   },
 };
 
+/** Use formatValueText to customize how the progress value is displayed. */
 export const FormatValueText: Story = {
   render: () => {
     return (
@@ -114,12 +119,14 @@ export const FormatValueText: Story = {
   },
 };
 
+/** Set hideLabel to visually hide the label while keeping it accessible to screen readers. */
 export const HideLabel: Story = {
   render: () => {
     return <ProgressBar label="Hidden label" value={60} hideLabel />;
   },
 };
 
+/** ProgressBar grows to fill a flex container when placed inside one with flexGrow. */
 export const WithinFlex: Story = {
   parameters: { controls: { disable: true } },
   render: () => {

@@ -38,6 +38,7 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
+/** Interactive sandbox — RadioGroup wraps either RadioTile or Radio children. */
 export const Playground: Story = {
   args: {
     name: 'where-do-you-live',
@@ -77,6 +78,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set helperText on individual RadioTile children to add extra context per option. */
 export const RadioHelperText: Story = {
   name: 'Radio HelperText',
   args: {
@@ -96,6 +98,7 @@ export const RadioHelperText: Story = {
   },
 };
 
+/** Set contentWidth to constrain the width of the RadioGroup's children. */
 export const ContentWidth: Story = {
   name: 'Content Width',
   args: { contentWidth: '200px', name: 'content-width' },
@@ -110,6 +113,7 @@ export const ContentWidth: Story = {
   },
 };
 
+/** Set direction to a responsive object to change layout per breakpoint. */
 export const ResponsiveDirection: Story = {
   args: { name: 'responsive-direction', direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
@@ -126,6 +130,7 @@ export const ResponsiveDirection: Story = {
   },
 };
 
+/** Use value and onValueChange to control the selected option yourself. */
 export const Controlled: Story = {
   args: {
     label: 'What is your favourite animal?',
@@ -150,6 +155,7 @@ export const Controlled: Story = {
   },
 };
 
+/** Set validationStatus and validationText to show validation feedback for the group. */
 export const Validation: Story = {
   args: {
     validationText: 'Please tell us what your favourite animal is.',
@@ -176,6 +182,7 @@ export const Validation: Story = {
   },
 };
 
+/** Set validationPlacement to top or bottom to position the validation message. */
 export const ValidationPlacement: Story = {
   name: 'Validation placement',
   render: () => (
@@ -208,6 +215,7 @@ export const ValidationPlacement: Story = {
   ),
 };
 
+/** Children wrap onto multiple lines by default once they no longer fit the available width. */
 export const Wrap: Story = {
   render: args => {
     return (
@@ -230,6 +238,7 @@ export const Wrap: Story = {
   },
 };
 
+/** Pass a custom label node, or omit label and use aria-labelledby to reference an external heading. */
 export const CustomLabel: Story = {
   args: {
     label: undefined,
@@ -267,6 +276,7 @@ export const CustomLabel: Story = {
   },
 };
 
+/** RadioGroup children can be laid out in a Grid instead of the default flex layout. */
 export const WithGrid: Story = {
   render: args => {
     return (

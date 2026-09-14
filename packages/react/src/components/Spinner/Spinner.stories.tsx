@@ -21,10 +21,12 @@ const meta: Meta<typeof Spinner> = {
 export default meta;
 type Story = StoryObj<typeof Spinner>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   tags: ['!test'],
 };
 
+/** Visual matrix of Spinner sizes — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   tags: ['!test'],
   parameters: { chromatic: { disableSnapshot: false } },

@@ -87,6 +87,10 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
+/**
+ * Visual matrix of every Card variant and colour scheme combination — used
+ * for docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -155,6 +159,7 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
@@ -166,6 +171,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set variant to switch between emphasis and subtle styles. */
 export const Variant: Story = {
   parameters: {
     controls: { disable: true },
@@ -184,6 +190,7 @@ export const Variant: Story = {
   ),
 };
 
+/** Set colorScheme to apply a neutral, brand, or highlight colour to the Card. */
 export const ColorScheme: Story = {
   parameters: {
     controls: { disable: true },
@@ -214,6 +221,7 @@ export const ColorScheme: Story = {
   ),
 };
 
+/** Set shadowColor to add a coloured shadow beneath the Card. */
 export const ShadowColours: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -241,6 +249,10 @@ export const ShadowColours: Story = {
   ),
 };
 
+/**
+ * Wrap an interactive element in CardInteraction to make part or all of a
+ * Card clickable while keeping focus and hover states on the right element.
+ */
 export const InteractiveCards: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -539,6 +551,10 @@ export const InteractiveCards: Story = {
   },
 };
 
+/**
+ * Nest CardInteraction around a Link to make the whole Card navigable, with a
+ * secondary CardInteraction for an independent action like a like button.
+ */
 export const WithoutLink: Story = {
   parameters: {
     controls: { disable: true },
@@ -610,6 +626,7 @@ export const WithoutLink: Story = {
   },
 };
 
+/** Use CardActionLink to render a single navigable row inside a Card, with an optional leading icon and badge. */
 export const SingleCardActionLink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -664,6 +681,7 @@ export const SingleCardActionLink: Story = {
   ),
 };
 
+/** Use CardActionButton to render a single actionable row inside a Card, with an optional leading icon and badge. */
 export const SingleCardActionButton: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -715,6 +733,7 @@ export const SingleCardActionButton: Story = {
   ),
 };
 
+/** Compose multiple CardActionButtons inside CardActions to build a list of actions within a single Card. */
 export const WithOnlyCardActions: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -754,6 +773,7 @@ export const WithOnlyCardActions: Story = {
   ),
 };
 
+/** Combine CardContent with CardActions to pair informational content with a row or column of actions. */
 export const WithCardActions: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -806,6 +826,7 @@ export const WithCardActions: Story = {
   ),
 };
 
+/** CardActions items can be added or removed conditionally based on component state. */
 export const ConditionalCardActions: Story = {
   parameters: {
     controls: { disable: true },
@@ -878,6 +899,7 @@ export const ConditionalCardActions: Story = {
   },
 };
 
+/** Combine IconContainer, Heading, and CardInteraction inside a Grid to build a set of linked service summary cards. */
 export const InteractiveServiceCards: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -958,6 +980,7 @@ export const InteractiveServiceCards: Story = {
   ),
 };
 
+/** Use CardBannerContent to lay out a heading, description, and optional link inside a Card. */
 export const BannerContent: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -980,6 +1003,7 @@ export const BannerContent: Story = {
   ),
 };
 
+/** Pair CardBannerContent with an IconContainer, either inline or stacked above the text. */
 export const BannerWithIconContainer: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -1028,6 +1052,7 @@ export const BannerWithIconContainer: Story = {
   ),
 };
 
+/** Pair CardBannerContent with a CardBannerImage to lead with a photographic image. */
 export const BannerWithImage: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -1063,6 +1088,7 @@ export const BannerWithImage: Story = {
   ),
 };
 
+/** Pair CardBannerContent with an illustration image, centred and inline with the text. */
 export const BannerWithIllustration: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

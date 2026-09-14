@@ -27,7 +27,13 @@ type Story = StoryObj<typeof InlineLink>;
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
 
+/** Use InlineLink for a link embedded within a line of body text. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex
       direction="column"
@@ -52,10 +58,15 @@ export const Playground: Story = {
   ),
 };
 
+/** Set target to "_blank" to open the link in a new tab; use hideOpenIcon to suppress the external-link icon. */
 export const OpenInNewTab: Story = {
-  args: {
-    target: '_blank',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
+  args: { target: '_blank' },
   render: args => (
     <Flex gap="600">
       <InlineLink {...args}>Visit help pages</InlineLink>
@@ -66,8 +77,14 @@ export const OpenInNewTab: Story = {
   ),
 };
 
+/** Visual matrix of InlineLink across the surrounding BodyText's sizes and weights. */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -85,7 +102,14 @@ export const KitchenSink: Story = {
   },
 };
 
+/** InlineLink wraps naturally with the surrounding text when its content is long. */
 export const LengthyContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: (args: Pick<InlineLinkProps, 'children'>) => (
     <Flex width="600px">
       <BodyText>
@@ -97,7 +121,14 @@ export const LengthyContent: Story = {
   args: { children: 'follow our handy guide to set your International call cap' },
 };
 
+/** Set color to "inverted" or "inherit" to change InlineLink's color against different backgrounds. */
 export const Color: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex
       direction="column"

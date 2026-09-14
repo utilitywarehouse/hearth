@@ -55,7 +55,13 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="400px">
       <List
@@ -121,7 +127,14 @@ export const Playground: Story = {
   },
 };
 
+/** Visual matrix of List variants and color schemes. */
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex direction="column" gap="600">
       <Box width="300px">
@@ -157,7 +170,14 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Set paddingNone to remove List's outer padding. */
 export const PaddingNone: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex gap="400">
       <List {...args} paddingNone>
@@ -199,7 +219,14 @@ export const PaddingNone: Story = {
   ),
 };
 
+/** Set leadingContent on ListItemContent to show an icon, IconContainer, or Avatar before the heading. */
 export const LeadingContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Leading Content',
     helperText: '',
@@ -255,7 +282,14 @@ export const LeadingContent: Story = {
   ),
 };
 
+/** Set trailingContent on ListItemContent to show an icon, Switch, Link, or transaction amount after the heading. */
 export const TrailingContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Trailing Content',
     helperText: '',
@@ -320,7 +354,14 @@ export const TrailingContent: Story = {
   ),
 };
 
+/** trailingContent accepts arbitrary custom content, such as multiple actions. */
 export const CustomTrailingContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Custom Trailing Content',
     helperText: '',
@@ -369,7 +410,18 @@ export const CustomTrailingContent: Story = {
   },
 };
 
+/** Every ListItemContent, ListItemButton, and ListItemLink variant combined in a single List. */
 export const AllListItems: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
   render: args => (
     <Box width="400px">
       <List
@@ -508,13 +560,16 @@ export const AllListItems: Story = {
       </List>
     </Box>
   ),
-  args: {
-    variant: 'subtle',
-    colorScheme: 'neutralSubtle',
-  },
 };
 
+/** A List made entirely of static ListItemContent items. */
 export const ListItemContents: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -542,10 +597,16 @@ export const ListItemContents: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
+/** Pass a Switch as trailingContent to make a list item toggleable. */
 export const ListItemContentWithSwitch: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -559,10 +620,16 @@ export const ListItemContentWithSwitch: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
+/** Pass a Link as trailingContent to make a list item navigable. */
 export const ListItemContentWithLink: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -576,10 +643,16 @@ export const ListItemContentWithLink: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
+/** Compose trailingContent with BodyText to show transaction amounts, e.g. for a billing or spend history list. */
 export const ListItemContentWithTransaction: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -615,10 +688,16 @@ export const ListItemContentWithTransaction: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
+/** Set badge on ListItemContent, optionally with badgePlacement="top", to show a status Badge. */
 export const ListItemContentWithBadge: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -644,10 +723,16 @@ export const ListItemContentWithBadge: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
+/** A List made entirely of interactive ListItemButton items. */
 export const ListItemButtons: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -669,10 +754,16 @@ export const ListItemButtons: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
+/** A List made entirely of navigable ListItemLink items. */
 export const ListItemLinks: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
   render: args => (
     <Box width="300px">
       <List {...args}>
@@ -694,10 +785,16 @@ export const ListItemLinks: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
+/** Use ListActionLink or ListActionButton as the final item to append a standalone list-level action. */
 export const ListActions: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
   render: args => (
     <Flex gap="400" width="700px">
       <List {...args}>
@@ -761,10 +858,16 @@ export const ListActions: Story = {
       </List>
     </Flex>
   ),
-  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
+/** List items can render arbitrary custom content instead of the built-in item components. */
 export const CustomContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { heading: undefined, helperText: undefined },
   render: args => {
     const events = [

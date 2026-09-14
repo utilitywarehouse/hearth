@@ -50,6 +50,7 @@ export const Playground: Story = {
   },
 };
 
+/** Opens the calendar popover on load — used for Chromatic snapshot testing of the expanded state. */
 export const WithCalendarDisplayed: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

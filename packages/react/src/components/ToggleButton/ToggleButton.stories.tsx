@@ -24,6 +24,7 @@ const meta: Meta<typeof ToggleButton> = {
 export default meta;
 type Story = StoryObj<typeof ToggleButton>;
 
+/** Visual matrix of ToggleButton selected/unselected states — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true }, chromatic: { disableSnapshot: false } },
   render: () => (
@@ -48,6 +49,7 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => (
@@ -59,6 +61,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Use type="single" on the parent ToggleGroup to allow only one ToggleButton to be selected at a time. */
 export const Single: Story = {
   render: () => (
     <ToggleGroup type="single" gap="200">
@@ -71,6 +74,7 @@ export const Single: Story = {
   ),
 };
 
+/** Use type="multiple" on the parent ToggleGroup to allow several ToggleButtons to be selected at once. */
 export const Multiple: Story = {
   render: () => (
     <ToggleGroup type="multiple" gap="200">
@@ -104,6 +108,7 @@ const tariffs = [
   },
 ];
 
+/** Use ToggleButton as a selectable plan/tariff action inside a larger composed layout. */
 export const TariffComparison: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: () => {
@@ -144,6 +149,7 @@ export const TariffComparison: Story = {
   },
 };
 
+/** ToggleGroup's direction can respond to breakpoints when laying out ToggleButtons inside a Grid. */
 export const InsideGrid: Story = {
   render: () => {
     const [selected, setSelected] = useState<string>('fixed');

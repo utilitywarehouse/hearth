@@ -29,6 +29,10 @@ const meta: Meta<typeof BodyText> = {
 export default meta;
 type Story = StoryObj<typeof BodyText>;
 
+/**
+ * Visual matrix of every BodyText size and weight combination — used for docs
+ * and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: true },
@@ -79,6 +83,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
@@ -86,6 +91,7 @@ export const Playground: Story = {
   },
 };
 
+/** Set size to sm, md, lg, or xl, or pass a responsive object to size differently per breakpoint. */
 export const TextSizes: Story = {
   parameters: {
     actions: { disable: true },
@@ -106,6 +112,7 @@ export const TextSizes: Story = {
   },
 };
 
+/** Set weight to regular, semibold, or bold, or pass a responsive object to weight differently per breakpoint. */
 export const TextWeights: Story = {
   parameters: {
     actions: { disable: true },
@@ -126,6 +133,7 @@ export const TextWeights: Story = {
   },
 };
 
+/** Set color to apply a semantic text colour. */
 export const Colours: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -149,6 +157,7 @@ export const Colours: Story = {
   },
 };
 
+/** Set truncate to stop text wrapping and clip overflow with an ellipsis. */
 export const TextTruncate: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -173,6 +182,7 @@ export const TextTruncate: Story = {
   },
 };
 
+/** Set color to inverted for text on a brand-coloured background. */
 export const InvertedText: Story = {
   parameters: {
     actions: { disable: true },
@@ -192,6 +202,7 @@ export const InvertedText: Story = {
   },
 };
 
+/** Set paragraphSpacing to add a bottom margin between paragraphs of text. */
 export const ParagraphSpacing: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

@@ -18,6 +18,7 @@ const meta: Meta<typeof HelperText> = {
 export default meta;
 type Story = StoryObj<typeof HelperText>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },

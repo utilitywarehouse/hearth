@@ -24,8 +24,10 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {};
 
+/** Set size to sm or md to change the Switch's dimensions. */
 export const Sizes: Story = {
   render: args => (
     <Flex direction="row" gap="200">
@@ -36,6 +38,7 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set disabled to prevent the Switch from being toggled. */
 export const Disabled: Story = {
   args: { disabled: true },
   render: args => (
@@ -46,6 +49,7 @@ export const Disabled: Story = {
   ),
 };
 
+/** Associate a Switch with visible label text via htmlFor, or pass aria-label when no visible label is present. */
 export const Labelled: Story = {
   args: { label: undefined, size: 'sm' },
   render: args => (
@@ -61,6 +65,7 @@ export const Labelled: Story = {
   ),
 };
 
+/** Pass a responsive object to size to change the Switch's dimensions per breakpoint. */
 export const ResponsiveSize: Story = {
   args: {
     size: { mobile: 'sm', desktop: 'md' },

@@ -28,10 +28,12 @@ const meta: Meta<typeof PasswordInput> = {
 export default meta;
 type Story = StoryObj<typeof PasswordInput>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   render: args => <PasswordInput {...args} />,
 };
 
+/** Set disabled or readOnly to control whether the password can be edited. */
 export const DisabledAndReadOnly: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -46,6 +48,7 @@ export const DisabledAndReadOnly: Story = {
   ),
 };
 
+/** Set validationStatus and validationText to show valid or invalid feedback below the field. */
 export const Validation: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -68,6 +71,7 @@ export const Validation: Story = {
   args: { helperText: undefined },
 };
 
+/** PasswordInput works as a controlled input both inside and outside a form element. */
 export const FormUsage: Story = {
   render: args => {
     const [value, setValue] = useState<string>('password123');

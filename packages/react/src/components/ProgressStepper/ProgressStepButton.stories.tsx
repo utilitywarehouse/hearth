@@ -16,6 +16,7 @@ const meta: Meta<typeof ProgressStepButton> = {
 export default meta;
 type Story = StoryObj<typeof ProgressStepButton>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   args: {
     status: 'active',

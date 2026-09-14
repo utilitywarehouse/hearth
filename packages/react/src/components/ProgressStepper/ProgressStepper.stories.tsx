@@ -28,6 +28,10 @@ const meta: Meta<typeof ProgressStepper> = {
 export default meta;
 type Story = StoryObj<typeof ProgressStepper>;
 
+/**
+ * Visual matrix of ProgressStepper with plain, link, and button steps —
+ * used in docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
@@ -64,6 +68,7 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive example — step status updates as you move through with Prev/Next. */
 export const Playground: Story = {
   render: args => {
     const [currentStep, setCurrentStep] = useState(1);
@@ -106,6 +111,7 @@ export const Playground: Story = {
   },
 };
 
+/** Use plain ProgressStep children for steps that aren't interactive. */
 export const StaticSteps: Story = {
   render: args => {
     return (
@@ -119,6 +125,7 @@ export const StaticSteps: Story = {
   },
 };
 
+/** Use ProgressStepLink children to navigate to a step via an href. */
 export const LinkSteps: Story = {
   render: args => {
     return (
@@ -132,6 +139,7 @@ export const LinkSteps: Story = {
   },
 };
 
+/** Use ProgressStepButton children to navigate to a step via onClick. */
 export const ButtonSteps: Story = {
   render: args => {
     return (
@@ -153,6 +161,7 @@ export const ButtonSteps: Story = {
   },
 };
 
+/** Set disabled on a ProgressStepLink or ProgressStepButton to prevent navigating to that step. */
 export const DisabledSteps: Story = {
   render: args => {
     return (

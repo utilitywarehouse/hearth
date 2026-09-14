@@ -13,6 +13,7 @@ const meta: Meta<typeof Breadcrumbs> = {
 export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
+/** Shows Breadcrumbs in both default and inverted colour schemes, the latter for use on darker surfaces. */
 export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
