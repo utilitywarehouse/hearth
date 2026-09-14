@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, waitFor, within } from 'storybook/test';
+import { userEvent, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { Modal } from '../Modal/Modal';
