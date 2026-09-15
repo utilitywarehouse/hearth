@@ -18,7 +18,7 @@ export const KitchenSink: Story = {
   tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
-    conrol: { disable: true },
+controls: { disable: true }
     actions: { disable: true },
     interactions: { disable: true },
   },
