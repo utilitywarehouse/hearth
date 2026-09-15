@@ -19,9 +19,6 @@ const meta: Meta<typeof Avatar> = {
 export default meta;
 type Story = StoryObj<typeof Avatar>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {};
-
 /** Visual matrix of Avatar sizes and content — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: {
@@ -56,6 +53,9 @@ export const KitchenSink: Story = {
     );
   },
 };
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {};
 
 /** Pass an object to size to change the Avatar's size across breakpoints. */
 export const ResponsiveSize: Story = {

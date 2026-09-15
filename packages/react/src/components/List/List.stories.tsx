@@ -55,6 +55,49 @@ const meta: Meta<typeof List> = {
 export default meta;
 type Story = StoryObj<typeof List>;
 
+/** Visual matrix of List variants and color schemes. */
+export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => (
+    <Flex direction="column" gap="600">
+      <Box width="300px">
+        <List {...args}>
+          <ListItem>List item</ListItem>
+          <ListItem>List item</ListItem>
+          <ListItem>List item</ListItem>
+          <ListItem>List item</ListItem>
+          <ListItem>List item</ListItem>
+        </List>
+      </Box>
+      {(['subtle', 'emphasis'] as const).map(variant => (
+        <Flex key={variant} gap="400">
+          {(['neutralStrong', 'neutralSubtle'] as const).map(colorScheme => (
+            <Box key={colorScheme} width="300px">
+              <List
+                {...args}
+                key={`${variant}${colorScheme}`}
+                variant={variant}
+                colorScheme={colorScheme}
+              >
+                <ListItem>List item</ListItem>
+                <ListItem>List item</ListItem>
+                <ListItem>List item</ListItem>
+                <ListItem>List item</ListItem>
+                <ListItem>List item</ListItem>
+              </List>
+            </Box>
+          ))}
+        </Flex>
+      ))}
+    </Flex>
+  ),
+};
+
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
@@ -125,49 +168,6 @@ export const Playground: Story = {
     variant: 'emphasis',
     colorScheme: 'neutralStrong',
   },
-};
-
-/** Visual matrix of List variants and color schemes. */
-export const KitchenSink: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: args => (
-    <Flex direction="column" gap="600">
-      <Box width="300px">
-        <List {...args}>
-          <ListItem>List item</ListItem>
-          <ListItem>List item</ListItem>
-          <ListItem>List item</ListItem>
-          <ListItem>List item</ListItem>
-          <ListItem>List item</ListItem>
-        </List>
-      </Box>
-      {(['subtle', 'emphasis'] as const).map(variant => (
-        <Flex key={variant} gap="400">
-          {(['neutralStrong', 'neutralSubtle'] as const).map(colorScheme => (
-            <Box key={colorScheme} width="300px">
-              <List
-                {...args}
-                key={`${variant}${colorScheme}`}
-                variant={variant}
-                colorScheme={colorScheme}
-              >
-                <ListItem>List item</ListItem>
-                <ListItem>List item</ListItem>
-                <ListItem>List item</ListItem>
-                <ListItem>List item</ListItem>
-                <ListItem>List item</ListItem>
-              </List>
-            </Box>
-          ))}
-        </Flex>
-      ))}
-    </Flex>
-  ),
 };
 
 /** Set paddingNone to remove List's outer padding. */

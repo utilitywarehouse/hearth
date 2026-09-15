@@ -33,9 +33,6 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = { parameters: { actions: { disable: true } } };
-
 /**
  * Visual matrix of Checkbox states — used in docs and Chromatic snapshot testing.
  * Not a usage reference.
@@ -86,6 +83,9 @@ export const KitchenSink: Story = {
     );
   },
 };
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = { parameters: { actions: { disable: true } } };
 
 /** Use image to show an icon or image between the check indicator and label. */
 export const WithImage: Story = {

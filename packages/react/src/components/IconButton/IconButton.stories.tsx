@@ -29,19 +29,6 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {
-  parameters: {
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: args => (
-    <IconButton {...args}>
-      <AddMediumIcon />
-    </IconButton>
-  ),
-};
-
 /** Visual matrix of every variant, colorScheme, and size — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: {
@@ -211,6 +198,19 @@ export const KitchenSink: Story = {
       </Flex>
     );
   },
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => (
+    <IconButton {...args}>
+      <AddMediumIcon />
+    </IconButton>
+  ),
 };
 
 /** Set asChild to render the IconButton as a wrapped anchor instead of a button. */

@@ -26,7 +26,11 @@ type Story = StoryObj<typeof RadioCard>;
 
 /** RadioCard wraps its children as extra content below the label, inside a RadioGroup. */
 export const Playground: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex>

@@ -18,6 +18,10 @@ type Story = StoryObj<typeof ProgressStepButton>;
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     status: 'active',
     label: 'Payment data',

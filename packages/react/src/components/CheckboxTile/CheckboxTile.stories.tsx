@@ -31,13 +31,6 @@ const meta: Meta<typeof CheckboxTile> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {
-  parameters: {
-    actions: { disable: true },
-  },
-};
-
 /**
  * Visual matrix of CheckboxTile with a label, icon, image, helper text, and
  * validation text — used for docs and Chromatic snapshot testing, not a
@@ -83,6 +76,13 @@ export const KitchenSink: Story = {
         </Flex>
       </Grid>
     );
+  },
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
   },
 };
 

@@ -35,15 +35,6 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {
-  parameters: { controls: { disable: true } },
-  args: {
-    variant: 'solid',
-    colorScheme: 'highlight',
-  },
-};
-
 /**
  * Visual matrix of every Button variant, colour scheme, and size, including
  * disabled and loading states — used for docs and Chromatic snapshot
@@ -193,6 +184,15 @@ export const KitchenSink: Story = {
         ))}
       </Flex>
     );
+  },
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: { controls: { disable: true } },
+  args: {
+    variant: 'solid',
+    colorScheme: 'highlight',
   },
 };
 

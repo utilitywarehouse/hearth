@@ -22,6 +22,15 @@ type Story = StoryObj<typeof Radio>;
 
 /** Interactive sandbox — use the controls panel to explore all props, including an icon and an image. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    value: '1',
+    label: 'Radio label',
+    helperText: 'Radio helper text',
+  },
   tags: ['!test'],
   render: (args: Pick<RadioProps, 'value' | 'label' | 'helperText'>) => {
     return (
@@ -43,10 +52,5 @@ export const Playground: Story = {
         </RadioGroup>
       </Flex>
     );
-  },
-  args: {
-    value: '1',
-    label: 'Radio label',
-    helperText: 'Radio helper text',
   },
 };

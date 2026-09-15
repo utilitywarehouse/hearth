@@ -34,14 +34,13 @@ const meta: Meta<typeof ExpandableCard> = {
 export default meta;
 type Story = StoryObj<typeof ExpandableCard>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
   },
   render: args => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCard {...args}>
         <BodyText size="md">
           This is the expandable content area. It can contain any content you need to show when the
@@ -52,7 +51,6 @@ export const Playground: Story = {
   ),
 };
 
-/** Set leadingIcon to show an icon before the heading, optionally paired with leadingIconContainerColorScheme. */
 export const WithLeadingIcon: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -97,7 +95,6 @@ export const WithLeadingIcon: Story = {
   ),
 };
 
-/** Set badge to show a Badge alongside the heading. */
 export const WithBadge: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -106,7 +103,7 @@ export const WithBadge: Story = {
     interactions: { disable: true },
   },
   render: args => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCard
         {...args}
         badge={
@@ -124,7 +121,6 @@ export const WithBadge: Story = {
   ),
 };
 
-/** Set numericValue to show a value (e.g. a price) trailing the heading. */
 export const WithNumericValue: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -158,7 +154,6 @@ export const WithNumericValue: Story = {
   ),
 };
 
-/** Omit helperText to show only the heading above the expandable content. */
 export const WithoutHelperText: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -167,7 +162,7 @@ export const WithoutHelperText: Story = {
     interactions: { disable: true },
   },
   render: () => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCard heading="Heading only" leadingIcon={<SettingsMediumIcon aria-hidden />}>
         <BodyText size="md">Content without helper text below the heading.</BodyText>
       </ExpandableCard>
@@ -175,7 +170,6 @@ export const WithoutHelperText: Story = {
   ),
 };
 
-/** Set defaultOpen to start the card expanded. */
 export const DefaultOpen: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -184,7 +178,7 @@ export const DefaultOpen: Story = {
     interactions: { disable: true },
   },
   render: () => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCard
         heading="Heading"
         helperText="This card starts expanded"
@@ -199,7 +193,6 @@ export const DefaultOpen: Story = {
   ),
 };
 
-/** Use ExpandableCardGroup to group multiple ExpandableCards under a shared heading. */
 export const Group: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -208,7 +201,7 @@ export const Group: Story = {
     interactions: { disable: true },
   },
   render: () => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCardGroup heading="My services" helperText="Manage your UW services">
         <ExpandableCard
           heading="Broadband"
@@ -239,7 +232,6 @@ export const Group: Story = {
   ),
 };
 
-/** Omit heading and helperText on ExpandableCardGroup to render the group without a section header. */
 export const GroupWithoutSectionHeader: Story = {
   parameters: {
     controls: { disable: true },
@@ -247,7 +239,7 @@ export const GroupWithoutSectionHeader: Story = {
     interactions: { disable: true },
   },
   render: () => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCardGroup>
         <ExpandableCard
           heading="Broadband"
@@ -268,7 +260,6 @@ export const GroupWithoutSectionHeader: Story = {
   ),
 };
 
-/** A realistic billing breakdown, combining numericValue, leadingIcon, and trailingContent on the group. */
 export const DecemberBill: Story = {
   parameters: {
     controls: { disable: true },
@@ -276,7 +267,7 @@ export const DecemberBill: Story = {
     interactions: { disable: true },
   },
   render: () => (
-    <Box width="400px" marginX="auto">
+    <Box width="400px">
       <ExpandableCardGroup
         heading="Your December bill"
         trailingContent={

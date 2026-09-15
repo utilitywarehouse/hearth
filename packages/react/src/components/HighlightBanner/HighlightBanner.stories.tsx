@@ -39,23 +39,6 @@ const meta: Meta<typeof HighlightBanner> = {
 export default meta;
 type Story = StoryObj<typeof HighlightBanner>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: () => (
-    <HighlightBanner heading="Heading" headingColor="highlight" colorScheme="neutralSubtle">
-      <Box height="100px" width="200px" />
-      <HighlightBannerFooter>
-        <BodyText size="md">Description</BodyText>
-      </HighlightBannerFooter>
-    </HighlightBanner>
-  ),
-};
-
 /** Visual matrix of every headingColor across both colorScheme values — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
   parameters: {
@@ -91,6 +74,23 @@ export const KitchenSink: Story = {
         </Flex>
       ))}
     </Flex>
+  ),
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => (
+    <HighlightBanner heading="Heading" headingColor="highlight" colorScheme="neutralSubtle">
+      <Box height="100px" width="200px" />
+      <HighlightBannerFooter>
+        <BodyText size="md">Description</BodyText>
+      </HighlightBannerFooter>
+    </HighlightBanner>
   ),
 };
 

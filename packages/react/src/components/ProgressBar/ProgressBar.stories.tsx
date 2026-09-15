@@ -22,8 +22,8 @@ type Story = StoryObj<typeof ProgressBar>;
 
 /** Interactive sandbox — use the controls panel to explore all props, in both linear and circular variants. */
 export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: true }, actions: { disable: true } },
   tags: ['!test'],
-  parameters: { chromatic: { disableSnapshot: true } },
   render: (args: Pick<ProgressBarProps, 'value' | 'label' | 'colorScheme'>) => {
     const [value, setValue] = useState(20);
 
@@ -49,6 +49,11 @@ export const Playground: Story = {
 
 /** Set variant to linear or circular. */
 export const Variants: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex gap="800" backgroundColor="secondary" padding="300" alignItems="center">
@@ -61,6 +66,12 @@ export const Variants: Story = {
 
 /** Set colorScheme to default, success, or danger. */
 export const ColorSchemes: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="400">
@@ -79,6 +90,12 @@ export const ColorSchemes: Story = {
 
 /** Set size on the circular variant, including a responsive value per breakpoint. */
 export const Sizes: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex gap="400" alignItems="center" padding="300" backgroundColor="secondary">
@@ -97,6 +114,12 @@ export const Sizes: Story = {
 
 /** Use formatValueText to customize how the progress value is displayed. */
 export const FormatValueText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="400">
@@ -121,6 +144,12 @@ export const FormatValueText: Story = {
 
 /** Set hideLabel to visually hide the label while keeping it accessible to screen readers. */
 export const HideLabel: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return <ProgressBar label="Hidden label" value={60} hideLabel />;
   },
@@ -128,7 +157,11 @@ export const HideLabel: Story = {
 
 /** ProgressBar grows to fill a flex container when placed inside one with flexGrow. */
 export const WithinFlex: Story = {
-  parameters: { controls: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex width="400px">
