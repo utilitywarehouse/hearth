@@ -27,6 +27,11 @@ type Story = StoryObj<typeof Select>;
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Select {...args}>
@@ -43,7 +48,12 @@ export const Playground: Story = {
 
 /** Set defaultOpen to render the Select with its options already visible. */
 export const DefaultOpen: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { defaultOpen: true, defaultValue: '2' },
   render: args => {
     return (
@@ -61,6 +71,11 @@ export const DefaultOpen: Story = {
 
 /** A large number of SelectItems scrolls within the option list rather than overflowing the viewport. */
 export const ScrollArea: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Select {...args}>
@@ -76,7 +91,12 @@ export const ScrollArea: Story = {
 
 /** Long SelectItem text truncates within the trigger and option list rather than wrapping. */
 export const Truncate: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { defaultOpen: true, defaultValue: '2' },
   render: args => {
     return (

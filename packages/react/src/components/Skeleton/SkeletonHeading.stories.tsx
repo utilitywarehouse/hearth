@@ -29,6 +29,10 @@ type Story = StoryObj<typeof SkeletonHeading>;
 
 /** Interactive sandbox — use the controls panel to explore the size prop. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="360px">
       <Skeleton loadingTitle="playground story">
@@ -40,6 +44,12 @@ export const Playground: Story = {
 
 /** All available size values, from sm through 2xl. */
 export const Sizes: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="sizes story">
       <Flex direction="column" gap="200" width="360px">
@@ -53,6 +63,11 @@ export const Sizes: Story = {
 
 /** Combine SkeletonHeadings of different sizes to placeholder a title with nested subheadings. */
 export const ContentBlock: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="content block story">
       <Flex direction="column" gap="300" width="420px">

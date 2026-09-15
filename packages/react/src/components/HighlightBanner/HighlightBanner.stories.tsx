@@ -41,6 +41,7 @@ type Story = StoryObj<typeof HighlightBanner>;
 
 /** Visual matrix of every headingColor across both colorScheme values — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

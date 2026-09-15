@@ -27,34 +27,15 @@ const meta: Meta<typeof Table> = {
 export default meta;
 type Story = StoryObj<typeof Table>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
-export const Playground: Story = {
-  render: args => {
-    return (
-      <Table {...args}>
-        <TableHeader>
-          <TableHeaderCell>Name</TableHeaderCell>
-          <TableHeaderCell>Email</TableHeaderCell>
-          <TableHeaderCell>Phone</TableHeaderCell>
-          <TableHeaderCell>City</TableHeaderCell>
-        </TableHeader>
-        <TableBody>
-          {personalDetails.slice(0, 3).map(person => (
-            <TableRow key={person.id}>
-              <TableCell>{person.name}</TableCell>
-              <TableCell>{person.email}</TableCell>
-              <TableCell>{person.phone}</TableCell>
-              <TableCell>{person.city}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    );
-  },
-};
-
 /** Visual matrix of Table variants. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="600">
@@ -83,8 +64,44 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => {
+    return (
+      <Table {...args}>
+        <TableHeader>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>Phone</TableHeaderCell>
+          <TableHeaderCell>City</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {personalDetails.slice(0, 3).map(person => (
+            <TableRow key={person.id}>
+              <TableCell>{person.name}</TableCell>
+              <TableCell>{person.email}</TableCell>
+              <TableCell>{person.phone}</TableCell>
+              <TableCell>{person.city}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+};
+
 /** Nest a Table inside a Card to group it with related content. */
 export const InsideCard: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Card colorScheme="neutralStrong" variant="subtle" paddingNone>
@@ -180,6 +197,12 @@ function usePaginatedSeededData<T extends { id: string | number }>(
 
 /** Pass a TablePagination element to the pagination prop to paginate long datasets. */
 export const Pagination: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;

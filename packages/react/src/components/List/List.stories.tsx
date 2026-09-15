@@ -57,6 +57,7 @@ type Story = StoryObj<typeof List>;
 
 /** Visual matrix of List variants and color schemes. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

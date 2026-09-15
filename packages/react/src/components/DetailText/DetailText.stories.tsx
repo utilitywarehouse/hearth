@@ -28,6 +28,7 @@ type Story = StoryObj<typeof DetailText>;
 
 /** Visual matrix of all text sizes, used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     controls: { disable: true },
     actions: { disable: true },

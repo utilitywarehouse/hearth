@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Em>;
 
 /** Visual matrix of Em across BodyText sizes — used in Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

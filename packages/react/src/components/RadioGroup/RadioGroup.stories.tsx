@@ -43,6 +43,7 @@ type Story = StoryObj<typeof RadioGroup>;
  * not a usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },

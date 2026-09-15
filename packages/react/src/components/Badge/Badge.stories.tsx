@@ -50,6 +50,7 @@ type Story = StoryObj<typeof Badge>;
  * used for docs and Chromatic snapshot testing, not a usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

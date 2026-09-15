@@ -33,6 +33,7 @@ type Story = StoryObj<typeof ProgressStepper>;
  * used in docs and Chromatic snapshot testing, not a usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

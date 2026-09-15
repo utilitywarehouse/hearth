@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Breadcrumbs>;
 
 /** Shows Breadcrumbs in both default and inverted colour schemes, the latter for use on darker surfaces. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

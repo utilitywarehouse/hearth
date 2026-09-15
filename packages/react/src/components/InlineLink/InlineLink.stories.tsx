@@ -79,6 +79,7 @@ export const OpenInNewTab: Story = {
 
 /** Visual matrix of InlineLink across the surrounding BodyText's sizes and weights. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

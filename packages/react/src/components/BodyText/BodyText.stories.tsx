@@ -34,6 +34,7 @@ type Story = StoryObj<typeof BodyText>;
  * and Chromatic snapshot testing, not a usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: true },
     actions: { disable: true },

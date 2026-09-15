@@ -39,6 +39,7 @@ type Story = StoryObj<typeof IconContainer>;
 
 /** Visual matrix of every size, variant, and colorScheme — used for Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { diableSnapshot: false },
     actions: { disable: true },

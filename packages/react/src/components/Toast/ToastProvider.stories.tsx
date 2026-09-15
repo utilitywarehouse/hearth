@@ -16,6 +16,10 @@ type Story = StoryObj<typeof ToastProvider>;
 
 /** Wrap your app in ToastProvider so Toasts rendered anywhere inside it can appear. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   tags: ['!test'],
   render: args => {
     const [open, setOpen] = useState(false);

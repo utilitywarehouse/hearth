@@ -41,6 +41,7 @@ type Story = StoryObj<typeof Button>;
  * testing, not a usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

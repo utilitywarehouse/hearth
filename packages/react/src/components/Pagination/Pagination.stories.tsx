@@ -28,6 +28,7 @@ type Story = StoryObj<typeof Pagination>;
 
 /** Visual matrix of Pagination props. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },

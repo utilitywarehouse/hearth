@@ -25,6 +25,7 @@ type Story = StoryObj<typeof Divider>;
 
 /** Divider used both to separate content within a Flex row and between stacked sections — used in Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

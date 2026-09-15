@@ -26,7 +26,13 @@ type Story = StoryObj<typeof ToggleButton>;
 
 /** Visual matrix of ToggleButton selected/unselected states — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true }, chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="200">
       <BodyText as="p" size="md" weight="semibold">
@@ -51,7 +57,11 @@ export const KitchenSink: Story = {
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    controls: { disable: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ToggleGroup type="single" gap="200">
       <ToggleButton {...args} value="one" />
@@ -63,6 +73,11 @@ export const Playground: Story = {
 
 /** Use type="single" on the parent ToggleGroup to allow only one ToggleButton to be selected at a time. */
 export const Single: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <ToggleGroup type="single" gap="200">
       {['One', 'Two', 'Three', 'Four'].map(label => (
@@ -76,6 +91,11 @@ export const Single: Story = {
 
 /** Use type="multiple" on the parent ToggleGroup to allow several ToggleButtons to be selected at once. */
 export const Multiple: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <ToggleGroup type="multiple" gap="200">
       {['One', 'Two', 'Three', 'Four'].map(label => (
@@ -98,7 +118,7 @@ const tariffs = [
     id: 'variable',
     name: 'Variable',
     price: '£153.00',
-    description: 'Rates that move with the market — could go up or down',
+    description: 'Rates that move with the market could go up or down',
   },
   {
     id: 'green',
@@ -110,7 +130,11 @@ const tariffs = [
 
 /** Use ToggleButton as a selectable plan/tariff action inside a larger composed layout. */
 export const TariffComparison: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [selected, setSelected] = useState<string>('fixed');
     return (
@@ -151,6 +175,12 @@ export const TariffComparison: Story = {
 
 /** ToggleGroup's direction can respond to breakpoints when laying out ToggleButtons inside a Grid. */
 export const InsideGrid: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [selected, setSelected] = useState<string>('fixed');
     return (

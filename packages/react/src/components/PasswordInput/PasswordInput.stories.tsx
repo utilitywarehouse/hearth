@@ -30,6 +30,7 @@ type Story = StoryObj<typeof PasswordInput>;
 
 /** Visual matrix of PasswordInput props. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },

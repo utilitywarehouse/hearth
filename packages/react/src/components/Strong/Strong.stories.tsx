@@ -15,7 +15,13 @@ type Story = StoryObj<typeof Strong>;
 
 /** Visual matrix of Strong across BodyText sizes — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    conrol: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="100">
       {sizes.map(size => (

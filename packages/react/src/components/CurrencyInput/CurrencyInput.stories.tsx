@@ -29,6 +29,7 @@ type Story = StoryObj<typeof CurrencyInput>;
 
 /** Shows uncontrolled and controlled usage, plus disableGroupSeparators to remove thousands separators. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

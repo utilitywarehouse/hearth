@@ -2,13 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useEffect, useRef, useState } from 'react';
 import { Button } from '../Button/Button';
 import { Toast } from './Toast';
-import { ToastActionLink } from './ToastActionLink';
+import { ToastActionButton } from './ToastActionButton';
 import { ToastProvider } from './ToastProvider';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
-const meta: Meta<typeof ToastActionLink> = {
-  title: 'Components / Toast / ToastActionLink',
-  component: ToastActionLink,
+const meta: Meta<typeof ToastActionButton> = {
+  title: 'Components / Toast / ToastActionButton',
+  component: ToastActionButton,
   decorators: [
     Story => (
       <ToastProvider>
@@ -17,13 +17,12 @@ const meta: Meta<typeof ToastActionLink> = {
     ),
   ],
   args: {
-    href: '#',
-    altText: 'Visit #',
+    altText: 'Do Better',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof ToastActionLink>;
+type Story = StoryObj<typeof ToastActionButton>;
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
@@ -59,7 +58,7 @@ export const Playground: Story = {
           icon={<TickCircleMediumIcon />}
           description="Toast description"
         >
-          <ToastActionLink {...args}>Link</ToastActionLink>
+          <ToastActionButton {...args}>Button</ToastActionButton>
         </Toast>
       </div>
     );

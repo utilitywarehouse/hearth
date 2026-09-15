@@ -20,6 +20,7 @@ type Story = StoryObj<typeof Alert>;
 
 /** Visual matrix of Alert colour schemes — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

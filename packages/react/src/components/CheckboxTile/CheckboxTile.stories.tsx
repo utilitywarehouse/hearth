@@ -37,6 +37,7 @@ type Story = StoryObj<typeof CheckboxTile>;
  * usage reference.
  */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },

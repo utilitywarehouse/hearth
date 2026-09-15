@@ -30,9 +30,14 @@ type Story = StoryObj<typeof Timeline>;
  */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
-    <Flex direction="column" gap="400">
+    <Flex direction="row" gap="600">
       {variants.map(variant => (
         <Timeline key={variant} variant={variant}>
           <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
@@ -46,6 +51,10 @@ export const KitchenSink: Story = {
 
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Timeline {...args}>
       <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />
@@ -58,6 +67,11 @@ export const Playground: Story = {
 
 /** Set variant to "static" for a timeline with no active progress indicator. */
 export const Static: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { variant: 'static' },
   render: args => (
     <Timeline {...args}>
@@ -74,6 +88,11 @@ export const Static: Story = {
 
 /** Set variant to "progress" to highlight the current step among completed and upcoming ones. */
 export const Progress: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { variant: 'progress' },
   render: args => (
     <Timeline {...args}>
@@ -89,6 +108,12 @@ export const Progress: Story = {
  * additional per-item content such as an amount.
  */
 export const BudgetPlanSchedule: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { variant: 'progress' },
   render: args => (
     <Timeline {...args}>
@@ -133,6 +158,11 @@ export const BudgetPlanSchedule: Story = {
  * needs its own visual grouping — such as an action the user needs to take.
  */
 export const WithCard: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { variant: 'progress' },
   render: args => (
     <Timeline {...args}>
@@ -159,6 +189,12 @@ export const WithCard: Story = {
  * when the final item's `state` is `incomplete`.
  */
 export const DanglingRail: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { variant: 'progress' },
   render: args => (
     <Timeline {...args} danglingRail>

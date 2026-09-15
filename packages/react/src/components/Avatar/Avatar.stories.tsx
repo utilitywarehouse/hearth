@@ -21,6 +21,7 @@ type Story = StoryObj<typeof Avatar>;
 
 /** Visual matrix of Avatar sizes and content — used in docs and Chromatic snapshot testing. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
