@@ -41,7 +41,7 @@ type Story = StoryObj<typeof IconContainer>;
 export const KitchenSink: Story = {
   tags: ['!manifest'],
   parameters: {
-    chromatic: { diableSnapshot: false },
+chromatic: { disableSnapshot: false }
     actions: { disable: true },
     controls: { disable: true },
     interactions: { disable: true },
