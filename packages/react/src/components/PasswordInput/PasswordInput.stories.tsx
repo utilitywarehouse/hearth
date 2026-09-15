@@ -44,7 +44,7 @@ export const KitchenSink: Story = {
         {...args}
         label="Disabled"
         disabled
-        helperText="Please enter you username first"
+        helperText="Please enter your username first"
       />
       <PasswordInput {...args} label="Read only" readOnly value="password123" />
       <PasswordInput
