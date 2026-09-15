@@ -75,6 +75,7 @@ export const WithCalendarDisplayed: Story = {
     const trigger = canvas.getByRole('button');
     await userEvent.click(trigger);
     trigger.blur();
+  },
 };
 
 /** Use DatePicker inside a native form element. */
