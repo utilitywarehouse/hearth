@@ -20,7 +20,6 @@ const meta: Meta<typeof ListItemContent> = {
 export default meta;
 type Story = StoryObj<typeof ListItemContent>;
 
-/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     controls: { disable: true },

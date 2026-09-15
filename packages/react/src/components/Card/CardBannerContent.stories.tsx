@@ -21,7 +21,6 @@ const meta: Meta<typeof CardBannerContent> = {
 export default meta;
 type Story = StoryObj<typeof CardBannerContent>;
 
-/** Interactive sandbox — use the controls panel to explore heading and description. */
 export const Playground: Story = {
   parameters: {
     controls: { disable: true },

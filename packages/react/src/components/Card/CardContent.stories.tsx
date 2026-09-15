@@ -18,7 +18,6 @@ type Story = StoryObj<typeof CardContent>;
 /** Interactive sandbox for laying out heading and body content inside a Card. */
 export const Playground: Story = {
   parameters: {
-    controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
   },

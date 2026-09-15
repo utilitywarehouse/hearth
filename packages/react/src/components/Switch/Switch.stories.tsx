@@ -24,7 +24,7 @@ const meta: Meta<typeof Switch> = {
 export default meta;
 type Story = StoryObj<typeof Switch>;
 
-/** Visual matrix of Switch sizes — used in docs and Chromatic snapshot testing. */
+/** Visual matrix of Switch sizes. */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
   render: args => (

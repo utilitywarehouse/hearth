@@ -36,7 +36,7 @@ type Story = StoryObj<typeof BodyText>;
 export const KitchenSink: Story = {
   tags: ['!manifest'],
   parameters: {
-    chromatic: { disableSnapshot: true },
+    chromatic: { disableSnapshot: false },
     actions: { disable: true },
     controls: { disable: true },
   },
