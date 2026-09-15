@@ -16,7 +16,12 @@ const meta: Meta<typeof CardAccordion> = {
 export default meta;
 type Story = StoryObj<typeof CardAccordion>;
 
+/** A multi-step example combining CardAccordionItem, CardAccordionFooter, and CardAccordionButton. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   tags: ['!test'],
   render: () => {
     return (

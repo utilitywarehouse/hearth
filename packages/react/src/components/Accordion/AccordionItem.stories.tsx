@@ -13,6 +13,11 @@ export default meta;
 type Story = StoryObj<typeof AccordionItem>;
 
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   tags: ['!test'],
   args: {
     title: 'Item 1',

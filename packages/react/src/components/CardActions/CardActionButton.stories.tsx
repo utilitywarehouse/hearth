@@ -21,7 +21,13 @@ const meta: Meta<typeof CardActionButton> = {
 export default meta;
 type Story = StoryObj<typeof CardActionButton>;
 
+/** An interactive card action rendered as a button, with a leading icon, heading, helper text, and badge. */
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card width="300px">
       <CardActionButton

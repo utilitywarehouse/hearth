@@ -14,8 +14,13 @@ const meta: Meta<typeof MenuContent> = {
 export default meta;
 type Story = StoryObj<typeof MenuContent>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   tags: ['!test'],
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Menu>

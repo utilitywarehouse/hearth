@@ -13,9 +13,14 @@ const meta: Meta<typeof Breadcrumbs> = {
 export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
-// Kitchen sink covers all variations so we don't need a Gallery story
+/** Shows Breadcrumbs in both default and inverted colour schemes, the latter for use on darker surfaces. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column">

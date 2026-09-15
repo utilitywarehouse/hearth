@@ -45,8 +45,17 @@ const meta: Meta<typeof Badge> = {
 export default meta;
 type Story = StoryObj<typeof Badge>;
 
+/**
+ * Visual matrix of every Badge variant, colour scheme, and size combination —
+ * used for docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="500">
@@ -97,9 +106,12 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Playground: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = { parameters: { actions: { disable: true } } };
 
+/** Set variant to switch between subtle, emphasis, and outline styles. */
 export const Variants: Story = {
+  parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
     <Flex gap="200">
       <Badge variant="subtle">Subtle</Badge>
@@ -109,7 +121,9 @@ export const Variants: Story = {
   ),
 };
 
+/** Set size to sm or md, or pass a responsive object to size differently per breakpoint. */
 export const Sizes: Story = {
+  parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
     <Flex gap="200" alignItems="center">
       <Badge size="sm">Small</Badge>
@@ -119,7 +133,9 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set colorScheme to apply a semantic or brand colour. */
 export const ColorSchemes: Story = {
+  parameters: { actions: { disable: true }, controls: { disable: true } },
   render: () => (
     <Flex gap="200" wrap="wrap">
       <Badge colorScheme="info">Info</Badge>
@@ -134,7 +150,13 @@ export const ColorSchemes: Story = {
   ),
 };
 
+/** Set flatBase to remove the bottom radius when the Badge sits directly above another container. */
 export const FlatBase: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => (
     <Box>
       <Flex justifyContent="end" paddingRight="300" width="400px">
@@ -147,7 +169,13 @@ export const FlatBase: Story = {
   ),
 };
 
+/** Render an icon alongside the label to reinforce a status, e.g. success or failure. */
 export const Icons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => (
     <Flex gap="200">
       <Badge colorScheme="positive">
@@ -162,7 +190,13 @@ export const Icons: Story = {
   ),
 };
 
+/** Badge colour schemes adapt automatically depending on the surrounding surface colour. */
 export const SurfaceColours: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => (
     <Flex width="600px">
       <Flex gap="200" direction="column" padding="200" backgroundColor="primary">

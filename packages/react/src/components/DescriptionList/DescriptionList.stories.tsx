@@ -30,7 +30,12 @@ const meta: Meta<typeof DescriptionList> = {
 export default meta;
 type Story = StoryObj<typeof DescriptionList>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="550px">
       <DescriptionList {...args} trailingContent={<Link href="#">Link</Link>}>
@@ -61,8 +66,13 @@ export const Playground: Story = {
   ),
 };
 
+/** Set direction to row or column to change how each DescriptionListItem lays out its heading and description. */
 export const Directions: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex width="550px" direction="column" gap="800">
       <DescriptionList
@@ -127,7 +137,13 @@ export const Directions: Story = {
   ),
 };
 
+/** Set direction to a responsive object to switch layout direction across breakpoints. */
 export const ResponsiveDirection: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Contact details',
     helperText: '',
@@ -147,7 +163,13 @@ export const ResponsiveDirection: Story = {
   ),
 };
 
+/** DescriptionList sizes to the width of its content when used inside a constrained container like Card. */
 export const ContentWidth: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Card>
       <Flex direction="column">
@@ -170,7 +192,13 @@ export const ContentWidth: Story = {
   ),
 };
 
+/** Use DescriptionList inside a Card, with trailingContent set to a Badge. */
 export const InsideCard: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card maxWidth="550px">
       <DescriptionList {...args} trailingContent={<Badge size="sm">Badge</Badge>} width="100%">

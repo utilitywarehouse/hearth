@@ -23,9 +23,23 @@ const meta: Meta<typeof Heading> = {
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
-export const Playground: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+};
 
+/** Visual matrix of Heading sizes. */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -39,15 +53,20 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Set inverted to render the heading for use on a brand-colored background. */
 export const InvertedText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { inverted: true },
   render: args => {
     return (
       <Box backgroundColor="brand" padding="400">
         <Heading {...args}>Inverted text</Heading>
       </Box>
     );
-  },
-  args: {
-    inverted: true,
   },
 };

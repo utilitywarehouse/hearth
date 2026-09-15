@@ -22,6 +22,11 @@ export default meta;
 type Story = StoryObj<typeof DescriptionListItem>;
 
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="550px">
       <DescriptionList heading="Description List" headingElement="h1" helperText="Helper text">

@@ -22,19 +22,12 @@ const meta: Meta<typeof TimelineItem> = {
 export default meta;
 type Story = StoryObj<typeof TimelineItem>;
 
-export const KitchenSink: Story = {
-  tags: ['!manifest'],
-  parameters: { controls: { hideNoControlsWarning: true } },
-  render: () => (
-    <Timeline>
-      {states.map(state => (
-        <TimelineItem key={state} state={state} label={`${state} item`} helperText="1 March 2026" />
-      ))}
-    </Timeline>
-  ),
-};
-
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Timeline>
       <TimelineItem {...args} />
@@ -47,6 +40,11 @@ export const Playground: Story = {
  * here, an amount alongside the schedule date.
  */
 export const WithCustomContent: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Timeline>
       <TimelineItem state="complete" label="First payment collected" helperText="1 April 2026">

@@ -32,7 +32,13 @@ const meta: Meta<typeof UnstyledIconButton> = {
 export default meta;
 type Story = StoryObj<typeof UnstyledIconButton>;
 
+/** Interactive sandbox — use the controls panel to explore all props. Set inverted for use on a dark background. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: (args: UnstyledIconButtonProps) => (
     <Flex direction="column">
       <Box padding="200">
@@ -49,7 +55,13 @@ export const Playground: Story = {
   ),
 };
 
+/** Use UnstyledIconButton as a dismiss trigger inside a Card. */
 export const WithCard: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Box width="365px">
       <Card>
@@ -69,7 +81,14 @@ export const WithCard: Story = {
   ),
 };
 
+/** Set asChild to render UnstyledIconButton as a link or other element instead of a button. */
 export const AsLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: (args: Pick<UnstyledIconButtonProps, 'size' | 'disabled' | 'label'>) => {
     return (
       <Flex gap="200">

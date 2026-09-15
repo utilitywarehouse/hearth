@@ -22,6 +22,11 @@ export default meta;
 type Story = StoryObj<typeof ListItemLink>;
 
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="400px">
       <List heading="List">

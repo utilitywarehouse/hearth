@@ -16,7 +16,13 @@ const meta: Meta<typeof ChipGroup> = {
 export default meta;
 type Story = StoryObj<typeof ChipGroup>;
 
+/** Interactive sandbox — wrap Chips in ChipGroup, optionally introduced by a label. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ChipGroup {...args}>
       <Chip>Gas</Chip>

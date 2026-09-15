@@ -21,7 +21,13 @@ const meta: Meta<typeof CardActionLink> = {
 export default meta;
 type Story = StoryObj<typeof CardActionLink>;
 
+/** A card action rendered as a link via href, with a leading icon, heading, helper text, and badge. */
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card width="300px">
       <CardActionLink

@@ -78,7 +78,11 @@ const meta: Meta<typeof Box> = {
 export default meta;
 type Story = StoryObj<typeof Box>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   args: {
     height: '128px',
     width: '128px',
@@ -91,7 +95,12 @@ export const Playground: Story = {
   render: args => <Box {...args} />,
 };
 
+/** Pass a raw CSS custom property to a border colour prop when a design token doesn't cover the value needed. */
 export const BorderColorVarProps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     paddingY: '200',
     borderWidth: '1',
@@ -104,7 +113,12 @@ export const BorderColorVarProps: Story = {
   render: args => <Box {...args} />,
 };
 
+/** Set padding, width, and margin to a responsive object to vary Box's spacing per breakpoint. */
 export const ResponsiveProps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     asChild: true,
     children: 'Responsive props',
@@ -134,7 +148,12 @@ export const ResponsiveProps: Story = {
   ),
 };
 
+/** Set display to a responsive object to hide or show a Box at different breakpoints. */
 export const HideContent: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   name: 'Responsively hide content',
   render: () => (
     <Flex gap="300" direction="column">
@@ -181,7 +200,12 @@ const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   );
 };
 
+/** Set asChild to merge Box's props onto a custom component instead of rendering its own element. */
 export const CustomAnchorStory: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   name: 'Custom Component',
   render: () => <CustomAnchor />,
 };

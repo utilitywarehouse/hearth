@@ -63,6 +63,16 @@ await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocumen
 - For content that stays mounted but toggles visibility (e.g. a `forceMount`-style prop backed by a `hidden` attribute), assert with `toBeVisible()` / `not.toBeVisible()` rather than presence/absence — `jest-dom`'s `toBeVisible` respects `hidden` on ancestors.
 - Use `userEvent.click(...)` (not raw `.click()`) for interactions — it produces more realistic pointer events.
 
+## Leave a clean end state if the story is Chromatic-snapshotted
+
+Chromatic runs a story's `play` function before capturing its snapshot, and there's no supported way to skip that. `userEvent.click(...)` focuses the clicked element as a side effect, so a `play` function that ends on a click leaves that element focused — its focus-visible outline then shows up in the Chromatic snapshot as a spurious diff, even though nothing about the component changed (this happened to `Accordion`'s `Playground` story).
+
+If the story a `play` function is attached to is (or might later be) opted into Chromatic snapshotting (`chromatic: { disableSnapshot: false }`), end the `play` function by blurring whatever element it last interacted with:
+
+```ts
+trigger.blur();
+```
+
 ## What's worth testing
 
 Focus `play` functions on behavior driven by **this component's own props and custom logic** — not on behavior the underlying primitive library (Radix UI / Base UI) already owns, like generic keyboard navigation or focus management. Concretely:

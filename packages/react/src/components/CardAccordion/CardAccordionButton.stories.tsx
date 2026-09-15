@@ -13,6 +13,7 @@ const meta: Meta<typeof CardAccordionButton> = {
 export default meta;
 type Story = StoryObj<typeof CardAccordionButton>;
 
+/** Use action to set whether the button advances to the next step or returns to the previous one. */
 export const Playground: Story = {
   tags: ['!test'],
   args: {

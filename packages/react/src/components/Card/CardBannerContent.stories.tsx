@@ -22,6 +22,11 @@ export default meta;
 type Story = StoryObj<typeof CardBannerContent>;
 
 export const Playground: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card spacing="lg" justifyContent="between">
       <CardBannerContent {...args}>

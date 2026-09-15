@@ -37,7 +37,12 @@ const meta: Meta<typeof CheckboxGroup> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxGroup>;
 
+/** A group of CheckboxTiles sharing a name, label, and validation state. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex asChild>
       <form>
@@ -52,7 +57,12 @@ export const Playground: Story = {
   ),
 };
 
+/** Use value and onValueChange to control the checked values externally. */
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [value, setValue] = useState(['1']);
     return (
@@ -70,7 +80,13 @@ export const Controlled: Story = {
   },
 };
 
+/** Helper text set on individual CheckboxTiles instead of the group. */
 export const CheckboxHelperText: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   name: 'Checkbox HelperText',
   args: {
     label: 'Choose music you enjoy.',
@@ -88,8 +104,16 @@ export const CheckboxHelperText: Story = {
   },
 };
 
+/** Use validationStatus and validationText to show a validation message driven by controlled state. */
 export const Validation: Story = {
-  name: 'Validation',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: {
+    validationText: 'Please pick two.',
+    label: 'What are your two favourite animals?',
+  },
   render: args => {
     const [selected, setSelected] = useState<Array<string>>([]);
     return (
@@ -108,14 +132,15 @@ export const Validation: Story = {
       </CheckboxGroup>
     );
   },
-  args: {
-    validationText: 'Please pick two.',
-    label: 'What are your two favourite animals?',
-  },
 };
 
+/** Use validationPlacement to show the validation text above or below the group. */
 export const ValidationPlacement: Story = {
-  name: 'Validation placement',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400">
       <CheckboxGroup
@@ -142,7 +167,14 @@ export const ValidationPlacement: Story = {
   ),
 };
 
+/** Use contentWidth to set the width of the group's children independently of the group itself. */
 export const ContentWidth: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { contentWidth: '200px' },
   render: args => {
     return (
       <CheckboxGroup {...args} helperText="Setting the width of the children elements">
@@ -152,10 +184,15 @@ export const ContentWidth: Story = {
       </CheckboxGroup>
     );
   },
-  args: { contentWidth: '200px' },
 };
 
+/** With direction set to row, children wrap onto multiple lines once they no longer fit the available width. */
 export const Wrap: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     return (
       <Box height="800px" width="350px" padding="200">

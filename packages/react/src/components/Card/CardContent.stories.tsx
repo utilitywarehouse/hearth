@@ -15,7 +15,12 @@ const meta: Meta<typeof CardContent> = {
 export default meta;
 type Story = StoryObj<typeof CardContent>;
 
+/** Interactive sandbox for laying out heading and body content inside a Card. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Card width="fit-content">
       <CardContent {...args} direction="column" spacing="lg">

@@ -32,7 +32,12 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ModalRoot>
       <ModalTrigger>
@@ -56,36 +61,14 @@ export const Playground: Story = {
   ),
 };
 
-export const WithCombobox: Story = {
-  render: args => {
-    const fruits = ['Apple', 'Banana', 'Orange'];
-    return (
-      <ModalRoot>
-        <ModalTrigger>
-          <Button>Open modal</Button>
-        </ModalTrigger>
-        <Modal {...args}>
-          <Combobox label="Combobox" items={fruits} />
-          <ModalFooter>
-            <ModalClose>
-              <Button variant="ghost" colorScheme="functional">
-                Cancel
-              </Button>
-            </ModalClose>
-            <ModalClose>
-              <Button variant="solid" colorScheme="highlight">
-                Primary
-              </Button>
-            </ModalClose>
-          </ModalFooter>
-        </Modal>
-      </ModalRoot>
-    );
-  },
-};
-
+/** Set defaultOpen on ModalRoot to render the modal open on mount, skipping the trigger. */
 export const DefaultOpen: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Before you go...',
     description: 'Don’t forget, we offer the UK’s cheapest variable energy tariff available. Plus:',
@@ -113,10 +96,13 @@ export const DefaultOpen: Story = {
   ),
 };
 
+/** A long heading wraps onto multiple lines without breaking the layout. */
 export const WithLongHeading: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    a11y: { test: 'off' },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
   args: {
     heading:
@@ -142,10 +128,13 @@ export const WithLongHeading: Story = {
   ),
 };
 
+/** Omit description and rely on body content instead. */
 export const WithoutDescription: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    a11y: { test: 'off' },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
   args: {
     heading:
@@ -175,8 +164,14 @@ export const WithoutDescription: Story = {
   ),
 };
 
+/** Combine a long heading with hideCloseButton to remove the close affordance. */
 export const WithLongHeadingAndHideCloseButton: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading:
       'Your account with BT is either closed or has no live broadband or home phone services',
@@ -202,10 +197,13 @@ export const WithLongHeadingAndHideCloseButton: Story = {
   ),
 };
 
+/** Pass an image to render illustrative artwork above the modal content. */
 export const WithImage: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    a11y: { test: 'off' },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -230,10 +228,14 @@ export const WithImage: Story = {
   ),
 };
 
+/** Set the viewport to mobile to check the modal's responsive layout. */
 export const OnMobile: Story = {
   tags: ['!test'],
   parameters: {
-    chromatic: { delay: 300 },
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
   render: args => (
@@ -259,7 +261,13 @@ export const OnMobile: Story = {
   ),
 };
 
+/** Control ModalRoot's open state externally via the open and onOpenChange props. */
 export const ControlledUsage: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [open, setOpen] = useState(false);
     return (
@@ -282,7 +290,13 @@ export const ControlledUsage: Story = {
   },
 };
 
+/** Set hideCloseButton to remove the close icon from the top corner. */
 export const HideCloseButton: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { hideCloseButton: true },
   render: args => (
     <ModalRoot>
@@ -307,8 +321,14 @@ export const HideCloseButton: Story = {
   ),
 };
 
+/** Set loading with loadingHeading and loadingDescription to show a loading state instead of the main content. */
 export const Loading: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     heading: 'Loading modal',
     description: 'This is a loading modal, and the heading and description should not show.',
@@ -329,7 +349,13 @@ export const Loading: Story = {
   ),
 };
 
+/** Nest a Card inside the modal to demonstrate content composition. */
 export const WithCard: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ModalRoot>
       <ModalTrigger>
@@ -354,7 +380,14 @@ export const WithCard: Story = {
   ),
 };
 
+/** Set fullScreen with long content inside ModalContent to enable internal scrolling. */
 export const WithLongContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { heading: 'Tariff details', description: undefined, fullScreen: true },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -465,8 +498,15 @@ export const WithLongContent: Story = {
   ),
 };
 
+/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
 export const WithLongContentAndImage: Story = {
   tags: ['!test'],
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -500,7 +540,13 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
+/** Prevent dismissal via onEscapeKeyDown and onPointerDownOutside for flows that require an explicit action. */
 export const PreventOutsideDismiss: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <ModalRoot>
       <ModalTrigger>
@@ -527,4 +573,38 @@ export const PreventOutsideDismiss: Story = {
       </Modal>
     </ModalRoot>
   ),
+};
+
+/** Nest a Combobox inside the modal to demonstrate content composition. */
+export const WithCombobox: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return (
+      <ModalRoot>
+        <ModalTrigger>
+          <Button>Open modal</Button>
+        </ModalTrigger>
+        <Modal {...args}>
+          <Combobox label="Combobox" items={fruits} />
+          <ModalFooter>
+            <ModalClose>
+              <Button variant="ghost" colorScheme="functional">
+                Cancel
+              </Button>
+            </ModalClose>
+            <ModalClose>
+              <Button variant="solid" colorScheme="highlight">
+                Primary
+              </Button>
+            </ModalClose>
+          </ModalFooter>
+        </Modal>
+      </ModalRoot>
+    );
+  },
 };
