@@ -6,12 +6,6 @@ it with TableHeader, TableBody, TableRow, TableHeaderCell, and TableCell.
 Pass `variant` to wrap the table in a Card container; omit it for a minimal,
 unwrapped table.
 
-- [Usage](#usage)
-- [Variants](#variants)
-- [Pagination](#pagination)
-- [Header cells](#header-cells)
-- [API](#api)
-
 ```tsx
 <Table {...args}>
   <TableHeader>

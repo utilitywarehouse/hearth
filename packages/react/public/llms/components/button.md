@@ -134,20 +134,6 @@ anchor or router link.
 </Flex>
 ```
 
-- [Accessibility](#accessibility)
-  - [Disabled buttons](#disabled-buttons)
-- [Variants](#variants)
-- [Colour schemes](#colour-schemes)
-- [Inverted](#inverted)
-- [Size](#size)
-- [Dead prop combinations](#dead-prop-combinations)
-- [With icons](#with-icons)
-- [Semantic HTML](#semantic-html)
-- [Full width button](#full-width-button)
-- [Padding none](#padding-none)
-- [Usage with Next.js](#usage-with-next.js)
-- [API](#api)
-
 ```tsx
 <Button variant="solid" colorScheme="highlight">
   Button

@@ -4,16 +4,6 @@ Use Tabs to organize and navigate between content sections within the same
 page context, without leaving the page. Must be used together with
 TabsList, Tab, and TabContent.
 
-- [Usage](#usage)
-- [Examples](#examples)
-  - [Controlled](#controlled)
-  - [Overflow & Scrolling](#overflow--scrolling)
-  - [With icons](#with-icons)
-- [Size variants](#size-variants)
-- [Activation mode](#activation-mode)
-- [Accessibility](#accessibility)
-- [API](#api)
-
 ```tsx
 <Tabs {...args}>
   <TabsList>

@@ -153,17 +153,6 @@ no visible text, a `label` prop is required to provide an accessible name.
 </Flex>
 ```
 
-- [Icons](#icons)
-- [Accessibility](#accessibility)
-  - [Disabled buttons](#disabled-buttons)
-- [Variants](#variants)
-- [Colour schemes](#colour-schemes)
-- [Inverted](#inverted)
-- [Size](#size)
-  - [Responsive icon sizes](#responsive-icon-sizes)
-- [Semantic HTML](#semantic-html)
-- [API](#api)
-
 ```tsx
 <IconButton {...args}>
   <AddMediumIcon />

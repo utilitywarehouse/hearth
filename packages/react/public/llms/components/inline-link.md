@@ -6,13 +6,6 @@ icon and visually-hidden label when `target="_blank"` is set. Use `asChild`
 to render a routing library's link component (e.g. Next.js `Link`) instead.
 For a standalone link not embedded in text, use Link instead.
 
-- [Alternatives](#alternatives)
-- [Semantic HTML](#semantic-html)
-- [Colour](#colour)
-- [Open in new tab](#open-in-new-tab)
-- [Usage with Next.js](#usage-with-next.js)
-- [API](#api)
-
 ```tsx
 <Flex
   direction="column"

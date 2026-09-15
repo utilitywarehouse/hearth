@@ -5,14 +5,6 @@ related to an element when it receives keyboard focus or is hovered. It
 requires a single child element as its trigger, and must be used within a
 TooltipProvider (or the global HearthProvider).
 
-- [Setup](#setup)
-- [Usage](#usage)
-- [Alignment](#alignment)
-- [Heading](#heading)
-- [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
-- [API](#api)
-
 ```tsx
 <Flex justifyContent="center" padding="800">
   <Tooltip {...args}>

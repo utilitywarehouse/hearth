@@ -34,21 +34,6 @@ toolbar. For multi-select options, use CheckboxGroup instead.
 </Flex>
 ```
 
-- [Alternatives](#alternatives)
-- [Usage](#usage)
-- [Accessibility](#accessibility)
-- [Keyboard interactions](#keyboard-interactions)
-- [Custom label](#custom-label)
-- [Helper text](#helper-text)
-- [Validation](#validation)
-- [Content width](#content-width)
-- [Grid layout](#grid-layout)
-- [RadioTile layout](#radiotile-layout)
-- [Controlled](#controlled)
-- [Radio & RadioTile Image](#radio--radiotile-image)
-- [RadioCard](#radiocard)
-- [API](#api)
-
 ## Alternatives
 
 - `CheckboxGroup`: For multi-select.

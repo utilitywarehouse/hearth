@@ -7,15 +7,6 @@ reveal additional content. Group multiple cards with ExpandableCardGroup.
 For multiple sections of content that need to expand and collapse
 independently as a related set, use Accordion instead.
 
-- [Leading icon](#leading-icon)
-- [Default open](#default-open)
-- [Controlled](#controlled)
-- [ExpandableCardGroup](#expandablecardgroup)
-- [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
-- [API](#api)
-  - [ExpandableCardGroup](#expandablecardgroup-api)
-
 ```tsx
 <Box width="400px" marginX="auto">
   <ExpandableCard {...args}>

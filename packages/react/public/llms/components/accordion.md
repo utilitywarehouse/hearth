@@ -7,16 +7,6 @@ Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
 determines whether one (`single`) or multiple (`multiple`) items can be
 expanded at once.
 
-- [Accordion type](#accordion-type)
-- [Collapsible](#collapsible)
-- [Value](#value)
-- [Accordion items](#accordion-items)
-- [Heading levels](#heading-levels)
-- [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
-- [SEO](#seo)
-- [API](#api)
-
 ```tsx
 <Box width="600px">
   <Accordion {...args}>

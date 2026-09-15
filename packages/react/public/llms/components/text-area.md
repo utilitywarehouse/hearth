@@ -8,15 +8,6 @@ is required and should clearly describe the purpose of the field.
 <TextArea {...args} />
 ```
 
-- [Label](#label)
-- [Helper Text](#helper-text)
-- [Validation](#validation)
-- [Disabled and Read-only](#disabled-and-read-only)
-- [Custom Rows](#custom-rows)
-- [Height](#height)
-- [Controlled Usage](#controlled-usage)
-- [API](#api)
-
 ## Label
 
 A label is required for the `TextArea` component. It should clearly describe

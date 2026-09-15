@@ -5,14 +5,6 @@ its own: a plain, unstyled base for building custom icon button variants.
 For a fully-styled icon button, use IconButton instead. A `label` is
 required, since the button contains only an icon with no visible text.
 
-- [Icons](#icons)
-- [Accessibility](#accessibility)
-  - [Disabled buttons](#disabled-buttons)
-- [Size](#size)
-  - [Responsive icon sizes](#responsive-icon-sizes)
-- [Semantic HTML](#semantic-html)
-- [API](#api)
-
 ```tsx
 <Flex direction="column">
   <Box padding="200">

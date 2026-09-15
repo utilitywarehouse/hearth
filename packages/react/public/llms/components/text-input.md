@@ -9,15 +9,6 @@ SearchInput, CurrencyInput, VerificationInput, or DateInput instead. A
 <TextInput {...args} />
 ```
 
-- [Alternatives](#alternatives)
-- [Label](#label)
-- [Required](#required)
-- [Disabled and Read-only](#disabled-and-read-only)
-- [Validation](#validation)
-- [Prefix and Suffix](#prefix-and-suffix)
-- [Grouping inputs](#grouping-inputs)
-- [API](#api)
-
 ## Alternatives
 
 - PasswordInput - For entering

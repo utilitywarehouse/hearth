@@ -7,17 +7,6 @@ items. Cards are static by default; wrap an interactive child (a link or
 button) in `CardInteraction` to make the whole card clickable. For
 highlighting key marketing messaging, use HighlightBanner instead.
 
-- [Components](#components)
-- [Alternatives](#alternatives)
-- [Variant](#variant)
-- [Color Scheme](#color-scheme)
-- [Grouping related cards](#grouping-related-cards)
-- [Interactive Cards](#interactive-cards)
-  - [Shadow colours](#shadow-colours)
-- [Card Actions](#card-actions)
-- [Banners](#banners)
-- [API](#api)
-
 ```tsx
 <Card {...args} width="400px" marginX="auto">
   <BodyText size="md">{children}</BodyText>

@@ -5,17 +5,6 @@ action or notifies users of important information, auto-dismissing after a
 set duration. It must be rendered inside a ToastProvider. For messages that
 require the user to make a decision, use Alert instead.
 
-- [Usage](#usage)
-- [Icon](#icon)
-- [Dismiss toast](#dismiss-toast)
-- [Actions](#actions)
-- [Custom duration](#custom-duration)
-- [Accessibility](#accessibility)
-  - [Sensitivity](#sensitivity)
-  - [Keyboard interactions](#keyboard-interactions)
-- [Duplicate toasts](#duplicate-toasts)
-- [API](#api)
-
 ```tsx
 <div>
   <Button
