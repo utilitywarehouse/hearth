@@ -540,6 +540,48 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
+export const WithoutFooter: Story = {
+  tags: ['!test'],
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  globals: { viewport: { value: 'mobile' } },
+  args: { fullScreen: true },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <ModalContent>
+          <List variant="emphasis" colorScheme="neutralStrong">
+            {Array.from({ length: 50 }, (_, i) => (
+              <ListItem key={i}>
+                <ListItemContent heading={`Heading ${i + 1}`} helperText="Description" />
+              </ListItem>
+            ))}
+          </List>
+        </ModalContent>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
 /** Prevent dismissal via onEscapeKeyDown and onPointerDownOutside for flows that require an explicit action. */
 export const PreventOutsideDismiss: Story = {
   parameters: {
