@@ -30,11 +30,12 @@ export const ListItemContent = forwardRef<ListItemContentElement, ListItemConten
       badge,
       badgePlacement = 'bottom',
       children,
+      ...props
     },
     ref
   ) => {
     return (
-      <div ref={ref} className={cn(componentClassName, className)}>
+      <div ref={ref} className={cn(componentClassName, className)} {...props}>
         {children ? (
           children
         ) : (
