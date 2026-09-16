@@ -148,6 +148,8 @@ export { default as QuestionMarkSmallIcon } from './QuestionMarkSmallIcon';
 export { default as RefundMediumIcon } from './RefundMediumIcon';
 export { default as RefundSmallIcon } from './RefundSmallIcon';
 export { default as RestartMediumIcon } from './RestartMediumIcon';
+export { default as RobotMediumIcon } from './RobotMediumIcon';
+export { default as RobotSmallIcon } from './RobotSmallIcon';
 export { default as SearchMediumIcon } from './SearchMediumIcon';
 export { default as SearchSmallIcon } from './SearchSmallIcon';
 export { default as SendMediumIcon } from './SendMediumIcon';

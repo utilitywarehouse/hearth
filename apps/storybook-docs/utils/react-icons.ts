@@ -149,6 +149,8 @@ import { QuestionMarkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
 import { RefundSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundSmallIcon';
 import { RestartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RestartMediumIcon';
+import { RobotMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RobotMediumIcon';
+import { RobotSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/RobotSmallIcon';
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchMediumIcon';
 import { SearchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchSmallIcon';
 import { SendMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SendMediumIcon';
@@ -350,6 +352,8 @@ export const reactIcons = [
   RefundMediumIcon,
   RefundSmallIcon,
   RestartMediumIcon,
+  RobotMediumIcon,
+  RobotSmallIcon,
   SearchMediumIcon,
   SearchSmallIcon,
   SendMediumIcon,
