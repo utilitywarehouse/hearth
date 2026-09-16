@@ -7,7 +7,7 @@ for a purely informational history or schedule. For a multi-step process
 the user actively navigates, use ProgressStepper instead.
 
 ```tsx
-<Flex direction="column" gap="400">
+<Flex direction="row" gap="600">
   {variants.map(variant => (
     <Timeline key={variant} variant={variant}>
       <TimelineItem state="complete" label="Direct debit set up" helperText="1 March 2026" />

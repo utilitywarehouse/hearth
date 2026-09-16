@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.9.3
+
+### Patch Changes
+
+- [#1599](https://github.com/utilitywarehouse/hearth/pull/1599) [`5a1987a`](https://github.com/utilitywarehouse/hearth/commit/5a1987abbb8e8a0f75275bcb35c65b13e8a31a79) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - RobotSmallIcon
+  - RobotMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.9.2
 
 ### Patch Changes

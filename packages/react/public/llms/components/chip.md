@@ -21,7 +21,7 @@ the user clicks it.
 ```
 
 ```tsx
-<Chip {...args} />
+<Chip>Label</Chip>
 ```
 
 ## Removable

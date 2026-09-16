@@ -11,7 +11,7 @@ for footer content.
     {/* eslint-disable-next-line jsx-a11y/alt-text */}
     <img src={piggies} height="200px" />
     <HighlightBannerFooter>
-      <BodyText size="md" wrap="wrap">
+      <BodyText size="md" textWrap="wrap">
         Homeowners who bundle two or more services with UW and activate the Cashback Card trial will
         receive up to £150 in credit.
       </BodyText>

@@ -7,7 +7,7 @@ and layout. If not using the `label` prop, provide an `aria-label` or
 `aria-labelledby` so the checkbox has an accessible name.
 
 ```tsx
-<Checkbox {...args} />
+<Checkbox label="Label" helperText="Helper text" value="1" validationText="Validation text" />
 ```
 
 ## Helper text
