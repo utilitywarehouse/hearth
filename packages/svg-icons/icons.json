@@ -308,6 +308,10 @@
     "name": "QrCodeSmallIcon"
   },
   {
+    "id": "2773:82",
+    "name": "RobotSmallIcon"
+  },
+  {
     "id": "2304:2253",
     "name": "UnlockSmallIcon"
   },
@@ -674,6 +678,10 @@
   {
     "id": "6:611",
     "name": "RestartMediumIcon"
+  },
+  {
+    "id": "2773:90",
+    "name": "RobotMediumIcon"
   },
   {
     "id": "9:615",

@@ -386,6 +386,11 @@
       "hash": "dbc678f6a0954f639c7c34e2f627b98d98337adcdf46e4bceaff08a704b3aeb5"
     },
     {
+      "name": "RobotSmallIcon",
+      "path": "robot-small-icon.svg",
+      "hash": "eb5b223163383849a356d0ac4d35fb23e02301aa97f3652676c500c8633983b3"
+    },
+    {
       "name": "UnlockSmallIcon",
       "path": "unlock-small-icon.svg",
       "hash": "d4a4227aa55cf91870e459204665893eecadd5e789d1cd8a6cd48e2d135d9084"
@@ -844,6 +849,11 @@
       "name": "RestartMediumIcon",
       "path": "restart-medium-icon.svg",
       "hash": "96ce75b0f23725cfc1846a963ca3d2b4540ac7a519ea3ebd7fcce58ed73ac8ed"
+    },
+    {
+      "name": "RobotMediumIcon",
+      "path": "robot-medium-icon.svg",
+      "hash": "a6a4e1bbabbb0e88f749ef666aea4d82bb18d57ceda7c49f56d3ed2b01f88a74"
     },
     {
       "name": "SearchMediumIcon",

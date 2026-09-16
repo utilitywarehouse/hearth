@@ -77,6 +77,7 @@ import TimeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-small-ico
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import TrashSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/trash-small-icon.svg';
 import QrCodeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/qr-code-small-icon.svg';
+import RobotSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-small-icon.svg';
 import UnlockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import UserSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/user-small-icon.svg';
@@ -169,6 +170,7 @@ import PlayMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/play-medium-i
 import QuestionMarkMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-medium-icon.svg';
 import RefundMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-medium-icon.svg';
 import RestartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/restart-medium-icon.svg';
+import RobotMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-medium-icon.svg';
 import SearchMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/search-medium-icon.svg';
 import SendMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/send-medium-icon.svg';
 import SettingsMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/settings-medium-icon.svg';
@@ -278,6 +280,7 @@ export const svgIcons = [
   TopUpSmallIcon,
   TrashSmallIcon,
   QrCodeSmallIcon,
+  RobotSmallIcon,
   UnlockSmallIcon,
   UploadSmallIcon,
   UserSmallIcon,
@@ -370,6 +373,7 @@ export const svgIcons = [
   QuestionMarkMediumIcon,
   RefundMediumIcon,
   RestartMediumIcon,
+  RobotMediumIcon,
   SearchMediumIcon,
   SendMediumIcon,
   SettingsMediumIcon,

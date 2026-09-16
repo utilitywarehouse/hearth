@@ -541,6 +541,13 @@
       "source": "../lib/QrCodeSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:82&m=dev",
+      "id": "robot-small-icon",
+      "name": "RobotSmallIcon",
+      "component": "RobotSmallIcon",
+      "source": "../lib/RobotSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2304:2253&m=dev",
       "id": "unlock-small-icon",
       "name": "UnlockSmallIcon",
@@ -1183,6 +1190,13 @@
       "name": "RestartMediumIcon",
       "component": "RestartMediumIcon",
       "source": "../lib/RestartMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:90&m=dev",
+      "id": "robot-medium-icon",
+      "name": "RobotMediumIcon",
+      "component": "RobotMediumIcon",
+      "source": "../lib/RobotMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:615&m=dev",
