@@ -8,7 +8,7 @@ state and layout. If not using the `label` prop, provide an `aria-label` or
 `aria-labelledby` so the tile has an accessible name.
 
 ```tsx
-<CheckboxTile {...args} />
+<CheckboxTile label="Label" helperText="Helper text" validationText="Validation text" />
 ```
 
 ## Helper text

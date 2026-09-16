@@ -7,31 +7,7 @@ follows the WAI-ARIA Radio Group pattern for groups not contained in a
 toolbar. For multi-select options, use CheckboxGroup instead.
 
 ```tsx
-<Flex direction="column" gap="400">
-  <Flex direction="row" gap="200">
-    <RadioGroup {...args}>
-      <RadioTile value="england" label="England" />
-      <RadioTile value="wales" label="Wales" />
-      <RadioTile value="scotland" label="Scotland" />
-      <RadioTile value="northern-ireland" label="Northern Ireland" />
-    </RadioGroup>
-    <RadioGroup {...args}>
-      <Radio value="england" label="England" />
-      <Radio value="wales" label="Wales" />
-      <Radio value="scotland" label="Scotland" />
-      <Radio value="northern-ireland" label="Northern Ireland" />
-    </RadioGroup>
-  </Flex>
-  <RadioGroup
-    {...args}
-    label="Do you like living here?"
-    name="do-you-like-living-here"
-    direction="row"
-  >
-    <RadioTile value="y" label="Yes" image={<ThumbsUpSmallIcon />} />
-    <RadioTile value="n" label="No" image={<ThumbsDownSmallIcon />} />
-  </RadioGroup>
-</Flex>
+<RadioGroup label="Label" helperText="Helper text" validationText="Validation text" />
 ```
 
 ## Alternatives

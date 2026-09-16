@@ -133,7 +133,7 @@ return (
 >
   {['One', 'Two', 'Three', 'Four'].map((label, value) => (
     <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
-      <Placeholder borderColor="subtle" backgroundColor="primary" width="120px" height="50px" />
+      <Placeholder borderColor="subtle" backgroundColor="primary" height="50px" />
     </ToggleButtonCard>
   ))}
 </ToggleGroup>

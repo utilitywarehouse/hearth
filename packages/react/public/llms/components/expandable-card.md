@@ -8,7 +8,7 @@ For multiple sections of content that need to expand and collapse
 independently as a related set, use Accordion instead.
 
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCard {...args}>
     <BodyText size="md">
       This is the expandable content area. It can contain any content you need to show when the card
@@ -77,7 +77,7 @@ approach: the card manages its own open/closed state internally after mount.
 ```
 
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCard
     heading="Heading"
     helperText="This card starts expanded"
@@ -114,7 +114,7 @@ using the `Accordion` component instead, which has built-in support for
 grouping related content.
 
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCardGroup heading="My services" helperText="Manage your UW services">
     <ExpandableCard
       heading="Broadband"
