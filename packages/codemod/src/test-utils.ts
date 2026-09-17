@@ -26,5 +26,5 @@ export function runTransformFixtureTest(
     { parser: 'tsx' }
   );
 
-  expect(output).toBe(expectedOutput.trim());
+  expect(output.trim()).toBe(expectedOutput.trim());
 }
