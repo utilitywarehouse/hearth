@@ -12,7 +12,6 @@ interface RunFlags {
   dry: boolean;
   print: boolean;
   force: boolean;
-  jscodeshift?: string;
 }
 
 interface RunArgv extends RunFlags {
@@ -74,9 +73,6 @@ function runJscodeshiftTransform(codemod: string, files: Array<string>, flags: R
   }
   if (flags.print) {
     args.push('--print');
-  }
-  if (flags.jscodeshift) {
-    args.push(flags.jscodeshift);
   }
 
   args.push(...files);
