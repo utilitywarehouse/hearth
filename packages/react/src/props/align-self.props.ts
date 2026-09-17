@@ -10,5 +10,9 @@ export const alignSelfPropDefs = {
 };
 
 export interface AlignSelfProps {
+  /**
+   * Override the container's `align-items` value for this individual flex or grid item,
+   * aligning it along the cross axis. Supports responsive values.
+   */
   alignSelf?: Responsive<(typeof values)[number]>;
 }

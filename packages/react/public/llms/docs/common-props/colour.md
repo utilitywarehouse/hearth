@@ -41,9 +41,9 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 // <Box color='rebeccapurple'/>
 ```
 
-| Prop    | Type                                                                                         | Default | Description |
-| ------- | -------------------------------------------------------------------------------------------- | ------- | ----------- |
-| `color` | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})`` | —       |             |
+| Prop    | Type                                                                                         | Default | Description                         |
+| ------- | -------------------------------------------------------------------------------------------- | ------- | ----------------------------------- |
+| `color` | `"primary" \| "secondary" \| "brand" \| "affirmative" \| "inverted" \| `var(--h-${string})`` | —       | Sets the text `color` CSS property. |
 
 ## Background colour
 
@@ -80,6 +80,6 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 // <Box backgroundColor='rebeccapurple'/>
 ```
 
-| Prop              | Type                                                          | Default | Description |
-| ----------------- | ------------------------------------------------------------- | ------- | ----------- |
-| `backgroundColor` | `"primary" \| "secondary" \| "brand" \| `var(--h-${string})`` | —       |             |
+| Prop              | Type                                                          | Default | Description                               |
+| ----------------- | ------------------------------------------------------------- | ------- | ----------------------------------------- |
+| `backgroundColor` | `"primary" \| "secondary" \| "brand" \| `var(--h-${string})`` | —       | Sets the `background-color` CSS property. |

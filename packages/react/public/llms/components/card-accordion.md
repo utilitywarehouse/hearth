@@ -1,20 +1,11 @@
 # CardAccordion
 
-`CardAccordion` breaks a form journey into multiple collapsible cards, allowing
-users to progress step-by-step on a single page while keeping previously
-completed steps visible and editable. Each card represents one logical step in
-the journey. As the user progresses, completed cards collapse into a summary
-view while the next card expands.
-
-- [Usage](#usage)
-- [Current content](#current-content)
-- [Summary content](#summary-content)
-- [Validation](#validation)
-- [Footer actions](#footer-actions)
-- [Heading levels](#heading-levels)
-- [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
-- [API](#api)
+Use CardAccordion to break a form journey into multiple collapsible cards,
+letting users progress step-by-step on a single page while keeping
+previously completed steps visible and editable. Compose it with
+`CardAccordionItem` for each step (each requires a unique `value`) and
+`CardAccordionFooter`/`CardAccordionButton` for step navigation. Requires at
+least one `CardAccordionItem` child.
 
 ```tsx
 <Box width="600px">
@@ -82,7 +73,7 @@ components, and consist of 3 possible states: `previous`, `current`, and
 `future`.
 
 - `previous` represents a completed step in the journey - The card is collapsed
-  and shows a summary of the user’s submitted information, helping users
+  and shows a summary of the user's submitted information, helping users
   quickly review what they have entered. An Edit button allows users to reopen
   the step and update their answers if needed.
 - `current` represents the active step the user is currently completing - The
@@ -234,26 +225,26 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop            | Type                        | Default | Description |
-| --------------- | --------------------------- | ------- | ----------- |
-| `onValueChange` | `((value: string) => void)` | —       |             |
-| `value`         | `string`                    | —       |             |
+| Prop            | Type                        | Default | Description                                                                               |
+| --------------- | --------------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| `onValueChange` | `((value: string) => void)` | —       | Called with the new `value` when the active step changes.                                 |
+| `value`         | `string`                    | —       | The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. |
 
 ### CardAccordionItem
 
 | Prop                 | Type                                   | Default | Description                                                                             |
 | -------------------- | -------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
-| `title`              | `string`                               | —       |                                                                                         |
-| `value`              | `string`                               | —       |                                                                                         |
+| `title`              | `string`                               | —       | The step heading, shown while the step is current.                                      |
+| `value`              | `string`                               | —       | A unique identifier for the step, used to track progress through the CardAccordion.     |
 | `disabled`           | `boolean`                              | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false |
-| `description`        | `string`                               | —       |                                                                                         |
-| `summaryTitle`       | `string`                               | —       |                                                                                         |
-| `summaryDescription` | `ReactNode`                            | —       |                                                                                         |
-| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`         | `h3`    |                                                                                         |
-| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>` | —       |                                                                                         |
+| `description`        | `string`                               | —       | Helper text shown below `title` while the step is current.                              |
+| `summaryTitle`       | `string`                               | —       | Heading shown instead of `title` once the step becomes `previous`.                      |
+| `summaryDescription` | `ReactNode`                            | —       | Content shown below `summaryTitle` once the step becomes `previous`.                    |
+| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`         | `h3`    | Sets the heading element rendered for `title`.                                          |
+| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>` | —       | Called when the user clicks the Edit button on a completed (`previous`) step.           |
 
 ### CardAccordionButton
 
-| Prop     | Type                   | Default | Description |
-| -------- | ---------------------- | ------- | ----------- |
-| `action` | `"next" \| "previous"` | —       |             |
+| Prop     | Type                   | Default | Description                                            |
+| -------- | ---------------------- | ------- | ------------------------------------------------------ |
+| `action` | `"next" \| "previous"` | —       | Sets which step-navigation action the button performs. |

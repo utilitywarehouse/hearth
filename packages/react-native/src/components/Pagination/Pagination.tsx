@@ -67,6 +67,11 @@ const PaginationArrowButton = ({
   );
 };
 
+/**
+ * Lets a user move between pages of content, rendering numbered page controls with next/previous
+ * (and optional first/last) buttons, or a condensed "Page X of Y" summary.
+ * @summary Page navigation controls for paged content.
+ */
 const Pagination = ({
   currentPage,
   totalPages,

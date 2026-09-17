@@ -3,7 +3,10 @@
  *
  * For each .docs.mdx file in src/ and docs/:
  *   - Strips Storybook JSX (Meta, Canvas, Controls) and import declarations
+ *   - Drops hand-authored tables of contents (a bare anchor-link list, with
+ *     or without a "Table of Contents" heading)
  *   - Replaces <ArgTypes> with a full prop table via react-docgen-typescript
+ *   - Replaces <Description of={Component} /> with the component's JSDoc description
  *   - Replaces <StorybookLink> with plain text
  *   - Resolves simple JSX expressions (e.g. {version} from package.json imports)
  *   - Prunes headings whose entire section became empty after stripping Canvas blocks
@@ -344,6 +347,22 @@ function generatePropTable(componentFile, { include, exclude } = {}) {
   ].join('\n');
 }
 
+/**
+ * Returns a component's JSDoc description (the prose above its declaration),
+ * or null if parsing fails or no description is present.
+ */
+function getComponentDescription(componentFile) {
+  let docs;
+  try {
+    docs = getParser().parse(componentFile);
+  } catch (err) {
+    return null;
+  }
+
+  const description = (docs?.[0]?.description ?? '').trim();
+  return description || null;
+}
+
 // ─── Story render extraction ──────────────────────────────────────────────────
 
 /**
@@ -595,6 +614,9 @@ const BLOCK_DROP_RE = /^\s*<(Meta|Canvas|Controls|Source)\b/;
 // Matches a full line that is an <ArgTypes> element; captures the attribute string
 const ARG_TYPES_RE = /^\s*<ArgTypes\b([^>]*)\/?>\s*$/;
 
+// Matches a full line that is a <Description> element; captures the attribute string
+const DESCRIPTION_RE = /^\s*<Description\b([^>]*)\/?>\s*$/;
+
 // Matches a Canvas block with a story reference: <Canvas of={Stories.X} ... />
 // Captures the namespace (group 1) and story name (group 2).
 const CANVAS_STORY_RE = /^\s*<Canvas\b[^>]*\bof=\{(\w+)\.(\w+)\}[^>]*\/?>\s*$/;
@@ -610,6 +632,14 @@ const IMPORT_RE = /^import\s+/;
 
 // Matches a self-closing PascalCase JSX component on its own line: <FooTable />
 const CUSTOM_COMPONENT_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*\/>\s*$/;
+
+// Matches a list item that is a bare in-page anchor link, e.g. `- [Variants](#variants)`.
+// A hand-authored table of contents is a contiguous block of these, with no heading of
+// its own — the anchors are meaningless once flattened into a standalone doc.
+const TOC_LIST_ITEM_RE = /^\s*[-*]\s+\[[^\]]+\]\(#[^)]+\)\s*$/;
+
+// Matches a "## Table of Contents" heading, on the rare occasion one is present.
+const TOC_HEADING_RE = /^#{1,6}\s+table of contents\s*$/i;
 
 // ─── Markdown export runner ───────────────────────────────────────────────────
 
@@ -718,7 +748,9 @@ function transformContent(content, importMap, exprMap) {
   const output = [];
   let inCodeFence = false;
 
-  for (const line of lines) {
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
+
     // Track code fences — content inside fences passes through unchanged
     if (/^(`{3,}|~{3,})/.test(line.trimStart())) {
       inCodeFence = !inCodeFence;
@@ -728,6 +760,16 @@ function transformContent(content, importMap, exprMap) {
 
     if (inCodeFence) {
       output.push(line);
+      continue;
+    }
+
+    // Drop a "## Table of Contents" heading, if present
+    if (TOC_HEADING_RE.test(line.trim())) continue;
+
+    // Drop a bare anchor-link list acting as a table of contents (no heading
+    // required) — a contiguous block where every item is a pure anchor link.
+    if (TOC_LIST_ITEM_RE.test(line)) {
+      while (idx + 1 < lines.length && TOC_LIST_ITEM_RE.test(lines[idx + 1])) idx++;
       continue;
     }
 
@@ -780,6 +822,25 @@ function transformContent(content, importMap, exprMap) {
     const headerMatch = line.match(MARKDOWN_DOC_HEADER_RE);
     if (headerMatch) {
       output.push(`# ${headerMatch[1]}`);
+      continue;
+    }
+
+    // Replace Description with the component's JSDoc description
+    const descriptionMatch = line.match(DESCRIPTION_RE);
+    if (descriptionMatch) {
+      const attrsStr = descriptionMatch[1];
+      const ofMatch = attrsStr.match(/\bof=\{([^}]+)\}/);
+      if (ofMatch) {
+        const componentName = ofMatch[1].trim();
+        const filePath = importMap.get(componentName);
+        if (filePath) {
+          const description = getComponentDescription(filePath);
+          if (description) {
+            output.push('', description, '');
+            continue;
+          }
+        }
+      }
       continue;
     }
 

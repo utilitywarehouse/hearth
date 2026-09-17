@@ -1,11 +1,9 @@
 # Breadcrumbs
 
-Use the `Breadcrumbs` component when you need to help users understand and move between multiple levels of a website.
-
-- [Current page](#current-page)
-- [Inverted](#inverted)
-- [Usage with Next.js](#usage-with-nextjs)
-- [API](#api)
+Use Breadcrumbs to help users understand where they are within a site's
+hierarchy and move between multiple levels of it. Compose it with
+`BreadcrumbItem` for each level, marking the current page with the
+`currentPage` prop on that item.
 
 ```tsx
 <Flex direction="column">

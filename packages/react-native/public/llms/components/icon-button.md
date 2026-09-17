@@ -135,6 +135,45 @@ const MyComponent = () => {
         ))}
     </Flex>
   ))}
+  <VariantTitle title="Service icon buttons">
+    <ButtonGroup spacing="md">
+      <IconButton
+        icon={ElectricityMediumIcon}
+        backgroundColor="energyBlue200"
+        activeBackgroundColor="energyBlue300"
+        variant="emphasis"
+        shadowColor="energyBlue300"
+      />
+      <IconButton
+        icon={BroadbandMediumIcon}
+        backgroundColor="broadbandGreen200"
+        activeBackgroundColor="broadbandGreen300"
+        variant="emphasis"
+        shadowColor="broadbandGreen300"
+      />
+      <IconButton
+        icon={MobileMediumIcon}
+        backgroundColor="mobileRose200"
+        activeBackgroundColor="mobileRose300"
+        variant="emphasis"
+        shadowColor="mobileRose400"
+      />
+      <IconButton
+        icon={InsuranceMediumIcon}
+        backgroundColor="insuranceOrange300"
+        activeBackgroundColor="insuranceOrange400"
+        variant="emphasis"
+        shadowColor="insuranceOrange400"
+      />
+      <IconButton
+        icon={CashbackCardMediumIcon}
+        backgroundColor="cashbackLilac300"
+        activeBackgroundColor="cashbackLilac400"
+        variant="emphasis"
+        shadowColor="cashbackLilac500"
+      />
+    </ButtonGroup>
+  </VariantTitle>
 </Flex>
 ```
 

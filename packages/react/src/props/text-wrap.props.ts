@@ -17,5 +17,9 @@ export interface TextWrapProps {
    * @deprecated Use `textWrap` instead of `wrap`
    */
   wrap?: Responsive<(typeof values)[number]>;
+  /**
+   * Sets the CSS `text-wrap` property, controlling how text wraps within its container.
+   * Can be set responsively.
+   */
   textWrap?: Responsive<(typeof values)[number]>;
 }

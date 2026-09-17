@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './TextInput.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,7 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="TextInput" to="components/text-input" />
 
-`TextInput` is an interactive field that allows users to enter text and data.
+<Description of={TextInput} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

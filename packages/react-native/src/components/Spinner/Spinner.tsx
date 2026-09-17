@@ -21,6 +21,10 @@ import type SpinnerProps from './Spinner.props';
 const AnimatedSvg = Animated.createAnimatedComponent(Svg as React.ComponentType<any>);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle as React.ComponentType<any>);
 
+/**
+ * Indicates that an asynchronous process is ongoing. Use it on its own or inside
+ * another component, such as a `Button` or `Dialog`, while content is loading.
+ */
 const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const { components } = useTheme();
   const width = components.spinner[size].size;
@@ -155,6 +159,10 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
+/**
+ * Indicates that an asynchronous process is ongoing. Use it on its own or inside
+ * another component, such as a `Button` or `Dialog`, while content is loading.
+ */
 const Spinner = createSpinner({ Root: SpinnerRoot });
 
 export default Spinner;

@@ -4,7 +4,7 @@ import { Button } from '../Button';
 import { useDatePickerContext } from './DatePicker.context';
 
 const Footer = () => {
-  const { closeDatePicker, onCancel } = useDatePickerContext();
+  const { closeDatePicker, onConfirm, onCancel } = useDatePickerContext();
 
   const handleCancel = () => {
     if (onCancel) {
@@ -12,12 +12,18 @@ const Footer = () => {
     }
     closeDatePicker();
   };
+
+  const handleConfirm = () => {
+    onConfirm();
+    closeDatePicker();
+  };
+
   return (
     <View style={styles.container} testID="footer">
       <Button variant="ghost" colorScheme="functional" onPress={handleCancel}>
         Cancel
       </Button>
-      <Button variant="ghost" colorScheme="functional" onPress={closeDatePicker}>
+      <Button variant="ghost" colorScheme="functional" onPress={handleConfirm}>
         Ok
       </Button>
     </View>

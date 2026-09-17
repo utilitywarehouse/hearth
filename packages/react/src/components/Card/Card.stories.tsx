@@ -87,7 +87,17 @@ const meta: Meta<typeof Card> = {
 export default meta;
 type Story = StoryObj<typeof Card>;
 
+/**
+ * Visual matrix of every Card variant and colour scheme combination — used
+ * for docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: ({ children }) => (
     <Flex padding="600" direction="column" gap="300" width="600px">
       <Flex direction="row" gap="300">
@@ -150,7 +160,11 @@ export const KitchenSink: Story = {
   ),
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   render: ({ children, ...args }) => (
     <Card {...args} width="400px" marginX="auto">
       <BodyText size="md">{children}</BodyText>
@@ -158,6 +172,7 @@ export const Playground: Story = {
   ),
 };
 
+/** Set variant to switch between emphasis and subtle styles. */
 export const Variant: Story = {
   parameters: {
     controls: { disable: true },
@@ -176,6 +191,7 @@ export const Variant: Story = {
   ),
 };
 
+/** Set colorScheme to apply a neutral, brand, or highlight colour to the Card. */
 export const ColorScheme: Story = {
   parameters: {
     controls: { disable: true },
@@ -206,11 +222,12 @@ export const ColorScheme: Story = {
   ),
 };
 
+/** Set shadowColor to add a coloured shadow beneath the Card. */
 export const ShadowColours: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    options: { selectedPanel: 'storybook/a11y/panel' },
   },
   args: {
     width: '300px',
@@ -233,11 +250,15 @@ export const ShadowColours: Story = {
   ),
 };
 
+/**
+ * Wrap an interactive element in CardInteraction to make part or all of a
+ * Card clickable while keeping focus and hover states on the right element.
+ */
 export const InteractiveCards: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    options: { showPanel: false },
   },
   render: args => {
     return (
@@ -531,7 +552,15 @@ export const InteractiveCards: Story = {
   },
 };
 
+/**
+ * Nest CardInteraction around a Link to make the whole Card navigable, with a
+ * secondary CardInteraction for an independent action like a like button.
+ */
 export const WithoutLink: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [likedArgos, setLikedArgos] = useState(false);
     const [likedAskItalian, setLikedAskItalian] = useState(false);
@@ -598,7 +627,13 @@ export const WithoutLink: Story = {
   },
 };
 
+/** Use CardActionLink to render a single navigable row inside a Card, with an optional leading icon and badge. */
 export const SingleCardActionLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args}>
@@ -647,7 +682,13 @@ export const SingleCardActionLink: Story = {
   ),
 };
 
+/** Use CardActionButton to render a single actionable row inside a Card, with an optional leading icon and badge. */
 export const SingleCardActionButton: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args}>
@@ -693,7 +734,13 @@ export const SingleCardActionButton: Story = {
   ),
 };
 
+/** Compose multiple CardActionButtons inside CardActions to build a list of actions within a single Card. */
 export const WithOnlyCardActions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Card {...args} width="500px">
       <CardActions direction="column">
@@ -727,7 +774,13 @@ export const WithOnlyCardActions: Story = {
   ),
 };
 
+/** Combine CardContent with CardActions to pair informational content with a row or column of actions. */
 export const WithCardActions: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex padding="500" direction="column" gap="500" backgroundColor="secondary" wrap="wrap">
       <Card {...args} width="fit-content">
@@ -774,7 +827,12 @@ export const WithCardActions: Story = {
   ),
 };
 
+/** CardActions items can be added or removed conditionally based on component state. */
 export const ConditionalCardActions: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [toggleElement, setToggleElement] = useState(false);
 
@@ -842,7 +900,13 @@ export const ConditionalCardActions: Story = {
   },
 };
 
+/** Combine IconContainer, Heading, and CardInteraction inside a Grid to build a set of linked service summary cards. */
 export const InteractiveServiceCards: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Container>
       <Grid columns={{ mobile: '1', tablet: '2' }} gap="300">
@@ -917,7 +981,13 @@ export const InteractiveServiceCards: Story = {
   ),
 };
 
+/** Use CardBannerContent to lay out a heading, description, and optional link inside a Card. */
 export const BannerContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Card spacing="lg" justifyContent="between">
       <CardBannerContent heading="This is a banner heading" description="Put your description here">
@@ -934,7 +1004,13 @@ export const BannerContent: Story = {
   ),
 };
 
+/** Pair CardBannerContent with an IconContainer, either inline or stacked above the text. */
 export const BannerWithIconContainer: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="md">
@@ -977,7 +1053,13 @@ export const BannerWithIconContainer: Story = {
   ),
 };
 
+/** Pair CardBannerContent with a CardBannerImage to lead with a photographic image. */
 export const BannerWithImage: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="md" maxWidth="420px">
@@ -1007,7 +1089,13 @@ export const BannerWithImage: Story = {
   ),
 };
 
+/** Pair CardBannerContent with an illustration image, centred and inline with the text. */
 export const BannerWithIllustration: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400">
       <Card spacing="lg" colorScheme="pig" variant="subtle" alignItems="center" width="450px">

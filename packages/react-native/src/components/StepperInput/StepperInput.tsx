@@ -17,6 +17,10 @@ import {
   sanitizeValue,
 } from './StepperInput.utils';
 
+/**
+ * Combines a numeric text input with decrement and increment controls. Use it when a value should
+ * stay within a defined range but still needs direct text entry.
+ */
 const StepperInput = ({
   value,
   defaultValue,

@@ -16,6 +16,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LinkElement = ComponentRef<'a'>;
 
+/**
+ * Use Link to navigate a user to another page or website, to another place
+ * on the same page, or to open a resource in a new tab. Renders a semantic
+ * `a` element by default — use `asChild` to render as a different element
+ * (e.g. a framework's own Link component) while keeping Link's styling and behavior.
+ *
+ * For links within a body of text, use InlineLink instead.
+ *
+ * @summary A navigational link, rendered as an anchor by default.
+ */
 export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
   const { className, asChild, inverted, children, hideOpenIcon, ...linkProps } = extractProps(
     props,

@@ -16,6 +16,14 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use PasswordInput to securely collect a user's password, with a built-in
+ * control for toggling visibility of the entered value. It automatically
+ * resets to hidden when its parent form is submitted. For general text entry
+ * use TextInput instead, and for search input use SearchInput.
+ *
+ * @summary An input for securely entering a password, with a visibility toggle.
+ */
 export const PasswordInput = forwardRef<InputBaseElement, PasswordInputProps>(
   ({ className, disabled, id: providedId, ...props }, forwardedRef) => {
     const internalRef = useRef<HTMLInputElement | null>(null);

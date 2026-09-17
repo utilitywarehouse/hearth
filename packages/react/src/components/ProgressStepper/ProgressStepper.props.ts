@@ -9,8 +9,19 @@ export interface CommonProgressStepperProps extends MarginProps {
   hideLabels?: boolean;
 }
 
-type ProgressStepperDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
-type ProgressStepperNavProps = { as: 'nav' } & ComponentPropsWithRef<'nav'>;
+type ProgressStepperDivProps = {
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default div
+   */
+  as?: 'div';
+} & ComponentPropsWithRef<'div'>;
+type ProgressStepperNavProps = {
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   */
+  as: 'nav';
+} & ComponentPropsWithRef<'nav'>;
 
 export type ProgressStepperProps = CommonProgressStepperProps &
   (ProgressStepperDivProps | ProgressStepperNavProps);

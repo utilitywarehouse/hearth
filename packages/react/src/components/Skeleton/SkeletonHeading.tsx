@@ -14,6 +14,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SkeletonHeadingElement = ComponentRef<'div'>;
 
+/**
+ * Use SkeletonHeading as a loading placeholder for Heading content, inside a
+ * Skeleton wrapper. It supports the same size props as Heading. For body text
+ * placeholders, use SkeletonBodyText; for arbitrary shapes, use SkeletonBox.
+ *
+ * @summary A loading placeholder for Heading content.
+ */
 export const SkeletonHeading = forwardRef<SkeletonHeadingElement, SkeletonHeadingProps>(
   (props, ref) => {
     const { className, ...skeletonHeadingProps } = extractProps(

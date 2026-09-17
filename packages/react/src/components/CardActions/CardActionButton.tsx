@@ -13,6 +13,13 @@ type CardActionButtonElement = ComponentRef<'button'>;
 const COMPONENT_NAME = 'CardActionButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CardActionButton within a Card to trigger an action, such as opening
+ * a dialog or performing an in-page action. Use `CardActionLink` instead
+ * when the action navigates to a new location.
+ *
+ * @summary A Card action that renders a button.
+ */
 export const CardActionButton = forwardRef<CardActionButtonElement, CardActionButtonProps>(
   (
     {

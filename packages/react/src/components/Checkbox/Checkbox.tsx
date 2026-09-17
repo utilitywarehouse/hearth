@@ -23,6 +23,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxElement = ComponentRef<'button'>;
 
+/**
+ * Use Checkbox to let a user toggle a dual-state option between checked and
+ * not checked. It can be used independently, but when presenting multiple
+ * checkboxes together use `CheckboxGroup` instead, which handles their state
+ * and layout. If not using the `label` prop, provide an `aria-label` or
+ * `aria-labelledby` so the checkbox has an accessible name.
+ *
+ * @summary A dual-state control letting a user toggle between checked and not checked.
+ */
 export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) => {
   const {
     id: providedId,

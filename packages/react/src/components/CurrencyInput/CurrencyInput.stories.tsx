@@ -27,8 +27,14 @@ const meta: Meta<typeof CurrencyInput> = {
 export default meta;
 type Story = StoryObj<typeof CurrencyInput>;
 
+/** Shows uncontrolled and controlled usage, plus disableGroupSeparators to remove thousands separators. */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string>('');
     const [separatorsValue, setSeparatorsValue] = useState<string>('1234567.89');
@@ -72,8 +78,16 @@ export const KitchenSink: Story = {
 
 // Bug verification: defaultValue is ignored because the component always sets value={...}
 // Expected: input pre-filled with "12,345.67" — Actual: input is empty
+/**
+ * Documents a known bug: defaultValue is ignored because the component
+ * always sets `value` internally, so only the controlled value example
+ * renders pre-filled.
+ */
 export const DefaultValue: Story = {
-  parameters: { controls: { disable: true } },
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400">
       <CurrencyInput

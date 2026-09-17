@@ -1,5 +1,10 @@
 # Em
 
+Use Em to mark up a run of text with stress emphasis within a larger body
+of text — it renders an `em` element by default.
+For strong importance rather than emphasis, use Strong instead.
+For standalone body or detail text, use BodyText or DetailText instead.
+
 ```tsx
 <Flex direction="column" gap="100">
   {sizes.map(size => (

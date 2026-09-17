@@ -9,7 +9,12 @@ type SwitchSize = 'sm' | 'md';
 type DeprecatedSwitchSize = 'small' | 'medium';
 
 interface SwitchProps extends PressableProps, AccessibilityProps {
+  /**
+   * The value of the switch.
+   * @default false
+   */
   value: boolean;
+  /** Called when the switch value changes. */
   onValueChange?: (value: boolean) => void;
   disabled?: boolean;
   /**

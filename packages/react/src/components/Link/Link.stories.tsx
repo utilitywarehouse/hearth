@@ -26,12 +26,24 @@ const meta: Meta<typeof Link> = {
 export default meta;
 type Story = StoryObj<typeof Link>;
 
-export const Playground: Story = {};
-
-export const OpenInNewTab: Story = {
-  args: {
-    target: '_blank',
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
   },
+};
+
+/** Set target to "_blank" to open the link in a new tab; use hideOpenIcon to suppress the external-link icon. */
+export const OpenInNewTab: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { target: '_blank' },
   render: args => (
     <Flex gap="600">
       <Link {...args}>Visit help pages</Link>
@@ -43,7 +55,14 @@ export const OpenInNewTab: Story = {
   ),
 };
 
+/** Pass an icon as a child, before or after the label, to add a leading or trailing icon. */
 export const WithIcons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex gap="600">
       <Link {...args}>
@@ -58,7 +77,14 @@ export const WithIcons: Story = {
   ),
 };
 
+/** Use asChild to render Link's styles on a native button element instead of an anchor. */
 export const AsButton: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="300">
@@ -79,7 +105,14 @@ export const AsButton: Story = {
   },
 };
 
+/** Set inverted to use Link on a brand-colored background. */
 export const Inverted: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex gap="400" backgroundColor="brand" padding="400">
       <Link {...args} inverted>
@@ -89,7 +122,14 @@ export const Inverted: Story = {
   ),
 };
 
+/** Link wraps naturally onto multiple lines when its content is long. */
 export const LengthyContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     href: 'https://www.tate.org.uk/art/artists/agnes-martin-1583',
     children:

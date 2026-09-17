@@ -92,7 +92,7 @@ export const Column: Story = {
 };
 
 export const KitchenSink: Story = {
-  parameters: { controls: { include: [] } },
+  parameters: { controls: { include: [] }, chromatic: { disableSnapshot: false } },
   render: () => (
     <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
       <VariantTitle title="Row direction">
@@ -117,6 +117,38 @@ export const KitchenSink: Story = {
               invalidText={item.invalidText}
             />
           ))}
+        </DescriptionList>
+      </VariantTitle>
+      <VariantTitle title="With links">
+        <DescriptionList direction="row">
+          <DescriptionListItem
+            heading="Account Number"
+            description="123456789"
+            trailingContent={<Link href="https://example.com/account">Manage account</Link>}
+          />
+          <DescriptionListItem
+            heading="Status"
+            description="Active"
+            trailingContent={
+              <Link href="https://example.com/status" showIcon={false}>
+                Change
+              </Link>
+            }
+          />
+        </DescriptionList>
+      </VariantTitle>
+      <VariantTitle title="With numeric values">
+        <DescriptionList direction="row">
+          <DescriptionListItem
+            heading="Account Balance"
+            description="Current balance"
+            numericValue="£5,432.10"
+          />
+          <DescriptionListItem
+            heading="Available Credit"
+            description="Credit limit minus current balance"
+            numericValue="£1,234.56"
+          />
         </DescriptionList>
       </VariantTitle>
     </Flex>

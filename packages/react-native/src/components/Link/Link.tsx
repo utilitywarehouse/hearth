@@ -14,6 +14,11 @@ export const LinkText = LinkComponent.Text;
 
 LinkText.displayName = 'LinkText';
 
+/**
+ * Navigates a user to another screen or website, another place on the same page, or opens a link
+ * in a new tab.
+ * @summary A navigational link with an optional icon.
+ */
 const Link = ({
   children,
   icon = ChevronRightSmallIcon,

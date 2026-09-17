@@ -33,6 +33,7 @@ const config = {
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-vitest'),
     getAbsolutePath('@storybook/addon-mcp'),
+    getAbsolutePath('storybook-addon-oversight'),
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-native-web-vite'),

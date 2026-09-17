@@ -1,17 +1,9 @@
 # Toast
 
-A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.
-
-- [Usage](#usage)
-- [Icon](#icon)
-- [Dismiss toast](#dismiss-toast)
-- [Actions](#actions)
-- [Custom duration](#custom-duration)
-- [Accessibility](#accessibility)
-  - [Sensitivity](#sensitivity)
-  - [Keyboard interactions](#keyboard-interactions)
-- [Duplicate toasts](#duplicate-toasts)
-- [API](#api)
+Use Toast for a brief, non-intrusive message that provides feedback on an
+action or notifies users of important information, auto-dismissing after a
+set duration. It must be rendered inside a ToastProvider. For messages that
+require the user to make a decision, use Alert instead.
 
 ```tsx
 <div>
@@ -282,8 +274,8 @@ This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com
 
 | Prop                 | Type                          | Default | Description                                                                                                                                                                                       |
 | -------------------- | ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `viewportLabel`      | `string`                      | —       |                                                                                                                                                                                                   |
-| `viewportHotkey`     | `string[]`                    | —       |                                                                                                                                                                                                   |
+| `viewportLabel`      | `string`                      | —       | Accessible label for the toast viewport region, announced to assistive technology.                                                                                                                |
+| `viewportHotkey`     | `string[]`                    | —       | Keyboard shortcut that moves focus to the toast viewport, e.g. `['F8']`.                                                                                                                          |
 | `label`              | `string`                      | —       | An author-localized label for each toast. Used to help screen reader users associate the interruption with a toast. @defaultValue 'Notification'                                                  |
 | `duration`           | `number`                      | `5000`  | Time in milliseconds that each toast should remain visible for. @defaultValue 5000                                                                                                                |
 | `announcerContainer` | `Element \| DocumentFragment` | —       | An optional container where the toast announcements should be appended. This is useful when working with focus traps or modal dialogs that make other elements inert. @defaultValue document.body |
@@ -306,9 +298,9 @@ This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com
 | `onSwipeEnd`        | `((event: SwipeEvent) => void)`    | —       |                                                                                                      |
 | `defaultOpen`       | `boolean`                          | —       |                                                                                                      |
 | `onOpenChange`      | `((open: boolean) => void)`        | —       |                                                                                                      |
-| `description`       | `ReactNode`                        | —       |                                                                                                      |
-| `icon`              | `ReactNode`                        | —       |                                                                                                      |
-| `showDismissButton` | `boolean`                          | —       |                                                                                                      |
+| `description`       | `ReactNode`                        | —       | The content of the Toast message.                                                                    |
+| `icon`              | `ReactNode`                        | —       | An optional icon rendered before the description, such as a status icon.                             |
+| `showDismissButton` | `boolean`                          | —       | Shows a dismiss button that lets users manually close the Toast.                                     |
 
 ### ToastActionLink
 
@@ -316,7 +308,7 @@ This component is based on the `a` element and [Radix UI's Toast primitive](http
 
 | Prop      | Type      | Default | Description                                                                                                                                                                                                                                                                                                     |
 | --------- | --------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `asChild` | `boolean` | —       |                                                                                                                                                                                                                                                                                                                 |
+| `asChild` | `boolean` | —       | Merges the link's props onto its child element instead of rendering its own `a` element, so the child determines the rendered tag.                                                                                                                                                                              |
 | `altText` | `string`  | —       | A short description for an alternate way to carry out the action. For screen reader users who will not be able to navigate to the button easily/quickly. @example <ToastAction altText="Goto account settings to upgrade">Upgrade</ToastAction> @example <ToastAction altText="Undo (Alt+U)">Undo</ToastAction> |
 
 ### ToastActionButton

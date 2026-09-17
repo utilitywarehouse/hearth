@@ -31,8 +31,21 @@ const directionValues = ['row', 'column', 'row-reverse', 'column-reverse'] as co
 const wrapValues = ['nowrap', 'wrap', 'wrap-reverse'] as const;
 
 export const flexPropDefs = {
+  /**
+   * Sets the CSS `display` property to a flex value. Can be set responsively.
+   */
   display: { className: 'd', tokens: displayValues, responsive: true },
+  /**
+   * Sets the direction of the flex container's main axis. Can be set responsively.
+   *
+   * @default 'row'
+   */
   direction: { className: 'flex-d', tokens: directionValues, responsive: true },
+  /**
+   * Sets whether flex items wrap onto multiple lines. Can be set responsively.
+   *
+   * @default 'nowrap'
+   */
   wrap: { className: 'flex-w', tokens: wrapValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
@@ -66,11 +79,34 @@ export interface CommonFlexProps
     TextAlignProps,
     TextTransformProps,
     ZIndexProps {
+  /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
   asChild?: boolean;
+  /**
+   * Sets the CSS `display` property to a flex value. Can be set responsively.
+   */
   display?: Responsive<(typeof displayValues)[number]>;
+  /**
+   * Sets the direction of the flex container's main axis. Can be set responsively.
+   * @default row
+   */
   direction?: Responsive<(typeof directionValues)[number]>;
+  /**
+   * Sets whether flex items wrap onto multiple lines. Can be set responsively.
+   * @default nowrap
+   */
   wrap?: Responsive<(typeof wrapValues)[number]>;
 }
-type FlexDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
-type FlexSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;
+type FlexDivProps = {
+  /** Renders a `div` element. This is the default. */
+  as?: 'div';
+} & ComponentPropsWithRef<'div'>;
+type FlexSpanProps = {
+  /** Renders a `span` element. */
+  as?: 'span';
+} & ComponentPropsWithRef<'span'>;
 export type FlexProps = CommonFlexProps & (FlexDivProps | FlexSpanProps);

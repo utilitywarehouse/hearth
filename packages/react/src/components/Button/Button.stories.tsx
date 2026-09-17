@@ -35,15 +35,18 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Playground: Story = {
-  args: {
-    variant: 'solid',
-    colorScheme: 'highlight',
-  },
-};
-
+/**
+ * Visual matrix of every Button variant, colour scheme, and size, including
+ * disabled and loading states — used for docs and Chromatic snapshot
+ * testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="600">
@@ -185,7 +188,18 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: { actions: { disable: true } },
+  args: {
+    variant: 'solid',
+    colorScheme: 'highlight',
+  },
+};
+
+/** Set size to a responsive object to change the Button's height per breakpoint. */
 export const ResponsiveSize: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   args: {
     children: 'Responsive size button',
     size: {
@@ -197,7 +211,13 @@ export const ResponsiveSize: Story = {
   },
 };
 
+/** Set asChild to render Button's styles on a wrapped `<a>` element instead of a `<button>`. */
 export const AsLink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: (args: { disabled?: boolean; loading?: boolean }) => {
     return (
       <Flex gap="200">
@@ -218,8 +238,9 @@ export const AsLink: Story = {
   },
 };
 
+/** Set variant to switch between emphasis, solid, outline, and ghost styles. */
 export const ButtonVariants: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => {
     return (
       <Flex direction="column" gap="200" alignItems="start">
@@ -252,7 +273,9 @@ export const ButtonVariants: Story = {
   },
 };
 
+/** Button fills the width of its container by default; wrap it in a flex item to constrain it. */
 export const FullWidth: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex direction="column" gap="200">
       <Flex direction="column" gap="100">
@@ -269,7 +292,9 @@ export const FullWidth: Story = {
   ),
 };
 
+/** Set colorScheme to highlight for the primary brand call to action. */
 export const HighlightColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="emphasis" colorScheme="highlight">
@@ -282,7 +307,9 @@ export const HighlightColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to functional for neutral, non-branded actions. */
 export const FunctionalColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="outline" colorScheme="functional">
@@ -295,7 +322,9 @@ export const FunctionalColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to destructive for actions that delete or remove something. */
 export const DestructiveColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="solid" colorScheme="destructive">
@@ -311,7 +340,9 @@ export const DestructiveColorScheme: Story = {
   ),
 };
 
+/** Set colorScheme to affirmative for actions that confirm or complete something positive. */
 export const AffirmativeColorScheme: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400">
       <Button variant="solid" colorScheme="affirmative">
@@ -327,7 +358,9 @@ export const AffirmativeColorScheme: Story = {
   ),
 };
 
+/** Set size to md or sm across each variant. */
 export const Sizes: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     <Flex gap="400" direction="column">
       <Flex gap="400">
@@ -362,7 +395,9 @@ export const Sizes: Story = {
   ),
 };
 
+/** colorScheme is restricted to the values each variant supports at the type level — an invalid combination is a compile error. */
 export const DeadPropCombinations: Story = {
+  parameters: { controls: { disable: true }, actions: { disable: true } },
   render: () => (
     // @ts-expect-error: for illustration purposes only
     <Button variant="emphasis" colorScheme="grey">
@@ -371,7 +406,13 @@ export const DeadPropCombinations: Story = {
   ),
 };
 
+/** Render an icon alongside the label, either leading or trailing. */
 export const WithIcons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     return (
       <Flex gap="200">
@@ -392,7 +433,13 @@ export const WithIcons: Story = {
   },
 };
 
+/** Set inverted for use on darker surface colours, e.g. a brand-coloured background. */
 export const Inverted: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex gap="400" backgroundColor="brand" padding="400">
       <Button variant="emphasis" inverted>
@@ -411,7 +458,13 @@ export const Inverted: Story = {
   ),
 };
 
+/** Set loading to show a spinner and disable interaction while an action is pending. */
 export const Loading: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     loading: true,
   },
@@ -435,7 +488,13 @@ export const Loading: Story = {
   },
 };
 
+/** Set paddingNone on a ghost Button for tighter alignment next to other inline elements. */
 export const PaddingNone: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" alignItems="start" gap="100" padding="200">

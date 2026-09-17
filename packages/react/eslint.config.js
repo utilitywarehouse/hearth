@@ -2,7 +2,7 @@ import rootConfig from '../../eslint.config.js';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['**/*.figma.tsx'] },
+  { ignores: ['**/*.figma.ts'] },
   ...rootConfig,
   {
     languageOptions: {

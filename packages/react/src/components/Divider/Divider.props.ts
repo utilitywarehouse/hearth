@@ -4,6 +4,7 @@ import { Orientation } from '../../types/orientation';
 
 export interface DividerProps extends ComponentPropsWithRef<'hr'>, MarginProps {
   /**
+   * Sets whether the divider is drawn as a horizontal or vertical line.
    * @default horizontal
    */
   orientation?: Orientation;

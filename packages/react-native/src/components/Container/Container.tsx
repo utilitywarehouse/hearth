@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import type ContainerProps from './Container.props';
 
+/**
+ * Applies the design system's responsive layout margin, padding, and spacing tokens to its content.
+ */
 const Container = ({ style, children, spacing = 'md', space, ...props }: ContainerProps) => {
   const { computedStyles, remainingProps } = useStyleProps(props);
 

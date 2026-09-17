@@ -14,6 +14,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type IconContainerElement = ComponentRef<'span'>;
 
+/**
+ * Use IconContainer to render an icon inside a coloured, sized container,
+ * such as an icon from `@utilitywarehouse/hearth-react-icons`. Note that some
+ * combinations of `colorScheme` and `variant` (e.g. `emphasis` and
+ * `highlight`) are not supported and will render without colour.
+ *
+ * @summary A coloured, sized container for displaying an icon.
+ */
 export const IconContainer = forwardRef<IconContainerElement, IconContainerProps>((props, ref) => {
   const {
     className,

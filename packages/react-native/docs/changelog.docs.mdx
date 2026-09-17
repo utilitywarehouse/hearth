@@ -9,6 +9,138 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.36.3
+
+### Patch Changes
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DatePicker` and `TimePicker` Ok button didn't save the currently shown date or time
+
+  Pressing Ok in the `TimePicker` bottom sheet, or in the `DatePicker` bottom sheet
+  when a date was already selected (e.g. editing an existing record), closed the
+  sheet without calling `onChange` unless the person actively picked a new value
+  first. The currently shown value is now committed when Ok is pressed.
+
+  `DatePicker` in `single`, `range`, and `multiple` mode with nothing selected yet
+  still requires an explicit selection before Ok has anything to commit, so
+  required fields won't silently fill in a default value.
+
+  **Components affected**:
+
+  - `DatePicker`
+  - `TimePicker`
+
+  **Developer changes**:
+
+  No action required. This only changes when `onChange` fires — the signature is
+  unchanged.
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: `DatePickerInput` and `TimePickerInput` can block manual keyboard entry and open the picker on tap
+
+  New `disableManualEntry` prop. When set, the text field no longer accepts
+  keyboard input and tapping anywhere on the field opens the calendar/time
+  picker, instead of only the trailing icon button. This is independent of
+  `disabled`/`readonly`, which still disable the whole field regardless of this
+  prop.
+
+  **Components affected**:
+
+  - `DatePickerInput`
+  - `TimePickerInput`
+
+  **Developer changes**:
+
+  No action required — `disableManualEntry` defaults to `false`, so typing
+  remains available unless you opt in:
+
+  ```tsx
+  <DatePickerInput disableManualEntry value={value} onChange={handleChange} />
+  ```
+
+  ```tsx
+  <TimePickerInput disableManualEntry value={value} onChange={handleChange} />
+  ```
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `TimePicker` hour or minute wheel could render blank or misaligned
+
+  The hour wheel wasn't snapped to a valid option before being handed to the
+  picker, unlike the minute wheel. If the underlying value didn't exactly match
+  one of the wheel's options, the wheel had nothing to scroll to, which could
+  render blank or misaligned on open. The hour is now snapped to the nearest
+  valid option the same way the minute already was.
+
+  **Components affected**:
+
+  - `TimePicker`
+
+  **Developer changes**:
+
+  No action required. If an invalid or out-of-range hour is ever passed in, the
+  wheel now displays the nearest valid hour instead of appearing blank.
+
+## 0.36.2
+
+### Patch Changes
+
+- [#1578](https://github.com/utilitywarehouse/hearth/pull/1578) [`88e436f`](https://github.com/utilitywarehouse/hearth/commit/88e436f3309d6b08a5fd3abd945571fcdbf80570) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `hearth-react-native` skill now defaults to the MCP server over local markdown
+
+  The skill guidance used by AI coding agents building with this package
+  previously defaulted to reading local markdown files for component lookups.
+  It now defaults to the `hearth-react-native` MCP server for component lookups and
+  general/cross-cutting guidance, falling back to markdown only for a specific
+  story's exact code beyond what `get-documentation` or
+  `get-documentation-for-story` already surfaces.
+
+  **Developer changes**:
+
+  No action required — this only affects the guidance given to AI coding
+  agents using this library, not the runtime API.
+
+## 0.36.1
+
+### Patch Changes
+
+- [#1551](https://github.com/utilitywarehouse/hearth/pull/1551) [`86a6935`](https://github.com/utilitywarehouse/hearth/commit/86a6935b6f28d63b6fe63983cce731a286fd0916) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` loading state squeezed at the bottom on devices with safe area insets
+
+  The loading state's content sat flush against the bottom of the sheet (and the home indicator area) instead of respecting the device's bottom safe area inset, most noticeable when `loadingDescription` made the content taller. This affected all loading modals using the default `stickyFooter` behaviour, since no footer is ever shown while `loading` is `true`.
+
+  **Components affected**:
+  - `Modal`
+
+## 0.36.0
+
+### Minor Changes
+
+- [#1500](https://github.com/utilitywarehouse/hearth/pull/1500) [`20772c2`](https://github.com/utilitywarehouse/hearth/commit/20772c265eb3b676b0bafb17527550b04e4a1430) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: `StatusBar` and `NavigationBar` no longer re-exported from `core`
+
+  `react-native-unistyles` 3.3 removed `StatusBar` and `NavigationBar` from its
+  top-level exports, so `@utilitywarehouse/hearth-react-native`'s `core` module
+  (which previously re-exported everything from `react-native-unistyles`) no
+  longer provides them either.
+
+  **Developer changes**:
+
+  If you were importing `StatusBar` or `NavigationBar` from
+  `@utilitywarehouse/hearth-react-native`, they are no longer available. Import
+  directly from `react-native-unistyles` if you still need them, or use React
+  Native's own `StatusBar` API.
+
+### Patch Changes
+
+- [#1500](https://github.com/utilitywarehouse/hearth/pull/1500) [`20772c2`](https://github.com/utilitywarehouse/hearth/commit/20772c265eb3b676b0bafb17527550b04e4a1430) Thanks [@jordmccord](https://github.com/jordmccord)! - 📦 [DEPS]: Update React Native and related native dependencies
+
+  Bumps the versions this package is built and tested against: React
+  19.1→19.2.3, React Native 0.80→0.86.2, `react-native-reanimated` 4.1→4.5,
+  `react-native-worklets` 0.5→0.10, `react-native-unistyles` 3.0→3.3,
+  `react-native-gesture-handler` 2.28→2.32, `react-native-svg` 15.12→15.15,
+  `react-native-safe-area-context` 5.6→5.7, `@gorhom/bottom-sheet` 5.2.6→5.2.14,
+  and TypeScript 6→7.
+
+  **Developer changes**:
+
+  The `peerDependencies` ranges are unchanged, so no consumer action is
+  required. If you use `StatusBar` or `NavigationBar` from this package's
+  `core`, see the separate breaking-change entry for this release.
+
 ## 0.35.9
 
 ### Patch Changes

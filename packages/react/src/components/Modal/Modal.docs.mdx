@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Modal.stories';
 import { ModalRoot } from './ModalRoot';
 import { Modal } from './Modal';
@@ -10,10 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Modal" to="components/modal" />
 
-A `Modal` overlays content to request a decision or inform users of important information. When
-users need to interact with the application without navigating to a new page or disrupting their
-workflow, a `Modal` creates a floating layer over the current page to gather feedback or display
-information.
+<Description of={Modal} />
 
 - [Usage Guidelines](#usage-guidelines)
 - [Content](#content)

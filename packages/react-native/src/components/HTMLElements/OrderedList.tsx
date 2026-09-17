@@ -7,11 +7,21 @@ import { BodyText } from '../BodyText';
 import { ListItemProps, ListStyleProps } from './ListItem';
 
 export interface OrderedListProps extends ViewProps, ListStyleProps {
+  /** The `LI` components to be rendered within the list. */
   children: ViewProps['children'];
+  /**
+   * The gap between the list items.
+   * @default '100'
+   */
   gap?: SpaceValue;
+  /** Custom style for the numbers. */
   bulletStyle?: ViewStyle;
 }
 
+/**
+ * Use OrderedList (exported as `OL`) to render a numbered list of `LI` items, with support for
+ * custom bullet icons, images, and colours.
+ */
 const OrderedList = ({
   children,
   gap = '100',

@@ -22,7 +22,16 @@ export interface FormGroupBaseProps extends ComponentPropsWithRef<'fieldset'>, M
    * components should not display their own `helperText`.
    */
   helperText?: ReactNode;
+  /**
+   * Text to display when the `validationStatus` is set.
+   */
   validationText?: ReactNode;
+  /**
+   * Indicates the validation status of the formfield group.
+   */
   validationStatus?: ValidationTextProps['status'];
+  /**
+   * Sets where the validation text is displayed relative to the group's children.
+   */
   validationPlacement?: 'top' | 'bottom';
 }

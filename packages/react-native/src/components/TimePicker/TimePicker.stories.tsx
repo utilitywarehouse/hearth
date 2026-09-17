@@ -1,8 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-native';
 import { useRef, useState } from 'react';
 import { Platform, View } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { DateType, TimePicker } from '.';
 import { ViewWrap } from '../../../docs/components';
+import { BodyText } from '../BodyText';
 import { BottomSheetModal } from '../BottomSheet';
 import { Button } from '../Button';
 
@@ -44,6 +46,7 @@ export const Playground: Story = {
       <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
         <ViewWrap>
           <Button onPress={() => modalRef.current?.present()}>Show Time Picker</Button>
+          <BodyText>{selected ? 'Confirmed' : 'Not confirmed'}</BodyText>
           <TimePicker
             ref={modalRef}
             date={selected}
@@ -55,6 +58,17 @@ export const Playground: Story = {
         </ViewWrap>
       </View>
     );
+  },
+  play: async ({ canvasElement }) => {
+    // Pressing Ok without scrolling either wheel must still commit the currently
+    // shown time (defaults to "now" when no `date` prop is passed).
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByRole('button', { name: 'Show Time Picker' }));
+    const okButton = await canvas.findByRole('button', { name: 'Ok' });
+    await userEvent.click(okButton);
+    await waitFor(() => {
+      expect(canvas.getByText('Confirmed')).toBeInTheDocument();
+    });
   },
 };
 

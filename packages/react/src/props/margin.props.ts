@@ -24,11 +24,32 @@ export const marginPropDefs = {
 };
 
 export interface MarginProps {
+  /**
+   * Sets the responsive `margin` CSS property on all sides of the element.
+   */
   margin?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-top` CSS property.
+   */
   marginTop?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-right` CSS property.
+   */
   marginRight?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-bottom` CSS property.
+   */
   marginBottom?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-left` CSS property.
+   */
   marginLeft?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-left` and `margin-right` CSS properties.
+   */
   marginX?: Responsive<(typeof values)[number] | CssTokenVariable>;
+  /**
+   * Sets the responsive `margin-top` and `margin-bottom` CSS properties.
+   */
   marginY?: Responsive<(typeof values)[number] | CssTokenVariable>;
 }

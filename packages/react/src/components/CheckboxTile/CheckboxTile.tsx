@@ -21,6 +21,16 @@ type CheckboxTileElement = ComponentRef<'button'>;
 const COMPONENT_NAME = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use CheckboxTile to let a user toggle a dual-state option between checked
+ * and not checked, presented as a larger, tile-style control rather than a
+ * standard checkbox. It can be used independently, but when presenting
+ * multiple options together use `CheckboxGroup` instead, which handles their
+ * state and layout. If not using the `label` prop, provide an `aria-label` or
+ * `aria-labelledby` so the tile has an accessible name.
+ *
+ * @summary A tile-style, dual-state control letting a user toggle between checked and not checked.
+ */
 export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((props, ref) => {
   const {
     className,

@@ -18,10 +18,30 @@ interface FlexProps
     GapProps,
     Pick<SizeProps, 'width'>,
     Omit<DisplayProps, 'direction'> {
+  /**
+   * The direction of the flex container.
+   * @default 'column'
+   */
   direction?: ViewStyle['flexDirection'];
+  /**
+   * The align items of the flex container.
+   * @default 'flex-start'
+   */
   align?: FlexAlignType;
+  /**
+   * The justify content of the flex container.
+   * @default 'flex-start'
+   */
   justify?: ViewStyle['justifyContent'];
+  /**
+   * The wrap of the flex container.
+   * @default 'nowrap'
+   */
   wrap?: ViewStyle['flexWrap'];
+  /**
+   * The space between the content.
+   * @default 'md'
+   */
   spacing?: SpacingValues;
   /**
    * The space between child elements (gap).

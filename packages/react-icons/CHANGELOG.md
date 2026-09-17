@@ -1,5 +1,55 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.9.3
+
+### Patch Changes
+
+- [#1599](https://github.com/utilitywarehouse/hearth/pull/1599) [`5a1987a`](https://github.com/utilitywarehouse/hearth/commit/5a1987abbb8e8a0f75275bcb35c65b13e8a31a79) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - RobotSmallIcon
+  - RobotMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
+## 0.9.2
+
+### Patch Changes
+
+- [#1521](https://github.com/utilitywarehouse/hearth/pull/1521) [`bc71db3`](https://github.com/utilitywarehouse/hearth/commit/bc71db34d77d3b2b0883a16449a7fd98ea8c3ba3) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - AiGeneratedSmallIcon
+  - AiGeneratedMediumIcon
+
+  ## CHANGED ICONS
+  - LaunchSmallIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
+## 0.9.1
+
+### Patch Changes
+
+- [#1519](https://github.com/utilitywarehouse/hearth/pull/1519) [`f36d995`](https://github.com/utilitywarehouse/hearth/commit/f36d995e9d1b227bfff1d02249dfe9c779e35153) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - MotorInsuranceSmallIcon
+  - MotorInsuranceMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.9.0
 
 ### Minor Changes

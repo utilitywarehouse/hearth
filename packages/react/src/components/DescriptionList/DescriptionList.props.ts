@@ -12,5 +12,9 @@ export interface DescriptionListProps
     Omit<SectionHeaderProps, keyof ElementProps>,
     MarginProps,
     Pick<SizeProps, 'width' | 'maxWidth' | 'minWidth'> {
+  /**
+   * The layout direction of the `DescriptionListItem` children. Responsive —
+   * can be set per breakpoint.
+   */
   direction?: Responsive<'row' | 'column'>;
 }

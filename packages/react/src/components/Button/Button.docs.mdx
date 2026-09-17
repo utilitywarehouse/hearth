@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Button.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -11,7 +11,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Button" to="components/button" />
 
-Trigger an action or event, such as submitting a form or displaying a dialog.
+<Description of={Button} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 
@@ -75,8 +75,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default color scheme for primary actions,
+so it is only available for Emphasis and Solid Buttons variants.
 
 <Canvas of={Stories.HighlightColorScheme} sourceState="none" />
 

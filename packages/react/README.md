@@ -73,8 +73,9 @@ pnpm exec figma connect create {FIGMA_LINK}
 ```
 
 This will generate a `{component}.figma.tsx` file in the component directory.
-However we don't keep these files with the components, so you will need to move
-it to the `src/figma` directory and update the import paths accordingly.
+Rename it to `.figma.ts` and follow the `figma-code-connect` skill to convert
+it to the template format — it stays alongside the component, e.g.
+`src/components/{Component}/{Component}.figma.ts`.
 
 You can now update the file as best you can to connect the React component to
 the one in Figma.

@@ -88,6 +88,7 @@ When used inside `FormField`, validation, disabled, and required states are inhe
 | `format`            | `string`                                                               | `'DD/MM/YYYY'`       | Day.js format string used to render selected dates and parse manual input. Leaving it as `'DD/MM/YYYY'` automatically inserts `/` separators and requests a numeric keypad. |
 | `openButtonLabel`   | `string`                                                               | `'Open date picker'` | Accessible label read by screen readers for the calendar trigger button.                                                                                                    |
 | `autoCloseOnSelect` | `boolean`                                                              | `true`               | Closes the picker automatically after a date is chosen.                                                                                                                     |
+| `disableManualEntry` | `boolean`                                                             | `false`              | Blocks keyboard entry and makes tapping anywhere on the field open the calendar picker, instead of only the trailing button. Independent of `disabled`/`readonly`, which still disable the whole field regardless of this prop. |
 | `datePickerProps`   | `Omit<DatePickerSingleProps, 'mode' \| 'date' \| 'onChange' \| 'ref'>` | `-`                  | Forwards props to the underlying `DatePicker` (e.g. `minDate`, `maxDate`, `timeZone`).                                                                                      |
 | `onChange`          | `(payload: { date: DateType }) => void`                                | `-`                  | Fired whenever a valid date is parsed from typing or picked via the calendar.                                                                                               |
 | `onClear`           | `() => void`                                                           | `-`                  | Called after the clear action resets the input. Also displays a trailing clear button when provided.                                                                        |
@@ -237,6 +238,7 @@ The `DatePickerInput` component can display a label and helper text by passing t
 - The `DD/MM/YYYY` format triggers a numeric keypad on iOS/Android for faster entry.
 - On iOS, a contextual **Done** button appears above the keyboard to dismiss it when finished typing.
 - Custom formats can be specified to match your application's needs while maintaining accessibility.
+- Set `disableManualEntry` to block the keyboard entirely and make tapping anywhere on the field open the calendar picker, useful when only picker-based selection should be allowed.
 
 ### Integration with DatePicker
 

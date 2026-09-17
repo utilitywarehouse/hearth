@@ -3,7 +3,7 @@ import { CalendarSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-reac
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Keyboard, Platform, TextInputFocusEvent } from 'react-native';
+import { BlurEvent, FocusEvent, Keyboard, Platform, Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DatePicker } from '../DatePicker';
 import type { DateType } from '../DatePicker/DatePicker.props';
@@ -16,6 +16,10 @@ import DatePickerInputDoneButton from './DatePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
 
+/**
+ * Use DatePickerInput for a text field that accepts a typed date or one picked from an
+ * attached calendar, formatting and parsing the value with Day.js.
+ */
 const DatePickerInput = ({
   validationStatus = 'initial',
   disabled,
@@ -26,6 +30,7 @@ const DatePickerInput = ({
   format = DEFAULT_FORMAT,
   openButtonLabel = 'Open date picker',
   autoCloseOnSelect = true,
+  disableManualEntry = false,
   label,
   labelVariant,
   helperText,
@@ -136,14 +141,14 @@ const DatePickerInput = ({
   );
 
   const handleBlur = useCallback(
-    (event: TextInputFocusEvent) => {
+    (event: BlurEvent) => {
       onBlur?.(event);
     },
     [onBlur]
   );
 
   const handleFocus = useCallback(
-    (event: TextInputFocusEvent) => {
+    (event: FocusEvent) => {
       onFocus?.(event);
     },
     [onFocus]
@@ -192,28 +197,34 @@ const DatePickerInput = ({
         style={styles.wrap}
         accessible={false}
       >
-        <InputField
-          editable={!isReadonly && !isDisabled}
-          value={inputValue}
-          placeholder={placeholderValue}
-          onChangeText={handleTextChange}
-          onBlur={handleBlur}
-          onFocus={handleFocus}
-          inBottomSheet={inBottomSheet}
-          keyboardType={resolvedKeyboardType}
-          inputMode={resolvedInputMode}
-          accessibilityHint={resolvedAccessibilityHint}
-          aria-label="Date input"
-          accessibilityLabel={resolvedAccessibilityLabel}
-          accessible={resolvedAccessible}
-          accessibilityState={{
-            disabled: isDisabled || isReadonly,
-          }}
-          importantForAccessibility={resolvedImportantForAccessibility}
-          inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
-          {...textInputProps}
-          style={[styles.input, inputStyle]}
-        />
+        <Pressable
+          style={styles.fieldPressable}
+          disabled={!disableManualEntry || isDisabled || isReadonly}
+          onPress={openPicker}
+        >
+          <InputField
+            value={inputValue}
+            placeholder={placeholderValue}
+            onChangeText={handleTextChange}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            inBottomSheet={inBottomSheet}
+            keyboardType={resolvedKeyboardType}
+            inputMode={resolvedInputMode}
+            accessibilityHint={resolvedAccessibilityHint}
+            aria-label="Date input"
+            accessibilityLabel={resolvedAccessibilityLabel}
+            accessible={resolvedAccessible}
+            accessibilityState={{
+              disabled: isDisabled || isReadonly,
+            }}
+            importantForAccessibility={resolvedImportantForAccessibility}
+            inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
+            {...textInputProps}
+            editable={!isReadonly && !isDisabled && !disableManualEntry}
+            style={[styles.input, inputStyle, disableManualEntry && styles.noPointerEvents]}
+          />
+        </Pressable>
         {!!inputValue && onClear && !isReadonly && !isDisabled && (
           <InputSlot accessibilityElementsHidden={false}>
             <UnstyledIconButton
@@ -258,9 +269,15 @@ const styles = StyleSheet.create(theme => ({
   wrap: {
     gap: theme.components.input.date.gap,
   },
+  fieldPressable: {
+    flex: 1,
+  },
   input: {
     paddingLeft: 0,
     paddingRight: 0,
+  },
+  noPointerEvents: {
+    pointerEvents: 'none',
   },
 }));
 

@@ -1,6 +1,10 @@
 # ProgressBar
 
-`ProgressBar` displays the progress of a task or process in a linear bar format, with support for different visual states.
+Use ProgressBar to show the progress of a task or process as a linear or
+circular bar. Use the `colorScheme` prop to indicate success or danger
+states, and always provide a `label` describing what is progressing (this
+can be visually hidden with `hideLabel`). For a multi-step process where
+each step is discrete, use ProgressStepper instead.
 
 ```tsx
 <Flex direction="column" gap="400" width="600px">
@@ -121,7 +125,7 @@ This component is based on the `div` element and supports the following common p
 | Prop              | Type                                 | Default     | Description                                                                           |
 | ----------------- | ------------------------------------ | ----------- | ------------------------------------------------------------------------------------- |
 | `label`           | `string`                             | —           | The required text label. Can be visually hidden with the `hideLabel` prop.            |
-| `variant`         | `"linear" \| "circular"`             | —           |                                                                                       |
+| `variant`         | `"linear" \| "circular"`             | `'linear'`  | Sets the visual style of the progress indicator.                                      |
 | `colorScheme`     | `"default" \| "success" \| "danger"` | `'default'` | Set the visual apearance.                                                             |
 | `size`            | `Responsive<"sm" \| "md">`           | `md`        | Sets the circular variant size. Does not affect the appearance of the linear variant. |
 | `value`           | `number`                             | —           | The current progress value.                                                           |

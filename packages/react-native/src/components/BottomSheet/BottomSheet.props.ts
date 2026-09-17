@@ -41,8 +41,10 @@ interface BottomSheetProps extends Omit<GorhomBottomSheetProps, 'handleComponent
    */
   showHandle?: boolean;
 
+  /** Style for the bottom sheet content container. */
   contentStyle?: ViewStyle;
 
+  /** Ref exposing imperative methods for controlling the bottom sheet. */
   ref?: Ref<BottomSheetMethods> | Ref<BottomSheetModalMethods<any>>;
 }
 

@@ -10,5 +10,8 @@ export const backgroundColorPropDefs = {
 };
 
 export interface BackgroundColorProps {
+  /**
+   * Sets the `background-color` CSS property.
+   */
   backgroundColor?: (typeof values)[number] | CssTokenVariable;
 }

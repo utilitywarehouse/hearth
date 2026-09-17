@@ -103,6 +103,9 @@ async function getSizeCanvases(document) {
 function getIcons(data) {
   return data.reduce((icons, size) => {
     size.children.forEach(columns => {
+      if (!columns.children) {
+        return;
+      }
       columns.children.forEach(nameIconPair => {
         if (!nameIconPair.children) {
           return;

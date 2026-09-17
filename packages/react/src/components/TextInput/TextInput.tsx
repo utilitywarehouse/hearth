@@ -14,6 +14,14 @@ import { forwardRef } from 'react';
 const COMPONENT_NAME = 'TextInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use TextInput for a single-line text or data entry field. For passwords,
+ * search, currency, one-time passcodes, or dates, use PasswordInput,
+ * SearchInput, CurrencyInput, VerificationInput, or DateInput instead. A
+ * `label` is required and should be clear and descriptive to guide the user.
+ *
+ * @summary A single-line text input field for entering text and data.
+ */
 export const TextInput = forwardRef<InputBaseElement, TextInputProps>((props, ref) => {
   const {
     className,

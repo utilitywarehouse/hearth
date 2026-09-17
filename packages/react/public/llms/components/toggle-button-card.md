@@ -58,14 +58,6 @@
 </Box>
 ```
 
-- [Usage](#usage)
-- [ToggleGroup type](#togglegroup-type)
-- [Layout](#layout)
-- [Interactive content](#interactive-content)
-- [Accessibility](#accessibility)
-- [ToggleButtonCard API](#togglebuttoncard-api)
-- [ToggleGroup API](#togglegroup-api)
-
 ## Usage
 
 Use the `ToggleGroup` to wrap `ToggleButtonCard` components.
@@ -141,7 +133,7 @@ return (
 >
   {['One', 'Two', 'Three', 'Four'].map((label, value) => (
     <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
-      <Placeholder borderColor="subtle" backgroundColor="primary" width="120px" height="50px" />
+      <Placeholder borderColor="subtle" backgroundColor="primary" height="50px" />
     </ToggleButtonCard>
   ))}
 </ToggleGroup>

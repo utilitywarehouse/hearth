@@ -8,5 +8,8 @@ export const zIndexPropDefs = {
 };
 
 export interface ZIndexProps {
+  /**
+   * Set the stack order of a positioned component relative to its siblings.
+   */
   zIndex?: Responsive<string>;
 }

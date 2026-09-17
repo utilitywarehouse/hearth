@@ -20,6 +20,11 @@ import SelectProps, { SelectOptionItemProps } from './Select.props';
 import { filterOptionsByLabel } from './Select.utils';
 import SelectOption from './SelectOption';
 
+/**
+ * Lets a user pick a single value from a list of options presented in a bottom sheet. Use it in
+ * forms where the full set of options doesn't need to be visible at once, optionally with search.
+ * @summary A form field for picking one value from a bottom-sheet list of options.
+ */
 const Select = ({
   options = [],
   value,

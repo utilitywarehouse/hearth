@@ -7,11 +7,21 @@ import { BodyText } from '../BodyText';
 import { ListItemProps, ListStyleProps } from './ListItem';
 
 export interface UnorderedListProps extends ViewProps, ListStyleProps {
+  /** The `LI` components to be rendered within the list. */
   children: ViewProps['children'];
+  /**
+   * The gap between the list items.
+   * @default '100'
+   */
   gap?: SpaceValue;
+  /** Custom style for the bullet points. */
   bulletStyle?: ViewStyle;
 }
 
+/**
+ * Use UnorderedList (exported as `UL`) to render a bulleted list of `LI` items, with support
+ * for custom bullet icons, images, and colours.
+ */
 const UnorderedList = ({
   children,
   gap = '100',

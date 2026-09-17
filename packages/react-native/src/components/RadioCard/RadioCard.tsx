@@ -23,6 +23,11 @@ const RadioCardIndicator = RadioCardComponent.Indicator;
 const RadioCardIcon = RadioCardComponent.Icon;
 const RadioCardLabel = RadioCardComponent.Label;
 
+/**
+ * Groups a set of `RadioCard` options so only one can be selected at a time, laid out as a
+ * flexbox row/column or, when `columns` is set, a grid.
+ * @summary Groups RadioCard options into a single-choice set.
+ */
 const RadioCardGroup = ({ onChange, onValueChange, disabled, ...props }: RadioCardGroupProps) => (
   <RadioCardGroupComponent
     {...(props as any)}
@@ -40,6 +45,11 @@ RadioCardIndicator.displayName = 'RadioCardIndicator';
 RadioCardIcon.displayName = 'RadioCardIcon';
 RadioCardLabel.displayName = 'RadioCardLabel';
 
+/**
+ * A card-style single-choice selection control, rendered inside a `RadioCardGroup`. Use it when
+ * options need more visual weight or supporting content than a plain `Radio`.
+ * @summary A card-style single-choice selection control for use inside a RadioCardGroup.
+ */
 const RadioCard = ({
   children,
   label,

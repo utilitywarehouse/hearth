@@ -12,6 +12,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionHeaderElement = ComponentRef<'h3'>;
 
+/**
+ * Use AccordionHeader to render the heading wrapper for an AccordionItem when
+ * composing it manually instead of using AccordionItem's `title` prop — pair
+ * it with `AccordionTrigger` as a child, and set `as` to control the
+ * semantic heading level.
+ *
+ * @summary The heading wrapper for a manually composed AccordionItem.
+ */
 export const AccordionHeader = forwardRef<AccordionHeaderElement, AccordionHeaderProps>(
   ({ className, as: Tag = 'h3', children, ...props }, ref) => {
     return (

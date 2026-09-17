@@ -9,6 +9,13 @@
       "source": "../lib/AddSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:50&m=dev",
+      "id": "ai-generated-small-icon",
+      "name": "AiGeneratedSmallIcon",
+      "component": "AiGeneratedSmallIcon",
+      "source": "../lib/AiGeneratedSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:794&m=dev",
       "id": "attach-small-icon",
       "name": "AttachSmallIcon",
@@ -366,6 +373,13 @@
       "source": "../lib/MoreSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:134&m=dev",
+      "id": "motor-insurance-small-icon",
+      "name": "MotorInsuranceSmallIcon",
+      "component": "MotorInsuranceSmallIcon",
+      "source": "../lib/MotorInsuranceSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2015:19&m=dev",
       "id": "open-small-icon",
       "name": "OpenSmallIcon",
@@ -527,6 +541,13 @@
       "source": "../lib/QrCodeSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:82&m=dev",
+      "id": "robot-small-icon",
+      "name": "RobotSmallIcon",
+      "component": "RobotSmallIcon",
+      "source": "../lib/RobotSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2304:2253&m=dev",
       "id": "unlock-small-icon",
       "name": "UnlockSmallIcon",
@@ -574,6 +595,13 @@
       "name": "AddMediumIcon",
       "component": "AddMediumIcon",
       "source": "../lib/AddMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:58&m=dev",
+      "id": "ai-generated-medium-icon",
+      "name": "AiGeneratedMediumIcon",
+      "component": "AiGeneratedMediumIcon",
+      "source": "../lib/AiGeneratedMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:24&m=dev",
@@ -1108,6 +1136,13 @@
       "source": "../lib/MoreMediumIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:151&m=dev",
+      "id": "motor-insurance-medium-icon",
+      "name": "MotorInsuranceMediumIcon",
+      "component": "MotorInsuranceMediumIcon",
+      "source": "../lib/MotorInsuranceMediumIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:688&m=dev",
       "id": "open-medium-icon",
       "name": "OpenMediumIcon",
@@ -1155,6 +1190,13 @@
       "name": "RestartMediumIcon",
       "component": "RestartMediumIcon",
       "source": "../lib/RestartMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:90&m=dev",
+      "id": "robot-medium-icon",
+      "name": "RobotMediumIcon",
+      "component": "RobotMediumIcon",
+      "source": "../lib/RobotMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:615&m=dev",

@@ -163,6 +163,18 @@ const MyComponent = () => {
         ))}
     </Flex>
   ))}
+  <Flex direction="column" spacing="lg">
+    <VariantTitle title="Padding None" invert={inverted}>
+      <Button
+        text={text}
+        colorScheme="functional"
+        variant="ghost"
+        size="sm"
+        inverted={inverted}
+        paddingNone
+      />
+    </VariantTitle>
+  </Flex>
 </Flex>
 ```
 

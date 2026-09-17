@@ -12,6 +12,10 @@ export const progressBarPropDefs = {
 };
 
 export interface ProgressBarProps extends ComponentPropsWithRef<'div'>, MarginProps {
+  /**
+   * Sets the visual style of the progress indicator.
+   * @default 'linear'
+   */
   variant?: 'linear' | 'circular';
   /**
    * Set the visual apearance.

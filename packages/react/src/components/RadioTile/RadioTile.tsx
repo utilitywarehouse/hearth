@@ -18,6 +18,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioTileElement = ComponentRef<'button'>;
 
+/**
+ * Use RadioTile within a RadioGroup as the default way to present a grouped
+ * set of selectable options — it offers a larger, tile-style target than
+ * Radio. Use RadioCard instead when the option needs to display additional
+ * child content, or Radio for a plain, compact radio button.
+ *
+ * @summary A tile-styled radio option for use within RadioGroup.
+ */
 export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
   (
     {

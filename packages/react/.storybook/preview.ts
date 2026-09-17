@@ -47,6 +47,13 @@ const preview: Preview = {
       // 'off' - skip a11y checks entirely
       test: 'todo',
     },
+    chromatic: {
+      // Snapshotting is disabled by default to limit Chromatic usage — opt
+      // individual stories back in (e.g. a component's KitchenSink story)
+      // with `chromatic: { disableSnapshot: false }`.
+      // (parameters: { chromatic: { disableSnapshot: false }, }, on a story-by-story basis)
+      disableSnapshot: true,
+    },
     viewport: {
       options: HEARTH_VIEWPORTS,
     },
@@ -74,8 +81,6 @@ const preview: Preview = {
         ],
       },
     },
-    // globally disable chromatic snapshots & accessibility tests
-    // chromatic: { disableSnapshot: true },
   },
 };
 

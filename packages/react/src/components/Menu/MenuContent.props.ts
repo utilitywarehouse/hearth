@@ -2,9 +2,9 @@ import type { ComponentPropsWithoutRef, CSSProperties, ReactNode } from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react';
 
 export interface MenuContentProps {
-  /* CSS class applied to the element */
+  /** CSS class applied to the element */
   className?: string;
-  /* The style applied to the element */
+  /** The style applied to the element */
   style?: CSSProperties;
   /**
    * The content of the MenuContent. Should contain `MenuItem` components.

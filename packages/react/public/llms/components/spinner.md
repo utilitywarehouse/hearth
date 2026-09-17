@@ -1,6 +1,9 @@
 # Spinner
 
-Using a Spinner is a common method for indicating that an asynchronous process is ongoing.
+Use Spinner to indicate that an asynchronous process is ongoing, such as
+data loading or a form submission in progress. Set `currentColor` when the
+Spinner is nested inside another component and should inherit its parent's
+colour scheme instead of a fixed `color` value.
 
 ```tsx
 <Flex gap="600">

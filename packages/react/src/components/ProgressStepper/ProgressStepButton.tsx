@@ -13,6 +13,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepButtonElement = ComponentRef<'button'>;
 
+/**
+ * Use ProgressStepButton for a step within a `ProgressStepper` that triggers
+ * an action — such as returning to a previous step — rather than navigating
+ * to a new URL. Renders as a `ProgressStep` wrapping a `button`; use
+ * `ProgressStepLink` instead when the step should navigate via `href`.
+ *
+ * @summary An interactive ProgressStepper step that triggers an action.
+ */
 export const ProgressStepButton = forwardRef<ProgressStepButtonElement, ProgressStepButtonProps>(
   ({ label, className, status, disabled, onClick, 'aria-label': ariaLabel, ...props }, ref) => {
     const isActive = status === 'active';

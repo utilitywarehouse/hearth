@@ -5,23 +5,20 @@ import { ColorValue } from '../../types';
 import { ButtonVariants } from '../Button/Button.props';
 
 export type IconButtonProps = {
-  /*
-   * If `true`, the button will be disabled.
-   * @default  false
+  /**
+   * Disables the button.
+   * @default false
    */
   disabled?: boolean;
+  /** The size of the button. */
   size?: 'sm' | 'md';
+  /** Changes the button to a pressed state. */
   pressed?: boolean;
-  /*
-   * The icon to display on the button.
-   * @default undefined
-   */
+  /** The icon component to display on the button. */
   icon: ComponentType;
-  /*
-   * If `true`, the button will show a spinner.
-   * @default  false
-   */
+  /** Changes the button to a loading state. */
   loading?: boolean;
+  /** Content rendered inside the button. */
   children?: ViewProps['children'];
   /**
    * Custom background color override.

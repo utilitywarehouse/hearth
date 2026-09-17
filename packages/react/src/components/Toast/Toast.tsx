@@ -14,6 +14,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastElement = ComponentRef<'li'>;
 
+/**
+ * Use Toast for a brief, non-intrusive message that provides feedback on an
+ * action or notifies users of important information, auto-dismissing after a
+ * set duration. It must be rendered inside a ToastProvider. For messages that
+ * require the user to make a decision, use Alert instead.
+ *
+ * @summary A brief, temporary message providing feedback or notifications.
+ */
 export const Toast = forwardRef<ToastElement, ToastProps>(
   ({ className, icon, description, showDismissButton, children, ...props }, ref) => {
     return (

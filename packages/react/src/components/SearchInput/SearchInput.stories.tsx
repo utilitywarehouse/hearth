@@ -28,7 +28,13 @@ const meta: Meta<typeof SearchInput> = {
 export default meta;
 type Story = StoryObj<typeof SearchInput>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string>('');
     return (
@@ -43,7 +49,14 @@ export const Playground: Story = {
   },
 };
 
+/** Set loading to show a spinner and disable input interaction while results are fetched. */
 export const Loading: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+    controls: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string>('Energy');
     return (
@@ -58,7 +71,13 @@ export const Loading: Story = {
   },
 };
 
+/** Use SearchInput inside a form with role="search" for semantic search forms. */
 export const FormUsage: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+    controls: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string>('');
     return (
@@ -74,7 +93,13 @@ export const FormUsage: Story = {
   },
 };
 
+/** Pair SearchInput with a Button for a combined search bar and submit action. */
 export const UsageWithButton: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => {
     const [value, setValue] = useState<string>('');
     return (

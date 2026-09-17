@@ -1,0 +1,167 @@
+name: 'Chromatic - React Native Expo'
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'apps/storybook-rn-expo/**'
+      - 'packages/react-native/**'
+      - '.github/workflows/chromatic-react-native-expo.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/storybook-rn-expo/**'
+      - 'packages/react-native/**'
+      - '.github/workflows/chromatic-react-native-expo.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check if build should run
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.decide.outputs.should_run }}
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Check for [skip-chromatic] marker
+        id: marker
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: |
+          if [[ "$PR_TITLE" == *"[skip-chromatic]"* ]] || [[ "$PR_BODY" == *"[skip-chromatic]"* ]] || [[ "$COMMIT_MESSAGE" == *"[skip-chromatic]"* ]]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check for non-docs changes
+        id: changed
+        if: steps.marker.outputs.skip == 'false'
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
+        with:
+          files: |
+            apps/storybook-rn-expo/**
+            packages/react-native/**
+          files_ignore: |
+            **/*.docs.mdx
+            **/*.md
+            **/*.mdx
+
+      - name: Decide
+        id: decide
+        run: |
+          if [[ "${{ steps.marker.outputs.skip }}" == "true" ]]; then
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          elif [[ "${{ steps.changed.outputs.any_changed }}" == "true" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "should_run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  chromatic:
+    name: Build and publish to Chromatic
+    needs: check
+    if: needs.check.outputs.should_run == 'true'
+    runs-on: macos-latest-xlarge
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          version: 11.8.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+      - name: Build workspace dependencies
+        # @utilitywarehouse/hearth-react-native's package.json `main` points at
+        # build/index.js (tsc output) — pnpm install alone doesn't produce that.
+        # Locally it already exists from prior `pnpm build` runs; a fresh CI
+        # checkout has no such artifact, so Metro fails to resolve the package.
+        #
+        # Not using turbo here: `turbo run build` (with or without --no-daemon,
+        # which turned out to be a deprecated no-op) fails outright on this
+        # runner — "unable to spawn child process: No such file or directory" for
+        # every package's build script regardless of what that script actually
+        # runs, in under 300ms. Something about turbo's own process-spawning is
+        # broken on this macOS runner; plain `pnpm --filter` spawning works fine
+        # (this job's own `pnpm install` step already ran postinstall scripts
+        # successfully), so build the packages storybook-rn-expo actually needs
+        # directly instead of routing through turbo's task graph.
+        run: |
+          pnpm --filter @utilitywarehouse/hearth-fonts run build
+          pnpm --filter @utilitywarehouse/hearth-react-icons run build
+          pnpm --filter @utilitywarehouse/hearth-react-native-icons run build
+          pnpm --filter @utilitywarehouse/hearth-react-native run build
+
+      - name: Build and publish to Chromatic
+        id: chromatic
+        # Must run from apps/storybook-rn-expo itself — running chromatic from the
+        # workspace root makes it treat the monorepo root as the Expo project and
+        # run `expo prebuild` against it, corrupting root package.json/app.json.
+        working-directory: apps/storybook-rn-expo
+        continue-on-error: true
+        # ulimit: metro.config.js sets watchFolders to the whole monorepo root, which
+        # crawls far more files than the default macOS open-file limit allows on a
+        # fresh runner (vs. a dev machine where this is usually raised already) — a
+        # likely cause of "works locally, fails in CI" for this exact build step.
+        # NODE_OPTIONS: release builds enable minification, which is far more memory-
+        # hungry than the dev bundle this app is normally built with.
+        # --exit-zero-on-changes: a brand-new Chromatic project has no baseline, so
+        # every story is reported as a "change" needing review — that's expected,
+        # not a failure, so don't let it fail the CI job. Genuine build/test errors
+        # still exit non-zero and fail this step.
+        run: |
+          ulimit -n 65536 || true
+          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN" --exit-zero-on-changes
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
+          NODE_OPTIONS: --max-old-space-size=8192
+
+      - name: Collect Chromatic build log on failure
+        if: steps.chromatic.outcome == 'failure'
+        run: |
+          mkdir -p chromatic-logs
+          find "${TMPDIR:-/tmp}" -maxdepth 4 -path '*chromatic--*/.chromatic/react-native-build.log' -exec cp {} chromatic-logs/ \; 2>/dev/null || true
+          ls -la chromatic-logs || true
+
+      - name: Upload Chromatic build log
+        if: steps.chromatic.outcome == 'failure'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: chromatic-react-native-build-log
+          path: chromatic-logs/
+          if-no-files-found: warn
+          retention-days: 5
+
+      - name: Fail job if Chromatic build failed
+        if: steps.chromatic.outcome == 'failure'
+        run: exit 1

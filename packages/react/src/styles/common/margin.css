@@ -99,6 +99,10 @@
   .h-r-m-900 {
     margin: var(--h-space-900);
   }
+
+  .h-r-m-1000 {
+    margin: var(--h-space-1000);
+  }
 }
 
 @breakpoints {
@@ -172,6 +176,10 @@
 
   .h-r-mx-900 {
     margin-inline: var(--h-space-900);
+  }
+
+  .h-r-mx-1000 {
+    margin-inline: var(--h-space-1000);
   }
 }
 
@@ -247,6 +255,10 @@
   .h-r-my-900 {
     margin-block: var(--h-space-900);
   }
+
+  .h-r-my-1000 {
+    margin-block: var(--h-space-1000);
+  }
 }
 
 @breakpoints {
@@ -320,6 +332,10 @@
 
   .h-r-mt-900 {
     margin-top: var(--h-space-900);
+  }
+
+  .h-r-mt-1000 {
+    margin-top: var(--h-space-1000);
   }
 }
 
@@ -395,6 +411,10 @@
   .h-r-mr-900 {
     margin-right: var(--h-space-900);
   }
+
+  .h-r-mr-1000 {
+    margin-right: var(--h-space-1000);
+  }
 }
 
 @breakpoints {
@@ -469,6 +489,10 @@
   .h-r-mb-900 {
     margin-bottom: var(--h-space-900);
   }
+
+  .h-r-mb-1000 {
+    margin-bottom: var(--h-space-1000);
+  }
 }
 
 @breakpoints {
@@ -542,5 +566,9 @@
 
   .h-r-ml-900 {
     margin-left: var(--h-space-900);
+  }
+
+  .h-r-ml-1000 {
+    margin-left: var(--h-space-1000);
   }
 }

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './DateInput.stories';
 import { Box } from '../Box/Box';
 import { BodyText } from '../BodyText/BodyText';
@@ -12,7 +12,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="DateInput" to="components/date-input" />
 
-`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.
+<Description of={DateInput} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

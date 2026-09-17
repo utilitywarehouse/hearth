@@ -21,5 +21,10 @@ export type ContainerProps = Omit<
   | keyof TextAlignProps
   | keyof OpacityProps
 > & {
+  /**
+   * Aligns the container's content along the main axis. Can be set responsively.
+   *
+   * @default 'center'
+   */
   align?: Responsive<'start' | 'center' | 'end'>;
 };

@@ -8,6 +8,6 @@ use any token values.
 <Box zIndex={{ mobile: "1", desktop: "-1" }}/>
 ```
 
-| Prop     | Type                 | Default | Description |
-| -------- | -------------------- | ------- | ----------- |
-| `zIndex` | `Responsive<string>` | —       |             |
+| Prop     | Type                 | Default | Description                                                             |
+| -------- | -------------------- | ------- | ----------------------------------------------------------------------- |
+| `zIndex` | `Responsive<string>` | —       | Set the stack order of a positioned component relative to its siblings. |

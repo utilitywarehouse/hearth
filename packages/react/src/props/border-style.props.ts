@@ -18,9 +18,24 @@ export const borderStylePropDefs = {
 };
 
 export interface BorderStyleProps {
+  /**
+   * Sets the responsive `border-style` CSS property on all sides of the element.
+   */
   borderStyle?: Responsive<(typeof values)[number]>;
+  /**
+   * Sets the responsive `border-top-style` CSS property.
+   */
   borderTopStyle?: Responsive<(typeof values)[number]>;
+  /**
+   * Sets the responsive `border-right-style` CSS property.
+   */
   borderRightStyle?: Responsive<(typeof values)[number]>;
+  /**
+   * Sets the responsive `border-bottom-style` CSS property.
+   */
   borderBottomStyle?: Responsive<(typeof values)[number]>;
+  /**
+   * Sets the responsive `border-left-style` CSS property.
+   */
   borderLeftStyle?: Responsive<(typeof values)[number]>;
 }

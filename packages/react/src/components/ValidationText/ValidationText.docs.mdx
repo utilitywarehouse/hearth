@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './ValidationText.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { ValidationText } from './ValidationText';
@@ -9,7 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="ValidationText" to="components/validation-text" />
 
-`ValidationText` should be used with form field components to display validation messages.
+<Description of={ValidationText} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

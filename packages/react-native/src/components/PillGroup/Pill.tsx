@@ -39,6 +39,7 @@ const PillRoot = ({
   );
 };
 
+/** A selectable, pressable tag used inside a `PillGroup` for filtering or categorization. */
 export const Pill = createPressable({ Root: PillRoot });
 
 Pill.displayName = 'Pill';

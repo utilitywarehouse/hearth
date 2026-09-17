@@ -14,6 +14,7 @@
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Time Picker</Button>
+    <BodyText>{selected ? 'Confirmed' : 'Not confirmed'}</BodyText>
     <TimePicker
       ref={modalRef}
       date={selected}

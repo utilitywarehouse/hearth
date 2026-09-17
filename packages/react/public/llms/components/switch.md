@@ -1,8 +1,10 @@
 # Switch
 
-`Switch` is used to indicate switching between two opposing options. Switches
-allow users to turn an individual option on or off. They are usually used to
-activate or deactivate a specific setting.
+Use Switch to let users toggle a single setting on or off immediately,
+such as activating or deactivating a feature. For choosing between more
+than two related options, use ToggleGroup or SegmentedControl instead.
+Always provide a `label`, or otherwise label the component for screen
+reader users if the visible `label` prop isn't used.
 
 ```tsx
 <Switch size="sm" label="Switch label" />
@@ -88,12 +90,12 @@ This component is based on the `button` element, and supports the following comm
 
 - Margin
 
-| Prop              | Type                           | Default | Description                                       |
-| ----------------- | ------------------------------ | ------- | ------------------------------------------------- |
-| `label`           | `string`                       | —       | The label for the Switch, describing its purpose. |
-| `defaultChecked`  | `boolean`                      | —       |                                                   |
-| `asChild`         | `boolean`                      | —       |                                                   |
-| `checked`         | `boolean`                      | —       |                                                   |
-| `size`            | `Responsive<"sm" \| "md">`     | —       |                                                   |
-| `required`        | `boolean`                      | —       |                                                   |
-| `onCheckedChange` | `((checked: boolean) => void)` | —       |                                                   |
+| Prop              | Type                           | Default | Description                                                                                                                               |
+| ----------------- | ------------------------------ | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`           | `string`                       | —       | The label for the Switch, describing its purpose.                                                                                         |
+| `defaultChecked`  | `boolean`                      | —       |                                                                                                                                           |
+| `asChild`         | `boolean`                      | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
+| `checked`         | `boolean`                      | —       |                                                                                                                                           |
+| `size`            | `Responsive<"sm" \| "md">`     | `md`    | Sets the Switch size.                                                                                                                     |
+| `required`        | `boolean`                      | —       |                                                                                                                                           |
+| `onCheckedChange` | `((checked: boolean) => void)` | —       |                                                                                                                                           |

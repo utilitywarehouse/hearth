@@ -4,6 +4,10 @@ import { FormField } from '../FormField';
 import type { DateInputProps } from './DateInput.props';
 import DateInputSegment from './DateInputSegment';
 
+/**
+ * Lets users enter a date manually across separate day, month, and year segments, with the option to show only the segments needed.
+ * Integrates with the design system's form field styling, validation states, and helper text.
+ */
 const DateInput = ({
   label,
   helperText,

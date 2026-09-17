@@ -28,8 +28,18 @@ const meta: Meta<typeof ProgressStepper> = {
 export default meta;
 type Story = StoryObj<typeof ProgressStepper>;
 
+/**
+ * Visual matrix of ProgressStepper with plain, link, and button steps —
+ * used in docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex direction="column" gap="400">
@@ -64,7 +74,12 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive example — step status updates as you move through with Prev/Next. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -106,7 +121,13 @@ export const Playground: Story = {
   },
 };
 
+/** Use plain ProgressStep children for steps that aren't interactive. */
 export const StaticSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -119,7 +140,13 @@ export const StaticSteps: Story = {
   },
 };
 
+/** Use ProgressStepLink children to navigate to a step via an href. */
 export const LinkSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -132,7 +159,13 @@ export const LinkSteps: Story = {
   },
 };
 
+/** Use ProgressStepButton children to navigate to a step via onClick. */
 export const ButtonSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -153,7 +186,14 @@ export const ButtonSteps: Story = {
   },
 };
 
+/** Set disabled on a ProgressStepLink or ProgressStepButton to prevent navigating to that step. */
 export const DisabledSteps: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex direction="column" gap="400">

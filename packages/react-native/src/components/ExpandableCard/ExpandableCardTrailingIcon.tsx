@@ -9,8 +9,7 @@ const ExpandableCardTrailingIcon = ({ children, ...props }: IconProps & { as?: C
       {...props}
       style={
         Platform.OS === 'web'
-          ? // @ts-expect-error - style prop type issue
-            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
+          ? { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : ([styles.icon as StyleProp<ViewStyle>, props.style] as any)
       }
     >

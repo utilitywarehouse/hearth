@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Badge } from '../Badge/Badge';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
@@ -30,7 +31,12 @@ const meta: Meta<typeof Accordion> = {
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => {
     return (
       <Box width="600px">
@@ -44,9 +50,29 @@ export const Playground: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+
+    await userEvent.click(trigger);
+    await canvas.findByText('Content 1');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+    trigger.blur();
+  },
 };
 
+/** Use forceMount on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
 export const SEOFriendly: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: { type: 'single', collapsible: true },
   render: args => {
     return (
@@ -61,9 +87,26 @@ export const SEOFriendly: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const content = canvas.getByText('Content 1');
+
+    await expect(content).toBeInTheDocument();
+    await expect(content).not.toBeVisible();
+
+    await userEvent.click(trigger);
+    await expect(content).toBeVisible();
+  },
 };
 
+/** Compose AccordionHeader and AccordionTrigger directly to build a custom item header, such as one with a badge. */
 export const CustomItemHeader: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Box width="600px">
@@ -93,7 +136,13 @@ export const CustomItemHeader: Story = {
   },
 };
 
+/** Use defaultValue to expand one or more items when the Accordion first renders. */
 export const DefaultExpanded: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Default expanded items',
     helperText: '',
@@ -112,9 +161,32 @@ export const DefaultExpanded: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('button', { name: 'Item 1' })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    );
+    await expect(canvas.getByRole('button', { name: 'Item 3' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    await expect(canvas.getByRole('button', { name: 'Item 4' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    await canvas.findByText('Content 3');
+    await canvas.findByText('Content 4');
+  },
 };
 
+/** Set type to "multiple" to allow more than one item to stay open at once. */
 export const Multiple: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Multiple items open at once',
     helperText: '',
@@ -132,9 +204,35 @@ export const Multiple: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    // Regression: `collapsible` is not a valid DOM attribute for `type="multiple"`.
+    await expect(canvasElement.querySelector('[collapsible]')).toBeNull();
+
+    const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
+
+    await userEvent.click(item1Trigger);
+    await canvas.findByText('Content 1');
+
+    await userEvent.click(item2Trigger);
+    await canvas.findByText('Content 2');
+
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(canvas.getByText('Content 1')).toBeInTheDocument();
+    await expect(canvas.getByText('Content 2')).toBeInTheDocument();
+    item1Trigger.blur();
+    item2Trigger.blur();
+  },
 };
 
+/** Set type to "single" so opening an item closes any other open item. */
 export const Single: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   args: {
     heading: 'Only a single item open at once',
     helperText: '',
@@ -153,8 +251,30 @@ export const Single: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
+
+    await userEvent.click(item1Trigger);
+    await canvas.findByText('Content 1');
+
+    await userEvent.click(item2Trigger);
+    await canvas.findByText('Content 2');
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+
+    // not collapsible, so re-clicking the already-open item keeps it open
+    await userEvent.click(item2Trigger);
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(canvas.getByText('Content 2')).toBeInTheDocument();
+    item1Trigger.blur();
+    item2Trigger.blur();
+  },
 };
 
+/** Set collapsible on a single-type Accordion to allow the open item to be closed again. */
 export const Collapsible: Story = {
   args: {
     heading: 'Collapse all items',
@@ -175,8 +295,21 @@ export const Collapsible: Story = {
       </Box>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+
+    await userEvent.click(trigger);
+    await canvas.findByText('Content 1');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+  },
 };
 
+/** Use headingElement on Accordion and AccordionItem to control the semantic heading level wrapping each trigger. */
 export const HeadingElement: Story = {
   args: {
     heading: 'Heading element',

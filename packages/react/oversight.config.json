@@ -1,0 +1,8 @@
+{
+  "manifest": "storybook-static/manifests/components.json",
+  "expectedExtractor": "react-docgen-typescript",
+  "maxWarnings": 0,
+  "rules": {
+    "prop-descriptions-missing": "off"
+  }
+}

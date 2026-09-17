@@ -5,7 +5,13 @@ export type MenuItemProps = Omit<
   ComponentPropsWithRef<typeof MenuPrimitive.Item>,
   'className' | 'render' | 'children' | 'nativeButton' | 'style'
 > & {
+  /** CSS class applied to the element */
   className?: string;
+  /**
+   * Sets the visual colour scheme of the item. Use `destructive` for actions
+   * like delete.
+   * @default 'functional'
+   */
   colorScheme?: 'functional' | 'destructive';
   /**
    * Change the default rendered element for the one passed as a child, merging

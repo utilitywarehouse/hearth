@@ -13,6 +13,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepElement = ComponentRef<'li'>;
 
+/**
+ * Use ProgressStep as a single, non-interactive step within a
+ * `ProgressStepper`, showing its `status` — `complete`, `active`, or
+ * `incomplete` — via an indicator and connector line alongside its label.
+ * For a step the user can act on, use `ProgressStepLink` or
+ * `ProgressStepButton` instead.
+ *
+ * @summary A single non-interactive step within a ProgressStepper.
+ */
 export const ProgressStep = forwardRef<ProgressStepElement, ProgressStepProps>(
   ({ status, label, className, children, 'aria-label': ariaLabel, ...props }, ref) => {
     const isStatus = (currentStatus: typeof status) => currentStatus === status;

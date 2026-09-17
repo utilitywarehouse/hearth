@@ -4,6 +4,12 @@ import { StyleSheet } from 'react-native-unistyles';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { IndicatorIconButtonProps } from './IndicatorIconButton.props';
 
+/**
+ * Triggers an action or event, such as opening a dialog or navigating to another screen. Extends
+ * `UnstyledIconButton` with an optional red dot indicator in the top-right corner, for showing
+ * notifications or unread status.
+ * @summary An icon button with an optional notification indicator.
+ */
 const IndicatorIconButton = ({ indicator = false, ...props }: IndicatorIconButtonProps) => {
   return (
     <View style={styles.container}>

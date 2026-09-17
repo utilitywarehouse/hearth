@@ -4,6 +4,10 @@ import { isThemedImageProps } from '../../utils';
 import { ThemedImage, ThemedImageProps } from '../ThemedImage';
 import { useBannerContext } from './Banner.context';
 
+/**
+ * Renders a themed illustration inside a `Banner`, adapting its size to the
+ * banner's layout direction and switching between light and dark sources.
+ */
 const BannerIllustration = (props: ImageProps | ThemedImageProps) => {
   const { direction } = useBannerContext();
   styles.useVariants({ direction });

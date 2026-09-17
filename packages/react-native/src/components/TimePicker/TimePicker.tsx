@@ -30,6 +30,11 @@ const Footer = ({ onCancel, onConfirm }: FooterProps) => {
   );
 };
 
+/**
+ * Presents a wheel-based hour and minute selector inside a bottom sheet, opened imperatively
+ * via a ref. Supports 12-hour and 24-hour clocks and reports the picked time as a `Date`.
+ * @summary A bottom-sheet time picker.
+ */
 const TimePicker = ({
   timeZone,
   date,
@@ -53,6 +58,10 @@ const TimePicker = ({
     return date ? dayjs.tz(date, timeZone) : dayjs().tz(timeZone);
   });
 
+  // Tracks whether a wheel change was made since the sheet last opened, so Ok
+  // doesn't re-emit onChange for a value it already just committed via the wheel.
+  const hasChangedRef = useRef(false);
+
   useEffect(() => {
     const nextDate = date ? dayjs.tz(date, timeZone) : dayjs().tz(timeZone);
     const isSameMinute = dayjs(currentDate).isSame(nextDate, 'minute');
@@ -69,6 +78,7 @@ const TimePicker = ({
   const handleSelectDate = useCallback(
     (selectedDate: DateType) => {
       const newDate = dayjs.tz(selectedDate ?? currentDate, timeZone);
+      hasChangedRef.current = true;
       if (!dayjs(currentDate).isSame(newDate, 'minute')) {
         setCurrentDate(newDate);
       }
@@ -83,11 +93,15 @@ const TimePicker = ({
   }, [closeTimePicker, onCancel]);
 
   const handleConfirm = useCallback(() => {
+    if (!hasChangedRef.current) {
+      onChange?.({ date: currentDate ? dayjs(currentDate).toDate() : currentDate });
+    }
     closeTimePicker();
-  }, [closeTimePicker]);
+  }, [currentDate, onChange, closeTimePicker]);
 
   const handleChange = useCallback((index: number) => {
     if (index > -1) {
+      hasChangedRef.current = false;
       setTimeout(() => {
         AccessibilityInfo.announceForAccessibility('Time picker opened.');
 

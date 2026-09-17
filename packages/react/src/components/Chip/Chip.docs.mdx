@@ -1,0 +1,98 @@
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
+import * as Stories from './Chip.stories';
+import { Chip } from './Chip';
+import { ChipGroup } from './ChipGroup';
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+
+<Meta title="Components / Chip" />
+
+<MarkdownDocHeader title="Chip" to="components/chip" />
+
+<Description of={Chip} />
+
+- [Usage](#usage)
+- [Removable](#removable)
+- [Disabled](#disabled)
+- [Chip Group](#chip-group)
+- [Accessibility](#accessibility)
+- [API](#api)
+
+<Canvas of={Stories.KitchenSink} sourceState="show" />
+
+## Usage
+
+Render a Chip for each active selection, and remove it from your state when
+the user clicks it.
+
+```tsx
+<Chip onClick={() => removeFilter(filter)}>{filter.label}</Chip>
+```
+
+<Canvas of={Stories.Playground} sourceState="show" />
+
+## Removable
+
+Chip always renders a close icon to signal that it can be removed. Attach an
+`onClick` handler to update your application state when the user clicks it.
+
+<Canvas of={Stories.Removable} sourceState="show" />
+
+## Disabled
+
+Set `disabled` to prevent a Chip from being removed.
+
+<Canvas of={Stories.Disabled} sourceState="show" />
+
+## Chip Group
+
+Use `ChipGroup` to lay out a collection of Chips, such as the filters
+currently applied to a list of results. Pass `label` to introduce the group,
+e.g. "Currently showing:".
+
+```tsx
+<ChipGroup label="Currently showing:">
+  <Chip onClick={() => removeFilter('gas')}>Gas</Chip>
+  <Chip onClick={() => removeFilter('electricity')}>Electricity</Chip>
+</ChipGroup>
+```
+
+<Canvas of={Stories.Group} sourceState="show" />
+
+ChipGroup wraps its Chips onto multiple lines once they no longer fit the
+available width.
+
+<Canvas of={Stories.Wrapping} sourceState="show" />
+
+Chips are commonly added to and removed from a ChipGroup over time, such as
+when a user applies or clears filters.
+
+<Canvas of={Stories.AddAndRemove} sourceState="show" />
+
+## Accessibility
+
+A Chip's only interaction is removal, and by default is used for filtering, so
+its accessible name defaults to `Remove [label] filter` rather than just the
+visible label, ie. `Remove gas filter`, rather than `Gas`: a screen reader
+announcing only the label (e.g. "Gas, button") wouldn't convey that activating
+it removes something.
+
+Pass `aria-label` to override this wording.
+
+## API
+
+This component is based on the `button` element and supports the following
+common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={Chip} include={'children|disabled|onClick'} exclude={'aria-*'} />
+
+### ChipGroup API
+
+This component is based on the `div` element and supports the following
+common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={ChipGroup} include={'label|children'} exclude={'aria-*'} />

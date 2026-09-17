@@ -1,0 +1,136 @@
+.h-Timeline {
+  display: flex;
+  flex-direction: column;
+
+  &:where(.h-variant-progress) {
+    & :where(.h-TimelineItemIndicator) {
+      width: var(--h-timeline-progress-circle-width);
+      height: var(--h-timeline-progress-circle-height);
+    }
+  }
+
+  &:where(.h-variant-static) {
+    & :where(.h-TimelineItemIndicator) {
+      width: var(--h-timeline-static-circle-width);
+      height: var(--h-timeline-static-circle-height);
+
+      & :where(svg) {
+        display: none;
+      }
+    }
+  }
+
+  & :where(.h-TimelineItem) {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: var(--h-timeline-gap);
+
+    & :where(.h-TimelineItemRail) {
+      flex-shrink: 0;
+
+      & :where(.h-TimelineItemIndicator) {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: var(--h-border-radius-full);
+        background-color: var(--h-interactive-brand-surface-strong-default);
+        border: none;
+
+        &:where(.h-variant-progress &) {
+          &:where([data-state='complete']) {
+            background-color: var(--h-interactive-brand-surface-strong-default);
+            border: none;
+
+            & > svg {
+              color: var(--h-text-inverted);
+            }
+          }
+
+          &:where([data-state='active']) {
+            background-color: var(--h-interactive-brand-surface-strong-default);
+            border: none;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: var(--h-border-width-2);
+              border-radius: var(--h-border-radius-full);
+              background-color: var(--h-interactive-brand-surface-strong-default);
+              border: var(--h-border-width-2) solid var(--h-background-primary);
+            }
+          }
+
+          &:where([data-state='incomplete']) {
+            background-color: var(--h-background-primary);
+            border: var(--h-border-width-2) solid var(--h-border-subtle);
+          }
+        }
+      }
+
+      & :where(.h-TimelineItemConnector) {
+        flex: 1;
+        width: var(--h-timeline-bar-width);
+        background-color: var(--h-interactive-brand-surface-strong-default);
+
+        &:where(.h-variant-progress &) {
+          &:where([data-state='complete']) {
+            background-color: var(--h-interactive-brand-surface-strong-default);
+          }
+
+          &:where([data-state='active'], [data-state='incomplete']) {
+            background-color: var(--h-border-subtle);
+          }
+        }
+      }
+    }
+
+    & :where(.h-TimelineItemContent) {
+      gap: var(--h-timeline-content-gap);
+      padding-top: var(--h-timeline-content-padding-top);
+      padding-bottom: var(--h-timeline-content-padding-bottom);
+
+      &:where(.h-variant-static &) {
+        /* I eyeballed this */
+        --h-content-alignment-adjustment: 7px;
+
+        margin-top: calc(-1 * var(--h-content-alignment-adjustment));
+        padding-bottom: calc(
+          var(--h-timeline-content-padding-bottom) + var(--h-content-alignment-adjustment)
+        );
+      }
+    }
+
+    &:where(:last-child) {
+      & :where(.h-TimelineItemConnector) {
+        display: none;
+      }
+
+      & :where(.h-TimelineItemContent) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  /*
+   * A dangling rail only makes sense on a final item that hasn't happened
+   * yet — fades to transparent, rather than a solid colour, since whatever
+   * sits behind the timeline can vary. progress only: static's indicator
+   * and connector don't vary by state, so there's nothing to dangle from.
+   */
+  &:where(.h-variant-progress.h-dangling-rail) {
+    & :where(.h-TimelineItem:last-child[data-state='incomplete']) {
+      & :where(.h-TimelineItemConnector) {
+        display: block;
+        background-color: transparent;
+        background-image: linear-gradient(to bottom, var(--h-border-subtle), transparent);
+      }
+
+      & :where(.h-TimelineItemContent) {
+        padding-bottom: var(--h-timeline-content-padding-bottom);
+      }
+    }
+  }
+}

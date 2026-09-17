@@ -43,13 +43,13 @@ import { Box } from '@utilitywarehouse/hearth-react' import { semantic } from '@
 // <Box borderColor='rebeccapurple'/>
 ```
 
-| Prop                | Type                                           | Default | Description |
-| ------------------- | ---------------------------------------------- | ------- | ----------- |
-| `borderColor`       | `"strong" \| `var(--h-${string})` \| "subtle"` | —       |             |
-| `borderTopColor`    | `"strong" \| `var(--h-${string})` \| "subtle"` | —       |             |
-| `borderRightColor`  | `"strong" \| `var(--h-${string})` \| "subtle"` | —       |             |
-| `borderBottomColor` | `"strong" \| `var(--h-${string})` \| "subtle"` | —       |             |
-| `borderLeftColor`   | `"strong" \| `var(--h-${string})` \| "subtle"` | —       |             |
+| Prop                | Type                                           | Default | Description                                                       |
+| ------------------- | ---------------------------------------------- | ------- | ----------------------------------------------------------------- |
+| `borderColor`       | `"strong" \| `var(--h-${string})` \| "subtle"` | —       | Sets the `border-color` CSS property on all sides of the element. |
+| `borderTopColor`    | `"strong" \| `var(--h-${string})` \| "subtle"` | —       | Sets the `border-top-color` CSS property.                         |
+| `borderRightColor`  | `"strong" \| `var(--h-${string})` \| "subtle"` | —       | Sets the `border-right-color` CSS property.                       |
+| `borderBottomColor` | `"strong" \| `var(--h-${string})` \| "subtle"` | —       | Sets the `border-bottom-color` CSS property.                      |
+| `borderLeftColor`   | `"strong" \| `var(--h-${string})` \| "subtle"` | —       | Sets the `border-left-color` CSS property.                        |
 
 ## Border width and style
 
@@ -74,18 +74,18 @@ import { components } from '@utilitywarehouse/hearth-tokens/browser';
 <Box borderWidth={components.alert.borderWidth} />
 ```
 
-| Prop                | Type                                                    | Default | Description |
-| ------------------- | ------------------------------------------------------- | ------- | ----------- |
-| `borderStyle`       | `Responsive<"none" \| "solid">`                         | —       |             |
-| `borderTopStyle`    | `Responsive<"none" \| "solid">`                         | —       |             |
-| `borderRightStyle`  | `Responsive<"none" \| "solid">`                         | —       |             |
-| `borderBottomStyle` | `Responsive<"none" \| "solid">`                         | —       |             |
-| `borderLeftStyle`   | `Responsive<"none" \| "solid">`                         | —       |             |
-| `borderWidth`       | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       |             |
-| `borderTopWidth`    | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       |             |
-| `borderRightWidth`  | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       |             |
-| `borderBottomWidth` | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       |             |
-| `borderLeftWidth`   | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       |             |
+| Prop                | Type                                                    | Default | Description                                                                  |
+| ------------------- | ------------------------------------------------------- | ------- | ---------------------------------------------------------------------------- |
+| `borderStyle`       | `Responsive<"none" \| "solid">`                         | —       | Sets the responsive `border-style` CSS property on all sides of the element. |
+| `borderTopStyle`    | `Responsive<"none" \| "solid">`                         | —       | Sets the responsive `border-top-style` CSS property.                         |
+| `borderRightStyle`  | `Responsive<"none" \| "solid">`                         | —       | Sets the responsive `border-right-style` CSS property.                       |
+| `borderBottomStyle` | `Responsive<"none" \| "solid">`                         | —       | Sets the responsive `border-bottom-style` CSS property.                      |
+| `borderLeftStyle`   | `Responsive<"none" \| "solid">`                         | —       | Sets the responsive `border-left-style` CSS property.                        |
+| `borderWidth`       | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       | Sets the responsive `border-width` CSS property on all sides of the element. |
+| `borderTopWidth`    | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       | Sets the responsive `border-top-width` CSS property.                         |
+| `borderRightWidth`  | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       | Sets the responsive `border-right-width` CSS property.                       |
+| `borderBottomWidth` | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       | Sets the responsive `border-bottom-width` CSS property.                      |
+| `borderLeftWidth`   | `Responsive<`var(--h-${string})` \| "0" \| "1" \| "2">` | —       | Sets the responsive `border-left-width` CSS property.                        |
 
 ## Border radius
 
@@ -101,14 +101,14 @@ You can also override the `borderRadius` for individual corners and sides.
 <Box borderRadius="lg" borderRadiusTopLeftNone borderRadiusBottomRightNone  />
 ```
 
-| Prop                          | Type                                                                                | Default | Description |
-| ----------------------------- | ----------------------------------------------------------------------------------- | ------- | ----------- |
-| `borderRadius`                | `Responsive<"none" \| "xs" \| "sm" \| "md" \| "lg" \| "xl" \| "full" \| "inherit">` | —       |             |
-| `borderRadiusTopLeftNone`     | `boolean`                                                                           | —       |             |
-| `borderRadiusTopRightNone`    | `boolean`                                                                           | —       |             |
-| `borderRadiusBottomLeftNone`  | `boolean`                                                                           | —       |             |
-| `borderRadiusBottomRightNone` | `boolean`                                                                           | —       |             |
-| `borderRadiusTopNone`         | `boolean`                                                                           | —       |             |
-| `borderRadiusRightNone`       | `boolean`                                                                           | —       |             |
-| `borderRadiusBottomNone`      | `boolean`                                                                           | —       |             |
-| `borderRadiusLeftNone`        | `boolean`                                                                           | —       |             |
+| Prop                          | Type                                                                                | Default | Description                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------- |
+| `borderRadius`                | `Responsive<"none" \| "xs" \| "sm" \| "md" \| "lg" \| "xl" \| "full" \| "inherit">` | —       | Sets the responsive `border-radius` CSS property on all corners of the element. |
+| `borderRadiusTopLeftNone`     | `boolean`                                                                           | —       | Removes the border radius from the top-left corner.                             |
+| `borderRadiusTopRightNone`    | `boolean`                                                                           | —       | Removes the border radius from the top-right corner.                            |
+| `borderRadiusBottomLeftNone`  | `boolean`                                                                           | —       | Removes the border radius from the bottom-left corner.                          |
+| `borderRadiusBottomRightNone` | `boolean`                                                                           | —       | Removes the border radius from the bottom-right corner.                         |
+| `borderRadiusTopNone`         | `boolean`                                                                           | —       | Removes the border radius from the top-left and top-right corners.              |
+| `borderRadiusRightNone`       | `boolean`                                                                           | —       | Removes the border radius from the top-right and bottom-right corners.          |
+| `borderRadiusBottomNone`      | `boolean`                                                                           | —       | Removes the border radius from the bottom-left and bottom-right corners.        |
+| `borderRadiusLeftNone`        | `boolean`                                                                           | —       | Removes the border radius from the top-left and bottom-left corners.            |

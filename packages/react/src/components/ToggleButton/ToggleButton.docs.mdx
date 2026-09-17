@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './ToggleButton.stories';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -14,10 +14,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="ToggleButton" to="components/toggle-button" />
 
-A standalone toggle button for use with `ToggleGroup`. Unlike
-`ToggleButtonCard`, `ToggleButton` is just the button itself - it has no card
-wrapper - making it suitable for layouts where the toggle controls live inside
-a custom container such as a comparison table.
+<Description of={ToggleButton} />
 
 <Canvas of={Stories.Playground} sourceState="show" />
 

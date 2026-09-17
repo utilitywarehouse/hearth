@@ -9,13 +9,26 @@ export interface CommonLabelProps extends MarginProps, TextTransformProps {
    * @default label
    */
   as?: 'label' | 'span';
+  /**
+   * Sets the visual style of the label, rendering it as `BodyText` or as a
+   * `Heading`.
+   *
+   * @default 'body'
+   */
   variant?: 'body' | 'heading';
+  /**
+   * Sets the font-weight when `variant` is `'body'`.
+   *
+   * @default 'regular'
+   */
   fontWeight?: 'regular' | 'semibold';
   /** Set the label appearance to disabled */
   disabled?: boolean;
   /** Make the text unselectable, for use when associated with input elements. */
   disableUserSelect?: boolean;
 }
+/** Renders a `span` element. */
 type LabelSpanProps = { as?: 'span' } & Omit<ComponentPropsWithRef<'span'>, 'color'>;
+/** Renders a `label` element. This is the default. */
 type LabelLabelProps = { as: 'label' } & Omit<ComponentPropsWithRef<'label'>, 'color'>;
 export type LabelProps = CommonLabelProps & (LabelSpanProps | LabelLabelProps);

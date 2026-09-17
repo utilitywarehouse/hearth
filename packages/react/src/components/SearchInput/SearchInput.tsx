@@ -17,6 +17,16 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use SearchInput to let users enter a keyword or phrase to search content
+ * related to the context it's placed in. Pass an `onClear` handler to show a
+ * clear button, and set `loading` to display a spinner while results are
+ * fetched. On desktop and tablet it must be paired with a button to trigger
+ * the search; on mobile the keyboard's search action can trigger it instead.
+ * For general text entry use TextInput instead.
+ *
+ * @summary An input for entering a search keyword or phrase.
+ */
 export const SearchInput = forwardRef<InputBaseElement, SearchInputProps>(
   (
     {

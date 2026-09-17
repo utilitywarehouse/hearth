@@ -1,5 +1,11 @@
 # HelperText
 
+Use HelperText below a form field to provide supporting guidance about its
+expected input or purpose. It renders as a `span`-based `BodyText`, and can
+be styled as `disabled` to match a disabled input, or given
+`disableUserSelect` when tightly associated with an input element.
+For validation feedback (error/success messages), use ValidationText instead.
+
 ```tsx
 <HelperText>Hearth helper text</HelperText>
 ```

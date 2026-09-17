@@ -1,5 +1,134 @@
 # @utilitywarehouse/hearth-react
 
+## 0.33.1
+
+### Patch Changes
+
+- [#1597](https://github.com/utilitywarehouse/hearth/pull/1597) [`97f1620`](https://github.com/utilitywarehouse/hearth/commit/97f16207c7e7ab904fe0a0479ed8cfa16c05a905) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX] Pass div element props to `ListItemContent` component
+
+- [#1598](https://github.com/utilitywarehouse/hearth/pull/1598) [`2ddad7f`](https://github.com/utilitywarehouse/hearth/commit/2ddad7f89f6e051352da24c16a84a20b55140984) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal content height when there is not footer present
+
+- Updated dependencies [[`5a1987a`](https://github.com/utilitywarehouse/hearth/commit/5a1987abbb8e8a0f75275bcb35c65b13e8a31a79)]:
+  - @utilitywarehouse/hearth-react-icons@0.9.3
+
+## 0.33.0
+
+### Minor Changes
+
+- [#1589](https://github.com/utilitywarehouse/hearth/pull/1589) [`0666aa8`](https://github.com/utilitywarehouse/hearth/commit/0666aa8d483270c876bc141fea8a5fda4e527f84) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `Timeline` and `TimelineItem` components for showing a sequence of events or steps
+
+  `Timeline` renders an ordered list of `TimelineItem`s, each with a `label`,
+  optional `helperText`, and a `state` (`complete`, `active`, or
+  `incomplete`) shown via an indicator and connector line. Use the `static`
+  variant for a purely informational history or schedule, and the `progress`
+  variant when the sequence represents the user's advancement through it. Set
+  `danglingRail` on `Timeline` to extend the final item's connector beyond
+  the list and fade it to transparent, for a final `incomplete` item that
+  suggests the timeline continues.
+
+  **Components affected**:
+  - `Timeline`
+  - `TimelineItem`
+
+## 0.32.3
+
+### Patch Changes
+
+- [#1504](https://github.com/utilitywarehouse/hearth/pull/1504) [`e2419a5`](https://github.com/utilitywarehouse/hearth/commit/e2419a5d57d41efcf8bb14593efe8972fea2ed38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Be more specific when applying CSS for disabled states
+
+## 0.32.2
+
+### Patch Changes
+
+- [#1575](https://github.com/utilitywarehouse/hearth/pull/1575) [`c24537d`](https://github.com/utilitywarehouse/hearth/commit/c24537deaefd3c01d5078ba24dd878bf1e5ad2ec) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Missing `space-1000` and `border-radius-lg` CSS utility classes
+
+## 0.32.1
+
+### Patch Changes
+
+- [#1571](https://github.com/utilitywarehouse/hearth/pull/1571) [`22a5562`](https://github.com/utilitywarehouse/hearth/commit/22a556266e53453ed10f1307075304c2abe5bb25) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `hearth-react` skill now defaults to the MCP server over local markdown
+
+  The skill guidance used by AI coding agents building with this package
+  previously defaulted to reading local markdown files for component lookups.
+  It now defaults to the `hearth-react` MCP server for component lookups and
+  general/cross-cutting guidance, falling back to markdown only for a specific
+  story's exact code beyond what `get-documentation` or
+  `get-documentation-for-story` already surfaces.
+
+  **Developer changes**:
+
+  No action required — this only affects the guidance given to AI coding
+  agents using this library, not the runtime API.
+
+## 0.32.0
+
+### Minor Changes
+
+- [#1570](https://github.com/utilitywarehouse/hearth/pull/1570) [`1b18793`](https://github.com/utilitywarehouse/hearth/commit/1b18793e8d3eebf515eeaa5176464f7c75bd2938) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING CHANGE]: `Select` no longer accepts an `asChild` prop
+
+  `asChild` was declared on `SelectProps` but had no effect — `Select` never
+  read it or forwarded it to the underlying trigger. It has been removed from
+  the public API.
+
+  **Developer changes**:
+
+  If you were passing `asChild` to `Select`, remove it — it was already being
+  ignored, so this has no effect on rendered behaviour.
+
+### Patch Changes
+
+- [#1560](https://github.com/utilitywarehouse/hearth/pull/1560) [`f9880ef`](https://github.com/utilitywarehouse/hearth/commit/f9880efdf1344a6b810be297b582d83bb39adeee) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `collapsible` leaking into DOM for Accordion when type="multiple"
+
+- [#1568](https://github.com/utilitywarehouse/hearth/pull/1568) [`6f4a9ea`](https://github.com/utilitywarehouse/hearth/commit/6f4a9ea6b16feeceb5cc2f6c97ffc7e3390225f2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DetailText` `as` prop type didn't reflect that `span` is the default
+
+  Omitting `as` previously type-checked against the `div`/`p` variants instead of
+  `span`, the actual runtime default. `as="span"` is now optional and
+  `as="div"`/`as="p"` are required, matching the rendered output.
+
+## 0.31.9
+
+### Patch Changes
+
+- [#1553](https://github.com/utilitywarehouse/hearth/pull/1553) [`6483208`](https://github.com/utilitywarehouse/hearth/commit/6483208279badb5cdc4d5c45ffa2702765835f66) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Bump react-icons peer dependency
+
+## 0.31.8
+
+### Patch Changes
+
+- [#1545](https://github.com/utilitywarehouse/hearth/pull/1545) [`2a74705`](https://github.com/utilitywarehouse/hearth/commit/2a74705c4540cc579a849170cdce94c3e820342a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `Chip` & `ChipGroup` components
+
+  `Chip` is a compact, interactive element that represents an input, attribute,
+  or filter, letting users see active selections at a glance and remove them
+  with a single click.
+
+  ```tsx
+  <Chip onClick={() => removeFilter(filter)}>{filter.label}</Chip>
+  ```
+
+  `ChipGroup` lays out a collection of `Chip` components, such as the filters
+  currently applied to a list of results, with an optional leading label.
+
+  ```tsx
+  <ChipGroup label="Currently showing:">
+    <Chip onClick={() => removeFilter('gas')}>Gas</Chip>
+    <Chip onClick={() => removeFilter('electricity')}>Electricity</Chip>
+  </ChipGroup>
+  ```
+
+## 0.31.7
+
+### Patch Changes
+
+- [#1539](https://github.com/utilitywarehouse/hearth/pull/1539) [`411a6f5`](https://github.com/utilitywarehouse/hearth/commit/411a6f51ea22d066243396af477fc77de0d009d4) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `ComboboxItem` supports layout props for custom content
+
+  `ComboboxItem` now accepts `flex`, `flexBasis`, `flexShrink`, `flexGrow`,
+  `alignItems`, `justifyContent`, and `gap` props, making it easier to lay out
+  custom multi-element item content (e.g. a label alongside a trailing action)
+  without wrapping children in extra markup.
+
+  **Components affected**:
+  - `ComboboxItem`
+
 ## 0.31.6
 
 ### Patch Changes

@@ -5,6 +5,7 @@ import SceneBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-br
 import SceneBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg';
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
+import type { ImageSourcePropType } from 'react-native';
 import { SvgProps } from 'react-native-svg';
 import pig from '../../../docs/assets/pigs.png';
 import { Box } from '../Box';
@@ -103,12 +104,8 @@ export const WithRegularImages: Story = {
   render: () => (
     <Box gap="200">
       <ThemedImage
-        light={{
-          uri: pig,
-        }}
-        dark={{
-          uri: pig,
-        }}
+        light={pig as ImageSourcePropType}
+        dark={pig as ImageSourcePropType}
         width={200}
         height={200}
         style={{ width: 200, height: 200, borderRadius: 8 }}

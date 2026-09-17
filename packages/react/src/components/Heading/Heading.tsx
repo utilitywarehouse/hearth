@@ -18,6 +18,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HeadingElement = ComponentRef<'h2'>;
 
+/**
+ * Use Heading for section and page headings — it renders an `h2` element by
+ * default, with non-responsive `size` steps that are already responsive
+ * internally. Use the `as` prop to render the semantically correct heading
+ * level (`h1`–`h4`) for the document outline, independent of visual size.
+ * For body or detail copy, use BodyText or DetailText instead.
+ *
+ * @summary Section and page heading text, rendered as an `h1`–`h4` element.
+ */
 export const Heading = forwardRef<HeadingElement, HeadingProps>(
   ({ size, as: Tag = 'h2', ...props }, ref) => {
     const { className, asChild, inverted, children, ...headingProps } = extractProps(

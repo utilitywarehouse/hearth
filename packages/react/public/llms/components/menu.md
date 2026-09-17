@@ -1,18 +1,11 @@
 # Menu
 
-Use the `Menu` component to present a short list of actions or options in
-response to a user’s interaction. Menus are ideal for actions like sorting,
-filtering, or providing additional options without navigating away from the
-current screen.
-
-- [Usage](#usage)
-- [MenuTrigger](#menutrigger)
-- [Placement](#placement)
-- [MenuItem](#menuitem)
-- [Accessibility](#accessibility)
-- [SEO](#seo)
-- [Migration](#migration)
-- [API](#api)
+Use Menu to present a short list of actions or options in response to a
+user's interaction, such as sorting, filtering, or additional options,
+without navigating away from the current screen. Compose the root Menu
+with MenuTrigger and MenuContent, which wraps any number of MenuItem
+components. Set `modal={false}` when multiple Menu components are used
+together, such as in a navigation bar.
 
 ```tsx
 <Menu {...args}>
@@ -101,8 +94,8 @@ You must render either a `Button` or `IconButton` component as a child of the `M
 ### Detached trigger
 
 By default the `MenuTrigger` lives inside `Menu`. When the trigger needs to exist in a
-different part of the component tree — for example in a toolbar while the menu state is
-managed elsewhere — use `Menu.createHandle()` to connect them.
+different part of the component tree (for example in a toolbar while the menu state is
+managed elsewhere), use `Menu.createHandle()` to connect them.
 
 Create the handle once at module level (outside any component), then pass it to both
 `MenuTrigger` and `Menu` via the `handle` prop. `Menu` no longer needs a `MenuTrigger`
@@ -206,7 +199,7 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
 If a `MenuItem` is navigating to another page, use the `asChild` prop to render a
-semantic `<a>` element — all accessible attributes are merged onto the child.
+semantic `<a>` element: all accessible attributes are merged onto the child.
 
 ```tsx
 <MenuContent>
@@ -288,7 +281,7 @@ to manage focus movement among menu items.
 
 By default, `MenuContent` is removed from the DOM when the menu is closed, which
 means search engines may not index its content. If the menu items are important
-for SEO — for example, primary navigation links — use the `keepMounted` prop on
+for SEO (for example, primary navigation links), use the `keepMounted` prop on
 `MenuContent` to keep them in the DOM at all times.
 
 ```tsx
@@ -301,8 +294,8 @@ for SEO — for example, primary navigation links — use the `keepMounted` prop
 
 **`MenuItem` deprecations:**
 
-- `onSelect` is deprecated. Use `onClick` instead — it fires for both mouse and keyboard activation.
-- `textValue` is deprecated. Use `label` instead — it is used for accessibility and keyboard navigation.
+- `onSelect` is deprecated. Use `onClick` instead: it fires for both mouse and keyboard activation.
+- `textValue` is deprecated. Use `label` instead: it is used for accessibility and keyboard navigation.
 
 **`MenuContent` deprecation:**
 
@@ -362,8 +355,8 @@ run TypeScript to confirm no type errors remain.
 
 | Prop          | Type                                                          | Default | Description                                                                                                                     |
 | ------------- | ------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `style`       | `CSSProperties`                                               | —       |                                                                                                                                 |
-| `className`   | `string`                                                      | —       |                                                                                                                                 |
+| `style`       | `CSSProperties`                                               | —       | The style applied to the element                                                                                                |
+| `className`   | `string`                                                      | —       | CSS class applied to the element                                                                                                |
 | `disabled`    | `boolean`                                                     | `false` | Whether the component should ignore user interaction.                                                                           |
 | `children`    | `ReactElement<unknown, string \| JSXElementConstructor<any>>` | —       | The content of the MenuTrigger. Should contain a single `Button` or `IconButton` that will be used as the trigger for the Menu. |
 | `closeDelay`  | `number`                                                      | `0`     | How long to wait before closing the menu that was opened on hover. Specified in milliseconds. Requires the `openOnHover` prop.  |
@@ -375,8 +368,8 @@ run TypeScript to confirm no type errors remain.
 
 | Prop          | Type                                                       | Default      | Description                                                                          |
 | ------------- | ---------------------------------------------------------- | ------------ | ------------------------------------------------------------------------------------ |
-| `className`   | `string`                                                   | —            |                                                                                      |
-| `style`       | `CSSProperties`                                            | —            |                                                                                      |
+| `className`   | `string`                                                   | —            | CSS class applied to the element                                                     |
+| `style`       | `CSSProperties`                                            | —            | The style applied to the element                                                     |
 | `placement`   | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` | `bottomLeft` | The placement of the menu relative to the trigger element. Defaults to 'bottomLeft'. |
 | `keepMounted` | `boolean`                                                  | `false`      | Whether the menu should be kept mounted in the DOM when closed. Defaults to false.   |
 | `forceMount`  | `true`                                                     | —            | @deprecated Use `keepMounted` instead. Will be removed in next major.                |
@@ -388,11 +381,11 @@ This component is based on the `div` element.
 | Prop           | Type                                                                     | Default      | Description                                                                                                                                    |
 | -------------- | ------------------------------------------------------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`        | `string`                                                                 | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                      |
-| `className`    | `string`                                                                 | —            |                                                                                                                                                |
+| `className`    | `string`                                                                 | —            | CSS class applied to the element                                                                                                               |
 | `id`           | `string`                                                                 | —            | @ignore                                                                                                                                        |
 | `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)` | —            | The click handler for the menu item.                                                                                                           |
 | `disabled`     | `boolean`                                                                | `false`      | Whether the component should ignore user interaction.                                                                                          |
 | `closeOnClick` | `boolean`                                                                | `true`       | Whether to close the menu when the item is clicked.                                                                                            |
-| `colorScheme`  | `"functional" \| "destructive"`                                          | `functional` |                                                                                                                                                |
+| `colorScheme`  | `"functional" \| "destructive"`                                          | `functional` | Sets the visual colour scheme of the item. Use `destructive` for actions like delete.                                                          |
 | `asChild`      | `boolean`                                                                | —            | Change the default rendered element for the one passed as a child, merging their props and behaviour. Useful for rendering MenuItem as a link. |
 | `textValue`    | `string`                                                                 | —            | Deprecated override of the text label to use when the item is matched during keyboard text navigation. @deprecated Use `label` instead.        |

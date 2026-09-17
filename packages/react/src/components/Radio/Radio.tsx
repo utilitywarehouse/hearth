@@ -17,6 +17,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ComponentRef<'button'>;
 
+/**
+ * Use Radio to let a user select a single option from a set of mutually
+ * exclusive choices, always as a child of RadioGroup. RadioTile is preferred
+ * for most cases as it offers a larger, more prominent target — reach for
+ * Radio only when a compact, plain radio button is needed.
+ *
+ * @summary A single radio button for selecting one option from a set, used within RadioGroup.
+ */
 export const Radio = forwardRef<RadioElement, RadioProps>(
   (
     {

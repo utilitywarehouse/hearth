@@ -20,6 +20,6 @@ import {semantic} from '@utilitywarehouse/hearth-tokens/browser';
 <Grid opacity="var(--h-opacity-disabled)" />
 ```
 
-| Prop      | Type                 | Default | Description |
-| --------- | -------------------- | ------- | ----------- |
-| `opacity` | `Responsive<string>` | —       |             |
+| Prop      | Type                 | Default | Description                                                                                                         |
+| --------- | -------------------- | ------- | ------------------------------------------------------------------------------------------------------------------- |
+| `opacity` | `Responsive<string>` | —       | Set the transparency of an element, from `0` (fully transparent) to `1` (fully opaque). Supports responsive values. |

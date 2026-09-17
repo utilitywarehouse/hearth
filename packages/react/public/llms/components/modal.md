@@ -1,19 +1,11 @@
 # Modal
 
-A `Modal` overlays content to request a decision or inform users of important information. When
-users need to interact with the application without navigating to a new page or disrupting their
-workflow, a `Modal` creates a floating layer over the current page to gather feedback or display
-information.
-
-- [Usage Guidelines](#usage-guidelines)
-- [Content](#content)
-- [Accessibility](#accessibility)
-- [Uncontrolled usage](#uncontrolled-usage)
-- [Controlled usage](#controlled-usage)
-- [With Image](#with-image)
-- [Loading](#loading)
-- [Preventing dismissal](#preventing-dismissal)
-- [API](#api)
+Use Modal to overlay content that requests a decision from the user or
+informs them of important information, without navigating to a new page.
+Modal must be wrapped in a ModalRoot, and is typically composed with
+ModalTrigger, ModalContent, ModalFooter, and ModalClose. Pass `heading` and
+`description` for standard content, or custom children alongside
+ModalFooter for more control over layout.
 
 ```tsx
 <ModalRoot>
@@ -363,19 +355,19 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 
 | Prop                   | Type                                                              | Default | Description                                                                                                                                                                               |
 | ---------------------- | ----------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `image`                | `ReactNode`                                                       | —       |                                                                                                                                                                                           |
+| `image`                | `ReactNode`                                                       | —       | An image, such as an SVG illustration, rendered at the top of the modal. The layout automatically adjusts to accommodate it.                                                              |
 | `container`            | `Element \| DocumentFragment \| null`                             | —       | Specify a container element to portal the content into.                                                                                                                                   |
 | `forceMount`           | `true`                                                            | —       | Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.                                                                     |
-| `heading`              | `string`                                                          | —       |                                                                                                                                                                                           |
+| `heading`              | `string`                                                          | —       | The heading shown in the modal's main content. Required unless `loading` is `true`. The heading shown in the modal's main content. Optional while `loading` is `true`.                    |
 | `onEscapeKeyDown`      | `((event: KeyboardEvent) => void)`                                | —       | Event handler called when the escape key is down. Can be prevented.                                                                                                                       |
 | `onPointerDownOutside` | `((event: PointerDownOutsideEvent) => void)`                      | —       | Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`. Can be prevented.                                                                          |
 | `onFocusOutside`       | `((event: FocusOutsideEvent) => void)`                            | —       | Event handler called when the focus moves outside of the `DismissableLayer`. Can be prevented.                                                                                            |
 | `onInteractOutside`    | `((event: PointerDownOutsideEvent \| FocusOutsideEvent) => void)` | —       | Event handler called when an interaction happens outside the `DismissableLayer`. Specifically, when a `pointerdown` event happens outside or focus moves outside of it. Can be prevented. |
 | `onOpenAutoFocus`      | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on open. Can be prevented.                                                                                                                        |
 | `onCloseAutoFocus`     | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on close. Can be prevented.                                                                                                                       |
-| `description`          | `string`                                                          | —       |                                                                                                                                                                                           |
-| `hideCloseButton`      | `boolean`                                                         | —       |                                                                                                                                                                                           |
-| `fullScreen`           | `boolean`                                                         | —       |                                                                                                                                                                                           |
-| `loadingHeading`       | `string`                                                          | —       |                                                                                                                                                                                           |
-| `loadingDescription`   | `string`                                                          | —       |                                                                                                                                                                                           |
-| `loading`              | `boolean`                                                         | —       |                                                                                                                                                                                           |
+| `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
+| `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
+| `fullScreen`           | `boolean`                                                         | `false` | Makes the modal take up the full screen on mobile, ensuring long content scrolls correctly.                                                                                               |
+| `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
+| `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |
+| `loading`              | `boolean`                                                         | `false` | Whether the modal is in a loading state. When `true`, a loading heading (via `loadingHeading`) is required for accessibility purposes.                                                    |

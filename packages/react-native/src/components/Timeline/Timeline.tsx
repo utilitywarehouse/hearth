@@ -19,6 +19,11 @@ const getItemPosition = (index: number, count: number): TimelineItemPosition => 
   return 'middle';
 };
 
+/**
+ * Renders a vertical sequence of TimelineItem components, connecting them with a line and
+ * passing each its position so start, middle, and end connectors draw correctly.
+ * @summary A vertical timeline of connected steps.
+ */
 const Timeline = ({ children, variant = 'static', style, ...rest }: TimelineProps) => {
   const childElements = React.Children.toArray(children).filter(React.isValidElement);
 

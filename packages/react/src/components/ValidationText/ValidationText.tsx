@@ -15,6 +15,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ValidationTextElement = ComponentRef<'span'>;
 
+/**
+ * Use ValidationText alongside a form field to display a validation message,
+ * with an icon and colour that reflect the `status` (`valid` or `invalid`).
+ * For general, non-validation guidance about a field, use HelperText instead.
+ *
+ * @summary Validation feedback text for a form field, with a status icon.
+ */
 export const ValidationText = forwardRef<ValidationTextElement, ValidationTextProps>(
   (props, ref) => {
     const {

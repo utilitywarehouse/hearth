@@ -30,6 +30,11 @@ RadioIndicator.displayName = 'RadioIndicator';
 RadioIcon.displayName = 'RadioIcon';
 RadioLabel.displayName = 'RadioLabel';
 
+/**
+ * Lets a user pick a single option from a set of mutually exclusive choices, rendered inside a
+ * `RadioGroup`. Use it for single-choice selection in forms or surveys.
+ * @summary A single-choice selection control for use inside a RadioGroup.
+ */
 const Radio = ({
   children,
   label,

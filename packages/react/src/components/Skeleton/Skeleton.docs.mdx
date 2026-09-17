@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as SkeletonBoxStories from './SkeletonBox.stories';
 import * as SkeletonHeadingStories from './SkeletonHeading.stories';
 import * as SkeletonBodyTextStories from './SkeletonBodyText.stories';
@@ -73,21 +73,19 @@ is active, giving users context about what is being loaded.
 
 ## SkeletonBodyText
 
-Use `SkeletonBodyText` when you need a placeholder for body text content. It
-supports multiple lines and the same size props as `BodyText`.
+<Description of={SkeletonBodyText} />
 
 <Canvas of={SkeletonBodyTextStories.Sizes} sourceState="hide" />
 
 ## SkeletonHeading
 
-Use `SkeletonHeading` when you need a placeholder for `Heading` content. It
-supports the same size props as `Heading`.
+<Description of={SkeletonHeading} />
 
 <Canvas of={SkeletonHeadingStories.Sizes} sourceState="hide" />
 
 ## SkeletonBox
 
-Use `SkeletonBox` when you need explicit control over shape and dimensions.
+<Description of={SkeletonBox} />
 
 <Canvas of={SkeletonBoxStories.Blocks} sourceState="hide" />
 <Canvas of={SkeletonBoxStories.Circle} sourceState="hide" />

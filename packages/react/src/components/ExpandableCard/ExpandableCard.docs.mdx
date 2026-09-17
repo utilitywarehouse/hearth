@@ -1,4 +1,4 @@
-import { Canvas, Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Canvas, Meta, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './ExpandableCard.stories';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -14,8 +14,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="ExpandableCard" to="components/expandable-card" />
 
-Use `ExpandableCard` to show a summary header with an optional leading icon and helper text, which
-can be expanded to reveal additional content.
+<Description of={ExpandableCard} />
 
 - [Leading icon](#leading-icon)
 - [Default open](#default-open)
@@ -44,7 +43,7 @@ icon in a coloured `IconContainer`.
 ## Default open
 
 Use `defaultOpen` to render the card in the open state on initial mount. This is an uncontrolled
-approach — the card manages its own open/closed state internally after mount.
+approach: the card manages its own open/closed state internally after mount.
 
 ```tsx
 <ExpandableCard heading="Heading" helperText="Helper text" defaultOpen>

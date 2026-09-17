@@ -13,6 +13,16 @@ import { forwardRef } from 'react';
 const COMPONENT_NAME = 'Button';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use Button to trigger an action or event, such as submitting a form or
+ * displaying a dialog. Use the `variant` prop to convey emphasis: `emphasis`
+ * and `solid` for primary actions, `outline` for medium-emphasis, non-critical
+ * actions, and `ghost` for the lowest-prominence actions. For actions that
+ * navigate somewhere, use a link instead, or render Button `asChild` with an
+ * anchor or router link.
+ *
+ * @summary Triggers an action or event, such as submitting a form or displaying a dialog.
+ */
 export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) => {
   const { className, children, disabled, loading, asChild, ...buttonProps } = extractProps(
     props,

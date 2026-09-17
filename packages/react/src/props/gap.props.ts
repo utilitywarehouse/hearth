@@ -14,7 +14,17 @@ export const gapPropDefs = {
 };
 
 export interface GapProps {
+  /**
+   * Shorthand for `row-gap` and `column-gap`, setting the space between rows and
+   * columns in a flex or grid container. Supports responsive values.
+   */
   gap?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Set the space between rows in a flex or grid container. Supports responsive values.
+   */
   rowGap?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  /**
+   * Set the space between columns in a flex or grid container. Supports responsive values.
+   */
   columnGap?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
 }

@@ -1,6 +1,7 @@
 /* Don't edit this file directly, it was auto generated */
 // @ts-nocheck
 import AddSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-small-icon.svg';
+import AiGeneratedSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/ai-generated-small-icon.svg';
 import AttachSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/attach-small-icon.svg';
 import BasketSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/basket-small-icon.svg';
 import BellSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-small-icon.svg';
@@ -52,6 +53,7 @@ import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-i
 import MinusSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-small-icon.svg';
 import MobileSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
+import MotorInsuranceSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/motor-insurance-small-icon.svg';
 import OpenSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-small-icon.svg';
 import PhoneSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/phone-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
@@ -75,6 +77,7 @@ import TimeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-small-ico
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import TrashSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/trash-small-icon.svg';
 import QrCodeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/qr-code-small-icon.svg';
+import RobotSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-small-icon.svg';
 import UnlockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import UserSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/user-small-icon.svg';
@@ -82,6 +85,7 @@ import WarningSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/warning-sma
 import WhatsAppSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/whats-app-small-icon.svg';
 import WithdrawSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/withdraw-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
+import AiGeneratedMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/ai-generated-medium-icon.svg';
 import AttachMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/attach-medium-icon.svg';
 import BankMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/bank-medium-icon.svg';
 import BasketMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/basket-medium-icon.svg';
@@ -158,6 +162,7 @@ import MenuMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/menu-medium-i
 import MobileMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-medium-icon.svg';
 import MoonMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-medium-icon.svg';
 import MoreMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-medium-icon.svg';
+import MotorInsuranceMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/motor-insurance-medium-icon.svg';
 import OpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-medium-icon.svg';
 import PaymentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/payment-medium-icon.svg';
 import PlaceholderMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-medium-icon.svg';
@@ -165,6 +170,7 @@ import PlayMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/play-medium-i
 import QuestionMarkMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-medium-icon.svg';
 import RefundMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-medium-icon.svg';
 import RestartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/restart-medium-icon.svg';
+import RobotMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-medium-icon.svg';
 import SearchMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/search-medium-icon.svg';
 import SendMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/send-medium-icon.svg';
 import SettingsMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/settings-medium-icon.svg';
@@ -198,6 +204,7 @@ import SunLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-large-icon.
 
 export const svgIcons = [
   AddSmallIcon,
+  AiGeneratedSmallIcon,
   AttachSmallIcon,
   BasketSmallIcon,
   BellSmallIcon,
@@ -249,6 +256,7 @@ export const svgIcons = [
   MinusSmallIcon,
   MobileSmallIcon,
   MoreSmallIcon,
+  MotorInsuranceSmallIcon,
   OpenSmallIcon,
   PhoneSmallIcon,
   PlaceholderSmallIcon,
@@ -272,6 +280,7 @@ export const svgIcons = [
   TopUpSmallIcon,
   TrashSmallIcon,
   QrCodeSmallIcon,
+  RobotSmallIcon,
   UnlockSmallIcon,
   UploadSmallIcon,
   UserSmallIcon,
@@ -279,6 +288,7 @@ export const svgIcons = [
   WhatsAppSmallIcon,
   WithdrawSmallIcon,
   AddMediumIcon,
+  AiGeneratedMediumIcon,
   AttachMediumIcon,
   BankMediumIcon,
   BasketMediumIcon,
@@ -355,6 +365,7 @@ export const svgIcons = [
   MobileMediumIcon,
   MoonMediumIcon,
   MoreMediumIcon,
+  MotorInsuranceMediumIcon,
   OpenMediumIcon,
   PaymentMediumIcon,
   PlaceholderMediumIcon,
@@ -362,6 +373,7 @@ export const svgIcons = [
   QuestionMarkMediumIcon,
   RefundMediumIcon,
   RestartMediumIcon,
+  RobotMediumIcon,
   SearchMediumIcon,
   SendMediumIcon,
   SettingsMediumIcon,

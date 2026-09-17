@@ -1,6 +1,6 @@
 import WheelPicker from '@quidone/react-native-wheel-picker';
 import { useCallback, useMemo } from 'react';
-import { View } from 'react-native';
+import { StyleSheet as RNStyleSheet, View } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
@@ -132,7 +132,7 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
   },
   overlayContainer: {
-    ...StyleSheet.absoluteFillObject,
+    ...RNStyleSheet.absoluteFill,
     justifyContent: 'center',
     alignItems: 'center',
   },

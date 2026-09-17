@@ -11,11 +11,18 @@ export type TableProps = ComponentPropsWithRef<'table'> &
      * When undefined, the table is rendered without a Card wrapper.
      */
     variant?: CardProps['variant'];
+    /**
+     * Pagination controls rendered below the table, typically a `TablePagination` element.
+     */
     pagination?: ReactElement<TablePaginationProps>;
   };
 export type TableBodyProps = ComponentPropsWithRef<'tbody'>;
 export type TableHeaderProps = ComponentPropsWithRef<'thead'>;
 export interface TableHeaderCellProps extends ComponentPropsWithRef<'th'>, TextAlignProps {
+  /**
+   * Sets `scope="row"` on the cell, marking it as a row header rather than a
+   * column header.
+   */
   row?: boolean;
 }
 export type TableRowProps = ComponentPropsWithRef<'tr'>;
