@@ -1,4 +1,4 @@
-import type { API, FileInfo, JSXAttribute } from 'jscodeshift';
+import type { API, FileInfo, Identifier, JSXAttribute } from 'jscodeshift';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -24,15 +24,20 @@ function transformer(file: FileInfo, api: API): string {
   const firstNode = getFirstNode();
   const { comments } = firstNode;
 
-  const hasHearthModalImport =
+  const modalLocalNames = new Set(
     root
       .find(j.ImportDeclaration)
       .filter(path => MODAL_IMPORT_SOURCES.includes(String(path.value.source.value)))
       .find(j.ImportSpecifier)
-      .filter(path => path.node.imported.name === 'Modal').length > 0;
+      .filter(path => path.node.imported.name === 'Modal')
+      .nodes()
+      // `local`/`imported` are always plain `Identifier`s on an `ImportSpecifier` — the
+      // broader `IdentifierKind` type only matters for `TSTypeParameter`, which can't appear here
+      .map(specifier => ((specifier.local ?? specifier.imported) as Identifier).name)
+  );
 
-  if (hasHearthModalImport) {
-    root.findJSXElements('Modal').forEach(element => {
+  modalLocalNames.forEach(localName => {
+    root.findJSXElements(localName).forEach(element => {
       const attributes = element.node.openingElement.attributes ?? [];
       const loadingTextAttribute = attributes.find(isJSXAttributeNamed('loadingText'));
       if (!loadingTextAttribute) {
@@ -51,7 +56,7 @@ function transformer(file: FileInfo, api: API): string {
         loadingTextAttribute.name = j.jsxIdentifier('loadingHeading');
       }
     });
-  }
+  });
 
   // If the first node has been modified or deleted, reattach the comments
   const firstNode2 = getFirstNode();

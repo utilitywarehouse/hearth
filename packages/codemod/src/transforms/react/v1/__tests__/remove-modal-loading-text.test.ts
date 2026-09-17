@@ -6,4 +6,8 @@ describe('remove-modal-loading-text', () => {
   it('transforms correctly', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text');
   });
+
+  it('transforms elements imported under an alias', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-aliased-import');
+  });
 });
