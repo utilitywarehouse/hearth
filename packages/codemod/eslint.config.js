@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config(...rootConfig, {
   languageOptions: {
     parserOptions: {
-      project: './tsconfig.json',
+      project: './tsconfig.eslint.json',
       tsconfigRootDir: import.meta.dirname,
     },
   },
