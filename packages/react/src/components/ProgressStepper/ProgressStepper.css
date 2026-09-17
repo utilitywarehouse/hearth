@@ -131,3 +131,8 @@
     }
   }
 }
+
+.h-ProgressStepperText {
+  color: var(--h-text-secondary);
+  white-space: nowrap;
+}

@@ -120,6 +120,21 @@ The most common mistake is adding a `<div className={`${componentClassName}Conte
 
 Always include `data-testid={componentClassName}` on the root element.
 
+**Never destructure `className` (or `style`) off the raw `props` before calling `extractProps` — always take it from `extractProps`'s return value:**
+
+`extractProps` merges the caller's incoming `className`/`style` with the classes/styles generated from your `PropDef`s, and returns the merged result under those same keys (see its docstring in `src/helpers/extract-props.ts`). If you destructure `className` out of the raw `props` first, `extractProps` never sees the caller's value, so the `className` it returns is just the PropDef-derived part (often empty) — and spreading the rest of its result onto the element *after* your own `className={cn(componentClassName, className)}` prop silently overwrites it, dropping the caller's class entirely. This is easy to trip over when a component also has custom, non-PropDef props to pull out (e.g. required data props like `currentStep`) — destructure those from `extractProps`'s result too, not from `props` beforehand.
+
+```tsx
+// ❌ WRONG — className stripped before extractProps sees it, then overwritten by the spread
+const { currentStep, totalSteps, className, ...props } = props;
+const { ...componentProps } = extractProps(props, marginPropDefs);
+return <BodyText className={cn(componentClassName, className)} {...componentProps} />;
+
+// ✅ CORRECT — className (and any custom props) destructured from extractProps's return
+const { currentStep, totalSteps, className, ...componentProps } = extractProps(props, marginPropDefs);
+return <BodyText className={cn(componentClassName, className)} {...componentProps} />;
+```
+
 **Use the `warn` helper for dev-mode warnings — never `console.warn` directly:**
 
 A logger helper lives at `src/helpers/logger.ts`. Use it for deprecated props or any condition that should surface a warning in development but be silent in production.
