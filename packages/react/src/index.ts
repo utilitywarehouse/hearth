@@ -241,6 +241,8 @@ export type {
 } from './components/ProgressStepper/ProgressStep.props';
 export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
 export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
+export { ProgressStepperText } from './components/ProgressStepper/ProgressStepperText';
+export type { ProgressStepperTextProps } from './components/ProgressStepper/ProgressStepperText.props';
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';

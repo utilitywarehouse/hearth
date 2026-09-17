@@ -5,6 +5,7 @@ import { ProgressStepper } from './ProgressStepper';
 import { ProgressStep } from './ProgressStep';
 import { ProgressStepLink } from './ProgressStepLink';
 import { ProgressStepButton } from './ProgressStepButton';
+import { ProgressStepperText } from './ProgressStepperText';
 
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 
@@ -80,6 +81,8 @@ Each step requires a label, this should be clear and descriptive to guide the us
 
 The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
 
+Use `ProgressStepperText` as a condensed "Step X of Y" alternative to the full step list, for example in compact or mobile layouts.
+
 ## Accessability
 
 - Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
@@ -109,3 +112,9 @@ This component is based on the `a` element.
 This component is based on the `button` element.
 
 <ArgTypes of={ProgressStepButton} />
+
+### ProgressStepperText API
+
+This component is based on the `span` element.
+
+<ArgTypes of={ProgressStepperText} />

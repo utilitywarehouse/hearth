@@ -96,6 +96,8 @@ Each step requires a label, this should be clear and descriptive to guide the us
 
 The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
 
+Use `ProgressStepperText` as a condensed "Step X of Y" alternative to the full step list, for example in compact or mobile layouts.
+
 ## Accessability
 
 - Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
@@ -138,3 +140,19 @@ This component is based on the `button` element.
 | -------- | ---------------------------------------- | ------- | -------------------------------------- |
 | `label`  | `string`                                 | —       | The label text to display for the step |
 | `status` | `"complete" \| "active" \| "incomplete"` | —       | The current status of the step         |
+
+### ProgressStepperText API
+
+This component is based on the `span` element.
+
+| Prop           | Type                                                                                                                                                                                                       | Default | Description                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------- |
+| `currentStep`  | `number`                                                                                                                                                                                                   | —       | The current step number (1-indexed)                                    |
+| `totalSteps`   | `number`                                                                                                                                                                                                   | —       | The total number of steps                                              |
+| `margin`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin` CSS property on all sides of the element. |
+| `marginTop`    | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-top` CSS property.                         |
+| `marginRight`  | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-right` CSS property.                       |
+| `marginBottom` | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-bottom` CSS property.                      |
+| `marginLeft`   | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-left` CSS property.                        |
+| `marginX`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-left` and `margin-right` CSS properties.   |
+| `marginY`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-top` and `margin-bottom` CSS properties.   |
