@@ -22,8 +22,8 @@ type ProgressStepperTextElement = ComponentRef<'span'>;
  * @summary Shows a condensed "Step X of Y" summary of progress.
  */
 export const ProgressStepperText = forwardRef<ProgressStepperTextElement, ProgressStepperTextProps>(
-  ({ currentStep, totalSteps, className, ...props }, ref) => {
-    const { ...progressStepperTextProps } = extractProps(props, marginPropDefs);
+  ({ currentStep, totalSteps, ...props }, ref) => {
+    const { className, ...progressStepperTextProps } = extractProps(props, marginPropDefs);
 
     return (
       <BodyText

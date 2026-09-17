@@ -5,7 +5,7 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const currentStep = instance.getString('Current step');
-const totalSteps = instance.getString('Number of steps');
+const totalSteps = instance.getString('Total steps');
 
 export default {
   example: figma.code`<ProgressStepperText currentStep={${currentStep}} totalSteps={${totalSteps}} />`,

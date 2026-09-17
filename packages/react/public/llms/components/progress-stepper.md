@@ -96,7 +96,62 @@ Each step requires a label, this should be clear and descriptive to guide the us
 
 The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
 
-Use `ProgressStepperText` as a condensed "Step X of Y" alternative to the full step list, for example in compact or mobile layouts.
+## ProgressStepperText
+
+Use `ProgressStepperText` as a condensed "Step X of Y" summary of progress,
+as a compact alternative to the full step list — for example in narrow or
+mobile layouts.
+
+```tsx
+<ProgressStepperText currentStep={1} totalSteps={4} />
+```
+
+```tsx
+<ProgressStepperText currentStep={1} totalSteps={4} />
+```
+
+### Responsive step indicator
+
+Combine `ProgressStepper` and `ProgressStepperText` to show the full step
+list on larger screens and a condensed summary on smaller ones. There are two
+ways to do this.
+
+#### Using the `useMediaQuery` hook
+
+Conditionally render one component or the other based on the result of `useMediaQuery`.
+
+```tsx
+const isBelowDesktop = useMediaQuery(media.below('desktop'));
+
+return isBelowDesktop ? (
+  <ProgressStepperText currentStep={3} totalSteps={4} />
+) : (
+  <ProgressStepper>
+    <ProgressStep status="complete" label="Customer data" />
+    <ProgressStep status="complete" label="Shipping data" />
+    <ProgressStep status="active" label="Payment data" />
+    <ProgressStep status="incomplete" label="Summary" />
+  </ProgressStepper>
+);
+```
+
+#### Using `Box` with a responsive `display`
+
+Render both components and let CSS decide which is visible at each breakpoint, via `Box`'s responsive `display` prop.
+
+```tsx
+<Box display={{ mobile: 'block', desktop: 'none' }}>
+  <ProgressStepperText currentStep={3} totalSteps={4} />
+</Box>
+<Box display={{ mobile: 'none', desktop: 'block' }}>
+  <ProgressStepper>
+    <ProgressStep status="complete" label="Customer data" />
+    <ProgressStep status="complete" label="Shipping data" />
+    <ProgressStep status="active" label="Payment data" />
+    <ProgressStep status="incomplete" label="Summary" />
+  </ProgressStepper>
+</Box>
+```
 
 ## Accessability
 
