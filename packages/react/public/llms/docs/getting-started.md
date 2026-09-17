@@ -1,6 +1,6 @@
 # Hearth React
 
-Current version: v0.33.1
+Current version: v0.34.0
 
 ## Install Hearth
 
