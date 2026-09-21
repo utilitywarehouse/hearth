@@ -7,20 +7,25 @@
   background-color: var(--h-surface-neutral-strong);
   border-radius: var(--h-card-border-radius);
   box-shadow: inset 0 0 0 var(--h-card-neutral-subtle-border-width) var(--h-border-subtle);
-  padding: var(--h-card-padding-mobile);
-
-  @media (--h-tablet) {
-    padding: var(--h-card-padding-tablet);
-  }
-
-  @media (--h-desktop) {
-    padding: var(--h-card-padding-desktop);
-  }
-
   cursor: pointer;
 
   * {
     cursor: pointer;
+  }
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+    * {
+      cursor: not-allowed;
+    }
+  }
+
+  padding: var(--h-card-padding-mobile);
+  @media (--h-tablet) {
+    padding: var(--h-card-padding-tablet);
+  }
+  @media (--h-desktop) {
+    padding: var(--h-card-padding-desktop);
   }
 
   &:where([data-state='checked']) {

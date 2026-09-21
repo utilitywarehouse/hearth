@@ -81,3 +81,62 @@ export const Playground: Story = {
     );
   },
 };
+
+/** Disabled RadioCards are not selectable, and their children are not interactive. */
+export const Disabled: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    return (
+      <Flex>
+        <RadioGroup
+          defaultValue="1"
+          direction="column"
+          contentWidth="350px"
+          label={<Heading>Payment options</Heading>}
+        >
+          <Flex direction="column">
+            <Flex right="24px" position="relative" justifyContent="end">
+              <Badge flatBase colorScheme="positive" variant="emphasis" size="sm">
+                Recommended
+              </Badge>
+            </Flex>
+
+            <RadioCard value="1" label="Debit card payment" image={<CashbackCardMediumIcon />}>
+              <Flex asChild gap="100" direction="column">
+                <ul role="list">
+                  <Box asChild marginLeft="100">
+                    <li>• Unlimited free top-ups</li>
+                  </Box>
+                  <Box asChild marginLeft="100">
+                    <li>• Instant withdrawals</li>
+                  </Box>
+                  <Box asChild marginLeft="100">
+                    <li>• Extra layer of security</li>
+                  </Box>
+                </ul>
+              </Flex>
+            </RadioCard>
+          </Flex>
+
+          <RadioCard value="2" label="Instant bank transfer" image={<BankMediumIcon />} disabled>
+            <Flex asChild gap="100" direction="column">
+              <ul role="list">
+                <Box asChild marginLeft="100">
+                  <li>• 5 free top-ups per month</li>
+                </Box>
+                <Box asChild marginLeft="100">
+                  <li>• £0.35 per additional top-up</li>
+                </Box>
+              </ul>
+            </Flex>
+          </RadioCard>
+        </RadioGroup>
+      </Flex>
+    );
+  },
+};

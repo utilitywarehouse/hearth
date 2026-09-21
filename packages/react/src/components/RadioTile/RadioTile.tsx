@@ -40,6 +40,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
       flexBasis,
       flexShrink,
       flexGrow,
+      disabled,
       ...props
     },
     ref
@@ -54,6 +55,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
           ref={ref}
           className={cn(componentClassName, className)}
           {...props}
+          disabled={disabled}
           id={id}
           aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
           aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}

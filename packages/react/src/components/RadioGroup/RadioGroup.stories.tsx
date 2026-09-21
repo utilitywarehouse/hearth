@@ -26,12 +26,14 @@ const meta: Meta<typeof RadioGroup> = {
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     validationPlacement: { options: ['top', 'bottom'], control: { type: 'radio' } },
     contentWidth: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
   },
   args: {
     label: 'Label',
     helperText: 'Helper text',
     validationText: 'Validation text',
     contentWidth: undefined,
+    disabled: false,
   },
 };
 
@@ -47,6 +49,7 @@ export const KitchenSink: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
+    controls: { disable: true },
     interactions: { disable: true },
   },
   args: {
@@ -66,7 +69,19 @@ export const KitchenSink: Story = {
             <RadioTile value="scotland" label="Scotland" />
             <RadioTile value="northern-ireland" label="Northern Ireland" />
           </RadioGroup>
+          <RadioGroup {...args} disabled>
+            <RadioTile value="england" label="England" />
+            <RadioTile value="wales" label="Wales" />
+            <RadioTile value="scotland" label="Scotland" />
+            <RadioTile value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
           <RadioGroup {...args}>
+            <Radio value="england" label="England" />
+            <Radio value="wales" label="Wales" />
+            <Radio value="scotland" label="Scotland" />
+            <Radio value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
+          <RadioGroup {...args} disabled>
             <Radio value="england" label="England" />
             <Radio value="wales" label="Wales" />
             <Radio value="scotland" label="Scotland" />
@@ -107,6 +122,58 @@ export const RadioHelperText: Story = {
         <RadioTile value="1" label="One" helperText="One helper text" />
         <RadioTile value="2" label="Two" helperText="Two helper text" />
         <RadioTile value="3" label="Three" helperText="Three helper text" />
+      </RadioGroup>
+    );
+  },
+};
+
+/** Set disabled on individual Radio children to disable specific options. */
+export const WithDisabledRadio: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    defaultValue: '2',
+    helperText: undefined,
+    name: 'disabled-radio-item',
+    contentWidth: 'fit-content',
+  },
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <Radio value="1" label="One" />
+        <Radio value="2" label="Two" />
+        <Radio value="3" label="Three" disabled />
+        <Radio value="4" label="Four" />
+      </RadioGroup>
+    );
+  },
+};
+
+/** Set disabled on individual RadioTile children to disable specific options. */
+export const WithDisabledRadioTile: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    defaultValue: '2',
+    helperText: undefined,
+    name: 'disabled-radio-tile',
+    contentWidth: 'fit-content',
+  },
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <RadioTile value="1" label="One" />
+        <RadioTile value="2" label="Two" />
+        <RadioTile value="3" label="Three" disabled />
+        <RadioTile value="4" label="Four" />
       </RadioGroup>
     );
   },
