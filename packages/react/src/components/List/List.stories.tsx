@@ -604,6 +604,7 @@ export const ListItemContents: Story = {
 export const LongListItemContents: Story = {
   name: 'ListItemContents with long text',
   parameters: {
+    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
