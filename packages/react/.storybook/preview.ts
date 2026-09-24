@@ -13,28 +13,28 @@ const HEARTH_VIEWPORTS = {
     name: 'mobile',
     styles: {
       width: `${breakpoints.tablet / 2}px`,
-      height: '90dvh',
+      height: '90vh',
     },
   },
   tablet: {
     name: 'tablet',
     styles: {
       width: `${breakpoints.tablet}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
   desktop: {
     name: 'desktop',
     styles: {
       width: `${breakpoints.desktop}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
   wide: {
     name: 'wide',
     styles: {
       width: `${breakpoints.wide}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
 };
