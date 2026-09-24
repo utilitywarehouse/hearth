@@ -75,9 +75,9 @@ export const WithLongText: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  render: args => (
+  render: () => (
     <Card variant="emphasis" colorScheme="neutralStrong">
-      <CardContent direction="column" gap={{ mobile: '200', tablet: '150' }} paddingBottomNone>
+      <CardContent direction="column" gap={{ mobile: '200', tablet: '150' }}>
         <Heading size="md" as="h2">
           Monthly energy payment
         </Heading>
