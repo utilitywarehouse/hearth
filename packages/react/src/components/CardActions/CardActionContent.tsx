@@ -45,7 +45,7 @@ export const CardActionContent = forwardRef<CardActionContentElement, CardAction
 
         <div className={`${componentClassName}MainWrapper`}>
           <div className={`${componentClassName}Main`} data-badge-placement={badgePlacement}>
-            <BodyText size="md" weight="semibold" as="span">
+            <BodyText size="md" weight="semibold" as="span" textWrap="wrap">
               {heading}
             </BodyText>
             {badge && badgePlacement === 'middle' ? badge : null}
