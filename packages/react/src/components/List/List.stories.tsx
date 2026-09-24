@@ -609,7 +609,6 @@ export const LongListItemContents: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
   globals: { viewport: { value: 'mobile' } },
   render: () => {
     const BUDGET_PLAN_SUPPORT_LIST_COPY = {
