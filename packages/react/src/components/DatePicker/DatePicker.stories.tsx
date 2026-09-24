@@ -58,7 +58,7 @@ export const WithCalendarDisplayed: Story = {
     actions: { disable: true },
   },
   render: args => {
-    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date(2024, 0, 15));
     return (
       <Flex direction="column" gap="400">
         <DatePicker
