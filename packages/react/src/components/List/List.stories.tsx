@@ -600,9 +600,9 @@ export const ListItemContents: Story = {
   ),
 };
 
-/** A List made entirely of static ListItemContent items with long text. */
+/** A List made entirely of ListItemLink items with long text. */
 export const LongListItemContents: Story = {
-  name: 'ListItemContents with long text',
+  name: 'ListItemLinks with long text',
   parameters: {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
