@@ -543,7 +543,7 @@ additional content in a `CardContent` component. If necessary, you can set the
     </CardActions>
   </Card>
   <Card {...args}>
-    <CardContent direction="column" spacing="lg">
+    <CardContent direction="column" spacing="lg" paddingBottomNone>
       <Heading size="md" as="h2">
         Your December bill
       </Heading>
