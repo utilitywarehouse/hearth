@@ -174,7 +174,7 @@ const Select = ({
       </FormField>
       <BottomSheetModal
         ref={bottomSheetModalRef}
-        snapPoints={['25%', '40%', '80%']}
+        snapPoints={['40%', '80%']}
         onChange={handleClose}
         enableDynamicSizing={false}
         {...bottomSheetProps}
