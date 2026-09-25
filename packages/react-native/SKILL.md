@@ -30,6 +30,12 @@ Load this skill — do not skip it — at each of these moments:
   answer a question this skill already answers is how this skill gets
   silently bypassed — load this skill, or pass its instructions into the
   subagent's prompt, before delegating.
+- **Alongside `figma-implementation`, whenever adapting Figma output into
+  code.** That skill covers the Figma-to-code verification workflow (per-file
+  re-checks, why `docs-show` always outranks local inspection, and the
+  mechanical spacing-variable check); this skill covers the Hearth React
+  Native component API itself. Load both together — neither substitutes for
+  the other.
 
 Treat each moment above as a hard gate, not a vague "this is UI work" prompt
 to get around to eventually.
@@ -262,15 +268,12 @@ as interchangeable aliases:
 
 - **`gap`** — a raw numeric space token (`'0'..'900'`), non-responsive.
 - **`spacing`** (aliased as the deprecated `space`) — Hearth's semantic layout
-  scale (`'2xs'..'2xl'`). This is both the direct match for Figma's
-  `layout/spacing/*` variable names **and** automatically responsive per
-  breakpoint (e.g. `spacing="2xl"` resolves to 28px on mobile, 40px on
-  desktop).
+  scale (`'2xs'..'2xl'`), automatically responsive per breakpoint (e.g.
+  `spacing="2xl"` resolves to 28px on mobile, 40px on desktop).
 
-**If a Figma variable path bound to a node contains the segment `spacing`**
-(e.g. `layout/spacing/lg`), use the `spacing` prop with the matching value
-(`lg`, `2xl`, etc.) — never `gap`. Reserve `gap` for adjustments that don't
-correspond to any named Figma variable.
+See the `figma-implementation` skill for the mechanical check that maps a
+Figma variable path (e.g. `layout/spacing/lg`) to `spacing` vs `gap` — it
+applies here unchanged.
 
 For distribution and alignment, use `justify`/`align` on `Flex`. Don't put
 margin on individual sibling components just for spacing.
