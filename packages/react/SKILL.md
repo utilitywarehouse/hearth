@@ -30,6 +30,12 @@ Load this skill — do not skip it — at each of these moments:
   answer a question this skill already answers is how this skill gets
   silently bypassed — load this skill, or pass its instructions into the
   subagent's prompt, before delegating.
+- **Alongside `figma-implementation`, whenever adapting Figma output into
+  code.** That skill covers the Figma-to-code verification workflow (per-file
+  re-checks, why `docs-show` always outranks local inspection, and the
+  mechanical spacing-variable check); this skill covers the Hearth React
+  component API itself. Load both together — neither substitutes for the
+  other.
 
 Treat each moment above as a hard gate, not a vague "this is UI work" prompt
 to get around to eventually.
@@ -42,6 +48,15 @@ to get around to eventually.
 | Icons                  | `@utilitywarehouse/hearth-react-icons` |
 | SVG illustrations      | `@utilitywarehouse/hearth-svg-assets`  |
 | Animated illustrations | `@utilitywarehouse/hearth-json-assets` |
+
+`hearth-react-icons` exports React components:
+`import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons'`.
+`hearth-svg-assets` exports raw `.svg` files via subpath import, used as an
+image source rather than a component:
+`import Scene from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg'`,
+then `<img src={Scene} alt="..." />`. Spot/scene/mascot illustrations come
+from `hearth-svg-assets`, not `hearth-react-icons` — the two packages are not
+interchangeable import patterns.
 
 ## Before you implement: discover what exists
 
@@ -57,14 +72,14 @@ a component, fetch both its plain entry (props + first-3-story code) and its
 together they cover what the local markdown file documents.
 
 Subcomponents (e.g. `CardActionLink`, `AccordionItem`) are listed as their
-own entries in `list-all-documentation` — fetch them directly by their own
-id rather than relying on the parent's `--docs` page, which only shows their
+own entries in `docs-list` — fetch them directly by their own id rather than
+relying on the parent's `--docs` page, which only shows their
 `<ArgTypes of={X}/>` block as inert, unresolved text.
 
 **Fall back to the raw markdown files** for:
 
 - **A specific story's exact code** beyond what's already surfaced by
-  `get-documentation` or `get-documentation-for-story`.
+  `docs-show` or `docs-show-story`.
 
 For questions about onboarding, updating to a newer version of this skill, or
 configuring the MCP server, see [`public/llms/docs/a-i-toolkit.md`](public/llms/docs/a-i-toolkit.md).
@@ -78,12 +93,12 @@ need before implementing anything custom.
 
 You can use the **`hearth-react`** MCP server if available:
 
-1. `list-all-documentation` — get an index of all Hearth React components and docs
-2. `get-documentation` — get props, API, and usage examples for a specific
+1. `docs-list` — get an index of all Hearth React components and docs
+2. `docs-show` — get props, API, and usage examples for a specific
    component or docs entry. Pass the plain id (e.g. `components-button`) for
    props and story code, or the `<id>--docs` id (e.g.
    `components-button--docs`) for narrative usage and accessibility docs
-3. `get-documentation-for-story` — get story code and docs for a specific story
+3. `docs-show-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 
@@ -213,6 +228,26 @@ components or wrap them in an extra `Box` just for positioning.
 </Flex>
 ```
 
+### Fixed pixel widths from Figma: `gridColumnSpan` vs `maxWidth`
+
+A Figma frame with a fixed pixel width (e.g. `680px`) isn't automatically a
+`maxWidth`. Check whether that width lines up with a span of the grid's
+column tracks (i.e. it's grid/gutter-derived) — if so, express it as `Grid`
+with `gridColumnSpan` on the child, not a hardcoded `maxWidth`:
+
+```tsx
+// ❌ WRONG — hardcoded width that happens to match a grid span
+<Box maxWidth="680px">{...}</Box>
+
+// ✅ CORRECT — the same width expressed as a grid span
+<Grid defaultResponsiveColumns>
+  <Box gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '8' }}>{...}</Box>
+</Grid>
+```
+
+Reserve `maxWidth` for a genuine max-width constraint that isn't grid-derived
+(e.g. constraining a body of text for readability, independent of the page grid).
+
 ## Choosing a typography component
 
 Hearth uses three font families. Match the Figma font-family to the component.
@@ -239,6 +274,14 @@ When layout, padding, or margin are defined in a Figma design using a `spacing`
 value, use the built-in `spacing` prop; do not replace it with responsive `gap`
 values. If spacing is not explicitly defined in the design, or specified by the
 user, use `gap` for spacing between elements; if unsure, check with the user.
+
+Figma exposes this value under two different variable paths depending on
+which component it's bound to — `layout/spacing/*` on `Flex`/`Grid`/`Card`,
+`layout/content/spacing-*` on `Container` — but both resolve to the same
+`spacing` prop and the same value scale (`none`/`2xs`/`xs`/`sm`/`md`/`lg`/`xl`/`2xl`).
+Treat either path the same way. See the `figma-implementation` skill for the
+mechanical check that turns "is this a spacing value?" into a forced lookup
+rather than a judgment call.
 
 ## Use style props first
 
