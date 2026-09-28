@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import {
   CLONES_DIR,
+  EXCLUDED_REPOS,
   INDEX_FILE,
   MANIFEST_FILE,
   MAX_REPO_SIZE_KB,
@@ -169,7 +170,7 @@ async function main() {
       return; // exit 0
     }
 
-    cp.pendingRepos = [...allFound].filter(r => r !== SELF_REPO).sort();
+    cp.pendingRepos = [...allFound].filter(r => r !== SELF_REPO && !EXCLUDED_REPOS.has(r)).sort();
     cp.phase = 'collect';
     saveCheckpoint(cp, new Date().toISOString());
   }
@@ -211,7 +212,9 @@ async function main() {
 
   // ---- Aggregate + write snapshot ----
   const dependentRepoCount = new Set(
-    Object.values(cp.discovery.found).flat().filter(r => r !== SELF_REPO)
+    Object.values(cp.discovery.found)
+      .flat()
+      .filter(r => r !== SELF_REPO && !EXCLUDED_REPOS.has(r))
   ).size;
 
   const collection: CollectionMeta = {
