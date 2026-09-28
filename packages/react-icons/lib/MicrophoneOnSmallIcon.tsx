@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const MicrophoneOnSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M10 11.667a2.4 2.4 0 0 1-1.77-.73 2.4 2.4 0 0 1-.73-1.77v-5q0-1.042.73-1.771a2.4 2.4 0 0 1 1.77-.73 2.4 2.4 0 0 1 1.77.73q.73.729.73 1.77v5q0 1.042-.73 1.772a2.4 2.4 0 0 1-1.77.729M9.167 17.5v-2.562Q6.999 14.646 5.583 13T4.167 9.167h1.666q0 1.728 1.22 2.948Q8.27 13.333 10 13.333t2.948-1.218 1.219-2.948h1.666q0 2.187-1.416 3.833-1.418 1.646-3.584 1.938V17.5z"
+        />
+      </svg>
+    );
+  }
+);
+MicrophoneOnSmallIcon.displayName = 'MicrophoneOnSmallIcon';

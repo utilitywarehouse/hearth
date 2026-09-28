@@ -101,6 +101,11 @@
       "hash": "35f24dbbd639cc4d66e0f717a1788a7f97f23b6841408536fd31821771dddcf5"
     },
     {
+      "name": "DevicesSmallIcon",
+      "path": "devices-small-icon.svg",
+      "hash": "76446a497fd09f5217e131fd739637263874301158b8e8d291fbb1edd44ee376"
+    },
+    {
       "name": "DownloadSmallIcon",
       "path": "download-small-icon.svg",
       "hash": "1c0645e49604af0746e76cc227a0f9cd41d11e6fbdfbf68777ce5bc7f00b0277"
@@ -251,6 +256,16 @@
       "hash": "6efc649dd606be5aada7a4cb1e3ec7d5ddd8c8ea9fd8b759fb8297e8ee43ec94"
     },
     {
+      "name": "MicrophoneOffSmallIcon",
+      "path": "microphone-off-small-icon.svg",
+      "hash": "eb72a2d97c64e9273ef0bc8920c5c120502ee46a228ee82ebf1cf0c016dada37"
+    },
+    {
+      "name": "MicrophoneOnSmallIcon",
+      "path": "microphone-on-small-icon.svg",
+      "hash": "5fcf8ff717be390354fccbbff2be01614bec926bfa0e9041257cbab8c7d73893"
+    },
+    {
       "name": "MinusSmallIcon",
       "path": "minus-small-icon.svg",
       "hash": "8d2b46dcc05ff426c717f37880c17a87ce6e0b3de6a4e81b21182f88cc33ccf0"
@@ -346,6 +361,11 @@
       "hash": "d38b6c8d266a8f0d7d29584e00233d7664d09d4ef9318626957398a269b14b85"
     },
     {
+      "name": "SpeakerSmallIcon",
+      "path": "speaker-small-icon.svg",
+      "hash": "608bca816dcba662c5ab39d1a962b709421a9f2fd6a322e446d1eeca9e92c9c0"
+    },
+    {
       "name": "TickSmallIcon",
       "path": "tick-small-icon.svg",
       "hash": "762bb7727b4c72725fc77a20f85632783475e10df06ffef9371b60f7e126d38e"
@@ -384,6 +404,11 @@
       "name": "QrCodeSmallIcon",
       "path": "qr-code-small-icon.svg",
       "hash": "dbc678f6a0954f639c7c34e2f627b98d98337adcdf46e4bceaff08a704b3aeb5"
+    },
+    {
+      "name": "ReduceNoiseSmallIcon",
+      "path": "reduce-noise-small-icon.svg",
+      "hash": "1f2c6470803cc0bf9e5f11cd373884178cc00d04a4ae319011b0dac27e4de93e"
     },
     {
       "name": "RobotSmallIcon",
@@ -538,7 +563,7 @@
     {
       "name": "ChatMediumIcon",
       "path": "chat-medium-icon.svg",
-      "hash": "903df6a9916988e745e06b247a9099b535867c1c8b05c4cf8070265fe573a3c4"
+      "hash": "d93135beeaad45a06703fb76e86c25556d6b036f21ac8983ec6869cd405b4abc"
     },
     {
       "name": "CloseMediumIcon",
@@ -574,6 +599,11 @@
       "name": "DecreaseMediumIcon",
       "path": "decrease-medium-icon.svg",
       "hash": "d82a84d0160fbc723c3bc68e19579de570b0ed14cb2085bc212ae295494104ce"
+    },
+    {
+      "name": "DevicesMediumIcon",
+      "path": "devices-medium-icon.svg",
+      "hash": "b808bce98c63b1078acebaf68d945a772ad8138c9d354121270af5203502f6eb"
     },
     {
       "name": "DocumentMediumIcon",
@@ -781,6 +811,16 @@
       "hash": "ea12d099587c0229fd0dc9435ce4ae1728faa7be65d49661df9f59079519e96b"
     },
     {
+      "name": "MicrophoneOffMediumIcon",
+      "path": "microphone-off-medium-icon.svg",
+      "hash": "be9ff70dc15287dd8047fd31c05d82d678b98dd28f092a38d8929a107bc67f85"
+    },
+    {
+      "name": "MicrophoneOnMediumIcon",
+      "path": "microphone-on-medium-icon.svg",
+      "hash": "0fb9e2a83a4fe60267bec97efb3226b830d45c23961761f43840f2a1b0a7fa1c"
+    },
+    {
       "name": "MoneyMediumIcon",
       "path": "money-medium-icon.svg",
       "hash": "78c81b4e823dac42d3dcd4559b117381497f694bdef0b6a52cf07301857479d7"
@@ -821,6 +861,16 @@
       "hash": "a8627ee603a83c6fa19ab61c2d01ccce2ef6da6abea0e61978f0652bd0c64b12"
     },
     {
+      "name": "PanelLeftMediumIcon",
+      "path": "panel-left-medium-icon.svg",
+      "hash": "545d6948dbdd90c3d5e26bb95ea100972d4c3c6789c4b0d4e9a12f3b80da7f1d"
+    },
+    {
+      "name": "PanelBottomMediumIcon",
+      "path": "panel-bottom-medium-icon.svg",
+      "hash": "684c6ab392764c6b46c8da34bb85c348699b6af6965df15b17486743dcdb4683"
+    },
+    {
       "name": "PaymentMediumIcon",
       "path": "payment-medium-icon.svg",
       "hash": "a00c0a6fec37a96e468e41536f4123b33840daac0711437850020e72fc1558dc"
@@ -839,6 +889,11 @@
       "name": "QuestionMarkMediumIcon",
       "path": "question-mark-medium-icon.svg",
       "hash": "59659782433685ff16ee85e3e401ce6c03a3f0ff7e872f0ab66ff89b81062ea5"
+    },
+    {
+      "name": "ReduceNoiseMediumIcon",
+      "path": "reduce-noise-medium-icon.svg",
+      "hash": "bdfe0165c29e1e36163c5bcff4fbd81da54d85ff41e1336218cbe0c5d7cc8792"
     },
     {
       "name": "RefundMediumIcon",
@@ -889,6 +944,11 @@
       "name": "SnowflakeMediumIcon",
       "path": "snowflake-medium-icon.svg",
       "hash": "2be698e5fc652ab7e388ff81499084931e860d1f74e28665321d82a600089cc8"
+    },
+    {
+      "name": "SpeakerMediumIcon",
+      "path": "speaker-medium-icon.svg",
+      "hash": "382028b0134feab96e681246a449969303b9970676e4a626306004d76e638471"
     },
     {
       "name": "SunMediumIcon",
