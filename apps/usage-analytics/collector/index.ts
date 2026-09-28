@@ -267,6 +267,11 @@ async function main() {
   }
 
   writeSnapshot(date, snapshot);
+  // Lets the workflow run follow-up steps (Slack summary) only when a full
+  // snapshot was actually written, not on checkpoint-and-exit runs.
+  if (process.env.GITHUB_OUTPUT && !isPartialRun) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `snapshot_date=${date}\n`);
+  }
 
   // Reset the checkpoint for a fresh cycle next run.
   cp.phase = 'done';
