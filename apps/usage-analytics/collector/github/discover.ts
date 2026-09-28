@@ -8,6 +8,8 @@ export interface DiscoverResult {
   requestsUsed: number;
   /** True if we stopped early because the search budget ran out / was throttled. */
   exhausted: boolean;
+  /** True if GitHub flagged any page as `incomplete_results` (search timed out server-side). */
+  incomplete: boolean;
 }
 
 /** A shared, mutable code-search budget across a run. */
@@ -48,12 +50,13 @@ export async function discoverForTerm(
   const q = `org:${ORG} "${term}" in:file filename:package.json -repo:${SELF_REPO}`;
   const repos = new Set<string>();
   let requestsUsed = 0;
+  let incomplete = false;
   let page = 1;
   const perPage = 100;
 
   while (true) {
     if (budget.remaining <= 0) {
-      return { repos: [...repos], requestsUsed, exhausted: true };
+      return { repos: [...repos], requestsUsed, exhausted: true, incomplete };
     }
     budget.remaining -= 1;
     requestsUsed += 1;
@@ -62,9 +65,11 @@ export async function discoverForTerm(
     try {
       ({ data } = await octokit.rest.search.code({ q, per_page: perPage, page }));
     } catch (err) {
-      if (isRateLimit(err)) return { repos: [...repos], requestsUsed, exhausted: true };
+      if (isRateLimit(err)) return { repos: [...repos], requestsUsed, exhausted: true, incomplete };
       throw err;
     }
+
+    if (data.incomplete_results) incomplete = true;
 
     for (const item of data.items) {
       const repo = item.repository;
@@ -79,5 +84,5 @@ export async function discoverForTerm(
     page += 1;
   }
 
-  return { repos: [...repos], requestsUsed, exhausted: false };
+  return { repos: [...repos], requestsUsed, exhausted: false, incomplete };
 }

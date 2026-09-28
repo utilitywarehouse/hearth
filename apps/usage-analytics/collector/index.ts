@@ -10,6 +10,8 @@
  *   --repo owner/name[,owner/name]  Skip discovery; collect only these repos (testing).
  *   --limit N                       Cap the number of repos cloned this run.
  *   --date YYYY-MM-DD               Override the snapshot date (default: today, UTC).
+ *   --allow-drop                    Write the snapshot even if it covers far fewer repos
+ *                                   than the previous one (see MIN_REPO_RETENTION).
  */
 import fs from 'node:fs';
 import {
@@ -18,6 +20,7 @@ import {
   INDEX_FILE,
   MANIFEST_FILE,
   MAX_REPO_SIZE_KB,
+  MIN_REPO_RETENTION,
   SELF_REPO,
   SNAPSHOTS_DIR,
 } from './config.ts';
@@ -27,6 +30,7 @@ import { discoverForTerm, type SearchBudget } from './github/discover.ts';
 import { cloneRepo, removeDir } from './github/clone.ts';
 import { buildContext, walkRepo } from './parse/walk.ts';
 import { buildSnapshot, updateIndex, type RepoResult } from './aggregate/rollup.ts';
+import { checkRepoCountDrop } from './aggregate/sanity.ts';
 import { clearCheckpoint, loadCheckpoint, saveCheckpoint } from './state/checkpoint.ts';
 import { readJson, writeJson } from './util/json.ts';
 import type { SymbolManifest } from './parse/build-manifests.ts';
@@ -39,6 +43,7 @@ interface Args {
   localDir?: string;
   /** Repo name to attribute a --local run to. */
   localName?: string;
+  allowDrop?: boolean;
 }
 
 function parseArgs(argv: Array<string>): Args {
@@ -50,6 +55,7 @@ function parseArgs(argv: Array<string>): Args {
     else if (a === '--date') args.date = argv[++i];
     else if (a === '--local') args.localDir = argv[++i];
     else if (a === '--name') args.localName = argv[++i];
+    else if (a === '--allow-drop') args.allowDrop = true;
   }
   return args;
 }
@@ -67,10 +73,19 @@ function writeSnapshot(date: string, snapshot: Snapshot): void {
   console.log(`Wrote ${snapshotFile}`);
 }
 
+/** The most recent committed snapshot dated before `date`, if any. */
+function loadPreviousSnapshot(date: string): Snapshot | null {
+  const entries = readJson<UsageIndex>(INDEX_FILE)?.snapshots ?? [];
+  const prev = entries.filter(e => e.date < date).at(-1);
+  return prev ? readJson<Snapshot>(`${SNAPSHOTS_DIR}/${prev.date}.json`) : null;
+}
+
 function loadManifest(): SymbolManifest {
   const manifest = readJson<SymbolManifest>(MANIFEST_FILE);
   if (!manifest) {
-    throw new Error(`Symbol manifest missing at ${MANIFEST_FILE}. Run \`pnpm gen:manifests\` first.`);
+    throw new Error(
+      `Symbol manifest missing at ${MANIFEST_FILE}. Run \`pnpm gen:manifests\` first.`
+    );
   }
   return manifest;
 }
@@ -138,6 +153,14 @@ async function main() {
       cp.discovery.found[term] = result.repos;
       cp.discovery.searchRequestsUsed += result.requestsUsed;
       console.log(`  "${term}": ${result.repos.length} repos (${result.requestsUsed} search req)`);
+      if (result.incomplete) {
+        // Fail rather than checkpoint: a partial repo list would otherwise be
+        // written as a snapshot that looks like a real drop in adoption.
+        throw new Error(
+          `Code search returned incomplete results for "${term}". ` +
+            'Not writing a snapshot — re-run the workflow later.'
+        );
+      }
       if (result.exhausted) {
         stoppedEarly = true;
         break;
@@ -232,6 +255,16 @@ async function main() {
     results,
     ctx.packages
   );
+
+  const isPartialRun = Boolean(args.repos?.length || args.limit);
+  if (!isPartialRun && !args.allowDrop) {
+    const dropError = checkRepoCountDrop(loadPreviousSnapshot(date), snapshot, MIN_REPO_RETENTION);
+    if (dropError) {
+      // Clear so a re-run rediscovers instead of reusing the suspect repo list.
+      clearCheckpoint();
+      throw new Error(dropError);
+    }
+  }
 
   writeSnapshot(date, snapshot);
 
