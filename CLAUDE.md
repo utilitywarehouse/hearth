@@ -72,7 +72,10 @@ Skills live in `.agents/skills/` (symlinked to `.claude/skills/`). Invoke them w
 
 The `hearth-react` skill (`packages/react/SKILL.md`) covers building UI with the
 Hearth React component library from the **consumer** side. It activates implicitly
-for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
+for any UI work in an app that has `@utilitywarehouse/hearth-react` installed. Its
+consumer-facing complement, `hearth-review`
+(`plugins/hearth-ai-toolkit/skills/hearth-review/SKILL.md`), reviews UI code that
+already uses Hearth against the same rules — for PR review or pre-merge audits.
 
 ---
 
