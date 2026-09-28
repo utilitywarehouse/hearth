@@ -13,6 +13,7 @@
     "copy-data": "node ./scripts/copy-data.js",
     "clear-data": "node ./scripts/clear-data.js",
     "collect": "tsx collector/index.ts",
+    "notify": "tsx collector/notify/index.ts",
     "gen:manifests": "tsx collector/parse/build-manifests.ts",
     "gen:sample": "tsx scripts/gen-sample-data.ts",
     "test": "tsx --test collector/**/*.test.ts",

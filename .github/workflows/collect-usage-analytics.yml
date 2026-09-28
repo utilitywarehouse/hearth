@@ -9,6 +9,8 @@ name: Collect Hearth Usage Analytics
 #                        and code-search access (fine-grained read-only preferred).
 #                        Used for code search AND to git-clone private repos.
 #   PAT                  Existing token used to open the pull request.
+#   DS_SLACK_BOT         Slack bot token (chat:write) used to post the weekly
+#                        summary. The bot must be a member of the channel.
 
 on:
   schedule:
@@ -57,11 +59,13 @@ jobs:
       # runs out mid-discovery, checkpointing so the next run resumes. Cloning +
       # parsing is not rate-limited, so a run finishes the sweep once discovered.
       - name: Collect usage snapshot
+        id: collect
         run: pnpm --filter usage-analytics collect
         env:
           GITHUB_PAT_TOKEN: ${{ secrets.USAGE_ANALYTICS_PAT }}
 
       - name: Open pull request with snapshot
+        id: pr
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ secrets.PAT }}
@@ -75,3 +79,16 @@ jobs:
             Automated weekly snapshot of `@utilitywarehouse/hearth-*` usage across the org.
 
             Review the diff under `apps/usage-analytics/data/` and merge to update the dashboard.
+
+      # Only when the collector wrote a full snapshot this run (it exits 0
+      # without one when checkpointing a throttled discovery). A Slack outage
+      # shouldn't fail the run — the PR is already open.
+      - name: Post summary to Slack
+        if: steps.collect.outputs.snapshot_date != ''
+        continue-on-error: true
+        run: pnpm --filter usage-analytics notify
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.DS_SLACK_BOT }}
+          SLACK_CHANNEL_ID: C04MYV3Q30F
+          SNAPSHOT_DATE: ${{ steps.collect.outputs.snapshot_date }}
+          SNAPSHOT_PR_URL: ${{ steps.pr.outputs.pull-request-url }}
