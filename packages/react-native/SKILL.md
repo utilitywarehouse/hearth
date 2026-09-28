@@ -62,14 +62,14 @@ accessibility, and examples) — together they cover what the local markdown
 file documents.
 
 Subcomponents (e.g. `ModalImage`, `CardAction`) are listed as their own
-`stories-<subcomponent>` entries in `list-all-documentation` — fetch them
+`stories-<subcomponent>` entries in `docs-list` — fetch them
 directly by their own id rather than relying on the parent's `--docs` page.
 They don't have a separate `--docs` entry of their own; their narrative usage
 stays documented inline in the parent's `components-<parent>--docs` entry.
 
 **Fall back to the raw markdown files** for a specific story's exact code
-beyond what's already surfaced by `get-documentation` or
-`get-documentation-for-story`.
+beyond what's already surfaced by `docs-show` or
+`docs-show-story`.
 
 Whatever source you use, review what is available before writing any code.
 
@@ -86,12 +86,12 @@ an older local convention when they diverge.
 
 You can use the **`hearth-react-native`** MCP server if available (`https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`):
 
-1. `list-all-documentation` — get an index of all Hearth React Native components and docs
-2. `get-documentation` — get props, API, and usage examples for a specific
+1. `docs-list` — get an index of all Hearth React Native components and docs
+2. `docs-show` — get props, API, and usage examples for a specific
    component or docs entry. Pass the plain `stories-<component>` id (e.g.
    `stories-modal`) for props and story code, or the `components-<component>--docs`
    id (e.g. `components-modal--docs`) for narrative usage and accessibility docs
-3. `get-documentation-for-story` — get story code and docs for a specific story
+3. `docs-show-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 

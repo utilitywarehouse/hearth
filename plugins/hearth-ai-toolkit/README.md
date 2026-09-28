@@ -16,8 +16,8 @@ This gives you:
   automatically whenever you're building UI in an app that has the
   corresponding Hearth package installed.
 - The `hearth-react` and `hearth-react-native` MCP servers, for richer
-  component discovery (`list-all-documentation`, `get-documentation`,
-  `get-documentation-for-story`) beyond the raw markdown docs shipped in each
+  component discovery (`docs-list`, `docs-show`,
+  `docs-show-story`) beyond the raw markdown docs shipped in each
   package's `public/llms/` folder.
 
 ## Monorepo checkout note
