@@ -1,0 +1,15 @@
+{
+  "tool_calls": {
+    "Skill": 1,
+    "Read": 4,
+    "ToolSearch": 1,
+    "mcp__hearth-react__docs-list": 1,
+    "mcp__hearth-react__docs-show": 12,
+    "Bash": 1,
+    "Write": 2
+  },
+  "total_tool_calls": 22,
+  "total_steps": 10,
+  "files_created": ["review.md"],
+  "errors_encountered": 3
+}

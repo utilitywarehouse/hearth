@@ -1,0 +1,55 @@
+{
+  "expectations": [
+    {
+      "text": "Uses the `spacing` prop (not `gap`) on the Flex container, because the bound variable's path contains the segment \"spacing\"",
+      "passed": true,
+      "evidence": "PromoBanner.tsx line 13: `<Flex direction=\"row\" alignItems=\"center\" spacing=\"lg\">` \u2014 uses `spacing`, not `gap`."
+    },
+    {
+      "text": "Uses the tier name `lg` for the spacing prop, not a raw pixel value like 24 or 16",
+      "passed": true,
+      "evidence": "`spacing=\"lg\"` \u2014 tier name used directly, no pixel value anywhere in the file."
+    },
+    {
+      "text": "Does not treat the two different resolved pixel values (24px, 16px) as a reason to pick one over the other \u2014 matches by variable name only",
+      "passed": true,
+      "evidence": "notes.md: 'The note that the same variable resolved to 24px on desktop and 16px on mobile does not change this. Per the skill, the Figma variable's name (lg) is authoritative...' \u2014 single `spacing=\"lg\"` used for both breakpoints, no responsive object."
+    },
+    {
+      "text": "Does not render the \"Muted subtitle\" text node unconditionally in the default view, since it is flagged hidden: true",
+      "passed": true,
+      "evidence": "PromoBanner.tsx has no reference to the subtitle at all \u2014 only StarMediumIcon and the label BodyText are rendered."
+    },
+    {
+      "text": "If the hidden node is rendered at all, does so only with an explicit comment/flag and a question back to the user, not silently",
+      "passed": true,
+      "evidence": "Vacuously true \u2014 the node isn't rendered at all, so no silent-rendering violation occurs. notes.md explicitly explains the omission reasoning."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 0,
+    "total": 5,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "total_tool_calls": 12
+  },
+  "claims": [
+    {
+      "claim": "Verified via hearth-react MCP that Flex has a non-responsive spacing prop with an lg tier, and BodyText size=\"md\" matches the Figma style",
+      "type": "process",
+      "verified": true,
+      "evidence": "Run summary explicitly states docs-list/docs-show were used to verify both before writing the code."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "5/5 \u2014 this eval is highly discriminating (see baseline's 2/5) and worth keeping as-is."
+  }
+}

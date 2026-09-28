@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Confirm Button is implemented with `variant=\"solid\"` and no invented colour/colorScheme prop",
+      "passed": true,
+      "evidence": "notes.md/ActionRow.tsx: generic Button rendered with `variant=\"solid\"` only."
+    },
+    {
+      "text": "Cancel Button is implemented with `variant=\"outline\"` and no invented colour/colorScheme prop",
+      "passed": true,
+      "evidence": "notes.md/ActionRow.tsx: generic Button rendered with `variant=\"outline\"` only."
+    },
+    {
+      "text": "Does not add a muted/secondary/faded colour variant to either button on the basis of the screenshot's visual shading alone",
+      "passed": true,
+      "evidence": "notes.md: 'The visual difference described in the screenshot... is attributed to how the outline variant renders against the background, not to a separate colour binding \u2014 so it's not something to encode as a prop.'"
+    },
+    {
+      "text": "Does not treat the two instances as needing identical extra props just because they're the same component \u2014 each is implemented from its own listed props",
+      "passed": true,
+      "evidence": "Each button only gets its own listed variant; 'Implemented exactly what's specified: no more, no less.'"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "execution_metrics": {
+    "total_tool_calls": 4
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "Matches with-skill feedback: this eval's prompt pre-empts the answer, so it doesn't discriminate."
+  }
+}

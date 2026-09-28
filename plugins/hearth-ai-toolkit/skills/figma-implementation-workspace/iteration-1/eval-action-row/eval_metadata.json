@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "action-row",
+  "prompt": "Here's the design context for two Button instances in a row called \"ActionRow\". Implement them exactly as specified — no more, no less.\n\nFrame: ActionRow\n- Instance \"Confirm Button\" — component: Button. Props visible in the response: { variant: \"solid\" }. No colour/colorScheme variable is present in the response for this node.\n- Instance \"Cancel Button\" — component: Button. Props visible in the response: { variant: \"outline\" }. No colour/colorScheme variable is present in the response for this node either.\n\nNote: in the screenshot, \"Cancel Button\" looks like a slightly lighter/muted grey compared to \"Confirm Button\", but that's just how the outline variant renders against the background — there's no separate colour variable bound to either node.\n\nPlease implement both buttons.",
+  "assertions": [
+    "Confirm Button is implemented with `variant=\"solid\"` and no invented colour/colorScheme prop",
+    "Cancel Button is implemented with `variant=\"outline\"` and no invented colour/colorScheme prop",
+    "Does not add a muted/secondary/faded colour variant to either button on the basis of the screenshot's visual shading alone",
+    "Does not treat the two instances as needing identical extra props just because they're the same component — each is implemented from its own listed props"
+  ]
+}

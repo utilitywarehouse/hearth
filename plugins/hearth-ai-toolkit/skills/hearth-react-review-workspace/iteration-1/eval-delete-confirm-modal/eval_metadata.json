@@ -1,0 +1,11 @@
+{
+  "eval_id": 2,
+  "eval_name": "delete-confirm-modal",
+  "prompt": "Please review src/components/DeleteConfirmModal.tsx against our Hearth React guidelines before merge — want to make sure I'm not missing anything.",
+  "assertions": [
+    "Flags the hand-rolled `<div>` overlay as compound-component misuse — should use Modal's own sub-components instead of custom markup, even though Modal is imported",
+    "Flags the responsive padding object `{ tablet: '300' }` as missing the required `mobile` breakpoint",
+    "Flags the `Button` wrapped in a raw `<a>` without `asChild` as invalid HTML nesting",
+    "Findings are grouped into tiers rather than presented as a flat list"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "tool_calls": {
+    "Skill": 1,
+    "Read": 2,
+    "ToolSearch": 1,
+    "mcp__hearth-react__docs-list": 1,
+    "mcp__hearth-react__docs-show": 4,
+    "Write": 3
+  },
+  "total_tool_calls": 12,
+  "total_steps": 7,
+  "files_created": ["PromoBanner.tsx", "notes.md"],
+  "errors_encountered": 0
+}

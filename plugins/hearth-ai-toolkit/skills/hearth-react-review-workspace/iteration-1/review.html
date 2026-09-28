@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "hearth-react-review", "runs": [{"id": "eval-account-summary-card-with_skill", "prompt": "Can you review src/components/AccountSummaryCard.tsx before I open the PR? It uses hearth-react \u2014 I want to make sure I haven't missed anything obvious around styling, tokens, or accessibility.", "eval_id": 1, "outputs": [{"name": "review.md", "type": "text", "content": "# Review: `AccountSummaryCard.tsx`\n\nScope: `src/components/AccountSummaryCard.tsx` (evaluated at\n`plugins/hearth-ai-toolkit/skills/hearth-react-review/evals/files/AccountSummaryCard.tsx`).\nReviewed per the `hearth-react-review` skill against `packages/react/SKILL.md`\n(\"hearth-react\") and the `hearth-react` MCP `docs-list`/`docs-show` tools. Every\ncomponent and prop below was re-verified against live docs rather than assumed\ncorrect because it was already in the code.\n\nFindings are grouped by tier per the skill's prioritisation. Nothing has been\nchanged \u2014 this is a report only.\n\n---\n\n## Tier 1 \u2014 Blocking\n\n**1. `shadow=\"lg\"` on `Card` (line 12) is a hallucinated prop.**\n`docs-show` on `components-card` confirms `Card`'s real prop set has no\n`shadow` prop at all \u2014 only `shadowColor` (`\"brand\" | \"mobile\" | \"functional\" |\n\"energy\" | \"broadband\" | \"insurance\" | \"cashback\" | \"pig\"`), which changes the\ncolour of the card's shadow, not its size. `shadow=\"lg\"` will be spread onto\nthe DOM as an unrecognised attribute (a React warning) and has no visual\neffect. If a shadow is actually wanted, use `shadowColor` (there's a dedicated\n\"Shadow Colours\" story: `components-card--shadow-colours`); otherwise drop the\nprop.\n\n**2. Missing `direction=\"column\"` on `CardContent` (line 13) \u2014 content will likely render as a row, not stacked.**\n`CardContent` shares the same flex-container prop shape as `Flex`, and its\n`direction` prop defaults to `\"row\"` per `docs-show`. Every real example\n(`components-card-cardcontent--playground`, `components-card--with-long-text`)\nexplicitly passes `direction=\"column\"`. As written, the `Heading`, both `Flex`\nrows, and the pay-now `Box` are siblings inside a row-direction flex\ncontainer, so they'll lay out side-by-side instead of stacked top-to-bottom.\nThis looks like it would visibly break the card's layout, not just be\nsuboptimal.\n\n**3. `Heading` (line 14) has no `as` prop.**\nPer the Accessibility rules in `packages/react/SKILL.md`: \"Always set `as` on\n`Heading` for correct semantic hierarchy.\" It happens to default to `h2`, but\nthat's incidental to this file \u2014 the correct heading level depends on where\n`AccountSummaryCard` is mounted in the surrounding page's outline, and Hearth\ndoesn't wire that automatically. Set it explicitly (e.g. `as=\"h2\"` or `h3`)\nbased on where this card sits.\n\n---\n\n## Tier 2 \u2014 Should fix\n\n**4. `style={{ padding: '16px' }}` on `Card` (line 12) \u2014 raw px value, and `Card` has no token `padding` prop to begin with.**\n`docs-show` confirms `Card`'s prop set has no generic `padding` \u2014 only\n`paddingNone` (a boolean to remove the card's own default padding). This\ninline style isn't overriding a token-based prop, it's fighting Card's\nbuilt-in default padding directly with a raw pixel value bypassing the token\nsystem entirely. Drop it and rely on the card's default padding, or use\n`paddingNone` if a flush card is genuinely needed.\n\n**5. `style={{ backgroundColor: 'var(--h-surface-highlight-subtle)' }}` on `Box` (line 23) \u2014 CSS variable string used in TSX.**\nPer \"Browser tokens in JS/TS, CSS variables in CSS\" in `packages/react/SKILL.md`:\nCSS custom\u2011property strings should only appear in `.css` files. In TSX, import\nthe equivalent value from `@utilitywarehouse/hearth-tokens/browser` (e.g.\n`semantic.surface.highlight.subtle`) and pass it through the `backgroundColor`\nstyle prop.\n\n**6. `<BodyText marginRight=\"100\">Balance</BodyText>` (line 16) \u2014 margin on a sibling instead of `gap` on the parent.**\nThis is the exact anti-pattern called out in `packages/react/SKILL.md`\n(\"Use layout components\"). Move the spacing to the `Flex` wrapper:\n`<Flex gap=\"100\">`.\n\n**7. Second `Flex` (icon + \"Payment due\" text, lines 19\u201322) has no `gap` at all.**\nThe `WarningMediumIcon` and the `BodyText` will render flush against each\nother with no space. Add a small `gap` (e.g. `\"50\"`), matching the pattern\nused in Hearth's own `CardContent` examples (`<Flex gap=\"50\" alignItems=\"center\">`).\n\n**8. `<Button marginLeft=\"auto\">` (line 24), wrapped in a plain `Box` \u2014 margin-hack for alignment.**\nThis is the second anti-pattern example from the same skill section, applied\nalmost verbatim: margin used to push an element to one side instead of\n`justifyContent` on a `Flex` wrapper. Use `<Flex justifyContent=\"flex-end\">`\n(or `space-between` if pairing the button with other content) instead of\n`marginLeft=\"auto\"` on the `Button` itself.\n\n**9. No `spacing`/`gap` set on `CardContent`.**\nOnce `direction=\"column\"` is added (finding 2), the heading, balance row,\ndue-date row, and button will still have no space between them \u2014 Hearth\ndoesn't add this by default. Every real `CardContent` example sets a\n`spacing` (e.g. `spacing=\"lg\"`) or responsive `gap`.\n\n---\n\n## Tier 3 \u2014 Nice to have\n\n**10. `Button` (line 24) sets neither `variant` nor `colorScheme`.**\nEvery documented `Button` story sets both explicitly, and for a primary CTA\nlike \"Pay now\" the convention is `variant=\"solid\" colorScheme=\"highlight\"`.\nWorth confirming intent \u2014 as written it relies on whatever the component's\nunstated default renders as.\n\n**11. Plain `Button` CTA inside an ad-hoc `Box`, rather than `CardActions`.**\nCard's documented action-composition pattern pairs `CardContent` with\n`CardActions` (containing `CardActionButton`/`CardActionLink`). That said,\n`CardActionButton`'s actual shape (`heading` + optional `helperText`/`badge`,\nwith a chevron by default) is a navigational-row pattern, not a generic CTA\nbutton \u2014 it doesn't map cleanly onto a \"Pay now\" button. A standalone `Button`\nmay genuinely be the right call here; flagging only so it gets a second look\nagainst the Figma design rather than being assumed correct.\n\n**12. `WarningMediumIcon` (line 20) has no `title`/`titleId`.**\nPer `hearth-react-icons`' own type definitions, icons default to\n`aria-hidden=\"true\"` unless `title`/`titleId` are supplied. Since the adjacent\n`BodyText` (\"Payment due {dueDate}\") already conveys the same information,\nthe default decorative/aria-hidden behaviour is probably correct as-is. Only\nadd a `title`/`titleId` if the icon is meant to convey something (e.g.\n\"overdue\"/urgency) that isn't otherwise present in the text.\n\n---\n\n## Verification notes\n\n- Confirmed via `mcp__hearth-react__docs-show`: `components-card` (props),\n  `components-card-cardcontent` (props), `layout-flex` (props, shared shape\n  with `Card`/`CardContent`), `typography-heading`, `typography-bodytext`,\n  `components-button`, `components-card-cardactions`,\n  `components-card-cardactionbutton`, `components-iconbutton--docs`,\n  `components-alert--docs`.\n- `components-card--docs` timed out (504) on the MCP server and wasn't\n  retried since the plain `components-card` entry already surfaced the full\n  prop list and stories needed to verify `shadow`/`shadowColor` and the\n  `padding`/`paddingNone` question.\n- `hearth-react-icons` isn't covered by the `hearth-react` MCP server (that\n  server only documents `@utilitywarehouse/hearth-react`). Its `title`/\n  `titleId`/default-`aria-hidden` behaviour was verified by reading the\n  package's own shipped type declarations\n  (`packages/react-icons/dist/types.d.ts`) rather than assumed from naming\n  convention.\n\n## Not changed\n\nPer the skill's report-and-fix workflow, this is a review only \u2014 nothing in\n`AccountSummaryCard.tsx` has been edited. Let me know which tier to start\nfixing from and I'll work through it smallest-safe-group-first.\n"}], "grading": null}, {"id": "eval-account-summary-card-without_skill", "prompt": "Can you review src/components/AccountSummaryCard.tsx before I open the PR? It uses hearth-react \u2014 I want to make sure I haven't missed anything obvious around styling, tokens, or accessibility.", "eval_id": 1, "outputs": [{"name": "review.md", "type": "text", "content": "# Review: AccountSummaryCard.tsx\n\nReviewed using general React / accessibility / design-system judgement only (no\ncomponent-library-specific documentation consulted).\n\n## Styling / tokens\n\n1. **Inline `style` bypasses the library's own spacing props.** The component mixes\n   two different styling approaches in the same file: prop-based spacing\n   (`marginRight=\"100\"`, `marginLeft=\"auto\"`) and raw inline styles\n   (`style={{ padding: '16px' }}` on `Card`, `style={{ backgroundColor: 'var(--h-surface-highlight-subtle)' }}`\n   on `Box`). If the library exposes spacing/color props (which the `marginRight`/`marginLeft`\n   usage suggests it does), prefer those consistently instead of hardcoded `style` objects \u2014\n   inline styles skip the design-token scale, won't respond to theme changes (e.g. dark mode,\n   density settings), and are easy to drift out of sync with the rest of the system.\n2. **Hardcoded `16px`** is a magic number rather than a token reference. Even if a raw\n   `style` prop is unavoidable here, the value should come from the same spacing scale the\n   rest of the app uses, not a literal pixel value.\n3. **Raw CSS variable in `style`** (`var(--h-surface-highlight-subtle)`) \u2014 if the component\n   library has a themed \"surface\"/\"background\" prop that accepts token names, using it\n   directly would be safer than referencing the CSS variable by string, which isn't\n   type-checked and will silently produce nothing if the variable name is ever renamed.\n\n## Accessibility\n\n4. **Decorative icon not hidden from assistive tech.** `<WarningMediumIcon />` sits next to\n   the text \"Payment due {dueDate}\", which already conveys the meaning. As written, a screen\n   reader may announce the icon (via an implicit or default accessible name) redundantly, or\n   announce nothing useful. If the icon is purely decorative, it should be marked\n   `aria-hidden=\"true\"` (or the equivalent prop the icon component exposes); if it's meant to\n   convey urgency/warning semantics on its own, it needs an explicit accessible label.\n5. **No explicit heading level.** `<Heading>Account summary</Heading>` doesn't specify a\n   level (e.g. `as=\"h2\"` / `level={2}`). Depending on where this card is rendered, an\n   uncontrolled default heading level can create a broken/skipped heading hierarchy for\n   screen-reader users navigating by headings. Worth confirming the surrounding page context\n   and setting an explicit level.\n6. **Label/value pairs aren't semantically grouped.** \"Balance\" and \"\u00a3{balance}\" are two\n   separate text nodes laid out with `marginRight`, which is purely visual. Screen readers\n   will read them as unrelated text rather than as a labelled value. Consider description-list\n   semantics (`<dl>/<dt>/<dd>`) or an equivalent accessible grouping if the library supports\n   it, so \"Balance\" is programmatically associated with its value.\n7. **Contrast not verified.** The \"Pay now\" button sits on a `--h-surface-highlight-subtle`\n   background inside the `Box`. Button-on-subtle-background contrast should be checked\n   (automated or visually) since \"subtle\" surfaces are often close in luminance to\n   foreground colors \u2014 can't confirm from source alone.\n\n## Component API / data handling\n\n8. **`balance: string`** \u2014 using a string for a currency amount pushes formatting\n   responsibility onto the caller and risks inconsistent formatting (decimals, thousands\n   separators) across usages. Consider accepting a `number` and formatting internally with\n   `Intl.NumberFormat`, which also avoids the hardcoded `\u00a3` literal being wrong for\n   non-GBP contexts.\n9. **Hardcoded `\u00a3` symbol.** If this component (or the app) has any internationalization\n   surface, the currency symbol should come from formatting logic, not be baked into the\n   JSX.\n10. **`dueDate: string`** \u2014 same concern as `balance`: an unformatted/raw string leaves date\n    formatting to the caller with no guarantee of consistency. A `Date` (formatted inside the\n    component) or a documented/expected string format would reduce ambiguity.\n11. **No loading/error affordance for `onPayNow`.** If the pay action is asynchronous (likely,\n    given it's a payment flow), the button has no disabled/loading state to prevent double\n    submission while the request is in flight.\n\n## Minor / consistency\n\n12. No `className`/`data-testid`/ref passthrough \u2014 may be intentional, but worth confirming\n    against how other cards in the codebase support test hooks and style overrides.\n\n## Summary\n\nThe two biggest things worth fixing before opening the PR:\n- Replace the two `style={{ ... }}` usages with the library's own spacing/color props (or\n  confirm no such props exist) \u2014 the mix of prop-based and inline styling is the most visible\n  inconsistency in this file.\n- Decide whether the warning icon is decorative or meaningful, and hide it from/label it for\n  assistive tech accordingly.\n\nThe currency/date typing-as-`string` and heading-level points are lower priority but worth a\nlook if this component will be reused across locales or nested under varying heading depths.\n"}], "grading": null}, {"id": "eval-delete-confirm-modal-with_skill", "prompt": "Please review src/components/DeleteConfirmModal.tsx against our Hearth React guidelines before merge \u2014 want to make sure I'm not missing anything.", "eval_id": 2, "outputs": [{"name": "review.md", "type": "text", "content": "# Review: `src/components/DeleteConfirmModal.tsx`\n\nReviewed against the `hearth-react-review` checklist (compound-component\nusage, layout/token rules, accessibility, hallucinated-prop check). Every\nHearth prop/component referenced below was verified against the live\n`hearth-react` MCP docs (`docs-show` for `Modal`, `Button`, `Box`, `Heading`)\nbefore being flagged or cleared \u2014 nothing here is from memory or local\ninspection alone.\n\n## Tier 1 \u2014 Blocking\n\n1. **`Modal` is imported but never composed \u2014 the whole dialog is hand-rolled.**\n   The component imports `Modal` from `@utilitywarehouse/hearth-react` but\n   never renders it; instead it builds its own overlay with a raw\n   `<div style={{ position: 'fixed', inset: 0, ... }}>`. Per the `Modal` docs,\n   `ModalRoot`/`Modal`/`ModalFooter`/`ModalClose` together provide portal\n   rendering, focus trapping, Escape-to-close, a WAI-ARIA `dialog` role, and\n   reduced-motion-aware enter/exit animation. None of that exists on the\n   hand-rolled version: there's no `role=\"dialog\"`/`aria-modal`, no focus\n   trap (keyboard users can tab straight through into the page behind it),\n   and no Escape-key handling. This is exactly the \"compound-component\n   sub-components skipped/replaced with ad-hoc markup\" case the review\n   checklist calls out, and it's also a real accessibility regression, not\n   just a style miss. The unused `Modal` import will also fail\n   `lint:js --max-warnings 0`.\n   **Fix:** compose `ModalRoot` (controlled via `open`/`onOpenChange`, or\n   uncontrolled with a `ModalTrigger`) wrapping `Modal` with `heading`/\n   `description`, and `ModalFooter` with two `ModalClose`-wrapped `Button`s,\n   per the `Playground`/`Default Open` stories.\n\n2. **`<a href=\"#\" onClick={onConfirm}>` wrapping the Delete `Button` \u2014 invalid HTML and a live navigation bug.**\n   This nests one interactive element inside another (`<button>` inside\n   `<a>`), which is invalid HTML. It's also a functional bug: the anchor's\n   `onClick` fires `onConfirm`, but nothing calls `preventDefault()`, so the\n   browser will *also* follow `href=\"#\"` \u2014 jumping the page to the top /\n   pushing a `#` history entry every time a user confirms a delete. There's\n   no navigation target here at all, so per the `Button` docs (\"For actions\n   that navigate somewhere, use a link instead, or render Button `asChild`\n   with an anchor\") this isn't a link scenario in the first place \u2014 it's a\n   plain action button. Drop the `<a>` and put `onClick={onConfirm}` directly\n   on the `Button`.\n\n3. **`padding={{ tablet: '300' }}` on the outer `Box` has no `mobile` key.**\n   Responsive props are mobile-first and don't cascade down \u2014 an object\n   without `mobile` applies nothing at mobile width. This `Box` will render\n   with **zero padding at mobile**, which is the viewport a confirmation\n   modal is most likely to be viewed at. Needs `padding={{ mobile: '200', tablet: '300' }}` (or whatever value the design actually specifies).\n\n## Tier 2 \u2014 Should fix\n\n4. **Cancel is a raw `<button>`, not Hearth's `Button`.** Every documented\n   `Modal` footer example (`Playground`, `Default Open`, etc.) pairs\n   `ModalClose` with a Hearth `Button` (`variant=\"ghost\" colorScheme=\"functional\"`\n   for Cancel). The raw `<button>` here gets none of Hearth's focus states,\n   sizing, or typography \u2014 it visually and behaviourally diverges from every\n   other modal in the app.\n\n5. **Delete button has `variant=\"solid\"` but no `colorScheme`.** `Button`'s\n   own docs describe a dedicated `colorScheme=\"destructive\"` story for\n   \"actions that delete or remove something\" \u2014 exactly this case. As written\n   it renders with whatever the default colour scheme is, which undercuts\n   the \"this is dangerous\" signal a delete confirmation is supposed to give.\n\n6. **Backdrop uses a raw inline style (`background: 'rgba(0,0,0,0.5)'`) instead of a token.** Bypasses the token system with a hardcoded RGBA value. This becomes moot once `Modal` is adopted (finding 1 removes the hand-rolled backdrop entirely), but flagging it as a standalone token-misuse instance in case any custom overlay code is kept.\n\n## Tier 3 \u2014 Nice to have\n\n7. **Prefer `Modal`'s own `heading`/`description` props over manual `Heading`+`BodyText`.** Once composed via `Modal`, pass `heading=\"Delete this item?\"` and `description=\"This action cannot be undone.\"` directly \u2014 the docs recommend this for \"standard content\" since it guarantees consistent spacing/alignment with every other modal, rather than hand-laying-out typography components as children.\n\n## Not flagged (verified correct)\n\n- `Heading as=\"h2\"` \u2014 explicit `as` is set correctly per the accessibility\n  rule (\"Always set `as` on `Heading`\"); no gap here even though `h2` is also\n  the default.\n- `Flex gap=\"200\"` \u2014 valid spacing token, correct use of `gap` over margin\n  for spacing siblings.\n- `Box backgroundColor=\"primary\"` \u2014 a real, documented `Box` prop value (not\n  hallucinated).\n\n## Suggested fix order\n\nTackle Tier 1 as one pass (items 1\u20133 are tightly coupled \u2014 adopting `Modal`\nproperly resolves most of the accessibility/backdrop concerns at once), then\nTier 2 in the same pass since it's the natural place to set `Button` variants/\ncolour schemes while rebuilding the footer. Re-run `docs-show` for `Modal`\nand `Button` again at that point rather than relying on this review's\nsnapshot, per the review skill's fix workflow.\n"}], "grading": null}, {"id": "eval-delete-confirm-modal-without_skill", "prompt": "Please review src/components/DeleteConfirmModal.tsx against our Hearth React guidelines before merge \u2014 want to make sure I'm not missing anything.", "eval_id": 2, "outputs": [{"name": "review.md", "type": "text", "content": "# Review: DeleteConfirmModal.tsx\n\nReviewed using general React / accessibility / design-system judgement only (no Hearth-specific docs consulted).\n\n## Critical\n\n1. **`Modal` is imported but never used.** The component imports `Modal` from `@utilitywarehouse/hearth-react` (line 1) but instead hand-rolls a modal with a raw `<div>` overlay (line 13). This almost certainly throws away built-in behaviour a dedicated `Modal` component would provide: focus trap, focus restore on close, `Escape`-to-close, `role=\"dialog\"`/`aria-modal`, rendering via a portal so it isn't clipped by an ancestor's `overflow: hidden`, and body-scroll locking while open. Unless there's a specific reason to bypass it, this should be rebuilt on top of `Modal`.\n\n2. **Interactive element nested inside another interactive element.** `<a href=\"#\" onClick={onConfirm}><Button variant=\"solid\">Delete</Button></a>` (lines 19\u201321) puts a `<button>` inside an `<a>`. This is invalid HTML, confuses screen readers/keyboard navigation, and `href=\"#\"` will jump/scroll the page on click since `onConfirm` doesn't call `preventDefault()`. The \"Delete\" action isn't a navigation \u2014 it should just be a `<Button onClick={onConfirm}>`, not wrapped in an anchor at all.\n\n3. **Manual overlay reimplementation has no interaction affordances.** The backdrop `<div>` has no `onClick` to dismiss on outside-click, no `onKeyDown` for `Escape`, and no focus management (focus isn't moved into the dialog on open or restored to the trigger on close). All of this is exactly what a real `Modal`/`Dialog` primitive normally handles \u2014 another reason to use the imported `Modal` rather than the custom div.\n\n## Accessibility\n\n4. **No dialog semantics.** There is no `role=\"dialog\"`, `aria-modal=\"true\"`, `aria-labelledby` (pointing at the `Heading`), or `aria-describedby` (pointing at the `BodyText`). Screen reader users won't get the \"you are in a dialog\" announcement or an accessible name/description for it.\n\n5. **Cancel button is a bare native `<button>`** (line 18) instead of the design system's `Button` component that's already imported and used elsewhere in the same file. This is inconsistent (different focus ring, sizing, hover/active states, typography) and likely fails whatever visual/interaction consistency the rest of the app relies on.\n\n6. **No visual/semantic distinction for a destructive action.** `variant=\"solid\"` is used for \"Delete\" with no indication this is a destructive/dangerous action (e.g., a danger/critical styling). Confirm dialogs for irreversible actions typically warrant a visually distinct treatment so users don't click it by habit.\n\n## Robustness\n\n7. **No guard against double submission.** `onConfirm` is called directly with no disabled/loading state. If the delete is asynchronous, a user double-clicking (or a slow response) could fire the action twice, and there's no way to show pending state or prevent the Cancel button from being used mid-request.\n\n8. **Unmount-based visibility (`if (!open) return null`)** means the dialog is fully removed from the DOM rather than using the underlying `Modal`'s own open/close handling. This can lose transition/animation support and defeats any portal rendering the real `Modal` would give you.\n\n## Styling / consistency\n\n9. **Hardcoded inline styles** (`position: 'fixed'`, `inset: 0`, `background: 'rgba(0,0,0,0.5)'`, line 13) sit alongside design-system components (`Box`, `Flex`, `Heading`, `BodyText`, `Button`). Mixing raw inline CSS with design tokens is inconsistent \u2014 if there's a themed overlay/scrim value, it should come from the design system rather than being hand-coded, and dark-mode/theme changes won't be picked up by a hardcoded rgba value.\n\n10. **`padding={{ tablet: '300' }}` has no base/mobile value.** Only a `tablet` breakpoint is specified, so it's unclear what padding (if any) applies below that breakpoint \u2014 likely unintentional and worth specifying a default.\n\n## Minor\n\n- Prop drilling `open`/`onClose`/`onConfirm` is fine for a simple confirm dialog, but consider whether an `itemName`/`title`/`description` prop would be useful so this isn't hardcoded to generic \"this item\" copy, limiting reuse.\n- No test id / `data-testid` hooks for the confirm/cancel actions, which will make this harder to target in tests if the project uses testing-library queries by test id rather than role/text.\n\n## Summary\n\nThe most important issue is #1/#2: the component bypasses the `Modal` primitive it already imports and reimplements overlay/backdrop behaviour by hand, introducing an invalid HTML nesting (`button` inside `a`) and losing accessibility features (focus trap, `Escape` handling, ARIA roles) that the real component would likely provide for free. Fix that first; the rest (Cancel button using the design system `Button`, ARIA attributes, destructive-action styling, double-submit guard) follow naturally once it's rebuilt on the proper primitive.\n"}], "grading": null}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "hearth-react-review", "skill_path": "plugins/hearth-ai-toolkit/skills/hearth-react-review", "executor_model": "claude-sonnet-5", "analyzer_model": "claude-sonnet-5", "timestamp": "2026-09-28T14:35:28Z", "evals_run": [1, 2], "runs_per_configuration": 1}, "runs": [{"eval_id": 1, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 0.889, "passed": 8, "failed": 1, "total": 9, "time_seconds": 1881.7, "tokens": 126814, "tool_calls": 22, "errors": 0}, "expectations": [{"text": "Flags Card's `shadow` prop as not existing on the component, verified against docs rather than assumed", "passed": true, "evidence": "Tier 1 #1: '`shadow=\"lg\"` on `Card` (line 12) is a hallucinated prop. `docs-show` on `components-card` confirms `Card`'s real prop set has no `shadow` prop at all \u2014 only `shadowColor`...'"}, {"text": "Flags the raw px `style={{ padding: '16px' }}` as bypassing the token system", "passed": true, "evidence": "Tier 2 #4: 'raw px value, and `Card` has no token `padding` prop to begin with... fighting Card's built-in default padding directly with a raw pixel value bypassing the token system entirely.'"}, {"text": "Flags `marginRight` used for spacing between siblings instead of `gap` on the parent Flex", "passed": true, "evidence": "Tier 2 #6: '`<BodyText marginRight=\"100\">Balance</BodyText>`... margin on a sibling instead of `gap` on the parent. Move the spacing to the `Flex` wrapper: `<Flex gap=\"100\">`.'"}, {"text": "Flags `<Heading>` missing the `as` prop as an accessibility gap", "passed": true, "evidence": "Tier 1 #3: '`Heading` (line 14) has no `as` prop... Always set `as` on `Heading` for correct semantic hierarchy.'"}, {"text": "Flags the standalone `WarningMediumIcon` for missing `title`/`titleId`", "passed": false, "evidence": "Tier 3 #12 raises the icon but concludes 'the default decorative/aria-hidden behaviour is probably correct as-is' and recommends title/titleId only conditionally \u2014 this clears the icon rather than flagging it as a gap needing a fix."}, {"text": "Flags the CSS variable string in the `style` prop as should be a browser token instead", "passed": true, "evidence": "Tier 2 #5: '`style={{ backgroundColor: 'var(--h-surface-highlight-subtle)' }}`... In TSX, import the equivalent value from `@utilitywarehouse/hearth-tokens/browser`.'"}, {"text": "Flags `marginLeft=\"auto\"` as a margin hack that should be `justifyContent` on the Flex wrapper", "passed": true, "evidence": "Tier 2 #8: '`<Button marginLeft=\"auto\">`... margin-hack for alignment... Use `<Flex justifyContent=\"flex-end\">`... instead of `marginLeft=\"auto\"`.'"}, {"text": "Findings are grouped into tiers rather than presented as a flat list", "passed": true, "evidence": "Report is structured under explicit '## Tier 1 \u2014 Blocking', '## Tier 2 \u2014 Should fix', '## Tier 3 \u2014 Nice to have' headings."}, {"text": "Does not report every prop usage as an error \u2014 correct usage is left unflagged", "passed": true, "evidence": "Card/CardContent/Flex/BodyText/onClick usage is never flagged as incorrect anywhere in the report; findings are limited to the seeded issues plus one genuinely new bug (missing `direction=\"column\"`)."}], "notes": ["Retried a 504 timeout on components-card--docs; didn't block verification since the plain entry had the needed props"]}, {"eval_id": 2, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4, "time_seconds": 1443.8, "tokens": 96969, "tool_calls": 15, "errors": 0}, "expectations": [{"text": "Flags the hand-rolled `<div>` overlay as compound-component misuse \u2014 should use Modal's own sub-components instead of custom markup, even though Modal is imported", "passed": true, "evidence": "Tier 1 #1: '`Modal` is imported but never composed \u2014 the whole dialog is hand-rolled... Fix: compose `ModalRoot`... wrapping `Modal`... and `ModalFooter`...'"}, {"text": "Flags the responsive padding object `{ tablet: '300' }` as missing the required `mobile` breakpoint", "passed": true, "evidence": "Tier 1 #3: '`padding={{ tablet: '300' }}`... has no `mobile` key... This `Box` will render with zero padding at mobile.'"}, {"text": "Flags the `Button` wrapped in a raw `<a>` without `asChild` as invalid HTML nesting", "passed": true, "evidence": "Tier 1 #2: '`<a href=\"#\" onClick={onConfirm}>` wrapping the Delete `Button` \u2014 invalid HTML and a live navigation bug... Drop the `<a>` and put `onClick={onConfirm}` directly on the `Button`.'"}, {"text": "Findings are grouped into tiers rather than presented as a flat list", "passed": true, "evidence": "Report uses explicit '## Tier 1 \u2014 Blocking', '## Tier 2 \u2014 Should fix', '## Tier 3 \u2014 Nice to have' headings."}], "notes": []}, {"eval_id": 1, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.556, "passed": 5, "failed": 4, "total": 9, "time_seconds": 128.5, "tokens": 50515, "tool_calls": 3, "errors": 0}, "expectations": [{"text": "Flags Card's `shadow` prop as not existing on the component, verified against docs rather than assumed", "passed": false, "evidence": "The `shadow=\"lg\"` prop on Card is never mentioned anywhere in the baseline review \u2014 no Hearth docs were consulted so there was no way to know it doesn't exist."}, {"text": "Flags the raw px `style={{ padding: '16px' }}` as bypassing the token system", "passed": true, "evidence": "Item 2: 'Hardcoded 16px is a magic number rather than a token reference... the value should come from the same spacing scale.'"}, {"text": "Flags `marginRight` used for spacing between siblings instead of `gap` on the parent Flex", "passed": false, "evidence": "Item 1 groups `marginRight=\"100\"`/`marginLeft=\"auto\"` with the *good* prop-based pattern, contrasted favourably against the inline `style` usage ('prefer those consistently instead of hardcoded style objects') \u2014 it does not identify margin-on-sibling itself as the anti-pattern, since it has no knowledge that Hearth's own convention is `gap` on the parent instead."}, {"text": "Flags `<Heading>` missing the `as` prop as an accessibility gap", "passed": true, "evidence": "Item 5: 'No explicit heading level. `<Heading>Account summary</Heading>` doesn't specify a level (e.g. `as=\"h2\"`)...'"}, {"text": "Flags the standalone `WarningMediumIcon` for missing `title`/`titleId`", "passed": true, "evidence": "Item 4: '...it should be marked `aria-hidden=\"true\"` (or the equivalent prop the icon component exposes); if it's meant to convey urgency/warning semantics on its own, it needs an explicit accessible label.' \u2014 recommends action, unlike the with-skill run."}, {"text": "Flags the CSS variable string in the `style` prop as should be a browser token instead", "passed": true, "evidence": "Item 3: 'if the component library has a themed \"surface\"/\"background\" prop that accepts token names, using it directly would be safer than referencing the CSS variable by string.'"}, {"text": "Flags `marginLeft=\"auto\"` as a margin hack that should be `justifyContent` on the Flex wrapper", "passed": false, "evidence": "Same as the marginRight finding above \u2014 `marginLeft=\"auto\"` is grouped with the 'good' prop-based pattern, not identified as a margin-hack anti-pattern needing `justifyContent` instead."}, {"text": "Findings are grouped into tiers rather than presented as a flat list", "passed": true, "evidence": "Grouped under category headings (Styling/tokens, Accessibility, Component API/data handling, Minor/consistency) with a closing Summary distinguishing 'two biggest things worth fixing' from 'lower priority' \u2014 not a flat list, though not the skill's specific Tier 1/2/3 structure."}, {"text": "Does not report every prop usage as an error \u2014 correct usage is left unflagged", "passed": true, "evidence": "Card/CardContent/Flex/onClick usage is never flagged as incorrect; findings are limited to genuine concerns."}], "notes": []}, {"eval_id": 2, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4, "time_seconds": 149.5, "tokens": 50079, "tool_calls": 3, "errors": 0}, "expectations": [{"text": "Flags the hand-rolled `<div>` overlay as compound-component misuse \u2014 should use Modal's own sub-components instead of custom markup, even though Modal is imported", "passed": true, "evidence": "Item 1: '`Modal` is imported but never used. The component imports `Modal`... but instead hand-rolls a modal with a raw `<div>` overlay... this should be rebuilt on top of `Modal`.'"}, {"text": "Flags the responsive padding object `{ tablet: '300' }` as missing the required `mobile` breakpoint", "passed": true, "evidence": "Item 10: '`padding={{ tablet: '300' }}` has no base/mobile value... likely unintentional and worth specifying a default.'"}, {"text": "Flags the `Button` wrapped in a raw `<a>` without `asChild` as invalid HTML nesting", "passed": true, "evidence": "Item 2: 'Interactive element nested inside another interactive element... puts a `<button>` inside an `<a>`. This is invalid HTML...'"}, {"text": "Findings are grouped into tiers rather than presented as a flat list", "passed": true, "evidence": "Grouped under Critical/Accessibility/Robustness/Styling/Minor headings, with a closing Summary prioritizing '#1/#2... Fix that first' over the rest."}], "notes": []}], "run_summary": {"with_skill": {"pass_rate": {"mean": 0.9445, "stddev": 0.0785, "min": 0.889, "max": 1.0}, "time_seconds": {"mean": 1662.75, "stddev": 309.6421, "min": 1443.8, "max": 1881.7}, "tokens": {"mean": 111891.5, "stddev": 21103.6019, "min": 96969, "max": 126814}}, "without_skill": {"pass_rate": {"mean": 0.778, "stddev": 0.314, "min": 0.556, "max": 1.0}, "time_seconds": {"mean": 139.0, "stddev": 14.8492, "min": 128.5, "max": 149.5}, "tokens": {"mean": 50297.0, "stddev": 308.2986, "min": 50079, "max": 50515}}, "delta": {"pass_rate": "+0.17", "time_seconds": "+1523.8", "tokens": "+61594"}}, "notes": ["delete-confirm-modal doesn't discriminate: both with_skill and without_skill scored 100% pass rate \u2014 all three seeded issues (unused Modal import, Button nested in an anchor, missing mobile breakpoint) are catchable by strong general engineering/accessibility judgement alone, independent of any Hearth-specific documentation.", "account-summary-card is the discriminating eval (88.9% vs 55.6%): the skill's docs-verification step caught the hallucinated `shadow` prop on Card and correctly identified margin-for-spacing as Hearth's specific anti-pattern \u2014 the baseline missed the hallucinated prop entirely and mis-framed the margin usage as the *good* pattern (contrasted favourably against inline styles), since it has no way to know Hearth's own gap/justifyContent convention.", "The with-skill run's one failed assertion (icon title/titleId) is an eval-authoring issue, not a real skill gap \u2014 the model gave a more nuanced answer (icon is decorative, adjacent text already conveys the same info, so default aria-hidden is correct) than the assertion's literal 'flags it as needing a fix' wording allowed for. Consider rewording that assertion before the next iteration.", "With-skill runs took roughly 12x longer (1663s vs 139s mean) and used about 2.2x the tokens (112k vs 50k mean) than baseline \u2014 the added cost of live docs verification (docs-list/docs-show, including at least one retried 5xx timeout per run) against a real gain in catching hallucinated props and Hearth-specific anti-patterns that general judgement alone missed or got backwards."]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "skill_name": "figma-implementation",
+    "skill_path": "plugins/hearth-ai-toolkit/skills/figma-implementation",
+    "executor_model": "claude-sonnet-5",
+    "analyzer_model": "claude-sonnet-5",
+    "timestamp": "2026-09-28T14:35:28Z",
+    "evals_run": [
+      1,
+      2
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 199.6,
+        "tokens": 65897,
+        "tool_calls": 9,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Confirm Button is implemented with `variant=\"solid\"` and no invented colour/colorScheme prop",
+          "passed": true,
+          "evidence": "ActionRow.tsx: `<Button variant=\"solid\">Confirm</Button>` \u2014 no colour/colorScheme prop added."
+        },
+        {
+          "text": "Cancel Button is implemented with `variant=\"outline\"` and no invented colour/colorScheme prop",
+          "passed": true,
+          "evidence": "ActionRow.tsx: `<Button variant=\"outline\">Cancel</Button>` \u2014 no colour/colorScheme prop added."
+        },
+        {
+          "text": "Does not add a muted/secondary/faded colour variant to either button on the basis of the screenshot's visual shading alone",
+          "passed": true,
+          "evidence": "notes.md: 'a rendered pixel difference between instances... is not evidence of a bound variable, it's just how that variant renders against the background. Since no colour variable is present... no colorScheme was inferred or added.'"
+        },
+        {
+          "text": "Does not treat the two instances as needing identical extra props just because they're the same component \u2014 each is implemented from its own listed props",
+          "passed": true,
+          "evidence": "Each Button gets only its own listed `variant`; no shared extra prop was applied to both."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 5,
+        "failed": 0,
+        "total": 5,
+        "time_seconds": 1361.3,
+        "tokens": 88033,
+        "tool_calls": 12,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the `spacing` prop (not `gap`) on the Flex container, because the bound variable's path contains the segment \"spacing\"",
+          "passed": true,
+          "evidence": "PromoBanner.tsx line 13: `<Flex direction=\"row\" alignItems=\"center\" spacing=\"lg\">` \u2014 uses `spacing`, not `gap`."
+        },
+        {
+          "text": "Uses the tier name `lg` for the spacing prop, not a raw pixel value like 24 or 16",
+          "passed": true,
+          "evidence": "`spacing=\"lg\"` \u2014 tier name used directly, no pixel value anywhere in the file."
+        },
+        {
+          "text": "Does not treat the two different resolved pixel values (24px, 16px) as a reason to pick one over the other \u2014 matches by variable name only",
+          "passed": true,
+          "evidence": "notes.md: 'The note that the same variable resolved to 24px on desktop and 16px on mobile does not change this. Per the skill, the Figma variable's name (lg) is authoritative...' \u2014 single `spacing=\"lg\"` used for both breakpoints, no responsive object."
+        },
+        {
+          "text": "Does not render the \"Muted subtitle\" text node unconditionally in the default view, since it is flagged hidden: true",
+          "passed": true,
+          "evidence": "PromoBanner.tsx has no reference to the subtitle at all \u2014 only StarMediumIcon and the label BodyText are rendered."
+        },
+        {
+          "text": "If the hidden node is rendered at all, does so only with an explicit comment/flag and a question back to the user, not silently",
+          "passed": true,
+          "evidence": "Vacuously true \u2014 the node isn't rendered at all, so no silent-rendering violation occurs. notes.md explicitly explains the omission reasoning."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 156.4,
+        "tokens": 47173,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Confirm Button is implemented with `variant=\"solid\"` and no invented colour/colorScheme prop",
+          "passed": true,
+          "evidence": "notes.md/ActionRow.tsx: generic Button rendered with `variant=\"solid\"` only."
+        },
+        {
+          "text": "Cancel Button is implemented with `variant=\"outline\"` and no invented colour/colorScheme prop",
+          "passed": true,
+          "evidence": "notes.md/ActionRow.tsx: generic Button rendered with `variant=\"outline\"` only."
+        },
+        {
+          "text": "Does not add a muted/secondary/faded colour variant to either button on the basis of the screenshot's visual shading alone",
+          "passed": true,
+          "evidence": "notes.md: 'The visual difference described in the screenshot... is attributed to how the outline variant renders against the background, not to a separate colour binding \u2014 so it's not something to encode as a prop.'"
+        },
+        {
+          "text": "Does not treat the two instances as needing identical extra props just because they're the same component \u2014 each is implemented from its own listed props",
+          "passed": true,
+          "evidence": "Each button only gets its own listed variant; 'Implemented exactly what's specified: no more, no less.'"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.4,
+        "passed": 2,
+        "failed": 3,
+        "total": 5,
+        "time_seconds": 222.6,
+        "tokens": 51568,
+        "tool_calls": 4,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Uses the `spacing` prop (not `gap`) on the Flex container, because the bound variable's path contains the segment \"spacing\"",
+          "passed": false,
+          "evidence": "Baseline doesn't use Hearth React at all (no Flex/spacing prop) \u2014 it hand-writes CSS: `gap: var(--spacing-lg);` inside a `<style>` block. Uses `gap`, and it isn't even a component-library prop."
+        },
+        {
+          "text": "Uses the tier name `lg` for the spacing prop, not a raw pixel value like 24 or 16",
+          "passed": false,
+          "evidence": "`--spacing-lg: 24px;` overridden to `16px` under a media query \u2014 both raw pixel values are hardcoded, not a single named tier."
+        },
+        {
+          "text": "Does not treat the two different resolved pixel values (24px, 16px) as a reason to pick one over the other \u2014 matches by variable name only",
+          "passed": false,
+          "evidence": "notes.md/JSDoc: 'modelled here as a CSS custom property with a media-query override, rather than two separate hardcoded numbers' \u2014 this is exactly the anti-pattern the rule warns against: treating the two resolved pixel values as two responsive states to encode, instead of one named tier."
+        },
+        {
+          "text": "Does not render the \"Muted subtitle\" text node unconditionally in the default view, since it is flagged hidden: true",
+          "passed": true,
+          "evidence": "The subtitle is not present anywhere in PromoBanner.tsx."
+        },
+        {
+          "text": "If the hidden node is rendered at all, does so only with an explicit comment/flag and a question back to the user, not silently",
+          "passed": true,
+          "evidence": "Vacuously true \u2014 not rendered. Baseline's notes.md does flag the omission explicitly as a deliberate choice."
+        }
+      ],
+      "notes": [
+        "Used a placeholder inline SVG in place of StarMediumIcon since no icon library was specified"
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 780.45,
+        "stddev": 821.4459,
+        "min": 199.6,
+        "max": 1361.3
+      },
+      "tokens": {
+        "mean": 76965.0,
+        "stddev": 15652.5157,
+        "min": 65897,
+        "max": 88033
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.7,
+        "stddev": 0.4243,
+        "min": 0.4,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 189.5,
+        "stddev": 46.8105,
+        "min": 156.4,
+        "max": 222.6
+      },
+      "tokens": {
+        "mean": 49370.5,
+        "stddev": 3107.7343,
+        "min": 47173,
+        "max": 51568
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.30",
+      "time_seconds": "+591.0",
+      "tokens": "+27594"
+    }
+  },
+  "notes": [
+    "promo-banner is highly discriminating (100% vs 40%): without the skill's mechanical 'spacing segment -> spacing prop, match by variable name not pixel value' rule, the baseline invented its own responsive CSS solution encoding both resolved pixel values via a media query \u2014 exactly the anti-pattern rule 4 exists to prevent, and a natural mistake for a model with no Hearth-specific guidance to make.",
+    "action-row doesn't discriminate (100% both): the eval prompt's own wording ('Implement them exactly as specified \u2014 no more, no less') already telegraphs the correct answer, so it doesn't actually test whether a model would invent a colour variant unprompted from the screenshot-shading detail alone. Recommend dropping that instruction in a future revision so the eval tests the instinct, not just instruction-following.",
+    "With-skill runs took about 4x longer (780s vs 190s mean) and roughly 1.6x the tokens (77k vs 49k mean) than baseline, driven mostly by the promo-banner run's live MCP docs-list/docs-show verification calls."
+  ]
+}

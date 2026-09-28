@@ -1,0 +1,12 @@
+{
+  "eval_id": 1,
+  "eval_name": "promo-banner",
+  "prompt": "I ran the Figma MCP's get_design_context on the \"PromoBanner\" frame and got the response below. Please implement it as a Hearth React component.\n\nFrame: PromoBanner\n- Node \"Banner Container\" (Flex, direction: row)\n  - Bound variable on its gap: layout/spacing/lg\n  - Note: I checked this same frame at two breakpoints — the resolved pixel value for that variable was 24px on desktop and 16px on mobile, but it's the same bound variable both times.\n  - Children:\n    - Node \"Icon\" — component instance: StarMediumIcon. hidden: false.\n    - Node \"Label\" — text, style \"Body/Body Text MD\". hidden: false.\n    - Node \"Muted subtitle\" — text, style \"Body/Body Text SM\", content \"Limited time only\". hidden: true.\n- No other children of Banner Container.\n\nPlease write the component.",
+  "assertions": [
+    "Uses the `spacing` prop (not `gap`) on the Flex container, because the bound variable's path contains the segment \"spacing\"",
+    "Uses the tier name `lg` for the spacing prop, not a raw pixel value like 24 or 16",
+    "Does not treat the two different resolved pixel values (24px, 16px) as a reason to pick one over the other — matches by variable name only",
+    "Does not render the \"Muted subtitle\" text node unconditionally in the default view, since it is flagged hidden: true",
+    "If the hidden node is rendered at all, does so only with an explicit comment/flag and a question back to the user, not silently"
+  ]
+}

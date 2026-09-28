@@ -1,0 +1,68 @@
+{
+  "expectations": [
+    {
+      "text": "Flags Card's `shadow` prop as not existing on the component, verified against docs rather than assumed",
+      "passed": false,
+      "evidence": "The `shadow=\"lg\"` prop on Card is never mentioned anywhere in the baseline review \u2014 no Hearth docs were consulted so there was no way to know it doesn't exist."
+    },
+    {
+      "text": "Flags the raw px `style={{ padding: '16px' }}` as bypassing the token system",
+      "passed": true,
+      "evidence": "Item 2: 'Hardcoded 16px is a magic number rather than a token reference... the value should come from the same spacing scale.'"
+    },
+    {
+      "text": "Flags `marginRight` used for spacing between siblings instead of `gap` on the parent Flex",
+      "passed": false,
+      "evidence": "Item 1 groups `marginRight=\"100\"`/`marginLeft=\"auto\"` with the *good* prop-based pattern, contrasted favourably against the inline `style` usage ('prefer those consistently instead of hardcoded style objects') \u2014 it does not identify margin-on-sibling itself as the anti-pattern, since it has no knowledge that Hearth's own convention is `gap` on the parent instead."
+    },
+    {
+      "text": "Flags `<Heading>` missing the `as` prop as an accessibility gap",
+      "passed": true,
+      "evidence": "Item 5: 'No explicit heading level. `<Heading>Account summary</Heading>` doesn't specify a level (e.g. `as=\"h2\"`)...'"
+    },
+    {
+      "text": "Flags the standalone `WarningMediumIcon` for missing `title`/`titleId`",
+      "passed": true,
+      "evidence": "Item 4: '...it should be marked `aria-hidden=\"true\"` (or the equivalent prop the icon component exposes); if it's meant to convey urgency/warning semantics on its own, it needs an explicit accessible label.' \u2014 recommends action, unlike the with-skill run."
+    },
+    {
+      "text": "Flags the CSS variable string in the `style` prop as should be a browser token instead",
+      "passed": true,
+      "evidence": "Item 3: 'if the component library has a themed \"surface\"/\"background\" prop that accepts token names, using it directly would be safer than referencing the CSS variable by string.'"
+    },
+    {
+      "text": "Flags `marginLeft=\"auto\"` as a margin hack that should be `justifyContent` on the Flex wrapper",
+      "passed": false,
+      "evidence": "Same as the marginRight finding above \u2014 `marginLeft=\"auto\"` is grouped with the 'good' prop-based pattern, not identified as a margin-hack anti-pattern needing `justifyContent` instead."
+    },
+    {
+      "text": "Findings are grouped into tiers rather than presented as a flat list",
+      "passed": true,
+      "evidence": "Grouped under category headings (Styling/tokens, Accessibility, Component API/data handling, Minor/consistency) with a closing Summary distinguishing 'two biggest things worth fixing' from 'lower priority' \u2014 not a flat list, though not the skill's specific Tier 1/2/3 structure."
+    },
+    {
+      "text": "Does not report every prop usage as an error \u2014 correct usage is left unflagged",
+      "passed": true,
+      "evidence": "Card/CardContent/Flex/onClick usage is never flagged as incorrect; findings are limited to genuine concerns."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 4,
+    "total": 9,
+    "pass_rate": 0.556
+  },
+  "execution_metrics": {
+    "total_tool_calls": 3
+  },
+  "claims": [],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "No eval-quality issues distinct from the with-skill run's feedback."
+  }
+}
