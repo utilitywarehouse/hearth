@@ -23,6 +23,13 @@ export const ORG = 'utilitywarehouse';
 export const SELF_REPO = `${ORG}/hearth`;
 
 /**
+ * Repos excluded from discovery even if they reference a tracked package —
+ * proofs-of-concept, sandboxes, or anything else that would skew adoption
+ * numbers rather than reflect a real dependent.
+ */
+export const EXCLUDED_REPOS = new Set<string>([`${ORG}/customer-app-mono-poc`]);
+
+/**
  * How to find each package's exported symbols in the local workspace when
  * building the allow-list. `type` also drives dashboard rendering.
  */
