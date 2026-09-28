@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ChatMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+export const MicrophoneOnMediumIcon = forwardRef<SVGSVGElement, IconProps>(
   ({ color = 'currentColor', title, titleId, ...props }, ref) => {
     return (
       <svg
@@ -19,10 +19,10 @@ export const ChatMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M6 13a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1m0-3a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1m0-3a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1M3 18a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v19l-4-4z"
+          d="M12 14a2.9 2.9 0 0 1-2.125-.875A2.9 2.9 0 0 1 9 11V5q0-1.25.875-2.125A2.9 2.9 0 0 1 12 2q1.25 0 2.125.875T15 5v6q0 1.25-.875 2.125A2.9 2.9 0 0 1 12 14m-1 7v-3.075q-2.6-.35-4.3-2.325T5 11h2q0 2.075 1.463 3.537Q9.926 16 12 16q2.075 0 3.537-1.463Q17 13.075 17 11h2q0 2.625-1.7 4.6T13 17.925V21z"
         />
       </svg>
     );
   }
 );
-ChatMediumIcon.displayName = 'ChatMediumIcon';
+MicrophoneOnMediumIcon.displayName = 'MicrophoneOnMediumIcon';

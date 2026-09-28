@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgReduceNoiseSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="M9.167 17.5v-15h1.666v15zM5.27 15.313l-1.167-1.167a5.9 5.9 0 0 0 1.282-1.896A5.7 5.7 0 0 0 5.833 10q0-1.188-.447-2.25a5.9 5.9 0 0 0-1.282-1.896l1.167-1.187a7.5 7.5 0 0 1 1.635 8.198 7.5 7.5 0 0 1-1.635 2.448m-2.334-2.355L1.75 11.771A2.56 2.56 0 0 0 2.5 9.98q0-.5-.198-.958a2.6 2.6 0 0 0-.552-.814l1.187-1.187q.604.583.928 1.354.323.771.322 1.604 0 .834-.323 1.615a4 4 0 0 1-.927 1.364m9.563-2.125V9.167h5v1.666z"
+    />
+  </Svg>
+);
+export default SvgReduceNoiseSmallIcon;

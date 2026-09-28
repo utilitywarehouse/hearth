@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ChatMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+export const DevicesMediumIcon = forwardRef<SVGSVGElement, IconProps>(
   ({ color = 'currentColor', title, titleId, ...props }, ref) => {
     return (
       <svg
@@ -19,10 +19,10 @@ export const ChatMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M6 13a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1m0-3a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1m0-3a1 1 0 0 0 1 1h10a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1M3 18a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v19l-4-4z"
+          d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1m-1 9h-4v-7h4z"
         />
       </svg>
     );
   }
 );
-ChatMediumIcon.displayName = 'ChatMediumIcon';
+DevicesMediumIcon.displayName = 'DevicesMediumIcon';
