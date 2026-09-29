@@ -1,0 +1,30 @@
+{
+  "skill_name": "figma-implementation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I ran the Figma MCP's get_design_context on the \"PromoBanner\" frame and got the response below. Please implement it as a Hearth React component.\n\nFrame: PromoBanner\n- Node \"Banner Container\" (Flex, direction: row)\n  - Bound variable on its gap: layout/spacing/lg\n  - Note: I checked this same frame at two breakpoints — the resolved pixel value for that variable was 24px on desktop and 16px on mobile, but it's the same bound variable both times.\n  - Children:\n    - Node \"Icon\" — component instance: StarMediumIcon. hidden: false.\n    - Node \"Label\" — text, style \"Body/Body Text MD\". hidden: false.\n    - Node \"Muted subtitle\" — text, style \"Body/Body Text SM\", content \"Limited time only\". hidden: true.\n- No other children of Banner Container.\n\nPlease write the component.",
+      "expected_output": "A Flex container using the `spacing` prop (not `gap`) with the tier name `lg` — matched by the variable's name, not by copying either resolved pixel value (24px or 16px). The hidden \"Muted subtitle\" node is not rendered unconditionally; if it's included at all, the model raises it explicitly and asks for confirmation rather than silently rendering it as part of the default view.",
+      "files": [],
+      "expectations": [
+        "Uses the `spacing` prop (not `gap`) on the Flex container, because the bound variable's path contains the segment \"spacing\"",
+        "Uses the tier name `lg` for the spacing prop, not a raw pixel value like 24 or 16",
+        "Does not treat the two different resolved pixel values (24px, 16px) as a reason to pick one over the other — matches by variable name only",
+        "Does not render the \"Muted subtitle\" text node unconditionally in the default view, since it is flagged hidden: true",
+        "If the hidden node is rendered at all, does so only with an explicit comment/flag and a question back to the user, not silently"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Here's the design context for two Button instances in a row called \"ActionRow\". Implement them exactly as specified — no more, no less.\n\nFrame: ActionRow\n- Instance \"Confirm Button\" — component: Button. Props visible in the response: { variant: \"solid\" }. No colour/colorScheme variable is present in the response for this node.\n- Instance \"Cancel Button\" — component: Button. Props visible in the response: { variant: \"outline\" }. No colour/colorScheme variable is present in the response for this node either.\n\nNote: in the screenshot, \"Cancel Button\" looks like a slightly lighter/muted grey compared to \"Confirm Button\", but that's just how the outline variant renders against the background — there's no separate colour variable bound to either node.\n\nPlease implement both buttons.",
+      "expected_output": "Both buttons use only the variant prop given in the response (`solid` for Confirm, `outline` for Cancel). Neither gets an invented `colorScheme`/muted/secondary colour prop based on the screenshot's visual shading, since no colour variable was present in the response for either node.",
+      "files": [],
+      "expectations": [
+        "Confirm Button is implemented with `variant=\"solid\"` and no invented colour/colorScheme prop",
+        "Cancel Button is implemented with `variant=\"outline\"` and no invented colour/colorScheme prop",
+        "Does not add a muted/secondary/faded colour variant to either button on the basis of the screenshot's visual shading alone",
+        "Does not treat the two instances as needing identical extra props just because they're the same component — each is implemented from its own listed props"
+      ]
+    }
+  ]
+}

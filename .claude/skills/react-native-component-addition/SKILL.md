@@ -40,7 +40,7 @@ own `Meta` (`title: 'Stories / <SubComponent>'`, `component: <SubComponent>`) �
 though it's already documented via a nested `### <SubComponent> Props` table in the
 parent's `.docs.mdx` (see the [react-native-component-docs](./../react-native-component-docs/SKILL.md)
 skill). The `hearth-react-native` MCP server only lists a component as its own
-resolvable entry in `list-all-documentation` when it has its own Storybook story — a
+resolvable entry in `docs-list` when it has its own Storybook story — a
 sub-component documented only inside its parent's `.docs.mdx` doesn't get one. No
 separate `<SubComponent>.docs.mdx` is needed — mirror
 `src/components/Card/CardAction/CardAction.stories.tsx`: a `Meta` + at least one

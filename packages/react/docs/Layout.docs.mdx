@@ -66,9 +66,9 @@ You can easily build responsive layouts using Design System defaults.
 
 ```tsx
 <Grid defaultResponsiveColumns>
-  <Box gridItemColumns="4">{...}</Box>
-  <Box gridItemColumns="4">{...}</Box>
-  <Box gridItemColumns={{ mobile: '4', tablet: '8', desktop: '4' }}>{...}</Box>
+  <Box gridColumnSpan="4">{...}</Box>
+  <Box gridColumnSpan="4">{...}</Box>
+  <Box gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }}>{...}</Box>
 </Grid>
 ```
 
