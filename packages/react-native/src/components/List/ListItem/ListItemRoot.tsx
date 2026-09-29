@@ -95,12 +95,20 @@ const ListItemRoot = ({
         style={[styles.container, props.style as ViewStyle]}
         disabled={isDisabled}
       >
-        {leadingContent ? <Skeleton width={24} height={24} /> : null}
-        <ListItemContent>
+        {leadingContent ? (
+          <ListItemLeadingContent {...leadingContentProps}>
+            <Skeleton width={24} height={24} />
+          </ListItemLeadingContent>
+        ) : null}
+        <ListItemContent {...contentProps}>
           <Skeleton width="80%" height={20} />
           <Skeleton width="100%" height={16} />
         </ListItemContent>
-        {onPress || trailingContent ? <Skeleton width={24} height={24} /> : null}
+        {onPress || trailingContent ? (
+          <ListItemTrailingContent {...trailingContentProps}>
+            <Skeleton width={24} height={24} />
+          </ListItemTrailingContent>
+        ) : null}
       </Pressable>
     );
   }

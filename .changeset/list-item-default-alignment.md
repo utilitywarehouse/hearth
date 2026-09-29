@@ -9,9 +9,10 @@ centred, matching the design system. `ListItemLeadingContent` is aligned to the
 top by default (`alignSelf: 'flex-start'`), so leading icons stay next to the
 heading when the helper text wraps.
 
-✨ [FEAT]: New `leadingContentProps`, `contentProps` and `trailingContentProps`
-props on `ListItem` forward `View` props (such as `style`) to each part, so you
-can override the default alignment without composing the parts yourself.
+🌟 [FEATURE]: `ListItem` parts can be customised with `leadingContentProps`, `contentProps` and `trailingContentProps`
+
+These props forward `View` props (such as `style`) to each part, so you can
+override the default alignment without composing the parts yourself.
 
 ```tsx
 <ListItem
