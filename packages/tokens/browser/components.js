@@ -1,5 +1,6 @@
 export const components = {
   accordion: {
+    Number: 'var(--h-accordion-number)',
     gap: 'var(--h-accordion-gap)',
     heading: {
       gap: 'var(--h-accordion-heading-gap)',
@@ -735,6 +736,9 @@ export const components = {
       height: 'var(--h-progress-stepper-indicator-height)',
       width: 'var(--h-progress-stepper-indicator-width)',
     },
+  },
+  progressStepperText: {
+    gap: 'var(--h-progress-stepper-text-gap)',
   },
   radio: {
     borderRadius: 'var(--h-radio-border-radius)',

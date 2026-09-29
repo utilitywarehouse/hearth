@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly Number: 0;
   readonly gap: 12;
   readonly heading: {
     readonly gap: 2;

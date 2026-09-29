@@ -1,5 +1,6 @@
 export declare const components: {
   readonly accordion: {
+    readonly Number: 'var(--h-accordion-number)';
     readonly gap: 'var(--h-accordion-gap)';
     readonly heading: {
       readonly gap: 'var(--h-accordion-heading-gap)';
@@ -733,6 +734,9 @@ export declare const components: {
       readonly height: 'var(--h-progress-stepper-indicator-height)';
       readonly width: 'var(--h-progress-stepper-indicator-width)';
     };
+  };
+  readonly progressStepperText: {
+    readonly gap: 'var(--h-progress-stepper-text-gap)';
   };
   readonly radio: {
     readonly borderRadius: 'var(--h-radio-border-radius)';

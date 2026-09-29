@@ -3,6 +3,7 @@
  */
 
 :root {
+  --h-accordion-Number: 0;
   --h-accordion-gap: var(--h-space-150);
   --h-accordion-heading-gap: var(--h-space-25);
   --h-accordion-item-content-gap: var(--h-space-200);
@@ -359,6 +360,7 @@
   --h-progress-stepper-indicator-future-border-width: var(--h-border-width-2);
   --h-progress-stepper-indicator-height: 28px;
   --h-progress-stepper-indicator-width: 28px;
+  --h-progress-stepper-text-gap: 4;
   --h-radio-border-radius: var(--h-border-radius-full);
   --h-radio-border-width: var(--h-border-width-2);
   --h-radio-checked-color: var(--h-color-grey-1000);
@@ -453,7 +455,7 @@
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800);
   --h-tabs-md-height: var(--h-space-700);
-  --h-time-picker-fade: #fff0;
+  --h-time-picker-fade: #ffffff00;
   --h-time-picker-gap: var(--h-space-75);
   --h-time-picker-gap-container: var(--h-space-50);
   --h-time-picker-min-width: 288px;

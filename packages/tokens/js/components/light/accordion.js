@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
+  Number: 0,
   gap: 12,
   heading: {
     gap: 2,

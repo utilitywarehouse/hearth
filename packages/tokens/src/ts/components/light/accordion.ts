@@ -3,6 +3,7 @@
  */
 
 export default {
+  Number: 0,
   gap: 12,
   heading: {
     gap: 2,

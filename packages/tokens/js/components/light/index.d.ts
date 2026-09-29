@@ -41,6 +41,7 @@ export { default as parts } from './parts';
 export { default as pill } from './pill';
 export { default as progressBar } from './progress-bar';
 export { default as progressStepper } from './progress-stepper';
+export { default as progressStepperText } from './progress-stepper-text';
 export { default as radio } from './radio';
 export { default as rating } from './rating';
 export { default as sectionHeader } from './section-header';
