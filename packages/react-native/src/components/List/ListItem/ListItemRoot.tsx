@@ -29,6 +29,9 @@ const ListItemRoot = ({
   numericValue,
   truncateHeading = false,
   truncateHelperText = false,
+  leadingContentProps,
+  contentProps,
+  trailingContentProps,
   ...props
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
@@ -116,9 +119,11 @@ const ListItemRoot = ({
         ) : (
           <>
             {leadingContent ? (
-              <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
+              <ListItemLeadingContent {...leadingContentProps}>
+                {leadingContent}
+              </ListItemLeadingContent>
             ) : null}
-            <ListItemContent>
+            <ListItemContent {...contentProps}>
               {badgePosition === 'top' && badge ? badge : null}
               <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
               {helperText ? (
@@ -128,9 +133,11 @@ const ListItemRoot = ({
             </ListItemContent>
             {!!numericValue && <BodyText weight="semibold">{numericValue}</BodyText>}
             {trailingContent ? (
-              <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
+              <ListItemTrailingContent {...trailingContentProps}>
+                {trailingContent}
+              </ListItemTrailingContent>
             ) : onPress ? (
-              <ListItemTrailingContent style={styles.centeredTrailingIcon}>
+              <ListItemTrailingContent {...trailingContentProps}>
                 <ListItemTrailingIcon as={ChevronRightSmallIcon} />
               </ListItemTrailingContent>
             ) : null}
@@ -148,6 +155,7 @@ const styles = StyleSheet.create(theme => ({
     paddingVertical: theme.components.list.item.functional.padding,
     paddingHorizontal: theme.components.list.item.functional.padding,
     flexDirection: 'row',
+    alignItems: 'center',
     gap: theme.components.list.item.gap,
     borderTopWidth: theme.borderWidth['1'],
     borderStyle: 'solid',
@@ -213,9 +221,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     ],
-  },
-  centeredTrailingIcon: {
-    justifyContent: 'center',
   },
 }));
 

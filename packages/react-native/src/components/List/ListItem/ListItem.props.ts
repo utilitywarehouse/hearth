@@ -18,6 +18,9 @@ export interface ListItemWithChildren extends ListItemBaseProps {
   badgePosition?: never;
   truncateHeading?: never;
   truncateHelperText?: never;
+  leadingContentProps?: never;
+  contentProps?: never;
+  trailingContentProps?: never;
 }
 
 export interface ListItemWithoutChildren extends ListItemBaseProps {
@@ -31,6 +34,12 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   badgePosition?: 'top' | 'bottom';
   truncateHeading?: boolean;
   truncateHelperText?: boolean;
+  /** Extra props forwarded to the `ListItemLeadingContent` part, e.g. `style` to override its alignment. */
+  leadingContentProps?: Omit<ViewProps, 'children'>;
+  /** Extra props forwarded to the `ListItemContent` part wrapping the heading, helper text and badge. */
+  contentProps?: Omit<ViewProps, 'children'>;
+  /** Extra props forwarded to the `ListItemTrailingContent` part, including the default chevron. */
+  trailingContentProps?: Omit<ViewProps, 'children'>;
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;

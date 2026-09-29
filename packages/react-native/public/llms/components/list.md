@@ -19,6 +19,7 @@ List item is the main building block of list. Each item has its own set of prope
   - [`ListItem` with numeric value](#listitem-with-numeric-value)
   - [`ListItem` with `Link`](#listitem-with-link)
   - [`List` with `FlatList`](#list-with-flatlist)
+- [Alignment](#alignment)
 - [Advanced Usage](#advanced-usage)
 - [Accessibility](#accessibility)
 
@@ -62,21 +63,24 @@ const MyComponent = () => (
 
 ### `ListItem`
 
-| Name               | Type                     | Default  | Description                                                     |
-| ------------------ | ------------------------ | -------- | --------------------------------------------------------------- |
-| heading            | `string`                 |          | The text to display in the list item.                           |
-| onPress            | `() => void`             |          | A callback function to be called when the list item is pressed. |
-| helperText         | `string`                 |          | The supporting text to display in the list item.                |
-| leadingContent     | `ReactNode`              |          | The leading content to display in the list item.                |
-| trailingContent    | `ReactNode`              |          | The trailing content to display in the list item.               |
-| variant            | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
-| disabled           | `boolean`                | `false`  | Whether to disable the list item.                               |
-| loading            | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
-| badge              | `ReactNode`              |          | The badge component to display in the list item.                |
-| badgePosition      | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
-| numericValue       | `string \| number`       |          | A numeric value to display on the right side of the item.       |
-| truncateHeading    | `boolean`                | `false`  | Whether to truncate the heading text if it overflows.           |
-| truncateHelperText | `boolean`                | `false`  | Whether to truncate the helper text if it overflows.            |
+| Name                 | Type                     | Default  | Description                                                                         |
+| -------------------- | ------------------------ | -------- | ----------------------------------------------------------------------------------- |
+| heading              | `string`                 |          | The text to display in the list item.                                               |
+| onPress              | `() => void`             |          | A callback function to be called when the list item is pressed.                     |
+| helperText           | `string`                 |          | The supporting text to display in the list item.                                    |
+| leadingContent       | `ReactNode`              |          | The leading content to display in the list item.                                    |
+| trailingContent      | `ReactNode`              |          | The trailing content to display in the list item.                                   |
+| variant              | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                                                 |
+| disabled             | `boolean`                | `false`  | Whether to disable the list item.                                                   |
+| loading              | `boolean`                | `false`  | Whether to show the list item in loading state.                                     |
+| badge                | `ReactNode`              |          | The badge component to display in the list item.                                    |
+| badgePosition        | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                                             |
+| numericValue         | `string \| number`       |          | A numeric value to display on the right side of the item.                           |
+| truncateHeading      | `boolean`                | `false`  | Whether to truncate the heading text if it overflows.                               |
+| truncateHelperText   | `boolean`                | `false`  | Whether to truncate the helper text if it overflows.                                |
+| leadingContentProps  | `ViewProps`              |          | Extra props forwarded to the `ListItemLeadingContent` part.                         |
+| contentProps         | `ViewProps`              |          | Extra props forwarded to the `ListItemContent` part.                                |
+| trailingContentProps | `ViewProps`              |          | Extra props forwarded to the `ListItemTrailingContent` part, including the chevron. |
 
 First-item styling is applied to the first rendered `ListItem` or `ListAction`. Wrapper components that render `null`
 are ignored, so conditional list items will not affect which item loses the top border.
@@ -90,11 +94,19 @@ are ignored, so conditional list items will not affect which item loses the top 
 | disabled | `boolean`    | `false` | Whether to disable the list action item.                               |
 | loading  | `boolean`    | `false` | Whether to show the list action in loading state.                      |
 
+#### - `ListItemLeadingContent`
+
+Has all props of a React Native `View`. Aligned to the top of the list item by default (`alignSelf: 'flex-start'`).
+
 #### - `ListItemIcon`
 
 | Name | Type            | Default | Description                                     |
 | ---- | --------------- | ------- | ----------------------------------------------- |
 | as   | `ComponentType` |         | The icon component to display in the list item. |
+
+#### - `ListItemContent`
+
+Has all props of a React Native `View`. Vertically centred in the list item by default.
 
 #### - `ListItemHeading`
 
@@ -103,6 +115,10 @@ Has all props of the `BodyText` component.
 #### - `ListItemHelperText`
 
 Has all props of the `BodyText` component.
+
+#### - `ListItemTrailingContent`
+
+Has all props of a React Native `View`. Vertically centred in the list item by default.
 
 #### - `ListItemTrailingIcon`
 
@@ -587,6 +603,40 @@ const MyComponent = () => (
         <ListItem heading={item.heading} onPress={() => console.log(`${item.heading} pressed`)} />
       )}
       keyExtractor={item => item.id}
+    />
+  </List>
+);
+```
+
+## Alignment
+
+The content, numeric value and trailing content of a `ListItem` are vertically centred. The leading content is
+aligned to the top, so icons stay next to the heading when the helper text wraps onto more lines.
+
+To change the alignment of a part, pass a `style` through `leadingContentProps`, `contentProps` or
+`trailingContentProps`. If you compose the parts yourself, pass the `style` to the part directly.
+
+```tsx
+// Example usage
+import { List, ListItem, ListItemIcon } from '@utilitywarehouse/hearth-react-native';
+import { BillMediumIcon, PaymentMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <List>
+    {/* Default: leading icon aligned to the top */}
+    <ListItem
+      heading="Bills"
+      helperText="View and download your bills from the last 12 months, including any credits, refunds and adjustments made to your account"
+      leadingContent={<ListItemIcon as={BillMediumIcon} />}
+      onPress={() => console.log('pressed')}
+    />
+    {/* Override: leading icon vertically centred */}
+    <ListItem
+      heading="Payments"
+      helperText="Make a payment or change how you pay us each month, including setting up or updating your Direct Debit and card details"
+      leadingContent={<ListItemIcon as={PaymentMediumIcon} />}
+      leadingContentProps={{ style: { alignSelf: 'center' } }}
+      onPress={() => console.log('pressed')}
     />
   </List>
 );
