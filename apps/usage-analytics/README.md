@@ -53,6 +53,7 @@ PR with the new snapshot.
 | `pnpm --filter usage-analytics gen:sample` | Regenerate the seed sample dataset in `data/`. |
 | `pnpm --filter usage-analytics clear-data` | Remove all snapshots and reset `data/index.json`, e.g. to drop the sample dataset before a real collection run. |
 | `pnpm --filter usage-analytics collect` | Run the collector (needs `GITHUB_PAT_TOKEN`). |
+| `pnpm --filter usage-analytics notify` | Post the latest week-on-week numbers to Slack (needs `SLACK_BOT_TOKEN` + `SLACK_CHANNEL_ID`; `--dry-run` prints the payload instead). The weekly workflow runs this after opening the snapshot PR. |
 | `pnpm --filter usage-analytics test` | Parser unit tests. |
 
 ### Collector flags
