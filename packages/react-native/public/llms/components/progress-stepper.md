@@ -4,6 +4,7 @@ A form helper component that displays a series of dots connected by lines, showi
 
 - [Usage](#usage)
 - [Examples](#examples)
+- [ProgressStepperText](#progresssteppertext)
 - [API](#api)
 - [Step Statuses](#step-statuses-1)
 - [Accessibility](#accessibility)
@@ -112,6 +113,23 @@ See how different step statuses are visualized:
 </Flex>
 ```
 
+## ProgressStepperText
+
+Use `ProgressStepperText` as a condensed "Step X of Y" summary of progress,
+as a compact alternative to the full step list.
+
+```tsx
+// Example usage
+import { ProgressStepperText } from '@utilitywarehouse/hearth-react-native';
+
+<ProgressStepperText currentStep={1} totalSteps={4} />;
+```
+
+```tsx
+// Example usage
+<ProgressStepperText currentStep={1} totalSteps={4} />
+```
+
 ### Progress Stepper Props
 
 | Prop       | Type        | Default  | Description               |
@@ -124,6 +142,15 @@ See how different step statuses are visualized:
 | -------- | ---------------------------------------- | -------- | ------------------------------ |
 | `id`     | `string`                                 | Required | Unique identifier for the step |
 | `status` | `'complete' \| 'active' \| 'incomplete'` | Required | Current status of the step     |
+
+### Progress Stepper Text Props
+
+| Prop          | Type     | Default  | Description                         |
+| ------------- | -------- | -------- | ----------------------------------- |
+| `currentStep` | `number` | Required | The current step number (1-indexed) |
+| `totalSteps`  | `number` | Required | The total number of steps           |
+
+`ProgressStepperText` also accepts React Native `Text` props and margin utility props.
 
 ## Step Statuses
 
