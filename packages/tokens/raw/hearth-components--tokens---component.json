@@ -1,6 +1,10 @@
 {
   "dark": {
     "accordion": {
+      "Number": {
+        "type": "number",
+        "value": 0
+      },
       "gap": {
         "alias": "{space.150}",
         "type": "number",
@@ -2175,6 +2179,12 @@
         }
       }
     },
+    "progress-stepper-text": {
+      "gap": {
+        "type": "number",
+        "value": 4
+      }
+    },
     "radio": {
       "border-radius": {
         "alias": "{border-radius.full}",
@@ -2997,6 +3007,10 @@
   },
   "light": {
     "accordion": {
+      "Number": {
+        "type": "number",
+        "value": 0
+      },
       "gap": {
         "alias": "{space.150}",
         "type": "number",
@@ -5170,6 +5184,12 @@
           "type": "number",
           "value": 28
         }
+      }
+    },
+    "progress-stepper-text": {
+      "gap": {
+        "type": "number",
+        "value": 4
       }
     },
     "radio": {
