@@ -42,6 +42,8 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Chip,
+  ChipGroup,
   Combobox,
   Container,
   CurrencyInput,
@@ -360,6 +362,14 @@ const AllComponents: React.FC = () => {
                 <View>
                   <Checkbox label="I'm a Checkbox" value="" />
                 </View>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Chip" link="components-chip">
+              <Center flex={1}>
+                <ChipGroup label="Showing:">
+                  <Chip onPress={() => null}>Energy</Chip>
+                  <Chip onPress={() => null}>Mobile</Chip>
+                </ChipGroup>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Combobox" link="forms-combobox">
