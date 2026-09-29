@@ -73,7 +73,7 @@ const preview = {
           'Introduction',
           'Getting Started',
           'Changelog',
-          'AI Tooling',
+          'AI Toolkit',
           'Styling',
           'Theme Tokens',
           'Hooks',
