@@ -67,6 +67,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "@eslint/compat": "^2.1.1",
     "@figma/code-connect": "^1.4.9",
     "@gorhom/bottom-sheet": "5.2.14",
     "@storybook/addon-a11y": "^10.6.0",
@@ -85,6 +86,7 @@
     "@utilitywarehouse/hearth-tokens": "workspace:^",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
+    "eslint-plugin-react-native-a11y": "^3.5.1",
     "globals": "^15.15.0",
     "oversight-lint": "^0.7.0",
     "playwright": "^1.59.1",
