@@ -138,6 +138,15 @@ describe('report state', () => {
     ]);
   });
 
+  it("doesn't report a package that didn't run as fixed", () => {
+    const notRun = buildState([summarisePackage('react-native', null)], [], [], {
+      previous: state,
+    });
+    const diff = diffState(state, notRun);
+    assert.deepEqual(diff.added, ['not-run|react-native']);
+    assert.deepEqual(diff.removed, []);
+  });
+
   it('treats a missing or old-format previous state as changed', () => {
     assert.equal(parseState('{"version":0,"entries":[]}'), null);
     assert.equal(parseState('not json'), null);

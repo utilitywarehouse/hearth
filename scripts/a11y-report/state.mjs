@@ -15,13 +15,22 @@ export const STATE_VERSION = 1;
  * @param {import('./summarise.mjs').PackageSummary[]} summaries
  * @param {import('./findings.mjs').Finding[]} findings
  * @param {import('./overrides.mjs').Override[]} overrides
- * @param {{ date?: string, runUrl?: string }} [meta]
+ * @param {{ date?: string, runUrl?: string, previous?: ReportState | null }} [meta]
+ *   `previous`: a package that didn't run keeps its previous findings, so they
+ *   aren't reported as fixed now and as new again next time.
  * @returns {ReportState}
  */
 export function buildState(summaries, findings, overrides, meta = {}) {
   const entries = new Set();
   for (const s of summaries) {
-    if (!s.ran) entries.add(`not-run|${s.package}`);
+    if (!s.ran) {
+      entries.add(`not-run|${s.package}`);
+      for (const e of meta.previous?.entries ?? []) {
+        if (e.startsWith(`a11y|${s.package}|`) || e.startsWith(`broken|${s.package}|`)) {
+          entries.add(e);
+        }
+      }
+    }
     for (const b of s.broken) entries.add(`broken|${s.package}|${b.story}`);
   }
   for (const f of findings) {
