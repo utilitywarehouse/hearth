@@ -27,9 +27,14 @@ const CLEAN = 'clean';
 const PACKAGE_BY_NAME = Object.fromEntries(Object.entries(PACKAGE_NAMES).map(([k, v]) => [v, k]));
 
 export const issueTitle = (pkg, component) =>
-  `Accessibility: fix ${component} (${PACKAGE_NAMES[pkg] ?? pkg})`;
+  `[Accessibility]: fix \`${component}\` (${PACKAGE_NAMES[pkg] ?? pkg})`;
 
-const TITLE = /^Accessibility: fix (.+) \(([a-z-]+)\)$/;
+// Also matches the original "Accessibility: fix Button (hearth-react)" titles, so
+// issues that haven't been renamed aren't duplicated.
+const TITLE = /^\[?Accessibility\]?: fix `?([^`]+?)`? \(([a-z-]+)\)$/;
+
+/** Labels added to new issues besides the marker label: the package, plus `extraLabels`. */
+export const PACKAGE_LABELS = { react: 'react', 'react-native': 'react-native' };
 
 /** `{ package, component }` for an issue this script created, or null. */
 export function parseIssueTitle(title) {
@@ -176,10 +181,11 @@ async function resolveProjectId(client, project) {
 /** The team's label, or a workspace label, with this name. Created on the team if missing. */
 async function findOrCreateLabelId(client, teamId, name, { dryRun }) {
   const data = await client(
-    'query($name: String!) { issueLabels(filter: { name: { eqIgnoreCase: $name } }) { nodes { id team { id } } } }',
+    'query($name: String!) { issueLabels(filter: { name: { eqIgnoreCase: $name } }) { nodes { id isGroup team { id } } } }',
     { name }
   );
-  const labels = data.issueLabels.nodes;
+  // A label group can't be assigned to an issue, only the labels inside it.
+  const labels = data.issueLabels.nodes.filter(l => !l.isGroup);
   const label = labels.find(l => l.team?.id === teamId) ?? labels.find(l => !l.team);
   if (label) return label.id;
   if (dryRun) return null;
@@ -218,6 +224,7 @@ async function listOpenIssues(client, teamId, labelId) {
  *   client: ReturnType<typeof createLinearClient>,
  *   teamKey: string,
  *   labelName: string,
+ *   extraLabels?: string[],
  *   projectId?: string,
  *   groups: ComponentGroup[],
  *   ranPackages: string[],
@@ -229,6 +236,7 @@ export async function syncLinear({
   client,
   teamKey,
   labelName,
+  extraLabels = [],
   projectId,
   groups,
   ranPackages,
@@ -241,11 +249,24 @@ export async function syncLinear({
   const openIssues = labelId ? await listOpenIssues(client, teamId, labelId) : [];
   const ops = planLinearSync({ groups, openIssues, ranPackages, links });
 
+  // Only look up (or create) the labels this run will actually use.
+  const labelIds = new Map();
+  const labelsFor = async pkg => {
+    const names = [PACKAGE_LABELS[pkg], ...extraLabels].filter(Boolean);
+    for (const name of names) {
+      if (!labelIds.has(name)) {
+        labelIds.set(name, await findOrCreateLabelId(client, teamId, name, { dryRun }));
+      }
+    }
+    return [labelId, ...names.map(name => labelIds.get(name))].filter(Boolean);
+  };
+
   for (const op of ops) {
     const name = op.type === 'create' ? op.title : `${op.issue.identifier} ${op.issue.title}`;
     console.log(`Linear: ${dryRun ? 'would ' : ''}${op.type} ${name}`);
     if (dryRun) continue;
     if (op.type === 'create') {
+      const ids = await labelsFor(op.key.split('/')[0]);
       const data = await client(
         'mutation($input: IssueCreateInput!) { issueCreate(input: $input) { issue { identifier url } } }',
         {
@@ -253,7 +274,7 @@ export async function syncLinear({
             teamId,
             title: op.title,
             description: op.description,
-            labelIds: [labelId],
+            labelIds: ids,
             ...(resolvedProjectId ? { projectId: resolvedProjectId } : {}),
           },
         }
