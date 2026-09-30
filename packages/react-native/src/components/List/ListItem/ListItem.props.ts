@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { PressableProps, ViewProps } from 'react-native';
+import type { PressableProps, ViewProps, ViewStyle } from 'react-native';
 
 interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
@@ -21,6 +21,9 @@ export interface ListItemWithChildren extends ListItemBaseProps {
   leadingContentProps?: never;
   contentProps?: never;
   trailingContentProps?: never;
+  leadingContentAlignment?: never;
+  contentAlignment?: never;
+  trailingContentAlignment?: never;
 }
 
 export interface ListItemWithoutChildren extends ListItemBaseProps {
@@ -40,6 +43,15 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   contentProps?: Omit<ViewProps, 'children'>;
   /** Extra props forwarded to the `ListItemTrailingContent` part, including the default chevron. */
   trailingContentProps?: Omit<ViewProps, 'children'>;
+  /** Vertical alignment of the leading content within the list item.
+   * @default 'flex-start' */
+  leadingContentAlignment?: ViewStyle['alignSelf'];
+  /** Vertical alignment of the content (heading, helper text and badge) within the list item.
+   * @default 'center' */
+  contentAlignment?: ViewStyle['alignSelf'];
+  /** Vertical alignment of the trailing content within the list item.
+   * @default 'flex-start', or 'center' when the trailing content is the default chevron or a `ListItemTrailingIcon` */
+  trailingContentAlignment?: ViewStyle['alignSelf'];
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;
