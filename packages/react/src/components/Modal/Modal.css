@@ -172,6 +172,11 @@
     display: flex;
     width: 100%;
 
+    &:where(:has(.h-ModalFooter)[data-full-screen] &) {
+      flex: 1 1 0%;
+      min-height: 0;
+    }
+
     &:where([data-contains-image] &) {
       margin-top: auto;
     }
@@ -236,10 +241,6 @@
 
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
-      }
-
-      &:where(:has(.h-ModalFooter)[data-full-screen] &) {
-        --h-modal-content-multiplier: 0.68; /* percentage of available height */
       }
 
       max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier, 1));
