@@ -72,7 +72,12 @@ const rootTag = (example: ResultSection[]) =>
 
 const contentItems = collectContent(figma.selectedInstance).map(layer =>
   layer.type === 'TEXT'
-    ? { tag: 'BodyText', example: figma.code`<BodyText>${layer.textContent}</BodyText>`.sections }
+    ? {
+        tag: 'BodyText',
+        example:
+          figma.code`<BodyText>${figma.helpers.react.renderChildren(layer.textContent)}</BodyText>`
+            .sections,
+      }
     : isLegacyCardAction(layer)
       ? { tag: 'CardAction', legacy: true, example: legacyCardAction(layer) }
       : (() => {
