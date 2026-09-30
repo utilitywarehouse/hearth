@@ -20,7 +20,12 @@ import { ModalTrigger } from './ModalTrigger';
 const meta: Meta<typeof Modal> = {
   title: 'Components / Modal',
   component: Modal,
-  argTypes: {},
+  argTypes: {
+    heading: { control: { type: 'text' } },
+    description: { control: { type: 'text' } },
+    hideCloseButton: { control: { type: 'boolean' } },
+    fullScreen: { control: { type: 'boolean' } },
+  },
   args: {
     heading: 'Heading',
     description: 'Description',
@@ -532,9 +537,9 @@ export const WithLongContentAndSingleFooterButton: Story = {
             Price Pledge between 12 - 15 months after their sign-up date; the pledge & no exit fees
             only applies to qualifying services taken at sign-up. When you claim, we&apos;ll assume
             an average Cashback Card saving of £160 a year (based on customer usage data from
-            03.04.23 to 31.03.24, for users who earned Cashback at least once a week,
-            excluding promotional activities) or your actual Cashback saving if higher. Full
-            details, eligibility and terms available <InlineLink href="#">here.</InlineLink>
+            03.04.23 to 31.03.24, for users who earned Cashback at least once a week, excluding
+            promotional activities) or your actual Cashback saving if higher. Full details,
+            eligibility and terms available <InlineLink href="#">here.</InlineLink>
           </BodyText>
           <BodyText paragraphSpacing size="md">
             <Strong>£400 to help you switch:</Strong> When you take a 3 or 4+ Service Bundle,
