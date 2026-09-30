@@ -71,6 +71,12 @@ jobs:
       - if: matrix.package == 'react'
         run: pnpm run build:react
 
+      # Same as test-react-native.yml, where `turbo run test` builds these first
+      # (dependsOn ^build): Storybook imports hearth-fonts and hearth-react-icons
+      # from dist/, so without this every story file fails to load.
+      - if: matrix.package == 'react-native'
+        run: pnpm exec turbo run build --filter=@utilitywarehouse/hearth-react-native^...
+
       # Violations fail individual stories; the job carries on so results always
       # upload. The report job decides the run's final status.
       - name: Run stories with strict a11y checks
