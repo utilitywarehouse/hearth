@@ -135,9 +135,12 @@ async function main() {
   const groups = groupByComponent(findings);
   const overrides = scanOverrides(REPO_ROOT, PACKAGES);
 
-  const state = buildState(summaries, findings, overrides, { runUrl: links.runUrl });
   const previous = readPreviousState();
+  const state = buildState(summaries, findings, overrides, { runUrl: links.runUrl, previous });
   const changes = diffState(previous, state);
+  // Nothing ran (cancelled, or both packages broke before any story): there's no
+  // result to report, only a failed run, which the Actions run already shows.
+  const nothingRan = !summaries.some(s => s.ran);
 
   const detailed = buildDetailedReport(groups, summaries, links);
   fs.mkdirSync(reportDir, { recursive: true });
@@ -149,10 +152,12 @@ async function main() {
 
   const message = buildSlackMessage(summaries, overrides, { ...links, changes, linear });
   const forced = process.env.FORCE_SLACK === 'true';
-  const shouldPost = changes.changed || forced;
-  const slackNote = shouldPost
-    ? ''
-    : `> 🔕 Nothing changed since the report posted on ${previous?.date}, so Slack was skipped.\n\n`;
+  const shouldPost = !nothingRan && (changes.changed || forced);
+  const slackNote = nothingRan
+    ? "> ⚠️ No Storybook tests ran, so Slack was skipped and next week's run compares against the last good report.\n\n"
+    : shouldPost
+      ? ''
+      : `> 🔕 Nothing changed since the report posted on ${previous?.date}, so Slack was skipped.\n\n`;
 
   let stepSummary = slackNote + buildStepSummary(summaries, overrides);
   stepSummary +=
@@ -162,7 +167,9 @@ async function main() {
 
   let posted = false;
   if (dryRun) {
-    console.log(shouldPost ? 'Would post to Slack:' : 'Unchanged; would not post to Slack.');
+    console.log(
+      shouldPost ? 'Would post to Slack:' : 'Nothing ran or unchanged; would not post to Slack.'
+    );
     console.log(JSON.stringify(message, null, 2));
     console.log(`\n${slackNote}${buildStepSummary(summaries, overrides)}`);
   } else {
@@ -177,14 +184,19 @@ async function main() {
         console.error(err);
       }
     } else {
-      console.log(`Unchanged since ${previous?.date}; not posting to Slack.`);
+      console.log(
+        nothingRan
+          ? 'No Storybook tests ran; not posting to Slack.'
+          : `Unchanged since ${previous?.date}; not posting to Slack.`
+      );
     }
   }
 
   // The next run compares against the last report that reached Slack, so a failed
   // post is retried next week instead of being lost.
+  // A run where nothing ran keeps the previous baseline for the same reason.
   const failedPost = shouldPost && !posted && !dryRun;
-  const nextState = failedPost ? previous : state;
+  const nextState = failedPost || nothingRan ? previous : state;
   if (nextState) {
     fs.writeFileSync(path.join(reportDir, 'state.json'), JSON.stringify(nextState, null, 2));
   }

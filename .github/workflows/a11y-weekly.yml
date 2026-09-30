@@ -99,7 +99,8 @@ jobs:
   report:
     name: Report
     needs: test
-    if: always()
+    # Not always(): a cancelled run has no results worth reporting.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
