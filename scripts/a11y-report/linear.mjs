@@ -31,14 +31,17 @@ export const issueTitle = (pkg, component) =>
 
 // Also matches the original "Accessibility: fix Button (hearth-react)" titles, so
 // issues that haven't been renamed aren't duplicated.
-const TITLE = /^\[?Accessibility\]?: fix `?([^`]+?)`? \(([a-z-]+)\)$/;
+const TITLES = [
+  /^\[Accessibility\]: fix `([^`]+)` \(([a-z-]+)\)$/,
+  /^Accessibility: fix ([^`\s]+) \(([a-z-]+)\)$/,
+];
 
 /** Labels added to new issues besides the marker label: the package, plus `extraLabels`. */
 export const PACKAGE_LABELS = { react: 'react', 'react-native': 'react-native' };
 
 /** `{ package, component }` for an issue this script created, or null. */
 export function parseIssueTitle(title) {
-  const match = title.match(TITLE);
+  const match = TITLES.map(re => title.match(re)).find(Boolean);
   const pkg = match && PACKAGE_BY_NAME[match[2]];
   return pkg ? { package: pkg, component: match[1] } : null;
 }

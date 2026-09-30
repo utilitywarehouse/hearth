@@ -184,6 +184,14 @@ describe('planLinearSync', () => {
     // Issues created before the rename still match, so they aren't duplicated.
     assert.deepEqual(parseIssueTitle('Accessibility: fix Button (hearth-react-native)'), expected);
     assert.equal(parseIssueTitle('Button is broken'), null);
+    // Only the two documented formats count, not a mix of their delimiters.
+    for (const title of [
+      '[Accessibility: fix `Button` (hearth-react-native)',
+      '[Accessibility]: fix Button` (hearth-react-native)',
+      'Accessibility: fix `Button` (hearth-react-native)',
+    ]) {
+      assert.equal(parseIssueTitle(title), null, title);
+    }
   });
 
   it('creates issues for components without one', () => {
@@ -247,7 +255,10 @@ describe('syncLinear', () => {
       if (query.includes('teams(')) return { teams: { nodes: [{ id: 'team' }] } };
       if (query.includes('issueLabels(')) {
         const id = existing[vars.name];
-        return { issueLabels: { nodes: id ? [{ id, isGroup: false, team: { id: 'team' } }] : [] } };
+        // A same-named label group comes first; it can't be assigned, so it must be skipped.
+        const group = { id: `group-${vars.name}`, isGroup: true, team: { id: 'team' } };
+        const nodes = id ? [group, { id, isGroup: false, team: { id: 'team' } }] : [];
+        return { issueLabels: { nodes } };
       }
       if (query.includes('issues(')) {
         return { issues: { nodes: [], pageInfo: { hasNextPage: false } } };
