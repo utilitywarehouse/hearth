@@ -69,6 +69,19 @@ describe('summarisePackage', () => {
     assert.deepEqual(s.broken, [{ story: 'Button Playground', message: 'TypeError: boom' }]);
   });
 
+  it('still reports a non-a11y failure when the same story also fails a11y', () => {
+    const s = summarisePackage(
+      'react',
+      results([
+        ['Playground', 'failed', ['AssertionError: expected 1 to be 2', axeMessage('button-name')]],
+      ])
+    );
+    assert.equal(s.axeFailing, 1);
+    assert.deepEqual(s.broken, [
+      { story: 'Button Playground', message: 'AssertionError: expected 1 to be 2' },
+    ]);
+  });
+
   it('treats a story file that failed to load as broken', () => {
     const s = summarisePackage('react', {
       testResults: [{ name: 'Foo.stories.tsx', assertionResults: [], message: 'Failed to load' }],
@@ -93,6 +106,35 @@ export const C = { parameters: { a11y: { context: { exclude: ['.x'] } } } };
     assert.deepEqual(findOverrides(source), [
       { line: 3, kind: 'axe', rules: ['color-contrast'] },
       { line: 5, kind: 'axe', rules: ['*'] },
+    ]);
+  });
+
+  it('finds axe opt-outs with comments and any property order, using the comment as reason', () => {
+    const source = `
+export const E = {
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // Disabled text fails contrast - https://www.w3.org/WAI/WCAG21/
+            id: 'color-contrast',
+            enabled: false,
+          },
+          { enabled: false, id: 'region' },
+          { id: 'link-name', enabled: true },
+        ],
+      },
+    },
+  },
+};`;
+    assert.deepEqual(findOverrides(source), [
+      {
+        line: 4,
+        kind: 'axe',
+        rules: ['color-contrast', 'region'],
+        reason: 'Disabled text fails contrast - https://www.w3.org/WAI/WCAG21/',
+      },
     ]);
   });
 

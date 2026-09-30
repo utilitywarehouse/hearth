@@ -26,6 +26,22 @@ function braceBlock(source, open) {
 
 const lineOf = (source, index) => source.slice(0, index).split('\n').length;
 
+// Line comments (not `://` in URLs) and block comments.
+const LINE_COMMENT = /(^|[^:])\/\/(.*)$/gm;
+const BLOCK_COMMENT = /\/\*([\s\S]*?)\*\//g;
+
+/** Split a block into its code (comments removed) and the text of its comments. */
+function stripComments(block) {
+  const comments = [];
+  const code = block
+    .replace(BLOCK_COMMENT, (_, text) => (comments.push(text), ''))
+    .replace(LINE_COMMENT, (_, before, text) => (comments.push(text), before));
+  return {
+    code,
+    comments: comments.map(c => c.replace(/^\s*\*?\s*/gm, ' ').trim()).filter(Boolean),
+  };
+}
+
 /**
  * @param {string} source story file contents
  * @returns {Omit<Override, 'package' | 'file'>[]}
@@ -33,24 +49,27 @@ const lineOf = (source, index) => source.slice(0, index).split('\n').length;
 export function findOverrides(source) {
   const found = [];
   for (const match of source.matchAll(/\b(nativeA11y|a11y)\s*:\s*\{/g)) {
-    const block = braceBlock(source, match.index + match[0].length - 1);
+    const { code: block, comments } = stripComments(
+      braceBlock(source, match.index + match[0].length - 1)
+    );
     const kind = match[1] === 'nativeA11y' ? 'native' : 'axe';
     const rules = [];
 
     if (/\bdisable\s*:\s*true\b/.test(block) || /\btest\s*:\s*['"]off['"]/.test(block))
       rules.push('*');
     if (kind === 'axe') {
-      for (const m of block.matchAll(
-        /\{\s*id\s*:\s*['"]([a-z0-9-]+)['"]\s*,\s*enabled\s*:\s*false\s*\}/g
-      )) {
-        rules.push(m[1]);
+      // Each `{ id, enabled: false }` rule object, in any property order.
+      for (const [object] of block.matchAll(/\{[^{}]*\}/g)) {
+        const id = object.match(/\bid\s*:\s*['"]([a-z0-9-]+)['"]/)?.[1];
+        if (id && /\benabled\s*:\s*false\b/.test(object)) rules.push(id);
       }
     } else {
       for (const m of block.matchAll(/['"]?([a-z0-9-]+)['"]?\s*:\s*['"]off['"]/g)) rules.push(m[1]);
     }
     if (!rules.length) continue;
 
-    const reason = block.match(/\breason\s*:\s*(['"`])([\s\S]*?)\1/)?.[2];
+    // An explicit `reason` wins; otherwise a comment explaining the opt-out.
+    const reason = block.match(/\breason\s*:\s*(['"`])([\s\S]*?)\1/)?.[2] ?? comments[0];
     found.push({ line: lineOf(source, match.index), kind, rules, ...(reason ? { reason } : {}) });
   }
   return found;

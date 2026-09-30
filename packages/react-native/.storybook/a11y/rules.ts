@@ -186,8 +186,9 @@ export function checkNodes(
     if (undersized(t.box)) {
       const c = centre(t.box);
       const crowded = targets.some(o => {
-        if (o === t || (o.node.pressId != null && o.node.pressId === t.node.pressId)) return false;
-        if (isAncestor(nodes, o.index, t.index) || isAncestor(nodes, t.index, o.index))
+        // A forwarding wrapper and its child are one target; siblings are separate
+        // targets even if they share a press handler.
+        if (o === t || isAncestor(nodes, o.index, t.index) || isAncestor(nodes, t.index, o.index))
           return false;
         if (circleHitsRect(c, radius, o.box)) return true;
         const oc = centre(o.box);

@@ -63,18 +63,31 @@ export function summarisePackage(pkg, results) {
       summary.total++;
       if (test.status !== 'failed') continue;
 
-      const message = (test.failureMessages ?? []).join('\n').replace(ANSI, '');
-      const axe = ruleIds(message, AXE_RULE);
-      const native = ruleIds(message, NATIVE_RULE);
+      // Classify each error on its own: a story can fail a play function *and* a11y,
+      // and the non-a11y failure must still be reported.
+      const axe = new Set();
+      const native = new Set();
+      const other = [];
+      const messages = test.failureMessages?.length ? test.failureMessages : [''];
+      for (const raw of messages) {
+        const message = raw.replace(ANSI, '');
+        const axeIds = ruleIds(message, AXE_RULE);
+        const nativeIds = ruleIds(message, NATIVE_RULE);
+        axeIds.forEach(id => axe.add(id));
+        nativeIds.forEach(id => native.add(id));
+        // Not an a11y failure: the story threw, timed out, or a play function failed.
+        if (!axeIds.size && !nativeIds.size) other.push(message);
+      }
 
       if (axe.size) summary.axeFailing++;
       if (native.size) summary.nativeFailing++;
       for (const id of axe) axeCounts.set(id, (axeCounts.get(id) ?? 0) + 1);
       for (const id of native) nativeCounts.set(id, (nativeCounts.get(id) ?? 0) + 1);
-
-      // Not an a11y failure: the story threw, timed out, or a play function failed.
-      if (!axe.size && !native.size) {
-        summary.broken.push({ story: test.fullName ?? test.title, message: firstLine(message) });
+      if (other.length) {
+        summary.broken.push({
+          story: test.fullName ?? test.title,
+          message: firstLine(other[0]) || 'Failed without an error message',
+        });
       }
     }
   }

@@ -94,12 +94,27 @@ describe('checkNodes', () => {
       );
     });
 
-    it('ignores a wrapper forwarding the same handler', () => {
+    it('ignores a wrapper forwarding the same handler to its child', () => {
       const nodes = [
         pressable({ pressId: 1, rect: { x: 0, y: 0, width: 20, height: 20 } }),
-        pressable({ pressId: 1, rect: { x: 0, y: 0, width: 20, height: 20 } }),
+        pressable({
+          pressId: 1,
+          interactiveAncestor: 0,
+          rect: { x: 0, y: 0, width: 20, height: 20 },
+        }),
       ];
       expect(checkNodes(nodes).filter(v => v.severity === 'error')).toEqual([]);
+    });
+
+    it('still checks spacing between siblings that share a press handler', () => {
+      const nodes = [
+        pressable({ pressId: 1, rect: { x: 0, y: 0, width: 20, height: 20 } }),
+        pressable({ pressId: 1, rect: { x: 20, y: 0, width: 20, height: 20 } }),
+      ];
+      const errors = checkNodes(nodes).filter(
+        v => v.rule === 'touch-target-size' && v.severity === 'error'
+      );
+      expect(errors).toHaveLength(2);
     });
 
     it('skips elements that are not laid out', () => {
