@@ -157,6 +157,7 @@ jobs:
           LINEAR_API_KEY: ${{ (github.event_name == 'schedule' || inputs.sync_linear) && secrets.LINEAR_API_KEY || '' }}
           LINEAR_TEAM_KEY: UWDS
           LINEAR_LABEL: Accessibility
+          LINEAR_EXTRA_LABELS: engineering
           LINEAR_PROJECT_ID: P-UWDS-2975
 
       # report.md (findings by component), findings.json and state.json. Kept

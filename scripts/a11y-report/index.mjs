@@ -22,6 +22,8 @@
  *   LINEAR_API_KEY       Optional. Linear API key; without it Linear is skipped.
  *   LINEAR_TEAM_KEY      Team for the issues. Default: UWDS
  *   LINEAR_LABEL         Label that marks the issues. Default: Accessibility
+ *   LINEAR_EXTRA_LABELS  Comma-separated labels for new issues, besides the marker and
+ *                        package (react / react-native) labels. Default: engineering
  *   LINEAR_PROJECT_ID    Optional. Project for new issues: UUID, identifier or URL slug.
  *   RUN_URL              Optional. Linked from the message, report and issues.
  *   REPO_URL, GITHUB_SHA Optional. Used for links to story files.
@@ -98,6 +100,10 @@ async function runLinearSync({ groups, summaries, links, dryRun }) {
   const options = {
     teamKey: process.env.LINEAR_TEAM_KEY || 'UWDS',
     labelName: process.env.LINEAR_LABEL || 'Accessibility',
+    extraLabels: (process.env.LINEAR_EXTRA_LABELS ?? 'engineering')
+      .split(',')
+      .map(l => l.trim())
+      .filter(Boolean),
     projectId: process.env.LINEAR_PROJECT_ID || undefined,
     groups,
     ranPackages: summaries.filter(s => s.ran).map(s => s.package),

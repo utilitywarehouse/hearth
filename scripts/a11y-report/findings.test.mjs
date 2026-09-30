@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { collectFindings, groupByComponent } from './findings.mjs';
-import { issueTitle, parseIssueTitle, planLinearSync } from './linear.mjs';
+import { issueTitle, parseIssueTitle, planLinearSync, syncLinear } from './linear.mjs';
 import { buildSlackMessage } from './message.mjs';
 import { buildDetailedReport } from './report.mjs';
 import { buildState, diffState, parseState } from './state.mjs';
@@ -174,13 +174,24 @@ describe('planLinearSync', () => {
   it('round-trips issue titles', () => {
     assert.equal(
       issueTitle('react-native', 'Button'),
-      'Accessibility: fix Button (hearth-react-native)'
+      '[Accessibility]: fix `Button` (hearth-react-native)'
     );
-    assert.deepEqual(parseIssueTitle('Accessibility: fix Button (hearth-react-native)'), {
-      package: 'react-native',
-      component: 'Button',
-    });
+    const expected = { package: 'react-native', component: 'Button' };
+    assert.deepEqual(
+      parseIssueTitle('[Accessibility]: fix `Button` (hearth-react-native)'),
+      expected
+    );
+    // Issues created before the rename still match, so they aren't duplicated.
+    assert.deepEqual(parseIssueTitle('Accessibility: fix Button (hearth-react-native)'), expected);
     assert.equal(parseIssueTitle('Button is broken'), null);
+    // Only the two documented formats count, not a mix of their delimiters.
+    for (const title of [
+      '[Accessibility: fix `Button` (hearth-react-native)',
+      '[Accessibility]: fix Button` (hearth-react-native)',
+      'Accessibility: fix `Button` (hearth-react-native)',
+    ]) {
+      assert.equal(parseIssueTitle(title), null, title);
+    }
   });
 
   it('creates issues for components without one', () => {
@@ -188,8 +199,8 @@ describe('planLinearSync', () => {
     assert.deepEqual(
       ops.map(op => [op.type, op.title]),
       [
-        ['create', 'Accessibility: fix Button (hearth-react-native)'],
-        ['create', 'Accessibility: fix Card (hearth-react-native)'],
+        ['create', '[Accessibility]: fix `Button` (hearth-react-native)'],
+        ['create', '[Accessibility]: fix `Card` (hearth-react-native)'],
       ]
     );
     assert.match(ops[0].description, /a11y-report-fingerprint: [a-f0-9]{12}/);
@@ -233,5 +244,46 @@ describe('planLinearSync', () => {
       []
     );
     assert.deepEqual(planLinearSync({ groups: [], openIssues: open, ranPackages: [] }), []);
+  });
+});
+
+describe('syncLinear', () => {
+  it('creates issues with the marker, package and extra labels', async () => {
+    const existing = { Accessibility: 'l-a11y', 'react-native': 'l-rn', engineering: 'l-eng' };
+    const created = [];
+    const client = async (query, vars) => {
+      if (query.includes('teams(')) return { teams: { nodes: [{ id: 'team' }] } };
+      if (query.includes('issueLabels(')) {
+        const id = existing[vars.name];
+        // A same-named label group comes first; it can't be assigned, so it must be skipped.
+        const group = { id: `group-${vars.name}`, isGroup: true, team: { id: 'team' } };
+        const nodes = id ? [group, { id, isGroup: false, team: { id: 'team' } }] : [];
+        return { issueLabels: { nodes } };
+      }
+      if (query.includes('issues(')) {
+        return { issues: { nodes: [], pageInfo: { hasNextPage: false } } };
+      }
+      if (query.includes('issueCreate')) {
+        created.push(vars.input);
+        return { issueCreate: { issue: { identifier: 'UWDS-1', url: 'u' } } };
+      }
+      throw new Error(`Unexpected query: ${query}`);
+    };
+    const groups = groupByComponent(collectFindings('react-native', run));
+    await syncLinear({
+      client,
+      teamKey: 'UWDS',
+      labelName: 'Accessibility',
+      extraLabels: ['engineering'],
+      groups,
+      ranPackages: ['react-native'],
+    });
+    assert.deepEqual(
+      created.map(i => [i.title, i.labelIds]),
+      [
+        ['[Accessibility]: fix `Button` (hearth-react-native)', ['l-a11y', 'l-rn', 'l-eng']],
+        ['[Accessibility]: fix `Card` (hearth-react-native)', ['l-a11y', 'l-rn', 'l-eng']],
+      ]
+    );
   });
 });

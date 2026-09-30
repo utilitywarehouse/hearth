@@ -31,7 +31,7 @@ axe checks the HTML that react-native-web produces. It can't see how a component
 | --- | --- | --- |
 | **Detailed report** | The run's summary page, and `report.md` in the `a11y-report` artifact | Every failing component, with its rules, affected stories, an example element and how to fix it. |
 | **Findings data** | `findings.json` in the `a11y-report` artifact | One entry per violating element (package, component, story, rule, selector, HTML, fix advice). |
-| **Linear issues** | Team UWDS, label `Accessibility`, project `P-UWDS-2975` | One issue per failing component, titled `Accessibility: fix <Component> (<package>)`. |
+| **Linear issues** | Team UWDS, project `P-UWDS-2975`, labels `Accessibility`, `engineering` and `react` or `react-native` | One issue per failing component, titled ``[Accessibility]: fix `<Component>` (<package>)``. |
 | **Slack post** | `#C04MYV3Q30F` | Per-package totals, top rules, what changed since the last post, and Linear activity. |
 
 ### Slack only posts when something changes
