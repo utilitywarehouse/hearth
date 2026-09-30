@@ -1,7 +1,6 @@
 // Turns the vitest JSON output of each package's strict Storybook run into a
 // per-package accessibility summary.
 
-// eslint-disable-next-line no-control-regex
 const ANSI = /\u001b\[[0-9;]*m/g;
 // jest-axe style message from addon-a11y: Received:\n\n"<help> (<rule-id>)"
 const AXE_RULE = /Received:\s*"[^"\n]*\(([a-z0-9-]+)\)"/g;

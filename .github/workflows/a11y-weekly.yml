@@ -1,18 +1,32 @@
 name: Weekly Accessibility Report
 
 # Runs every Storybook story for hearth-react and hearth-react-native with a11y
-# checks set to fail (VITE_A11Y_STRICT=true), then posts a summary to Slack.
+# checks set to fail (VITE_A11Y_STRICT=true). The report job then:
+#   - writes a detailed report (run summary + `a11y-report` artifact),
+#   - keeps one Linear issue per failing component,
+#   - posts to Slack, unless nothing changed since the last post.
 # Non-blocking: PR runs keep a11y as 'todo'. Replaces Chromatic's a11y tests.
 #
-# Required secrets:
+# Secrets:
 #   NPM_GLOBAL_READ_TOKEN  Existing token for installing private packages.
 #   DS_SLACK_BOT           Slack bot token (chat:write) used to post the weekly
 #                          report. The bot must be a member of the channel.
+#   LINEAR_API_KEY         Optional. Linear API key that can create issues in
+#                          UWDS. Without it the Linear step is skipped.
 
 on:
   schedule:
     - cron: '0 7 * * 1' # Mondays 07:00 UTC
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      force_slack:
+        description: Post to Slack even if nothing changed since the last post
+        type: boolean
+        default: false
+      sync_linear:
+        description: Create and update Linear issues
+        type: boolean
+        default: true
 
 concurrency:
   group: a11y-weekly
@@ -75,11 +89,14 @@ jobs:
           retention-days: 30
 
   report:
-    name: Report to Slack
+    name: Report
     needs: test
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read # to download the previous run's report
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
@@ -97,12 +114,48 @@ jobs:
           pattern: a11y-*
           path: a11y-results
 
-      # Writes the job summary, posts to Slack (a Slack failure is logged, not
-      # fatal), and exits 1 if any package has violations or didn't run.
-      - name: Summarise and post to Slack
+      # The last report's state.json tells the script whether anything changed.
+      # With none (first run, or expired artifact), it posts.
+      - name: Download the previous report
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF: ${{ github.ref_name }}
+        run: |
+          for id in $(gh run list --workflow a11y-weekly.yml --branch "$REF" --status completed \
+              --limit 10 --json databaseId --jq '.[].databaseId'); do
+            if gh run download "$id" --name a11y-report --dir previous-report; then
+              echo "Comparing with the report from run $id"
+              break
+            fi
+          done
+
+      # Writes the run summary and report files, syncs Linear, posts to Slack if
+      # anything changed (Slack/Linear failures are logged, not fatal), and exits 1
+      # if any package has violations or didn't run.
+      - name: Report, sync Linear and post to Slack
         run: node scripts/a11y-report/index.mjs
         env:
           RESULTS_DIR: a11y-results
+          REPORT_DIR: a11y-report
+          PREVIOUS_STATE: previous-report/state.json
+          FORCE_SLACK: ${{ inputs.force_slack }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          REPO_URL: ${{ github.server_url }}/${{ github.repository }}
           SLACK_BOT_TOKEN: ${{ secrets.DS_SLACK_BOT }}
           SLACK_CHANNEL_ID: C04MYV3Q30F
+          # Scheduled runs have no inputs, so check the event too.
+          LINEAR_API_KEY: ${{ (github.event_name == 'schedule' || inputs.sync_linear) && secrets.LINEAR_API_KEY || '' }}
+          LINEAR_TEAM_KEY: UWDS
+          LINEAR_LABEL: Accessibility
+          LINEAR_PROJECT_ID: P-UWDS-2975
+
+      # report.md (findings by component), findings.json and state.json. Kept
+      # longer than the raw results so next week's run can compare against it.
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: a11y-report
+          path: a11y-report/
+          if-no-files-found: warn
+          retention-days: 90

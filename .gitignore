@@ -33,3 +33,5 @@ apps/usage-analytics/.clones
 
 # Weekly a11y workflow output (vitest JSON reporter)
 a11y-results.json
+/a11y-report/
+/a11y-results/

@@ -1,3 +1,5 @@
+import { ruleEmoji } from './rule-info.mjs';
+import { countA11y } from './state.mjs';
 import { isClean } from './summarise.mjs';
 
 /** @typedef {import('./summarise.mjs').PackageSummary} PackageSummary */
@@ -5,37 +7,6 @@ import { isClean } from './summarise.mjs';
 
 const LABELS = { react: 'Hearth React', 'react-native': 'Hearth React Native' };
 const TOP_N = 5;
-
-// Default impact of the axe rules we see most. axe's failure message doesn't carry
-// the impact, and unknown rules just get a neutral bullet.
-const AXE_IMPACT = {
-  'aria-allowed-attr': 'critical',
-  'aria-required-attr': 'critical',
-  'aria-required-children': 'critical',
-  'aria-valid-attr': 'critical',
-  'aria-valid-attr-value': 'critical',
-  'button-name': 'critical',
-  'image-alt': 'critical',
-  'input-button-name': 'critical',
-  label: 'critical',
-  'select-name': 'critical',
-  'aria-hidden-focus': 'serious',
-  'aria-prohibited-attr': 'serious',
-  'aria-toggle-field-name': 'serious',
-  'autocomplete-valid': 'serious',
-  'color-contrast': 'serious',
-  dlitem: 'serious',
-  'link-name': 'serious',
-  list: 'serious',
-  listitem: 'serious',
-  'nested-interactive': 'serious',
-  'scrollable-region-focusable': 'serious',
-  'heading-order': 'moderate',
-  'landmark-unique': 'moderate',
-  'page-has-heading-one': 'moderate',
-  region: 'moderate',
-};
-const IMPACT_EMOJI = { critical: '🔴', serious: '🟠', moderate: '🟡', minor: '⚪' };
 
 const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 const stories = n => plural(n, 'story', 'stories');
@@ -76,21 +47,51 @@ function packageBlocks(s) {
 
   const blocks = [section(lines.join('\n'))];
   if (s.axeRules.length) {
-    blocks.push(
-      section(ruleList('Top web rules', s.axeRules, id => IMPACT_EMOJI[AXE_IMPACT[id]] ?? '•'))
-    );
+    blocks.push(section(ruleList('Top web rules', s.axeRules, id => ruleEmoji('axe', id))));
   }
   if (s.nativeRules.length)
-    blocks.push(section(ruleList('Top native rules', s.nativeRules, () => '📱')));
+    blocks.push(
+      section(ruleList('Top native rules', s.nativeRules, id => ruleEmoji('native', id)))
+    );
   return blocks;
+}
+
+/** "Since last report" line: story × rule findings that are new or fixed. */
+function changesLine(changes) {
+  if (!changes || changes.first) return null;
+  const added = countA11y(changes.added);
+  const fixed = countA11y(changes.removed);
+  if (!added && !fixed) return '🔁 Same violations as last report; other results changed';
+  return `📈 Since last report: 🆕 ${plural(added, 'new finding')} · ✅ ${fixed} fixed`;
+}
+
+function linearLine(ops) {
+  if (!ops?.length) return null;
+  const count = type => ops.filter(op => op.type === type).length;
+  const parts = [
+    count('create') && `${plural(count('create'), 'new issue')}`,
+    count('update') && `${count('update')} updated`,
+    count('resolve') && `${count('resolve')} ready to close`,
+  ].filter(Boolean);
+  return `🎫 Linear: ${parts.join(' · ')}`;
 }
 
 /**
  * @param {PackageSummary[]} summaries
  * @param {Override[]} overrides
- * @param {{ runUrl?: string, date?: string, ref?: string }} [opts]
+ * @param {{
+ *   runUrl?: string,
+ *   date?: string,
+ *   ref?: string,
+ *   changes?: import('./state.mjs').StateDiff,
+ *   linear?: import('./linear.mjs').LinearOp[],
+ * }} [opts]
  */
-export function buildSlackMessage(summaries, overrides, { runUrl, date, ref = 'main' } = {}) {
+export function buildSlackMessage(
+  summaries,
+  overrides,
+  { runUrl, date, ref = 'main', changes, linear } = {}
+) {
   const allClean = summaries.every(isClean);
   const blocks = [
     {
@@ -104,6 +105,11 @@ export function buildSlackMessage(summaries, overrides, { runUrl, date, ref = 'm
 
   for (const s of summaries) blocks.push(divider, ...packageBlocks(s));
   blocks.push(divider);
+
+  const trend = changesLine(changes);
+  if (trend) blocks.push(context(trend));
+  const issues = linearLine(linear);
+  if (issues) blocks.push(context(issues));
 
   if (overrides.length) {
     const count = new Set(overrides.map(o => `${o.file}:${o.line}`)).size;
@@ -157,7 +163,10 @@ export function buildStepSummary(summaries, overrides) {
     out.push(
       `- Stories checked: ${s.total}`,
       `- 🌐 With web (axe) violations: ${s.axeFailing}`,
-      `- 📱 With native-rule violations: ${s.nativeFailing}`,
+      // Native rules only run for React Native.
+      ...(s.package === 'react-native'
+        ? [`- 📱 With native-rule violations: ${s.nativeFailing}`]
+        : []),
       `- ⚠️ Failed for non-a11y reasons: ${s.broken.length}`,
       ''
     );
