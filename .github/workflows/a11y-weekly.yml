@@ -1,0 +1,108 @@
+name: Weekly Accessibility Report
+
+# Runs every Storybook story for hearth-react and hearth-react-native with a11y
+# checks set to fail (VITE_A11Y_STRICT=true), then posts a summary to Slack.
+# Non-blocking: PR runs keep a11y as 'todo'. Replaces Chromatic's a11y tests.
+#
+# Required secrets:
+#   NPM_GLOBAL_READ_TOKEN  Existing token for installing private packages.
+#   DS_SLACK_BOT           Slack bot token (chat:write) used to post the weekly
+#                          report. The bot must be a member of the channel.
+
+on:
+  schedule:
+    - cron: '0 7 * * 1' # Mondays 07:00 UTC
+  workflow_dispatch: {}
+
+concurrency:
+  group: a11y-weekly
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Storybook a11y (${{ matrix.package }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        package: [react, react-native]
+    container:
+      # Keep in sync with test-react.yml / test-react-native.yml
+      # https://playwright.dev/docs/docker#pull-the-image
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          version: 11.8.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+      # Same as test-react.yml: hearth-react's workspace deps resolve from dist/.
+      - if: matrix.package == 'react'
+        run: pnpm run build:react
+
+      # Violations fail individual stories; the job carries on so results always
+      # upload. The report job decides the run's final status.
+      - name: Run stories with strict a11y checks
+        continue-on-error: true
+        working-directory: packages/${{ matrix.package }}
+        run: pnpm exec vitest run --project storybook --reporter=default --reporter=json --outputFile=a11y-results.json
+        env:
+          VITE_A11Y_STRICT: 'true'
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: a11y-${{ matrix.package }}
+          path: packages/${{ matrix.package }}/a11y-results.json
+          if-no-files-found: warn
+          retention-days: 30
+
+  report:
+    name: Report to Slack
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      # The report script only uses Node built-ins, so no install is needed.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '22.x'
+
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          pattern: a11y-*
+          path: a11y-results
+
+      # Writes the job summary, posts to Slack (a Slack failure is logged, not
+      # fatal), and exits 1 if any package has violations or didn't run.
+      - name: Summarise and post to Slack
+        run: node scripts/a11y-report/index.mjs
+        env:
+          RESULTS_DIR: a11y-results
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SLACK_BOT_TOKEN: ${{ secrets.DS_SLACK_BOT }}
+          SLACK_CHANNEL_ID: C04MYV3Q30F
