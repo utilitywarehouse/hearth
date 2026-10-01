@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2160%3A11
-// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Card/CardRoot.tsx
+// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Card/Card.tsx
 // component=Card
 
 import figma from 'figma';
@@ -74,16 +74,16 @@ const contentItems = collectContent(figma.selectedInstance).map(layer =>
   layer.type === 'TEXT'
     ? {
         tag: 'BodyText',
-        example:
-          figma.code`<BodyText>${figma.helpers.react.renderChildren(layer.textContent)}</BodyText>`
-            .sections,
+        example: figma.code`<BodyText>${figma.helpers.react.renderChildren(
+          layer.textContent
+        )}</BodyText>`.sections,
       }
     : isLegacyCardAction(layer)
-      ? { tag: 'CardAction', legacy: true, example: legacyCardAction(layer) }
-      : (() => {
-          const example = layer.executeTemplate().example;
-          return { tag: rootTag(example), example };
-        })()
+    ? { tag: 'CardAction', legacy: true, example: legacyCardAction(layer) }
+    : (() => {
+        const example = layer.executeTemplate().example;
+        return { tag: rootTag(example), example };
+      })()
 );
 
 // Banner and HighlightBanner already wrap themselves in a Card, so when Card's Content slot holds
@@ -140,7 +140,15 @@ export default {
   imports: standaloneContent
     ? []
     : [
-        `import { ${['Card', hasContent && 'CardContent', hasActions && 'CardActions', hasLegacyActions && 'CardAction', hasText && 'BodyText'].filter(Boolean).join(', ')} } from '@utilitywarehouse/hearth-react-native';`,
+        `import { ${[
+          'Card',
+          hasContent && 'CardContent',
+          hasActions && 'CardActions',
+          hasLegacyActions && 'CardAction',
+          hasText && 'BodyText',
+        ]
+          .filter(Boolean)
+          .join(', ')} } from '@utilitywarehouse/hearth-react-native';`,
       ],
   example: standaloneContent
     ? figma.code`${standaloneContent}`

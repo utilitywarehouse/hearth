@@ -5,6 +5,10 @@ import { useSingleSelection } from '../../hooks/useSingleSelection';
 import { Grid } from '../Grid';
 import { ToggleButtonCardGroupContext } from './ToggleButtonCardGroup.context';
 
+/**
+ * Groups a set of `ToggleButtonCard`s so only one can be selected at a time, laid out as a
+ * flexbox row or a grid. Use it for forms or surveys that present multiple selectable options.
+ */
 const ToggleButtonCardGroup = ({
   children,
   gap = '200',

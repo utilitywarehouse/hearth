@@ -183,7 +183,7 @@ const CardAction = ({
   );
 };
 
-CardActionRoot.displayName = 'CardActionRoot';
+CardAction.displayName = 'CardAction';
 
 const styles = StyleSheet.create(theme => ({
   container: {
