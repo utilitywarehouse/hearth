@@ -14,6 +14,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastActionButtonElement = ComponentRef<'button'>;
 
+/**
+ * Use ToastActionButton to render an actionable button inside a `Toast`, such
+ * as an "Undo" or "Retry" action.
+ *
+ * @summary An actionable button within a Toast.
+ */
 export const ToastActionButton = forwardRef<ToastActionButtonElement, ToastActionButtonProps>(
   ({ className, altText, children, ...props }, ref) => {
     warn(!altText, 'ToastActionButton: `altText` is required.');

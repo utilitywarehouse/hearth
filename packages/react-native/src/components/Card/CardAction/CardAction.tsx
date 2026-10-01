@@ -1,5 +1,298 @@
-import CardActionRoot from './CardActionRoot';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useId, useLayoutEffect, useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { IconContainer } from '../../IconContainer';
+import { Skeleton } from '../../Skeleton';
+import { useCardContext } from '../Card.context';
+import { useCardActionsContext } from '../CardActions.context';
+import { CardActionContext, ICardActionContext } from './CardAction.context';
+import type CardActionProps from './CardAction.props';
+import CardActionContent from './CardActionContent';
+import CardActionHelperText from './CardActionHelperText';
+import CardActionIcon from './CardActionIcon';
+import CardActionLeadingContent from './CardActionLeadingContent';
+import CardActionText from './CardActionText';
+import CardActionTrailingContent from './CardActionTrailingContent';
+import CardActionTrailingIcon from './CardActionTrailingIcon';
 
-CardActionRoot.displayName = 'CardAction';
+/**
+ * A pressable, consistently styled row for an actionable item inside a `Card`. Use it, wrapped in
+ * `CardActions`, to list navigable or triggerable actions within a card.
+ */
+const CardAction = ({
+  heading,
+  helperText,
+  leadingContent,
+  trailingContent,
+  disabled,
+  loading,
+  children,
+  badge,
+  badgePosition = 'bottom',
+  iconContainer = true,
+  iconContainerColor,
+  iconContainerVariant,
+  leadingIcon,
+  trailingIcon = ChevronRightSmallIcon,
+  size = 'md',
+  ...props
+}: CardActionProps & { isFirst?: boolean }) => {
+  const { onPress } = props;
+  const [active, setActive] = useState(false);
 
-export default CardActionRoot;
+  const isLoading = loading;
+  const showPressed = isLoading ? false : !!onPress;
+  const isDisabled = disabled || false;
+
+  const testID = props.testID || 'card-action';
+  const loadingTestID = isLoading ? `${testID}-loading` : testID;
+
+  const { variant, hasOnlyActions } = useCardContext();
+  const actionId = useId();
+  const actionsContext = useCardActionsContext();
+
+  useLayoutEffect(() => {
+    if (!actionsContext) {
+      return;
+    }
+
+    return actionsContext.registerAction(actionId);
+  }, [actionId, actionsContext]);
+
+  const isFirstFromContext = actionsContext?.firstActionId === actionId;
+  const isFirst = props.isFirst ?? isFirstFromContext;
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setActive(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setActive(false);
+  };
+
+  styles.useVariants({
+    showPressed,
+    active,
+    disabled: isDisabled || isLoading,
+    showDisabled: disabled,
+    hasIconContainer: !loading && iconContainer,
+    variant,
+    isFirst: hasOnlyActions && isFirst,
+  });
+
+  const value: ICardActionContext = useMemo(() => {
+    return {
+      showPressed,
+      active: active || false,
+      loading: isLoading || false,
+      disabled: isDisabled,
+      size,
+    };
+  }, [active, showPressed, isLoading, isDisabled, size]);
+
+  if (loading) {
+    return (
+      <Pressable
+        {...props}
+        testID={loadingTestID}
+        style={state => [
+          styles.container,
+          styles.alignCenter,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
+        disabled={isDisabled}
+      >
+        {leadingContent || leadingIcon ? (
+          <Skeleton width={24} height={24} style={styles.alignCenter} />
+        ) : null}
+        <CardActionContent>
+          <Skeleton width="80%" height={24} borderRadius="xs" />
+          <Skeleton width="100%" height={24} borderRadius="xs" />
+        </CardActionContent>
+        {trailingIcon || trailingContent ? (
+          <Skeleton width={24} height={24} borderRadius="xs" style={styles.alignCenter} />
+        ) : null}
+      </Pressable>
+    );
+  }
+
+  return (
+    <CardActionContext.Provider value={value}>
+      <Pressable
+        {...props}
+        testID={testID}
+        style={state => [
+          styles.container,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
+        disabled={isDisabled}
+        accessibilityRole={onPress ? 'button' : undefined}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+      >
+        {children ? (
+          children
+        ) : (
+          <>
+            {leadingIcon && iconContainer ? (
+              <View style={styles.iconContainerWrap}>
+                <IconContainer
+                  style={styles.iconContainer}
+                  icon={leadingIcon}
+                  variant={iconContainerVariant}
+                  color={iconContainerColor}
+                  radiusNone
+                />
+              </View>
+            ) : null}
+            <View style={styles.withIconContainer}>
+              {leadingContent ? (
+                <CardActionLeadingContent>{leadingContent}</CardActionLeadingContent>
+              ) : null}
+              {leadingIcon && !iconContainer && !leadingContent ? (
+                <CardActionLeadingContent>
+                  <CardActionIcon as={leadingIcon} />
+                </CardActionLeadingContent>
+              ) : null}
+              <CardActionContent>
+                {badgePosition === 'top' && badge ? badge : null}
+                <CardActionText>{heading}</CardActionText>
+                {badgePosition === 'middle' && badge ? badge : null}
+                {helperText ? <CardActionHelperText>{helperText}</CardActionHelperText> : null}
+                {badgePosition === 'bottom' && badge ? badge : null}
+              </CardActionContent>
+              {badgePosition === 'right' && badge ? (
+                <View style={styles.alignCenter}>{badge}</View>
+              ) : null}
+              {trailingContent ? (
+                <CardActionTrailingContent>{trailingContent}</CardActionTrailingContent>
+              ) : null}
+              {trailingIcon && !trailingContent ? (
+                <CardActionTrailingContent>
+                  <CardActionTrailingIcon as={trailingIcon} />
+                </CardActionTrailingContent>
+              ) : null}
+            </View>
+          </>
+        )}
+      </Pressable>
+    </CardActionContext.Provider>
+  );
+};
+
+CardActionRoot.displayName = 'CardActionRoot';
+
+const styles = StyleSheet.create(theme => ({
+  container: {
+    paddingVertical: theme.components.cardAction.content.paddingVertical,
+    paddingHorizontal: theme.components.cardAction.content.paddingHorizontal,
+    flexDirection: 'row',
+    gap: theme.components.cardAction.content.gap,
+    borderTopWidth: theme.borderWidth[1],
+    borderColor: theme.color.border.strong,
+    width: '100%',
+    variants: {
+      isFirst: {
+        true: {
+          borderTopWidth: 0,
+        },
+      },
+      disabled: {
+        true: {
+          cursor: 'auto',
+        },
+      },
+      variant: {
+        subtle: {
+          borderColor: theme.color.border.subtle,
+        },
+        emphasis: {
+          borderColor: theme.color.border.strong,
+        },
+      },
+      hasIconContainer: {
+        true: {
+          paddingHorizontal: 0,
+          paddingVertical: 0,
+          gap: 0,
+        },
+      },
+      showDisabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
+      showPressed: {
+        true: {
+          _web: {
+            '_focus-visible': {
+              ...theme.helpers.focusVisible,
+              outlineOffset: -theme.space[100],
+            },
+            _hover: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+            },
+          },
+        },
+        false: {
+          cursor: 'auto',
+        },
+      },
+      active: {
+        true: {},
+      },
+    },
+    compoundVariants: [
+      {
+        showPressed: true,
+        active: true,
+        styles: {
+          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+        },
+      },
+    ],
+  },
+  withIconContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingVertical: theme.components.cardAction.content.paddingVertical,
+    paddingHorizontal: theme.components.cardAction.content.paddingHorizontal,
+    gap: theme.components.cardAction.content.gap,
+    flex: 1,
+    variants: {
+      hasIconContainer: {
+        true: {},
+        false: {
+          flex: 1,
+          paddingHorizontal: 0,
+          paddingVertical: 0,
+          alignItems: 'center',
+        },
+      },
+    },
+  },
+  alignCenter: {
+    alignSelf: 'center',
+    alignItems: 'center',
+  },
+  iconContainer: {
+    flex: 1,
+    _web: {
+      overflow: 'visible',
+      height: '100%',
+    },
+  },
+  iconContainerWrap: {
+    flexDirection: 'column',
+  },
+}));
+
+CardAction.displayName = 'CardAction';
+
+export default CardAction;

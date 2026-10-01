@@ -13,6 +13,9 @@ const CheckboxIndicator = CheckboxIndicatorComponent;
 const CheckboxIcon = CheckboxIconComponent;
 const CheckboxLabel = CheckboxLabelComponent;
 
+/**
+ * Lets a user select one or more options from a list, with an optional label, helper text, and validation state.
+ */
 const Checkbox = ({
   children,
   label,

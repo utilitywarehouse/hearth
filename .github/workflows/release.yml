@@ -32,15 +32,16 @@ on:
         type: choice
         options:
           - 'react-native'
-          - react
+          - 'react'
           - 'css-reset'
-          - fonts
+          - 'fonts'
           - 'json-assets'
           - 'react-icons'
           - 'react-native-icons'
           - 'svg-assets'
           - 'svg-icons'
           - 'tokens'
+          - 'codemod'
         default: 'react-native'
       snapshot:
         description: 'Publish a snapshot 0.0.0-<channel>-<timestamp>'

@@ -5,6 +5,11 @@ import { TabsContext } from './Tabs.context';
 import type TabsProps from './Tabs.props';
 import { collectTabValues, resolveActiveValue, resolveInitialValue, resolveValidValue } from './Tabs.utils';
 
+/**
+ * Groups Tab components into a single tab bar, managing selection state and the animated
+ * active indicator. Use with TabPanel to link tabs to their corresponding content.
+ * @summary A tab bar for switching between related views.
+ */
 const Tabs = ({
   value: controlledValue,
   defaultValue,

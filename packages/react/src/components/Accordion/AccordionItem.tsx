@@ -14,6 +14,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionItemElement = ComponentRef<'div'>;
 
+/**
+ * Use AccordionItem for a single expandable/collapsible section within an
+ * Accordion. Set `title` (and optionally `description`) for the built-in
+ * header, or omit `title` and compose `AccordionHeader`, `AccordionTrigger`,
+ * and `AccordionContent` manually as children.
+ *
+ * @summary A single expandable/collapsible section within an Accordion.
+ */
 export const AccordionItem = forwardRef<AccordionItemElement, AccordionItemProps>(
   ({ className, title, description, children, headingElement, ...props }, ref) => {
     return (

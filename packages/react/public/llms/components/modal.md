@@ -7,16 +7,6 @@ ModalTrigger, ModalContent, ModalFooter, and ModalClose. Pass `heading` and
 `description` for standard content, or custom children alongside
 ModalFooter for more control over layout.
 
-- [Usage Guidelines](#usage-guidelines)
-- [Content](#content)
-- [Accessibility](#accessibility)
-- [Uncontrolled usage](#uncontrolled-usage)
-- [Controlled usage](#controlled-usage)
-- [With Image](#with-image)
-- [Loading](#loading)
-- [Preventing dismissal](#preventing-dismissal)
-- [API](#api)
-
 ```tsx
 <ModalRoot>
   <ModalTrigger>

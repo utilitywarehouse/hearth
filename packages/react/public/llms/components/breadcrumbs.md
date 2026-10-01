@@ -5,11 +5,6 @@ hierarchy and move between multiple levels of it. Compose it with
 `BreadcrumbItem` for each level, marking the current page with the
 `currentPage` prop on that item.
 
-- [Current page](#current-page)
-- [Inverted](#inverted)
-- [Usage with Next.js](#usage-with-nextjs)
-- [API](#api)
-
 ```tsx
 <Flex direction="column">
   <Flex padding="400">

@@ -80,6 +80,10 @@
     "name": "DecreaseSmallIcon"
   },
   {
+    "id": "2836:199",
+    "name": "DevicesSmallIcon"
+  },
+  {
     "id": "1:1205",
     "name": "DownloadSmallIcon"
   },
@@ -200,6 +204,14 @@
     "name": "MeterSmallIcon"
   },
   {
+    "id": "2834:131",
+    "name": "MicrophoneOffSmallIcon"
+  },
+  {
+    "id": "2834:123",
+    "name": "MicrophoneOnSmallIcon"
+  },
+  {
     "id": "1:790",
     "name": "MinusSmallIcon"
   },
@@ -276,6 +288,10 @@
     "name": "SnowflakeSmallIcon"
   },
   {
+    "id": "2834:125",
+    "name": "SpeakerSmallIcon"
+  },
+  {
     "id": "1:854",
     "name": "TickSmallIcon"
   },
@@ -306,6 +322,14 @@
   {
     "id": "2616:34",
     "name": "QrCodeSmallIcon"
+  },
+  {
+    "id": "2834:135",
+    "name": "ReduceNoiseSmallIcon"
+  },
+  {
+    "id": "2773:82",
+    "name": "RobotSmallIcon"
   },
   {
     "id": "2304:2253",
@@ -454,6 +478,10 @@
   {
     "id": "15:183",
     "name": "DecreaseMediumIcon"
+  },
+  {
+    "id": "2836:201",
+    "name": "DevicesMediumIcon"
   },
   {
     "id": "33:115",
@@ -620,6 +648,14 @@
     "name": "MinusMediumIcon"
   },
   {
+    "id": "2834:133",
+    "name": "MicrophoneOffMediumIcon"
+  },
+  {
+    "id": "2834:167",
+    "name": "MicrophoneOnMediumIcon"
+  },
+  {
     "id": "9:434",
     "name": "MoneyMediumIcon"
   },
@@ -652,6 +688,14 @@
     "name": "OpenMediumIcon"
   },
   {
+    "id": "2836:258",
+    "name": "PanelLeftMediumIcon"
+  },
+  {
+    "id": "2836:259",
+    "name": "PanelBottomMediumIcon"
+  },
+  {
     "id": "14:159",
     "name": "PaymentMediumIcon"
   },
@@ -668,12 +712,20 @@
     "name": "QuestionMarkMediumIcon"
   },
   {
+    "id": "2834:137",
+    "name": "ReduceNoiseMediumIcon"
+  },
+  {
     "id": "15:268",
     "name": "RefundMediumIcon"
   },
   {
     "id": "6:611",
     "name": "RestartMediumIcon"
+  },
+  {
+    "id": "2773:90",
+    "name": "RobotMediumIcon"
   },
   {
     "id": "9:615",
@@ -702,6 +754,10 @@
   {
     "id": "2404:6",
     "name": "SnowflakeMediumIcon"
+  },
+  {
+    "id": "2834:127",
+    "name": "SpeakerMediumIcon"
   },
   {
     "id": "9:1008",

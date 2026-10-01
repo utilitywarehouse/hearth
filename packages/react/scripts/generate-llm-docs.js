@@ -3,6 +3,8 @@
  *
  * For each .docs.mdx file in src/ and docs/:
  *   - Strips Storybook JSX (Meta, Canvas, Controls) and import declarations
+ *   - Drops hand-authored tables of contents (a bare anchor-link list, with
+ *     or without a "Table of Contents" heading)
  *   - Replaces <ArgTypes> with a full prop table via react-docgen-typescript
  *   - Replaces <Description of={Component} /> with the component's JSDoc description
  *   - Replaces <StorybookLink> with plain text
@@ -631,6 +633,14 @@ const IMPORT_RE = /^import\s+/;
 // Matches a self-closing PascalCase JSX component on its own line: <FooTable />
 const CUSTOM_COMPONENT_RE = /^\s*<([A-Z][a-zA-Z0-9]*)\b[^>]*\/>\s*$/;
 
+// Matches a list item that is a bare in-page anchor link, e.g. `- [Variants](#variants)`.
+// A hand-authored table of contents is a contiguous block of these, with no heading of
+// its own — the anchors are meaningless once flattened into a standalone doc.
+const TOC_LIST_ITEM_RE = /^\s*[-*]\s+\[[^\]]+\]\(#[^)]+\)\s*$/;
+
+// Matches a "## Table of Contents" heading, on the rare occasion one is present.
+const TOC_HEADING_RE = /^#{1,6}\s+table of contents\s*$/i;
+
 // ─── Markdown export runner ───────────────────────────────────────────────────
 
 const RUNNER_SCRIPT = path.join(__dirname, 'run-markdown-export.ts');
@@ -738,7 +748,9 @@ function transformContent(content, importMap, exprMap) {
   const output = [];
   let inCodeFence = false;
 
-  for (const line of lines) {
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
+
     // Track code fences — content inside fences passes through unchanged
     if (/^(`{3,}|~{3,})/.test(line.trimStart())) {
       inCodeFence = !inCodeFence;
@@ -748,6 +760,16 @@ function transformContent(content, importMap, exprMap) {
 
     if (inCodeFence) {
       output.push(line);
+      continue;
+    }
+
+    // Drop a "## Table of Contents" heading, if present
+    if (TOC_HEADING_RE.test(line.trim())) continue;
+
+    // Drop a bare anchor-link list acting as a table of contents (no heading
+    // required) — a contiguous block where every item is a pure anchor link.
+    if (TOC_LIST_ITEM_RE.test(line)) {
+      while (idx + 1 < lines.length && TOC_LIST_ITEM_RE.test(lines[idx + 1])) idx++;
       continue;
     }
 

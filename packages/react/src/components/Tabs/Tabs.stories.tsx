@@ -31,7 +31,12 @@ const meta: Meta<typeof Tabs> = {
 export default meta;
 type Story = StoryObj<typeof Tabs>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Tabs {...args}>
       <TabsList>
@@ -52,7 +57,14 @@ export const Playground: Story = {
   ),
 };
 
+/** Set size to md or lg to change the Tabs' dimensions. */
 export const Sizes: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     size: 'md',
   },
@@ -95,7 +107,14 @@ export const Sizes: Story = {
   ),
 };
 
+/** TabsList scrolls horizontally once its Tabs no longer fit the available width. */
 export const WithScrolling: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Tabs defaultValue="one">
       <TabsList>
@@ -184,7 +203,14 @@ export const WithScrolling: Story = {
   ),
 };
 
+/** Pair a Tab's label with an icon for added visual context. */
 export const WithIcons: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Tabs defaultValue="one">
       <TabsList>
@@ -217,7 +243,13 @@ export const WithIcons: Story = {
   ),
 };
 
+/** Control the active tab with value and onValueChange instead of relying on internal state. */
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [value, setValue] = useState('account');
     const tabs = ['account', 'billing', 'usage'] as const;

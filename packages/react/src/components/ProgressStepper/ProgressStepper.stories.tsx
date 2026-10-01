@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { ProgressStep } from './ProgressStep';
 import { ProgressStepButton } from './ProgressStepButton';
 import { ProgressStepLink } from './ProgressStepLink';
 import { ProgressStepper } from './ProgressStepper';
+import { ProgressStepperText } from './ProgressStepperText';
+import { useMediaQuery } from '../../hooks/use-media-query';
+import { media } from '../../utils/media';
 import { useState } from 'react';
 
 const meta: Meta<typeof ProgressStepper> = {
@@ -28,8 +32,18 @@ const meta: Meta<typeof ProgressStepper> = {
 export default meta;
 type Story = StoryObj<typeof ProgressStepper>;
 
+/**
+ * Visual matrix of ProgressStepper with plain, link, and button steps —
+ * used in docs and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex direction="column" gap="400">
@@ -64,7 +78,12 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive example — step status updates as you move through with Prev/Next. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     const [currentStep, setCurrentStep] = useState(1);
 
@@ -106,7 +125,13 @@ export const Playground: Story = {
   },
 };
 
+/** Use plain ProgressStep children for steps that aren't interactive. */
 export const StaticSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -119,7 +144,13 @@ export const StaticSteps: Story = {
   },
 };
 
+/** Use ProgressStepLink children to navigate to a step via an href. */
 export const LinkSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -132,7 +163,13 @@ export const LinkSteps: Story = {
   },
 };
 
+/** Use ProgressStepButton children to navigate to a step via onClick. */
 export const ButtonSteps: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <ProgressStepper {...args}>
@@ -153,7 +190,14 @@ export const ButtonSteps: Story = {
   },
 };
 
+/** Set disabled on a ProgressStepLink or ProgressStepButton to prevent navigating to that step. */
 export const DisabledSteps: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex direction="column" gap="400">
@@ -186,4 +230,59 @@ export const DisabledSteps: Story = {
       </Flex>
     );
   },
+};
+
+/**
+ * Use `useMediaQuery` to conditionally render `ProgressStepperText` below
+ * the `desktop` breakpoint and the full `ProgressStepper` from `desktop`
+ * upwards. Resize the browser window to see it switch.
+ */
+export const ResponsiveWithMediaQuery: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const isBelowDesktop = useMediaQuery(media.below('desktop'));
+
+    return isBelowDesktop ? (
+      <ProgressStepperText currentStep={3} totalSteps={4} />
+    ) : (
+      <ProgressStepper>
+        <ProgressStep status="complete" label="Customer data" />
+        <ProgressStep status="complete" label="Shipping data" />
+        <ProgressStep status="active" label="Payment data" />
+        <ProgressStep status="incomplete" label="Summary" />
+      </ProgressStepper>
+    );
+  },
+};
+
+/**
+ * Render both `ProgressStepperText` and `ProgressStepper`, using `Box`'s
+ * responsive `display` prop to show only one at a time per breakpoint.
+ * Resize the browser window to see it switch.
+ */
+export const ResponsiveWithBoxDisplay: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => (
+    <>
+      <Box display={{ mobile: 'block', desktop: 'none' }}>
+        <ProgressStepperText currentStep={3} totalSteps={4} />
+      </Box>
+      <Box display={{ mobile: 'none', desktop: 'block' }}>
+        <ProgressStepper>
+          <ProgressStep status="complete" label="Customer data" />
+          <ProgressStep status="complete" label="Shipping data" />
+          <ProgressStep status="active" label="Payment data" />
+          <ProgressStep status="incomplete" label="Summary" />
+        </ProgressStepper>
+      </Box>
+    </>
+  ),
 };

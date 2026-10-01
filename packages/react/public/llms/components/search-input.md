@@ -7,14 +7,6 @@ fetched. On desktop and tablet it must be paired with a button to trigger
 the search; on mobile the keyboard's search action can trigger it instead.
 For general text entry use TextInput instead.
 
-- [Alternatives](#alternatives)
-- [Accessibility](#accessibility)
-- [Label](#label)
-- [Clear](#clear)
-- [Loading](#loading)
-- [Usage with a button](#usage-with-a-button)
-- [API](#api)
-
 ```tsx
 <SearchInput
   value={value}

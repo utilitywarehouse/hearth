@@ -9,6 +9,7 @@ import SectionHeaderHelperText from './SectionHeaderHelperText';
 import SectionHeaderTextContent from './SectionHeaderTextContent';
 import SectionHeaderTrailingContent from './SectionHeaderTrailingContent';
 
+/** A heading row for a section or list, with an optional helper text, badge and trailing content. */
 const SectionHeader = ({
   heading,
   helperText,

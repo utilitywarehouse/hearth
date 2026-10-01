@@ -9,6 +9,9 @@ import CheckboxGroupRoot from './CheckboxGroupRoot';
 import CheckboxGroupTextContent from './CheckboxGroupTextContent';
 import { resolveActiveSelection, toggleSelectedValue } from './CheckboxGroup.utils';
 
+/**
+ * Groups multiple `Checkbox` components together, sharing a common label, helper text, and validation state.
+ */
 const CheckboxGroup = ({
   children,
   disabled,

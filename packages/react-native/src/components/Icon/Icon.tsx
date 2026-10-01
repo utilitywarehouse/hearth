@@ -45,6 +45,10 @@ const PrimitiveIcon = withUnistyles(
 
 PrimitiveIcon.displayName = 'PrimitiveIcon';
 
+/**
+ * Use Icon to render an SVG icon component (from `@utilitywarehouse/hearth-react-native-icons`
+ * or a custom SVG) with consistent sizing and theme-aware colouring.
+ */
 export const Icon: React.ForwardRefExoticComponent<IconProps> = createIcon({
   Root: PrimitiveIcon as any,
 }) as React.ForwardRefExoticComponent<IconProps>;

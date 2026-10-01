@@ -20,7 +20,17 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
+/** Interactive sandbox — use the controls panel to explore all props, including an icon and an image. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    value: '1',
+    label: 'Radio label',
+    helperText: 'Radio helper text',
+  },
   tags: ['!test'],
   render: (args: Pick<RadioProps, 'value' | 'label' | 'helperText'>) => {
     return (
@@ -33,6 +43,14 @@ export const Playground: Story = {
           <Radio {...args} />
         </RadioGroup>
 
+        <RadioGroup value="2" label="Disabled unchecked radio">
+          <Radio {...args} disabled />
+        </RadioGroup>
+
+        <RadioGroup defaultValue={args.value} label="Disabled checked radio">
+          <Radio {...args} disabled />
+        </RadioGroup>
+
         <RadioGroup defaultValue={args.value} label="With icon">
           <Radio {...args} image={<BillMediumIcon />} />
         </RadioGroup>
@@ -42,10 +60,5 @@ export const Playground: Story = {
         </RadioGroup>
       </Flex>
     );
-  },
-  args: {
-    value: '1',
-    label: 'Radio label',
-    helperText: 'Radio helper text',
   },
 };

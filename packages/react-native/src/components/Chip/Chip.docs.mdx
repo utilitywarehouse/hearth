@@ -1,0 +1,141 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Center, Chip, ChipGroup } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Chip.stories';
+
+<Meta title="Components / Chip" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=16247-1724" />
+
+# Chip
+
+Use `Chip` to represent an input, attribute, or filter that a user can remove with a single press. It is commonly used to show the active filters applied to a list of results. Use `ChipGroup` to lay out a collection of Chips.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Render a Chip for each active selection, and remove it from your state when the user presses it.
+
+<UsageWrap>
+  <Center>
+    <ChipGroup label="Currently showing:">
+      <Chip onPress={() => null}>Gas</Chip>
+      <Chip onPress={() => null}>Electricity</Chip>
+    </ChipGroup>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Chip, ChipGroup } from '@utilitywarehouse/hearth-react-native';
+
+const Filters = ({ filters, removeFilter }) => (
+  <ChipGroup label="Currently showing:">
+    {filters.map(filter => (
+      <Chip key={filter.value} onPress={() => removeFilter(filter)}>
+        {filter.label}
+      </Chip>
+    ))}
+  </ChipGroup>
+);
+```
+
+## Props
+
+| Property     | Type                                     | Description                                                                                    | Default  |
+| ------------ | ---------------------------------------- | ---------------------------------------------------------------------------------------------- | -------- |
+| `children`   | `ReactNode`                              | The chip's visible text content.                                                               | Required |
+| `onPress`    | `(event: GestureResponderEvent) => void` | Called when the chip is pressed. Use it to remove the filter or attribute the chip represents. | -        |
+| `disabled`   | `boolean`                                | Prevents the chip from being pressed.                                                          | `false`  |
+| `aria-label` | `string`                                 | Overrides the default accessible name (`Remove [label] filter`).                               | -        |
+| ...rest      | `PressableProps`                         | All standard Pressable props are supported.                                                    | -        |
+
+### ChipGroup
+
+A wrapping layout container for a collection of `Chip` components.
+
+#### Props
+
+| Property   | Type        | Description                                                                                                    | Default  |
+| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------- | -------- |
+| `label`    | `string`    | Optional text displayed before the chips, e.g. "Currently showing:". Also used as the group's accessible name. | -        |
+| `children` | `ReactNode` | The `Chip` components to render within the group.                                                              | Required |
+| ...rest    | `ViewProps` | All standard View props are supported.                                                                         | -        |
+
+## Examples
+
+### Removable
+
+Chip always renders a close icon to show that it can be removed. Attach an `onPress` handler to update your application state when the user presses it.
+
+<Canvas of={Stories.Removable} />
+
+```tsx
+<Chip onPress={() => removeFilter('gas')}>Gas</Chip>
+```
+
+### Disabled
+
+Set `disabled` to prevent a Chip from being removed.
+
+<Canvas of={Stories.Disabled} />
+
+```tsx
+<Chip disabled>Gas</Chip>
+```
+
+### Chip Group
+
+Pass `label` to introduce the group.
+
+<Canvas of={Stories.Group} />
+
+```tsx
+<ChipGroup label="Currently showing:">
+  <Chip>Gas</Chip>
+  <Chip>Electricity</Chip>
+  <Chip>Broadband</Chip>
+</ChipGroup>
+```
+
+`ChipGroup` wraps its Chips onto multiple lines once they no longer fit the available width.
+
+<Canvas of={Stories.Wrapping} />
+
+### Adding and Removing
+
+Chips are commonly added to and removed from a `ChipGroup` over time, such as when a user applies or clears filters.
+
+<Canvas of={Stories.AddAndRemove} />
+
+```tsx
+const [selected, setSelected] = useState(['Gas', 'Electricity']);
+
+<ChipGroup label="Currently showing:">
+  {selected.map(service => (
+    <Chip key={service} onPress={() => setSelected(prev => prev.filter(s => s !== service))}>
+      {service}
+    </Chip>
+  ))}
+</ChipGroup>;
+```
+
+## Accessibility
+
+A Chip's only interaction is removal, and it is mostly used for filtering, so its accessible name defaults to `Remove [label] filter` rather than just the visible label. For example, a screen reader announces "Remove Gas filter, button" rather than "Gas, button", which would not tell the user that pressing it removes something.
+
+Pass `aria-label` (or `accessibilityLabel`) to override this wording. The default is only applied when `children` is a string.
+
+`ChipGroup` renders with the `group` role. When `label` is set, it is used as the group's accessible name through `aria-labelledby`.

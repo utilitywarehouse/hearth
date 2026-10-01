@@ -14,6 +14,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardAccordionButtonElement = ComponentRef<'button'>;
 
+/**
+ * Use CardAccordionButton inside a CardAccordionItem to navigate between
+ * steps of a CardAccordion.
+ *
+ * @summary A step-navigation button for a CardAccordionItem.
+ */
 export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAccordionButtonProps>(
   ({ className, children, action, onClick, ...props }, ref) => {
     const { steps, setPreviousSteps, setCurrentStep, previousSteps } = useCardAccordion();

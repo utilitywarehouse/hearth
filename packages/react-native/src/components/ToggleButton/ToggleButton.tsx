@@ -9,6 +9,10 @@ export const ToggleButtonIcon = ToggleButtonIconComponent;
 ToggleButtonText.displayName = 'ToggleButtonText';
 ToggleButtonIcon.displayName = 'ToggleButtonIcon';
 
+/**
+ * A pressable button that switches between an on and off state, such as for a single
+ * standalone setting.
+ */
 const ToggleButton = ({ text, toggled = false, onToggle, ...props }: ToggleButtonProps) => {
   return (
     <ToggleButtonRoot toggled={toggled} onToggle={onToggle} {...props}>

@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import type IconContainerProps from './IconContainer.props';
 
+/**
+ * Use IconContainer to give a standalone icon a consistent background and sizing, with
+ * semantic colour families and subtle/emphasis variants.
+ */
 const IconContainer = ({
   icon: IconComp,
   size = 'md',

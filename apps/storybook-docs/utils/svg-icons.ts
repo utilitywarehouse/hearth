@@ -20,6 +20,7 @@ import CopySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/copy-small-ico
 import CreditSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-small-icon.svg';
 import CreditReversalSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-reversal-small-icon.svg';
 import DecreaseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/decrease-small-icon.svg';
+import DevicesSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/devices-small-icon.svg';
 import DownloadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/download-small-icon.svg';
 import ExpandSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/expand-small-icon.svg';
 import EditSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/edit-small-icon.svg';
@@ -50,6 +51,8 @@ import LockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/lock-small-ico
 import LinkSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/link-small-icon.svg';
 import LoginSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/login-small-icon.svg';
 import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-icon.svg';
+import MicrophoneOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/microphone-off-small-icon.svg';
+import MicrophoneOnSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/microphone-on-small-icon.svg';
 import MinusSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-small-icon.svg';
 import MobileSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
@@ -69,6 +72,7 @@ import SimSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/sim-small-icon.
 import SkipLastSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-last-small-icon.svg';
 import SkipFirstSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-first-small-icon.svg';
 import SnowflakeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/snowflake-small-icon.svg';
+import SpeakerSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/speaker-small-icon.svg';
 import TickSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-small-icon.svg';
 import TickCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-circle-small-icon.svg';
 import ThumbsUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-up-small-icon.svg';
@@ -77,6 +81,8 @@ import TimeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-small-ico
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import TrashSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/trash-small-icon.svg';
 import QrCodeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/qr-code-small-icon.svg';
+import ReduceNoiseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/reduce-noise-small-icon.svg';
+import RobotSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-small-icon.svg';
 import UnlockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import UserSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/user-small-icon.svg';
@@ -114,6 +120,7 @@ import CreditMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-medi
 import CreditsAndDebitsMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credits-and-debits-medium-icon.svg';
 import CreditReversalMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-reversal-medium-icon.svg';
 import DecreaseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/decrease-medium-icon.svg';
+import DevicesMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/devices-medium-icon.svg';
 import DocumentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/document-medium-icon.svg';
 import DownloadMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/download-medium-icon.svg';
 import EditMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/edit-medium-icon.svg';
@@ -155,6 +162,8 @@ import LoginMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/login-medium
 import LogoutMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/logout-medium-icon.svg';
 import MaintenanceMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/maintenance-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
+import MicrophoneOffMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/microphone-off-medium-icon.svg';
+import MicrophoneOnMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/microphone-on-medium-icon.svg';
 import MoneyMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/money-medium-icon.svg';
 import MeterMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-medium-icon.svg';
 import MenuMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/menu-medium-icon.svg';
@@ -163,12 +172,16 @@ import MoonMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-medium-i
 import MoreMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-medium-icon.svg';
 import MotorInsuranceMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/motor-insurance-medium-icon.svg';
 import OpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-medium-icon.svg';
+import PanelLeftMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/panel-left-medium-icon.svg';
+import PanelBottomMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/panel-bottom-medium-icon.svg';
 import PaymentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/payment-medium-icon.svg';
 import PlaceholderMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-medium-icon.svg';
 import PlayMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/play-medium-icon.svg';
 import QuestionMarkMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-medium-icon.svg';
+import ReduceNoiseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/reduce-noise-medium-icon.svg';
 import RefundMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-medium-icon.svg';
 import RestartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/restart-medium-icon.svg';
+import RobotMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/robot-medium-icon.svg';
 import SearchMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/search-medium-icon.svg';
 import SendMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/send-medium-icon.svg';
 import SettingsMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/settings-medium-icon.svg';
@@ -176,6 +189,7 @@ import ShareMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/share-medium
 import ShoppingMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/shopping-medium-icon.svg';
 import SimMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/sim-medium-icon.svg';
 import SnowflakeMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/snowflake-medium-icon.svg';
+import SpeakerMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/speaker-medium-icon.svg';
 import SunMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-medium-icon.svg';
 import TeamMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/team-medium-icon.svg';
 import TickCircleMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-circle-medium-icon.svg';
@@ -221,6 +235,7 @@ export const svgIcons = [
   CreditSmallIcon,
   CreditReversalSmallIcon,
   DecreaseSmallIcon,
+  DevicesSmallIcon,
   DownloadSmallIcon,
   ExpandSmallIcon,
   EditSmallIcon,
@@ -251,6 +266,8 @@ export const svgIcons = [
   LinkSmallIcon,
   LoginSmallIcon,
   MeterSmallIcon,
+  MicrophoneOffSmallIcon,
+  MicrophoneOnSmallIcon,
   MinusSmallIcon,
   MobileSmallIcon,
   MoreSmallIcon,
@@ -270,6 +287,7 @@ export const svgIcons = [
   SkipLastSmallIcon,
   SkipFirstSmallIcon,
   SnowflakeSmallIcon,
+  SpeakerSmallIcon,
   TickSmallIcon,
   TickCircleSmallIcon,
   ThumbsUpSmallIcon,
@@ -278,6 +296,8 @@ export const svgIcons = [
   TopUpSmallIcon,
   TrashSmallIcon,
   QrCodeSmallIcon,
+  ReduceNoiseSmallIcon,
+  RobotSmallIcon,
   UnlockSmallIcon,
   UploadSmallIcon,
   UserSmallIcon,
@@ -315,6 +335,7 @@ export const svgIcons = [
   CreditsAndDebitsMediumIcon,
   CreditReversalMediumIcon,
   DecreaseMediumIcon,
+  DevicesMediumIcon,
   DocumentMediumIcon,
   DownloadMediumIcon,
   EditMediumIcon,
@@ -356,6 +377,8 @@ export const svgIcons = [
   LogoutMediumIcon,
   MaintenanceMediumIcon,
   MinusMediumIcon,
+  MicrophoneOffMediumIcon,
+  MicrophoneOnMediumIcon,
   MoneyMediumIcon,
   MeterMediumIcon,
   MenuMediumIcon,
@@ -364,12 +387,16 @@ export const svgIcons = [
   MoreMediumIcon,
   MotorInsuranceMediumIcon,
   OpenMediumIcon,
+  PanelLeftMediumIcon,
+  PanelBottomMediumIcon,
   PaymentMediumIcon,
   PlaceholderMediumIcon,
   PlayMediumIcon,
   QuestionMarkMediumIcon,
+  ReduceNoiseMediumIcon,
   RefundMediumIcon,
   RestartMediumIcon,
+  RobotMediumIcon,
   SearchMediumIcon,
   SendMediumIcon,
   SettingsMediumIcon,
@@ -377,6 +404,7 @@ export const svgIcons = [
   ShoppingMediumIcon,
   SimMediumIcon,
   SnowflakeMediumIcon,
+  SpeakerMediumIcon,
   SunMediumIcon,
   TeamMediumIcon,
   TickCircleMediumIcon,

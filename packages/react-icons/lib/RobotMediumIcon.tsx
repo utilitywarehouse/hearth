@@ -1,0 +1,30 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const RobotMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M3 15.3q-1.257 0-2.129-.871Q.001 13.558 0 12.3q0-1.257.871-2.129Q1.742 9.301 3 9.3V6.67q0-.896.637-1.533A2.1 2.1 0 0 1 5.17 4.5H9q0-1.257.871-2.129.871-.87 2.129-.871 1.257 0 2.129.871.87.871.871 2.129h3.83q.896 0 1.533.637Q21 5.775 21 6.67V9.3q1.257 0 2.129.871.87.871.871 2.129 0 1.257-.871 2.129-.871.87-2.129.871v5.03q0 .896-.637 1.533a2.1 2.1 0 0 1-1.532.637H5.169a2.1 2.1 0 0 1-1.532-.637A2.1 2.1 0 0 1 3 20.33zm2.17 5.4h13.66a.36.36 0 0 0 .266-.104.36.36 0 0 0 .104-.265V6.669a.36.36 0 0 0-.104-.265.36.36 0 0 0-.265-.104H5.169a.36.36 0 0 0-.265.104.36.36 0 0 0-.104.265v13.662a.36.36 0 0 0 .104.265.36.36 0 0 0 .265.104"
+        />
+        <path fill={color} d="M7.2 11.46a1.56 1.56 0 1 1 3.12 0v1.68a1.56 1.56 0 1 1-3.12 0z" />
+        <path fill={color} d="M13.68 11.46a1.56 1.56 0 1 1 3.12 0v1.68a1.56 1.56 0 1 1-3.12 0z" />
+      </svg>
+    );
+  }
+);
+RobotMediumIcon.displayName = 'RobotMediumIcon';

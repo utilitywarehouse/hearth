@@ -6,6 +6,11 @@ import { PillGroupContext, PillGroupContextValue } from './PillGroup.context';
 import type { PillGroupProps } from './PillGroup.props';
 import { toggleSelection } from './PillGroup.utils';
 
+/**
+ * Groups multiple `Pill` components together for filtering and categorization, controlling their
+ * layout and managing single- or multi-select state.
+ * @summary A container that groups and manages selection for `Pill` components.
+ */
 export const PillGroup = ({
   children,
   value,

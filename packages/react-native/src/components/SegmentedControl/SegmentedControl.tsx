@@ -22,6 +22,11 @@ import {
 const Indicator = Animated.createAnimatedComponent(View);
 const GROUP_BORDER_WIDTH = 1;
 
+/**
+ * Lets a user switch between a small set of mutually exclusive options rendered as
+ * `SegmentedControlOption` children, with an animated indicator tracking the current selection.
+ * @summary A single-choice, tab-like control for switching between a few options.
+ */
 const SegmentedControl = ({
   value: controlledValue,
   defaultValue,

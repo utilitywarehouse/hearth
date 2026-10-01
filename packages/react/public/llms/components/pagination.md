@@ -7,17 +7,6 @@ Render `as="nav"` when it acts as a standalone navigation landmark — in that
 case also provide an `id` for accessibility. Use the `condensed` prop for
 compact spaces where only a page count needs to be shown.
 
-## Table of Contents
-
-- [Usage Guidelines](#usage-guidelines)
-- [Examples](#examples)
-  - [Condensed](#condensed)
-  - [Without Skip Buttons](#without-skip-buttons)
-  - [Few Pages](#few-pages)
-  - [Many Pages](#many-pages)
-  - [Edge Cases](#edge-cases)
-- [API](#api)
-
 ```tsx
 <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />
 ```

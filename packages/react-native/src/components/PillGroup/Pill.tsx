@@ -6,6 +6,7 @@ import { Icon } from '../Icon';
 import type { PillProps } from './Pill.props';
 import { usePillGroupContext } from './PillGroup.context';
 
+/** A selectable, pressable tag used inside a `PillGroup` for filtering or categorization. */
 export const Pill = ({ value, label, icon, ...props }: PillProps) => {
   const [pressed, setPressed] = useState(false);
   const context = usePillGroupContext();

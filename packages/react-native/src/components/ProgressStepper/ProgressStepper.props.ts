@@ -1,4 +1,5 @@
-import { ViewProps } from 'react-native';
+import { TextProps, ViewProps } from 'react-native';
+import type { MarginProps } from '../../types';
 
 export type StepStatus = 'complete' | 'active' | 'incomplete';
 
@@ -18,6 +19,17 @@ export interface ProgressStepProps extends ViewProps {
    * Current status of the step
    */
   status: StepStatus;
+}
+
+export interface ProgressStepperTextProps extends Omit<TextProps, 'children'>, MarginProps {
+  /**
+   * The current step number (1-indexed)
+   */
+  currentStep: number;
+  /**
+   * The total number of steps
+   */
+  totalSteps: number;
 }
 
 export interface ProgressStepperRootProps extends ViewProps {

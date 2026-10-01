@@ -38,6 +38,8 @@ export interface AccordionProps extends ViewProps {
    * @default false
    */
   contentNoPadding?: boolean;
+  /** Heading text to display above the accordion. */
   heading?: string;
+  /** Helper text to display alongside the heading. */
   helperText?: string;
 }

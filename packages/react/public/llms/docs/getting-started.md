@@ -1,14 +1,6 @@
 # Hearth React
 
-Current version: v0.32.0
-
-- [Install Hearth](#install-hearth)
-- [Import CSS](#import-css)
-- [HearthProvider](#hearthprovider)
-- [Start building](#start-building)
-- [CSS reset](#css-reset)
-- [Portals](#portals)
-- [React DevTools](#react-devtools)
+Current version: v0.34.3
 
 ## Install Hearth
 

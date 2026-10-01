@@ -44,6 +44,10 @@ const getMaxColumnCount = (children: React.ReactNode): number => {
   return maxColumns;
 };
 
+/**
+ * Arranges structured data into rows and columns, with optional pagination beneath the rows.
+ * Scrolls horizontally when the columns need more space than the viewport allows.
+ */
 const Table = ({
   children,
   columnWidths = [],

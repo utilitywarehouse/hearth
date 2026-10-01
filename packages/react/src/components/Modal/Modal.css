@@ -132,7 +132,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
-    align-items: start;
+    align-items: flex-start;
     text-align: center;
 
     @media (--h-tablet) {
@@ -238,11 +238,11 @@
         --h-modal-content-multiplier: 0.5; /* percentage of available height */
       }
 
-      &:where([data-full-screen] &) {
-        --h-modal-content-multiplier: 0.7; /* percentage of available height */
+      &:where(:has(.h-ModalFooter)[data-full-screen] &) {
+        --h-modal-content-multiplier: 0.68; /* percentage of available height */
       }
 
-      max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
+      max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier, 1));
     }
   }
 
@@ -255,7 +255,7 @@
 
     @media (--h-tablet) {
       flex-direction: row;
-      justify-content: end;
+      justify-content: flex-end;
     }
 
     &:where([data-contains-image] &) {

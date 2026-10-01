@@ -25,7 +25,12 @@ const meta: Meta<typeof Menu> = {
 export default meta;
 type Story = StoryObj<typeof Menu>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Menu {...args}>
@@ -57,8 +62,14 @@ export const Playground: Story = {
   },
 };
 
+/** Set defaultOpen to render the Menu already open on mount. */
 export const DefaultOpen: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => {
     return (
@@ -91,7 +102,13 @@ export const DefaultOpen: Story = {
   },
 };
 
+/** Set keepMounted on MenuContent to keep menu items in the DOM even when closed, so they remain crawlable. */
 export const SEOFriendly: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Menu {...args}>
@@ -111,7 +128,13 @@ export const SEOFriendly: Story = {
   },
 };
 
+/** MenuTrigger can wrap an IconButton instead of a Button. */
 export const IconButtonTrigger: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Menu {...args}>
@@ -131,7 +154,16 @@ export const IconButtonTrigger: Story = {
   },
 };
 
+/**
+ * Use a shared handle (from Menu.createHandle) to connect a MenuTrigger to a
+ * Menu that renders elsewhere in the tree, instead of nesting them.
+ */
 export const DetachedTrigger: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex gap="300" alignItems="center">
@@ -155,7 +187,13 @@ export const DetachedTrigger: Story = {
   },
 };
 
+/** MenuContent scrolls once its items exceed the available height. */
 export const ScrollArea: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Menu {...args}>
@@ -175,7 +213,13 @@ export const ScrollArea: Story = {
   },
 };
 
+/** Set placement on MenuContent to control which side of the trigger it opens on. */
 export const Placement: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { modal: false },
   render: args => {
     return (
@@ -229,7 +273,13 @@ export const Placement: Story = {
   },
 };
 
+/** Set modal to false to allow interaction with the rest of the page while the Menu is open. */
 export const Modality: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { modal: false },
   render: args => {
     return (

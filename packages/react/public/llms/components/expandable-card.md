@@ -7,17 +7,8 @@ reveal additional content. Group multiple cards with ExpandableCardGroup.
 For multiple sections of content that need to expand and collapse
 independently as a related set, use Accordion instead.
 
-- [Leading icon](#leading-icon)
-- [Default open](#default-open)
-- [Controlled](#controlled)
-- [ExpandableCardGroup](#expandablecardgroup)
-- [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
-- [API](#api)
-  - [ExpandableCardGroup](#expandablecardgroup-api)
-
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCard {...args}>
     <BodyText size="md">
       This is the expandable content area. It can contain any content you need to show when the card
@@ -86,7 +77,7 @@ approach: the card manages its own open/closed state internally after mount.
 ```
 
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCard
     heading="Heading"
     helperText="This card starts expanded"
@@ -123,7 +114,7 @@ using the `Accordion` component instead, which has built-in support for
 grouping related content.
 
 ```tsx
-<Box width="400px" marginX="auto">
+<Box width="400px">
   <ExpandableCardGroup heading="My services" helperText="Manage your UW services">
     <ExpandableCard
       heading="Broadband"
@@ -219,4 +210,4 @@ This component is based on the `div` element and supports the following common p
 | `heading`         | `string`                       | —       | Actual string to display as section header                          |
 | `helperText`      | `string`                       | —       | Optional helper text to provide additional context or instructions. |
 | `trailingContent` | `ReactNode`                    | —       | Optional trailing content element                                   |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` | —       |                                                                     |
+| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"` | —       | Sets the heading element rendered for the group's `heading`.        |

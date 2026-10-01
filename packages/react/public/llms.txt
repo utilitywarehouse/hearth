@@ -91,6 +91,7 @@
 - [Tabs](llms/components/tabs.md): Use Tabs to organize and navigate between content sections within the same
 - [TextArea](llms/components/text-area.md): Use TextArea for a multi-line text input, such as a comment, message, or
 - [TextInput](llms/components/text-input.md): Use TextInput for a single-line text or data entry field. For passwords,
+- [Timeline](llms/components/timeline.md): Use Timeline to show a sequence of events or steps, each rendered as a
 - [Toast](llms/components/toast.md): Use Toast for a brief, non-intrusive message that provides feedback on an
 - [ToggleButton](llms/components/toggle-button.md): Use ToggleButton as a standalone toggle option within a ToggleGroup, when
 - [ToggleButtonCard](llms/components/toggle-button-card.md): ```tsx

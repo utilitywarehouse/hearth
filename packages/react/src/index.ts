@@ -241,6 +241,8 @@ export type {
 } from './components/ProgressStepper/ProgressStep.props';
 export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
 export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
+export { ProgressStepperText } from './components/ProgressStepper/ProgressStepperText';
+export type { ProgressStepperTextProps } from './components/ProgressStepper/ProgressStepperText.props';
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
@@ -329,3 +331,8 @@ export { Chip } from './components/Chip/Chip';
 export type { ChipProps } from './components/Chip/Chip.props';
 export { ChipGroup } from './components/Chip/ChipGroup';
 export type { ChipGroupProps } from './components/Chip/ChipGroup.props';
+
+export { Timeline } from './components/Timeline/Timeline';
+export type { TimelineProps } from './components/Timeline/Timeline.props';
+export { TimelineItem } from './components/Timeline/TimelineItem';
+export type { TimelineItemProps } from './components/Timeline/TimelineItem.props';

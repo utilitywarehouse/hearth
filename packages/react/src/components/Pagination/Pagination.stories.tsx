@@ -26,7 +26,47 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof Pagination>;
 
+/** Visual matrix of Pagination props. */
+export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
+  render: (
+    args: Pick<PaginationProps, 'currentPage' | 'totalPages' | 'condensed' | 'hideSkipButtons'>
+  ) => {
+    const [currentPage, setCurrentPage] = useState(args.currentPage ?? 1);
+
+    return (
+      <Flex gap="400" direction="column">
+        <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={10}
+          onPageChange={setCurrentPage}
+          condensed
+        />
+        <Pagination
+          currentPage={currentPage}
+          totalPages={10}
+          onPageChange={setCurrentPage}
+          hideSkipButtons
+        />
+        <Pagination currentPage={currentPage} totalPages={7} onPageChange={setCurrentPage} />
+        <Pagination currentPage={currentPage} totalPages={100} onPageChange={setCurrentPage} />
+      </Flex>
+    );
+  },
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   render: (
     args: Pick<PaginationProps, 'currentPage' | 'totalPages' | 'condensed' | 'hideSkipButtons'>
   ) => {
@@ -36,7 +76,13 @@ export const Playground: Story = {
   },
 };
 
+/** Set condensed to show a compact page range with fewer visible page numbers. */
 export const Condensed: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -51,7 +97,13 @@ export const Condensed: Story = {
   },
 };
 
+/** Set hideSkipButtons to remove the first/last page shortcuts. */
 export const WithoutSkip: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -66,7 +118,13 @@ export const WithoutSkip: Story = {
   },
 };
 
+/** With a small totalPages count, every page number is shown without truncation. */
 export const FewPages: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -74,7 +132,13 @@ export const FewPages: Story = {
   },
 };
 
+/** With a large totalPages count, pages are truncated with an ellipsis around the current page. */
 export const ManyPages: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [currentPage, setCurrentPage] = useState(5);
 
@@ -82,7 +146,14 @@ export const ManyPages: Story = {
   },
 };
 
+/** Pagination adapts its truncation near the start, middle, and end of a long page range. */
 export const EdgeCases: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [nearStartPage, setNearStartPage] = useState(2);
     const [nearEndPage, setNearEndPage] = useState(98);

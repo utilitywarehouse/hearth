@@ -41,22 +41,53 @@ const leadingContent = figma.selectedInstance.getBoolean('Leading content?', {
     };
   })(),
 });
+// Each Figma trailing content variant maps to the trailing content and alignment used in code.
+type FCCValue = import('figma').FCCValue;
+type TrailingContentMapping = {
+  content?: FCCValue | import('figma').ResultSection[];
+  alignment?: FCCValue;
+  onPress?: FCCValue;
+};
 const trailingContent = figma.selectedInstance.getBoolean('Trailing Content?', {
-  true: (function () {
+  true: (function (): TrailingContentMapping | undefined {
     const nestedLayer4 = figma.selectedInstance.findInstance('Trailing content');
-    return {
-      variant:
-        nestedLayer4.type !== 'ERROR'
-          ? nestedLayer4.getEnum('Variant', {
-              Link: executeFirstInstanceTemplate(
-                nestedLayer4.findLayers(n => n.type === 'INSTANCE' && n.name === 'Link')
-              ),
-              Button: executeFirstInstanceTemplate(
-                nestedLayer4.findLayers(n => n.type === 'INSTANCE' && n.name === 'Button')
-              ),
-            })
+    if (nestedLayer4.type === 'ERROR') {
+      return undefined;
+    }
+    const transactionLayer = nestedLayer4.findInstance('Transaction');
+    const transactionText =
+      transactionLayer.type !== 'ERROR'
+        ? transactionLayer
+            .findLayers(n => n.type === 'TEXT')
+            .map(n => (n.type === 'TEXT' ? `<BodyText>${n.textContent}</BodyText>` : ''))
+            .join('')
+        : '';
+    const variants: Record<string, TrailingContentMapping> = {
+      // ListItem renders the chevron itself (centred) whenever `onPress` is set.
+      Icon: { onPress: figma.helpers.react.function('() => {}') },
+      Link: {
+        content: executeFirstInstanceTemplate(
+          nestedLayer4.findLayers(n => n.type === 'INSTANCE' && n.name === 'Link')
+        ),
+      },
+      Button: {
+        content: executeFirstInstanceTemplate(
+          nestedLayer4.findLayers(n => n.type === 'INSTANCE' && n.name === 'Button')
+        ),
+      },
+      Switch: {
+        content: executeFirstInstanceTemplate(
+          nestedLayer4.findLayers(n => n.type === 'INSTANCE' && n.name === 'Switch')
+        ),
+      },
+      Transaction: {
+        content: transactionText
+          ? figma.helpers.react.jsxElement(`<>${transactionText}</>`)
           : undefined,
+        alignment: 'center',
+      },
     };
+    return nestedLayer4.getEnum('Variant', variants);
   })(),
 });
 const heading = figma.selectedInstance.getString('List heading');
@@ -80,7 +111,7 @@ const customContent = figma.selectedInstance.getEnum('Variant', {
 
 export default {
   id: 'ListItem',
-  imports: ["import { ListItem } from '@utilitywarehouse/hearth-react-native';"],
+  imports: ["import { BodyText, ListItem } from '@utilitywarehouse/hearth-react-native';"],
   example: customContent
     ? figma.code`<ListItem${figma.helpers.react.renderProp(
         'loading',
@@ -103,7 +134,13 @@ export default {
       )}${figma.helpers.react.renderProp(
         'leadingContent',
         leadingContent?.variant
-      )}${figma.helpers.react.renderProp('trailingContent', trailingContent?.variant)}/>`,
+      )}${figma.helpers.react.renderProp(
+        'trailingContent',
+        trailingContent?.content
+      )}${figma.helpers.react.renderProp(
+        'trailingContentAlignment',
+        trailingContent?.alignment
+      )}${figma.helpers.react.renderProp('onPress', trailingContent?.onPress)}/>`,
   metadata: {
     nestable: true,
     props: {

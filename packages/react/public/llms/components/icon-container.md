@@ -46,15 +46,6 @@ combinations of `colorScheme` and `variant` (e.g. `emphasis` and
 </IconContainer>
 ```
 
-- [Icons](#icons)
-- [Variants](#variants)
-- [Sizes](#sizes)
-- [Color schemes](#color-schemes)
-- [Dead prop combinations](#dead-prop-combinations)
-- [Radius none](#radius-none)
-- [Fill](#fill)
-- [API](#api)
-
 ## Icons
 
 The `IconContainer` component is intended to be used with the `@utilitywarehouse/hearth-react-icons` package.

@@ -86,10 +86,16 @@ const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelP
   const radius = height / 2;
 
   const valueIndex = useMemo(() => {
-    return Math.max(
-      0,
-      items.findIndex(item => item.value === value)
-    );
+    const rawIndex = items.findIndex(item => item.value === value);
+    if (rawIndex === -1) {
+      if (__DEV__) {
+        console.warn(
+          `TimePickerWheel: value "${value}" not found in items [${items.map(item => item.value).join(', ')}]; falling back to index 0.`
+        );
+      }
+      return 0;
+    }
+    return rawIndex;
   }, [items, value]);
 
   const handlePanEnd = useCallback(
@@ -144,10 +150,9 @@ const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelP
     });
   }, [renderCount, valueIndex, items, circular]);
 
-  const currentIndex = Math.max(
-    0,
-    displayValues.findIndex(item => item?.value === value)
-  );
+  // displayValues is centered on valueIndex by construction, so the current item always
+  // sits at the middle index rather than needing a second findIndex/fallback lookup.
+  const currentIndex = Math.floor(renderCount / 2);
 
   return (
     <GestureDetector gesture={panGesture}>

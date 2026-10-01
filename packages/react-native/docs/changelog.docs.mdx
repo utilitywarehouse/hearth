@@ -9,6 +9,212 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.38.0
+
+### Minor Changes
+
+- [#1632](https://github.com/utilitywarehouse/hearth/pull/1632) [`673dae8`](https://github.com/utilitywarehouse/hearth/commit/673dae8fbd970d4e75c6d1ab8668b3a7544c2355) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: `ListItem` parts can be aligned with `leadingContentAlignment`, `contentAlignment` and `trailingContentAlignment`
+
+  Each prop accepts an `alignSelf` value (`'flex-start'`, `'center'`, `'flex-end'`)
+  and sets the vertical alignment of that part. The defaults match the design
+  system: leading content aligns to the top, content is centred, and trailing
+  content aligns to the top. Trailing icons (the default chevron shown when
+  `onPress` is set, or a `ListItemTrailingIcon` passed as `trailingContent`) stay
+  centred.
+
+  **Visual change:** trailing content other than an icon (for example a `Link`,
+  `Button` or `Switch`) now aligns to the top by default instead of being centred.
+  Set `trailingContentAlignment="center"` to keep the previous behaviour, for
+  example for transaction amounts.
+
+  ```tsx
+  <ListItem
+    heading="Coffee Shop"
+    helperText="Apr 5, 2024"
+    trailingContent={<BodyText>-£100.00</BodyText>}
+    trailingContentAlignment="center"
+  />
+  ```
+
+  The Figma Code Connect mapping now covers every `ListItem` trailing content
+  variant (Icon, Link, Button, Switch and Transaction) with its matching alignment.
+
+  **Components affected**:
+
+  - `ListItem`
+
+## 0.37.0
+
+### Minor Changes
+
+- [#1628](https://github.com/utilitywarehouse/hearth/pull/1628) [`d30aefe`](https://github.com/utilitywarehouse/hearth/commit/d30aefe08acf1f32231bb81988e64601b899f34a) Thanks [@jordmccord](https://github.com/jordmccord)! - ✨ [FEAT]: Add `Chip` and `ChipGroup` components
+
+  A compact, removable element for an active filter or attribute, and a
+  wrapping container to group them with an optional label. Matches the
+  `Chip` and `ChipGroup` API in `@utilitywarehouse/hearth-react`, with
+  `onPress` in place of `onClick`.
+
+  ```tsx
+  import { Chip, ChipGroup } from '@utilitywarehouse/hearth-react-native';
+
+  <ChipGroup label="Currently showing:">
+    <Chip onPress={() => removeFilter('gas')}>Gas</Chip>
+    <Chip onPress={() => removeFilter('electricity')}>Electricity</Chip>
+  </ChipGroup>;
+  ```
+
+  **Components affected**:
+
+  - `Chip`
+  - `ChipGroup`
+
+- [#1625](https://github.com/utilitywarehouse/hearth/pull/1625) [`474b289`](https://github.com/utilitywarehouse/hearth/commit/474b2896d844008a2f8d8286aa18badace2565e5) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ListItem` content is now vertically centred by default
+
+  `ListItem` content, numeric value and trailing content are now vertically
+  centred, matching the design system. `ListItemLeadingContent` is aligned to the
+  top by default (`alignSelf: 'flex-start'`), so leading icons stay next to the
+  heading when the helper text wraps.
+
+  🌟 [FEATURE]: `ListItem` parts can be customised with `leadingContentProps`, `contentProps` and `trailingContentProps`
+
+  These props forward `View` props (such as `style`) to each part, so you can
+  override the default alignment without composing the parts yourself.
+
+  ```tsx
+  <ListItem
+    heading="Payments"
+    leadingContent={<ListItemIcon as={PaymentMediumIcon} />}
+    leadingContentProps={{ style: { alignSelf: 'center' } }}
+  />
+  ```
+
+  **Components affected**:
+
+  - `ListItem`
+  - `ListItemLeadingContent`
+
+- [#1626](https://github.com/utilitywarehouse/hearth/pull/1626) [`67d3591`](https://github.com/utilitywarehouse/hearth/commit/67d3591281004d11f678e1c3664935baa582d474) Thanks [@jordmccord](https://github.com/jordmccord)! - ✨ [FEAT]: Add `ProgressStepperText` component
+
+  A condensed "Step X of Y" summary of progress through a multi-step process,
+  as a compact alternative to a full `ProgressStepper`. Matches the
+  `ProgressStepperText` API in `@utilitywarehouse/hearth-react`.
+
+  ```tsx
+  import { ProgressStepperText } from '@utilitywarehouse/hearth-react-native';
+
+  <ProgressStepperText currentStep={1} totalSteps={4} />;
+  ```
+
+  **Components affected**:
+
+  - `ProgressStepperText`
+
+### Patch Changes
+
+- [#1629](https://github.com/utilitywarehouse/hearth/pull/1629) [`23c357d`](https://github.com/utilitywarehouse/hearth/commit/23c357dcf3a510ad551f22006299b1c92c4e5eca) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Extend `piggyPink` with `0`, `100`, and `400` shades
+
+  Adds the missing `piggyPink.0`, `piggyPink.100`, and `piggyPink.400` colour
+  tokens to the React Native token set so consumers can use the full Piggy Pink
+  scale in themes and component styling.
+
+- [#1614](https://github.com/utilitywarehouse/hearth/pull/1614) [`04e9e79`](https://github.com/utilitywarehouse/hearth/commit/04e9e79d4f67b54000fee6ae64983caf49abc5ae) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🐛 [FIX]: `Select` bottom sheet menu had incorrect heading style, spacing, and snap points
+
+  The `menuHeading` text used an oversized `DetailText` style instead of matching
+  the rest of the menu, and an unnecessary safe-area inset wrapper added extra
+  top spacing inside the bottom sheet. The bottom sheet's `snapPoints` also
+  included a `25%` step that doesn't match the design system; it now opens to
+  `40%` or `80%` only.
+
+  **Components affected**:
+
+  - `Select`
+
+## 0.36.3
+
+### Patch Changes
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DatePicker` and `TimePicker` Ok button didn't save the currently shown date or time
+
+  Pressing Ok in the `TimePicker` bottom sheet, or in the `DatePicker` bottom sheet
+  when a date was already selected (e.g. editing an existing record), closed the
+  sheet without calling `onChange` unless the person actively picked a new value
+  first. The currently shown value is now committed when Ok is pressed.
+
+  `DatePicker` in `single`, `range`, and `multiple` mode with nothing selected yet
+  still requires an explicit selection before Ok has anything to commit, so
+  required fields won't silently fill in a default value.
+
+  **Components affected**:
+
+  - `DatePicker`
+  - `TimePicker`
+
+  **Developer changes**:
+
+  No action required. This only changes when `onChange` fires — the signature is
+  unchanged.
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: `DatePickerInput` and `TimePickerInput` can block manual keyboard entry and open the picker on tap
+
+  New `disableManualEntry` prop. When set, the text field no longer accepts
+  keyboard input and tapping anywhere on the field opens the calendar/time
+  picker, instead of only the trailing icon button. This is independent of
+  `disabled`/`readonly`, which still disable the whole field regardless of this
+  prop.
+
+  **Components affected**:
+
+  - `DatePickerInput`
+  - `TimePickerInput`
+
+  **Developer changes**:
+
+  No action required — `disableManualEntry` defaults to `false`, so typing
+  remains available unless you opt in:
+
+  ```tsx
+  <DatePickerInput disableManualEntry value={value} onChange={handleChange} />
+  ```
+
+  ```tsx
+  <TimePickerInput disableManualEntry value={value} onChange={handleChange} />
+  ```
+
+- [#1582](https://github.com/utilitywarehouse/hearth/pull/1582) [`d4a4f5a`](https://github.com/utilitywarehouse/hearth/commit/d4a4f5aa0b057cadcad30081153a1db6270168b7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `TimePicker` hour or minute wheel could render blank or misaligned
+
+  The hour wheel wasn't snapped to a valid option before being handed to the
+  picker, unlike the minute wheel. If the underlying value didn't exactly match
+  one of the wheel's options, the wheel had nothing to scroll to, which could
+  render blank or misaligned on open. The hour is now snapped to the nearest
+  valid option the same way the minute already was.
+
+  **Components affected**:
+
+  - `TimePicker`
+
+  **Developer changes**:
+
+  No action required. If an invalid or out-of-range hour is ever passed in, the
+  wheel now displays the nearest valid hour instead of appearing blank.
+
+## 0.36.2
+
+### Patch Changes
+
+- [#1578](https://github.com/utilitywarehouse/hearth/pull/1578) [`88e436f`](https://github.com/utilitywarehouse/hearth/commit/88e436f3309d6b08a5fd3abd945571fcdbf80570) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `hearth-react-native` skill now defaults to the MCP server over local markdown
+
+  The skill guidance used by AI coding agents building with this package
+  previously defaulted to reading local markdown files for component lookups.
+  It now defaults to the `hearth-react-native` MCP server for component lookups and
+  general/cross-cutting guidance, falling back to markdown only for a specific
+  story's exact code beyond what `get-documentation` or
+  `get-documentation-for-story` already surfaces.
+
+  **Developer changes**:
+
+  No action required — this only affects the guidance given to AI coding
+  agents using this library, not the runtime API.
+
 ## 0.36.1
 
 ### Patch Changes

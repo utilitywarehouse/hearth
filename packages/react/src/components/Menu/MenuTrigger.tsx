@@ -12,6 +12,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type MenuTriggerElement = ComponentRef<'button'>;
 
+/**
+ * Use MenuTrigger to render the element that opens a `Menu`'s `MenuContent`
+ * when activated. Wrap a single `Button` or `IconButton` as its child.
+ *
+ * @summary The trigger element that opens a Menu.
+ */
 export const MenuTrigger = forwardRef<MenuTriggerElement, MenuTriggerProps>(
   ({ className, children, ...props }, ref) => {
     return (

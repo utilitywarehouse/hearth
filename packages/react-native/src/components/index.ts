@@ -12,6 +12,7 @@ export * from './Card';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
+export * from './Chip';
 export * from './Combobox';
 export * from './Container';
 export * from './CurrencyInput';

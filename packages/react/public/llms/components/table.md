@@ -6,12 +6,6 @@ it with TableHeader, TableBody, TableRow, TableHeaderCell, and TableCell.
 Pass `variant` to wrap the table in a Card container; omit it for a minimal,
 unwrapped table.
 
-- [Usage](#usage)
-- [Variants](#variants)
-- [Pagination](#pagination)
-- [Header cells](#header-cells)
-- [API](#api)
-
 ```tsx
 <Table {...args}>
   <TableHeader>
@@ -203,10 +197,10 @@ This component is based on the `th` element and supports the following common pr
 
 - Text Align
 
-| Prop        | Type                                        | Default | Description                                                |
-| ----------- | ------------------------------------------- | ------- | ---------------------------------------------------------- |
-| `row`       | `boolean`                                   | —       |                                                            |
-| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component. |
+| Prop        | Type                                        | Default | Description                                                                             |
+| ----------- | ------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `row`       | `boolean`                                   | —       | Sets `scope="row"` on the cell, marking it as a row header rather than a column header. |
+| `textAlign` | `Responsive<"center" \| "left" \| "right">` | —       | Set the horizontal alignment of text within the component.                              |
 
 ### TableBody API
 

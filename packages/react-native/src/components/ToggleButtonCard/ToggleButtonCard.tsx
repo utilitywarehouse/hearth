@@ -4,6 +4,10 @@ import { useStyleProps } from '../../hooks';
 import ToggleButtonCardRootComponent from './ToggleButtonCardRoot';
 import { useToggleButtonCardGroupContext } from './ToggleButtonCardGroup.context';
 
+/**
+ * A selectable card used as a single option within a `ToggleButtonCardGroup`. Use it to let
+ * users pick one option from a set of predefined choices in forms or surveys.
+ */
 const ToggleButtonCard = ({
   children,
   contentStyle,

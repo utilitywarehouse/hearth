@@ -7,17 +7,6 @@ items. Cards are static by default; wrap an interactive child (a link or
 button) in `CardInteraction` to make the whole card clickable. For
 highlighting key marketing messaging, use HighlightBanner instead.
 
-- [Components](#components)
-- [Alternatives](#alternatives)
-- [Variant](#variant)
-- [Color Scheme](#color-scheme)
-- [Grouping related cards](#grouping-related-cards)
-- [Interactive Cards](#interactive-cards)
-  - [Shadow colours](#shadow-colours)
-- [Card Actions](#card-actions)
-- [Banners](#banners)
-- [API](#api)
-
 ```tsx
 <Card {...args} width="400px" marginX="auto">
   <BodyText size="md">{children}</BodyText>
@@ -554,7 +543,7 @@ additional content in a `CardContent` component. If necessary, you can set the
     </CardActions>
   </Card>
   <Card {...args}>
-    <CardContent direction="column" spacing="lg">
+    <CardContent direction="column" spacing="lg" paddingBottomNone>
       <Heading size="md" as="h2">
         Your December bill
       </Heading>
@@ -802,36 +791,36 @@ This component is based on the `ul` element and supports the following common pr
 | Prop        | Type                            | Default | Description                                                                                      |
 | ----------- | ------------------------------- | ------- | ------------------------------------------------------------------------------------------------ |
 | `as`        | `"ul" \| "ol"`                  | `ul`    | Shorthand for changing the default rendered element into a semantically appropriate alternative. |
-| `direction` | `Responsive<"column" \| "row">` | —       |                                                                                                  |
+| `direction` | `Responsive<"column" \| "row">` | `row`   | Sets the direction actions are laid out in.                                                      |
 
 ### CardActionLink API
 
 This component is based on the `a` element.
 
-| Prop                              | Type                                                                                       | Default    | Description                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------ | ---------- | ------------------------------------------------------------------- |
-| `heading`                         | `string`                                                                                   | —          |                                                                     |
-| `helperText`                      | `string`                                                                                   | —          | Optional helper text to provide additional context or instructions. |
-| `leadingIcon`                     | `ReactNode`                                                                                | —          |                                                                     |
-| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —          |                                                                     |
-| `trailingIcon`                    | `ReactNode`                                                                                | —          |                                                                     |
-| `badge`                           | `ReactNode`                                                                                | —          |                                                                     |
-| `badgePlacement`                  | `"middle" \| "bottom" \| "right"`                                                          | `'bottom'` | Placement of the badge element                                      |
-| `asChild`                         | `boolean`                                                                                  | —          |                                                                     |
+| Prop                              | Type                                                                                       | Default    | Description                                                                                                                               |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                   | —          | The action's heading text.                                                                                                                |
+| `helperText`                      | `string`                                                                                   | —          | Optional helper text to provide additional context or instructions.                                                                       |
+| `leadingIcon`                     | `ReactNode`                                                                                | —          | Optional icon shown at the start of the action.                                                                                           |
+| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —          | Sets the colour scheme of the container rendered around `leadingIcon`. When unset, `leadingIcon` renders without a container.             |
+| `trailingIcon`                    | `ReactNode`                                                                                | —          | Optional icon shown at the end of the action. Defaults to a chevron icon when not set.                                                    |
+| `badge`                           | `ReactNode`                                                                                | —          | Optional badge shown alongside the action.                                                                                                |
+| `badgePlacement`                  | `"middle" \| "bottom" \| "right"`                                                          | `'bottom'` | Placement of the badge element                                                                                                            |
+| `asChild`                         | `boolean`                                                                                  | —          | Merges the component's props onto its immediate child instead of rendering its own `a` element, so the child determines the rendered tag. |
 
 ### CardActionButton API
 
 This component is based on the `button` element.
 
-| Prop                              | Type                                                                                       | Default    | Description                                                         |
-| --------------------------------- | ------------------------------------------------------------------------------------------ | ---------- | ------------------------------------------------------------------- |
-| `heading`                         | `string`                                                                                   | —          |                                                                     |
-| `helperText`                      | `string`                                                                                   | —          | Optional helper text to provide additional context or instructions. |
-| `leadingIcon`                     | `ReactNode`                                                                                | —          |                                                                     |
-| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —          |                                                                     |
-| `trailingIcon`                    | `ReactNode`                                                                                | —          |                                                                     |
-| `badge`                           | `ReactNode`                                                                                | —          |                                                                     |
-| `badgePlacement`                  | `"middle" \| "bottom" \| "right"`                                                          | `'bottom'` | Placement of the badge element                                      |
+| Prop                              | Type                                                                                       | Default    | Description                                                                                                                   |
+| --------------------------------- | ------------------------------------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                   | —          | The action's heading text.                                                                                                    |
+| `helperText`                      | `string`                                                                                   | —          | Optional helper text to provide additional context or instructions.                                                           |
+| `leadingIcon`                     | `ReactNode`                                                                                | —          | Optional icon shown at the start of the action.                                                                               |
+| `leadingIconContainerColorScheme` | `"energy" \| "mobile" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | —          | Sets the colour scheme of the container rendered around `leadingIcon`. When unset, `leadingIcon` renders without a container. |
+| `trailingIcon`                    | `ReactNode`                                                                                | —          | Optional icon shown at the end of the action. Defaults to a chevron icon when not set.                                        |
+| `badge`                           | `ReactNode`                                                                                | —          | Optional badge shown alongside the action.                                                                                    |
+| `badgePlacement`                  | `"middle" \| "bottom" \| "right"`                                                          | `'bottom'` | Placement of the badge element                                                                                                |
 
 ### CardContent API
 
@@ -891,7 +880,7 @@ This component is based on the `Card` component, supporting the same props excep
 | `zIndex`            | `Responsive<string>`                                                                                                                                                                                       | —           | Set the stack order of a positioned component relative to its siblings.                                                                                   |
 | `paddingNone`       | `boolean`                                                                                                                                                                                                  | —           | Remove padding                                                                                                                                            |
 | `shadowColor`       | `"brand" \| "mobile" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "functional"`                                                                                                     | —           | Sets the card shadow colour                                                                                                                               |
-| `paddingBottomNone` | `boolean`                                                                                                                                                                                                  | —           |                                                                                                                                                           |
+| `paddingBottomNone` | `boolean`                                                                                                                                                                                                  | —           | Removes the bottom padding, useful when `CardActions` sits directly below with no additional spacing needed.                                              |
 
 ### CardBannerContent API
 
@@ -981,5 +970,5 @@ This component is based on the `Flex` component.
 | `textAlign`                   | `Responsive<"center" \| "right" \| "left">`                                                                                                                                                                | —           | Set the horizontal alignment of text within the component.                                                                                                |
 | `textTransform`               | `"none" \| "uppercase" \| "lowercase" \| "capitalize"`                                                                                                                                                     | —           | Set the text-transform on the component.                                                                                                                  |
 | `zIndex`                      | `Responsive<string>`                                                                                                                                                                                       | —           | Set the stack order of a positioned component relative to its siblings.                                                                                   |
-| `heading`                     | `string`                                                                                                                                                                                                   | —           |                                                                                                                                                           |
-| `description`                 | `string`                                                                                                                                                                                                   | —           |                                                                                                                                                           |
+| `heading`                     | `string`                                                                                                                                                                                                   | —           | The banner's heading text.                                                                                                                                |
+| `description`                 | `string`                                                                                                                                                                                                   | —           | Supporting text shown below the heading.                                                                                                                  |

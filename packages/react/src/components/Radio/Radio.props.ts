@@ -2,9 +2,8 @@ import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { LabelProps } from '../Label/Label.props';
 
-export interface RadioProps extends Omit<
-  ComponentPropsWithRef<typeof RadioGroupPrimitive.RadioGroupItem>,
-  'disabled'
+export interface RadioProps extends ComponentPropsWithRef<
+  typeof RadioGroupPrimitive.RadioGroupItem
 > {
   /**
    * Merges the component's props onto its immediate child instead of

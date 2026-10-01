@@ -1,4 +1,5 @@
-import { vi } from 'vitest';
+import { afterEach, vi } from 'vitest';
+import { throwPendingNativeViolations } from './a11y/pending';
 
 // react-native-unistyles/mocks relies on Jest globals.
 if (!(globalThis as { jest?: unknown }).jest) {
@@ -29,3 +30,7 @@ StyleSheet.configure({
     adaptiveThemes: false,
   },
 });
+
+// Runs after each story (including addon-a11y's axe check), so native violations are
+// reported alongside axe ones. See .storybook/a11y/pending.ts.
+afterEach(throwPendingNativeViolations);

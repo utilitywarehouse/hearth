@@ -1,5 +1,48 @@
 # @utilitywarehouse/hearth-svg-icons
 
+## 0.9.4
+
+### Patch Changes
+
+- [#1617](https://github.com/utilitywarehouse/hearth/pull/1617) [`8235653`](https://github.com/utilitywarehouse/hearth/commit/823565390334f115f8625f3cbe65310fbfc97a2e) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - DevicesSmallIcon
+  - MicrophoneOffSmallIcon
+  - MicrophoneOnSmallIcon
+  - SpeakerSmallIcon
+  - ReduceNoiseSmallIcon
+  - DevicesMediumIcon
+  - MicrophoneOffMediumIcon
+  - MicrophoneOnMediumIcon
+  - PanelLeftMediumIcon
+  - PanelBottomMediumIcon
+  - ReduceNoiseMediumIcon
+  - SpeakerMediumIcon
+
+  ## CHANGED ICONS
+  - ChatMediumIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
+## 0.9.3
+
+### Patch Changes
+
+- [#1599](https://github.com/utilitywarehouse/hearth/pull/1599) [`5a1987a`](https://github.com/utilitywarehouse/hearth/commit/5a1987abbb8e8a0f75275bcb35c65b13e8a31a79) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - RobotSmallIcon
+  - RobotMediumIcon
+
+  ## CHANGED ICONS
+
+  No changed icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.9.2
 
 ### Patch Changes

@@ -12,6 +12,11 @@ const RadioCardIndicator = RadioCardIndicatorComponent;
 const RadioCardIcon = RadioCardIconComponent;
 const RadioCardLabel = RadioCardLabelComponent;
 
+/**
+ * A card-style single-choice selection control, rendered inside a `RadioCardGroup`. Use it when
+ * options need more visual weight or supporting content than a plain `Radio`.
+ * @summary A card-style single-choice selection control for use inside a RadioCardGroup.
+ */
 const RadioCard = ({
   children,
   label,

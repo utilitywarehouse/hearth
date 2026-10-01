@@ -5,7 +5,7 @@ element by default, styled as `BodyText`. Set `variant="heading"` to style
 it as a `Heading` instead, for labels that need more visual weight.
 
 ```tsx
-<Label marginTop="300">Label</Label>
+<Label>Label</Label>
 ```
 
 ## API

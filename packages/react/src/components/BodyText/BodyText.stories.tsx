@@ -29,8 +29,17 @@ const meta: Meta<typeof BodyText> = {
 export default meta;
 type Story = StoryObj<typeof BodyText>;
 
+/**
+ * Visual matrix of every BodyText size and weight combination — used for docs
+ * and Chromatic snapshot testing, not a usage reference.
+ */
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="100">
@@ -75,9 +84,20 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Playground: Story = {};
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+};
 
+/** Set size to sm, md, lg, or xl, or pass a responsive object to size differently per breakpoint. */
 export const TextSizes: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Sizes',
   render: () => {
     return (
@@ -93,7 +113,12 @@ export const TextSizes: Story = {
   },
 };
 
+/** Set weight to regular, semibold, or bold, or pass a responsive object to weight differently per breakpoint. */
 export const TextWeights: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Weights',
   render: () => {
     return (
@@ -109,7 +134,13 @@ export const TextWeights: Story = {
   },
 };
 
+/** Set color to apply a semantic text colour. */
 export const Colours: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="column" width="fit-content">
@@ -127,7 +158,13 @@ export const Colours: Story = {
   },
 };
 
+/** Set truncate to stop text wrapping and clip overflow with an ellipsis. */
 export const TextTruncate: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   name: 'Truncate',
   args: {
     truncate: true,
@@ -146,7 +183,12 @@ export const TextTruncate: Story = {
   },
 };
 
+/** Set color to inverted for text on a brand-coloured background. */
 export const InvertedText: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: {
     color: 'inverted',
   },
@@ -161,7 +203,14 @@ export const InvertedText: Story = {
   },
 };
 
+/** Set paragraphSpacing to add a bottom margin between paragraphs of text. */
 export const ParagraphSpacing: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  name: 'Paragraph Spacing',
   args: {
     truncate: true,
     weight: 'regular',
