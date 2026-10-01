@@ -31,9 +31,10 @@ const ListItemRoot = ({
   leadingContentProps,
   contentProps,
   trailingContentProps,
-  leadingContentAlignment = 'flex-start',
-  contentAlignment = 'center',
+  leadingContentAlignment,
+  contentAlignment,
   trailingContentAlignment,
+  alignItems,
   ...props
 }: ListItemProps) => {
   const { onPress } = props;
@@ -73,12 +74,15 @@ const ListItemRoot = ({
   const isTrailingIcon =
     showDefaultTrailingIcon ||
     (isValidElement(trailingContent) && trailingContent.type === ListItemTrailingIcon);
+  // Part-specific alignment props win over `alignItems`, which wins over the defaults.
+  const resolvedLeadingAlignment = leadingContentAlignment ?? alignItems ?? 'flex-start';
+  const resolvedContentAlignment = contentAlignment ?? alignItems ?? 'center';
   const resolvedTrailingAlignment =
-    trailingContentAlignment ?? (isTrailingIcon ? 'center' : 'flex-start');
+    trailingContentAlignment ?? alignItems ?? (isTrailingIcon ? 'center' : 'flex-start');
 
   // Alignment props come first so `style` passed through the part props still overrides them.
-  const leadingContentStyle = [{ alignSelf: leadingContentAlignment }, leadingContentProps?.style];
-  const contentStyle = [{ alignSelf: contentAlignment }, contentProps?.style];
+  const leadingContentStyle = [{ alignSelf: resolvedLeadingAlignment }, leadingContentProps?.style];
+  const contentStyle = [{ alignSelf: resolvedContentAlignment }, contentProps?.style];
   const trailingContentStyle = [
     { alignSelf: resolvedTrailingAlignment },
     trailingContentProps?.style,
@@ -123,6 +127,7 @@ const ListItemRoot = ({
         testID={loadingTestID}
         style={state => [
           styles.container,
+          alignItems ? { alignItems } : undefined,
           (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
         ]}
         disabled={isDisabled}
@@ -152,6 +157,7 @@ const ListItemRoot = ({
         testID={testID}
         style={state => [
           styles.container,
+          alignItems ? { alignItems } : undefined,
           (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
         ]}
         disabled={isDisabled}

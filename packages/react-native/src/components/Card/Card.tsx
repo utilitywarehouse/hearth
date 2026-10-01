@@ -30,6 +30,7 @@ const Card = ({
   space,
   disabled = false,
   onPress,
+  direction,
   ...rest
 }: CardProps) => {
   const [active, setActive] = useState(false);
@@ -123,6 +124,8 @@ const Card = ({
         disabled={disabled}
         style={state => [
           styles.card,
+          // Before `computedStyles` so an explicit `flexDirection` wins.
+          direction ? { flexDirection: direction } : undefined,
           computedStyles,
           (typeof style === 'function' ? style(state) : style) as ViewStyle,
         ]}
