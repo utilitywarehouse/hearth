@@ -1,5 +1,4 @@
 import { DimensionValue, Platform } from 'react-native';
-import { colors, colorsCommon, colorsDark } from '../legacyTokens';
 import {
   borderRadius,
   borderWidth,
@@ -291,15 +290,6 @@ export const lightTheme = {
   colorMode: 'light',
   isLight: true,
   isDark: false,
-  /**
-   * @deprecated This will be removed in the next major version. This is kept for backward compatibility
-   */
-  colors: {
-    ...colors,
-    ...colorsCommon,
-    white: '#ffffff',
-    black: '#000000',
-  },
   color: {
     ...restOfColors,
     ...light,
@@ -344,21 +334,6 @@ export const darkTheme = {
   colorMode: 'dark',
   isLight: false,
   isDark: true,
-  /**
-   * @deprecated This will be removed in the next major version. This is kept for backward compatibility.
-   */
-  colors: {
-    ...colorsDark,
-    ...colorsCommon,
-    /**
-     * @deprecated This will be removed in the next major version. This is kept for backward compatibility.
-     */
-    white: '#ffffff',
-    /**
-     * @deprecated This will be removed in the next major version. This is kept for backward compatibility.
-     */
-    black: '#000000',
-  },
   color: {
     ...restOfColors,
     ...dark,
