@@ -1,10 +1,5 @@
 import { forwardRef } from 'react';
-import {
-  NativeSyntheticEvent,
-  TextInput as RNTextInput,
-  TextInputFocusEventData,
-  TextInputProps,
-} from 'react-native';
+import { BlurEvent, FocusEvent, TextInput as RNTextInput, TextInputProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { useTextareaContext } from './Textarea.context';
@@ -16,12 +11,12 @@ const TextareaField = forwardRef<RNTextInput, TextInputProps>(
 
     const resolvedEditable = editable !== undefined ? editable : !(disabled || readonly);
 
-    const handleFocus = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const handleFocus = (event: FocusEvent) => {
       setFocused?.(true);
       onFocus?.(event);
     };
 
-    const handleBlur = (event: NativeSyntheticEvent<TextInputFocusEventData>) => {
+    const handleBlur = (event: BlurEvent) => {
       setFocused?.(false);
       onBlur?.(event);
     };

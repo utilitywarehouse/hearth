@@ -229,7 +229,7 @@ const Input = forwardRef<TextInput, InputProps>(
                 type={fieldType}
                 inputMode={getInputMode}
                 inBottomSheet={inBottomSheet}
-                {...props}
+                {...(props as InputWithoutChildrenProps)}
                 aria-label={accessibilityLabel}
                 accessibilityHint={accessibilityHint}
               />
