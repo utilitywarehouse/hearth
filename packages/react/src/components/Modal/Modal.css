@@ -31,7 +31,10 @@
     border-bottom-right-radius: var(--h-modal-border-radius);
     width: var(--h-modal-width-tablet);
     height: 100%;
-    max-height: 90vh;
+    max-height: 90dvh;
+    @supports not (height: 100dvh) {
+      height: calc(80vh);
+    }
   }
 
   @media (--h-desktop) {
@@ -39,7 +42,12 @@
   }
 
   &:where([data-contains-image], [data-full-screen]) {
-    height: calc(100vh - 20px);
+    /* The 'dvh' unit accounts for the browser's UI bars */
+    height: calc(100dvh - 20px);
+    /* Fallback for older browsers that don't support dvh */
+    @supports not (height: 100dvh) {
+      height: calc(100vh - 80px);
+    }
   }
 
   &:where([data-contains-image]):not([data-full-screen]) {

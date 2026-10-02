@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-🐛 [FIX]: Full-screen `Modal` left excess space below a single-button footer
+🐛 [FIX]: Excess space below a full-screen `Modal` with a single-button footer
 
 The scrollable content area in a full-screen `Modal` reserved a fixed
 proportion of the viewport height for the header and footer on mobile,
