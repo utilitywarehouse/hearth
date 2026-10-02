@@ -113,7 +113,7 @@ export const WithLongHeading: Story = {
     heading:
       'Your account with BT is either closed or has no live broadband or home phone services',
     description:
-      'BT have told us you don’t have an active service at this address, so we don’t need to let them know you’re switching. We’ll get you up and running with UW broadband as fast as we can.',
+      "BT have told us you don’t have an active service at this address, so we don't need to let them know you're switching. We'll get you up and running with UW broadband as fast as we can.",
   },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -206,7 +206,7 @@ export const WithLongHeadingAndHideCloseButton: Story = {
 export const WithImage: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    controls: { disable: true },
+    // controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
   },
@@ -389,10 +389,129 @@ export const WithCard: Story = {
 export const WithLongContent: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    controls: { disable: true },
+    // controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
   },
+  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <ModalContent>
+          <BodyText paragraphSpacing size="md">
+            <Strong>Cheapest variable energy:</Strong> when you take energy and two other eligible
+            bundle services vs standard variable tariffs offered by major suppliers (large and
+            medium suppliers as defined by Ofgem), for sale nationally, excl. existing customer
+            tariffs. Based on Ofgem&apos;s typical domestic usage. Payment by Direct Debit. Correct
+            as of 13/10/2025. Contact us to verify.{' '}
+            <InlineLink href="#">See UW terms and conditions.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>UW Price Pledge:</Strong> Eligible new customers (from 22/04/24) who take 3 or
+            more qualifying services and regularly use their Cashback Card. If a customer
+            doesn&apos;t save with UW (incl. Cashback) in their first year vs their previous
+            provider (or cheapest major provider where applicable), they can apply to claim the UW
+            Price Pledge between 12 - 15 months after their sign-up date; the pledge & no exit fees
+            only applies to qualifying services taken at sign-up. When you claim, we&apos;ll assume
+            an average Cashback Card saving of £160 a year (based on customer usage data from
+            03.04.23 to 31.03.24, for users who earned Cashback at least at least once a week,
+            excluding promotional activities) or your actual Cashback saving if higher. Full
+            details, eligibility and terms available <InlineLink href="#">here.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>£400 to help you switch:</Strong> When you take a 3 or 4+ Service Bundle,
+            we&apos;ll give you credit up to £400 towards any termination fees (excluding Home
+            Insurance) you have to pay your current providers. You&apos;ll need to return any
+            equipment and pay for services you used before you cancel. Additional requirements apply
+            to customers who are tenants. Further terms apply see our Residential Products and
+            Services <InlineLink href="#">terms and conditions.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>Cheapest variable energy:</Strong> when you take energy and two other eligible
+            bundle services vs standard variable tariffs offered by major suppliers (large and
+            medium suppliers as defined by Ofgem), for sale nationally, excl. existing customer
+            tariffs. Based on Ofgem&apos;s typical domestic usage. Payment by Direct Debit. Correct
+            as of 13/10/2025. Contact us to verify.{' '}
+            <InlineLink href="#">See UW terms and conditions.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>UW Price Pledge:</Strong> Eligible new customers (from 22/04/24) who take 3 or
+            more qualifying services and regularly use their Cashback Card. If a customer
+            doesn&apos;t save with UW (incl. Cashback) in their first year vs their previous
+            provider (or cheapest major provider where applicable), they can apply to claim the UW
+            Price Pledge between 12 - 15 months after their sign-up date; the pledge & no exit fees
+            only applies to qualifying services taken at sign-up. When you claim, we&apos;ll assume
+            an average Cashback Card saving of £160 a year (based on customer usage data from
+            03.04.23 to 31.03.24, for users who earned Cashback at least at least once a week,
+            excluding promotional activities) or your actual Cashback saving if higher. Full
+            details, eligibility and terms available <InlineLink href="#">here.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>£400 to help you switch:</Strong> When you take a 3 or 4+ Service Bundle,
+            we&apos;ll give you credit up to £400 towards any termination fees (excluding Home
+            Insurance) you have to pay your current providers. You&apos;ll need to return any
+            equipment and pay for services you used before you cancel. Additional requirements apply
+            to customers who are tenants. Further terms apply see our Residential Products and
+            Services <InlineLink href="#">terms and conditions.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>Cheapest variable energy:</Strong> when you take energy and two other eligible
+            bundle services vs standard variable tariffs offered by major suppliers (large and
+            medium suppliers as defined by Ofgem), for sale nationally, excl. existing customer
+            tariffs. Based on Ofgem&apos;s typical domestic usage. Payment by Direct Debit. Correct
+            as of 13/10/2025. Contact us to verify.{' '}
+            <InlineLink href="#">See UW terms and conditions.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>UW Price Pledge:</Strong> Eligible new customers (from 22/04/24) who take 3 or
+            more qualifying services and regularly use their Cashback Card. If a customer
+            doesn&apos;t save with UW (incl. Cashback) in their first year vs their previous
+            provider (or cheapest major provider where applicable), they can apply to claim the UW
+            Price Pledge between 12 - 15 months after their sign-up date; the pledge & no exit fees
+            only applies to qualifying services taken at sign-up. When you claim, we&apos;ll assume
+            an average Cashback Card saving of £160 a year (based on customer usage data from
+            03.04.23 to 31.03.24, for users who earned Cashback at least at least once a week,
+            excluding promotional activities) or your actual Cashback saving if higher. Full
+            details, eligibility and terms available <InlineLink href="#">here.</InlineLink>
+          </BodyText>
+          <BodyText paragraphSpacing size="md">
+            <Strong>£400 to help you switch:</Strong> When you take a 3 or 4+ Service Bundle,
+            we&apos;ll give you credit up to £400 towards any termination fees (excluding Home
+            Insurance) you have to pay your current providers. You&apos;ll need to return any
+            equipment and pay for services you used before you cancel. Additional requirements apply
+            to customers who are tenants. Further terms apply see our Residential Products and
+            Services <InlineLink href="#">terms and conditions.</InlineLink>
+          </BodyText>
+        </ModalContent>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+/** Set fullScreen with long content inside ModalContent to enable internal scrolling on mobile. */
+export const WithLongContentOnMobile: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    // controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  globals: { viewport: { value: 'mobile' } },
   args: { heading: 'Tariff details', description: undefined, fullScreen: true },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -595,11 +714,12 @@ export const WithLongContentAndImage: Story = {
   tags: ['!test'],
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
-    controls: { disable: true },
+    // controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
   },
-  globals: { viewport: { value: 'mobile' } },
+  args: { fullScreen: true },
+  // globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -632,6 +752,48 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
+/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
+export const WithLongContentAndImageOnMobile: Story = {
+  tags: ['!test'],
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    // controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { fullScreen: true },
+  globals: { viewport: { value: 'mobile' } },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+        <ModalContent>
+          <List variant="emphasis" colorScheme="neutralStrong">
+            {Array.from({ length: 50 }, (_, i) => (
+              <ListItem key={i}>
+                <ListItemContent heading={`Heading ${i + 1}`} helperText="Description" />
+              </ListItem>
+            ))}
+          </List>
+        </ModalContent>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
 export const WithoutFooter: Story = {
   tags: ['!test'],
   parameters: {
