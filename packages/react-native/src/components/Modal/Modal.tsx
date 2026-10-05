@@ -53,6 +53,7 @@ const Modal = ({
   closeButtonProps,
   stickyFooter = true,
   closeOnBackdropPress,
+  backdrop,
   testID,
   ...props
 }: ModalProps) => {
@@ -121,6 +122,13 @@ const Modal = ({
     ),
     []
   );
+  // Only the default backdrop is affected; `false` or a custom backdrop takes precedence.
+  const resolvedBackdrop =
+    backdrop === undefined || backdrop === true
+      ? shouldCloseOnBackdropPress
+        ? true
+        : renderNonClosingBackdrop
+      : backdrop;
 
   const handleStickyFooterLayout = useCallback((event: LayoutChangeEvent) => {
     const nextHeight = Math.ceil(event.nativeEvent.layout.height);
@@ -296,7 +304,7 @@ const Modal = ({
         snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
         showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
         accessible={false}
-        backdrop={shouldCloseOnBackdropPress ? undefined : renderNonClosingBackdrop}
+        backdrop={resolvedBackdrop}
         style={styles.modal}
         footerComponent={stickyFooter && shouldShowFooter ? renderFooter : undefined}
         {...props}

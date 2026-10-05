@@ -42,6 +42,7 @@ const Modal = ({
   secondaryButtonProps,
   closeButtonProps,
   closeOnBackdropPress,
+  backdrop,
   testID,
   ...props
 }: ModalProps) => {
@@ -96,6 +97,13 @@ const Modal = ({
     ),
     []
   );
+  // Only the default backdrop is affected; `false` or a custom backdrop takes precedence.
+  const resolvedBackdrop =
+    backdrop === undefined || backdrop === true
+      ? shouldCloseOnBackdropPress
+        ? true
+        : renderNonClosingBackdrop
+      : backdrop;
 
   const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
@@ -210,7 +218,7 @@ const Modal = ({
       snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
       showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
       accessible={false}
-      backdrop={shouldCloseOnBackdropPress ? undefined : renderNonClosingBackdrop}
+      backdrop={resolvedBackdrop}
       {...props}
       onChange={handleChange}
     >

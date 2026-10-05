@@ -4,12 +4,12 @@
 
 🐛 [FIX]: `Modal` can be dismissed by pressing the backdrop while `loading`
 
-The `Modal` now ignores backdrop presses while `loading` is `true`, so people
-can no longer close a loading modal themselves.
+The `Modal` now ignores backdrop presses while `loading` is `true`.
 
 A new `closeOnBackdropPress` prop controls this behaviour. It defaults to
 `true`, or `false` while `loading`. A custom `backdrop` takes precedence over
-this prop.
+this prop. Other ways to close the modal, such as swiping down or the Android
+back button, are unchanged.
 
 **Components affected**:
 - `Modal`

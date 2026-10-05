@@ -259,7 +259,7 @@ export const Loading = args => {
   );
 };
 
-/** Backdrop presses are ignored while `loading`, so people cannot dismiss the modal themselves. */
+/** Backdrop presses are ignored while `loading`. */
 export const LoadingIgnoresBackdropPress: Story = {
   parameters: {
     controls: { disable: true },
@@ -309,12 +309,7 @@ export const CloseOnBackdropPressDisabled: Story = {
       <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
         <ViewWrap>
           <Button onPress={() => modalRef.current?.present()}>Open Modal</Button>
-          <Modal
-            ref={modalRef}
-            heading="Modal Heading"
-            closeOnBackdropPress={false}
-           
-          />
+          <Modal ref={modalRef} heading="Modal Heading" closeOnBackdropPress={false} />
         </ViewWrap>
       </View>
     );
