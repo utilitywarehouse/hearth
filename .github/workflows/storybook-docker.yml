@@ -65,3 +65,38 @@ jobs:
           labels: ${{ steps.metadata.outputs.labels }}
           secrets: |
             npm_token=${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+  # The deployment runs the mutable `:main` tag with `imagePullPolicy: Always`,
+  # so restarting it is enough to pick up the image pushed above.
+  restart-storybook:
+    name: Restart prod deployment
+    needs: build-and-push-storybook
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Internal runner with access to the prod-aws Kubernetes API
+    runs-on: system-prod-aws
+    concurrency:
+      group: storybook-restart
+      cancel-in-progress: false
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      # Uses the runner's prod-aws cluster config, authenticated as the
+      # storybook-github-actions service account in design-systems.
+      - name: Restart storybook deployment
+        env:
+          K8S_TOKEN: ${{ secrets.K8S_PROD_AWS_STORYBOOK_TOKEN }}
+        run: |
+          set -euo pipefail
+          k() { kubectl --context prod-aws --namespace design-systems --token "$K8S_TOKEN" "$@"; }
+
+          k rollout restart deployment/storybook
+
+          if ! k rollout status deployment/storybook --timeout=600s; then
+            echo "::error::storybook rollout failed or timed out"
+            k get deployment storybook -o wide || true
+            k get pods -l app=storybook -o wide || true
+            exit 1
+          fi
