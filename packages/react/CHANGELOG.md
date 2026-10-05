@@ -1,5 +1,18 @@
 # @utilitywarehouse/hearth-react
 
+## 0.34.4
+
+### Patch Changes
+
+- [#1633](https://github.com/utilitywarehouse/hearth/pull/1633) [`189ee8c`](https://github.com/utilitywarehouse/hearth/commit/189ee8c2302ab5ef8a456742cf52b971f5cd6605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Excess space below a full-screen `Modal` with a single-button footer
+  
+  The scrollable content area in a full-screen `Modal` reserved a fixed
+  proportion of the viewport height for the header and footer on mobile,
+  assuming a two-button footer. With a single-button footer this left a large
+  gap between the button and the bottom of the modal. Content now fills
+  whatever space remains after the header and footer, regardless of how many
+  buttons the footer has.
+
 ## 0.34.3
 
 ### Patch Changes
