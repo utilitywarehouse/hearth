@@ -10,6 +10,9 @@ type ModalBaseProps = Omit<BottomSheetProps, 'children'> &
     /** Whether the modal should take up the full screen height.
      * @default false */
     fullscreen?: boolean;
+    /** Whether pressing the backdrop closes the modal. Ignored when a custom `backdrop` is provided.
+     * @default true, or false while `loading` */
+    closeOnBackdropPress?: boolean;
   };
 
 type ModalProps =

@@ -1,5 +1,6 @@
 import {
   BottomSheetFooter,
+  BottomSheetBackdropProps,
   BottomSheetFooterProps,
   BottomSheetScrollViewMethods,
   SNAP_POINT_TYPE,
@@ -12,6 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
+import BottomSheetBackdrop from '../BottomSheet/BottomSheetBackdrop';
 import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -50,6 +52,7 @@ const Modal = ({
   secondaryButtonProps,
   closeButtonProps,
   stickyFooter = true,
+  closeOnBackdropPress,
   testID,
   ...props
 }: ModalProps) => {
@@ -110,6 +113,14 @@ const Modal = ({
       bottomSheetModalRef.current?.dismiss();
     }
   }, [closeOnSecondaryButtonPress, onPressSecondaryButton]);
+
+  const shouldCloseOnBackdropPress = closeOnBackdropPress ?? !loading;
+  const renderNonClosingBackdrop = useCallback(
+    (backdropProps: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop {...backdropProps} pressBehavior="none" />
+    ),
+    []
+  );
 
   const handleStickyFooterLayout = useCallback((event: LayoutChangeEvent) => {
     const nextHeight = Math.ceil(event.nativeEvent.layout.height);
@@ -285,6 +296,7 @@ const Modal = ({
         snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
         showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
         accessible={false}
+        backdrop={shouldCloseOnBackdropPress ? undefined : renderNonClosingBackdrop}
         style={styles.modal}
         footerComponent={stickyFooter && shouldShowFooter ? renderFooter : undefined}
         {...props}

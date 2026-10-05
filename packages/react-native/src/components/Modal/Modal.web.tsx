@@ -1,11 +1,16 @@
-import { BottomSheetScrollViewMethods, SNAP_POINT_TYPE } from '@gorhom/bottom-sheet';
+import {
+  BottomSheetBackdropProps,
+  BottomSheetScrollViewMethods,
+  SNAP_POINT_TYPE,
+} from '@gorhom/bottom-sheet';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useImperativeHandle, useRef } from 'react';
-import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
+import { useCallback, useImperativeHandle, useRef } from 'react';
+import { AccessibilityInfo, Platform, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
+import BottomSheetBackdrop from '../BottomSheet/BottomSheetBackdrop';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
 import { Spinner } from '../Spinner';
@@ -36,6 +41,7 @@ const Modal = ({
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
+  closeOnBackdropPress,
   testID,
   ...props
 }: ModalProps) => {
@@ -53,17 +59,6 @@ const Modal = ({
       setTimeout(() => {
         // Announce the modal opening to screen readers
         AccessibilityInfo.announceForAccessibility('Modal opened.');
-
-        const scrollViewTargetRef = scrollViewRef.current?.getInnerViewNode();
-        const targetRef = viewRef.current;
-        if ((Platform.OS === 'android' && targetRef) || scrollViewTargetRef) {
-          const nodeHandle = findNodeHandle(
-            Platform.OS === 'android' ? targetRef : scrollViewTargetRef
-          );
-          if (nodeHandle) {
-            AccessibilityInfo.setAccessibilityFocus(nodeHandle);
-          }
-        }
       }, 100);
     }
     props.onChange?.(index, position, type);
@@ -93,6 +88,14 @@ const Modal = ({
       bottomSheetModalRef.current?.dismiss();
     }
   };
+
+  const shouldCloseOnBackdropPress = closeOnBackdropPress ?? !loading;
+  const renderNonClosingBackdrop = useCallback(
+    (backdropProps: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop {...backdropProps} pressBehavior="none" />
+    ),
+    []
+  );
 
   const hasPrimaryButton = !!(onPressPrimaryButton && primaryButtonText);
   const hasSecondaryButton = !!(onPressSecondaryButton && secondaryButtonText);
@@ -207,6 +210,7 @@ const Modal = ({
       snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
       showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
       accessible={false}
+      backdrop={shouldCloseOnBackdropPress ? undefined : renderNonClosingBackdrop}
       {...props}
       onChange={handleChange}
     >
