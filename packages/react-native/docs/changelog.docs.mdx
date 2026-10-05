@@ -9,6 +9,24 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.38.1
+
+### Patch Changes
+
+- [#1645](https://github.com/utilitywarehouse/hearth/pull/1645) [`e730d5a`](https://github.com/utilitywarehouse/hearth/commit/e730d5a9b9d132831472aeed3d6d4b8919d77e3c) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🐛 [FIX]: `ListItem` accepted any props and offered no intellisense, including `leadingContentAlignment`, `contentAlignment` and `trailingContentAlignment`
+  
+  `ListItem`'s prop types resolved to `any`, so none of its props — including the
+  part alignment props — were completed or type-checked. `ListItem` now has an
+  explicit prop type, so these show up in intellisense again.
+  
+  **Components affected**:
+  - `ListItem`
+  
+  **Developer changes**:
+  
+  No action is required, but `ListItem` now reports type errors for unknown
+  props, and for passing the alignment props together with `children`.
+
 ## 0.38.0
 
 ### Minor Changes
