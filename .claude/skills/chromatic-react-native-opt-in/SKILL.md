@@ -1,6 +1,6 @@
 ---
 name: chromatic-react-native-opt-in
-description: Use when opening or updating a PR that touches packages/react-native or apps/storybook-rn-expo, to decide whether to opt it into the native (Expo) Chromatic visual regression build. The build is off by default — this skill covers how to judge whether a change warrants it (user request, visual impact, blast radius, size) and how to opt in with the label or `[chromatic]` marker.
+description: Use when opening or updating a PR that touches packages/react-native, packages/react-native-icons, packages/fonts or apps/storybook-rn-expo, to decide whether to opt it into the native (Expo) Chromatic visual regression build. The build is off by default — this skill covers how to judge whether a change warrants it (user request, visual impact, blast radius, size) and how to opt in with the `chromatic: React Native` label.
 metadata:
   author: Utility Warehouse
   tags: chromatic, visual regression, react native, expo, ci
@@ -17,7 +17,11 @@ counts towards the Chromatic quota, so it is **opt-in**: it does nothing on a PR
 unless that PR asks for it.
 
 This is separate from `chromatic-react-native.yml`, which snapshots the React
-Native Web Storybook (`packages/react-native/.storybook`) on every push. Both
+Native Web Storybook (`packages/react-native/.storybook`). That workflow's
+`branches: '*'` filter doesn't match branch names containing `/` (e.g.
+`feat/button`), so it only runs on branches with flat names — don't assume the
+web build covered a change unless its "Chromatic - React Native" check actually
+ran on the PR (`gh pr checks <number>`). Both
 Storybooks load the same `*.stories.tsx` files and both have
 `chromatic: { disableSnapshot: true }` set globally in their `preview.tsx`, so only
 stories that opt back in with `chromatic: { disableSnapshot: false }` (typically a
@@ -25,18 +29,24 @@ component's `KitchenSink`) are ever snapshotted.
 
 ## How to opt in
 
-Do **one** of these on the PR:
+Add the `chromatic: React Native` label — it is the only opt-in signal. Either
+when creating the PR:
 
-- Add the `chromatic: React Native` label:
-  ```bash
-  gh pr edit <number> --add-label "chromatic: React Native"
-  ```
-- Or put `[chromatic]` in the PR title or body (e.g. when creating the PR with
-  `gh pr create`).
+```bash
+gh pr create --label "chromatic: React Native" ...
+```
+
+or afterwards:
+
+```bash
+gh pr edit <number> --add-label "chromatic: React Native"
+```
+
+Mentioning Chromatic in the PR title or body does nothing, so it's safe to explain
+the decision there.
 
 When the PR is squash-merged, the push to `main` builds too (it checks the merged
-PR's label, title and body), which keeps the `main` baseline in step with what was
-reviewed. A maintainer can also run the workflow by hand from the Actions tab
+PR's labels), which keeps the `main` baseline in step with what was reviewed. A maintainer can also run the workflow by hand from the Actions tab
 (`workflow_dispatch`), e.g. to capture a fresh baseline.
 
 Docs-only changes (`*.md`, `*.mdx`, `*.docs.mdx`) never build, even when opted in.
@@ -48,7 +58,7 @@ Docs-only changes (`*.md`, `*.mdx`, `*.docs.mdx`) never build, even when opted i
 Otherwise, decide yourself. Start from the diff:
 
 ```bash
-git diff --stat origin/main...HEAD -- packages/react-native apps/storybook-rn-expo
+git diff --stat origin/main...HEAD -- packages/react-native packages/react-native-icons packages/fonts apps/storybook-rn-expo
 ```
 
 Then work out which components the change can affect and whether any of their
@@ -93,11 +103,12 @@ spends a macOS build to compare nothing — skip it (and mention that adding a
 - The change has no visual output: hooks, context, logic, event handlers,
   accessibility props (`accessibilityLabel`, `role`, etc.), prop types, JSDoc.
 - Only tests, interaction tests (`play` functions), changesets, Figma Code Connect
-  (`*.figma.tsx`), LLM docs (`public/llms/`), or docs change.
+  (`*.figma.ts`), LLM docs (`public/llms/`), or docs change.
 - Stories change but none of them are snapshotted.
-- A small, contained style tweak to a single component, web-only (`_web`) styles,
-  or anything the React Native Web Chromatic build already covers — unless that
-  component's appearance is native-specific.
+- Web-only (`_web`) styles.
+- A small, contained style tweak to a single component that the React Native Web
+  Chromatic build actually ran on for this PR (see the branch-name caveat above) —
+  unless that component's appearance is native-specific.
 
 ### Size as a tie-breaker
 
@@ -106,7 +117,8 @@ a build:
 
 | Change | Lean |
 |--------|------|
-| One component, a few style lines, web build covers it | Skip |
+| One component, a few style lines, web build ran on this PR | Skip |
+| One component, a few style lines, no web build ran | Opt in if snapshotted |
 | One component, broad restyle or render-tree rework | Opt in if snapshotted |
 | Several components, or a shared primitive | Opt in |
 | Anything under `core/`, `tokens/`, fonts, icons, native deps | Opt in |
