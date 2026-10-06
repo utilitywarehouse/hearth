@@ -15,7 +15,7 @@ import {
   AccordionTrigger,
 } from '.';
 import { AccordionProps } from './Accordion.props';
-import { BodyText } from '../../components';
+import { BodyText, Button } from '../../components';
 
 const meta = {
   title: 'Stories / Accordion',
@@ -175,6 +175,48 @@ export const SingleSelect: Story = {
     // collapsible (true): clicking the currently-expanded item again collapses it.
     await userEvent.click(paymentTrigger);
     await waitFor(() => expect(paymentTrigger).toHaveAttribute('aria-expanded', 'false'));
+  },
+};
+
+export const WithInteractiveContent: Story = {
+  render: args => (
+    <Accordion {...args}>
+      <AccordionItem>
+        <AccordionHeader>
+          <AccordionTrigger>
+            {({ expanded }: { expanded: boolean }) => (
+              <>
+                <AccordionTitleText>Need more help?</AccordionTitleText>
+                <AccordionIcon as={expanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
+              </>
+            )}
+          </AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <AccordionContentText>Our team is available 7 days a week.</AccordionContentText>
+          <Button onPress={() => {}}>Contact us</Button>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: /need more help/i });
+
+    // Collapsed content is hidden from assistive tech.
+    expect(canvas.queryByRole('button', { name: /contact us/i })).not.toBeInTheDocument();
+
+    await userEvent.click(trigger);
+    await waitFor(() => expect(trigger).toHaveAttribute('aria-expanded', 'true'));
+
+    // Expanded content is not grouped into one element: the button inside is reachable on its own.
+    const contactButton = await canvas.findByRole('button', { name: /contact us/i });
+    expect(contactButton).toBeVisible();
+
+    await userEvent.click(trigger);
+    await waitFor(() =>
+      expect(canvas.queryByRole('button', { name: /contact us/i })).not.toBeInTheDocument()
+    );
   },
 };
 
