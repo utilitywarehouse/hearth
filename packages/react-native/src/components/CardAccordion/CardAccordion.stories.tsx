@@ -104,8 +104,8 @@ export const Playground: Story = {
 
     // Next completes the step: it collapses to its summary title and an Edit button.
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(
-      () => await expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1b');
     await expect(canvas.queryByText('Tell us about the cover you need.')).not.toBeInTheDocument();
@@ -117,21 +117,21 @@ export const Playground: Story = {
     await expect(buttons.indexOf('Previous')).toBeLessThan(buttons.indexOf('Next'));
 
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(
-      () => await expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument()
     );
 
     // Previous goes back one step.
     await userEvent.click(canvas.getByRole('button', { name: 'Previous' }));
-    await waitFor(
-      () => await expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1b');
 
     // Edit reopens a completed step; its accessible name includes the step heading.
     await userEvent.click(canvas.getByRole('button', { name: 'Edit 1a. Your home' }));
-    await waitFor(
-      () => await expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1a');
     await expect(canvas.getByText('1a. Your new cover')).toBeInTheDocument();
@@ -226,8 +226,8 @@ export const Validation: Story = {
 
     // Calling event.preventDefault() in onPress keeps the user on the current step.
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(
-      () => await expect(canvas.getByText('You need to accept the terms.')).toBeInTheDocument()
+    await waitFor(() =>
+      expect(canvas.getByText('You need to accept the terms.')).toBeInTheDocument()
     );
     await expect(canvas.queryByText('Tell us about yourself.')).not.toBeInTheDocument();
 
