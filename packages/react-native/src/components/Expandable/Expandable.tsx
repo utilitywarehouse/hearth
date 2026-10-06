@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
-import { View } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Platform, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
+  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
@@ -25,8 +26,13 @@ const Expandable = ({
   animateOpacity = true,
   ...props
 }: ExpandableProps) => {
+  const reducedMotion = useReducedMotion();
+  const animationDuration = reducedMotion ? 0 : duration;
   const height = useSharedValue(0);
   const open = useSharedValue(expanded);
+  // Collapsed content stays mounted (at height 0) so it can be measured and animated, so it
+  // must be explicitly hidden from assistive tech once the collapse animation has finished.
+  const [hidden, setHidden] = useState(!expanded);
 
   // Update open value when expanded prop changes and call callback
   useEffect(() => {
@@ -36,16 +42,25 @@ const Expandable = ({
     }
   }, [expanded, onExpandedChange, open]);
 
+  useEffect(() => {
+    if (expanded) {
+      setHidden(false);
+      return;
+    }
+    const timeout = setTimeout(() => setHidden(true), animationDuration);
+    return () => clearTimeout(timeout);
+  }, [expanded, animationDuration]);
+
   const derivedHeight = useDerivedValue(() =>
     withTiming(height.value * Number(open.value), {
-      duration,
+      duration: animationDuration,
     })
   );
 
   const derivedOpacity = useDerivedValue(() =>
     animateOpacity
       ? withTiming(Number(open.value), {
-          duration,
+          duration: animationDuration,
         })
       : 1
   );
@@ -61,10 +76,13 @@ const Expandable = ({
   return (
     <Animated.View
       style={[styles.container, heightStyle, style]}
-      accessible={true}
+      // Not `accessible`: grouping would make interactive children (links, buttons, inputs)
+      // unreachable individually by VoiceOver/TalkBack. A label names the content as a region.
+      role={accessibilityLabel ? 'region' : undefined}
       accessibilityLabel={accessibilityLabel}
-      accessibilityRole="none"
-      accessibilityState={{ expanded }}
+      accessibilityElementsHidden={hidden}
+      importantForAccessibility={hidden ? 'no-hide-descendants' : 'auto'}
+      {...(Platform.OS === 'web' ? ({ 'aria-hidden': hidden || undefined } as any) : null)}
       testID={testID}
       {...props}
     >

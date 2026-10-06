@@ -5,6 +5,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { View } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText, Button, Card } from '../../components';
 import Expandable from './Expandable';
 
@@ -253,6 +254,46 @@ export const DefaultExpanded: Story = {
           </Card>
         </Expandable>
       </View>
+    );
+  },
+};
+
+export const WithInteractiveContent: Story = {
+  render: () => {
+    const [expanded, setExpanded] = useState(false);
+    const [actionCount, setActionCount] = useState(0);
+
+    return (
+      <View style={{ width: 300 }}>
+        <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
+          {expanded ? 'Hide actions' : 'Show actions'}
+        </Button>
+        <Expandable expanded={expanded}>
+          <Card>
+            <BodyText style={{ marginBottom: 12 }}>Pressed {actionCount} times</BodyText>
+            <Button onPress={() => setActionCount(count => count + 1)}>Inner action</Button>
+          </Card>
+        </Expandable>
+      </View>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const toggle = await canvas.findByRole('button', { name: /show actions/i });
+
+    // Collapsed content is hidden from assistive tech, so its button has no role.
+    expect(canvas.queryByRole('button', { name: /inner action/i })).not.toBeInTheDocument();
+
+    await userEvent.click(toggle);
+
+    // Expanded content is not grouped into one element: the inner button is reachable on its own.
+    const innerAction = await canvas.findByRole('button', { name: /inner action/i });
+    await userEvent.click(innerAction);
+    await waitFor(() => expect(canvas.getByText('Pressed 1 times')).toBeInTheDocument());
+
+    await userEvent.click(canvas.getByRole('button', { name: /hide actions/i }));
+    await waitFor(() =>
+      expect(canvas.queryByRole('button', { name: /inner action/i })).not.toBeInTheDocument()
     );
   },
 };
