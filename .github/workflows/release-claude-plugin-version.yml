@@ -66,8 +66,11 @@ jobs:
           set -euo pipefail
 
           TAG="${{ steps.check.outputs.plugin_name }}@${{ steps.check.outputs.new_version }}"
+          NOTES=$(printf '%s\n\n%s' \
+            "Claude plugin \`${{ steps.check.outputs.plugin_name }}\` updated: \`${{ steps.check.outputs.old_version }}\` → \`${{ steps.check.outputs.new_version }}\`" \
+            "To update the plugin run \`claude plugin update hearth-ai-toolkit@hearth-plugins\`")
 
           gh release create "$TAG" \
             --title "${{ steps.check.outputs.plugin_display_name }} ${{ steps.check.outputs.new_version }}" \
-            --notes "Claude plugin \`${{ steps.check.outputs.plugin_name }}\` updated: \`${{ steps.check.outputs.old_version }}\` → \`${{ steps.check.outputs.new_version }}\`" \
+            --notes "$NOTES" \
             --target "${{ github.sha }}"

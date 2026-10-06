@@ -40,7 +40,7 @@ own `Meta` (`title: 'Stories / <SubComponent>'`, `component: <SubComponent>`) �
 though it's already documented via a nested `### <SubComponent> Props` table in the
 parent's `.docs.mdx` (see the [react-native-component-docs](./../react-native-component-docs/SKILL.md)
 skill). The `hearth-react-native` MCP server only lists a component as its own
-resolvable entry in `list-all-documentation` when it has its own Storybook story — a
+resolvable entry in `docs-list` when it has its own Storybook story — a
 sub-component documented only inside its parent's `.docs.mdx` doesn't get one. No
 separate `<SubComponent>.docs.mdx` is needed — mirror
 `src/components/Card/CardAction/CardAction.stories.tsx`: a `Meta` + at least one
@@ -60,14 +60,20 @@ guard against it regressing until one exists.
 6. **Docs**: Add <Component>.docs.mdx. See the [react-native-component-docs](./../react-native-component-docs/SKILL.md) skill for the required structure, sections, and code snippets.
 7. **Figma**: Add <Component>.figma.tsx. See the [figma-code-connect](./../figma-code-connect/SKILL.md) skill for the connect API, prop mapping patterns, the `pnpm figma:create` scaffold command, and the publish-approval requirement.
 8. **All Components**: Add the component to packages/react-native/docs/components/AllComponents.web.tsx with a minimal demo.
-9. **Tests**: Add any tests for components that have complex logic, split out into a Component.utils.ts file and test against that if necessary.
-Add storybook story tests for interaction behviour tests where necessary too.
+9. **Tests**: Write these as part of the initial implementation, not as a follow-up.
+   - **Interaction tests (required for any interactive or a11y behaviour)**: Add `play` functions to the relevant stories, importing `expect`, `fn`, `userEvent` and `within` from `storybook/test`. Cover what a user can observe: press handlers firing, disabled state ignoring presses, default and overridden accessible names, roles and labelling, and stateful flows (e.g. add/remove). `await` every `expect` and `userEvent` call.
+   - **Unit tests**: If the component has complex logic, split it into a `<Component>.utils.ts` file and test that with a `*.test.ts` file.
+   - Run with `pnpm --dir packages/react-native run test:storybook src/components/<Component>` (the script does not exist at the repo root).
+   - **react-native-web gotchas**:
+     - A disabled `Pressable` gets `pointer-events: none`, so to prove a press is ignored use `userEvent.click(el, { pointerEventsCheck: 0 })`.
+     - When a `fn()` spy receives a press event, set `parameters: { actions: { disable: true } }` on that story. Otherwise the actions addon tries to serialise the event and throws a Reanimated error on web.
 
 ## Checklist
 - Component folder with props, implementation, stories, docs, figma, and index exports
 - Accessible labels and roles set where relevant (aria, accessibilityRole)
 - Token usage aligns with components tokens (theme.components.<component>)
 - Stories include a Playground story and at least one variant example
+- Stories include `play` interaction tests for user-facing behaviour (press handlers, disabled state, accessible names, labelling), and `test:storybook` passes for the component — see step 9
 - Docs include Playground, Usage, Props table, and Figma links when available
 - Every sub-component (compound pattern) has its own `<SubComponent>.stories.tsx` — see [Sub-component stories](#sub-component-stories); required for the MCP server, not optional
 - Run `pnpm build:storybook && npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript` (from `packages/react-native`) and fix any findings — confirms the MCP can actually resolve the new component's description and props, not just that JSDoc was added by eye

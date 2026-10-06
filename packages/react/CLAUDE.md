@@ -109,6 +109,7 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 - Tests use `vitest` + `@storybook/addon-vitest` storybookTest plugin — stories run as browser tests against Chromium (headless) via Playwright.
 - `fileParallelism: false` — tests run serially.
 - Storybook uses `@storybook/react-vite` on port 6006.
+- Accessibility: axe (`@storybook/addon-a11y`) runs on every story, non-blocking (`'todo'`) on PRs; it fails only in the weekly `a11y-weekly.yml` run (`VITE_A11Y_STRICT=true`). To opt out, add `data-a11y-ignore` to story scaffolding or set `parameters.a11y` — see [`scripts/a11y-report/README.md`](../../scripts/a11y-report/README.md).
 - Stories pattern: `src/**/*.stories.tsx`.
 
 ### LLM docs

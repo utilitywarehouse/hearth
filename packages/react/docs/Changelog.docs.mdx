@@ -4,6 +4,79 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.34.4
+
+### Patch Changes
+
+- [#1633](https://github.com/utilitywarehouse/hearth/pull/1633) [`189ee8c`](https://github.com/utilitywarehouse/hearth/commit/189ee8c2302ab5ef8a456742cf52b971f5cd6605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Excess space below a full-screen `Modal` with a single-button footer
+  
+  The scrollable content area in a full-screen `Modal` reserved a fixed
+  proportion of the viewport height for the header and footer on mobile,
+  assuming a two-button footer. With a single-button footer this left a large
+  gap between the button and the bottom of the modal. Content now fills
+  whatever space remains after the header and footer, regardless of how many
+  buttons the footer has.
+
+## 0.34.3
+
+### Patch Changes
+
+- [#1624](https://github.com/utilitywarehouse/hearth/pull/1624) [`d27249a`](https://github.com/utilitywarehouse/hearth/commit/d27249af2e2d68967346604320950d7c153c5f8b) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Consumer builds log autoprefixer "mixed support" warnings for `styles.css`
+
+  Several flex containers used `start` and `end` alignment values, which
+  autoprefixer flags as having mixed browser support in flex layouts. Apps that
+  run `styles.css` through autoprefixer (for example, every Next.js app) logged
+  six warnings on each compile. These now use `flex-start` and `flex-end`, which
+  lay out identically in these containers.
+
+  **Components affected**:
+
+  - `Alert`
+  - `CardAccordion`
+  - `CardActionContent`
+  - `CheckboxTile`
+  - `List`
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+## 0.34.2
+
+### Patch Changes
+
+- [#1616](https://github.com/utilitywarehouse/hearth/pull/1616) [`f3033dd`](https://github.com/utilitywarehouse/hearth/commit/f3033dd862efea0827a4c3ee6b07075870c2461c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Unselected `RadioTile` displaying wrong border colour
+
+- Updated dependencies [[`8235653`](https://github.com/utilitywarehouse/hearth/commit/823565390334f115f8625f3cbe65310fbfc97a2e)]:
+  - @utilitywarehouse/hearth-react-icons@0.9.4
+
+## 0.34.1
+
+### Patch Changes
+
+- [#1609](https://github.com/utilitywarehouse/hearth/pull/1609) [`df90d96`](https://github.com/utilitywarehouse/hearth/commit/df90d9642c3f9bf5ad8e8b4f05b78643fbb9b8e7) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `ListItemContent` trailing content shrinking with long text
+
+- [#1608](https://github.com/utilitywarehouse/hearth/pull/1608) [`0a1f6be`](https://github.com/utilitywarehouse/hearth/commit/0a1f6be25cffee7479415248e188b1e40c98baf9) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Enable and apply disabled state on all RadioGroup components
+
+- [#1610](https://github.com/utilitywarehouse/hearth/pull/1610) [`df3e886`](https://github.com/utilitywarehouse/hearth/commit/df3e88683c47a510814f92f8514bf92573c54df3) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CardActions` text not wrapping
+
+## 0.34.0
+
+### Minor Changes
+
+- [#1601](https://github.com/utilitywarehouse/hearth/pull/1601) [`d6bface`](https://github.com/utilitywarehouse/hearth/commit/d6bfaceef99127b864cb65ec772084b5fcd5a70b) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `ProgressStepperText` component
+
+  Adds `ProgressStepperText`, a condensed "Step X of Y" text summary for a
+  multi-step process — a compact alternative to a full `ProgressStepper` list.
+
+  ```tsx
+  <ProgressStepperText currentStep={1} totalSteps={4} />
+  ```
+
+  **Components affected**:
+  - `ProgressStepperText`
+
 ## 0.33.1
 
 ### Patch Changes

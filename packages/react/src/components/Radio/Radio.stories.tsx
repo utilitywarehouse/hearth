@@ -43,6 +43,14 @@ export const Playground: Story = {
           <Radio {...args} />
         </RadioGroup>
 
+        <RadioGroup value="2" label="Disabled unchecked radio">
+          <Radio {...args} disabled />
+        </RadioGroup>
+
+        <RadioGroup defaultValue={args.value} label="Disabled checked radio">
+          <Radio {...args} disabled />
+        </RadioGroup>
+
         <RadioGroup defaultValue={args.value} label="With icon">
           <Radio {...args} image={<BillMediumIcon />} />
         </RadioGroup>

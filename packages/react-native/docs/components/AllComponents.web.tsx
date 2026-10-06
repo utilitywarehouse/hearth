@@ -42,6 +42,8 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Chip,
+  ChipGroup,
   Combobox,
   Container,
   CurrencyInput,
@@ -83,6 +85,7 @@ import {
   ProgressBar,
   ProgressStep,
   ProgressStepper,
+  ProgressStepperText,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -359,6 +362,14 @@ const AllComponents: React.FC = () => {
                 <View>
                   <Checkbox label="I'm a Checkbox" value="" />
                 </View>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Chip" link="components-chip">
+              <Center flex={1}>
+                <ChipGroup label="Showing:">
+                  <Chip onPress={() => null}>Energy</Chip>
+                  <Chip onPress={() => null}>Mobile</Chip>
+                </ChipGroup>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Combobox" link="forms-combobox">
@@ -718,6 +729,11 @@ const AllComponents: React.FC = () => {
                   <ProgressStep id="payment-data" status="active" />
                   <ProgressStep id="summary" status="incomplete" />
                 </ProgressStepper>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Progress Stepper Text" link="components-progress-stepper">
+              <Center flex={1} px="300">
+                <ProgressStepperText currentStep={1} totalSteps={4} />
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Radio" link="forms-radio">

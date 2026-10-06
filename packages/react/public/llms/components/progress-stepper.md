@@ -96,6 +96,63 @@ Each step requires a label, this should be clear and descriptive to guide the us
 
 The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
 
+## ProgressStepperText
+
+Use `ProgressStepperText` as a condensed "Step X of Y" summary of progress,
+as a compact alternative to the full step list — for example in narrow or
+mobile layouts.
+
+```tsx
+<ProgressStepperText currentStep={1} totalSteps={4} />
+```
+
+```tsx
+<ProgressStepperText currentStep={1} totalSteps={4} />
+```
+
+### Responsive step indicator
+
+Combine `ProgressStepper` and `ProgressStepperText` to show the full step
+list on larger screens and a condensed summary on smaller ones. There are two
+ways to do this.
+
+#### Using the `useMediaQuery` hook
+
+Conditionally render one component or the other based on the result of `useMediaQuery`.
+
+```tsx
+const isBelowDesktop = useMediaQuery(media.below('desktop'));
+
+return isBelowDesktop ? (
+  <ProgressStepperText currentStep={3} totalSteps={4} />
+) : (
+  <ProgressStepper>
+    <ProgressStep status="complete" label="Customer data" />
+    <ProgressStep status="complete" label="Shipping data" />
+    <ProgressStep status="active" label="Payment data" />
+    <ProgressStep status="incomplete" label="Summary" />
+  </ProgressStepper>
+);
+```
+
+#### Using `Box` with a responsive `display`
+
+Render both components and let CSS decide which is visible at each breakpoint, via `Box`'s responsive `display` prop.
+
+```tsx
+<Box display={{ mobile: 'block', desktop: 'none' }}>
+  <ProgressStepperText currentStep={3} totalSteps={4} />
+</Box>
+<Box display={{ mobile: 'none', desktop: 'block' }}>
+  <ProgressStepper>
+    <ProgressStep status="complete" label="Customer data" />
+    <ProgressStep status="complete" label="Shipping data" />
+    <ProgressStep status="active" label="Payment data" />
+    <ProgressStep status="incomplete" label="Summary" />
+  </ProgressStepper>
+</Box>
+```
+
 ## Accessability
 
 - Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
@@ -138,3 +195,19 @@ This component is based on the `button` element.
 | -------- | ---------------------------------------- | ------- | -------------------------------------- |
 | `label`  | `string`                                 | —       | The label text to display for the step |
 | `status` | `"complete" \| "active" \| "incomplete"` | —       | The current status of the step         |
+
+### ProgressStepperText API
+
+This component is based on the `span` element.
+
+| Prop           | Type                                                                                                                                                                                                       | Default | Description                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------- |
+| `currentStep`  | `number`                                                                                                                                                                                                   | —       | The current step number (1-indexed)                                    |
+| `totalSteps`   | `number`                                                                                                                                                                                                   | —       | The total number of steps                                              |
+| `margin`       | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin` CSS property on all sides of the element. |
+| `marginTop`    | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-top` CSS property.                         |
+| `marginRight`  | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-right` CSS property.                       |
+| `marginBottom` | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-bottom` CSS property.                      |
+| `marginLeft`   | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-left` CSS property.                        |
+| `marginX`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-left` and `margin-right` CSS properties.   |
+| `marginY`      | `Responsive<"auto" \| "0" \| "25" \| "50" \| "75" \| "100" \| "150" \| "175" \| "200" \| "250" \| "300" \| "350" \| "400" \| "500" \| "600" \| "700" \| "800" \| "900" \| "1000" \| `var(--h-${string})`>` | —       | Sets the responsive `margin-top` and `margin-bottom` CSS properties.   |

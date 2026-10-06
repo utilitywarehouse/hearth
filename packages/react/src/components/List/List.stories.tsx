@@ -600,6 +600,57 @@ export const ListItemContents: Story = {
   ),
 };
 
+/** A List made entirely of ListItemLink items with long text. */
+export const LongListItemContents: Story = {
+  name: 'ListItemLinks with long text',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  globals: { viewport: { value: 'mobile' } },
+  render: () => {
+    const BUDGET_PLAN_SUPPORT_LIST_COPY = {
+      HEADING: 'Need help?',
+      ARTICLES: [
+        {
+          title: 'Why has my budget plan payment changed?',
+          href: 'https://help.uw.co.uk/article/energy/about_my_bill/why-has-my-budget-plan-payment-changed',
+        },
+        {
+          title: 'Why do I only see one balance and payment?',
+          href: 'https://help.uw.co.uk/article/energy/about_my_bill/your-new-look-energy-budget-plan',
+        },
+        {
+          title: "Fixed tariff vs budget plan - what's the difference?",
+          href: 'https://help.uw.co.uk/article/energy/fixed-tariff-vs-budget-plan-whats-the-difference',
+        },
+        {
+          title: 'What is a budget plan reconciliation?',
+          href: 'https://help.uw.co.uk/article/energy/about_my_bill/what-is-a-budget-plan-reconciliation',
+        },
+        {
+          title: 'How do I set up, cancel or review my budget-plan?',
+          href: 'https://help.uw.co.uk/article/energy/about_my_bill/how-do-i-set-up-cancel-or-review-my-budget-plan',
+        },
+      ],
+    };
+
+    return (
+      <Box width="300px">
+        <List heading={BUDGET_PLAN_SUPPORT_LIST_COPY.HEADING} headingElement="h2">
+          {BUDGET_PLAN_SUPPORT_LIST_COPY.ARTICLES.map(article => (
+            <ListItem key={article.href}>
+              <ListItemLink heading={article.title} href={article.href} target="_blank" />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    );
+  },
+};
+
 /** Pass a Switch as trailingContent to make a list item toggleable. */
 export const ListItemContentWithSwitch: Story = {
   parameters: {

@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgMicrophoneOffSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="m14.792 12.458-1.208-1.208q.291-.48.437-1a4 4 0 0 0 .146-1.083h1.667q0 .915-.271 1.74a6.1 6.1 0 0 1-.771 1.551m-2.458-2.5L7.5 5.125v-.958q0-1.042.73-1.771a2.4 2.4 0 0 1 1.77-.73q1.042 0 1.771.73a2.4 2.4 0 0 1 .73 1.77v5q0 .23-.053.417-.052.188-.114.375M9.167 17.5v-2.583q-2.166-.292-3.583-1.927T4.167 9.167h1.667q0 1.728 1.218 2.948 1.22 1.218 2.948 1.218a4.1 4.1 0 0 0 2.5-.833l1.188 1.188q-.604.478-1.323.802-.72.322-1.531.427V17.5zm7.333 1.333L1.167 3.5l1.167-1.167 15.333 15.334z"
+    />
+  </Svg>
+);
+export default SvgMicrophoneOffSmallIcon;

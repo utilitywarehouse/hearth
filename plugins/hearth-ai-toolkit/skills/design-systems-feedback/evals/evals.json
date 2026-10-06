@@ -1,0 +1,48 @@
+{
+  "skill_name": "design-systems-feedback",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I was building a settings card with the hearth-react skill and it kept suggesting a `shadow` prop on `Card` that doesn't actually exist in the component — I had to manually strip it out three times across different files before I gave up and just told it to stop. Can you let the design systems team know about this?",
+      "expected_output": "A Linear issue created in the Design Systems (UWDS) team's Triage status, labeled 'created by claude', with a specific title naming the Card/shadow prop issue, a description containing the feedback plus a context block (reporter name/email, related skill 'hearth-react', the actual repo being worked in, date), created only after showing the user the draft and getting a go-ahead.",
+      "files": [],
+      "expectations": [
+        "A Linear issue was created in the Design Systems (UWDS) team",
+        "The issue's state is Triage",
+        "The issue has the 'created by claude' label",
+        "The title names the specific problem (Card component / shadow prop), not a generic 'Feedback on Hearth' title",
+        "The description includes a context block with reporter name/email",
+        "The description names hearth-react as the related skill/workflow",
+        "The description's Repo line names the actual repo being worked in rather than a hardcoded or placeholder value",
+        "The draft (title + description) was shown to the user before or at the point save_issue was called"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Just spent way longer than expected building a settings page with Hearth because the Combobox component isn't covered anywhere in the docs the hearth-react skill points to — had to guess at the props from the Storybook source directly. Please report this as feedback to Design Systems.",
+      "expected_output": "A Linear issue in the Design Systems (UWDS) Triage queue describing the Combobox documentation gap as a docs-coverage issue (not miscategorized as a bug), labeled 'created by claude', with reporter attribution and context, created after user confirmation of the draft.",
+      "files": [],
+      "expectations": [
+        "A Linear issue was created in the Design Systems (UWDS) team",
+        "The issue's state is Triage",
+        "The issue has the 'created by claude' label",
+        "The title or description names Combobox specifically as the component with the documentation gap",
+        "The feedback is framed as a documentation/coverage gap rather than a bug report",
+        "The description includes a context block with reporter name/email and the actual repo being worked in"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "The Figma-to-Hearth workflow worked really well today — no issues, the component mapping was spot on and saved me a ton of time. Can you pass that along as positive feedback to the DS team too?",
+      "expected_output": "A Linear issue in the Design Systems (UWDS) Triage queue capturing positive feedback (not forced into a bug/complaint framing), labeled 'created by claude', with reporter attribution and context, created after showing the user the draft.",
+      "files": [],
+      "expectations": [
+        "A Linear issue was created in the Design Systems (UWDS) team",
+        "The issue's state is Triage",
+        "The issue has the 'created by claude' label",
+        "The positive tone of the feedback is preserved rather than being rewritten as a complaint or bug",
+        "The description includes a context block with reporter name/email and the actual repo being worked in"
+      ]
+    }
+  ]
+}

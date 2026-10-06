@@ -315,6 +315,7 @@ export const WithTransactions: Story = {
             <BodyText color="brand">+£1.00 CB</BodyText>
           </>
         }
+        trailingContentAlignment="center"
         onPress={() => console.log('Transaction pressed')}
       />
       <ListItem
@@ -325,6 +326,7 @@ export const WithTransactions: Story = {
             <BodyText color="affirmative">+£100.00</BodyText>
           </>
         }
+        trailingContentAlignment="center"
         onPress={() => console.log('Transaction pressed')}
       />
     </List>

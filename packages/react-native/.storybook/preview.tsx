@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { create } from 'storybook/theming';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
+import { A11Y_IGNORE_SELECTOR, A11Y_STRICT, nativeA11yAfterEach } from './a11y';
 import { initializePrism } from './prism-setup';
 
 const theme = create(config);
@@ -42,6 +43,8 @@ const preview = {
       },
     },
   },
+  // React Native-level checks axe can't see on the web DOM. See .storybook/a11y.
+  afterEach: nativeA11yAfterEach,
   beforeAll: () => {
     if (!__DEV__) {
       let canAccessParent = false;
@@ -73,7 +76,7 @@ const preview = {
           'Introduction',
           'Getting Started',
           'Changelog',
-          'AI Tooling',
+          'AI Toolkit',
           'Styling',
           'Theme Tokens',
           'Hooks',
@@ -91,9 +94,11 @@ const preview = {
     },
     a11y: {
       // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
+      // 'error' - fail CI on a11y violations (weekly a11y workflow, VITE_A11Y_STRICT=true)
       // 'off' - skip a11y checks entirely
-      test: 'todo',
+      test: A11Y_STRICT ? 'error' : 'todo',
+      // Story-only scaffolding marked with dataSet={{ a11yIgnore: true }} isn't checked.
+      context: { exclude: [A11Y_IGNORE_SELECTOR] },
     },
     chromatic: {
       // Snapshotting is disabled by default to limit Chromatic usage — opt

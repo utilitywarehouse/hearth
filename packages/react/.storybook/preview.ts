@@ -13,28 +13,28 @@ const HEARTH_VIEWPORTS = {
     name: 'mobile',
     styles: {
       width: `${breakpoints.tablet / 2}px`,
-      height: '90dvh',
+      height: '90vh',
     },
   },
   tablet: {
     name: 'tablet',
     styles: {
       width: `${breakpoints.tablet}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
   desktop: {
     name: 'desktop',
     styles: {
       width: `${breakpoints.desktop}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
   wide: {
     name: 'wide',
     styles: {
       width: `${breakpoints.wide}px`,
-      height: '100dvh',
+      height: '100vh',
     },
   },
 };
@@ -43,9 +43,11 @@ const preview: Preview = {
   parameters: {
     a11y: {
       // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
+      // 'error' - fail CI on a11y violations (weekly a11y workflow, VITE_A11Y_STRICT=true)
       // 'off' - skip a11y checks entirely
-      test: 'todo',
+      test: import.meta.env.VITE_A11Y_STRICT === 'true' ? 'error' : 'todo',
+      // Story-only scaffolding marked with data-a11y-ignore isn't checked.
+      context: { exclude: ['[data-a11y-ignore]'] },
     },
     chromatic: {
       // Snapshotting is disabled by default to limit Chromatic usage — opt

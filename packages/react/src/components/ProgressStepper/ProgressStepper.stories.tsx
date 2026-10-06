@@ -1,11 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText/BodyText';
+import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { ProgressStep } from './ProgressStep';
 import { ProgressStepButton } from './ProgressStepButton';
 import { ProgressStepLink } from './ProgressStepLink';
 import { ProgressStepper } from './ProgressStepper';
+import { ProgressStepperText } from './ProgressStepperText';
+import { useMediaQuery } from '../../hooks/use-media-query';
+import { media } from '../../utils/media';
 import { useState } from 'react';
 
 const meta: Meta<typeof ProgressStepper> = {
@@ -226,4 +230,59 @@ export const DisabledSteps: Story = {
       </Flex>
     );
   },
+};
+
+/**
+ * Use `useMediaQuery` to conditionally render `ProgressStepperText` below
+ * the `desktop` breakpoint and the full `ProgressStepper` from `desktop`
+ * upwards. Resize the browser window to see it switch.
+ */
+export const ResponsiveWithMediaQuery: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const isBelowDesktop = useMediaQuery(media.below('desktop'));
+
+    return isBelowDesktop ? (
+      <ProgressStepperText currentStep={3} totalSteps={4} />
+    ) : (
+      <ProgressStepper>
+        <ProgressStep status="complete" label="Customer data" />
+        <ProgressStep status="complete" label="Shipping data" />
+        <ProgressStep status="active" label="Payment data" />
+        <ProgressStep status="incomplete" label="Summary" />
+      </ProgressStepper>
+    );
+  },
+};
+
+/**
+ * Render both `ProgressStepperText` and `ProgressStepper`, using `Box`'s
+ * responsive `display` prop to show only one at a time per breakpoint.
+ * Resize the browser window to see it switch.
+ */
+export const ResponsiveWithBoxDisplay: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => (
+    <>
+      <Box display={{ mobile: 'block', desktop: 'none' }}>
+        <ProgressStepperText currentStep={3} totalSteps={4} />
+      </Box>
+      <Box display={{ mobile: 'none', desktop: 'block' }}>
+        <ProgressStepper>
+          <ProgressStep status="complete" label="Customer data" />
+          <ProgressStep status="complete" label="Shipping data" />
+          <ProgressStep status="active" label="Payment data" />
+          <ProgressStep status="incomplete" label="Summary" />
+        </ProgressStepper>
+      </Box>
+    </>
+  ),
 };
