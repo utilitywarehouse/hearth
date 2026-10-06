@@ -83,12 +83,25 @@ jobs:
       # Only when the collector wrote a full snapshot this run (it exits 0
       # without one when checkpointing a throttled discovery). A Slack outage
       # shouldn't fail the run — the PR is already open.
+      # create-pull-request commits the snapshot to the PR branch and resets the
+      # working tree to main, so restore the data from the PR head first —
+      # otherwise notify sees last week's index and refuses to post.
       - name: Post summary to Slack
+        id: notify
         if: steps.collect.outputs.snapshot_date != ''
         continue-on-error: true
-        run: pnpm --filter usage-analytics notify
+        run: |
+          git checkout "$PR_HEAD_SHA" -- apps/usage-analytics/data
+          pnpm --filter usage-analytics notify
         env:
+          PR_HEAD_SHA: ${{ steps.pr.outputs.pull-request-head-sha }}
           SLACK_BOT_TOKEN: ${{ secrets.DS_SLACK_BOT }}
           SLACK_CHANNEL_ID: C04MYV3Q30F
           SNAPSHOT_DATE: ${{ steps.collect.outputs.snapshot_date }}
           SNAPSHOT_PR_URL: ${{ steps.pr.outputs.pull-request-url }}
+
+      # continue-on-error reports the step as passed, so surface the failure on
+      # the run summary instead of letting a missed post go unnoticed.
+      - name: Warn if Slack post failed
+        if: steps.notify.outcome == 'failure'
+        run: echo "::warning title=Slack summary not posted::Post summary to Slack failed — see that step's log."
