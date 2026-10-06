@@ -25,7 +25,7 @@ const DescriptionList = ({
 
   return (
     <DescriptionListContext.Provider value={value}>
-      <View accessibilityRole="list" {...props} style={[styles.container, style]}>
+      <View {...props} style={[styles.container, style]}>
         {heading ? (
           <SectionHeader
             heading={heading}
@@ -34,7 +34,10 @@ const DescriptionList = ({
             invalidText={invalidText}
           />
         ) : null}
-        {children}
+        {/* The list only wraps the items: a heading inside role="list" is not a valid child. */}
+        <View accessibilityRole="list" style={styles.list}>
+          {children}
+        </View>
       </View>
     </DescriptionListContext.Provider>
   );
@@ -52,6 +55,10 @@ const styles = StyleSheet.create(theme => ({
         column: {},
       },
     },
+  },
+  list: {
+    width: theme.space.full,
+    gap: theme.components.descriptionList.gap,
   },
 }));
 
