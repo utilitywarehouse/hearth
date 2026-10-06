@@ -456,6 +456,14 @@ export const WithFlatList: Story = {
       </List>
     );
   },
+  play: async ({ canvasElement }) => {
+    // FlatList's own views have no role, so the list still owns the (virtualised) listitems.
+    const list = within(canvasElement).getByRole('list');
+    const items = within(list).getAllByRole('listitem');
+    await expect(items.length).toBeGreaterThan(0);
+    await expect(items.every(item => item.parentElement?.closest('[role]') === list)).toBe(true);
+    await expect(within(list).queryByRole('heading')).toBeNull();
+  },
 };
 
 export const KitchenSink: Story = {
