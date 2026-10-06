@@ -1,6 +1,10 @@
 import { Path, Svg } from 'react-native-svg';
 import { createIcon } from '../Icon/createIcon';
 
+/**
+ * A filled circle icon, used as the selected-state indicator in `Radio` and `RadioCard`. Takes the current
+ * text colour.
+ */
 const CircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
