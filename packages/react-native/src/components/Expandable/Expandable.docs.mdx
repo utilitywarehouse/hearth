@@ -63,7 +63,7 @@ const MyComponent = () => {
 | `duration`           | `number`                      | `200`   | Duration of the animation in milliseconds            |
 | `animateOpacity`     | `boolean`                     | `true`  | Whether to animate opacity during expansion/collapse |
 | `style`              | `ViewStyle`                   | -       | Additional style for the container                   |
-| `accessibilityLabel` | `string`                      | -       | Names the content as a region for screen readers     |
+| `accessibilityLabel` | `string`                      | -       | Names the content as a region on web                 |
 | `testID`             | `string`                      | -       | Test ID for testing purposes                         |
 
 ## Animation Duration
@@ -183,9 +183,9 @@ const MyComponent = () => {
 The Expandable component includes built-in accessibility support:
 
 - Content is not grouped into a single accessibility element, so links, buttons and inputs inside it can each be focused by VoiceOver and TalkBack
-- Collapsed content is hidden from screen readers once the collapse animation finishes
+- Collapsed content is hidden from screen readers once the collapse animation finishes. On web, it also can't be reached with the keyboard
 - The animation is skipped when the user has turned on reduced motion
-- Set `accessibilityLabel` to expose the content as a labelled region
+- On web, set `accessibilityLabel` to expose the content as a labelled region. iOS and Android screen readers do not announce this label
 
 ```tsx
 <Expandable expanded={expanded} accessibilityLabel="Additional information section">

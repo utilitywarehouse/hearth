@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Platform, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -33,6 +33,7 @@ const Expandable = ({
   // Collapsed content stays mounted (at height 0) so it can be measured and animated, so it
   // must be explicitly hidden from assistive tech once the collapse animation has finished.
   const [hidden, setHidden] = useState(!expanded);
+  const contentRef = useRef<View>(null);
 
   // Update open value when expanded prop changes and call callback
   useEffect(() => {
@@ -50,6 +51,14 @@ const Expandable = ({
     const timeout = setTimeout(() => setHidden(true), animationDuration);
     return () => clearTimeout(timeout);
   }, [expanded, animationDuration]);
+
+  // `aria-hidden` doesn't stop keyboard focus on web, so collapsed content is also made `inert`.
+  // react-native-web doesn't forward `inert`, so it is set on the DOM node directly.
+  useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    const node = contentRef.current as unknown as { inert?: boolean } | null;
+    if (node) node.inert = hidden;
+  }, [hidden]);
 
   const derivedHeight = useDerivedValue(() =>
     withTiming(height.value * Number(open.value), {
@@ -77,17 +86,23 @@ const Expandable = ({
     <Animated.View
       style={[styles.container, heightStyle, style]}
       // Not `accessible`: grouping would make interactive children (links, buttons, inputs)
-      // unreachable individually by VoiceOver/TalkBack. A label names the content as a region.
-      role={accessibilityLabel ? 'region' : undefined}
+      // unreachable individually by VoiceOver/TalkBack. On native a label cannot name a
+      // non-accessible container, so the labelled region is web-only.
       accessibilityLabel={accessibilityLabel}
       accessibilityElementsHidden={hidden}
       importantForAccessibility={hidden ? 'no-hide-descendants' : 'auto'}
-      {...(Platform.OS === 'web' ? ({ 'aria-hidden': hidden || undefined } as any) : null)}
+      {...(Platform.OS === 'web'
+        ? ({
+            role: accessibilityLabel ? 'region' : undefined,
+            'aria-hidden': hidden || undefined,
+          } as any)
+        : null)}
       testID={testID}
       {...props}
     >
       <Animated.View style={opacityStyle}>
         <View
+          ref={contentRef}
           onLayout={e => {
             height.value = e.nativeEvent.layout.height;
           }}

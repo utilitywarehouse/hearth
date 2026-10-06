@@ -29,8 +29,9 @@ export interface ExpandableProps extends ViewProps {
   style?: ViewStyle;
 
   /**
-   * Accessibility label for screen readers. When set, the content is exposed as a labelled
-   * region; its children remain individually focusable.
+   * Accessibility label for the content. On web, the content is exposed as a labelled region.
+   * On iOS and Android, screen readers do not announce it, because the container is not
+   * grouped into one accessibility element; its children remain individually focusable.
    */
   accessibilityLabel?: string;
 

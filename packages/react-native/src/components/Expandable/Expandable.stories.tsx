@@ -283,11 +283,18 @@ export const WithInteractiveContent: Story = {
 
     // Collapsed content is hidden from assistive tech, so its button has no role.
     expect(canvas.queryByRole('button', { name: /inner action/i })).not.toBeInTheDocument();
+    // It is also inert, so the browser refuses to move keyboard focus into it.
+    const getInnerActionNode = () =>
+      canvas.getByText('Inner action').closest<HTMLElement>('[tabindex]');
+    getInnerActionNode()?.focus();
+    expect(getInnerActionNode()).not.toHaveFocus();
 
     await userEvent.click(toggle);
 
     // Expanded content is not grouped into one element: the inner button is reachable on its own.
     const innerAction = await canvas.findByRole('button', { name: /inner action/i });
+    innerAction.focus();
+    expect(innerAction).toHaveFocus();
     await userEvent.click(innerAction);
     await waitFor(() => expect(canvas.getByText('Pressed 1 times')).toBeInTheDocument());
 
@@ -295,6 +302,8 @@ export const WithInteractiveContent: Story = {
     await waitFor(() =>
       expect(canvas.queryByRole('button', { name: /inner action/i })).not.toBeInTheDocument()
     );
+    getInnerActionNode()?.focus();
+    expect(getInnerActionNode()).not.toHaveFocus();
   },
 };
 
