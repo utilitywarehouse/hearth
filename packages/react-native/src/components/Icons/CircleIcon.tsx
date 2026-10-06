@@ -3,7 +3,8 @@ import { createIcon } from '../Icon/createIcon';
 
 /**
  * A solid circle icon. It fills with the current `color`, so use it as a simple
- * status dot or indicator, sized with `width` and `height`.
+ * status dot or indicator, sized with `width` and `height`. `Radio` and `RadioCard` use it as
+ * their selected-state indicator.
  */
 const CircleIcon = createIcon({
   Root: Svg,

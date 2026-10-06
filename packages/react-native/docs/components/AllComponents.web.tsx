@@ -38,6 +38,10 @@ import {
   Box,
   Button,
   Card,
+  CardAccordion,
+  CardAccordionButton,
+  CardAccordionFooter,
+  CardAccordionItem,
   Carousel,
   CarouselItem,
   Center,
@@ -294,6 +298,18 @@ const AllComponents: React.FC = () => {
                   <Heading>I am a card</Heading>
                   <BodyText>And do card stuff.</BodyText>
                 </Card>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Card Accordion" link="components-card-accordion">
+              <Center flex={1}>
+                <CardAccordion defaultValue="2" style={{ width: '100%' }}>
+                  <CardAccordionItem value="1" title="Your home" />
+                  <CardAccordionItem value="2" title="Your property">
+                    <CardAccordionFooter>
+                      <CardAccordionButton action="next" />
+                    </CardAccordionFooter>
+                  </CardAccordionItem>
+                </CardAccordion>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Carousel" link="components-carousel">

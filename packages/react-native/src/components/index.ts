@@ -9,6 +9,7 @@ export * from './BottomSheet';
 export * from './Box';
 export * from './Button';
 export * from './Card';
+export * from './CardAccordion';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
