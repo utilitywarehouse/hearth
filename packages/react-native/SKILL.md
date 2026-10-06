@@ -31,11 +31,13 @@ Load this skill — do not skip it — at each of these moments:
   silently bypassed — load this skill, or pass its instructions into the
   subagent's prompt, before delegating.
 - **Alongside `figma-implementation`, whenever adapting Figma output into
-  code.** That skill covers the Figma-to-code verification workflow (per-file
-  re-checks, why `docs-show` always outranks local inspection, and the
-  mechanical spacing-variable check); this skill covers the Hearth React
-  Native component API itself. Load both together — neither substitutes for
-  the other.
+  code.** That skill covers the Figma-to-code verification workflow —
+  resolving an ambiguous node/URL before fetching context, per-file
+  re-checks, why `docs-show` always outranks local inspection, the mechanical
+  spacing-variable check, Code Connect ownership boundaries, and decoupling
+  component props from raw bound data shapes; this skill covers the Hearth
+  React Native component API itself. Load both together — neither
+  substitutes for the other.
 
 Treat each moment above as a hard gate, not a vague "this is UI work" prompt
 to get around to eventually.
