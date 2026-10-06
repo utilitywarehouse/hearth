@@ -120,17 +120,18 @@
 
       & :where(.h-ListItemContentMainContent) {
         flex-grow: 1;
-        align-items: start;
+        align-items: flex-start;
         align-self: center;
       }
 
       & :where(.h-ListItemContentTrailingContent) {
         display: flex;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
+        flex-shrink: 0;
 
         &:has(> .h-Switch, > .h-Link) {
-          align-items: start;
+          align-items: flex-start;
         }
       }
     }

@@ -1,17 +1,11 @@
 # Pagination
 
-Use the `Pagination` component to help users navigate through multiple pages of content.
-
-## Table of Contents
-
-- [Usage Guidelines](#usage-guidelines)
-- [Examples](#examples)
-  - [Condensed](#condensed)
-  - [Without Skip Buttons](#without-skip-buttons)
-  - [Few Pages](#few-pages)
-  - [Many Pages](#many-pages)
-  - [Edge Cases](#edge-cases)
-- [API](#api)
+Use Pagination to let users navigate through multiple pages of content, such
+as search results or a paginated table. It automatically condenses to a
+maximum of 7 visible page numbers (using ellipses) for large page counts.
+Render `as="nav"` when it acts as a standalone navigation landmark — in that
+case also provide an `id` for accessibility. Use the `condensed` prop for
+compact spaces where only a page count needs to be shown.
 
 ```tsx
 <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />

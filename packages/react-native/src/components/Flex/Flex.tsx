@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import FlexProps from './Flex.props';
 
+/**
+ * Use Flex to lay out children in a row or column with control over alignment, wrapping, and
+ * spacing between them.
+ */
 const Flex = ({
   style,
   children,

@@ -17,6 +17,10 @@ export const useToastContext = () => {
   return ctx;
 };
 
+/**
+ * Renders and manages toast notifications for its subtree. Mount once near the
+ * app root, then trigger toasts anywhere below it via `useToast()`.
+ */
 export const ToastProvider: React.FC<ToastProviderProps> = ({
   children,
   safeAreaPadding = true,

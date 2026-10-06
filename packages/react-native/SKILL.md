@@ -30,6 +30,12 @@ Load this skill — do not skip it — at each of these moments:
   answer a question this skill already answers is how this skill gets
   silently bypassed — load this skill, or pass its instructions into the
   subagent's prompt, before delegating.
+- **Alongside `figma-implementation`, whenever adapting Figma output into
+  code.** That skill covers the Figma-to-code verification workflow (per-file
+  re-checks, why `docs-show` always outranks local inspection, and the
+  mechanical spacing-variable check); this skill covers the Hearth React
+  Native component API itself. Load both together — neither substitutes for
+  the other.
 
 Treat each moment above as a hard gate, not a vague "this is UI work" prompt
 to get around to eventually.
@@ -48,14 +54,22 @@ There are 2 options for discovering existing components and documentation:
 - MCP server: `hearth-react-native` MCP hosted on a remote URL
 - Raw markdown files: located in the `public` folder of the `hearth-react-native` package
 
-**Default to the raw markdown files.** They are local, always available, and
-version-matched to what the app actually has installed — so the API you read is
-the API you get.
+**Default to the MCP server** for component lookups and general/cross-cutting
+guidance (design tokens, styling, layout, getting started, dark mode). For a
+component, fetch both its plain `stories-<component>` entry (props + story
+code) and its `components-<component>--docs` entry (narrative usage,
+accessibility, and examples) — together they cover what the local markdown
+file documents.
 
-**Use the MCP server for richer exploration** — searching across components,
-fetching story code, or discovering what exists when you're not sure where to
-start. It's worth reaching for when the markdown files don't give you enough
-context, but it requires the server to be configured and reachable.
+Subcomponents (e.g. `ModalImage`, `CardAction`) are listed as their own
+`stories-<subcomponent>` entries in `docs-list` — fetch them
+directly by their own id rather than relying on the parent's `--docs` page.
+They don't have a separate `--docs` entry of their own; their narrative usage
+stays documented inline in the parent's `components-<parent>--docs` entry.
+
+**Fall back to the raw markdown files** for a specific story's exact code
+beyond what's already surfaced by `docs-show` or
+`docs-show-story`.
 
 Whatever source you use, review what is available before writing any code.
 
@@ -67,6 +81,17 @@ that component's own doc page — a local pattern may predate a more direct
 prop the library added later (e.g. `List`'s own `heading`/`helperText` props
 vs. a sibling `SectionHeader` or `Heading`). Prefer the documented, current shorthand over
 an older local convention when they diverge.
+
+### MCP Server
+
+You can use the **`hearth-react-native`** MCP server if available (`https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`):
+
+1. `docs-list` — get an index of all Hearth React Native components and docs
+2. `docs-show` — get props, API, and usage examples for a specific
+   component or docs entry. Pass the plain `stories-<component>` id (e.g.
+   `stories-modal`) for props and story code, or the `components-<component>--docs`
+   id (e.g. `components-modal--docs`) for narrative usage and accessibility docs
+3. `docs-show-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 
@@ -81,14 +106,6 @@ The docs are then at:
 - `<hearth-react-native-root>/public/llms/components/` — one file per component
 - `<hearth-react-native-root>/public/llms/docs/` — design tokens, styling, layout, hooks, dark mode
 - `<hearth-react-native-root>/public/llms.txt` — index of all available docs
-
-### MCP Server
-
-You can use the **`hearth-react-native`** MCP server if available (`https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`):
-
-1. `list-all-documentation` — get an index of all Hearth React Native components
-2. `get-documentation` — get props, API, and usage examples for a specific component
-3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ## Plan before writing
 
@@ -251,15 +268,12 @@ as interchangeable aliases:
 
 - **`gap`** — a raw numeric space token (`'0'..'900'`), non-responsive.
 - **`spacing`** (aliased as the deprecated `space`) — Hearth's semantic layout
-  scale (`'2xs'..'2xl'`). This is both the direct match for Figma's
-  `layout/spacing/*` variable names **and** automatically responsive per
-  breakpoint (e.g. `spacing="2xl"` resolves to 28px on mobile, 40px on
-  desktop).
+  scale (`'2xs'..'2xl'`), automatically responsive per breakpoint (e.g.
+  `spacing="2xl"` resolves to 28px on mobile, 40px on desktop).
 
-**If a Figma variable path bound to a node contains the segment `spacing`**
-(e.g. `layout/spacing/lg`), use the `spacing` prop with the matching value
-(`lg`, `2xl`, etc.) — never `gap`. Reserve `gap` for adjustments that don't
-correspond to any named Figma variable.
+See the `figma-implementation` skill for the mechanical check that maps a
+Figma variable path (e.g. `layout/spacing/lg`) to `spacing` vs `gap` — it
+applies here unchanged.
 
 For distribution and alignment, use `justify`/`align` on `Flex`. Don't put
 margin on individual sibling components just for spacing.

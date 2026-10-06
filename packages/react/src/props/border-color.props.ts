@@ -18,9 +18,24 @@ export const borderColorPropDefs = {
 };
 
 export interface BorderColorProps {
+  /**
+   * Sets the `border-color` CSS property on all sides of the element.
+   */
   borderColor?: (typeof values)[number] | CssTokenVariable;
+  /**
+   * Sets the `border-top-color` CSS property.
+   */
   borderTopColor?: (typeof values)[number] | CssTokenVariable;
+  /**
+   * Sets the `border-right-color` CSS property.
+   */
   borderRightColor?: (typeof values)[number] | CssTokenVariable;
+  /**
+   * Sets the `border-bottom-color` CSS property.
+   */
   borderBottomColor?: (typeof values)[number] | CssTokenVariable;
+  /**
+   * Sets the `border-left-color` CSS property.
+   */
   borderLeftColor?: (typeof values)[number] | CssTokenVariable;
 }

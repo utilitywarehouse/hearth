@@ -27,7 +27,12 @@ const meta: Meta<typeof RadioTile> = {
 export default meta;
 type Story = StoryObj<typeof RadioTile>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     value: '1',
     label: 'Radio label',
@@ -48,6 +53,7 @@ export const Playground: Story = {
   },
 };
 
+/** RadioTile fits its content width by default; set flex to have it grow with its siblings instead. */
 export const FitContent: Story = {
   args: {
     value: '1',
@@ -75,6 +81,7 @@ export const FitContent: Story = {
   },
 };
 
+/** Long labels wrap within the tile rather than overflowing or truncating. */
 export const LongTitle: Story = {
   render: () => {
     return (
@@ -88,6 +95,7 @@ export const LongTitle: Story = {
   },
 };
 
+/** Use badge to attach a Badge alongside the tile's label. */
 export const WithBadge: Story = {
   render: () => (
     <RadioGroup label="With badge" contentWidth="200px">
@@ -115,6 +123,7 @@ export const WithBadge: Story = {
   ),
 };
 
+/** Use image to show an icon or a custom image alongside the tile's label. */
 export const WithImage: Story = {
   render: () => (
     <RadioGroup label="How would you like to pay?">
@@ -135,6 +144,7 @@ export const WithImage: Story = {
   ),
 };
 
+/** A single long label doesn't stretch its siblings to match its height. */
 export const RadioTileStoryWithOneLongLabel: Story = {
   name: 'RadioTile with one long label',
   render: () => {

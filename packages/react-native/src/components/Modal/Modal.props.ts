@@ -7,13 +7,22 @@ import {
 
 type ModalBaseProps = Omit<BottomSheetProps, 'children'> &
   ModalCommonBaseProps & {
+    /** Whether the modal should take up the full screen height.
+     * @default false */
     fullscreen?: boolean;
+    /** Whether pressing the backdrop closes the modal. Ignored when a custom `backdrop` is provided.
+     * @default true, or false while `loading` */
+    closeOnBackdropPress?: boolean;
   };
 
 type ModalProps =
   | (ModalBaseProps &
       ModalButtonFooterProps & {
+        /** Whether to automatically close the modal when the primary button is pressed.
+         * @default true */
         closeOnPrimaryButtonPress?: boolean;
+        /** Whether to automatically close the modal when the secondary button is pressed.
+         * @default true */
         closeOnSecondaryButtonPress?: boolean;
       })
   | (ModalBaseProps &

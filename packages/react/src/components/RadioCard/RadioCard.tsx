@@ -16,6 +16,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioCardElement = ComponentRef<'button'>;
 
+/**
+ * Use RadioCard within a RadioGroup to present a radio option in a card-like
+ * visual style, when the option is a primary focus of the UI or benefits from
+ * additional explanatory content — unlike RadioTile, it accepts children. For
+ * simpler grouped options use RadioTile instead.
+ *
+ * @summary A card-styled radio option for use within RadioGroup, supporting additional content.
+ */
 export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, ref) => {
   const {
     className,

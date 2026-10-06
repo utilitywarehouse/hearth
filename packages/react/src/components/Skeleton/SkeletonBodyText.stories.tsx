@@ -29,7 +29,12 @@ const meta: Meta<typeof SkeletonBodyText> = {
 export default meta;
 type Story = StoryObj<typeof SkeletonBodyText>;
 
+/** Interactive sandbox — use the controls panel to explore props such as lines and size. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Box width="360px">
       <Skeleton loadingTitle="playground story">
@@ -39,7 +44,14 @@ export const Playground: Story = {
   ),
 };
 
+/** Set size to sm, md, or lg to change the height of each line. */
 export const Sizes: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+    controls: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="sizes story">
       <Flex direction="column" gap="300" width="360px">
@@ -51,7 +63,14 @@ export const Sizes: Story = {
   ),
 };
 
+/** Set lines to 1 to render a single line placeholder instead of a paragraph block. */
 export const SingleLine: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+    controls: { disable: true },
+  },
   args: { lines: '1' },
   render: args => (
     <Box width="360px">

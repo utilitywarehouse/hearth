@@ -18,6 +18,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type VerificationInputElement = ComponentRef<'input'>;
 
+/**
+ * Use VerificationInput to let users enter a one-time password (OTP) sent via
+ * SMS, email, or an authenticator app. For general text entry, use TextInput;
+ * for passwords, use PasswordInput instead. A `label` is required.
+ *
+ * @summary An input for entering a one-time password (OTP).
+ */
 export const VerificationInput = forwardRef<VerificationInputElement, VerificationInputProps>(
   (props, ref) => {
     const {

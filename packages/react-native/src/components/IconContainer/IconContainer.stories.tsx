@@ -88,6 +88,7 @@ export const RadiusNone: Story = {
 export const KitchenSink: Story = {
   parameters: {
     controls: { exclude: ['radiusNone', 'variant', 'color', 'size'] },
+    chromatic: { disableSnapshot: false },
   },
   render: ({ icon }: { icon: ComponentType }) => {
     const sizes: Array<'sm' | 'md' | 'lg'> = ['sm', 'md', 'lg'];
@@ -129,6 +130,22 @@ export const KitchenSink: Story = {
             </VariantTitle>
           </Box>
         ))}
+        <Box gap="300">
+          <VariantTitle title="Radius none">
+            <Flex direction="row" wrap="wrap" spacing="md">
+              {colors.map(color => (
+                <IconContainer
+                  key={`radius-none-${color}`}
+                  icon={icon}
+                  size="md"
+                  variant="subtle"
+                  color={color}
+                  radiusNone
+                />
+              ))}
+            </Flex>
+          </VariantTitle>
+        </Box>
       </Flex>
     );
   },

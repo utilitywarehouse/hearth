@@ -24,12 +24,39 @@ export const gridItemPropDefs = {
 };
 
 export interface GridItemProps {
+  /**
+   * Set the number of grid columns this item spans. Supports responsive values.
+   */
   gridColumnSpan?: Responsive<Union<string, (typeof values)[number]>>;
+  /**
+   * Shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and
+   * `grid-column-end`, placing an item within a named grid area or by line numbers.
+   */
   gridArea?: Responsive<string>;
+  /**
+   * Shorthand for `grid-column-start` and `grid-column-end`, setting an item's size
+   * and location within the grid column.
+   */
   gridColumn?: Responsive<string>;
+  /**
+   * Set an item's starting line within the grid column.
+   */
   gridColumnStart?: Responsive<string>;
+  /**
+   * Set an item's ending line within the grid column.
+   */
   gridColumnEnd?: Responsive<string>;
+  /**
+   * Shorthand for `grid-row-start` and `grid-row-end`, setting an item's size and
+   * location within the grid row.
+   */
   gridRow?: Responsive<string>;
+  /**
+   * Set an item's starting line within the grid row.
+   */
   gridRowStart?: Responsive<string>;
+  /**
+   * Set an item's ending line within the grid row.
+   */
   gridRowEnd?: Responsive<string>;
 }

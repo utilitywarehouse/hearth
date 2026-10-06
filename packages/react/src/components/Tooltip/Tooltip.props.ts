@@ -21,6 +21,10 @@ export interface TooltipProps
       ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>,
       'delayDuration' | 'disableHoverableContent'
     > {
+  /**
+   * Sets the position of the tooltip relative to its trigger.
+   * @default topCenter
+   */
   align?:
     | 'rightCenter'
     | 'leftCenter'
@@ -30,6 +34,12 @@ export interface TooltipProps
     | 'topLeft'
     | 'topCenter'
     | 'topRight';
+  /**
+   * An optional heading shown above the description for more structured tooltip content.
+   */
   heading?: string;
+  /**
+   * The content of the tooltip.
+   */
   description: ReactNode;
 }

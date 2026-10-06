@@ -13,6 +13,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToggleGroupElement = ComponentRef<'div'>;
 
+/**
+ * Use ToggleGroup to wrap a set of ToggleButton or ToggleButtonCard components,
+ * managing selection state between them. Set `type="single"` when only one
+ * option can be selected at a time, or `type="multiple"` (the default) to
+ * allow selecting any number of options.
+ *
+ * @summary A container that manages selection state for a group of toggle buttons.
+ */
 export const ToggleGroup = forwardRef<ToggleGroupElement, ToggleGroupProps>(
   (
     { className, type = 'multiple', value, defaultValue, onValueChange, children, ...props },

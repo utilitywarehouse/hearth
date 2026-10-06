@@ -2,15 +2,22 @@ import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { LabelProps } from '../Label/Label.props';
 
-export interface RadioProps extends Omit<
-  ComponentPropsWithRef<typeof RadioGroupPrimitive.RadioGroupItem>,
-  'disabled'
+export interface RadioProps extends ComponentPropsWithRef<
+  typeof RadioGroupPrimitive.RadioGroupItem
 > {
+  /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
+  asChild?: boolean;
   /**
    * The label for the Radio. If not using please properly associate the
    * Radio with a label using the `aria-label` or `aria-labelledby` props.
    */
   label?: ReactNode;
+  /** Overrides the font weight of the label. */
   labelFontWeight?: LabelProps['fontWeight'];
   /** Helper text for the Radio. Will not display if the radio group has `helperText` set. */
   helperText?: ReactNode;

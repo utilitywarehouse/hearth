@@ -6,6 +6,11 @@
       "hash": "0da543b5a33bb32a5669ea8cd777e2264f854b02690c231e44d845de327781a5"
     },
     {
+      "name": "AiGeneratedSmallIcon",
+      "path": "ai-generated-small-icon.svg",
+      "hash": "525bb6e41309a7055e64486fc6243858502019c4041699476c72c6f03de0d55b"
+    },
+    {
       "name": "AttachSmallIcon",
       "path": "attach-small-icon.svg",
       "hash": "66351a458536c7d8579dcb922088cec43bb861cccc1c9116b0b129dd6fd90269"
@@ -94,6 +99,11 @@
       "name": "DecreaseSmallIcon",
       "path": "decrease-small-icon.svg",
       "hash": "35f24dbbd639cc4d66e0f717a1788a7f97f23b6841408536fd31821771dddcf5"
+    },
+    {
+      "name": "DevicesSmallIcon",
+      "path": "devices-small-icon.svg",
+      "hash": "76446a497fd09f5217e131fd739637263874301158b8e8d291fbb1edd44ee376"
     },
     {
       "name": "DownloadSmallIcon",
@@ -203,7 +213,7 @@
     {
       "name": "LaunchSmallIcon",
       "path": "launch-small-icon.svg",
-      "hash": "a950d81ec0b256d606370066d949a251eacea659d7871c2b57913415646dc737"
+      "hash": "2751e2dacc3aef83e3d94a1d2c903fd324580e2b3e9c64ae252e163707d8347f"
     },
     {
       "name": "ListSmallIcon",
@@ -246,6 +256,16 @@
       "hash": "6efc649dd606be5aada7a4cb1e3ec7d5ddd8c8ea9fd8b759fb8297e8ee43ec94"
     },
     {
+      "name": "MicrophoneOffSmallIcon",
+      "path": "microphone-off-small-icon.svg",
+      "hash": "eb72a2d97c64e9273ef0bc8920c5c120502ee46a228ee82ebf1cf0c016dada37"
+    },
+    {
+      "name": "MicrophoneOnSmallIcon",
+      "path": "microphone-on-small-icon.svg",
+      "hash": "5fcf8ff717be390354fccbbff2be01614bec926bfa0e9041257cbab8c7d73893"
+    },
+    {
       "name": "MinusSmallIcon",
       "path": "minus-small-icon.svg",
       "hash": "8d2b46dcc05ff426c717f37880c17a87ce6e0b3de6a4e81b21182f88cc33ccf0"
@@ -259,6 +279,11 @@
       "name": "MoreSmallIcon",
       "path": "more-small-icon.svg",
       "hash": "702a230d7e8a3c11b22cb6003569fdb5effc8821e7abbaf67c750d42a54b0cd2"
+    },
+    {
+      "name": "MotorInsuranceSmallIcon",
+      "path": "motor-insurance-small-icon.svg",
+      "hash": "3d8f0c51cd55870854f972dc5ad125831571befe6ae3bd2224c7b574cb544af2"
     },
     {
       "name": "OpenSmallIcon",
@@ -336,6 +361,11 @@
       "hash": "d38b6c8d266a8f0d7d29584e00233d7664d09d4ef9318626957398a269b14b85"
     },
     {
+      "name": "SpeakerSmallIcon",
+      "path": "speaker-small-icon.svg",
+      "hash": "608bca816dcba662c5ab39d1a962b709421a9f2fd6a322e446d1eeca9e92c9c0"
+    },
+    {
       "name": "TickSmallIcon",
       "path": "tick-small-icon.svg",
       "hash": "762bb7727b4c72725fc77a20f85632783475e10df06ffef9371b60f7e126d38e"
@@ -376,6 +406,16 @@
       "hash": "dbc678f6a0954f639c7c34e2f627b98d98337adcdf46e4bceaff08a704b3aeb5"
     },
     {
+      "name": "ReduceNoiseSmallIcon",
+      "path": "reduce-noise-small-icon.svg",
+      "hash": "1f2c6470803cc0bf9e5f11cd373884178cc00d04a4ae319011b0dac27e4de93e"
+    },
+    {
+      "name": "RobotSmallIcon",
+      "path": "robot-small-icon.svg",
+      "hash": "eb5b223163383849a356d0ac4d35fb23e02301aa97f3652676c500c8633983b3"
+    },
+    {
       "name": "UnlockSmallIcon",
       "path": "unlock-small-icon.svg",
       "hash": "d4a4227aa55cf91870e459204665893eecadd5e789d1cd8a6cd48e2d135d9084"
@@ -409,6 +449,11 @@
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg",
       "hash": "6640e98c63d7a0639b44c69473e3f49ac527fa569349f5e0cd54c49cacd281f5"
+    },
+    {
+      "name": "AiGeneratedMediumIcon",
+      "path": "ai-generated-medium-icon.svg",
+      "hash": "d21842985d3ddaa5b7443f3bdb7dafa18aa379fd7333be43ad2994e3acbce546"
     },
     {
       "name": "AttachMediumIcon",
@@ -518,7 +563,7 @@
     {
       "name": "ChatMediumIcon",
       "path": "chat-medium-icon.svg",
-      "hash": "903df6a9916988e745e06b247a9099b535867c1c8b05c4cf8070265fe573a3c4"
+      "hash": "d93135beeaad45a06703fb76e86c25556d6b036f21ac8983ec6869cd405b4abc"
     },
     {
       "name": "CloseMediumIcon",
@@ -554,6 +599,11 @@
       "name": "DecreaseMediumIcon",
       "path": "decrease-medium-icon.svg",
       "hash": "d82a84d0160fbc723c3bc68e19579de570b0ed14cb2085bc212ae295494104ce"
+    },
+    {
+      "name": "DevicesMediumIcon",
+      "path": "devices-medium-icon.svg",
+      "hash": "b808bce98c63b1078acebaf68d945a772ad8138c9d354121270af5203502f6eb"
     },
     {
       "name": "DocumentMediumIcon",
@@ -761,6 +811,16 @@
       "hash": "ea12d099587c0229fd0dc9435ce4ae1728faa7be65d49661df9f59079519e96b"
     },
     {
+      "name": "MicrophoneOffMediumIcon",
+      "path": "microphone-off-medium-icon.svg",
+      "hash": "be9ff70dc15287dd8047fd31c05d82d678b98dd28f092a38d8929a107bc67f85"
+    },
+    {
+      "name": "MicrophoneOnMediumIcon",
+      "path": "microphone-on-medium-icon.svg",
+      "hash": "0fb9e2a83a4fe60267bec97efb3226b830d45c23961761f43840f2a1b0a7fa1c"
+    },
+    {
       "name": "MoneyMediumIcon",
       "path": "money-medium-icon.svg",
       "hash": "78c81b4e823dac42d3dcd4559b117381497f694bdef0b6a52cf07301857479d7"
@@ -791,9 +851,24 @@
       "hash": "de45196520e9f46c4622d9545c5d5a88c9679f7655bf8c1510c3366fce575ce4"
     },
     {
+      "name": "MotorInsuranceMediumIcon",
+      "path": "motor-insurance-medium-icon.svg",
+      "hash": "c0951aa5a2d63e1a66a0fbe87ab20cf1f0e758d4a4e4e12ed6f94abad707b5aa"
+    },
+    {
       "name": "OpenMediumIcon",
       "path": "open-medium-icon.svg",
       "hash": "a8627ee603a83c6fa19ab61c2d01ccce2ef6da6abea0e61978f0652bd0c64b12"
+    },
+    {
+      "name": "PanelLeftMediumIcon",
+      "path": "panel-left-medium-icon.svg",
+      "hash": "545d6948dbdd90c3d5e26bb95ea100972d4c3c6789c4b0d4e9a12f3b80da7f1d"
+    },
+    {
+      "name": "PanelBottomMediumIcon",
+      "path": "panel-bottom-medium-icon.svg",
+      "hash": "684c6ab392764c6b46c8da34bb85c348699b6af6965df15b17486743dcdb4683"
     },
     {
       "name": "PaymentMediumIcon",
@@ -816,6 +891,11 @@
       "hash": "59659782433685ff16ee85e3e401ce6c03a3f0ff7e872f0ab66ff89b81062ea5"
     },
     {
+      "name": "ReduceNoiseMediumIcon",
+      "path": "reduce-noise-medium-icon.svg",
+      "hash": "bdfe0165c29e1e36163c5bcff4fbd81da54d85ff41e1336218cbe0c5d7cc8792"
+    },
+    {
       "name": "RefundMediumIcon",
       "path": "refund-medium-icon.svg",
       "hash": "6c6c157b3a76ea6fd9837907064427f984405c902eb5b16d7d07f589d70e6cc0"
@@ -824,6 +904,11 @@
       "name": "RestartMediumIcon",
       "path": "restart-medium-icon.svg",
       "hash": "96ce75b0f23725cfc1846a963ca3d2b4540ac7a519ea3ebd7fcce58ed73ac8ed"
+    },
+    {
+      "name": "RobotMediumIcon",
+      "path": "robot-medium-icon.svg",
+      "hash": "a6a4e1bbabbb0e88f749ef666aea4d82bb18d57ceda7c49f56d3ed2b01f88a74"
     },
     {
       "name": "SearchMediumIcon",
@@ -859,6 +944,11 @@
       "name": "SnowflakeMediumIcon",
       "path": "snowflake-medium-icon.svg",
       "hash": "2be698e5fc652ab7e388ff81499084931e860d1f74e28665321d82a600089cc8"
+    },
+    {
+      "name": "SpeakerMediumIcon",
+      "path": "speaker-medium-icon.svg",
+      "hash": "382028b0134feab96e681246a449969303b9970676e4a626306004d76e638471"
     },
     {
       "name": "SunMediumIcon",

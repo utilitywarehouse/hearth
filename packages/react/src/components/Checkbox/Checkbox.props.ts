@@ -11,6 +11,7 @@ export interface CheckboxProps
     MarginProps {
   /** The value given as data when submitted with a `name`. */
   value?: string;
+  /** The value given as data when submitted with a `name`, when the checkbox is initially rendered uncontrolled. */
   defaultValue?: string;
   /**
    * The label for the Checkbox. If not using please properly associate the

@@ -22,6 +22,10 @@ export interface TabsProps extends Omit<
   size?: Responsive<(typeof sizes)[number]>;
   /** Activation mode for tabs */
   activationMode?: 'automatic' | 'manual';
+  /**
+   * Sets the space between the `TabsList` and the `TabContent`.
+   * @default xl
+   */
   spacing?: FlexProps['spacing'];
 }
 

@@ -30,6 +30,12 @@ Load this skill — do not skip it — at each of these moments:
   answer a question this skill already answers is how this skill gets
   silently bypassed — load this skill, or pass its instructions into the
   subagent's prompt, before delegating.
+- **Alongside `figma-implementation`, whenever adapting Figma output into
+  code.** That skill covers the Figma-to-code verification workflow (per-file
+  re-checks, why `docs-show` always outranks local inspection, and the
+  mechanical spacing-variable check); this skill covers the Hearth React
+  component API itself. Load both together — neither substitutes for the
+  other.
 
 Treat each moment above as a hard gate, not a vague "this is UI work" prompt
 to get around to eventually.
@@ -43,6 +49,15 @@ to get around to eventually.
 | SVG illustrations      | `@utilitywarehouse/hearth-svg-assets`  |
 | Animated illustrations | `@utilitywarehouse/hearth-json-assets` |
 
+`hearth-react-icons` exports React components:
+`import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons'`.
+`hearth-svg-assets` exports raw `.svg` files via subpath import, used as an
+image source rather than a component:
+`import Scene from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg'`,
+then `<img src={Scene} alt="..." />`. Spot/scene/mascot illustrations come
+from `hearth-svg-assets`, not `hearth-react-icons` — the two packages are not
+interchangeable import patterns.
+
 ## Before you implement: discover what exists
 
 There are 2 options for discovering existing components and documentation:
@@ -50,22 +65,40 @@ There are 2 options for discovering existing components and documentation:
 - MCP server: `hearth-react` MCP hosted on a remote URL
 - Raw markdown files: located in the `public` folder of the `hearth-react` package
 
-**Default to the raw markdown files.** They are local, always available, and
-version-matched to what the app actually has installed — so the API you read is
-the API you get.
+**Default to the MCP server** for component lookups and general/cross-cutting
+guidance (design tokens, layout, typography, getting started, migration). For
+a component, fetch both its plain entry (props + first-3-story code) and its
+`<component-id>--docs` entry (narrative usage, accessibility, and examples) —
+together they cover what the local markdown file documents.
 
-**Use the MCP server for richer exploration** — searching across components,
-fetching story code, or discovering what exists when you're not sure where to
-start. It's worth reaching for when the markdown files don't give you enough
-context, but it requires the server to be configured and reachable.
+Subcomponents (e.g. `CardActionLink`, `AccordionItem`) are listed as their
+own entries in `docs-list` — fetch them directly by their own id rather than
+relying on the parent's `--docs` page, which only shows their
+`<ArgTypes of={X}/>` block as inert, unresolved text.
+
+**Fall back to the raw markdown files** for:
+
+- **A specific story's exact code** beyond what's already surfaced by
+  `docs-show` or `docs-show-story`.
 
 For questions about onboarding, updating to a newer version of this skill, or
-configuring the MCP server, see [`public/llms/docs/a-i-tools.md`](public/llms/docs/a-i-tools.md).
+configuring the MCP server, see [`public/llms/docs/a-i-toolkit.md`](public/llms/docs/a-i-toolkit.md).
 
 Whatever source you use, review what is available before writing any code.
 
 The library is broad — always check whether an existing component covers the
 need before implementing anything custom.
+
+### MCP Server
+
+You can use the **`hearth-react`** MCP server if available:
+
+1. `docs-list` — get an index of all Hearth React components and docs
+2. `docs-show` — get props, API, and usage examples for a specific
+   component or docs entry. Pass the plain id (e.g. `components-button`) for
+   props and story code, or the `<id>--docs` id (e.g.
+   `components-button--docs`) for narrative usage and accessibility docs
+3. `docs-show-story` — get story code and docs for a specific story
 
 ### Raw markdown files
 
@@ -80,14 +113,6 @@ The docs are then at:
 - `<hearth-react-root>/public/llms/components/` — one file per component
 - `<hearth-react-root>/public/llms/docs/` — design tokens, layout, responsive design, getting started
 - `<hearth-react-root>/public/llms.txt` — index of all available docs
-
-### MCP Server
-
-You can use the **`hearth-react`** MCP server if available:
-
-1. `list-all-documentation` — get an index of all Hearth React components
-2. `get-documentation` — get props, API, and usage examples for a specific component
-3. `get-documentation-for-story` — get story code and docs for a specific story
 
 ## Plan before writing
 
@@ -203,6 +228,26 @@ components or wrap them in an extra `Box` just for positioning.
 </Flex>
 ```
 
+### Fixed pixel widths from Figma: `gridColumnSpan` vs `maxWidth`
+
+A Figma frame with a fixed pixel width (e.g. `680px`) isn't automatically a
+`maxWidth`. Check whether that width lines up with a span of the grid's
+column tracks (i.e. it's grid/gutter-derived) — if so, express it as `Grid`
+with `gridColumnSpan` on the child, not a hardcoded `maxWidth`:
+
+```tsx
+// ❌ WRONG — hardcoded width that happens to match a grid span
+<Box maxWidth="680px">{...}</Box>
+
+// ✅ CORRECT — the same width expressed as a grid span
+<Grid defaultResponsiveColumns>
+  <Box gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '8' }}>{...}</Box>
+</Grid>
+```
+
+Reserve `maxWidth` for a genuine max-width constraint that isn't grid-derived
+(e.g. constraining a body of text for readability, independent of the page grid).
+
 ## Choosing a typography component
 
 Hearth uses three font families. Match the Figma font-family to the component.
@@ -229,6 +274,14 @@ When layout, padding, or margin are defined in a Figma design using a `spacing`
 value, use the built-in `spacing` prop; do not replace it with responsive `gap`
 values. If spacing is not explicitly defined in the design, or specified by the
 user, use `gap` for spacing between elements; if unsure, check with the user.
+
+Figma exposes this value under two different variable paths depending on
+which component it's bound to — `layout/spacing/*` on `Flex`/`Grid`/`Card`,
+`layout/content/spacing-*` on `Container` — but both resolve to the same
+`spacing` prop and the same value scale (`none`/`2xs`/`xs`/`sm`/`md`/`lg`/`xl`/`2xl`).
+Treat either path the same way. See the `figma-implementation` skill for the
+mechanical check that turns "is this a spacing value?" into a forced lookup
+rather than a judgment call.
 
 ## Use style props first
 

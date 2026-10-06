@@ -93,12 +93,8 @@ function MyComponent() {
 // Example usage
 <Box gap="200">
   <ThemedImage
-    light={{
-      uri: pig,
-    }}
-    dark={{
-      uri: pig,
-    }}
+    light={pig as ImageSourcePropType}
+    dark={pig as ImageSourcePropType}
     width={200}
     height={200}
     style={{ width: 200, height: 200, borderRadius: 8 }}

@@ -1,5 +1,6 @@
 import {
   BottomSheetFooter,
+  BottomSheetBackdropProps,
   BottomSheetFooterProps,
   BottomSheetScrollViewMethods,
   SNAP_POINT_TYPE,
@@ -12,6 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
+import BottomSheetBackdrop from '../BottomSheet/BottomSheetBackdrop';
 import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
@@ -21,6 +23,11 @@ import ModalProps from './Modal.props';
 
 type Modal<T = any> = BottomSheetModalMethods<T> & { triggerCloseAnimation?: () => void };
 
+/**
+ * Use Modal for a dialog that slides up from the bottom of the screen, with pre-configured layouts for headers, content, and action buttons.
+ * Built on `BottomSheetModal`; use it to display important information, collect input, or present choices without navigating away from the current screen. Use `NavModal` instead inside a React Navigation modal screen.
+ * @summary A bottom-sheet dialog for confirmations, input, and choices.
+ */
 const Modal = ({
   ref,
   children,
@@ -45,6 +52,8 @@ const Modal = ({
   secondaryButtonProps,
   closeButtonProps,
   stickyFooter = true,
+  closeOnBackdropPress,
+  backdrop,
   testID,
   ...props
 }: ModalProps) => {
@@ -105,6 +114,21 @@ const Modal = ({
       bottomSheetModalRef.current?.dismiss();
     }
   }, [closeOnSecondaryButtonPress, onPressSecondaryButton]);
+
+  const shouldCloseOnBackdropPress = closeOnBackdropPress ?? !loading;
+  const renderNonClosingBackdrop = useCallback(
+    (backdropProps: BottomSheetBackdropProps) => (
+      <BottomSheetBackdrop {...backdropProps} pressBehavior="none" />
+    ),
+    []
+  );
+  // Only the default backdrop is affected; `false` or a custom backdrop takes precedence.
+  const resolvedBackdrop =
+    backdrop === undefined || backdrop === true
+      ? shouldCloseOnBackdropPress
+        ? true
+        : renderNonClosingBackdrop
+      : backdrop;
 
   const handleStickyFooterLayout = useCallback((event: LayoutChangeEvent) => {
     const nextHeight = Math.ceil(event.nativeEvent.layout.height);
@@ -280,6 +304,7 @@ const Modal = ({
         snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
         showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
         accessible={false}
+        backdrop={resolvedBackdrop}
         style={styles.modal}
         footerComponent={stickyFooter && shouldShowFooter ? renderFooter : undefined}
         {...props}
@@ -340,7 +365,6 @@ const styles = StyleSheet.create((theme, rt) => ({
       {
         noButtons: true,
         useSafeAreaInsets: true,
-        stickyFooter: false,
         styles: {
           paddingBottom:
             rt.insets.bottom +

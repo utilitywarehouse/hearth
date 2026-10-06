@@ -1,5 +1,11 @@
 # DetailText
 
+Use DetailText for smaller, secondary text such as captions, metadata, or
+form field hints — it renders a `span` element by default, with responsive
+`size` and `color` props including built-in `valid`/`invalid` states.
+For the main body copy of a page, use BodyText instead.
+For heading-level text, use Heading instead.
+
 ```tsx
 <Flex direction="column" gap="100">
   <DetailText size="sm">Hamburgefons (sm)</DetailText>
@@ -87,4 +93,4 @@ This component is based on the `span` element and supports the following common 
 | `size`     | `Responsive<"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl">` | `md`    | Set the text size styles.                                                                            |
 | `color`    | `(Responsive<"text" \| "valid" \| "invalid"> & string)`               | `text`  | Set the text color                                                                                   |
 | `inverted` | `boolean`                                                             | —       | Inverts the component colours, for use on darker surface colours.                                    |
-| `as`       | `"span" \| "div" \| "p"`                                              | —       |                                                                                                      |
+| `as`       | `"span" \| "div" \| "p"`                                              | —       | Renders a `span` element. This is the default. Renders a `div` element. Renders a `p` element.       |

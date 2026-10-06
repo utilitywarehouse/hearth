@@ -15,6 +15,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LabelElement = ComponentRef<'label'>;
 
+/**
+ * Use Label to caption a form field or other input — it renders a `label`
+ * element by default, styled as `BodyText`. Set `variant="heading"` to style
+ * it as a `Heading` instead, for labels that need more visual weight.
+ *
+ * @summary Caption text for a form field, styled as body or heading text.
+ */
 export const Label = forwardRef<LabelElement, LabelProps>((props, ref) => {
   const {
     children,

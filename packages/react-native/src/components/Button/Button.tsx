@@ -27,6 +27,10 @@ ButtonText.displayName = 'ButtonText';
 ButtonSpinner.displayName = 'ButtonSpinner';
 ButtonIcon.displayName = 'ButtonIcon';
 
+/**
+ * Triggers an action or event, such as submitting a form, opening a dialog,
+ * cancelling an action, or performing a delete operation.
+ */
 const Button = ({ children, disabled = false, pressed, text, ...props }: ButtonProps) => {
   const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
   const { loading } = props;

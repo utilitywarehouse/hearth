@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './SegmentedControl.stories';
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
 import { SegmentedControl } from './SegmentedControl';
@@ -9,7 +9,7 @@ import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 
 <MarkdownDocHeader title="SegmentedControl" to="components/segmented-control" />
 
-Use a Segmented Control to switch between alternative views of closely related content.
+<Description of={SegmentedControl} />
 
 - [Usage](#usage)
 - [Sizes](#sizes)
@@ -20,7 +20,7 @@ Use a Segmented Control to switch between alternative views of closely related c
 
 ## Usage
 
-Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option requires a unique `value`. Always provide a `defaultValue` — a Segmented Control cannot be used without a selected option.
+Wrap `SegmentedControlOption` components in a `SegmentedControl`. Each option requires a unique `value`. Always provide a `defaultValue`: a Segmented Control cannot be used without a selected option.
 
 ```tsx
 <SegmentedControl defaultValue={['gas']}>
@@ -43,7 +43,7 @@ Two sizes are available: `sm` (32px, default) and `md` (48px). The `size` prop i
 
 ## Icons
 
-Use the `icon` prop to display an icon before the label. Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`. Either add icons to all options or none — do not mix.
+Use the `icon` prop to display an icon before the label. Use the Small icon variant with `size="sm"` and the Medium icon variant with `size="md"`. Either add icons to all options or none; do not mix.
 
 ```tsx
 <SegmentedControl defaultValue={['gas']} size="sm">

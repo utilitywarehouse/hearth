@@ -65,17 +65,51 @@ export type DatePickerProps = Omit<
   | 'ariaRequired'
   | 'rangeSeparator'
   | 'isClearable'
+  | 'disabled'
+  | 'onMonthChange'
+  | 'onYearChange'
+  | 'onMonthMouseLeave'
 > &
   Omit<FormFieldProps, 'hideLabel' | 'onChange'> &
   RefAttributes<HTMLButtonElement> &
   MarginProps & {
+    /**
+     * Not supported — DatePicker only supports selecting a single date.
+     */
     selectsRange?: never;
+    /**
+     * Not supported — DatePicker only supports selecting a single date.
+     */
     selectsMultiple?: never;
+    /**
+     * Callback fired when the selected date changes.
+     */
     onChange?: (
       date: Date | null,
       event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
     ) => void;
+    /**
+     * Hides the indicator that highlights today's date in the calendar.
+     *
+     * @default false
+     */
     disableTodayIndicator?: boolean;
+    /**
+     * Disables the DatePicker, preventing interaction.
+     */
+    disabled?: DatePickerPrimitiveProps['disabled'];
+    /**
+     * Callback fired when the displayed month changes.
+     */
+    onMonthChange?: DatePickerPrimitiveProps['onMonthChange'];
+    /**
+     * Callback fired when the displayed year changes.
+     */
+    onYearChange?: DatePickerPrimitiveProps['onYearChange'];
+    /**
+     * Callback fired when the mouse leaves a month in the calendar.
+     */
+    onMonthMouseLeave?: DatePickerPrimitiveProps['onMonthMouseLeave'];
   };
 
 export type View = 'days' | 'months' | 'years';

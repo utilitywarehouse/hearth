@@ -22,6 +22,15 @@ type AvatarElement = ComponentRef<'div'>;
 const COMPONENT_NAME = 'Avatar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use Avatar to help humanise the product experience by connecting users with
+ * the product and with each other. Pass a `name` to display initials, or a
+ * valid `src` to display an image. When using `src`, always also pass `name`
+ * so it can be used as the image's accessible description. With neither prop,
+ * a generic user icon is shown.
+ *
+ * @summary A visual representation of a user, shown as an image, initials, or a fallback icon.
+ */
 export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
   const {
     className,

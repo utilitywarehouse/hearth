@@ -1,16 +1,16 @@
+export * from './breakpoints';
+export * from './themes';
 export {
-  createUnistylesElement,
   Display,
-  getServerUnistyles,
   Hide,
-  hydrateServerUnistyles,
-  mq,
-  NavigationBar,
-  resetServerUnistyles,
   ScopedTheme,
-  StatusBar,
   StyleSheet,
   UnistylesRuntime,
+  createUnistylesElement,
+  getServerUnistyles,
+  hydrateServerUnistyles,
+  mq,
+  resetServerUnistyles,
   useServerUnistyles,
   useUnistyles,
   withUnistyles,
@@ -20,7 +20,5 @@ export type {
   UnistylesThemes,
   UnistylesVariants,
 } from 'react-native-unistyles';
-export * from './breakpoints';
-export * from './themes';
 
 export type * from '../types/unistyles';

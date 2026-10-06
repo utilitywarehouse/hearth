@@ -17,6 +17,8 @@ export interface CardAccordionProps
       | 'disabled'
     >,
     MarginProps {
+  /** The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. */
   value?: CardAccordionPrimitive.AccordionSingleProps['value'];
+  /** Called with the new `value` when the active step changes. */
   onValueChange?: CardAccordionPrimitive.AccordionSingleProps['onValueChange'];
 }

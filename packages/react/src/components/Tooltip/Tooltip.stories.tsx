@@ -44,7 +44,12 @@ const meta: Meta<typeof Tooltip> = {
 export default meta;
 type Story = StoryObj<typeof Tooltip>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex justifyContent="center" padding="800">
       <Tooltip {...args}>
@@ -56,7 +61,14 @@ export const Playground: Story = {
   ),
 };
 
+/** Set defaultOpen (or open, for a controlled Tooltip) to have it visible without user interaction. */
 export const DefaultOpen: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => (
     <Flex justifyContent="center" padding="800" gap="800" direction="column">
@@ -74,7 +86,13 @@ export const DefaultOpen: Story = {
   ),
 };
 
+/** Use Tooltip to add supplementary information to any trigger element, such as a Button. */
 export const WithButton: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex justifyContent="center" padding="800">
       <Tooltip {...args}>
@@ -86,7 +104,13 @@ export const WithButton: Story = {
   ),
 };
 
+/** Set align to position the Tooltip relative to its trigger. */
 export const Alignment: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" alignItems="center" gap="400" padding="800">
       <Flex direction="row" gap="400" alignItems="center">
@@ -139,7 +163,13 @@ export const Alignment: Story = {
   ),
 };
 
+/** Set heading to add a bold title above the Tooltip's description. */
 export const WithHeading: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { heading: 'Tooltip heading' },
   render: args => (
     <Flex justifyContent="center" padding="800">
@@ -152,7 +182,13 @@ export const WithHeading: Story = {
   ),
 };
 
+/** Tooltip wraps long description text onto multiple lines. */
 export const WithLongDescription: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="800" padding="800">
       <Tooltip
@@ -177,7 +213,13 @@ export const WithLongDescription: Story = {
   ),
 };
 
+/** Pass custom content as description for tooltips that need more than plain text. */
 export const WithCustomContent: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex justifyContent="center" padding="800">
       <Tooltip

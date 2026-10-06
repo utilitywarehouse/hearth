@@ -1,5 +1,26 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.6
+
+### Patch Changes
+
+- [#1527](https://github.com/utilitywarehouse/hearth/pull/1527) [`8b59cc3`](https://github.com/utilitywarehouse/hearth/commit/8b59cc3c58ad46ff15911e67757e4bff12cca076) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  - SpotMotorInsuranceLight
+  - SpotMotorInsuranceDark
+  - TechnicalCentralRailKeyOperatedLock1Light
+  - TechnicalCentralRailKeyOperatedLock1Dark
+  - TechnicalTopAndBottomKeyOperatedLock1Light
+  - TechnicalTopAndBottomKeyOperatedLock1Dark
+
+  ## CHANGED ASSETS
+
+  No changed assets.
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.6.5
 
 ### Patch Changes

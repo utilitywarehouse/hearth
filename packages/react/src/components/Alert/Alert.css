@@ -1,7 +1,7 @@
 .h-Alert {
   display: inline-flex;
   flex-direction: row;
-  align-items: start;
+  align-items: flex-start;
   background-color: var(--h-alert-background-color);
   border-color: var(--h-alert-border-color);
   border-style: solid;

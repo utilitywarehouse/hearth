@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Select.stories';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -14,7 +14,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Select" to="components/select" />
 
-`Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.
+<Description of={Select} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

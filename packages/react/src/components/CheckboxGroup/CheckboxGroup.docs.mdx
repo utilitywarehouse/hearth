@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './CheckboxGroup.stories';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
@@ -13,7 +13,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="CheckboxGroup" to="components/checkbox-group" />
 
-`CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.
+<Description of={CheckboxGroup} />
 
 <Canvas of={Stories.Playground} sourceState="none" />
 

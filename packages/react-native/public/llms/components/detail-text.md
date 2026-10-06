@@ -91,5 +91,10 @@ The `DetailText` component has different sizes to style the text.
       Hello there, I'm some detail text!
     </DetailText>
   </VariantTitle>
+  <VariantTitle title="Underline">
+    <DetailText {...args} underline>
+      Hello there, I'm some underlined detail text!
+    </DetailText>
+  </VariantTitle>
 </Box>
 ```

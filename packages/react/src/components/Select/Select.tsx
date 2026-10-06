@@ -17,6 +17,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SelectElement = ComponentRef<'button'>;
 
+/**
+ * Use Select to let users choose a single option from a list, when the choice
+ * requires a final submit action to confirm — for a choice that applies
+ * immediately, consider SegmentedControl instead. Wrap SelectItem children to
+ * define the options, and always provide a `label`.
+ *
+ * @summary A dropdown for selecting a single option from a list of choices.
+ */
 export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
   const {
     className,

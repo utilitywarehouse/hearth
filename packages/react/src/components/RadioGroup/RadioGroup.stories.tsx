@@ -26,19 +26,32 @@ const meta: Meta<typeof RadioGroup> = {
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     validationPlacement: { options: ['top', 'bottom'], control: { type: 'radio' } },
     contentWidth: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
   },
   args: {
     label: 'Label',
     helperText: 'Helper text',
     validationText: 'Validation text',
     contentWidth: undefined,
+    disabled: false,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
-export const Playground: Story = {
+/**
+ * Visual matrix of RadioGroup — used in docs and Chromatic snapshot testing,
+ * not a usage reference.
+ */
+export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     name: 'where-do-you-live',
     label: 'Where do you live?',
@@ -56,7 +69,19 @@ export const Playground: Story = {
             <RadioTile value="scotland" label="Scotland" />
             <RadioTile value="northern-ireland" label="Northern Ireland" />
           </RadioGroup>
+          <RadioGroup {...args} disabled>
+            <RadioTile value="england" label="England" />
+            <RadioTile value="wales" label="Wales" />
+            <RadioTile value="scotland" label="Scotland" />
+            <RadioTile value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
           <RadioGroup {...args}>
+            <Radio value="england" label="England" />
+            <Radio value="wales" label="Wales" />
+            <Radio value="scotland" label="Scotland" />
+            <Radio value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
+          <RadioGroup {...args} disabled>
             <Radio value="england" label="England" />
             <Radio value="wales" label="Wales" />
             <Radio value="scotland" label="Scotland" />
@@ -77,8 +102,14 @@ export const Playground: Story = {
   },
 };
 
+/** Set helperText on individual RadioTile children to add extra context per option. */
 export const RadioHelperText: Story = {
-  name: 'Radio HelperText',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     defaultValue: '3',
     helperText: undefined,
@@ -96,8 +127,66 @@ export const RadioHelperText: Story = {
   },
 };
 
+/** Set disabled on individual Radio children to disable specific options. */
+export const WithDisabledRadio: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    defaultValue: '2',
+    helperText: undefined,
+    name: 'disabled-radio-item',
+    contentWidth: 'fit-content',
+  },
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <Radio value="1" label="One" />
+        <Radio value="2" label="Two" />
+        <Radio value="3" label="Three" disabled />
+        <Radio value="4" label="Four" />
+      </RadioGroup>
+    );
+  },
+};
+
+/** Set disabled on individual RadioTile children to disable specific options. */
+export const WithDisabledRadioTile: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    defaultValue: '2',
+    helperText: undefined,
+    name: 'disabled-radio-tile',
+    contentWidth: 'fit-content',
+  },
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <RadioTile value="1" label="One" />
+        <RadioTile value="2" label="Two" />
+        <RadioTile value="3" label="Three" disabled />
+        <RadioTile value="4" label="Four" />
+      </RadioGroup>
+    );
+  },
+};
+
+/** Set contentWidth to constrain the width of the RadioGroup's children. */
 export const ContentWidth: Story = {
-  name: 'Content Width',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { contentWidth: '200px', name: 'content-width' },
   render: args => {
     return (
@@ -110,7 +199,13 @@ export const ContentWidth: Story = {
   },
 };
 
+/** Set direction to a responsive object to change layout per breakpoint. */
 export const ResponsiveDirection: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { name: 'responsive-direction', direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
     return (
@@ -126,7 +221,13 @@ export const ResponsiveDirection: Story = {
   },
 };
 
+/** Use value and onValueChange to control the selected option yourself. */
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     label: 'What is your favourite animal?',
     name: 'favourite-animal',
@@ -150,7 +251,13 @@ export const Controlled: Story = {
   },
 };
 
+/** Set validationStatus and validationText to show validation feedback for the group. */
 export const Validation: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     validationText: 'Please tell us what your favourite animal is.',
     label: 'What is your favourite animal?',
@@ -176,8 +283,14 @@ export const Validation: Story = {
   },
 };
 
+/** Set validationPlacement to top or bottom to position the validation message. */
 export const ValidationPlacement: Story = {
-  name: 'Validation placement',
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400">
       <RadioGroup
@@ -208,7 +321,14 @@ export const ValidationPlacement: Story = {
   ),
 };
 
+/** Children wrap onto multiple lines by default once they no longer fit the available width. */
 export const Wrap: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Box height="800px" width="350px" padding="200">
@@ -230,7 +350,13 @@ export const Wrap: Story = {
   },
 };
 
+/** Pass a custom label node, or omit label and use aria-labelledby to reference an external heading. */
 export const CustomLabel: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     label: undefined,
     helperText: undefined,
@@ -267,7 +393,14 @@ export const CustomLabel: Story = {
   },
 };
 
+/** RadioGroup children can be laid out in a Grid instead of the default flex layout. */
 export const WithGrid: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <RadioGroup {...args}>

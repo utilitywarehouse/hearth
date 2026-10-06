@@ -1,6 +1,8 @@
 /* Don't edit this file directly, it was auto generated */
 import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddMediumIcon';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddSmallIcon';
+import { AiGeneratedMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AiGeneratedMediumIcon';
+import { AiGeneratedSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AiGeneratedSmallIcon';
 import { AttachMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachMediumIcon';
 import { AttachSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachSmallIcon';
 import { BankMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BankMediumIcon';
@@ -48,6 +50,8 @@ import { CreditSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Credit
 import { CreditsAndDebitsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CreditsAndDebitsMediumIcon';
 import { DecreaseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/DecreaseMediumIcon';
 import { DecreaseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/DecreaseSmallIcon';
+import { DevicesMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/DevicesMediumIcon';
+import { DevicesSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/DevicesSmallIcon';
 import { DocumentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/DocumentMediumIcon';
 import { DownloadMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/DownloadMediumIcon';
 import { DownloadSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/DownloadSmallIcon';
@@ -120,6 +124,10 @@ import { MaintenanceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/
 import { MenuMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MenuMediumIcon';
 import { MeterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterMediumIcon';
 import { MeterSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterSmallIcon';
+import { MicrophoneOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MicrophoneOffMediumIcon';
+import { MicrophoneOffSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MicrophoneOffSmallIcon';
+import { MicrophoneOnMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MicrophoneOnMediumIcon';
+import { MicrophoneOnSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MicrophoneOnSmallIcon';
 import { MinusMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusMediumIcon';
 import { MinusSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusSmallIcon';
 import { MobileMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileMediumIcon';
@@ -129,8 +137,12 @@ import { MoonLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonLarg
 import { MoonMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonMediumIcon';
 import { MoreMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreMediumIcon';
 import { MoreSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreSmallIcon';
+import { MotorInsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MotorInsuranceMediumIcon';
+import { MotorInsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MotorInsuranceSmallIcon';
 import { OpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenMediumIcon';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenSmallIcon';
+import { PanelBottomMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PanelBottomMediumIcon';
+import { PanelLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PanelLeftMediumIcon';
 import { PaymentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PaymentMediumIcon';
 import { PhoneMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneMediumIcon';
 import { PhoneSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneSmallIcon';
@@ -142,9 +154,13 @@ import { PlaySmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaySmal
 import { QrCodeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QrCodeSmallIcon';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
 import { QuestionMarkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkSmallIcon';
+import { ReduceNoiseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ReduceNoiseMediumIcon';
+import { ReduceNoiseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ReduceNoiseSmallIcon';
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
 import { RefundSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundSmallIcon';
 import { RestartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RestartMediumIcon';
+import { RobotMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RobotMediumIcon';
+import { RobotSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/RobotSmallIcon';
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchMediumIcon';
 import { SearchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchSmallIcon';
 import { SendMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SendMediumIcon';
@@ -161,6 +177,8 @@ import { SkipFirstSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Ski
 import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipLastSmallIcon';
 import { SnowflakeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SnowflakeMediumIcon';
 import { SnowflakeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SnowflakeSmallIcon';
+import { SpeakerMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SpeakerMediumIcon';
+import { SpeakerSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SpeakerSmallIcon';
 import { SunLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunLargeIcon';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 import { TeamMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TeamMediumIcon';
@@ -198,6 +216,8 @@ import { YoutubeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Yout
 export const reactIcons = [
   AddMediumIcon,
   AddSmallIcon,
+  AiGeneratedMediumIcon,
+  AiGeneratedSmallIcon,
   AttachMediumIcon,
   AttachSmallIcon,
   BankMediumIcon,
@@ -245,6 +265,8 @@ export const reactIcons = [
   CreditsAndDebitsMediumIcon,
   DecreaseMediumIcon,
   DecreaseSmallIcon,
+  DevicesMediumIcon,
+  DevicesSmallIcon,
   DocumentMediumIcon,
   DownloadMediumIcon,
   DownloadSmallIcon,
@@ -317,6 +339,10 @@ export const reactIcons = [
   MenuMediumIcon,
   MeterMediumIcon,
   MeterSmallIcon,
+  MicrophoneOffMediumIcon,
+  MicrophoneOffSmallIcon,
+  MicrophoneOnMediumIcon,
+  MicrophoneOnSmallIcon,
   MinusMediumIcon,
   MinusSmallIcon,
   MobileMediumIcon,
@@ -326,8 +352,12 @@ export const reactIcons = [
   MoonMediumIcon,
   MoreMediumIcon,
   MoreSmallIcon,
+  MotorInsuranceMediumIcon,
+  MotorInsuranceSmallIcon,
   OpenMediumIcon,
   OpenSmallIcon,
+  PanelBottomMediumIcon,
+  PanelLeftMediumIcon,
   PaymentMediumIcon,
   PhoneMediumIcon,
   PhoneSmallIcon,
@@ -339,9 +369,13 @@ export const reactIcons = [
   QrCodeSmallIcon,
   QuestionMarkMediumIcon,
   QuestionMarkSmallIcon,
+  ReduceNoiseMediumIcon,
+  ReduceNoiseSmallIcon,
   RefundMediumIcon,
   RefundSmallIcon,
   RestartMediumIcon,
+  RobotMediumIcon,
+  RobotSmallIcon,
   SearchMediumIcon,
   SearchSmallIcon,
   SendMediumIcon,
@@ -358,6 +392,8 @@ export const reactIcons = [
   SkipLastSmallIcon,
   SnowflakeMediumIcon,
   SnowflakeSmallIcon,
+  SpeakerMediumIcon,
+  SpeakerSmallIcon,
   SunLargeIcon,
   SunMediumIcon,
   TeamMediumIcon,

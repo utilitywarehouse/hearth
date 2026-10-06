@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './BodyText.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { BodyText } from './BodyText';
@@ -8,6 +8,8 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Typography / BodyText" />
 
 <MarkdownDocHeader title="BodyText" to="components/body-text" />
+
+<Description of={BodyText} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

@@ -5,6 +5,10 @@ import { Grid } from '../Grid';
 import { RadioCardGroupContext } from './RadioCardGroup.context';
 import RadioCardGroupProps from './RadioCardGroup.props';
 
+/**
+ * Groups a set of `RadioCard` options so only one can be selected at a time, laid
+ * out as a flexbox row/column or, when `columns` is set, a grid.
+ */
 const RadioCardGroup = ({
   children,
   gap = '200',

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Strong.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,11 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Strong" to="components/strong" />
 
-The `Strong` component is based on the HTML `strong` element and is used to indicate text that is of
-strong importance, seriousness, or urgency. `Strong` should be wrapped in a `BodyText` component,
-and will inherit its styles from its parent. You can also use this component within the `Heading`
-component, however as `Heading` has only one font-weight there will be no visual distinction, and
-so this is discouraged.
+<Description of={Strong} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

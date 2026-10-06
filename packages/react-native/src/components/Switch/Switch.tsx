@@ -16,6 +16,10 @@ import { useTheme } from '../../hooks';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
 
+/**
+ * Toggles a single setting on or off. Use it to activate or deactivate an individual
+ * option, typically inside a form field or list item.
+ */
 const CustomSwitch = ({
   value = false,
   onValueChange,
@@ -143,6 +147,7 @@ const CustomSwitch = ({
 
 const styles = StyleSheet.create(theme => ({
   pressable: {
+    position: 'relative',
     variants: {
       disabled: {
         false: {
@@ -153,6 +158,7 @@ const styles = StyleSheet.create(theme => ({
             },
           },
         },
+        true: {},
       },
     },
   },

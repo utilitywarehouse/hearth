@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './DetailText.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { DetailText } from './DetailText';
@@ -8,6 +8,8 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Typography / DetailText" />
 
 <MarkdownDocHeader title="DetailText" to="components/detail-text" />
+
+<Description of={DetailText} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

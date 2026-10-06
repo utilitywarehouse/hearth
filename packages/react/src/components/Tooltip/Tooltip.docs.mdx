@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Tooltip.stories';
 import { Tooltip } from './Tooltip';
 import { TooltipProvider } from './TooltipProvider';
@@ -9,9 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Tooltip" to="components/tooltip" />
 
-Use `Tooltip` to temporarily display short, contextual text, that
-is not critical information, related to an element when
-the element receives keyboard focus or the mouse hovers over it.
+<Description of={Tooltip} />
 
 - [Setup](#setup)
 - [Usage](#usage)

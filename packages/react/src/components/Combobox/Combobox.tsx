@@ -24,6 +24,16 @@ import { Spinner } from '../Spinner/Spinner';
 const COMPONENT_NAME = 'Combobox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use Combobox to let users type to filter results and select from a
+ * predefined list of options. Pass options via the `items` prop to have them
+ * rendered automatically, or render `ComboboxItem` children yourself for more
+ * control. Set `triggerOnlyOnType` when the user must type before options are
+ * surfaced (e.g. a postcode or address lookup); leave it unset when there is a
+ * predefined list to choose from by clicking.
+ *
+ * @summary A text input that lets users filter and select from a list of options.
+ */
 export function Combobox<Value, Multiple extends boolean | undefined = false>(
   props: ComboboxProps<Value, Multiple>
 ) {

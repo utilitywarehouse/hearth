@@ -14,7 +14,19 @@ export const overflowPropDefs = {
 };
 
 export interface OverflowProps {
+  /**
+   * Set how content that overflows the component's box is handled, on both axes.
+   * @default 'visible'
+   */
   overflow?: Responsive<(typeof values)[number]>;
+  /**
+   * Set how content that overflows the component's box is handled on the horizontal axis.
+   * @default 'visible'
+   */
   overflowX?: Responsive<(typeof values)[number]>;
+  /**
+   * Set how content that overflows the component's box is handled on the vertical axis.
+   * @default 'visible'
+   */
   overflowY?: Responsive<(typeof values)[number]>;
 }

@@ -33,7 +33,12 @@ const meta: Meta<typeof Toast> = {
 export default meta;
 type Story = StoryObj<typeof Toast>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     const [open, setOpen] = useState(false);
 
@@ -69,9 +74,15 @@ export const Playground: Story = {
   },
 };
 
+/** Default appearance of a Toast, shown open with an icon and an action link. */
 export const ToastStory: Story = {
   name: 'Toast',
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <div>
@@ -85,7 +96,13 @@ export const ToastStory: Story = {
   },
 };
 
+/** Use ToastActionLink or ToastActionButton to give the user something to do from the toast. */
 export const Actions: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [openLinkActionToast, setOpenLinkActionToast] = useState(false);
     const [openButtonActionToast, setOpenButtonActionToast] = useState(false);
@@ -154,7 +171,13 @@ export const Actions: Story = {
   },
 };
 
+/** Multiple Toasts triggered in succession stack and dismiss independently. */
 export const DuplicateToasts: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     const [savedCount, setSavedCount] = useState(0);
 

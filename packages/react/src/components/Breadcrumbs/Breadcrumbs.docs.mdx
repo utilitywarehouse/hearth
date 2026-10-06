@@ -1,6 +1,7 @@
-import { Meta, Canvas, Controls, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Controls, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Breadcrumbs.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+import { Breadcrumbs } from './Breadcrumbs';
 import { BreadcrumbItem } from './BreadcrumbItem';
 
 import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
@@ -9,7 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Breadcrumbs" to="components/breadcrumbs" />
 
-Use the `Breadcrumbs` component when you need to help users understand and move between multiple levels of a website.
+<Description of={Breadcrumbs} />
 
 - [Current page](#current-page)
 - [Inverted](#inverted)

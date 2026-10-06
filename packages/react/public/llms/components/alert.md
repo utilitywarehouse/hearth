@@ -1,9 +1,12 @@
 # Alert
 
-The `Alert` component displays a short, important message in a way that
-attracts the user's attention without interrupting the user's task. This
-component should be used to flag information of high importance, whether it be
-an error, warning, success or information.
+Use Alert to display a short, important message that attracts the user's
+attention without interrupting their task, for example an error, warning,
+success, or informational message. Provide a `title`, `text`, or both, and
+an `onClose` handler to make it dismissable. Compose with `AlertLink` for
+navigational links and `AlertIconButton` for interactive actions inside the
+alert. By default it uses `role="alert"` for an assertive live-region
+announcement. Override `role` for less urgent messages (e.g. `"status"`).
 
 ```tsx
 <Alert

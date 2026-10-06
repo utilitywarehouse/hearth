@@ -4,6 +4,10 @@ import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 import { useStyleProps, useTheme } from '../../hooks';
 import type { GridProps } from './Grid.props';
 
+/**
+ * Use Grid to arrange children into rows of a fixed or breakpoint-responsive number of
+ * columns, with consistent spacing between them.
+ */
 const Grid = ({
   columns = 2,
   containerStyle,

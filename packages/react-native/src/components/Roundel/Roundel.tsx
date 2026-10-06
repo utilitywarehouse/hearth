@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import type RoundelProps from './Roundel.props';
 
+/** A small status indicator icon, used to show success, pending or error state next to related content. */
 const Roundel = ({ variant = 'success', style, ...props }: RoundelProps) => {
   styles.useVariants({ variant });
 

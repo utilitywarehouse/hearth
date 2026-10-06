@@ -22,7 +22,67 @@ const meta: Meta<typeof SectionHeader> = {
 export default meta;
 type Story = StoryObj<typeof SectionHeader>;
 
+/** Kitchen sink example showing all props in use, including a Link as trailingContent. */
+export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => {
+    return (
+      <Flex width="600px" gap="400" direction="column">
+        <SectionHeader
+          {...args}
+          trailingContent={
+            <Link>
+              Link text
+              <ChevronRightSmallIcon />
+            </Link>
+          }
+        />
+        <SectionHeader {...args} trailingContent={<Badge size="sm">Badge</Badge>} />
+        <SectionHeader
+          {...args}
+          trailingContent={
+            <Button size="sm" variant="outline" colorScheme="functional">
+              Button
+            </Button>
+          }
+        />
+        <SectionHeader
+          heading="With link"
+          helperText="Includes icon"
+          trailingContent={
+            <Link href="#">
+              See more
+              <ChevronRightSmallIcon />
+            </Link>
+          }
+        />
+        <SectionHeader
+          heading="Different icon and placement"
+          trailingContent={
+            <Link href="#">
+              <SettingsSmallIcon />
+              Settings
+            </Link>
+          }
+        />
+        <SectionHeader {...args} validationStatus="invalid" validationText="Validation text" />
+      </Flex>
+    );
+  },
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex width="600px">
@@ -40,7 +100,13 @@ export const Playground: Story = {
   },
 };
 
+/** Set direction to a responsive value to switch between row and column layout per breakpoint. */
 export const ResponsiveDirection: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { direction: { mobile: 'column', tablet: 'row' } },
   render: args => {
     return (
@@ -58,7 +124,13 @@ export const ResponsiveDirection: Story = {
   },
 };
 
+/** Pass a Badge as trailingContent to flag status alongside the heading. */
 export const WithBadge: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex width="600px">
@@ -68,7 +140,13 @@ export const WithBadge: Story = {
   },
 };
 
+/** Pass a Button as trailingContent for a primary action tied to the section. */
 export const WithButton: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => {
     return (
       <Flex width="600px">
@@ -85,7 +163,13 @@ export const WithButton: Story = {
   },
 };
 
+/** Pass a Link as trailingContent, with the icon placed before or after the label. */
 export const CustomLink: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex gap="600" direction="column" width="600px">
@@ -113,16 +197,22 @@ export const CustomLink: Story = {
   },
 };
 
+/** Set validationStatus and validationText to surface a validation message. */
 export const ValidationText: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    validationStatus: 'invalid',
+    validationText: 'Validation text',
+  },
   render: args => {
     return (
       <Flex width="600px">
         <SectionHeader {...args} />
       </Flex>
     );
-  },
-  args: {
-    validationStatus: 'invalid',
-    validationText: 'Validation text',
   },
 };

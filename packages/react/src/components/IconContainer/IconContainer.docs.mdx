@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './IconContainer.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
@@ -10,7 +10,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="IconContainer" to="components/icon-container" />
 
-Use the `IconContainer` when using icons that sit within a coloured container.
+<Description of={IconContainer} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

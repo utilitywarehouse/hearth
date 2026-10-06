@@ -14,7 +14,17 @@ export interface ComboboxProps<Value, Multiple extends boolean | undefined = fal
     FormFieldProps,
     Pick<InputBaseProps, 'placeholder'>,
     MarginProps {
+  /**
+   * When `true`, the dropdown only opens once the user starts typing, and the
+   * trigger icon button is removed. When `false`, it also opens on click of
+   * the input — use this when there is a predefined list of options to choose
+   * from.
+   */
   triggerOnlyOnType?: boolean;
+  /**
+   * Text shown as a disabled option when a search returns no matches. Only
+   * applies when options are passed via the `items` prop.
+   */
   noOptionsFoundText?: string;
   /**
    * Displays a status message whose content changes are announced politely to

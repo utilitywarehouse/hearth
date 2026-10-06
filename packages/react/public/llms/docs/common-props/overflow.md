@@ -9,8 +9,8 @@ The overflow props are responsive, and are available for the shorthand as well a
 <Box overflowY="auto" />
 ```
 
-| Prop        | Type                                                                | Default | Description |
-| ----------- | ------------------------------------------------------------------- | ------- | ----------- |
-| `overflow`  | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | —       |             |
-| `overflowX` | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | —       |             |
-| `overflowY` | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | —       |             |
+| Prop        | Type                                                                | Default     | Description                                                                           |
+| ----------- | ------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------- |
+| `overflow`  | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | `'visible'` | Set how content that overflows the component's box is handled, on both axes.          |
+| `overflowX` | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | `'visible'` | Set how content that overflows the component's box is handled on the horizontal axis. |
+| `overflowY` | `Responsive<"hidden" \| "auto" \| "visible" \| "clip" \| "scroll">` | `'visible'` | Set how content that overflows the component's box is handled on the vertical axis.   |

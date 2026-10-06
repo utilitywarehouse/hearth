@@ -13,6 +13,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableElement = ComponentRef<'table'>;
 
+/**
+ * Use Table to arrange data in rows and columns, to communicate relationships
+ * between content and to display references, comparisons, and choices. Compose
+ * it with TableHeader, TableBody, TableRow, TableHeaderCell, and TableCell.
+ * Pass `variant` to wrap the table in a Card container; omit it for a minimal,
+ * unwrapped table.
+ *
+ * @summary A component for arranging data in rows and columns.
+ */
 export const Table = forwardRef<TableElement, TableProps>((props, ref) => {
   const { className, style, children, variant, pagination, ...tableProps } = extractProps(
     props,

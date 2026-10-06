@@ -5,6 +5,11 @@ export interface InputBaseProps extends Omit<
   ComponentPropsWithRef<'input'>,
   NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
 > {
+  /**
+   * Sets the input's HTML `type` attribute, which determines the keyboard and validation
+   * behavior the browser applies to it.
+   * @default text
+   */
   type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
   /**
    * The initial value of the input when rendered.

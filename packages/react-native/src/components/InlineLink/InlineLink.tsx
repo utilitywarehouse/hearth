@@ -7,6 +7,7 @@ const InlineLinkComponent = createLink({
   Text: () => null,
 });
 
+/** Use InlineLink to embed a hyperlink within a sentence or paragraph of body text, inheriting the surrounding typography style. */
 const InlineLink = ({
   children,
   disabled = false,

@@ -20,6 +20,11 @@ const UnstyledIconButtonIcon = UnstyledIconButtonComponent.Icon;
 UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
 UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
 
+/**
+ * A pressable icon with no default visual styling, used as a building block for buttons that
+ * need bespoke appearance (such as input adornments) while keeping button accessibility and
+ * loading behaviour.
+ */
 const UnstyledIconButton = ({
   icon,
   disabled = false,

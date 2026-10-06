@@ -31,7 +31,13 @@ const meta: Meta<typeof SkeletonBox> = {
 export default meta;
 type Story = StoryObj<typeof SkeletonBox>;
 
+/** Interactive sandbox — use the controls panel to explore props such as width, height, and borderRadius. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="playground story">
       <SkeletonBox {...args} />
@@ -39,7 +45,13 @@ export const Playground: Story = {
   ),
 };
 
+/** Stack multiple SkeletonBoxes to placeholder a block of related content. */
 export const Blocks: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="blocks story">
       <Flex direction="column" gap="200" width="420px">
@@ -51,7 +63,13 @@ export const Blocks: Story = {
   ),
 };
 
+/** Set borderRadius to full with equal width and height to placeholder a circular element, such as an avatar. */
 export const Circle: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: { borderRadius: 'full', width: '96px', height: '96px' },
   render: args => (
     <Skeleton loadingTitle="circle story">
@@ -60,7 +78,13 @@ export const Circle: Story = {
   ),
 };
 
+/** Combine SkeletonBoxes of different sizes to placeholder a typical card layout. */
 export const CardPlaceholder: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Skeleton loadingTitle="card placeholder story">
       <Flex direction="column" gap="300" width="320px">

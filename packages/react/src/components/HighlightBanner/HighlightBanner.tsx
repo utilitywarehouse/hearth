@@ -13,6 +13,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HighlightBannerElement = ComponentRef<'div'>;
 
+/**
+ * Use HighlightBanner to highlight key information or marketing messaging,
+ * such as a promotion tied to a specific product or category. Compose it
+ * with HighlightBannerContent for the main content and HighlightBannerFooter
+ * for footer content.
+ *
+ * @summary A banner for highlighting key information or marketing messaging.
+ */
 export const HighlightBanner = forwardRef<HighlightBannerElement, HighlightBannerProps>(
   (props, ref) => {
     const { children, className, colorScheme, heading, headingColor, ...highlightBannerProps } =

@@ -8,5 +8,8 @@ export const orderPropDefs = {
 };
 
 export interface OrderProps {
+  /**
+   * Set the order in which the component appears among its flex or grid siblings.
+   */
   order?: Responsive<string>;
 }

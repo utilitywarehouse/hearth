@@ -29,7 +29,71 @@ const meta: Meta<typeof DateInput> = {
 export default meta;
 type Story = StoryObj<typeof DateInput>;
 
+/**
+ * Visual matrix of DateInput states — used in docs and Chromatic snapshot testing.
+ * Not a usage reference.
+ */
+export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  render: () => {
+    const [day, setDay] = useState('01');
+    const [month, setMonth] = useState('02');
+    const [year, setYear] = useState('2025');
+    return (
+      <Flex gap="400" direction="column">
+        <DateInput
+          label="Date"
+          helperText="Helper text"
+          dayValue="15"
+          monthValue="06"
+          yearValue="1990"
+        />
+        <DateInput
+          label="Valid date"
+          dayValue={day}
+          monthValue={month}
+          yearValue={year}
+          onDayChange={(event: React.ChangeEvent<HTMLInputElement>) => setDay(event.target.value)}
+          onMonthChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setMonth(event.target.value)
+          }
+          onYearChange={(event: React.ChangeEvent<HTMLInputElement>) => setYear(event.target.value)}
+          validationStatus="valid"
+          validationText="Date is valid"
+          required
+        />
+        <DateInput
+          label="Invalid date"
+          dayValue="32"
+          monthValue="13"
+          yearValue="2025"
+          validationStatus="invalid"
+          validationText="Please enter a valid date"
+          required
+        />
+        <DateInput
+          label="Date of birth"
+          helperText="This field is disabled"
+          dayValue="15"
+          monthValue="06"
+          yearValue="1990"
+          disabled
+        />
+      </Flex>
+    );
+  },
+};
+
+/** A DateInput with day, month, and year values set via controlled props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <DateInput
@@ -43,7 +107,12 @@ export const Playground: Story = {
   },
 };
 
+/** Set validationStatus and validationText to show valid or invalid feedback. */
 export const Validation: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [day, setDay] = useState('01');
     const [month, setMonth] = useState('02');
@@ -78,7 +147,12 @@ export const Validation: Story = {
   },
 };
 
+/** Set disabled to prevent the fields from being edited. */
 export const Disabled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <DateInput
@@ -93,7 +167,13 @@ export const Disabled: Story = {
   },
 };
 
+/** Use defaultDayValue, defaultMonthValue, and defaultYearValue for an uncontrolled initial value. */
 export const DefaultValue: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <DateInput
@@ -106,6 +186,7 @@ export const DefaultValue: Story = {
   },
 };
 
+/** Validate the entered date on every change and update validationStatus and validationText accordingly. */
 export const WithCustomValidation: Story = {
   render: () => {
     const [day, setDay] = useState('');
@@ -166,7 +247,13 @@ export const WithCustomValidation: Story = {
   },
 };
 
+/** Use hideDay and hideMonth to collect only the date segments you need. */
 export const FlexibleSegments: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400">
       <DateInput label="Full date" helperText="DD/MM/YYYY" />
@@ -176,7 +263,12 @@ export const FlexibleSegments: Story = {
   ),
 };
 
+/** Group multiple DateInputs under a shared fieldset with a legend and helper text. */
 export const GroupingInputs: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => (
     <Flex asChild direction="column" gap="200">
       <fieldset>

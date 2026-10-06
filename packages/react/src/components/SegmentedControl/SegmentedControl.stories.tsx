@@ -41,7 +41,12 @@ type Story = StoryObj<typeof SegmentedControl>;
  */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
-  parameters: { controls: { hideNoControlsWarning: true }, chromatic: { disableSnapshot: false } },
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="400">
       <BodyText as="p" size="md" weight="semibold">
@@ -135,7 +140,7 @@ export const KitchenSink: Story = {
 
 /** Interactive sandbox — use the controls panel to explore props such as size and disabled. */
 export const Playground: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
+  parameters: { actions: { disable: true }, interactions: { disable: true } },
   render: (args: Story['args']) => (
     <SegmentedControl {...args}>
       <SegmentedControlOption value="option-1" label="Option 1" />
@@ -151,6 +156,11 @@ export const Playground: Story = {
  * The `size` prop is responsive and accepts breakpoint-keyed values.
  */
 export const Sizes: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="300" alignItems="start">
       <SegmentedControl defaultValue={['option-1']} size="sm">
@@ -173,6 +183,11 @@ export const Sizes: Story = {
  * Either add icons to all options or none — do not mix.
  */
 export const WithIcons: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="300" alignItems="start">
       <SegmentedControl defaultValue={['gas']} size="sm">
@@ -224,6 +239,11 @@ export const WithIcons: Story = {
  * `Box` display props to show the correct Small or Medium icon at each viewport width.
  */
 export const WithResponsiveIcons: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <SegmentedControl defaultValue={['gas']} size={{ mobile: 'sm', desktop: 'md' }}>
       <SegmentedControlOption
@@ -319,6 +339,11 @@ export const WithResponsiveIcons: Story = {
  * or individual options can be disabled independently via `disabled` on `SegmentedControlOption`.
  */
 export const Disabled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => (
     <Flex direction="column" gap="300" alignItems="start">
       <SegmentedControl defaultValue={['option-1']} size="sm" disabled>

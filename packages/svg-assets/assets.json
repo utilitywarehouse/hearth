@@ -450,6 +450,16 @@
     "componentSetId": "2256:17781"
   },
   {
+    "id": "3076:37444",
+    "name": "SpotMotorInsuranceLight",
+    "componentSetId": "3076:37443"
+  },
+  {
+    "id": "3076:38023",
+    "name": "SpotMotorInsuranceDark",
+    "componentSetId": "3076:37443"
+  },
+  {
     "id": "2125:10125",
     "name": "SceneEnergyLight",
     "componentSetId": "2125:10126"
@@ -998,5 +1008,25 @@
     "id": "2958:15757",
     "name": "TechnicalOntRouterConnxLabelledDark",
     "componentSetId": "2958:15756"
+  },
+  {
+    "id": "3095:10550",
+    "name": "TechnicalCentralRailKeyOperatedLock1Light",
+    "componentSetId": "3095:10549"
+  },
+  {
+    "id": "3095:10772",
+    "name": "TechnicalCentralRailKeyOperatedLock1Dark",
+    "componentSetId": "3095:10549"
+  },
+  {
+    "id": "3095:11215",
+    "name": "TechnicalTopAndBottomKeyOperatedLock1Light",
+    "componentSetId": "3095:11214"
+  },
+  {
+    "id": "3095:11269",
+    "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
+    "componentSetId": "3095:11214"
   }
 ]

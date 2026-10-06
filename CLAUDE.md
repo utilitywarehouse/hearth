@@ -64,11 +64,22 @@ Skills live in `.agents/skills/` (symlinked to `.claude/skills/`). Invoke them w
 | `react-component-addition` | Adding a new component to `packages/react` — file structure, props, stories, docs, exports |
 | `react-native-component-addition` | Adding a new component to `packages/react-native` |
 | `react-native-component-docs` | Creating or updating `.docs.mdx` files for React Native components |
+| `react-interaction-tests` | Adding Storybook interaction tests (`play` functions) to `packages/react` stories |
+| `react-audit` | Auditing `packages/react` for completeness — missing stories, docs, or Figma Code Connect files |
+| `base-ui-migration` | Migrating a `packages/react` component off Radix UI onto Base UI |
+| `figma-code-connect` | Adding or updating Figma Code Connect (`.figma.ts`) files for `packages/react` or `packages/react-native` |
 | `add-changeset` | Writing a changeset — version bumps, changelog entries, release notes |
 
 The `hearth-react` skill (`packages/react/SKILL.md`) covers building UI with the
 Hearth React component library from the **consumer** side. It activates implicitly
-for any UI work in an app that has `@utilitywarehouse/hearth-react` installed.
+for any UI work in an app that has `@utilitywarehouse/hearth-react` installed. Its
+consumer-facing complement, `hearth-react-review`
+(`plugins/hearth-ai-toolkit/skills/hearth-react-review/SKILL.md`), reviews UI code
+that already uses Hearth React against the same rules — for PR review or
+pre-merge audits. There is no react-native equivalent yet. `design-systems-feedback`
+(`plugins/hearth-ai-toolkit/skills/design-systems-feedback/SKILL.md`) turns a
+consumer's experience report about any of the above into a real Linear issue in
+the Design Systems team's triage queue.
 
 ---
 

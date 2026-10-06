@@ -114,6 +114,9 @@ export const Icon: Story = {
 };
 
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
   render: () => {
     const colorSchemes: NonNullable<BadgeProps['colorScheme']>[] = [
       'info',
@@ -178,6 +181,21 @@ export const KitchenSink: Story = {
             </Box>
           );
         })}
+        <VariantTitle title="Flat base">
+          <Flex direction="row" spacing="md">
+            <Badge colorScheme="info" variant="subtle" flatBase>
+              subtle flatBase
+            </Badge>
+            <Badge colorScheme="info" variant="emphasis" flatBase>
+              emphasis flatBase
+            </Badge>
+          </Flex>
+        </VariantTitle>
+        <VariantTitle title="With icon">
+          <Badge colorScheme="info" icon={TickSmallIcon}>
+            With icon
+          </Badge>
+        </VariantTitle>
       </Flex>
     );
   },

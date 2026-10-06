@@ -14,6 +14,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepperElement = ComponentRef<'div'>;
 
+/**
+ * Use ProgressStepper to show a user's progress through a multi-step process,
+ * such as a checkout or application flow. Wrap ProgressStep, ProgressStepButton,
+ * or ProgressStepLink children depending on whether each step is static,
+ * triggers an action, or navigates — don't mix step types within the same
+ * stepper. Render `as="nav"` when the stepper represents site or app
+ * navigation. For a single continuous task's completion, use ProgressBar instead.
+ *
+ * @summary Shows a user's progress through a multi-step process.
+ */
 export const ProgressStepper = forwardRef<ProgressStepperElement, ProgressStepperProps>(
   (props, ref) => {
     const {

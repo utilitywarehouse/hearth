@@ -31,12 +31,18 @@ const meta: Meta<typeof CheckboxTile> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
-export const Playground: Story = {
-  render: args => <CheckboxTile {...args} />,
-};
-
-// Kitchen sink covers all variations so we don't need a Gallery story
+/**
+ * Visual matrix of CheckboxTile with a label, icon, image, helper text, and
+ * validation text — used for docs and Chromatic snapshot testing, not a
+ * usage reference.
+ */
 export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     return (
       <Grid gap="400" columns="3" alignItems="start">
@@ -74,7 +80,19 @@ export const KitchenSink: Story = {
   },
 };
 
+/** Interactive sandbox — use the controls panel to explore all props. */
+export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+  },
+};
+
+/** Pass an image to display a logo or icon alongside the label, e.g. for selecting a card payment type. */
 export const WithImage: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => (
     <Flex width="fit-content" gap="200" direction="column">
       <CheckboxTile
@@ -94,7 +112,12 @@ export const WithImage: Story = {
   ),
 };
 
+/** Control CheckboxTile's checked state externally via checked and onCheckedChange. */
 export const Controlled: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [checked, setChecked] = useState(false);
     return (

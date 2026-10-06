@@ -9,6 +9,11 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { ExpandableProps } from './Expandable.props';
 
+/**
+ * Use Expandable to show or hide content with a smooth height and opacity animation. It's a
+ * primitive building block for accordions, collapsible sections, and other expand/collapse
+ * interactions.
+ */
 const Expandable = ({
   expanded = false,
   onExpandedChange,

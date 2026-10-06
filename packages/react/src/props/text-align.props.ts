@@ -10,5 +10,8 @@ export const textAlignPropDefs = {
 };
 
 export interface TextAlignProps {
+  /**
+   * Set the horizontal alignment of text within the component.
+   */
   textAlign?: Responsive<(typeof values)[number]>;
 }

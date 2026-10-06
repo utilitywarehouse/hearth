@@ -39,12 +39,82 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 type Story = StoryObj<typeof TextInput>;
 
+/** Visual matrix of TextInput variants — used in docs and Chromatic snapshot testing. */
+export const KitchenSink: Story = {
+  tags: ['!manifest'],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => (
+    <Flex gap="400" direction="column">
+      <TextInput {...args} />
+      <TextInput {...args} label="Disabled" disabled helperText="Please do something before this" />
+      <TextInput
+        {...args}
+        label="Read only"
+        readOnly
+        value="Uneditable previously provided information"
+      />
+      <TextInput
+        {...args}
+        label="Email"
+        type="email"
+        defaultValue="design-systems@uw.co.uk"
+        validationStatus="valid"
+        validationText="Valid email address"
+        required
+      />
+      <TextInput
+        {...args}
+        label="Email"
+        type="email"
+        defaultValue="rphoenix@geemail."
+        validationStatus="invalid"
+        validationText="Please enter a valid email address"
+        required
+      />
+      <TextInput {...args}>
+        <InputSlot placement="prefix">
+          <BodyText size="md" weight="semibold">
+            £
+          </BodyText>
+        </InputSlot>
+      </TextInput>
+      <TextInput {...args}>
+        <InputSlot placement="suffix">
+          <BodyText size="md" weight="semibold">
+            kWh
+          </BodyText>
+        </InputSlot>
+      </TextInput>
+      <TextInput {...args}>
+        <InputSlot placement="prefix">
+          <EmailMediumIcon />
+        </InputSlot>
+      </TextInput>
+    </Flex>
+  ),
+};
+
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => <TextInput {...args} />,
 };
 
+/** Set disabled or readOnly to prevent the TextInput from being edited. */
 export const DisabledAndReadOnly: Story = {
   parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
     a11y: {
       config: {
         rules: [
@@ -71,7 +141,14 @@ export const DisabledAndReadOnly: Story = {
   args: { helperText: undefined },
 };
 
+/** Set validationStatus and validationText to show valid or invalid feedback. */
 export const Validation: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { helperText: undefined },
   render: args => (
     <Flex direction="column" gap="400">
       <TextInput
@@ -94,10 +171,15 @@ export const Validation: Story = {
       />
     </Flex>
   ),
-  args: { helperText: undefined },
 };
 
+/** Use InputSlot to add a prefix or suffix, such as a currency symbol or unit. */
 export const PrefixAndSuffix: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex direction="column" gap="400">
       <TextInput {...args}>
@@ -118,7 +200,13 @@ export const PrefixAndSuffix: Story = {
   ),
 };
 
+/** Use InputSlot to add an icon alongside the input. */
 export const WithIcons: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <TextInput {...args}>
       <InputSlot placement="prefix">
@@ -128,9 +216,9 @@ export const WithIcons: Story = {
   ),
 };
 
+/** Group related TextInputs under a shared fieldset legend and description. */
 export const GroupingInputs: Story = {
   parameters: {
-    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },
@@ -164,9 +252,9 @@ export const GroupingInputs: Story = {
   ),
 };
 
+/** Integrate TextInput with react-hook-form's Controller for validation. */
 export const ReactHookForm: Story = {
   parameters: {
-    chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
     interactions: { disable: true },

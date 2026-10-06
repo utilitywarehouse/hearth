@@ -65,7 +65,7 @@ const styles = StyleSheet.create(theme => ({
   },
   story: {
     padding: theme.space[100],
-    flex: 1,
+    flexGrow: 1,
   },
   topBar: {
     width: '100%',

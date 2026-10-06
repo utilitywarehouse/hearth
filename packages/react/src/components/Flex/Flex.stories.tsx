@@ -78,7 +78,13 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: args => (
     <Flex {...args}>
       <Placeholder padding="600" />
@@ -92,7 +98,14 @@ export const Playground: Story = {
   },
 };
 
+/** Pass a responsive object to gap to set different values per breakpoint. */
 export const ResponsiveGap: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: { gap: { mobile: '200', tablet: '100', desktop: '300', wide: '600' }, direction: 'column' },
   render: args => (
     <Flex {...args}>
       <Placeholder padding="600" />
@@ -100,27 +113,24 @@ export const ResponsiveGap: Story = {
       <Placeholder padding="600" />
     </Flex>
   ),
-  args: {
-    gap: {
-      mobile: '200',
-      tablet: '100',
-      desktop: '300',
-      wide: '600',
-    },
-    direction: 'column',
-  },
 };
 
+/** Use spacing as a shorthand alternative to gap. */
 export const Spacing: Story = {
-  render: args => (
-    <Flex {...args}>
-      <Placeholder padding="600" />
-      <Placeholder padding="600" />
-      <Placeholder padding="600" />
-    </Flex>
-  ),
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   args: {
     spacing: 'lg',
     direction: 'column',
   },
+  render: args => (
+    <Flex {...args}>
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+    </Flex>
+  ),
 };

@@ -14,6 +14,17 @@ export const switchPropDefs = {
 
 export interface SwitchProps
   extends ComponentPropsWithRef<typeof SwitchPrimitive.Switch>, MarginProps {
+  /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
+  asChild?: boolean;
+  /**
+   * Sets the Switch size.
+   * @default md
+   */
   size?: Responsive<(typeof sizes)[number]>;
   /**
    * The label for the Switch, describing its purpose.

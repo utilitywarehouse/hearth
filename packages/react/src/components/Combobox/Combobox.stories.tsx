@@ -4,6 +4,7 @@ import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { useState, useDeferredValue, useRef, useCallback, useMemo } from 'react';
+import { BodyText } from '../BodyText/BodyText';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Components / Combobox',
@@ -14,6 +15,8 @@ const meta: Meta<typeof Combobox> = {
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     noOptionsFoundText: { control: { type: 'text' } },
+    triggerOnlyOnType: { control: { type: 'boolean' } },
+    multiple: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
     statusText: { control: { type: 'text' } },
   },
@@ -26,20 +29,32 @@ const meta: Meta<typeof Combobox> = {
     required: false,
     triggerOnlyOnType: false,
     loading: false,
+    multiple: false,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Combobox>;
 
+/** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+  },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return <Combobox {...args} items={fruits} />;
   },
 };
 
+/** Set defaultOpen to render the Combobox already expanded. */
 export const DefaultOpen: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
@@ -47,7 +62,12 @@ export const DefaultOpen: Story = {
   },
 };
 
+/** Pass ComboboxItem children directly instead of the items prop when option content needs full control. */
 export const ItemsAsChildren: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return (
@@ -62,7 +82,35 @@ export const ItemsAsChildren: Story = {
   },
 };
 
+/** Render arbitrary content, not just text, inside each ComboboxItem. */
+export const ItemsWithCustomContent: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  args: { defaultOpen: true },
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return (
+      <Combobox {...args}>
+        {fruits.map(fruit => (
+          <ComboboxItem key={fruit} value={fruit} justifyContent="between" alignItems="center">
+            <BodyText>{fruit}</BodyText>
+            <BodyText>Add +</BodyText>
+          </ComboboxItem>
+        ))}
+      </Combobox>
+    );
+  },
+};
+
+/** Handle an empty result set by combining triggerOnlyOnType with a controlled input value, e.g. for postcode lookup. */
 export const NoItems: Story = {
+  parameters: {
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: false },
   render: args => {
     const addressOptions: Array<string> = [];
@@ -102,7 +150,13 @@ export const NoItems: Story = {
   },
 };
 
+/** Combobox scrolls its dropdown once options exceed the available height. */
 export const ScrollArea: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
   args: { defaultOpen: true },
   render: args => {
     return (
@@ -132,7 +186,12 @@ const virtualizedItems: Array<VirtualizedItem> = Array.from({ length: 10000 }, (
   return { id, name: `Item ${indexLabel}` };
 });
 
+/** Set virtualized and provide filteredItems for large option lists, rendering only the items currently in view. */
 export const Virtualised: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: () => {
     const [open, setOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
@@ -262,8 +321,13 @@ const fruits = [
   'Strawberry',
 ];
 
+/** Use the contains matcher from useComboboxFilter to filter options anywhere within their label. */
 export const FilterItems: Story = {
   name: 'Filter Items (contains)',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string | null>(null);
     const { contains } = useComboboxFilter({ value });
@@ -281,8 +345,13 @@ export const FilterItems: Story = {
   },
 };
 
+/** Use the startsWith matcher from useComboboxFilter to filter options by their leading characters. */
 export const FilterItemsStartsWith: Story = {
   name: 'Filter Items (startsWith)',
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
   render: args => {
     const [value, setValue] = useState<string | null>(null);
     const { startsWith } = useComboboxFilter({ value });

@@ -13,11 +13,11 @@ This also means you can use the Hearth browser tokens as values.
 <Box maxWidth={container.width}/>
 ```
 
-| Prop        | Type                 | Default | Description |
-| ----------- | -------------------- | ------- | ----------- |
-| `width`     | `Responsive<string>` | —       |             |
-| `maxWidth`  | `Responsive<string>` | —       |             |
-| `minWidth`  | `Responsive<string>` | —       |             |
-| `height`    | `Responsive<string>` | —       |             |
-| `maxHeight` | `Responsive<string>` | —       |             |
-| `minHeight` | `Responsive<string>` | —       |             |
+| Prop        | Type                 | Default | Description                                         |
+| ----------- | -------------------- | ------- | --------------------------------------------------- |
+| `width`     | `Responsive<string>` | —       | Set the width of the component.                     |
+| `maxWidth`  | `Responsive<string>` | —       | Set the maximum width the component can grow to.    |
+| `minWidth`  | `Responsive<string>` | —       | Set the minimum width the component can shrink to.  |
+| `height`    | `Responsive<string>` | —       | Set the height of the component.                    |
+| `maxHeight` | `Responsive<string>` | —       | Set the maximum height the component can grow to.   |
+| `minHeight` | `Responsive<string>` | —       | Set the minimum height the component can shrink to. |

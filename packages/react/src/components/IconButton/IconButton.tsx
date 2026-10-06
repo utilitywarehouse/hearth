@@ -15,6 +15,13 @@ import { forwardRef } from 'react';
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+/**
+ * Use IconButton to trigger an action using a single icon, when space is
+ * limited or an action needs to be shown quickly and visually. Since it has
+ * no visible text, a `label` prop is required to provide an accessible name.
+ *
+ * @summary A button that triggers an action using a single icon, with no visible text.
+ */
 export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props, ref) => {
   const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
     extractProps(props, iconButtonPropDefs);

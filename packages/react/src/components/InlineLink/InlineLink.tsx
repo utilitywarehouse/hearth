@@ -14,6 +14,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type InlineLinkElement = ComponentRef<'a'>;
 
+/**
+ * Use InlineLink for a hyperlink embedded within a run of text — it renders
+ * an `a` element by default, and automatically adds an "opens in new tab"
+ * icon and visually-hidden label when `target="_blank"` is set. Use `asChild`
+ * to render a routing library's link component (e.g. Next.js `Link`) instead.
+ * For a standalone link not embedded in text, use Link instead.
+ *
+ * @summary A hyperlink for use within a run of text.
+ */
 export const InlineLink = forwardRef<InlineLinkElement, InlineLinkProps>((props, ref) => {
   const {
     className,

@@ -15,6 +15,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListElement = ComponentRef<'ol'>;
 
+/**
+ * Use List to display a list of items, with support for visual variants,
+ * colour schemes, a heading, and helper text. Use ListItem for simple text
+ * content, or as a container for more complex or interactive content such as
+ * ListItemContent, ListItemButton, or ListItemLink. `variant` and
+ * `colorScheme` must be used together — if either is left `undefined`, the
+ * list falls back to its default appearance.
+ *
+ * @summary A list of items with an optional heading, helper text, and style variants.
+ */
 export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   const {
     id: providedId,

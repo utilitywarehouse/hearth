@@ -22,10 +22,29 @@ export const positionPropDefs = {
 };
 
 export interface PositionProps {
+  /**
+   * Set how the component is positioned in the document.
+   * @default 'static'
+   */
   position?: Responsive<(typeof values)[number]>;
+  /**
+   * Set the distance of all four edges (top, right, bottom, left) of a positioned component from its containing block.
+   */
   inset?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
+  /**
+   * Set the distance of the top edge of a positioned component from its containing block.
+   */
   top?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
+  /**
+   * Set the distance of the right edge of a positioned component from its containing block.
+   */
   right?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
+  /**
+   * Set the distance of the bottom edge of a positioned component from its containing block.
+   */
   bottom?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
+  /**
+   * Set the distance of the left edge of a positioned component from its containing block.
+   */
   left?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
 }

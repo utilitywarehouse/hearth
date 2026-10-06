@@ -1,6 +1,11 @@
 # Button
 
-Trigger an action or event, such as submitting a form or displaying a dialog.
+Use Button to trigger an action or event, such as submitting a form or
+displaying a dialog. Use the `variant` prop to convey emphasis: `emphasis`
+and `solid` for primary actions, `outline` for medium-emphasis, non-critical
+actions, and `ghost` for the lowest-prominence actions. For actions that
+navigate somewhere, use a link instead, or render Button `asChild` with an
+anchor or router link.
 
 ```tsx
 <Flex direction="column" gap="600">
@@ -129,20 +134,6 @@ Trigger an action or event, such as submitting a form or displaying a dialog.
 </Flex>
 ```
 
-- [Accessibility](#accessibility)
-  - [Disabled buttons](#disabled-buttons)
-- [Variants](#variants)
-- [Colour schemes](#colour-schemes)
-- [Inverted](#inverted)
-- [Size](#size)
-- [Dead prop combinations](#dead-prop-combinations)
-- [With icons](#with-icons)
-- [Semantic HTML](#semantic-html)
-- [Full width button](#full-width-button)
-- [Padding none](#padding-none)
-- [Usage with Next.js](#usage-with-next.js)
-- [API](#api)
-
 ```tsx
 <Button variant="solid" colorScheme="highlight">
   Button
@@ -220,8 +211,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default color scheme for primary actions,
+so it is only available for Emphasis and Solid Buttons variants.
 
 ```tsx
 <Flex gap="400">

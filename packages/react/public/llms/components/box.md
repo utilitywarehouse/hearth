@@ -1,5 +1,12 @@
 # Box
 
+Use Box as the generic, all-purpose layout primitive when no other layout
+component (Container, Grid, Flex) fits. It renders a plain `div` (or
+`span` via `as`) with the full set of common style props available.
+For page content with responsive padding and gutters, use Container instead.
+For grid layouts, use Grid instead. For flexbox-based stacked or inline
+layouts, use Flex instead.
+
 ```tsx
 <Box {...args} />
 ```
@@ -68,8 +75,8 @@ This component is based on the `div` element and supports the following common p
 - Opacity
 - Order
 
-| Prop      | Type                                                          | Default | Description |
-| --------- | ------------------------------------------------------------- | ------- | ----------- |
-| `asChild` | `boolean`                                                     | —       |             |
-| `display` | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` | —       |             |
-| `as`      | `"div" \| "span"`                                             | —       |             |
+| Prop      | Type                                                          | Default | Description                                                                                                                               |
+| --------- | ------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `asChild` | `boolean`                                                     | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
+| `display` | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` | —       | Sets the CSS `display` property. Can be set responsively.                                                                                 |
+| `as`      | `"div" \| "span"`                                             | —       | Renders a `span` element. Renders a `div` element. This is the default.                                                                   |

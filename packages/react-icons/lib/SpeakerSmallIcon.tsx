@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const SpeakerSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M11.667 17.27v-1.707q1.875-.543 3.02-2.084 1.146-1.542 1.146-3.5t-1.146-3.5-3.02-2.083V2.688q2.583.582 4.208 2.615Q17.5 7.334 17.5 9.979t-1.625 4.678-4.208 2.614M2.5 12.5v-5h3.333L10 3.333v13.334L5.833 12.5zm9.167.833V6.625A3.46 3.46 0 0 1 13.198 8q.553.917.552 2 0 1.062-.553 1.97a3.5 3.5 0 0 1-1.53 1.363"
+        />
+      </svg>
+    );
+  }
+);
+SpeakerSmallIcon.displayName = 'SpeakerSmallIcon';

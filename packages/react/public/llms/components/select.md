@@ -1,6 +1,9 @@
 # Select
 
-`Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.
+Use Select to let users choose a single option from a list, when the choice
+requires a final submit action to confirm — for a choice that applies
+immediately, consider SegmentedControl instead. Wrap SelectItem children to
+define the options, and always provide a `label`.
 
 ```tsx
 <Select {...args}>
@@ -115,26 +118,25 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop               | Type                        | Default | Description                                                         |
-| ------------------ | --------------------------- | ------- | ------------------------------------------------------------------- |
-| `label`            | `string`                    | —       | The label for the form field, describing its purpose.               |
-| `value`            | `string`                    | —       |                                                                     |
-| `defaultValue`     | `string`                    | —       |                                                                     |
-| `asChild`          | `boolean`                   | —       |                                                                     |
-| `open`             | `boolean`                   | —       |                                                                     |
-| `defaultOpen`      | `boolean`                   | —       |                                                                     |
-| `onOpenChange`     | `((open: boolean) => void)` | —       |                                                                     |
-| `autoComplete`     | `string`                    | —       |                                                                     |
-| `required`         | `boolean`                   | —       |                                                                     |
-| `onValueChange`    | `((value: string) => void)` | —       |                                                                     |
-| `labelId`          | `string`                    | —       |                                                                     |
-| `helperTextId`     | `string`                    | —       |                                                                     |
-| `validationTextId` | `string`                    | —       |                                                                     |
-| `labelVariant`     | `"body" \| "heading"`       | —       | Change the label variant                                            |
-| `helperText`       | `string`                    | —       | Optional helper text to provide additional context or instructions. |
-| `validationText`   | `string`                    | —       | Text to display when the `validationStatus` is set.                 |
-| `validationStatus` | `"valid" \| "invalid"`      | —       | Indicates the validation status.                                    |
-| `placeholder`      | `string`                    | —       |                                                                     |
+| Prop               | Type                        | Default | Description                                                                                        |
+| ------------------ | --------------------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| `label`            | `string`                    | —       | The label for the form field, describing its purpose.                                              |
+| `value`            | `string`                    | —       | The controlled value of the selected option. Must be used with an `onValueChange` handler.         |
+| `defaultValue`     | `string`                    | —       | The initial value of the selected option when rendered, for uncontrolled usage.                    |
+| `open`             | `boolean`                   | —       |                                                                                                    |
+| `defaultOpen`      | `boolean`                   | —       |                                                                                                    |
+| `onOpenChange`     | `((open: boolean) => void)` | —       |                                                                                                    |
+| `autoComplete`     | `string`                    | —       |                                                                                                    |
+| `required`         | `boolean`                   | —       | Marks the field as required.                                                                       |
+| `onValueChange`    | `((value: string) => void)` | —       | Callback fired when the selected value changes.                                                    |
+| `labelId`          | `string`                    | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.            |
+| `helperTextId`     | `string`                    | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.     |
+| `validationTextId` | `string`                    | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association. |
+| `labelVariant`     | `"body" \| "heading"`       | —       | Change the label variant                                                                           |
+| `helperText`       | `string`                    | —       | Optional helper text to provide additional context or instructions.                                |
+| `validationText`   | `string`                    | —       | Text to display when the `validationStatus` is set.                                                |
+| `validationStatus` | `"valid" \| "invalid"`      | —       | Indicates the validation status.                                                                   |
+| `placeholder`      | `string`                    | —       | Placeholder text shown when no value is selected.                                                  |
 
 ### SelectItem API
 

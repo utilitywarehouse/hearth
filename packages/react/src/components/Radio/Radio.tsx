@@ -17,6 +17,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ComponentRef<'button'>;
 
+/**
+ * Use Radio to let a user select a single option from a set of mutually
+ * exclusive choices, always as a child of RadioGroup. RadioTile is preferred
+ * for most cases as it offers a larger, more prominent target — reach for
+ * Radio only when a compact, plain radio button is needed.
+ *
+ * @summary A single radio button for selecting one option from a set, used within RadioGroup.
+ */
 export const Radio = forwardRef<RadioElement, RadioProps>(
   (
     {
@@ -26,6 +34,7 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
       image,
       className,
       labelFontWeight,
+      disabled,
       'aria-labelledby': ariaLabelledby,
       ...props
     },
@@ -36,11 +45,22 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
-      <div className={cn(componentClassName, className)} data-testid={componentClassName}>
+      <div
+        className={cn(componentClassName, className)}
+        data-testid={componentClassName}
+        data-disabled={disabled ? true : undefined}
+      >
         <div className={`${componentClassName}Container`}>
           <RadioGroupPrimitive.Item
             ref={ref}
             {...props}
+            // We're not following the same pattern as Button here, where we
+            // use `aria-disabled` instead, as focusing the radio item
+            // selects it. Screen readers users can still navigate to the
+            // radio item using the virtual keyboard. At the same time
+            // keyboard users will not need to tab through disabled radio
+            // items, which is the expected behavior for radio groups.
+            disabled={disabled}
             id={id}
             aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
             aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}

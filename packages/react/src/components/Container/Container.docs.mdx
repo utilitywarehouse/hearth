@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Container.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Container } from './Container';
@@ -8,6 +8,8 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Meta title="Layout / Container" />
 
 <MarkdownDocHeader title="Container" to="components/container" />
+
+<Description of={Container} />
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 

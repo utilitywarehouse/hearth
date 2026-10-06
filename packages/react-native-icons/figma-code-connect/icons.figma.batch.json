@@ -9,6 +9,13 @@
       "source": "../lib/AddSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:50&m=dev",
+      "id": "ai-generated-small-icon",
+      "name": "AiGeneratedSmallIcon",
+      "component": "AiGeneratedSmallIcon",
+      "source": "../lib/AiGeneratedSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2275:794&m=dev",
       "id": "attach-small-icon",
       "name": "AttachSmallIcon",
@@ -133,6 +140,13 @@
       "name": "DecreaseSmallIcon",
       "component": "DecreaseSmallIcon",
       "source": "../lib/DecreaseSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2836:199&m=dev",
+      "id": "devices-small-icon",
+      "name": "DevicesSmallIcon",
+      "component": "DevicesSmallIcon",
+      "source": "../lib/DevicesSmallIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1205&m=dev",
@@ -345,6 +359,20 @@
       "source": "../lib/MeterSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:131&m=dev",
+      "id": "microphone-off-small-icon",
+      "name": "MicrophoneOffSmallIcon",
+      "component": "MicrophoneOffSmallIcon",
+      "source": "../lib/MicrophoneOffSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:123&m=dev",
+      "id": "microphone-on-small-icon",
+      "name": "MicrophoneOnSmallIcon",
+      "component": "MicrophoneOnSmallIcon",
+      "source": "../lib/MicrophoneOnSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:790&m=dev",
       "id": "minus-small-icon",
       "name": "MinusSmallIcon",
@@ -364,6 +392,13 @@
       "name": "MoreSmallIcon",
       "component": "MoreSmallIcon",
       "source": "../lib/MoreSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:134&m=dev",
+      "id": "motor-insurance-small-icon",
+      "name": "MotorInsuranceSmallIcon",
+      "component": "MotorInsuranceSmallIcon",
+      "source": "../lib/MotorInsuranceSmallIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2015:19&m=dev",
@@ -471,6 +506,13 @@
       "source": "../lib/SnowflakeSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:125&m=dev",
+      "id": "speaker-small-icon",
+      "name": "SpeakerSmallIcon",
+      "component": "SpeakerSmallIcon",
+      "source": "../lib/SpeakerSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:854&m=dev",
       "id": "tick-small-icon",
       "name": "TickSmallIcon",
@@ -527,6 +569,20 @@
       "source": "../lib/QrCodeSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:135&m=dev",
+      "id": "reduce-noise-small-icon",
+      "name": "ReduceNoiseSmallIcon",
+      "component": "ReduceNoiseSmallIcon",
+      "source": "../lib/ReduceNoiseSmallIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:82&m=dev",
+      "id": "robot-small-icon",
+      "name": "RobotSmallIcon",
+      "component": "RobotSmallIcon",
+      "source": "../lib/RobotSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2304:2253&m=dev",
       "id": "unlock-small-icon",
       "name": "UnlockSmallIcon",
@@ -574,6 +630,13 @@
       "name": "AddMediumIcon",
       "component": "AddMediumIcon",
       "source": "../lib/AddMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2749:58&m=dev",
+      "id": "ai-generated-medium-icon",
+      "name": "AiGeneratedMediumIcon",
+      "component": "AiGeneratedMediumIcon",
+      "source": "../lib/AiGeneratedMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2268:24&m=dev",
@@ -777,6 +840,13 @@
       "name": "DecreaseMediumIcon",
       "component": "DecreaseMediumIcon",
       "source": "../lib/DecreaseMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2836:201&m=dev",
+      "id": "devices-medium-icon",
+      "name": "DevicesMediumIcon",
+      "component": "DevicesMediumIcon",
+      "source": "../lib/DevicesMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=33:115&m=dev",
@@ -1066,6 +1136,20 @@
       "source": "../lib/MinusMediumIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:133&m=dev",
+      "id": "microphone-off-medium-icon",
+      "name": "MicrophoneOffMediumIcon",
+      "component": "MicrophoneOffMediumIcon",
+      "source": "../lib/MicrophoneOffMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:167&m=dev",
+      "id": "microphone-on-medium-icon",
+      "name": "MicrophoneOnMediumIcon",
+      "component": "MicrophoneOnMediumIcon",
+      "source": "../lib/MicrophoneOnMediumIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:434&m=dev",
       "id": "money-medium-icon",
       "name": "MoneyMediumIcon",
@@ -1108,11 +1192,32 @@
       "source": "../lib/MoreMediumIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2736:151&m=dev",
+      "id": "motor-insurance-medium-icon",
+      "name": "MotorInsuranceMediumIcon",
+      "component": "MotorInsuranceMediumIcon",
+      "source": "../lib/MotorInsuranceMediumIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:688&m=dev",
       "id": "open-medium-icon",
       "name": "OpenMediumIcon",
       "component": "OpenMediumIcon",
       "source": "../lib/OpenMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2836:258&m=dev",
+      "id": "panel-left-medium-icon",
+      "name": "PanelLeftMediumIcon",
+      "component": "PanelLeftMediumIcon",
+      "source": "../lib/PanelLeftMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2836:259&m=dev",
+      "id": "panel-bottom-medium-icon",
+      "name": "PanelBottomMediumIcon",
+      "component": "PanelBottomMediumIcon",
+      "source": "../lib/PanelBottomMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:159&m=dev",
@@ -1143,6 +1248,13 @@
       "source": "../lib/QuestionMarkMediumIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:137&m=dev",
+      "id": "reduce-noise-medium-icon",
+      "name": "ReduceNoiseMediumIcon",
+      "component": "ReduceNoiseMediumIcon",
+      "source": "../lib/ReduceNoiseMediumIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:268&m=dev",
       "id": "refund-medium-icon",
       "name": "RefundMediumIcon",
@@ -1155,6 +1267,13 @@
       "name": "RestartMediumIcon",
       "component": "RestartMediumIcon",
       "source": "../lib/RestartMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2773:90&m=dev",
+      "id": "robot-medium-icon",
+      "name": "RobotMediumIcon",
+      "component": "RobotMediumIcon",
+      "source": "../lib/RobotMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:615&m=dev",
@@ -1204,6 +1323,13 @@
       "name": "SnowflakeMediumIcon",
       "component": "SnowflakeMediumIcon",
       "source": "../lib/SnowflakeMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2834:127&m=dev",
+      "id": "speaker-medium-icon",
+      "name": "SpeakerMediumIcon",
+      "component": "SpeakerMediumIcon",
+      "source": "../lib/SpeakerMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=9:1008&m=dev",

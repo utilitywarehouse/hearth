@@ -15,6 +15,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TabsElement = ComponentRef<'div'>;
 
+/**
+ * Use Tabs to organize and navigate between content sections within the same
+ * page context, without leaving the page. Must be used together with
+ * TabsList, Tab, and TabContent.
+ *
+ * @summary Organizes and navigates between content sections within the same page context.
+ */
 export const Tabs = forwardRef<TabsElement, TabsProps>((props, ref) => {
   const {
     className,

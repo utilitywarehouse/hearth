@@ -12,10 +12,8 @@ const RadioIcon = ({ style, ...props }: IconProps) => {
       style={
         Platform.OS === 'web'
           ? {
-              // @ts-expect-error - style prop type issue
               ...(styles.container as StyleProp<ViewStyle>),
-              // @ts-expect-error - style prop type issue
-              ...(props.style as StyleProp<ViewStyle>),
+              ...(style as StyleProp<ViewStyle>),
             }
           : ([styles.container, style] as any)
       }

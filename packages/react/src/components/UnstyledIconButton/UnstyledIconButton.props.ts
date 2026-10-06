@@ -13,6 +13,10 @@ export const unstyledIconButtonPropDefs = {
 
 export type UnstyledIconButtonProps = ComponentPropsWithRef<'button'> &
   Pick<IconButtonProps, 'loading' | 'asChild'> & {
+    /**
+     * An accessible label for the button, announced to screen readers.
+     * Required since the button contains only an icon and no visible text content.
+     */
     label: IconButtonProps['label'];
     /**
      * Sets the button height.

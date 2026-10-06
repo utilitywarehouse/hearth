@@ -12,6 +12,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SpinnerElement = ComponentRef<'div'>;
 
+/**
+ * Use Spinner to indicate that an asynchronous process is ongoing, such as
+ * data loading or a form submission in progress. Set `currentColor` when the
+ * Spinner is nested inside another component and should inherit its parent's
+ * colour scheme instead of a fixed `color` value.
+ *
+ * @summary A loading indicator for ongoing asynchronous processes.
+ */
 export const Spinner = forwardRef<SpinnerElement, SpinnerProps>(
   ({ currentColor, ...props }, ref) => {
     const { className, ...spinnerProps } = extractProps(props, spinnerPropDefs, marginPropDefs);

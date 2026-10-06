@@ -90,7 +90,7 @@ and inherits its styles from the parent.
 
 These are primarily used internally by Hearth form components. Prefer using a
 Hearth form component that already composes them before reaching for these
-directly — only use them if no existing component meets the needs of your design.
+directly. Only use them if no existing component meets the needs of your design.
 
 `Label` renders a `label` element for form inputs, with `body` and `heading`
 variants. `HelperText` displays hint text beneath inputs. `ValidationText`

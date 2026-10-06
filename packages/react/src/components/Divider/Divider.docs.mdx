@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
 import * as Stories from './Divider.stories';
 import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
 import { Divider } from './Divider';
@@ -9,9 +9,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 
 <MarkdownDocHeader title="Divider" to="components/divider" />
 
-Used to provide a visual break and semantically divide content. Supports
-vertical and horizontal orientations. Vertical dividers will only be visible
-when contained inside an element with display set to `flex` or `grid`.
+<Description of={Divider} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

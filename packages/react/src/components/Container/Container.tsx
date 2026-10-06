@@ -14,6 +14,17 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ContainerElement = ComponentRef<'div'>;
 
+/**
+ * Use Container to constrain and center page content, with a max-width that
+ * follows the container width design token above the desktop breakpoint and
+ * spans 100% below it, plus optional responsive padding and gutters via the
+ * `spacing` prop.
+ * For primitive styling with no built-in max-width or spacing, use Box instead.
+ * For grid layouts, use Grid instead. For general flexbox-based layouts without
+ * the max-width/centering behaviour, use Flex instead.
+ *
+ * @summary A centered, max-width-constrained wrapper for page content.
+ */
 export const Container = forwardRef<ContainerElement, ContainerProps>(
   (
     {

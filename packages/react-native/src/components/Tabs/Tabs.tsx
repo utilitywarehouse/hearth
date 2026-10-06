@@ -4,6 +4,11 @@ import { Easing, useSharedValue, withTiming } from 'react-native-reanimated';
 import { TabsContext } from './Tabs.context';
 import type TabsProps from './Tabs.props';
 
+/**
+ * Groups Tab components into a single tab bar, managing selection state and the animated
+ * active indicator. Use with TabPanel to link tabs to their corresponding content.
+ * @summary A tab bar for switching between related views.
+ */
 const Tabs = ({
   value: controlledValue,
   defaultValue,

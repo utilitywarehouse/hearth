@@ -68,7 +68,7 @@ Make sure to include code blocks for each example. This is likely needed for mos
 1. **Read the component's source of truth:** Open `<Component>.props.ts` and cross-check every prop against your drafted Props table. Include all public props with correct types and defaults. For compound components, verify each subcomponent's `.props.ts` file and include a nested props table under the subcomponent's heading.
 2. **Treat mismatches as blocking:** If a prop appears in `.props.ts` but not in your table (or vice versa), stop and fix it. This is not a nice-to-have — it's the ground truth check.
 3. **Match story names exactly:** Verify that `Stories.Playground` and any other story references exist in the component's `.stories.tsx` file.
-4. **Check compound-component structure:** If the component has subcomponents (e.g. `BadgeIcon`, `AccordionItem`), ensure each has its own `### Heading` with a `#### Props` table.
+4. **Check compound-component structure:** If the component has subcomponents (e.g. `BadgeIcon`, `AccordionItem`), ensure each has its own `### Heading` with a `#### Props` table. This nested table is **not** a substitute for the subcomponent's own `<SubComponent>.stories.tsx` — the `hearth-react-native` MCP server only resolves a component's real props when that component has its own Storybook entry. See [Sub-component stories](../react-native-component-addition/SKILL.md#sub-component-stories) in the `react-native-component-addition` skill.
 
 ## Checklist
 
@@ -77,6 +77,6 @@ Make sure to include code blocks for each example. This is likely needed for mos
 - `Playground` and `Controls` reference a real story
 - `Usage` section has both a live example and a code block
 - Props table verified against `.props.ts` (including subcomponents)
-- Compound component sub-props documented if applicable
+- Compound component sub-props documented if applicable, AND each subcomponent has its own `<SubComponent>.stories.tsx` (required for MCP resolution, not optional — see `react-native-component-addition`)
 - Optional sections are only added when helpful
 - Order of sections should be in the standard pattern (Playground, Usage, Props, then optional sections)

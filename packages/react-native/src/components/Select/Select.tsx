@@ -1,7 +1,6 @@
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import React, { useCallback, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import {
@@ -10,7 +9,6 @@ import {
   BottomSheetScrollView,
   BottomSheetView,
 } from '../BottomSheet';
-import { useBottomSheetContext } from '../BottomSheet/BottomSheet.context';
 import { DetailText } from '../DetailText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
@@ -20,6 +18,11 @@ import SelectProps, { SelectOptionItemProps } from './Select.props';
 import { filterOptionsByLabel } from './Select.utils';
 import SelectOption from './SelectOption';
 
+/**
+ * Lets a user pick a single value from a list of options presented in a bottom sheet. Use it in
+ * forms where the full set of options doesn't need to be visible at once, optionally with search.
+ * @summary A form field for picking one value from a bottom-sheet list of options.
+ */
 const Select = ({
   options = [],
   value,
@@ -51,7 +54,6 @@ const Select = ({
   const isRequired = formFieldContext?.required ?? required;
   const isDisabled = formFieldContext?.disabled ?? disabled;
   const isReadonly = formFieldContext?.readonly ?? readonly;
-  const { useSafeAreaInsets } = useBottomSheetContext();
 
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
   const [search, setSearch] = useState('');
@@ -172,7 +174,7 @@ const Select = ({
       </FormField>
       <BottomSheetModal
         ref={bottomSheetModalRef}
-        snapPoints={['25%', '40%', '80%']}
+        snapPoints={['40%', '80%']}
         onChange={handleClose}
         enableDynamicSizing={false}
         {...bottomSheetProps}
@@ -184,44 +186,38 @@ const Select = ({
             close: closeBottomSheet,
           }}
         >
-          <SafeAreaView
-            edges={useSafeAreaInsets ? ['top'] : []}
-            style={{ flex: 1 }}
-            accessible={false}
-          >
-            {menuHeading && (
-              <View style={styles.headingContainer}>
-                <DetailText size="lg">{menuHeading}</DetailText>
-              </View>
-            )}
-            {searchable && (
-              <View style={styles.searchContainer}>
-                <Input
-                  placeholder={searchPlaceholder}
-                  value={search}
-                  inBottomSheet
-                  onChangeText={setSearch}
-                  type="search"
-                  testID={testID ? `${testID}-search` : undefined}
-                />
-              </View>
-            )}
-
-            {children ? (
-              <BottomSheetScrollView testID={testID ? `${testID}-options` : undefined}>
-                {children}
-              </BottomSheetScrollView>
-            ) : (
-              <BottomSheetFlatList
-                data={filteredOptions}
-                keyExtractor={(option: any) => option.value}
-                renderItem={renderSelectOption}
-                ListEmptyComponent={renderEmptyComponent}
-                testID={testID ? `${testID}-options` : undefined}
-                {...listProps}
+          {menuHeading && (
+            <View style={styles.headingContainer}>
+              <BodyText weight="semibold">{menuHeading}</BodyText>
+            </View>
+          )}
+          {searchable && (
+            <View style={styles.searchContainer}>
+              <Input
+                placeholder={searchPlaceholder}
+                value={search}
+                inBottomSheet
+                onChangeText={setSearch}
+                type="search"
+                testID={testID ? `${testID}-search` : undefined}
               />
-            )}
-          </SafeAreaView>
+            </View>
+          )}
+
+          {children ? (
+            <BottomSheetScrollView testID={testID ? `${testID}-options` : undefined}>
+              {children}
+            </BottomSheetScrollView>
+          ) : (
+            <BottomSheetFlatList
+              data={filteredOptions}
+              keyExtractor={(option: any) => option.value}
+              renderItem={renderSelectOption}
+              ListEmptyComponent={renderEmptyComponent}
+              testID={testID ? `${testID}-options` : undefined}
+              {...listProps}
+            />
+          )}
         </SelectContext.Provider>
       </BottomSheetModal>
     </View>

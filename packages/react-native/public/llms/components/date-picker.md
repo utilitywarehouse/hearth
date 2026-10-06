@@ -24,11 +24,17 @@ The `DatePicker` component presents a calendar experience in a bottom sheet so p
 <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
   <ViewWrap>
     <Button onPress={() => modalRef.current?.present()}>Show Date Picker</Button>
+    <BodyText>
+      {confirmedDate ? `Confirmed: ${dayjs(confirmedDate).format('YYYY-MM-DD')}` : 'Not confirmed'}
+    </BodyText>
     <DatePicker
       ref={modalRef}
       mode="single"
       date={selected}
-      onChange={({ date }) => setSelected(date)}
+      onChange={({ date }) => {
+        setSelected(date);
+        setConfirmedDate(date);
+      }}
       onCancel={() => setSelected(undefined)}
     />
   </ViewWrap>

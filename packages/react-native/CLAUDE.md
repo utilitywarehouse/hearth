@@ -101,6 +101,12 @@ There are two distinct test configs, and they check different things:
 Storybook itself targets `@storybook/react-native-web-vite`, so stories run against `react-native-web`, not a
 native simulator — this is also why `_web`-scoped Unistyles blocks matter for how components look in Storybook.
 
+Accessibility: axe (`@storybook/addon-a11y`) plus React Native-level rules in `.storybook/a11y/` (roles on
+pressables, touch target size, nested pressables, etc.) run on every story. They are non-blocking (`'todo'`)
+on PRs and fail only in the weekly `a11y-weekly.yml` run (`VITE_A11Y_STRICT=true`). To opt a story out, wrap
+scaffolding in `<A11yIgnore>` or set `parameters.nativeA11y` with a `reason` — see
+[`scripts/a11y-report/README.md`](../../scripts/a11y-report/README.md).
+
 ### LLM docs
 
 - `public/llms/` is **auto-generated** by `pnpm generate:llm-docs` from `.docs.mdx` stories — **do not hand-edit**.

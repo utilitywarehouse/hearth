@@ -6,6 +6,7 @@ import { SectionHeader } from '../SectionHeader';
 import { ListContext } from './List.context';
 import type ListProps from './List.props';
 
+/** Use List to group `ListItem` and `ListAction` components under an optional heading, with a shared container style and disabled/loading state. */
 const List = ({
   children,
   heading,

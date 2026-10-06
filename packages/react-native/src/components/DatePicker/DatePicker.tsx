@@ -31,24 +31,38 @@ dayjs.extend(timezone);
 dayjs.extend(duration);
 
 export interface DatePickerSingleProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'single';
+  /** The selected date, used in single mode. */
   date?: DateType;
+  /** Called after a selection changes. */
   onChange?: SingleChange;
 }
 
 export interface DatePickerRangeProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'range';
+  /** Start of the selected range, used in range mode. */
   startDate?: DateType;
+  /** End of the selected range, used in range mode. */
   endDate?: DateType;
+  /** Called after a selection changes. */
   onChange?: RangeChange;
 }
 
 export interface DatePickerMultipleProps extends DatePickerBaseProps {
+  /** Controls whether the picker returns a single date, a date range, or multiple dates. */
   mode: 'multiple';
+  /** The selected dates, used in multiple mode. */
   dates?: DateType[];
+  /** Called after a selection changes. */
   onChange?: MultiChange;
 }
 
+/**
+ * Presents a calendar in a bottom sheet so people can choose a single date, a date range, or multiple dates without leaving the current screen.
+ * Supports locale, time zone, and availability rules such as enabled, disabled, minimum, and maximum dates.
+ */
 const DateTimePicker = (
   props: DatePickerSingleProps | DatePickerRangeProps | DatePickerMultipleProps
 ) => {
@@ -250,6 +264,10 @@ const DateTimePicker = (
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  // Tracks whether a selection was made since the sheet last opened, so Ok doesn't
+  // re-emit onChange for a value it already just committed via onSelectDate.
+  const hasChangedRef = useRef(false);
+
   useEffect(() => {
     const newState = {
       ...initialState,
@@ -351,6 +369,7 @@ const DateTimePicker = (
 
   const onSelectDate = useCallback(
     (selectedDate: DateType) => {
+      hasChangedRef.current = true;
       if (onChange) {
         if (mode === 'single') {
           const newDate = timePicker
@@ -467,6 +486,26 @@ const DateTimePicker = (
     },
     [mode, timePicker, min, max, timeZone]
   );
+
+  const onConfirm = useCallback(() => {
+    if (!onChange || hasChangedRef.current) return;
+
+    const current = stateRef.current;
+
+    if (mode === 'single' && current.date) {
+      (onChange as SingleChange)({ date: dayjs(current.date).toDate() });
+    } else if (mode === 'range' && current.startDate) {
+      (onChange as RangeChange)({
+        startDate: dayjs(current.startDate).toDate(),
+        endDate: current.endDate ? dayjs(current.endDate).toDate() : current.endDate,
+      });
+    } else if (mode === 'multiple' && current.dates?.length) {
+      (onChange as MultiChange)({
+        dates: current.dates.map(item => dayjs(item).toDate()),
+        change: 'updated',
+      });
+    }
+  }, [mode, onChange]);
 
   // set the active displayed month
   const onSelectMonth = useCallback(
@@ -608,6 +647,7 @@ const DateTimePicker = (
       onSelectYear,
       onChangeMonth,
       onChangeYear,
+      onConfirm,
       onCancel,
     }),
     [
@@ -617,6 +657,7 @@ const DateTimePicker = (
       onSelectYear,
       onChangeMonth,
       onChangeYear,
+      onConfirm,
       onCancel,
     ]
   );
@@ -632,6 +673,8 @@ const DateTimePicker = (
 
   const handleChange = useCallback((index: number) => {
     if (index > -1) {
+      hasChangedRef.current = false;
+
       // Add a small delay to ensure the bottom sheet is fully rendered
       setTimeout(() => {
         // Announce to screen readers

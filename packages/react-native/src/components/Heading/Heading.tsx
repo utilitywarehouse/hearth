@@ -4,6 +4,10 @@ import { useStyleProps } from '../../hooks';
 import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 import type HeadingProps from './Heading.props';
 
+/**
+ * Use Heading for screen and section titles. It renders with `accessibilityRole="header"` by
+ * default so assistive technologies expose the correct document structure.
+ */
 const Heading = ({
   children,
   color,

@@ -451,6 +451,16 @@
       "hash": "8f1cf1904ac72c278ac72c7fa3493ff62c0e03eb357d4d66ea38a02e5f792286"
     },
     {
+      "name": "SpotMotorInsuranceLight",
+      "path": "spot-motor-insurance-light.svg",
+      "hash": "3f960fe3673e0a6ac42919fa9d5af0f912d70b19409b882108c6c373df0b9ed4"
+    },
+    {
+      "name": "SpotMotorInsuranceDark",
+      "path": "spot-motor-insurance-dark.svg",
+      "hash": "fe77106f903afb3b8938ed24342d5a376702be73077a334ca68517fa4d8f544a"
+    },
+    {
       "name": "SceneEnergyLight",
       "path": "scene-energy-light.svg",
       "hash": "1018f37bde4040c3dc52e08b647ed76644dd36f4d8b2a940a7927fa6f7ac56cb"
@@ -999,6 +1009,26 @@
       "name": "TechnicalOntRouterConnxLabelledDark",
       "path": "technical-ont-router-connx-labelled-dark.svg",
       "hash": "dda3a1f6bcd93381ce1b10bef9192899a111db24cd2c860b8ea7ce7d9be1124e"
+    },
+    {
+      "name": "TechnicalCentralRailKeyOperatedLock1Light",
+      "path": "technical-central-rail-key-operated-lock-1-light.svg",
+      "hash": "8f2c08d9c1b5dc85023f271a7ed8d7dccfb33eed4275d5e252ebe879a22ae50f"
+    },
+    {
+      "name": "TechnicalCentralRailKeyOperatedLock1Dark",
+      "path": "technical-central-rail-key-operated-lock-1-dark.svg",
+      "hash": "8050697106d5f633dabdf54c041c33dd7f0c5b0d59b7a6f97ebe716f711a91f2"
+    },
+    {
+      "name": "TechnicalTopAndBottomKeyOperatedLock1Light",
+      "path": "technical-top-and-bottom-key-operated-lock-1-light.svg",
+      "hash": "8cf21b2490ce6dc10022b13359824a8747ce86eb22c69e92455ac02f92225c25"
+    },
+    {
+      "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
+      "path": "technical-top-and-bottom-key-operated-lock-1-dark.svg",
+      "hash": "f0cb9dfabc89a4e4787f90d10bd53bc4dfe812da29d63be06982dece5e447856"
     }
   ]
 }

@@ -17,6 +17,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DescriptionListElement = ComponentRef<'dl'>;
 
+/**
+ * Use DescriptionList to present pairs of related information together, such
+ * as contact details or account information. Wrap any number of
+ * DescriptionListItem components, which render as `dt`/`dd` pairs inside a
+ * semantic `dl` element.
+ *
+ * @summary A list for presenting pairs of related information as terms and descriptions.
+ */
 export const DescriptionList = forwardRef<DescriptionListElement, DescriptionListProps>(
   (props, ref) => {
     const {

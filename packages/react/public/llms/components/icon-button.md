@@ -1,6 +1,8 @@
 # IconButton
 
-Icon Buttons are used to trigger an action on a page or to complete tasks in other components. Use Icon Buttons when you want to display an action quickly and visually, and when space is limited.
+Use IconButton to trigger an action using a single icon, when space is
+limited or an action needs to be shown quickly and visually. Since it has
+no visible text, a `label` prop is required to provide an accessible name.
 
 ```tsx
 <Flex direction="column" gap="600">
@@ -151,17 +153,6 @@ Icon Buttons are used to trigger an action on a page or to complete tasks in oth
 </Flex>
 ```
 
-- [Icons](#icons)
-- [Accessibility](#accessibility)
-  - [Disabled buttons](#disabled-buttons)
-- [Variants](#variants)
-- [Colour schemes](#colour-schemes)
-- [Inverted](#inverted)
-- [Size](#size)
-  - [Responsive icon sizes](#responsive-icon-sizes)
-- [Semantic HTML](#semantic-html)
-- [API](#api)
-
 ```tsx
 <IconButton {...args}>
   <AddMediumIcon />
@@ -262,8 +253,8 @@ The `colorScheme` prop will change the button colours.
 
 ### Highlight
 
-The Highlight colour scheme serves as the default color scheme for primary actions,
-therefore is only available for Emphasis and Solid Buttons variants.
+The Highlight colour scheme is the default colour scheme for primary actions,
+so it's only available for Emphasis and Solid Button variants.
 
 ```tsx
 <Flex gap="400">

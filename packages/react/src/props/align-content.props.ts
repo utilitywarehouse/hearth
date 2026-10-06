@@ -10,5 +10,9 @@ export const alignContentPropDefs = {
 };
 
 export interface AlignContentProps {
+  /**
+   * Set how a flex or grid container distributes space between and around its lines
+   * when there is extra space in the cross axis. Supports responsive values.
+   */
   alignContent?: Responsive<(typeof values)[number]>;
 }

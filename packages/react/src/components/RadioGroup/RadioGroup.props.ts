@@ -13,6 +13,17 @@ export interface RadioGroupProps
       'dir' | 'orientation' | keyof DivProps
     >,
     Omit<FormGroupBaseProps, 'defaultValue'> {
+  /**
+   * Merges the component's props onto its immediate child instead of
+   * rendering its own DOM element, so the child determines the rendered tag.
+   *
+   * @default false
+   */
+  asChild?: boolean;
+  /**
+   * The layout direction of the radio items within the group.
+   * @default column
+   */
   direction?: FlexProps['direction'];
   /**
    * Set the container width of the RadioGroup children, independent to the width of the

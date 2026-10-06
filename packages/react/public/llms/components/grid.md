@@ -1,5 +1,13 @@
 # Grid
 
+Use Grid to build CSS grid-based layouts, with responsive `columns`,
+`template*` and `auto*` props, or the `defaultResponsiveColumns` prop for
+the recommended 4/8/12 column breakpoints. Any layout primitive (Box, Flex,
+or another Grid) can be used as a grid item and supports the grid item props.
+For primitive styling with no grid behaviour, use Box instead.
+For page content with built-in max-width and centering, use Container instead.
+For flexbox-based layouts, use Flex instead.
+
 ```tsx
 <Grid {...args}>
   <Placeholder padding="400" />
@@ -60,9 +68,9 @@ responsively set the number of grid columns.
 
 ### Default Columns
 
-In an effort to be more explicit about the behaviour of the `Grid` component,
-there are no default columns set. You can, however, use the
-`defaultResponsiveColumns` prop to set our recommended responsive columns:
+The `Grid` component sets no default columns, to keep its behaviour explicit.
+Use the `defaultResponsiveColumns` prop to apply our recommended responsive
+columns:
 
 - 4 columns on `mobile`
 - 8 columns on `tablet`
@@ -145,18 +153,18 @@ This component is based on the `div` element and supports the following common s
 - Opacity
 - Order
 
-| Prop              | Type                                                                                                             | Default | Description                                                                                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `template`        | `Responsive<string>`                                                                                             | —       | Shorthand for the full `grid-template` property. Supports responsive values.                                                                           |
-| `display`         | `Responsive<"none" \| "inline-grid" \| "grid">`                                                                  | —       | Controls the `display` behavior of the grid container.                                                                                                 |
-| `columns`         | `Responsive<Union<string, "1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "10" \| "11" \| "12">>` | —       | Shorthand for configuring columns using the 12-column system or a custom `grid-template-columns` string. Supports responsive values.                   |
-| `templateColumns` | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-columns`. Supports responsive values.                                                                                           |
-| `templateRows`    | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-rows`. Supports responsive values.                                                                                              |
-| `templateAreas`   | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-areas`. Supports responsive values.                                                                                             |
-| `autoFlow`        | `Responsive<"row" \| "column" \| "dense" \| "row-dense" \| "column-dense">`                                      | —       | Maps to `grid-auto-flow`. Supports responsive values.                                                                                                  |
-| `autoRows`        | `Responsive<string>`                                                                                             | —       | Maps to `grid-auto-rows`. Supports responsive values.                                                                                                  |
-| `autoColumns`     | `Responsive<string>`                                                                                             | —       | Maps to `grid-auto-columns`. Supports responsive values.                                                                                               |
-| `justifyItems`    | `Responsive<"center" \| "start" \| "end" \| "stretch">`                                                          | —       | Maps to `justify-items`. Supports responsive values.                                                                                                   |
-| `alignContent`    | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "between" \| "around" \| "evenly">`                     | —       |                                                                                                                                                        |
-| `alignItems`      | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "baseline">`                                            | —       |                                                                                                                                                        |
-| `justifyContent`  | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "between" \| "around" \| "evenly">`                     | —       | For flexboxes, the stretch value behaves as flex-start or start. This is because, in flexboxes, stretching is controlled using the flex-grow property. |
+| Prop              | Type                                                                                                             | Default | Description                                                                                                                                              |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `template`        | `Responsive<string>`                                                                                             | —       | Shorthand for the full `grid-template` property. Supports responsive values.                                                                             |
+| `display`         | `Responsive<"none" \| "inline-grid" \| "grid">`                                                                  | —       | Controls the `display` behavior of the grid container.                                                                                                   |
+| `columns`         | `Responsive<Union<string, "1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "10" \| "11" \| "12">>` | —       | Shorthand for configuring columns using the 12-column system or a custom `grid-template-columns` string. Supports responsive values.                     |
+| `templateColumns` | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-columns`. Supports responsive values.                                                                                             |
+| `templateRows`    | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-rows`. Supports responsive values.                                                                                                |
+| `templateAreas`   | `Responsive<string>`                                                                                             | —       | Maps to `grid-template-areas`. Supports responsive values.                                                                                               |
+| `autoFlow`        | `Responsive<"row" \| "column" \| "dense" \| "row-dense" \| "column-dense">`                                      | —       | Maps to `grid-auto-flow`. Supports responsive values.                                                                                                    |
+| `autoRows`        | `Responsive<string>`                                                                                             | —       | Maps to `grid-auto-rows`. Supports responsive values.                                                                                                    |
+| `autoColumns`     | `Responsive<string>`                                                                                             | —       | Maps to `grid-auto-columns`. Supports responsive values.                                                                                                 |
+| `justifyItems`    | `Responsive<"center" \| "start" \| "end" \| "stretch">`                                                          | —       | Maps to `justify-items`. Supports responsive values.                                                                                                     |
+| `alignContent`    | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "between" \| "around" \| "evenly">`                     | —       | Set how a flex or grid container distributes space between and around its lines when there is extra space in the cross axis. Supports responsive values. |
+| `alignItems`      | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "baseline">`                                            | —       | Set how a flex or grid container aligns its items along the cross axis. Supports responsive values.                                                      |
+| `justifyContent`  | `Responsive<"center" \| "start" \| "end" \| "stretch" \| "between" \| "around" \| "evenly">`                     | —       | For flexboxes, the stretch value behaves as flex-start or start. This is because, in flexboxes, stretching is controlled using the flex-grow property.   |

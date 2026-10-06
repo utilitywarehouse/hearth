@@ -20,6 +20,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ComponentRef<'div'>;
 
+/**
+ * Use Modal to overlay content that requests a decision from the user or
+ * informs them of important information, without navigating to a new page.
+ * Modal must be wrapped in a ModalRoot, and is typically composed with
+ * ModalTrigger, ModalContent, ModalFooter, and ModalClose. Pass `heading` and
+ * `description` for standard content, or custom children alongside
+ * ModalFooter for more control over layout.
+ *
+ * @summary An overlay that requests a decision or displays important information.
+ */
 export const Modal = forwardRef<ModalElement, ModalProps>(
   (
     {
@@ -32,7 +42,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       hideCloseButton,
       fullScreen,
       loading,
-      loadingText,
       loadingHeading,
       loadingDescription,
       children,
@@ -42,9 +51,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
   ) => {
     const portalProps = { forceMount, container };
     const containsImage = Boolean(image);
-    const hasDescription = Boolean(
-      loading ? (loadingText || loadingHeading) && loadingDescription : description
-    );
+    const hasDescription = Boolean(loading ? loadingHeading && loadingDescription : description);
 
     return (
       <DialogPrimitive.Portal {...portalProps}>
@@ -109,11 +116,11 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                         <Box asChild>
                           <DialogPrimitive.Title asChild>
                             <Heading size="lg" textAlign="center" textWrap="wrap">
-                              {loadingHeading || loadingText || 'Loading'}
+                              {loadingHeading || 'Loading'}
                             </Heading>
                           </DialogPrimitive.Title>
                         </Box>
-                        {(loadingText || loadingHeading) && loadingDescription ? (
+                        {loadingHeading && loadingDescription ? (
                           <DialogPrimitive.Description asChild>
                             <BodyText size="md" as="span" textAlign="center">
                               {loadingDescription}

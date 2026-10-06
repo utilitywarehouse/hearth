@@ -38,6 +38,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type FlexElement = ComponentRef<'span'>;
 
+/**
+ * Use Flex to build flexbox-based layouts — stacked, inline, or wrapped
+ * arrangements of children — with responsive `direction`, `wrap`, alignment,
+ * and gap props.
+ * For primitive styling with no flexbox behaviour, use Box instead.
+ * For page content with built-in max-width and centering, use Container instead.
+ * For CSS grid layouts, use Grid instead.
+ *
+ * @summary A flexbox layout primitive for arranging children in a row or column.
+ */
 export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
     className,

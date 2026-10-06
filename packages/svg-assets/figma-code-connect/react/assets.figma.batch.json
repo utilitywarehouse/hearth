@@ -394,6 +394,14 @@
       "source": "../../lib/spot-book-appointment-light.svg"
     },
     {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3076:37443&m=dev",
+      "id": "spot-motor-insurance-light",
+      "name": "SpotMotorInsuranceLight",
+      "component": "SpotMotorInsuranceLight",
+      "path": "spot-motor-insurance-light.svg",
+      "source": "../../lib/spot-motor-insurance-light.svg"
+    },
+    {
       "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:10126&m=dev",
       "id": "scene-energy-light",
       "name": "SceneEnergyLight",
@@ -832,6 +840,22 @@
       "component": "TechnicalOntRouterConnxLabelledLight",
       "path": "technical-ont-router-connx-labelled-light.svg",
       "source": "../../lib/technical-ont-router-connx-labelled-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3095:10549&m=dev",
+      "id": "technical-central-rail-key-operated-lock-1-light",
+      "name": "TechnicalCentralRailKeyOperatedLock1Light",
+      "component": "TechnicalCentralRailKeyOperatedLock1Light",
+      "path": "technical-central-rail-key-operated-lock-1-light.svg",
+      "source": "../../lib/technical-central-rail-key-operated-lock-1-light.svg"
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3095:11214&m=dev",
+      "id": "technical-top-and-bottom-key-operated-lock-1-light",
+      "name": "TechnicalTopAndBottomKeyOperatedLock1Light",
+      "component": "TechnicalTopAndBottomKeyOperatedLock1Light",
+      "path": "technical-top-and-bottom-key-operated-lock-1-light.svg",
+      "source": "../../lib/technical-top-and-bottom-key-operated-lock-1-light.svg"
     }
   ]
 }

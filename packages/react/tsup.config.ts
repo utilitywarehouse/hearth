@@ -15,7 +15,7 @@ export default defineConfig([
     outDir: 'dist',
     entry: [
       './src/**/*.ts?(x)',
-      '!./src/figma/**',
+      '!./src/**/*.figma.ts',
       '!./src/**/*.stories.ts?(x)',
       '!./src/**/*.docs.mdx',
       '!./src/docs/**',
