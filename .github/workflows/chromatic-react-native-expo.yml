@@ -204,6 +204,7 @@ jobs:
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
           NODE_OPTIONS: --max-old-space-size=8192
+          EXPO_PUBLIC_VISUAL_TESTS: 'true'
 
       - name: Collect Chromatic build log on failure
         if: steps.chromatic.outcome == 'failure'
