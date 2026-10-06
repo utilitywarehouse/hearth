@@ -1,6 +1,10 @@
 import { Path, Svg } from 'react-native-svg';
 import { createIcon } from '../Icon/createIcon';
 
+/**
+ * A solid circle icon. It fills with the current `color`, so use it as a simple
+ * status dot or indicator, sized with `width` and `height`.
+ */
 const CircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
