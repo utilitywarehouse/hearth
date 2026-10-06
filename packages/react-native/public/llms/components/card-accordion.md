@@ -1,13 +1,3 @@
-import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
-import * as Stories from './CardAccordion.stories';
-
-<Meta title="Components / Card Accordion" />
-
-<BackToTopButton />
-
-<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=11913-3539" />
-
 # Card Accordion
 
 Use `CardAccordion` to split a long form into ordered steps, each in its own card. Completed steps collapse to a summary with an Edit button, the current step is expanded, and upcoming steps show only their heading.
@@ -25,9 +15,10 @@ Use `CardAccordion` to split a long form into ordered steps, each in its own car
 
 ## Playground
 
-<Canvas of={Stories.Playground} />
-
-<Controls of={Stories.Playground} />
+```tsx
+// Example usage
+<Steps {...args} />
+```
 
 ## Usage
 
@@ -40,9 +31,13 @@ the steps. A step is in one of three states:
   `CardAccordionFooter`.
 - **Upcoming** — any step after the current one. Only the heading and `description` show.
 
-<Canvas of={Stories.DefaultValue} />
+```tsx
+// Example usage
+<Steps {...args} />
+```
 
 ```tsx
+// Example usage
 import {
   CardAccordion,
   CardAccordionButton,
@@ -141,6 +136,7 @@ Once a step is completed, use `summaryTitle` and `summaryDescription` to show th
 entered. A `DescriptionList` works well for this.
 
 ```tsx
+// Example usage
 <CardAccordionItem
   value="1a"
   title="1a. Your new cover"
@@ -161,9 +157,13 @@ entered. A `DescriptionList` works well for this.
 Pass `value` and `onValueChange` to control the current step yourself, for example to restore
 progress or move steps from outside the accordion.
 
-<Canvas of={Stories.Controlled} />
+```tsx
+// Example usage
+<ControlledSteps />
+```
 
 ```tsx
+// Example usage
 const [step, setStep] = useState('1b');
 
 <CardAccordion value={step} onValueChange={setStep}>
@@ -176,9 +176,13 @@ const [step, setStep] = useState('1b');
 Validate the current step before the user moves on. Call `event.preventDefault()` in a
 `CardAccordionButton`'s `onPress` to stay on the current step.
 
-<Canvas of={Stories.Validation} />
+```tsx
+// Example usage
+<ValidatedSteps />
+```
 
 ```tsx
+// Example usage
 <CardAccordionButton
   action="next"
   onPress={event => {

@@ -70,6 +70,7 @@
 - [Box](llms/components/box.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
 - [Button](llms/components/button.md): The `Button` component is used to trigger an action or event, such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
 - [Card](llms/components/card.md): A Card component serves as a visual container that groups related content and actions.
+- [Card Accordion](llms/components/card-accordion.md): Use `CardAccordion` to split a long form into ordered steps, each in its own card. Completed steps collapse to a summary with an Edit button, the current step is expanded, and upcoming steps show only their heading.
 - [Carousel](llms/components/carousel.md): Carousels provide users with a dynamic and interactive way to browse through a series of content items, such as images, articles, or products. It allows users to view multiple items within a confined space, enabling efficient content discovery and engagement.
 - [Center](llms/components/center.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
 - [Checkbox](llms/components/checkbox.md): Whether you're building a simple form or a complex data collection system, the Checkbox component offers a user-friendly way for users to select multiple options from a list.
