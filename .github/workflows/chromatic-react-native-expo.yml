@@ -1,8 +1,18 @@
 name: 'Chromatic - React Native Expo'
 
+# Opt-in only: native builds run on an expensive macOS runner and every
+# snapshot counts towards the Chromatic quota, so this workflow does nothing
+# unless a PR asks for it. Opt a PR in with either:
+#   - the `chromatic: React Native` label, or
+#   - `[chromatic]` in the PR title or body.
+# Pushes to main only build when the merged PR was opted in (so the baseline
+# stays in step with what was reviewed), and `workflow_dispatch` forces a build
+# (e.g. to capture a fresh baseline). See the `chromatic-react-native-opt-in`
+# skill for when a change warrants opting in.
+
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled, edited]
     paths:
       - 'apps/storybook-rn-expo/**'
       - 'packages/react-native/**'
@@ -14,18 +24,34 @@ on:
       - 'apps/storybook-rn-expo/**'
       - 'packages/react-native/**'
       - '.github/workflows/chromatic-react-native-expo.yml'
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  # `edited` events and unrelated `labeled` events get their own group, so
+  # adding a label or editing the description never cancels an in-flight build.
+  group: >-
+    ${{ github.workflow }}-${{ github.ref }}${{
+      (github.event.action == 'edited' ||
+      (github.event.action == 'labeled' && github.event.label.name != 'chromatic: React Native'))
+      && format('-{0}', github.run_id) || ''
+    }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
+env:
+  OPT_IN_LABEL: 'chromatic: React Native'
+  OPT_IN_MARKER: '[chromatic]'
+
 jobs:
   check:
     name: Check if build should run
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Needed on push to look up the labels of the PR that was merged.
+      pull-requests: read
     outputs:
       should_run: ${{ steps.decide.outputs.should_run }}
     steps:
@@ -38,22 +64,71 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check for [skip-chromatic] marker
-        id: marker
+      - name: Check for opt-in
+        id: opt_in
         env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          LABELED_NAME: ${{ github.event.label.name }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE_BEFORE: ${{ github.event.changes.title.from }}
+          PR_BODY_BEFORE: ${{ github.event.changes.body.from }}
+          HAS_TITLE_CHANGE: ${{ github.event.changes.title != null }}
+          HAS_BODY_CHANGE: ${{ github.event.changes.body != null }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
           COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          SHA: ${{ github.sha }}
         run: |
-          if [[ "$PR_TITLE" == *"[skip-chromatic]"* ]] || [[ "$PR_BODY" == *"[skip-chromatic]"* ]] || [[ "$COMMIT_MESSAGE" == *"[skip-chromatic]"* ]]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          fi
+          opted_in=false
+
+          case "$EVENT_NAME" in
+            workflow_dispatch)
+              opted_in=true
+              ;;
+            pull_request)
+              # Label/edit events only start a build when they are the event
+              # that opts the PR in — otherwise the PR either already built on
+              # an earlier event or still isn't opted in.
+              if [[ "$EVENT_ACTION" == "labeled" ]]; then
+                if [[ "$LABELED_NAME" == "$OPT_IN_LABEL" ]]; then
+                  opted_in=true
+                fi
+              elif [[ "$EVENT_ACTION" == "edited" ]]; then
+                # `changes.*.from` is only present for the field that was edited.
+                title_before="$PR_TITLE"
+                body_before="$PR_BODY"
+                if [[ "$HAS_TITLE_CHANGE" == "true" ]]; then title_before="$PR_TITLE_BEFORE"; fi
+                if [[ "$HAS_BODY_CHANGE" == "true" ]]; then body_before="$PR_BODY_BEFORE"; fi
+                if [[ "$PR_TITLE $PR_BODY" == *"$OPT_IN_MARKER"* && "$title_before $body_before" != *"$OPT_IN_MARKER"* ]]; then
+                  opted_in=true
+                fi
+              elif jq -e --arg label "$OPT_IN_LABEL" 'index($label) != null' <<< "$PR_LABELS" > /dev/null \
+                || [[ "$PR_TITLE $PR_BODY" == *"$OPT_IN_MARKER"* ]]; then
+                opted_in=true
+              fi
+              ;;
+            push)
+              if [[ "$COMMIT_MESSAGE" == *"$OPT_IN_MARKER"* ]]; then
+                opted_in=true
+              else
+                pr=$(gh api "repos/$GITHUB_REPOSITORY/commits/$SHA/pulls" --jq '.[0] // empty')
+                if [[ -n "$pr" ]] && jq -e --arg label "$OPT_IN_LABEL" \
+                  '([.labels[].name] | index($label) != null) or ((.title + " " + (.body // "")) | contains("[chromatic]"))' \
+                  <<< "$pr" > /dev/null; then
+                  opted_in=true
+                fi
+              fi
+              ;;
+          esac
+
+          echo "Opted in: $opted_in"
+          echo "opted_in=$opted_in" >> "$GITHUB_OUTPUT"
 
       - name: Check for non-docs changes
         id: changed
-        if: steps.marker.outputs.skip == 'false'
+        if: steps.opt_in.outputs.opted_in == 'true' && github.event_name != 'workflow_dispatch'
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: |
@@ -66,10 +141,13 @@ jobs:
 
       - name: Decide
         id: decide
+        env:
+          OPTED_IN: ${{ steps.opt_in.outputs.opted_in }}
+          ANY_CHANGED: ${{ steps.changed.outputs.any_changed }}
         run: |
-          if [[ "${{ steps.marker.outputs.skip }}" == "true" ]]; then
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          elif [[ "${{ steps.changed.outputs.any_changed }}" == "true" ]]; then
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          elif [[ "$OPTED_IN" == "true" && "$ANY_CHANGED" == "true" ]]; then
             echo "should_run=true" >> "$GITHUB_OUTPUT"
           else
             echo "should_run=false" >> "$GITHUB_OUTPUT"
