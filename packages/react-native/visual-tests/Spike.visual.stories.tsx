@@ -61,3 +61,13 @@ export const DisabledProbe: Story = {
     </View>
   ),
 };
+
+// Explicit story-level opt-out, to compare against the inherited global above.
+export const ExplicitDisabledProbe: Story = {
+  parameters: { chromatic: { disableSnapshot: true } },
+  render: () => (
+    <View style={{ padding: 8, backgroundColor: '#fff' }}>
+      <Text style={{ color: '#000' }}>explicitly disabled</Text>
+    </View>
+  ),
+};
