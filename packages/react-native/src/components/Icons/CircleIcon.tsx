@@ -1,6 +1,10 @@
 import { Path, Svg } from 'react-native-svg';
 import { createIcon } from '../Icon/createIcon';
 
+/**
+ * Use CircleIcon to render a solid filled circle, coloured via `currentColor`. It's an internal
+ * glyph used for the checked indicator in Radio and RadioCard, not part of the public API.
+ */
 const CircleIcon = createIcon({
   Root: Svg,
   viewBox: '0 0 24 24',
