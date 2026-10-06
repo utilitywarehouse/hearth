@@ -76,7 +76,10 @@ for any UI work in an app that has `@utilitywarehouse/hearth-react` installed. I
 consumer-facing complement, `hearth-react-review`
 (`plugins/hearth-ai-toolkit/skills/hearth-react-review/SKILL.md`), reviews UI code
 that already uses Hearth React against the same rules — for PR review or
-pre-merge audits. There is no react-native equivalent yet.
+pre-merge audits. There is no react-native equivalent yet. `design-systems-feedback`
+(`plugins/hearth-ai-toolkit/skills/design-systems-feedback/SKILL.md`) turns a
+consumer's experience report about any of the above into a real Linear issue in
+the Design Systems team's triage queue.
 
 ---
 

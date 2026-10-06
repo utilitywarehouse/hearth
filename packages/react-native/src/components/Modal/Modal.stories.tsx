@@ -266,6 +266,63 @@ export const Loading = args => {
   );
 };
 
+/** Backdrop presses are ignored while `loading`. */
+export const LoadingIgnoresBackdropPress: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => {
+    const modalRef = useRef<BottomSheetModal>(null);
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>
+          <Button onPress={() => modalRef.current?.present()}>Open Modal</Button>
+          <Modal ref={modalRef} loading loadingHeading="Loading" />
+        </ViewWrap>
+      </View>
+    );
+  },
+};
+
+/** Pressing the backdrop closes the modal by default. */
+export const BackdropPressCloses: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => {
+    const modalRef = useRef<BottomSheetModal>(null);
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>
+          <Button onPress={() => modalRef.current?.present()}>Open Modal</Button>
+          <Modal ref={modalRef} heading="Modal Heading" />
+        </ViewWrap>
+      </View>
+    );
+  },
+};
+
+/** Set `closeOnBackdropPress` to `false` to keep the modal open when the backdrop is pressed. */
+export const CloseOnBackdropPressDisabled: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => {
+    const modalRef = useRef<BottomSheetModal>(null);
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>
+          <Button onPress={() => modalRef.current?.present()}>Open Modal</Button>
+          <Modal ref={modalRef} heading="Modal Heading" closeOnBackdropPress={false} />
+        </ViewWrap>
+      </View>
+    );
+  },
+};
+
 export const FullscreenModal: Story = {
   render: () => {
     const modalRef = useRef<BottomSheetModal>(null);
