@@ -72,7 +72,7 @@ export const Playground: Story = {
     const canvas = within(canvasElement);
 
     // Only the current step renders its content.
-    expect(canvas.getAllByText('Step content')).toHaveLength(1);
+    await expect(canvas.getAllByText('Step content')).toHaveLength(1);
     // The completed step shows its summary title and fires onEditPress when edited.
     await userEvent.click(canvas.getByRole('button', { name: 'Edit Your property' }));
     await expect(args.onEditPress).toHaveBeenCalledOnce();

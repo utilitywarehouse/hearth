@@ -98,44 +98,44 @@ export const Playground: Story = {
     const canvas = within(canvasElement);
 
     // The first step is current by default: only its content and Next button render.
-    expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument();
-    expect(canvas.queryByText('Tell us about your property.')).not.toBeInTheDocument();
-    expect(canvas.queryByRole('button', { name: 'Previous' })).not.toBeInTheDocument();
+    await expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument();
+    await expect(canvas.queryByText('Tell us about your property.')).not.toBeInTheDocument();
+    await expect(canvas.queryByRole('button', { name: 'Previous' })).not.toBeInTheDocument();
 
     // Next completes the step: it collapses to its summary title and an Edit button.
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(() =>
-      expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
+    await waitFor(
+      () => await expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1b');
-    expect(canvas.queryByText('Tell us about the cover you need.')).not.toBeInTheDocument();
-    expect(canvas.getByText('1a. Your home')).toBeInTheDocument();
-    expect(canvas.getByText('Buildings and contents')).toBeInTheDocument();
+    await expect(canvas.queryByText('Tell us about the cover you need.')).not.toBeInTheDocument();
+    await expect(canvas.getByText('1a. Your home')).toBeInTheDocument();
+    await expect(canvas.getByText('Buildings and contents')).toBeInTheDocument();
 
     // Previous renders before Next in reading order, whatever order it's written in.
     const buttons = canvas.getAllByRole('button').map(button => button.textContent);
-    expect(buttons.indexOf('Previous')).toBeLessThan(buttons.indexOf('Next'));
+    await expect(buttons.indexOf('Previous')).toBeLessThan(buttons.indexOf('Next'));
 
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(() =>
-      expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument()
+    await waitFor(
+      () => await expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument()
     );
 
     // Previous goes back one step.
     await userEvent.click(canvas.getByRole('button', { name: 'Previous' }));
-    await waitFor(() =>
-      expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
+    await waitFor(
+      () => await expect(canvas.getByText('Tell us about your property.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1b');
 
     // Edit reopens a completed step; its accessible name includes the step heading.
     await userEvent.click(canvas.getByRole('button', { name: 'Edit 1a. Your home' }));
-    await waitFor(() =>
-      expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument()
+    await waitFor(
+      () => await expect(canvas.getByText('Tell us about the cover you need.')).toBeInTheDocument()
     );
     await expect(args.onValueChange).toHaveBeenLastCalledWith('1a');
-    expect(canvas.getByText('1a. Your new cover')).toBeInTheDocument();
-    expect(canvas.queryByRole('button', { name: /^Edit/ })).not.toBeInTheDocument();
+    await expect(canvas.getByText('1a. Your new cover')).toBeInTheDocument();
+    await expect(canvas.queryByRole('button', { name: /^Edit/ })).not.toBeInTheDocument();
   },
 };
 
@@ -148,9 +148,9 @@ export const DefaultValue: Story = {
     const canvas = within(canvasElement);
 
     // Steps before the default value start completed.
-    expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument();
-    expect(canvas.getByRole('button', { name: 'Edit 1a. Your home' })).toBeInTheDocument();
-    expect(
+    await expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument();
+    await expect(canvas.getByRole('button', { name: 'Edit 1a. Your home' })).toBeInTheDocument();
+    await expect(
       canvas.getByRole('button', { name: 'Edit 1b. About your property' })
     ).toBeInTheDocument();
   },
@@ -174,10 +174,10 @@ export const Controlled: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    expect(canvas.getByText('Current step: 1b')).toBeInTheDocument();
+    await expect(canvas.getByText('Current step: 1b')).toBeInTheDocument();
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
     await waitFor(() => expect(canvas.getByText('Current step: 1c')).toBeInTheDocument());
-    expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument();
+    await expect(canvas.getByText('Tell us how your home was built.')).toBeInTheDocument();
   },
 };
 
@@ -226,10 +226,10 @@ export const Validation: Story = {
 
     // Calling event.preventDefault() in onPress keeps the user on the current step.
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
-    await waitFor(() =>
-      expect(canvas.getByText('You need to accept the terms.')).toBeInTheDocument()
+    await waitFor(
+      () => await expect(canvas.getByText('You need to accept the terms.')).toBeInTheDocument()
     );
-    expect(canvas.queryByText('Tell us about yourself.')).not.toBeInTheDocument();
+    await expect(canvas.queryByText('Tell us about yourself.')).not.toBeInTheDocument();
 
     // Once valid, Next moves on.
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));

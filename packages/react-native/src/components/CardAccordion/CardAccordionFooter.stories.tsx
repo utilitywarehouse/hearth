@@ -32,6 +32,6 @@ export const Playground: Story = {
 
     // Previous is placed first in reading order even though it's written second.
     const labels = footer.getAllByRole('button').map(button => button.textContent);
-    expect(labels).toEqual(['Back', 'Next']);
+    await expect(labels).toEqual(['Back', 'Next']);
   },
 };
