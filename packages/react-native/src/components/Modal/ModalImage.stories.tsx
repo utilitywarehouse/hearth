@@ -4,12 +4,19 @@ import { ImageSourcePropType, Platform, View } from 'react-native';
 import { Modal, ModalImage } from '.';
 import pigs from '../../../docs/assets/pigs.png';
 import { ViewWrap } from '../../../docs/components';
-import { BottomSheetModal } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 
 const meta: Meta<typeof ModalImage> = {
   title: 'Stories / ModalImage',
   component: ModalImage,
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 };
 
 export default meta;
