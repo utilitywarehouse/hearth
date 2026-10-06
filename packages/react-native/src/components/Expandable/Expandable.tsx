@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Platform, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -53,8 +53,9 @@ const Expandable = ({
   }, [expanded, animationDuration]);
 
   // `aria-hidden` doesn't stop keyboard focus on web, so collapsed content is also made `inert`.
-  // react-native-web doesn't forward `inert`, so it is set on the DOM node directly.
-  useEffect(() => {
+  // react-native-web doesn't forward `inert`, so it is set on the DOM node directly, in a layout
+  // effect so it lands in the same commit as `aria-hidden`.
+  useLayoutEffect(() => {
     if (Platform.OS !== 'web') return;
     const node = contentRef.current as unknown as { inert?: boolean } | null;
     if (node) node.inert = hidden;

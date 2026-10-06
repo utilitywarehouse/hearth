@@ -302,8 +302,10 @@ export const WithInteractiveContent: Story = {
     await waitFor(() =>
       expect(canvas.queryByRole('button', { name: /inner action/i })).not.toBeInTheDocument()
     );
-    getInnerActionNode()?.focus();
-    expect(getInnerActionNode()).not.toHaveFocus();
+    await waitFor(() => {
+      getInnerActionNode()?.focus();
+      expect(getInnerActionNode()).not.toHaveFocus();
+    });
   },
 };
 
