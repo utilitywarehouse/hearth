@@ -69,7 +69,7 @@ Skills live in `.agents/skills/` (symlinked to `.claude/skills/`). Invoke them w
 | `base-ui-migration` | Migrating a `packages/react` component off Radix UI onto Base UI |
 | `figma-code-connect` | Adding or updating Figma Code Connect (`.figma.ts`) files for `packages/react` or `packages/react-native` |
 | `add-changeset` | Writing a changeset — version bumps, changelog entries, release notes |
-| `chromatic-react-native-opt-in` | Opening or updating a PR touching `packages/react-native` or `apps/storybook-rn-expo` — deciding whether to opt into the native (Expo) Chromatic build, which is off by default |
+| `chromatic-react-native-opt-in` | Opening or updating a PR touching `packages/react-native`, `packages/react-native-icons`, `packages/fonts` or `apps/storybook-rn-expo` — deciding whether to opt into the native (Expo) Chromatic build, which is off by default |
 
 The `hearth-react` skill (`packages/react/SKILL.md`) covers building UI with the
 Hearth React component library from the **consumer** side. It activates implicitly
