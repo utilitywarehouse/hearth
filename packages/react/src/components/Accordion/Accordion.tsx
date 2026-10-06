@@ -35,7 +35,6 @@ export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, re
     trailingContent,
     validationText,
     validationStatus,
-    collapsible,
     ...restProps
   } = extractProps(props, marginPropDefs);
 
