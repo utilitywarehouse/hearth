@@ -20,4 +20,6 @@ rendered inside the list.
 **Developer changes**:
 
 No action is required. Props such as `testID` and `style` stay on the outer `DescriptionList`
-element. The `list` role is now on an inner element that contains only the items.
+element. The `list` role is now on an inner element that contains only the items. Label props
+(`accessibilityLabel`, `aria-label`, `accessibilityLabelledBy` and `aria-labelledby`) are passed to
+that inner list, so they still name the list.

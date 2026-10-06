@@ -18,6 +18,11 @@ const DescriptionList = ({
   children,
   style,
   invalidText,
+  // Labels name the list itself, so they go on the inner list rather than the outer container.
+  accessibilityLabel,
+  'aria-label': ariaLabel,
+  accessibilityLabelledBy,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: DescriptionListProps) => {
   styles.useVariants({ direction });
@@ -35,7 +40,14 @@ const DescriptionList = ({
           />
         ) : null}
         {/* The list only wraps the items: a heading inside role="list" is not a valid child. */}
-        <View accessibilityRole="list" style={styles.list}>
+        <View
+          accessibilityRole="list"
+          accessibilityLabel={accessibilityLabel}
+          aria-label={ariaLabel}
+          accessibilityLabelledBy={accessibilityLabelledBy}
+          aria-labelledby={ariaLabelledBy}
+          style={styles.list}
+        >
           {children}
         </View>
       </View>
