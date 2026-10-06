@@ -5,6 +5,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
+import ListItemRole from '../ListItemRole';
 import { IListItemContext, ListItemContext } from './ListItem.context';
 import type ListItemProps from './ListItem.props';
 import ListItemContent from './ListItemContent';
@@ -122,79 +123,85 @@ const ListItem = ({
 
   if (loading || listContext?.loading) {
     return (
-      <Pressable
-        {...props}
-        testID={loadingTestID}
-        style={state => [
-          styles.container,
-          alignItems ? { alignItems } : undefined,
-          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
-        ]}
-        disabled={isDisabled}
-      >
-        {leadingContent ? (
-          <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
-            <Skeleton width={24} height={24} />
-          </ListItemLeadingContent>
-        ) : null}
-        <ListItemContent {...contentProps} style={contentStyle}>
-          <Skeleton width="80%" height={20} />
-          <Skeleton width="100%" height={16} />
-        </ListItemContent>
-        {onPress || trailingContent ? (
-          <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
-            <Skeleton width={24} height={24} />
-          </ListItemTrailingContent>
-        ) : null}
-      </Pressable>
+      <ListItemRole>
+        <Pressable
+          {...props}
+          testID={loadingTestID}
+          style={state => [
+            styles.container,
+            alignItems ? { alignItems } : undefined,
+            (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+          ]}
+          disabled={isDisabled}
+        >
+          {leadingContent ? (
+            <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+              <Skeleton width={24} height={24} />
+            </ListItemLeadingContent>
+          ) : null}
+          <ListItemContent {...contentProps} style={contentStyle}>
+            <Skeleton width="80%" height={20} />
+            <Skeleton width="100%" height={16} />
+          </ListItemContent>
+          {onPress || trailingContent ? (
+            <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+              <Skeleton width={24} height={24} />
+            </ListItemTrailingContent>
+          ) : null}
+        </Pressable>
+      </ListItemRole>
     );
   }
 
   return (
     <ListItemContext.Provider value={value}>
-      <Pressable
-        {...props}
-        testID={testID}
-        style={state => [
-          styles.container,
-          alignItems ? { alignItems } : undefined,
-          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
-        ]}
-        disabled={isDisabled}
-        accessibilityRole={props.accessibilityRole ?? (onPress ? 'button' : undefined)}
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
-      >
-        {children ? (
-          children
-        ) : (
-          <>
-            {leadingContent ? (
-              <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
-                {leadingContent}
-              </ListItemLeadingContent>
-            ) : null}
-            <ListItemContent {...contentProps} style={contentStyle}>
-              {badgePosition === 'top' && badge ? badge : null}
-              <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
-              {helperText ? (
-                <ListItemHelperText truncated={truncateHelperText}>{helperText}</ListItemHelperText>
+      <ListItemRole>
+        <Pressable
+          {...props}
+          testID={testID}
+          style={state => [
+            styles.container,
+            alignItems ? { alignItems } : undefined,
+            (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+          ]}
+          disabled={isDisabled}
+          accessibilityRole={props.accessibilityRole ?? (onPress ? 'button' : undefined)}
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
+        >
+          {children ? (
+            children
+          ) : (
+            <>
+              {leadingContent ? (
+                <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+                  {leadingContent}
+                </ListItemLeadingContent>
               ) : null}
-              {badgePosition === 'bottom' && badge ? badge : null}
-            </ListItemContent>
-            {!!numericValue && <BodyText weight="semibold">{numericValue}</BodyText>}
-            {trailingContent ? (
-              <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
-                {trailingContent}
-              </ListItemTrailingContent>
-            ) : showDefaultTrailingIcon ? (
-              <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
-                <ListItemTrailingIcon as={ChevronRightSmallIcon} />
-              </ListItemTrailingContent>
-            ) : null}
-          </>
-        )}
-      </Pressable>
+              <ListItemContent {...contentProps} style={contentStyle}>
+                {badgePosition === 'top' && badge ? badge : null}
+                <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
+                {helperText ? (
+                  <ListItemHelperText truncated={truncateHelperText}>
+                    {helperText}
+                  </ListItemHelperText>
+                ) : null}
+                {badgePosition === 'bottom' && badge ? badge : null}
+              </ListItemContent>
+              {!!numericValue && <BodyText weight="semibold">{numericValue}</BodyText>}
+              {trailingContent ? (
+                <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+                  {trailingContent}
+                </ListItemTrailingContent>
+              ) : showDefaultTrailingIcon ? (
+                <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+                  <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+                </ListItemTrailingContent>
+              ) : null}
+            </>
+          )}
+        </Pressable>
+      </ListItemRole>
     </ListItemContext.Provider>
   );
 };
