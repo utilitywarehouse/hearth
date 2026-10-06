@@ -4,13 +4,20 @@ import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
+import ListItemRole from '../ListItemRole';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
 import ListActionText from './ListActionText';
 import ListActionTrailingContent from './ListActionTrailingContent';
 import ListActionTrailingIcon from './ListActionTrailingIcon';
 
-const ListAction = ({ heading, disabled, variant = 'subtle', loading, ...props }: ListActionProps) => {
+const ListAction = ({
+  heading,
+  disabled,
+  variant = 'subtle',
+  loading,
+  ...props
+}: ListActionProps) => {
   const { onPress } = props;
   const listContext = useListContext();
   const { registerItem, firstItemId } = listContext;
@@ -50,33 +57,40 @@ const ListAction = ({ heading, disabled, variant = 'subtle', loading, ...props }
   });
 
   return (
-    <Pressable
-      {...props}
-      accessibilityRole={props.accessibilityRole ?? 'button'}
-      testID={testID}
-      style={state => [
-        styles.container,
-        state.pressed && styles.containerPressed,
-        (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
-      ]}
-      disabled={isDisabled || !onPress}
-    >
-      {loading ? (
-        <View style={styles.loadingWrap}>
-          <Skeleton style={{ flex: 1, maxWidth: 166 }} width="auto" height={24} borderRadius="sm" />
-          <Skeleton width={24} height={24} borderRadius="sm" />
-        </View>
-      ) : (
-        <>
-          <ListActionContent>
-            <ListActionText>{heading}</ListActionText>
-          </ListActionContent>
-          <ListActionTrailingContent style={styles.centeredTrailingIcon}>
-            <ListActionTrailingIcon as={ChevronRightSmallIcon} />
-          </ListActionTrailingContent>
-        </>
-      )}
-    </Pressable>
+    <ListItemRole>
+      <Pressable
+        {...props}
+        accessibilityRole={props.accessibilityRole ?? 'button'}
+        testID={testID}
+        style={state => [
+          styles.container,
+          state.pressed && styles.containerPressed,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
+        disabled={isDisabled || !onPress}
+      >
+        {loading ? (
+          <View style={styles.loadingWrap}>
+            <Skeleton
+              style={{ flex: 1, maxWidth: 166 }}
+              width="auto"
+              height={24}
+              borderRadius="sm"
+            />
+            <Skeleton width={24} height={24} borderRadius="sm" />
+          </View>
+        ) : (
+          <>
+            <ListActionContent>
+              <ListActionText>{heading}</ListActionText>
+            </ListActionContent>
+            <ListActionTrailingContent style={styles.centeredTrailingIcon}>
+              <ListActionTrailingIcon as={ChevronRightSmallIcon} />
+            </ListActionTrailingContent>
+          </>
+        )}
+      </Pressable>
+    </ListItemRole>
   );
 };
 

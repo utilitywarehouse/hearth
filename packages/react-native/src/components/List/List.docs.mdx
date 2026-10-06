@@ -717,6 +717,16 @@ The List component is designed with accessibility in mind to ensure all users ca
 
 - **ListAction**: The `ListAction` component is always interactive and accessible as a button element with screen readers.
 
+### Roles
+
+| Element                                     | Role                                                                                  |
+| ------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `List` items wrapper (below the heading)    | `list` (override with `accessibilityRole`)                                            |
+| `ListItem` / `ListAction`                   | `button` when pressable; on web, also wrapped in a `listitem` so the list stays valid |
+| `List` root and `heading` (`SectionHeader`) | No role on the root; the heading keeps its `heading` role                             |
+
+The optional `heading` is rendered above the list, not inside it, so on web the list only contains list items. The `listitem` wrapper is web-only, so items keep the same roles on iOS and Android. If you set `accessibilityRole` on `List` to something other than `list`, the items are not wrapped.
+
 ### Best Practices
 
 - Use descriptive `heading` and `helperText` to provide clear context for each list item

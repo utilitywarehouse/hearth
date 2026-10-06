@@ -51,21 +51,20 @@ const List = ({
     };
   }, []);
 
+  const listRole = accessibilityRole ?? 'list';
+
   const value = {
     loading,
     disabled,
     container,
+    isList: listRole === 'list',
     firstItemId,
     registerItem,
   };
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>
-      <View
-        {...rest}
-        accessibilityRole={accessibilityRole ?? 'list'}
-        style={[styles.container, style]}
-      >
+      <View {...rest} style={[styles.container, style]}>
         {heading ? (
           <SectionHeader
             heading={heading}
@@ -74,12 +73,15 @@ const List = ({
             invalidText={invalidText}
           />
         ) : null}
+        {/* The list only wraps the items: a heading inside role="list" is not a valid child. */}
         {container === 'none' ? (
-          <View testID={testID}>{children}</View>
+          <View testID={testID} accessibilityRole={listRole}>
+            {children}
+          </View>
         ) : (
           React.Children.count(children) > 0 && (
             <Card {...containerToCard} noPadding style={styles.card} testID={testID}>
-              <>{children}</>
+              <View accessibilityRole={listRole}>{children}</View>
             </Card>
           )
         )}

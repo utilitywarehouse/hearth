@@ -11,6 +11,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { FlatList } from 'react-native';
+import { expect, within } from 'storybook/test';
 import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Badge } from '../Badge';
@@ -60,6 +61,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// On web the list must only own `listitem` children (axe `aria-required-children`), so the
+// SectionHeader sits outside it and each item wraps its own pressable role in a `listitem`.
+const expectOnlyListItems = async (canvasElement: HTMLElement, count: number) => {
+  const list = within(canvasElement).getByRole('list');
+  const items = within(list).getAllByRole('listitem');
+  await expect(items).toHaveLength(count);
+  await expect(Array.from(list.children)).toEqual(items);
+  await expect(within(list).queryByRole('heading')).toBeNull();
+  return items;
+};
+
 export const Playground: Story = {
   render: ({ container, ...args }: StoryObj<typeof meta.args>) => {
     return (
@@ -84,6 +96,11 @@ export const WithAction: Story = {
       <ListAction heading="List action" onPress={() => console.log('List Action Pressed')} />
     </List>
   ),
+  play: async ({ canvasElement }) => {
+    const items = await expectOnlyListItems(canvasElement, 5);
+    // ListAction keeps its button role inside the listitem wrapper.
+    await expect(within(items[4]).getByRole('button')).toHaveTextContent('List action');
+  },
 };
 
 export const WithContainer: Story = {
@@ -208,6 +225,12 @@ export const WithSectionHeader: Story = {
       />
     </List>
   ),
+  play: async ({ canvasElement }) => {
+    await expect(within(canvasElement).getByRole('heading')).toHaveTextContent('Your account');
+    const items = await expectOnlyListItems(canvasElement, 4);
+    // Pressable items keep their button role inside the listitem wrapper.
+    await expect(within(items[0]).getByRole('button')).toHaveTextContent('Bills');
+  },
 };
 
 const CustomListItem = () => (
