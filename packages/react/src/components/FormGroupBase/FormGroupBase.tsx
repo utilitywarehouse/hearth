@@ -45,7 +45,8 @@ export const FormGroupBase = forwardRef<FormGroupBaseElement, FormGroupBaseProps
   const showValidationText = Boolean(validationStatus && validationText);
   const showInvalid = showValidationText && validationStatus === 'invalid';
   const ariaDescribedbyValue = mergeIds(
-    ariaDescribedby || !!helperText ? helperTextId : undefined,
+    ariaDescribedby,
+    hasHelperText ? helperTextId : undefined,
     ariaErrorMessage || showValidationText ? validationTextId : undefined
   );
   const value = {

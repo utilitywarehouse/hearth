@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Card } from '../Card/Card';
 import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
@@ -105,6 +106,15 @@ export const Playground: Story = {
       />
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', { name: 'Date' });
+
+    await expect(group).toHaveAccessibleDescription('Helper text');
+    await expect(within(group).getByRole('textbox', { name: 'Day' })).toHaveValue('15');
+    await expect(within(group).getByRole('textbox', { name: 'Month' })).toHaveValue('06');
+    await expect(within(group).getByRole('textbox', { name: 'Year' })).toHaveValue('1990');
+  },
 };
 
 /** Set validationStatus and validationText to show valid or invalid feedback. */
@@ -145,6 +155,18 @@ export const Validation: Story = {
       </Flex>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const valid = canvas.getByRole('group', { name: 'Valid date' });
+    const invalid = canvas.getByRole('group', { name: 'Invalid date' });
+
+    await expect(valid).not.toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription('Please enter a valid date');
+    for (const segment of within(invalid).getAllByRole('textbox')) {
+      await expect(segment).toHaveAttribute('aria-invalid', 'true');
+    }
+  },
 };
 
 /** Set disabled to prevent the fields from being edited. */
@@ -165,6 +187,11 @@ export const Disabled: Story = {
       />
     );
   },
+  play: async ({ canvasElement }) => {
+    for (const segment of within(canvasElement).getAllByRole('textbox')) {
+      await expect(segment).toBeDisabled();
+    }
+  },
 };
 
 /** Use defaultDayValue, defaultMonthValue, and defaultYearValue for an uncontrolled initial value. */
@@ -172,7 +199,26 @@ export const DefaultValue: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const day = canvas.getByRole('textbox', { name: 'Day' });
+    const month = canvas.getByRole('textbox', { name: 'Month' });
+    const year = canvas.getByRole('textbox', { name: 'Year' });
+
+    await expect(day).toHaveValue('01');
+    await userEvent.clear(day);
+    await userEvent.type(day, '123');
+    await expect(day).toHaveValue('12');
+
+    await userEvent.clear(month);
+    await userEvent.type(month, '123');
+    await expect(month).toHaveValue('12');
+
+    await userEvent.clear(year);
+    await userEvent.type(year, '20245');
+    await expect(year).toHaveValue('2024');
+    year.blur();
   },
   render: () => {
     return (
@@ -261,6 +307,17 @@ export const FlexibleSegments: Story = {
       <DateInput label="Year only" helperText="YYYY" hideDay hideMonth required />
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textboxNames = (name: string) =>
+      within(canvas.getByRole('group', { name }))
+        .getAllByRole('textbox')
+        .map(segment => segment.getAttribute('name')?.split('-').pop());
+
+    await expect(textboxNames('Full date')).toEqual(['day', 'month', 'year']);
+    await expect(textboxNames('Month and year')).toEqual(['month', 'year']);
+    await expect(textboxNames('Year only')).toEqual(['year']);
+  },
 };
 
 /** Group multiple DateInputs under a shared fieldset with a legend and helper text. */
@@ -292,4 +349,28 @@ export const GroupingInputs: Story = {
       </fieldset>
     </Flex>
   ),
+};
+
+/** Test-only: a consumer's aria-describedby is kept alongside the helper text. */
+export const ConsumerDescribedBy: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <p id="external-description">External description</p>
+      <DateInput
+        label="Described date"
+        helperText="Helper text"
+        aria-describedby="external-description"
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const group = within(canvasElement).getByRole('group', { name: 'Described date' });
+
+    await expect(group).toHaveAccessibleDescription('External description Helper text');
+  },
 };
