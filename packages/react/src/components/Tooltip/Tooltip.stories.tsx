@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
@@ -48,7 +49,18 @@ type Story = StoryObj<typeof Tooltip>;
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('button', { name: 'further information' });
+
+    await userEvent.tab();
+    await expect(trigger).toHaveFocus();
+    await expect(await screen.findByRole('tooltip')).toHaveTextContent('Tooltip description');
+    await expect(trigger).toHaveAccessibleDescription('Tooltip description');
+
+    await userEvent.keyboard('{Escape}');
+    await waitFor(() => expect(screen.queryByRole('tooltip')).not.toBeInTheDocument());
+    trigger.blur();
   },
   render: args => (
     <Flex justifyContent="center" padding="800">
@@ -67,9 +79,11 @@ export const DefaultOpen: Story = {
     chromatic: { disableSnapshot: true },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { defaultOpen: true },
+  play: async () => {
+    await waitFor(() => expect(screen.getAllByRole('tooltip')).toHaveLength(2));
+  },
   render: args => (
     <Flex justifyContent="center" padding="800" gap="800" direction="column">
       <Tooltip {...args}>
@@ -168,9 +182,17 @@ export const WithHeading: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { heading: 'Tooltip heading' },
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('button', { name: 'further information' });
+
+    await userEvent.tab();
+    const tooltip = await screen.findByRole('tooltip');
+    await expect(tooltip).toHaveTextContent('Tooltip heading');
+    await expect(tooltip).toHaveTextContent('Tooltip description');
+    trigger.blur();
+  },
   render: args => (
     <Flex justifyContent="center" padding="800">
       <Tooltip {...args}>
