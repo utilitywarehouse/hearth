@@ -1,11 +1,18 @@
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentPropsWithRef, CSSProperties, ReactNode } from 'react';
 import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 
 export interface AccordionItemProps extends Omit<
   ComponentPropsWithRef<typeof AccordionPrimitive.Item>,
-  'render' | 'className'
+  'render' | 'className' | 'value' | 'children' | 'style'
 > {
   className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+  /**
+   * A unique value that identifies this accordion item. Used to control
+   * which item(s) are expanded via `value`/`defaultValue` on `Accordion`.
+   */
+  value: string;
   /**
    * Shorthand that renders a default `AccordionHeader` + `AccordionTrigger`
    * composition using this as the heading text. Omit to compose the header

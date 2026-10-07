@@ -28,7 +28,7 @@ type AccordionElement = ComponentRef<'div'>;
 export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, ref) => {
   const {
     className,
-    multiple = true,
+    multiple = false,
     heading,
     headingElement = 'h2',
     helperText,

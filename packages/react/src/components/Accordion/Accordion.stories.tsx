@@ -139,6 +139,7 @@ export const DefaultExpanded: Story = {
   args: {
     heading: 'Default expanded items',
     helperText: '',
+    multiple: true,
     defaultValue: ['item-3', 'item-4'],
   },
   render: args => {
@@ -183,6 +184,7 @@ export const Multiple: Story = {
   args: {
     heading: 'Multiple items open at once',
     helperText: '',
+    multiple: true,
   },
   render: args => {
     return (
@@ -246,15 +248,58 @@ export const Single: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item1Trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const item2Trigger = canvas.getByRole('button', { name: 'Item 2' });
 
-    await userEvent.click(trigger);
+    await userEvent.click(item1Trigger);
     await canvas.findByText('Content 1');
-    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'true');
+
+    // opening a second item closes the first — single-select exclusivity
+    await userEvent.click(item2Trigger);
+    await canvas.findByText('Content 2');
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(item1Trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+
+    // items are always collapsible — re-clicking the open item closes it
+    await userEvent.click(item2Trigger);
+    await expect(item2Trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() => expect(canvas.queryByText('Content 2')).not.toBeInTheDocument());
+    item1Trigger.blur();
+    item2Trigger.blur();
+  },
+};
+
+/** The deprecated `forceMount` prop still works as an alias for `keepMounted` on AccordionContent. */
+export const DeprecatedForceMount: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { multiple: false },
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          <AccordionItem value="item-1" title="Item 1">
+            <AccordionContent forceMount>Content 1</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </Box>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: 'Item 1' });
+    const content = canvas.getByText('Content 1');
+
+    await expect(content).toBeInTheDocument();
+    await expect(content).not.toBeVisible();
 
     await userEvent.click(trigger);
-    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
-    await waitFor(() => expect(canvas.queryByText('Content 1')).not.toBeInTheDocument());
+    await expect(content).toBeVisible();
   },
 };
 
