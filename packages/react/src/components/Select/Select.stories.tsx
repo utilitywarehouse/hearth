@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, screen, userEvent, within } from 'storybook/test';
+import { Flex } from '../Flex/Flex';
 import { Select } from './Select';
 import { SelectItem } from './SelectItem';
 
@@ -25,12 +27,26 @@ const meta: Meta<typeof Select> = {
 export default meta;
 type Story = StoryObj<typeof Select>;
 
+// Expected-failure marker for known component bugs logged in component-bugs.md (repo root).
+// Passes while the assertion fails; fails once the bug is fixed, as the cue to remove the wrapper.
+const expectToFail = async (assertion: () => Promise<unknown>) => {
+  let failed = false;
+  try {
+    await assertion();
+  } catch {
+    failed = true;
+  }
+  await expect(
+    failed,
+    'Expected failure now passes: remove expectToFail and update component-bugs.md'
+  ).toBe(true);
+};
+
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     return (
@@ -44,6 +60,15 @@ export const Playground: Story = {
       </Select>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('combobox', { name: /^Select/ });
+
+    await expect(trigger).toHaveTextContent('Select');
+    await expect(canvas.getByText('(optional)')).toBeInTheDocument();
+    // Expected failure — see component-bugs.md "Select: trigger isn't described by its helper or validation text"
+    await expectToFail(() => expect(trigger).toHaveAccessibleDescription('Helper text'));
+  },
 };
 
 /** Set defaultOpen to render the Select with its options already visible. */
@@ -52,9 +77,20 @@ export const DefaultOpen: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { defaultOpen: true, defaultValue: '2' },
+  play: async () => {
+    const listbox = await screen.findByRole('listbox');
+
+    await expect(within(listbox).getByRole('option', { name: 'Item 2' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    );
+    await expect(within(listbox).getByRole('option', { name: 'Item 4' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
+  },
   render: args => {
     return (
       <Select {...args}>
@@ -74,7 +110,17 @@ export const ScrollArea: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('combobox');
+
+    await userEvent.click(trigger);
+    await userEvent.click(await screen.findByRole('option', { name: 'Item 3' }));
+
+    await expect(trigger).toHaveTextContent('Item 3');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    trigger.blur();
   },
   render: args => {
     return (
@@ -119,5 +165,41 @@ export const Truncate: Story = {
         </SelectItem>
       </Select>
     );
+  },
+};
+
+/** Test-only: a disabled Select suppresses its validation text. */
+export const DisabledHidesValidation: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Select label="Invalid select" validationStatus="invalid" validationText="Invalid error">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+      <Select
+        label="Disabled select"
+        validationStatus="invalid"
+        validationText="Disabled error"
+        disabled
+      >
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const invalid = canvas.getByRole('combobox', { name: /^Invalid select/ });
+    const disabled = canvas.getByRole('combobox', { name: /^Disabled select/ });
+
+    await expect(canvas.getByText('Invalid error')).toBeInTheDocument();
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(disabled).toBeDisabled();
+    await expect(invalid).toBeEnabled();
+    // Expected failure — see component-bugs.md "Select: trigger isn't described by its helper or validation text"
+    await expectToFail(() => expect(invalid).toHaveAttribute('aria-invalid', 'true'));
   },
 };
