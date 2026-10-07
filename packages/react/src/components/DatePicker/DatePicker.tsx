@@ -138,11 +138,13 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     ),
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
   const ariaProps = {
     'aria-labelledby': labelId,
     'aria-describedby': ariaDescribedbyValue,
-    'aria-invalid': validationStatus === 'invalid' ? true : undefined,
-    'aria-errormessage': validationStatus === 'invalid' ? validationTextId : undefined,
+    'aria-invalid': isInvalid ? true : undefined,
+    'aria-errormessage': isInvalid ? validationTextId : undefined,
   };
 
   const classNameProps = {
