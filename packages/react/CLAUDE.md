@@ -129,10 +129,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | DatePicker | UWDS-4980 | ✅ | Date format, week start, days/months/years view cycling and reset, disabled state |
 | DateInput | UWDS-4979 | ✅ | Group label/description, invalid state, disabled, segment max lengths, `hide*` props, consumer `aria-describedby` |
 | CardAccordion | UWDS-4971 | ✅ | Next/Previous/Edit step flow, summaries, focus on new step. `Playground` stays `!test` (reason unknown) |
-| ExpandableCard | UWDS-4985 | ⏳ | |
-| Checkbox | UWDS-4972 | ⏳ | |
-| CheckboxGroup | UWDS-4973 | ⏳ | |
-| CheckboxTile | UWDS-4974 | ⏳ | |
+| ExpandableCard | UWDS-4985 | ✅ | Heading/helper/badge/numeric value in trigger name, expand and collapse |
+| Checkbox | UWDS-4972 | ✅ | Name/description, toggle via box and label, controlled, external `aria-labelledby`, invalid, group helper text |
+| CheckboxGroup | UWDS-4973 | ✅ | Group label/description, `defaultValue`, value changes, validation, disabled group |
+| CheckboxTile | UWDS-4974 | ✅ | Same as Checkbox; inner label now a `span` (no nested labels) |
 | Radio | UWDS-5003 | ⏳ | |
 | RadioGroup | UWDS-5005 | ⏳ | |
 | RadioCard | UWDS-5004 | ⏳ | |
