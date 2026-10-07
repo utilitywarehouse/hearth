@@ -133,10 +133,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | Checkbox | UWDS-4972 | ✅ | Name/description, toggle via box and label, controlled, external `aria-labelledby`, invalid, group helper text |
 | CheckboxGroup | UWDS-4973 | ✅ | Group label/description, `defaultValue`, value changes, validation, disabled group |
 | CheckboxTile | UWDS-4974 | ✅ | Same as Checkbox; inner label now a `span` (no nested labels) |
-| Radio | UWDS-5003 | ⏳ | |
-| RadioGroup | UWDS-5005 | ⏳ | |
-| RadioCard | UWDS-5004 | ⏳ | |
-| RadioTile | UWDS-5006 | ⏳ | |
+| Radio | UWDS-5003 | ✅ | Selection via label, helper text, disabled, external `aria-labelledby`/`aria-describedby`, group helper text. `Playground` stays `!test` |
+| RadioGroup | UWDS-5005 | ✅ | Default/controlled value and description, validation, disabled items and group |
+| RadioCard | UWDS-5004 | ✅ | Name from label, selection via label; inner label now a `span` |
+| RadioTile | UWDS-5006 | ✅ | Selection via label, helper and consumer descriptions; inner label now a `span` |
 | Switch | UWDS-5016 | ⏳ | |
 | SegmentedControl | UWDS-5009 | ⏳ | |
 | ToggleButton | UWDS-5022 | ⏳ | |
