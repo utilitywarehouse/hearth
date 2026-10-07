@@ -64,9 +64,10 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
 
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
-    !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showHelperText ? helperTextId : undefined,
+    showValidation ? validationTextId : undefined
   );
+  const isInvalid = showValidation && validationStatus === 'invalid';
 
   return (
     <Flex
@@ -84,8 +85,9 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
         id={id}
         disabled={disabled}
         aria-describedby={ariaDescribedbyValue}
-        aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
-        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+        aria-labelledby={ariaLabelledby ? ariaLabelledby : showLabel ? labelId : undefined}
+        aria-invalid={isInvalid ? true : undefined}
+        aria-errormessage={isInvalid ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {
