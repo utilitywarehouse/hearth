@@ -112,6 +112,79 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 - Accessibility: axe (`@storybook/addon-a11y`) runs on every story, non-blocking (`'todo'`) on PRs; it fails only in the weekly `a11y-weekly.yml` run (`VITE_A11Y_STRICT=true`). To opt out, add `data-a11y-ignore` to story scaffolding or set `parameters.a11y` — see [`scripts/a11y-report/README.md`](../../scripts/a11y-report/README.md).
 - Stories pattern: `src/**/*.stories.tsx`.
 
+### Interaction test coverage
+
+`play`-function coverage per component, tracked under UWDS-4962, in priority order (interactive first). Use the `react-interaction-tests` skill. ✅ covered · ⏳ to do · N/A presentational, no prop-driven behaviour to test (reason given). Known component bugs found by these tests are logged in `component-bugs.md` at the repo root.
+
+| Component | Sub-issue | Status | Notes |
+|-----------|-----------|--------|-------|
+| Accordion | UWDS-4957 | ✅ | Reference implementation |
+| Tabs | UWDS-5018 | ✅ | Selection, indicator sync, overflow scroll buttons, controlled value |
+| Select | UWDS-5010 | ⏳ | |
+| Combobox | UWDS-4976 | ⏳ | |
+| Menu | UWDS-4997 | ⏳ | |
+| Modal | UWDS-4998 | ⏳ | |
+| Tooltip | UWDS-5024 | ⏳ | |
+| Toast | UWDS-5021 | ⏳ | |
+| DatePicker | UWDS-4980 | ⏳ | Has an interaction-only `play` with no assertions |
+| DateInput | UWDS-4979 | ⏳ | |
+| CardAccordion | UWDS-4971 | ⏳ | |
+| ExpandableCard | UWDS-4985 | ⏳ | |
+| Checkbox | UWDS-4972 | ⏳ | |
+| CheckboxGroup | UWDS-4973 | ⏳ | |
+| CheckboxTile | UWDS-4974 | ⏳ | |
+| Radio | UWDS-5003 | ⏳ | |
+| RadioGroup | UWDS-5005 | ⏳ | |
+| RadioCard | UWDS-5004 | ⏳ | |
+| RadioTile | UWDS-5006 | ⏳ | |
+| Switch | UWDS-5016 | ⏳ | |
+| SegmentedControl | UWDS-5009 | ⏳ | |
+| ToggleButton | UWDS-5022 | ⏳ | |
+| ToggleButtonCard | UWDS-5023 | ⏳ | |
+| TextInput | UWDS-5020 | ⏳ | |
+| TextArea | UWDS-5019 | ⏳ | |
+| PasswordInput | UWDS-5000 | ⏳ | |
+| SearchInput | UWDS-5007 | ⏳ | |
+| CurrencyInput | UWDS-4978 | ⏳ | |
+| VerificationInput | UWDS-5027 | ⏳ | |
+| Button | UWDS-4969 | ⏳ | |
+| IconButton | UWDS-4991 | ⏳ | |
+| UnstyledIconButton | UWDS-5025 | ⏳ | |
+| Link | UWDS-4995 | ⏳ | |
+| InlineLink | UWDS-4993 | ⏳ | |
+| Pagination | UWDS-4999 | ⏳ | |
+| Breadcrumbs | UWDS-4968 | ⏳ | |
+| Chip | UWDS-4975 | ⏳ | |
+| Alert | UWDS-4963 | ⏳ | |
+| HighlightBanner | UWDS-4990 | ⏳ | |
+| Card | UWDS-4970 | ⏳ | |
+| Table | UWDS-5017 | ⏳ | |
+| Avatar | UWDS-4964 | ⏳ | Likely N/A |
+| Badge | UWDS-4965 | ⏳ | Likely N/A |
+| BodyText | UWDS-4966 | ⏳ | Likely N/A |
+| Box | UWDS-4967 | ⏳ | Likely N/A |
+| Container | UWDS-4977 | ⏳ | Likely N/A |
+| DescriptionList | UWDS-4981 | ⏳ | Likely N/A |
+| DetailText | UWDS-4982 | ⏳ | Likely N/A |
+| Divider | UWDS-4983 | ⏳ | Likely N/A |
+| Em | UWDS-4984 | ⏳ | Likely N/A |
+| Flex | UWDS-4986 | ⏳ | Likely N/A |
+| Grid | UWDS-4987 | ⏳ | Likely N/A |
+| Heading | UWDS-4988 | ⏳ | Likely N/A |
+| HelperText | UWDS-4989 | ⏳ | Likely N/A |
+| IconContainer | UWDS-4992 | ⏳ | Likely N/A |
+| Label | UWDS-4994 | ⏳ | Likely N/A |
+| List | UWDS-4996 | ⏳ | Likely N/A |
+| ProgressBar | UWDS-5001 | ⏳ | Likely N/A |
+| ProgressStepper | UWDS-5002 | ⏳ | Likely N/A |
+| SectionHeader | UWDS-5008 | ⏳ | Likely N/A |
+| SkeletonBodyText | UWDS-5011 | ⏳ | Likely N/A |
+| SkeletonBox | UWDS-5012 | ⏳ | Likely N/A |
+| SkeletonHeading | UWDS-5013 | ⏳ | Likely N/A |
+| Spinner | UWDS-5014 | ⏳ | Likely N/A |
+| Strong | UWDS-5015 | ⏳ | Likely N/A |
+| ValidationText | UWDS-5026 | ⏳ | Likely N/A |
+
 ### LLM docs
 
 - `public/llms/` is **auto-generated** by `pnpm generate:llm-docs` from stories — **do not hand-edit**.
