@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Box } from '../Box/Box';
 import { Grid } from '../Grid/Grid';
@@ -108,7 +109,6 @@ export const RadioHelperText: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: {
     defaultValue: '3',
@@ -125,6 +125,14 @@ export const RadioHelperText: Story = {
       </RadioGroup>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('radio', { name: 'Three' })).toBeChecked();
+    await expect(canvas.getByRole('radio', { name: 'One' })).toHaveAccessibleDescription(
+      'One helper text'
+    );
+  },
 };
 
 /** Set disabled on individual Radio children to disable specific options. */
@@ -133,7 +141,6 @@ export const WithDisabledRadio: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: {
     defaultValue: '2',
@@ -150,6 +157,13 @@ export const WithDisabledRadio: Story = {
         <Radio value="4" label="Four" />
       </RadioGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('radio', { name: 'Two' })).toBeChecked();
+    await expect(canvas.getByRole('radio', { name: 'Three' })).toBeDisabled();
+    await expect(canvas.getByRole('radio', { name: 'Four' })).toBeEnabled();
   },
 };
 
@@ -226,7 +240,6 @@ export const Controlled: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: {
     label: 'What is your favourite animal?',
@@ -249,6 +262,18 @@ export const Controlled: Story = {
       </RadioGroup>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', { name: 'What is your favourite animal?' });
+    const wolf = canvas.getByRole('radio', { name: 'Wolf' });
+
+    await expect(group).toHaveAccessibleDescription('Your favourite animal is a Bear');
+
+    await userEvent.click(wolf);
+    await expect(wolf).toBeChecked();
+    await expect(group).toHaveAccessibleDescription('Your favourite animal is a Wolf');
+    wolf.blur();
+  },
 };
 
 /** Set validationStatus and validationText to show validation feedback for the group. */
@@ -256,7 +281,6 @@ export const Validation: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: {
     validationText: 'Please tell us what your favourite animal is.',
@@ -280,6 +304,23 @@ export const Validation: Story = {
         <RadioTile value="4" label="Horse" />
       </RadioGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', { name: 'What is your favourite animal?' });
+    const koala = canvas.getByRole('radio', { name: 'Koala' });
+
+    await expect(group).toHaveAttribute('aria-invalid', 'true');
+    await expect(
+      canvas.getByText('Please tell us what your favourite animal is.')
+    ).toBeInTheDocument();
+
+    await userEvent.click(koala);
+    await expect(group).not.toHaveAttribute('aria-invalid', 'true');
+    await expect(
+      canvas.queryByText('Please tell us what your favourite animal is.')
+    ).not.toBeInTheDocument();
+    koala.blur();
   },
 };
 
@@ -416,4 +457,25 @@ export const WithGrid: Story = {
     );
   },
   args: { label: 'Using grid', helperText: undefined, validationText: undefined },
+};
+
+/** Test-only: a disabled RadioGroup disables every item. */
+export const DisabledGroup: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <RadioGroup label="Disabled group" disabled defaultValue="1">
+      <Radio value="1" label="One" />
+      <RadioTile value="2" label="Two" />
+    </RadioGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('radio', { name: 'One' })).toBeDisabled();
+    await expect(canvas.getByRole('radio', { name: 'Two' })).toBeDisabled();
+  },
 };
