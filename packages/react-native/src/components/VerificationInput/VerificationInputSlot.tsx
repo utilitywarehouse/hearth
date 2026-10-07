@@ -46,7 +46,9 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
     });
 
     const isReducedMotion = useReducedMotion();
-    const caretOpacity = useSharedValue(0);
+    const caretOpacity = useSharedValue(
+      isReducedMotion && showCaret && !disabled && !readonly ? 1 : 0
+    );
     const animatedCaretStyle = useAnimatedStyle(() => ({
       opacity: caretOpacity.value,
     }));

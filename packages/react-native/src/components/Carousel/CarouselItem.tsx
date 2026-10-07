@@ -20,7 +20,7 @@ export const CarouselItem = ({
 }: CarouselItemProps) => {
   const isWeb = Platform.OS === 'web';
   const isReducedMotion = useReducedMotion();
-  const opacity = useSharedValue<number>(inactiveOpacity);
+  const opacity = useSharedValue<number>(isReducedMotion && active ? 1 : inactiveOpacity);
 
   const animatedStyles = useAnimatedStyle(
     () => ({
@@ -45,6 +45,8 @@ export const CarouselItem = ({
           {
             opacity: active ? 1 : inactiveOpacity,
             width,
+            // Drop the CSS opacity transition so reduced motion shows the final state at once.
+            ...(isReducedMotion ? ({ transition: 'none' } as object) : {}),
           },
         ]}
         {...props}

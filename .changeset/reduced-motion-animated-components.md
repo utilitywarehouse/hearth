@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-♿ [A11Y]: Animated components support reduced motion
+🐛 [FIX]: Animated components support reduced motion
 
 Animated components now respect the system Reduce Motion setting, and the
 `ReducedMotionConfig` override from `react-native-reanimated`. When reduced
