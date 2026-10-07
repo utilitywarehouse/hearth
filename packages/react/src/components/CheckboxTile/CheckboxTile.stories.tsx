@@ -160,7 +160,12 @@ export const Labelling: Story = {
   render: () => (
     <Flex direction="column" gap="400">
       <BodyText id="external-label">External label</BodyText>
-      <CheckboxTile aria-labelledby="external-label" value="external" />
+      <BodyText id="consumer-description">Consumer description</BodyText>
+      <CheckboxTile
+        aria-labelledby="external-label"
+        aria-describedby="consumer-description"
+        value="external"
+      />
       <CheckboxTile
         label="Invalid"
         value="invalid"
@@ -178,7 +183,9 @@ export const Labelling: Story = {
     const invalid = canvas.getByRole('checkbox', { name: 'Invalid' });
     const disabled = canvas.getByRole('checkbox', { name: 'Disabled' });
 
-    await expect(canvas.getByRole('checkbox', { name: 'External label' })).toBeInTheDocument();
+    await expect(
+      canvas.getByRole('checkbox', { name: 'External label' })
+    ).toHaveAccessibleDescription('Consumer description');
     await expect(invalid).toHaveAttribute('aria-invalid', 'true');
     await expect(invalid).toHaveAccessibleDescription('Invalid error');
     await expect(canvas.getByRole('checkbox', { name: 'Grouped' })).toHaveAccessibleDescription(

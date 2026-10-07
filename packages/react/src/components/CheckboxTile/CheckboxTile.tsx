@@ -42,6 +42,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
     helperText,
     image,
     'aria-labelledby': ariaLabelledby,
+    'aria-describedby': consumerAriaDescribedby,
     validationStatus,
     validationText,
     ...restProps
@@ -62,6 +63,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
   const showValidation =
     !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
   const ariaDescribedbyValue = mergeIds(
+    consumerAriaDescribedby,
     ariaDescribedby,
     showHelperText ? helperTextId : undefined,
     showValidation ? validationTextId : undefined

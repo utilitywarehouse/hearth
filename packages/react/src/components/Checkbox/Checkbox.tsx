@@ -42,6 +42,7 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
     onCheckedChange,
     value = 'on',
     'aria-labelledby': ariaLabelledby,
+    'aria-describedby': consumerAriaDescribedby,
     image,
     validationStatus,
     validationText,
@@ -63,6 +64,7 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
     !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
 
   const ariaDescribedbyValue = mergeIds(
+    consumerAriaDescribedby,
     ariaDescribedby,
     showHelperText ? helperTextId : undefined,
     showValidation ? validationTextId : undefined
