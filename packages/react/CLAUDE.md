@@ -120,9 +120,9 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 |-----------|-----------|--------|-------|
 | Accordion | UWDS-4957 | ✅ | Reference implementation |
 | Tabs | UWDS-5018 | ✅ | Selection, indicator sync, overflow scroll buttons, controlled value |
-| Select | UWDS-5010 | ⏳ | |
-| Combobox | UWDS-4976 | ⏳ | |
-| Menu | UWDS-4997 | ⏳ | |
+| Select | UWDS-5010 | ✅ | Label wiring, default/selected value, disabled hides validation |
+| Combobox | UWDS-4976 | ✅ | `items` rendering, `triggerOnlyOnType`, disabled hides validation |
+| Menu | UWDS-4997 | ✅ | `asChild` links, `colorScheme`, close + focus return, `keepMounted`, deprecated `onSelect`/`forceMount` |
 | Modal | UWDS-4998 | ⏳ | |
 | Tooltip | UWDS-5024 | ⏳ | |
 | Toast | UWDS-5021 | ⏳ | |
