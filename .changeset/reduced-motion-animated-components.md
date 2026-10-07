@@ -18,6 +18,7 @@ away.
 - `Carousel`: no animated scroll on mount or when the active item changes, and
   `scrollToIndex` and `scrollToOffset` default to `animated: false`. An explicit
   `animated` value still wins.
+- `Tabs`: the scroll arrows jump instead of scrolling smoothly
 - `CarouselItem`: no opacity fade between active and inactive
 
 `BottomSheet`, `BottomSheetModal`, `Modal`, `NavModal` and `Menu` need no change:
