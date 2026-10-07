@@ -35,12 +35,14 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const DIAMETER = 2 * HALF_CIRCLE;
   const isReducedMotion = useReducedMotion();
 
-  const progress = useSharedValue(1);
+  // Under reduced motion the spinner is a static three-quarter arc, correct from the first frame.
+  const progress = useSharedValue(isReducedMotion ? 0.75 : 1);
   const rotation = useSharedValue(0);
 
   const startAnimation = useCallback(() => {
     if (isReducedMotion) {
-      progress.value = withTiming(0.75, { duration: 0 });
+      progress.value = 0.75;
+      rotation.value = 0;
 
       return;
     }

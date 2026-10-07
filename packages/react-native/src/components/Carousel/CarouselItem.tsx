@@ -1,6 +1,11 @@
 import { useEffect } from 'react';
 import { Platform, View } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import Animated, {
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { CarouselItemProps } from './Carousel.props';
@@ -14,6 +19,7 @@ export const CarouselItem = ({
   ...props
 }: CarouselItemProps) => {
   const isWeb = Platform.OS === 'web';
+  const isReducedMotion = useReducedMotion();
   const opacity = useSharedValue<number>(inactiveOpacity);
 
   const animatedStyles = useAnimatedStyle(
@@ -25,8 +31,9 @@ export const CarouselItem = ({
   );
 
   useEffect(() => {
-    opacity.value = withTiming(active ? 1 : inactiveOpacity, { duration: 200 });
-  }, [active, inactiveOpacity, opacity]);
+    const target = active ? 1 : inactiveOpacity;
+    opacity.value = isReducedMotion ? target : withTiming(target, { duration: 200 });
+  }, [active, inactiveOpacity, opacity, isReducedMotion]);
 
   // For web, use a regular View with CSS transitions
   if (isWeb) {
