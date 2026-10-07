@@ -5,6 +5,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { useIds } from '../../hooks/use-ids';
+import { mergeIds } from '../../helpers/merge-ids';
 import { FormField } from '../FormField/FormField';
 import type { ComboboxProps } from './Combobox.props';
 import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
@@ -78,6 +79,13 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     hideLabel,
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
+  const ariaDescribedbyValue = mergeIds(
+    helperText ? helperTextId : undefined,
+    showValidation && validationText !== undefined ? validationTextId : undefined
+  );
+
   const popupHasContent = Boolean(statusText) || Boolean(props.items) || Boolean(children);
 
   return (
@@ -90,7 +98,14 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
       <ComboboxPrimitive.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
         <ComboboxPrimitive.Input
           render={
-            <InputBase id={id} disabled={disabled} placeholder={placeholder}>
+            <InputBase
+              id={id}
+              disabled={disabled}
+              placeholder={placeholder}
+              aria-describedby={ariaDescribedbyValue}
+              aria-invalid={isInvalid ? true : undefined}
+              aria-errormessage={isInvalid ? validationTextId : undefined}
+            >
               <ComboboxPrimitive.Trigger
                 disabled={disabled}
                 render={

@@ -10,6 +10,7 @@ import type { SelectProps } from './Select.props';
 import { Select as SelectPrimitive, ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
+import { mergeIds } from '../../helpers/merge-ids';
 import { FormField } from '../FormField/FormField';
 
 const COMPONENT_NAME = 'Select';
@@ -38,6 +39,7 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
     id: providedId,
     disabled,
     required,
+    'aria-describedby': ariaDescribedby,
     ...selectProps
   } = extractProps(props, marginPropDefs);
 
@@ -61,6 +63,14 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
     required,
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
+  const ariaDescribedbyValue = mergeIds(
+    ariaDescribedby,
+    helperText ? helperTextId : undefined,
+    showValidation && validationText !== undefined ? validationTextId : undefined
+  );
+
   return (
     <FormField
       className={cn(componentClassName, className)}
@@ -74,6 +84,9 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
           ref={ref}
           className={`${componentClassName}Trigger`}
           disabled={disabled}
+          aria-describedby={ariaDescribedbyValue}
+          aria-invalid={isInvalid ? true : undefined}
+          aria-errormessage={isInvalid ? validationTextId : undefined}
         >
           <SelectPrimitive.Value placeholder={placeholder} data-truncate />
           <SelectPrimitive.Icon className={`${componentClassName}TriggerIcon`}>

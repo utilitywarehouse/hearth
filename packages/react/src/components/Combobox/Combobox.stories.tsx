@@ -38,21 +38,6 @@ const meta: Meta<typeof Combobox> = {
 export default meta;
 type Story = StoryObj<typeof Combobox>;
 
-// Expected-failure marker for known component bugs logged in component-bugs.md (repo root).
-// Passes while the assertion fails; fails once the bug is fixed, as the cue to remove the wrapper.
-const expectToFail = async (assertion: () => Promise<unknown>) => {
-  let failed = false;
-  try {
-    await assertion();
-  } catch {
-    failed = true;
-  }
-  await expect(
-    failed,
-    'Expected failure now passes: remove expectToFail and update component-bugs.md'
-  ).toBe(true);
-};
-
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
@@ -218,8 +203,9 @@ export const DisabledHidesValidation: Story = {
     await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
     await expect(disabled).toBeDisabled();
     await expect(invalid).toBeEnabled();
-    // Expected failure — see component-bugs.md "Combobox: input isn't described by its helper or validation text"
-    await expectToFail(() => expect(invalid).toHaveAccessibleDescription(/Helper text/));
+    await expect(invalid).toHaveAccessibleDescription('Helper text Invalid error');
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(disabled).not.toHaveAttribute('aria-invalid');
   },
 };
 
