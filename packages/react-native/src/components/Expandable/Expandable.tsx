@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
+  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
@@ -25,6 +26,7 @@ const Expandable = ({
   animateOpacity = true,
   ...props
 }: ExpandableProps) => {
+  const isReducedMotion = useReducedMotion();
   const height = useSharedValue(0);
   const open = useSharedValue(expanded);
 
@@ -36,19 +38,17 @@ const Expandable = ({
     }
   }, [expanded, onExpandedChange, open]);
 
-  const derivedHeight = useDerivedValue(() =>
-    withTiming(height.value * Number(open.value), {
-      duration,
-    })
-  );
+  // Under reduced motion, jump straight to the end state with no height or opacity tween.
+  const derivedHeight = useDerivedValue(() => {
+    const target = height.value * Number(open.value);
+    return isReducedMotion ? target : withTiming(target, { duration });
+  });
 
-  const derivedOpacity = useDerivedValue(() =>
-    animateOpacity
-      ? withTiming(Number(open.value), {
-          duration,
-        })
-      : 1
-  );
+  const derivedOpacity = useDerivedValue(() => {
+    if (!animateOpacity) return 1;
+    const target = Number(open.value);
+    return isReducedMotion ? target : withTiming(target, { duration });
+  });
 
   const heightStyle = useAnimatedStyle(() => ({
     height: derivedHeight.value,
