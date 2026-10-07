@@ -126,9 +126,9 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | Modal | UWDS-4998 | ✅ | Label/description wiring, close + focus return, `hideCloseButton`, `loading` and its fallbacks |
 | Tooltip | UWDS-5024 | ✅ | Opens on focus with description linked to trigger, `heading`, `defaultOpen`/`open` |
 | Toast | UWDS-5021 | ✅ | Dismiss button, `ToastActionButton`, stacked toasts, `ToastProvider` viewport props |
-| DatePicker | UWDS-4980 | ⏳ | Has an interaction-only `play` with no assertions |
-| DateInput | UWDS-4979 | ⏳ | |
-| CardAccordion | UWDS-4971 | ⏳ | |
+| DatePicker | UWDS-4980 | ✅ | Date format, week start, days/months/years view cycling and reset, disabled state |
+| DateInput | UWDS-4979 | ✅ | Group label/description, invalid state, disabled, segment max lengths, `hide*` props, consumer `aria-describedby` |
+| CardAccordion | UWDS-4971 | ✅ | Next/Previous/Edit step flow, summaries, focus on new step. `Playground` stays `!test` (reason unknown) |
 | ExpandableCard | UWDS-4985 | ⏳ | |
 | Checkbox | UWDS-4972 | ⏳ | |
 | CheckboxGroup | UWDS-4973 | ⏳ | |
