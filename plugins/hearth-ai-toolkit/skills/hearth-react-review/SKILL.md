@@ -35,7 +35,7 @@ session.
 Never trust that a prop already in the code under review is real. For each
 Hearth component and prop referenced, confirm it exists via the `hearth-react`
 MCP server's `docs-list`/`docs-show` tools (or the raw markdown fallback)
-before flagging or clearing it. This is `figma-implementation` rule 2 —
+before flagging or clearing it. This is `figma-implementation` rule 3 —
 "never substitute local inspection for `docs-show`" — applied to code that
 already exists instead of code about to be written: the component already
 being in the codebase is not evidence it's correct. Reviewing someone else's

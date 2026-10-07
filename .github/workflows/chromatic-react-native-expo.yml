@@ -1,11 +1,23 @@
 name: 'Chromatic - React Native Expo'
 
+# Opt-in only: native builds run on an expensive macOS runner and every
+# snapshot counts towards the Chromatic quota, so this workflow does nothing
+# unless the PR has the `chromatic: React Native` label. The label is the only
+# opt-in signal — a text marker in the title/body was dropped because PR
+# descriptions that merely mentioned the marker also matched.
+# Pushes to main only build when the merged PR had the label (so the baseline
+# stays in step with what was reviewed), and `workflow_dispatch` forces a build
+# (e.g. to capture a fresh baseline). See the `chromatic-react-native-opt-in`
+# skill for when a change warrants opting in.
+
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, labeled]
     paths:
       - 'apps/storybook-rn-expo/**'
       - 'packages/react-native/**'
+      - 'packages/react-native-icons/**'
+      - 'packages/fonts/**'
       - '.github/workflows/chromatic-react-native-expo.yml'
   push:
     branches:
@@ -13,19 +25,35 @@ on:
     paths:
       - 'apps/storybook-rn-expo/**'
       - 'packages/react-native/**'
+      - 'packages/react-native-icons/**'
+      - 'packages/fonts/**'
       - '.github/workflows/chromatic-react-native-expo.yml'
+  workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  # Unrelated `labeled` events get their own group, so adding some other label
+  # never cancels an in-flight build.
+  group: >-
+    ${{ github.workflow }}-${{ github.ref }}${{
+      (github.event.action == 'labeled' && github.event.label.name != 'chromatic: React Native')
+      && format('-{0}', github.run_id) || ''
+    }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
+env:
+  OPT_IN_LABEL: 'chromatic: React Native'
+
 jobs:
   check:
     name: Check if build should run
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Needed on push to look up the labels of the PR that was merged.
+      pull-requests: read
     outputs:
       should_run: ${{ steps.decide.outputs.should_run }}
     steps:
@@ -38,27 +66,55 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check for [skip-chromatic] marker
-        id: marker
+      - name: Check for opt-in
+        id: opt_in
         env:
-          PR_TITLE: ${{ github.event.pull_request.title }}
-          PR_BODY: ${{ github.event.pull_request.body }}
-          COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_ACTION: ${{ github.event.action }}
+          LABELED_NAME: ${{ github.event.label.name }}
+          PR_LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+          SHA: ${{ github.sha }}
         run: |
-          if [[ "$PR_TITLE" == *"[skip-chromatic]"* ]] || [[ "$PR_BODY" == *"[skip-chromatic]"* ]] || [[ "$COMMIT_MESSAGE" == *"[skip-chromatic]"* ]]; then
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "skip=false" >> "$GITHUB_OUTPUT"
-          fi
+          opted_in=false
+
+          case "$EVENT_NAME" in
+            workflow_dispatch)
+              opted_in=true
+              ;;
+            pull_request)
+              if [[ "$EVENT_ACTION" == "labeled" ]]; then
+                # Only the opt-in label itself starts a build — any other label
+                # means the PR either already built on an earlier event or
+                # still isn't opted in.
+                if [[ "$LABELED_NAME" == "$OPT_IN_LABEL" ]]; then
+                  opted_in=true
+                fi
+              elif jq -e --arg label "$OPT_IN_LABEL" 'index($label) != null' <<< "$PR_LABELS" > /dev/null; then
+                opted_in=true
+              fi
+              ;;
+            push)
+              labels=$(gh api "repos/$GITHUB_REPOSITORY/commits/$SHA/pulls" --jq '.[0].labels // [] | map(.name)')
+              if jq -e --arg label "$OPT_IN_LABEL" 'index($label) != null' <<< "${labels:-[]}" > /dev/null; then
+                opted_in=true
+              fi
+              ;;
+          esac
+
+          echo "Opted in: $opted_in"
+          echo "opted_in=$opted_in" >> "$GITHUB_OUTPUT"
 
       - name: Check for non-docs changes
         id: changed
-        if: steps.marker.outputs.skip == 'false'
+        if: steps.opt_in.outputs.opted_in == 'true' && github.event_name != 'workflow_dispatch'
         uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
           files: |
             apps/storybook-rn-expo/**
             packages/react-native/**
+            packages/react-native-icons/**
+            packages/fonts/**
           files_ignore: |
             **/*.docs.mdx
             **/*.md
@@ -66,10 +122,13 @@ jobs:
 
       - name: Decide
         id: decide
+        env:
+          OPTED_IN: ${{ steps.opt_in.outputs.opted_in }}
+          ANY_CHANGED: ${{ steps.changed.outputs.any_changed }}
         run: |
-          if [[ "${{ steps.marker.outputs.skip }}" == "true" ]]; then
-            echo "should_run=false" >> "$GITHUB_OUTPUT"
-          elif [[ "${{ steps.changed.outputs.any_changed }}" == "true" ]]; then
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
+            echo "should_run=true" >> "$GITHUB_OUTPUT"
+          elif [[ "$OPTED_IN" == "true" && "$ANY_CHANGED" == "true" ]]; then
             echo "should_run=true" >> "$GITHUB_OUTPUT"
           else
             echo "should_run=false" >> "$GITHUB_OUTPUT"
