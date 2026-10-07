@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, screen, userEvent, within } from 'storybook/test';
 import { useComboboxFilter } from '../../hooks/use-combobox-filter';
+import { Flex } from '../Flex/Flex';
 import { Combobox } from './Combobox';
 import { ComboboxItem } from './ComboboxItem';
 import { useVirtualizer } from '@tanstack/react-virtual';
@@ -36,6 +38,21 @@ const meta: Meta<typeof Combobox> = {
 export default meta;
 type Story = StoryObj<typeof Combobox>;
 
+// Expected-failure marker for known component bugs logged in component-bugs.md (repo root).
+// Passes while the assertion fails; fails once the bug is fixed, as the cue to remove the wrapper.
+const expectToFail = async (assertion: () => Promise<unknown>) => {
+  let failed = false;
+  try {
+    await assertion();
+  } catch {
+    failed = true;
+  }
+  await expect(
+    failed,
+    'Expected failure now passes: remove expectToFail and update component-bugs.md'
+  ).toBe(true);
+};
+
 /** Interactive sandbox — use the controls panel to explore all props. */
 export const Playground: Story = {
   parameters: {
@@ -59,6 +76,12 @@ export const DefaultOpen: Story = {
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return <Combobox {...args} items={fruits} />;
+  },
+  play: async () => {
+    const listbox = await screen.findByRole('listbox');
+    const options = within(listbox).getAllByRole('option');
+
+    await expect(options.map(option => option.textContent)).toEqual(['Apple', 'Banana', 'Orange']);
   },
 };
 
@@ -147,6 +170,56 @@ export const NoItems: Story = {
         })()}
       </Combobox>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('combobox', { name: /^Address/ });
+
+    await expect(canvas.getAllByRole('button', { name: 'Open popup' })).toHaveLength(1);
+    await expect(canvas.getByText('Postcode not found')).toBeInTheDocument();
+
+    await userEvent.click(input);
+    await expect(input).toHaveAttribute('aria-expanded', 'false');
+    input.blur();
+  },
+};
+
+/** Test-only: a disabled Combobox suppresses its validation text. */
+export const DisabledHidesValidation: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Combobox
+        label="Invalid combobox"
+        helperText="Helper text"
+        validationStatus="invalid"
+        validationText="Invalid error"
+        items={['Apple']}
+      />
+      <Combobox
+        label="Disabled combobox"
+        validationStatus="invalid"
+        validationText="Disabled error"
+        items={['Apple']}
+        disabled
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const invalid = canvas.getByRole('combobox', { name: /^Invalid combobox/ });
+    const disabled = canvas.getByRole('combobox', { name: /^Disabled combobox/ });
+
+    await expect(canvas.getByText('Invalid error')).toBeInTheDocument();
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(disabled).toBeDisabled();
+    await expect(invalid).toBeEnabled();
+    // Expected failure — see component-bugs.md "Combobox: input isn't described by its helper or validation text"
+    await expectToFail(() => expect(invalid).toHaveAccessibleDescription(/Helper text/));
   },
 };
 
