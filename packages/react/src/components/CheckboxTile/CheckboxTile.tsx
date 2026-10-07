@@ -63,9 +63,10 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
     !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
-    !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showHelperText ? helperTextId : undefined,
+    showValidation ? validationTextId : undefined
   );
+  const isInvalid = showValidation && validationStatus === 'invalid';
 
   return (
     <label
@@ -83,8 +84,9 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
         id={id}
         disabled={disabled}
         aria-describedby={ariaDescribedbyValue}
-        aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
-        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+        aria-labelledby={ariaLabelledby ? ariaLabelledby : showLabel ? labelId : undefined}
+        aria-invalid={isInvalid ? true : undefined}
+        aria-errormessage={isInvalid ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {
@@ -103,7 +105,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       <Flex direction="column">
-        <Label id={labelId} htmlFor={id} disableUserSelect>
+        <Label as="span" id={labelId} disableUserSelect>
           {image}
           {label}
         </Label>

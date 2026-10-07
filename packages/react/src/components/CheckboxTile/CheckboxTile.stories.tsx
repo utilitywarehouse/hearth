@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
+import { CheckboxGroup } from '../CheckboxGroup/CheckboxGroup';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Grid } from '../Grid/Grid';
@@ -85,6 +87,20 @@ export const Playground: Story = {
   parameters: {
     actions: { disable: true },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByRole('checkbox', { name: 'Label' });
+
+    await expect(checkbox).toHaveAccessibleDescription('Helper text');
+    await expect(checkbox).not.toBeChecked();
+
+    await userEvent.click(checkbox);
+    await expect(checkbox).toBeChecked();
+
+    await userEvent.click(canvas.getByText('Label'));
+    await expect(checkbox).not.toBeChecked();
+    checkbox.blur();
+  },
 };
 
 /** Pass an image to display a logo or icon alongside the label, e.g. for selecting a card payment type. */
@@ -131,5 +147,44 @@ export const Controlled: Story = {
         />
       </Flex>
     );
+  },
+};
+
+/** Test-only: labelling, validation and group helper text wiring. */
+export const Labelling: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <BodyText id="external-label">External label</BodyText>
+      <CheckboxTile aria-labelledby="external-label" value="external" />
+      <CheckboxTile
+        label="Invalid"
+        value="invalid"
+        validationStatus="invalid"
+        validationText="Invalid error"
+      />
+      <CheckboxGroup label="Group" helperText="Group helper">
+        <CheckboxTile label="Grouped" value="grouped" helperText="Own helper" />
+      </CheckboxGroup>
+      <CheckboxTile label="Disabled" value="disabled" disabled />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const invalid = canvas.getByRole('checkbox', { name: 'Invalid' });
+    const disabled = canvas.getByRole('checkbox', { name: 'Disabled' });
+
+    await expect(canvas.getByRole('checkbox', { name: 'External label' })).toBeInTheDocument();
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription('Invalid error');
+    await expect(canvas.getByRole('checkbox', { name: 'Grouped' })).toHaveAccessibleDescription(
+      'Group helper'
+    );
+    await expect(canvas.queryByText('Own helper')).not.toBeInTheDocument();
+    await expect(disabled).toBeDisabled();
   },
 };
