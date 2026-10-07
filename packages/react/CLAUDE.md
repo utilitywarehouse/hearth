@@ -123,9 +123,9 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | Select | UWDS-5010 | ✅ | Label wiring, default/selected value, disabled hides validation |
 | Combobox | UWDS-4976 | ✅ | `items` rendering, `triggerOnlyOnType`, disabled hides validation |
 | Menu | UWDS-4997 | ✅ | `asChild` links, `colorScheme`, close + focus return, `keepMounted`, deprecated `onSelect`/`forceMount` |
-| Modal | UWDS-4998 | ⏳ | |
-| Tooltip | UWDS-5024 | ⏳ | |
-| Toast | UWDS-5021 | ⏳ | |
+| Modal | UWDS-4998 | ✅ | Label/description wiring, close + focus return, `hideCloseButton`, `loading` and its fallbacks |
+| Tooltip | UWDS-5024 | ✅ | Opens on focus with description linked to trigger, `heading`, `defaultOpen`/`open` |
+| Toast | UWDS-5021 | ✅ | Dismiss button, `ToastActionButton`, stacked toasts, `ToastProvider` viewport props |
 | DatePicker | UWDS-4980 | ⏳ | Has an interaction-only `play` with no assertions |
 | DateInput | UWDS-4979 | ⏳ | |
 | CardAccordion | UWDS-4971 | ⏳ | |
