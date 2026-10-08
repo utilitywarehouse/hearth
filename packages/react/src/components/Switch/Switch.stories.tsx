@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Switch } from './Switch';
@@ -46,7 +47,19 @@ export const KitchenSink: Story = {
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const control = canvas.getByRole('switch', { name: 'Switch label' });
+
+    await expect(control).not.toBeChecked();
+
+    await userEvent.click(control);
+    await expect(control).toBeChecked();
+
+    await userEvent.click(canvas.getByText('Switch label'));
+    await expect(control).not.toBeChecked();
+    control.blur();
   },
 };
 
@@ -71,7 +84,6 @@ export const Disabled: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { disabled: true },
   render: args => (
@@ -80,6 +92,37 @@ export const Disabled: Story = {
       <Switch {...args} checked />
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const [unchecked] = within(canvasElement).getAllByRole('switch');
+
+    await expect(unchecked).toHaveAttribute('aria-disabled', 'true');
+    await expect(unchecked).not.toBeDisabled();
+
+    await userEvent.click(unchecked!);
+    await expect(unchecked).toHaveFocus();
+    await expect(unchecked).not.toBeChecked();
+
+    await userEvent.keyboard(' ');
+    await expect(unchecked).not.toBeChecked();
+    unchecked!.blur();
+  },
+};
+
+/** Test-only: a disabled Switch stays off when given a callback ref. */
+export const DisabledWithCallbackRef: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => <Switch label="Callback ref" disabled ref={() => {}} />,
+  play: async ({ canvasElement }) => {
+    const control = within(canvasElement).getByRole('switch', { name: 'Callback ref' });
+
+    await userEvent.click(control);
+    await expect(control).not.toBeChecked();
+    control.blur();
+  },
 };
 
 /** Associate a Switch with visible label text via htmlFor, or pass aria-label when no visible label is present. */

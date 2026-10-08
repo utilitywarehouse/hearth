@@ -10,8 +10,8 @@ import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-ic
 import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
-import { forwardRef, useRef, useEffect } from 'react';
-import type { ComponentRef, RefObject } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentRef, MouseEvent } from 'react';
 
 const COMPONENT_NAME = 'Switch';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,7 +27,7 @@ type SwitchElement = ComponentRef<'button'>;
  *
  * @summary A toggle control for switching a single setting on or off.
  */
-export const Switch = forwardRef<SwitchElement, SwitchProps>(({ ...props }, forwardedRef) => {
+export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
   const {
     className,
     label,
@@ -35,39 +35,21 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>(({ ...props }, forw
     'aria-labelledby': ariaLabelledby,
     disabled,
     onCheckedChange,
+    onClick,
     ...switchProps
   } = extractProps(props, switchPropDefs, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'switch' });
   const showLabel = !!label;
-  const internalRef = useRef<HTMLButtonElement | null>(null);
-  const switchRef = forwardedRef || internalRef;
 
   // We're using aria-disabled rather than disabled, so that the element can
-  // still be focused with a keyboard. Therefore we need to prevent the
-  // internal button from being clickable when the component is disabled.
-  useEffect(() => {
-    const handleClick = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-
-    // Get the ref value and ensure proper typing
-    let currentElement: HTMLButtonElement | null = null;
-    if (switchRef && typeof switchRef === 'object' && switchRef.current) {
-      // Type assertion to ensure TypeScript understands this is a valid ref object
-      const refObject = switchRef as RefObject<HTMLButtonElement>;
-      currentElement = refObject.current;
+  // still be focused with a keyboard. Radix skips toggling when the click is
+  // default-prevented, which keeps a disabled Switch from changing state.
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    onClick?.(event);
+    if (disabled) {
+      event.preventDefault();
     }
-
-    if (currentElement && disabled) {
-      currentElement.addEventListener('click', handleClick);
-    }
-
-    return () => {
-      if (currentElement) {
-        currentElement.removeEventListener('click', handleClick);
-      }
-    };
-  }, [switchRef, disabled]);
+  };
 
   return (
     <div
@@ -81,12 +63,13 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>(({ ...props }, forw
         </BodyText>
       ) : null}
       <SwitchPrimitive.Root
-        ref={switchRef}
+        ref={ref}
         className={cn(`${componentClassName}Root`, className)}
         id={id}
         aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
         aria-disabled={disabled || undefined}
         data-disabled={disabled || undefined}
+        onClick={handleClick}
         onCheckedChange={disabled ? undefined : onCheckedChange}
         {...switchProps}
       >
