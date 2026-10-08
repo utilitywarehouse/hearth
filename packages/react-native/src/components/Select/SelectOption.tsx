@@ -36,7 +36,7 @@ const SelectOption = ({
   };
 
   return (
-    <Pressable
+    <Pressable accessibilityRole="button"
       onPress={handlePress}
       disabled={disabled}
       testID={testID}
