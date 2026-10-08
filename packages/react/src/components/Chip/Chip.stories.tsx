@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
@@ -76,6 +77,15 @@ export const Group: Story = {
       <Chip>Broadband</Chip>
     </ChipGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const group = within(canvasElement).getByRole('group', { name: 'Currently showing:' });
+
+    await expect(
+      within(group)
+        .getAllByRole('button')
+        .map(chip => chip.getAttribute('aria-label'))
+    ).toEqual(['Remove Gas filter', 'Remove Electricity filter', 'Remove Broadband filter']);
+  },
 };
 
 /** ChipGroup wraps its Chips onto multiple lines once they no longer fit the available width. */
@@ -147,4 +157,52 @@ export const AddAndRemove: Story = {
   },
   tags: ['!manifest'],
   render: () => <AddAndRemoveExample />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Remove Gas filter' }));
+    await expect(
+      canvas.queryByRole('button', { name: 'Remove Gas filter' })
+    ).not.toBeInTheDocument();
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Add Gas' }));
+    await expect(canvas.getByRole('button', { name: 'Remove Gas filter' })).toBeInTheDocument();
+    (document.activeElement as HTMLElement | null)?.blur();
+  },
+};
+
+const onChipClick = fn<(source: string) => void>();
+
+/** Test-only: a disabled Chip doesn't call onClick, and aria-label overrides the default name. */
+export const DisabledAndCustomLabel: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex gap="200">
+      <Chip onClick={() => onChipClick('enabled')}>Enabled</Chip>
+      <Chip disabled onClick={() => onChipClick('disabled')}>
+        Disabled
+      </Chip>
+      <Chip aria-label="Clear the energy filter">Energy</Chip>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    onChipClick.mockClear();
+    const canvas = within(canvasElement);
+    const disabled = canvas.getByRole('button', { name: 'Remove Disabled filter' });
+
+    await expect(disabled).toHaveAttribute('aria-disabled', 'true');
+    await userEvent.click(disabled);
+    await userEvent.click(canvas.getByRole('button', { name: 'Remove Enabled filter' }));
+    await expect(onChipClick).toHaveBeenCalledOnce();
+    await expect(onChipClick).toHaveBeenCalledWith('enabled');
+
+    await expect(
+      canvas.getByRole('button', { name: 'Clear the energy filter' })
+    ).toBeInTheDocument();
+    (document.activeElement as HTMLElement | null)?.blur();
+  },
 };
