@@ -275,38 +275,6 @@ export const Single: Story = {
   },
 };
 
-/** The deprecated `forceMount` prop still works as an alias for `keepMounted` on AccordionContent. */
-export const DeprecatedForceMount: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: true },
-    controls: { disable: true },
-    actions: { disable: true },
-  },
-  args: { multiple: false },
-  render: args => {
-    return (
-      <Box width="600px">
-        <Accordion {...args}>
-          <AccordionItem value="item-1" title="Item 1">
-            <AccordionContent forceMount>Content 1</AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </Box>
-    );
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const trigger = canvas.getByRole('button', { name: 'Item 1' });
-    const content = canvas.getByText('Content 1');
-
-    await expect(content).toBeInTheDocument();
-    await expect(content).not.toBeVisible();
-
-    await userEvent.click(trigger);
-    await expect(content).toBeVisible();
-  },
-};
-
 /** Use headingElement on Accordion and AccordionItem to control the semantic heading level wrapping each trigger. */
 export const HeadingElement: Story = {
   args: {

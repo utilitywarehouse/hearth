@@ -20,10 +20,7 @@ of the public API.
 - `Accordion: collapsible` — removed entirely; single-mode panels are now always collapsible.
 - `Accordion: value` / `defaultValue` — must now always be an array, regardless of `multiple`, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
 - `Accordion: onValueChange` — now always receives an array as its first argument.
-
-**Deprecations** (still work, log a dev-mode warning):
-
-- `AccordionContent: forceMount` is deprecated. Use `keepMounted` instead.
+- `AccordionContent: forceMount` — removed entirely; use `keepMounted` instead.
 
 **Developer changes**:
 
@@ -50,9 +47,7 @@ BREAKING:
   - `Accordion: value` / `defaultValue` → must now always be an array, e.g.
     `defaultValue="item-1"` becomes `defaultValue={['item-1']}`
   - `Accordion: onValueChange` → now always receives an array as its first argument
-
-DEPRECATED (still works, logs a dev-mode warning):
-  - `AccordionContent: forceMount` → use `keepMounted` instead
+  - `AccordionContent: forceMount` → removed entirely, replace with `keepMounted`
 
 Please search this codebase for all usages of Accordion imported from
 '@utilitywarehouse/hearth-react' and apply the above changes. Do not change any
