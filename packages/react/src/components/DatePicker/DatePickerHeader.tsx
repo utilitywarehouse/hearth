@@ -85,10 +85,20 @@ export const DatePickerHeader = ({
 
       {view !== 'months' ? (
         <div className={`${componentClassName}Control`}>
-          <UnstyledIconButton onClick={handlePrevClick} disabled={isPrevDisabled} label={prevLabel}>
+          <UnstyledIconButton
+            type="button"
+            onClick={handlePrevClick}
+            disabled={isPrevDisabled}
+            label={prevLabel}
+          >
             <ChevronLeftSmallIcon />
           </UnstyledIconButton>
-          <UnstyledIconButton onClick={handleNextClick} disabled={isNextDisabled} label={nextLabel}>
+          <UnstyledIconButton
+            type="button"
+            onClick={handleNextClick}
+            disabled={isNextDisabled}
+            label={nextLabel}
+          >
             <ChevronRightSmallIcon />
           </UnstyledIconButton>
         </div>
