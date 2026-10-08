@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-react': minor
+'@utilitywarehouse/hearth-react': major
 ---
 
 💔 [BREAKING CHANGE]: Migrate `Accordion` from Radix UI to Base UI
