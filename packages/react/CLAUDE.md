@@ -147,10 +147,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | SearchInput | UWDS-5007 | ✅ | Clear button shows only with `onClear` and a value, clears and refocuses; disabled clear inert |
 | CurrencyInput | UWDS-4978 | ✅ | Formatting, sanitising, decimal limit, raw `onChange` value, `defaultValue`. onChange event bug held as expected failure (UWDS-5156) |
 | VerificationInput | UWDS-5027 | ✅ | Six inputs, typed value, password masking, invalid state; hidden validation not invalid |
-| Button | UWDS-4969 | ⏳ | |
-| IconButton | UWDS-4991 | ⏳ | |
-| UnstyledIconButton | UWDS-5025 | ⏳ | |
-| Link | UWDS-4995 | ⏳ | |
+| Button | UWDS-4969 | ✅ | Disabled/loading stay focusable but don't submit forms or follow `asChild` links |
+| IconButton | UWDS-4991 | ✅ | Same as Button |
+| UnstyledIconButton | UWDS-5025 | ✅ | Same as Button, including `loading` |
+| Link | UWDS-4995 | ✅ | `href`, new-tab name suffix and `hideOpenIcon` |
 | InlineLink | UWDS-4993 | ⏳ | |
 | Pagination | UWDS-4999 | ⏳ | |
 | Breadcrumbs | UWDS-4968 | ⏳ | |
