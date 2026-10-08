@@ -7,4 +7,11 @@ Bugs in `packages/react` surfaced while adding Storybook interaction tests (UWDS
 
 Entries are only added after a real browser run of the unwrapped assertion confirms the bug.
 
-_No open entries._
+## CurrencyInput: onChange event loses target and event properties
+
+- **Linear:** [UWDS-5156](https://linear.app/utilitywarehouse/issue/UWDS-5156)
+- **Component:** `packages/react/src/components/CurrencyInput/CurrencyInput.tsx` (`handleChange`)
+- **Expected:** `onChange` receives an event whose `target` is the input, so `event.target.name`, `event.target.id` and `event.preventDefault()` work, and React Hook Form's `register` can read `target.name`.
+- **Actual:** the event is rebuilt with `{ ...e, target: { ...e.target, value } }`. Spreading a DOM element and a SyntheticEvent drops their prototype properties and methods, so `target.name` is `undefined` and `preventDefault` isn't a function.
+- **Why not fixed here:** the fix needs an API decision, either a Proxy over the event or a new `onValueChange` for the raw value. See the Linear issue.
+- **Test:** `CurrencyInput.stories.tsx` → `Formatting`.
