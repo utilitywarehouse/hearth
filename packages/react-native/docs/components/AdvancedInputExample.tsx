@@ -28,7 +28,7 @@ const AdvancedInputExample = () => {
         placeholder="Secret email address"
       />
       <InputSlot>
-        <Pressable accessibilityRole="button" onPress={handleToggleFieldType}>
+        <Pressable onPress={handleToggleFieldType}>
           <InputIcon as={fieldType === 'password' ? EyeMediumIcon : EyeOffMediumIcon} />
         </Pressable>
       </InputSlot>
