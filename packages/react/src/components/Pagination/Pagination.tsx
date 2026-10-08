@@ -128,6 +128,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
           <div className={`${componentClassName}Controllers`}>
             {!hideSkipButtons && (
               <UnstyledIconButton
+                type="button"
                 label="Go to first page"
                 onClick={handleFirst}
                 disabled={currentPage === 1}
@@ -137,6 +138,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
             )}
 
             <UnstyledIconButton
+              type="button"
               label="Go to previous page"
               onClick={handlePrevious}
               disabled={currentPage === 1}
@@ -170,6 +172,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
                   return (
                     <li key={page}>
                       <Button
+                        type="button"
                         className={`${componentClassName}Page`}
                         variant="ghost"
                         colorScheme="functional"
@@ -189,6 +192,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
 
           <div className={`${componentClassName}Controllers`}>
             <UnstyledIconButton
+              type="button"
               label="Go to next page"
               onClick={handleNext}
               disabled={currentPage === totalPages}
@@ -198,6 +202,7 @@ export const Pagination = forwardRef<PaginationElement, PaginationProps>((props,
 
             {!hideSkipButtons && (
               <UnstyledIconButton
+                type="button"
                 label="Go to last page"
                 onClick={handleLast}
                 disabled={currentPage === totalPages}
