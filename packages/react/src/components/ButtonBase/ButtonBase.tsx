@@ -8,7 +8,11 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { forwardRef } from 'react';
-import type { ComponentRef } from 'react';
+import type { ComponentRef, MouseEvent } from 'react';
+
+// aria-disabled keeps the button focusable but doesn't block its default
+// action, so cancel it to stop form submission and link navigation.
+const preventDefault = (event: MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
 const COMPONENT_NAME = 'ButtonBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -46,9 +50,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
         ref={ref}
         aria-disabled={disabled || undefined}
         className={cn(componentClassName, className)}
-        // as we're using aria-disabled instead of disabled then we need to
-        // disable the onClick event
-        onClick={disabled ? undefined : onClick}
+        onClick={disabled ? preventDefault : onClick}
         {...dataAttributeProps}
         data-testid={componentClassName}
         {...buttonBaseProps}
@@ -71,7 +73,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
       ref={ref}
       aria-disabled={disabled || undefined}
       className={cn(componentClassName, className)}
-      onClick={disabled ? undefined : onClick}
+      onClick={disabled ? preventDefault : onClick}
       {...dataAttributeProps}
       data-testid={componentClassName}
       {...buttonBaseProps}
