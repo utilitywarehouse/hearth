@@ -1,9 +1,25 @@
-import { View, type ViewProps } from 'react-native';
+import { View, type ViewProps, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useListItemContext } from './ListItem.context';
 
-const ListItemContent = ({ children, ...props }: ViewProps) => {
+export interface ListItemContentProps extends ViewProps {
+  /** Vertical alignment within the list item. Overrides `contentAlignment` on `ListItem`.
+   * @default 'center' */
+  alignment?: ViewStyle['alignSelf'];
+}
+
+const ListItemContent = ({ children, alignment, ...props }: ListItemContentProps) => {
+  const { contentAlignment } = useListItemContext();
+
   return (
-    <View {...props} style={[styles.container, props.style]}>
+    <View
+      {...props}
+      style={[
+        styles.container,
+        { alignSelf: alignment ?? contentAlignment ?? 'center' },
+        props.style,
+      ]}
+    >
       {children}
     </View>
   );
