@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { useMemo, useState } from 'react';
 import { Flex } from '../Flex/Flex';
 import { Table } from './Table';
@@ -68,7 +69,6 @@ export const KitchenSink: Story = {
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     return (
@@ -91,6 +91,16 @@ export const Playground: Story = {
         </TableBody>
       </Table>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const table = within(canvasElement).getByRole('table');
+
+    await expect(
+      within(table)
+        .getAllByRole('columnheader')
+        .map(cell => cell.textContent)
+    ).toEqual(['Name', 'Email', 'Phone', 'City']);
+    await expect(within(table).getAllByRole('row')).toHaveLength(4);
   },
 };
 
@@ -201,7 +211,6 @@ export const Pagination: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -247,6 +256,20 @@ export const Pagination: Story = {
         </TableBody>
       </Table>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const rowHeaders = () => canvas.getAllByRole('rowheader').map(cell => cell.textContent);
+    const firstPage = rowHeaders();
+
+    await expect(firstPage).toHaveLength(5);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Go to next page' }));
+    await expect(rowHeaders()).not.toEqual(firstPage);
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Go to previous page' }));
+    await expect(rowHeaders()).toEqual(firstPage);
+    (document.activeElement as HTMLElement | null)?.blur();
   },
 };
 
@@ -322,3 +345,38 @@ const personalDetails = [
     city: 'Cardiff',
   },
 ];
+
+const defaultTableRef = fn<(element: HTMLTableElement | null) => void>();
+const cardTableRef = fn<(element: HTMLTableElement | null) => void>();
+
+/** Test-only: a ref reaches the table element with and without a card variant. */
+export const RefForwarding: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      {[defaultTableRef, cardTableRef].map((tableRef, index) => (
+        <Table key={index} ref={tableRef} variant={index === 0 ? undefined : 'subtle'}>
+          <TableHeader>
+            <TableHeaderCell>Heading</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableHeaderCell row>Row heading</TableHeaderCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      ))}
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const [defaultTable, cardTable] = within(canvasElement).getAllByRole('table');
+
+    await expect(defaultTableRef).toHaveBeenCalledWith(defaultTable);
+    await expect(cardTableRef).toHaveBeenCalledWith(cardTable);
+    await expect(within(defaultTable!).getByRole('rowheader')).toHaveAttribute('scope', 'row');
+  },
+};
