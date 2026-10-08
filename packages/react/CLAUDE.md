@@ -151,10 +151,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | IconButton | UWDS-4991 | ✅ | Same as Button |
 | UnstyledIconButton | UWDS-5025 | ✅ | Same as Button, including `loading` |
 | Link | UWDS-4995 | ✅ | `href`, new-tab name suffix and `hideOpenIcon` |
-| InlineLink | UWDS-4993 | ⏳ | |
-| Pagination | UWDS-4999 | ⏳ | |
-| Breadcrumbs | UWDS-4968 | ⏳ | |
-| Chip | UWDS-4975 | ⏳ | |
+| InlineLink | UWDS-4993 | ✅ | New-tab name suffix and `hideOpenIcon` |
+| Pagination | UWDS-4999 | ✅ | Page windowing and ellipses, `aria-current`, first/prev/next/last and disabled states, condensed, no form submit |
+| Breadcrumbs | UWDS-4968 | ✅ | Links, current page (`aria-current`, not a link), hidden separators |
+| Chip | UWDS-4975 | ✅ | Default "Remove … filter" name and override, remove/add, disabled |
 | Alert | UWDS-4963 | ⏳ | |
 | HighlightBanner | UWDS-4990 | ⏳ | |
 | Card | UWDS-4970 | ⏳ | |
