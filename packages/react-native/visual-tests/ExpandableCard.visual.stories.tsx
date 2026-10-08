@@ -1,7 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { BodyText } from '../src/components/BodyText';
-import { ExpandableCard } from '../src/components/ExpandableCard';
+import {
+  ExpandableCard,
+  ExpandableCardContent,
+  ExpandableCardExpandedContent,
+  ExpandableCardHelperText,
+  ExpandableCardIcon,
+  ExpandableCardLeadingContent,
+  ExpandableCardText,
+  ExpandableCardTrigger,
+} from '../src/components/ExpandableCard';
 import { VTGrid, VTRow } from './_support';
 
 const meta = {
@@ -22,6 +31,43 @@ const content = (
     <BodyText>Second line</BodyText>
   </>
 );
+
+const noop = () => {};
+
+/** Trigger and expanded content composed from the child parts, expanded and collapsed. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Expanded">
+        <ExpandableCard style={{ width: '100%' }}>
+          <ExpandableCardTrigger onPress={noop} isExpanded>
+            <ExpandableCardLeadingContent>
+              <ExpandableCardIcon as={SettingsMediumIcon} />
+            </ExpandableCardLeadingContent>
+            <ExpandableCardContent>
+              <ExpandableCardText>Expanded</ExpandableCardText>
+              <ExpandableCardHelperText>Helper</ExpandableCardHelperText>
+            </ExpandableCardContent>
+          </ExpandableCardTrigger>
+          <ExpandableCardExpandedContent isExpanded>{content}</ExpandableCardExpandedContent>
+        </ExpandableCard>
+      </VTRow>
+      <VTRow label="Collapsed, no chevron">
+        <ExpandableCard style={{ width: '100%' }}>
+          <ExpandableCardTrigger onPress={noop} isExpanded={false} showChevron={false}>
+            <ExpandableCardContent>
+              <ExpandableCardText>Collapsed</ExpandableCardText>
+              <ExpandableCardHelperText>Helper</ExpandableCardHelperText>
+            </ExpandableCardContent>
+          </ExpandableCardTrigger>
+          <ExpandableCardExpandedContent isExpanded={false}>
+            {content}
+          </ExpandableCardExpandedContent>
+        </ExpandableCard>
+      </VTRow>
+    </VTGrid>
+  ),
+};
 
 export const Variants: Story = {
   render: () => (

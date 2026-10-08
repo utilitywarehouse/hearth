@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
-import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { EmailMediumIcon, EyeMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { Input } from '../src/components/Input';
+import { Input, InputField, InputIcon, InputSlot } from '../src/components/Input';
+import { VTGrid, VTRow } from './_support';
 
 const meta = {
   title: 'Visual Tests/Input',
@@ -112,4 +113,45 @@ export const States: Story = { render: () => <Inputs /> };
 export const StatesDark: Story = {
   parameters: { colorMode: 'dark' },
   render: () => <Inputs />,
+};
+
+/** Input built from its child parts: InputSlot, InputIcon and InputField. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Input child parts">
+        <View style={{ width: '100%' }}>
+          <Input>
+            <InputSlot>
+              <InputIcon as={EmailMediumIcon} />
+            </InputSlot>
+            <InputField caretHidden placeholder="Email address" />
+            <InputSlot>
+              <InputIcon as={EyeMediumIcon} />
+            </InputSlot>
+          </Input>
+        </View>
+      </VTRow>
+      <VTRow label="Input child parts invalid">
+        <View style={{ width: '100%' }}>
+          <Input validationStatus="invalid">
+            <InputSlot>
+              <InputIcon as={EmailMediumIcon} />
+            </InputSlot>
+            <InputField caretHidden value="Invalid" onChangeText={noop} />
+          </Input>
+        </View>
+      </VTRow>
+      <VTRow label="Input child parts disabled">
+        <View style={{ width: '100%' }}>
+          <Input disabled>
+            <InputSlot>
+              <InputIcon as={EmailMediumIcon} />
+            </InputSlot>
+            <InputField caretHidden value="Disabled" onChangeText={noop} />
+          </Input>
+        </View>
+      </VTRow>
+    </VTGrid>
+  ),
 };

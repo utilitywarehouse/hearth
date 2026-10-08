@@ -1,9 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
-import { BellMediumIcon, SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  BellMediumIcon,
+  ChevronRightSmallIcon,
+  ElectricityMediumIcon,
+  SettingsMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
 import { useUnistyles } from 'react-native-unistyles';
 import { BodyText } from '../src/components/BodyText';
-import { Card, CardAction, CardActions } from '../src/components/Card';
+import {
+  Card,
+  CardAction,
+  CardActionContent,
+  CardActionHelperText,
+  CardActionIcon,
+  CardActionLeadingContent,
+  CardActions,
+  CardActionText,
+  CardActionTrailingContent,
+  CardActionTrailingIcon,
+  CardContent,
+} from '../src/components/Card';
 import { VTGrid } from './_support';
 
 const meta = {
@@ -64,6 +81,33 @@ const Cards = () => {
 };
 
 export const Variants: Story = { render: () => <Cards /> };
+
+/** CardAction composed from its parts, inside CardContent and CardActions. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <Card variant="emphasis">
+        <CardContent>
+          <BodyText>Card content</BodyText>
+        </CardContent>
+        <CardActions>
+          <CardAction onPress={noop}>
+            <CardActionLeadingContent>
+              <CardActionIcon as={ElectricityMediumIcon} />
+            </CardActionLeadingContent>
+            <CardActionContent>
+              <CardActionText>Custom layout</CardActionText>
+              <CardActionHelperText>With complete control</CardActionHelperText>
+            </CardActionContent>
+            <CardActionTrailingContent>
+              <CardActionTrailingIcon as={ChevronRightSmallIcon} />
+            </CardActionTrailingContent>
+          </CardAction>
+        </CardActions>
+      </Card>
+    </VTGrid>
+  ),
+};
 
 export const VariantsDark: Story = {
   parameters: { colorMode: 'dark' },

@@ -2,8 +2,21 @@ import type { Meta, StoryObj } from '@storybook/react-native';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { FormField } from '../src/components/FormField';
+import {
+  FormField,
+  FormFieldHelper,
+  FormFieldHelperText,
+  FormFieldInvalid,
+  FormFieldInvalidIcon,
+  FormFieldInvalidText,
+  FormFieldLabelText,
+  FormFieldTextContent,
+  FormFieldValid,
+  FormFieldValidIcon,
+  FormFieldValidText,
+} from '../src/components/FormField';
 import { Input } from '../src/components/Input';
+import { VTGrid, VTRow } from './_support';
 
 const meta = {
   title: 'Visual Tests/FormField',
@@ -75,5 +88,55 @@ export const Variants: Story = {
         </FormField>
       </Cell>
     </Cols>
+  ),
+};
+
+/** FormField built from its child parts, with the helper text and validation messages below the label. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="FormField child parts invalid">
+        <View style={{ width: '100%' }}>
+          <FormField validationStatus="invalid">
+            <FormFieldTextContent>
+              <FormFieldLabelText>Label</FormFieldLabelText>
+              <FormFieldHelper>
+                <FormFieldHelperText>Helper text</FormFieldHelperText>
+              </FormFieldHelper>
+            </FormFieldTextContent>
+            <Field />
+            <FormFieldInvalid>
+              <FormFieldInvalidIcon />
+              <FormFieldInvalidText>Invalid text</FormFieldInvalidText>
+            </FormFieldInvalid>
+            <FormFieldValid>
+              <FormFieldValidIcon />
+              <FormFieldValidText>Valid text</FormFieldValidText>
+            </FormFieldValid>
+          </FormField>
+        </View>
+      </VTRow>
+      <VTRow label="FormField child parts valid">
+        <View style={{ width: '100%' }}>
+          <FormField validationStatus="valid">
+            <FormFieldTextContent>
+              <FormFieldLabelText>Label</FormFieldLabelText>
+              <FormFieldHelper>
+                <FormFieldHelperText>Helper text</FormFieldHelperText>
+              </FormFieldHelper>
+            </FormFieldTextContent>
+            <Field />
+            <FormFieldInvalid>
+              <FormFieldInvalidIcon />
+              <FormFieldInvalidText>Invalid text</FormFieldInvalidText>
+            </FormFieldInvalid>
+            <FormFieldValid>
+              <FormFieldValidIcon />
+              <FormFieldValidText>Valid text</FormFieldValidText>
+            </FormFieldValid>
+          </FormField>
+        </View>
+      </VTRow>
+    </VTGrid>
   ),
 };

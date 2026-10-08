@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { Textarea } from '../src/components/Textarea';
+import { Textarea, TextareaField } from '../src/components/Textarea';
+import { VTGrid, VTRow } from './_support';
 
 const meta = {
   title: 'Visual Tests/Textarea',
@@ -62,5 +63,34 @@ export const States: Story = {
         />
       </Cell>
     </Cols>
+  ),
+};
+
+/** Textarea built from its child part: TextareaField. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Textarea child parts">
+        <View style={{ width: '100%' }}>
+          <Textarea>
+            <TextareaField caretHidden placeholder="Placeholder" />
+          </Textarea>
+        </View>
+      </VTRow>
+      <VTRow label="Textarea child parts invalid">
+        <View style={{ width: '100%' }}>
+          <Textarea validationStatus="invalid">
+            <TextareaField caretHidden value="Invalid" onChangeText={noop} />
+          </Textarea>
+        </View>
+      </VTRow>
+      <VTRow label="Textarea child parts disabled">
+        <View style={{ width: '100%' }}>
+          <Textarea disabled>
+            <TextareaField caretHidden value="Disabled" onChangeText={noop} />
+          </Textarea>
+        </View>
+      </VTRow>
+    </VTGrid>
   ),
 };

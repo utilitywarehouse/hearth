@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import { ElectricitySmallIcon, MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Button } from '../src/components/Button';
+import { Button, ButtonIcon, ButtonSpinner, ButtonText } from '../src/components/Button';
 import { VTGrid, VTInvertedStrip, VTRow } from './_support';
 
 const meta = {
@@ -77,6 +77,30 @@ export const States: Story = {
           </VTRow>
         </VTGrid>
       </VTInvertedStrip>
+    </VTGrid>
+  ),
+};
+
+/** Buttons composed from `ButtonIcon`, `ButtonText` and `ButtonSpinner` child parts. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Icon and text">
+        <Button>
+          <ButtonIcon as={ElectricitySmallIcon} />
+          <ButtonText>Left icon</ButtonText>
+        </Button>
+        <Button variant="outline" colorScheme="functional">
+          <ButtonText>Right icon</ButtonText>
+          <ButtonIcon as={MobileSmallIcon} />
+        </Button>
+      </VTRow>
+      <VTRow label="Spinner">
+        <Button disabled>
+          <ButtonSpinner />
+          <ButtonText>Loading</ButtonText>
+        </Button>
+      </VTRow>
     </VTGrid>
   ),
 };
