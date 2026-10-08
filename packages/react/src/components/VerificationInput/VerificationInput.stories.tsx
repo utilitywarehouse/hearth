@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
+import { Flex } from '../Flex/Flex';
 import { VerificationInput } from './VerificationInput';
 import { useState } from 'react';
 
@@ -39,7 +41,6 @@ export const Controlled: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     const [value, setValue] = useState('');
@@ -55,6 +56,17 @@ export const Controlled: Story = {
       />
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inputs = canvas.getAllByRole('textbox');
+
+    await expect(inputs).toHaveLength(6);
+
+    await userEvent.click(inputs[0]!);
+    await userEvent.keyboard('123456');
+    await expect(canvas.getByText('Your OTP is: 123456')).toBeInTheDocument();
+    (document.activeElement as HTMLElement | null)?.blur();
+  },
 };
 
 /** Set type="password" to mask each digit as it's entered. */
@@ -62,7 +74,6 @@ export const PasswordType: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     const [value, setValue] = useState<string | undefined>();
@@ -77,5 +88,48 @@ export const PasswordType: Story = {
         required
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const inputs = canvasElement.querySelectorAll(
+      '.h-VerificationInputRoot input:not([type="hidden"])'
+    );
+
+    await expect(inputs).toHaveLength(6);
+    for (const input of inputs) {
+      await expect(input).toHaveAttribute('type', 'password');
+    }
+  },
+};
+
+/** Test-only: a disabled or read-only VerificationInput isn't marked invalid while its validation text is hidden. */
+export const HiddenValidationNotInvalid: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <VerificationInput
+        label="Invalid"
+        validationStatus="invalid"
+        validationText="Invalid error"
+      />
+      <VerificationInput
+        label="Disabled invalid"
+        disabled
+        validationStatus="invalid"
+        validationText="Disabled error"
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [invalid, disabled] = canvasElement.querySelectorAll('.h-VerificationInputRoot');
+
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription(/Invalid error/);
+    await expect(disabled).not.toHaveAttribute('aria-invalid');
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
   },
 };
