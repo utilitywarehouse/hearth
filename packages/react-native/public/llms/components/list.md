@@ -99,8 +99,8 @@ are ignored, so conditional list items will not affect which item loses the top 
 
 #### - `ListItemLeadingContent`
 
-Has all props of a React Native `View`. Aligned to the top of the list item by default (`alignSelf: 'flex-start'`).
-When used through `ListItem` props, use `leadingContentAlignment` to change this.
+Has all props of a React Native `View`, plus `alignment` (`ViewStyle['alignSelf']`). Aligned to the top of the list
+item by default (`'flex-start'`). Use `alignment`, or `leadingContentAlignment` on `ListItem`, to change this.
 
 #### - `ListItemIcon`
 
@@ -110,8 +110,8 @@ When used through `ListItem` props, use `leadingContentAlignment` to change this
 
 #### - `ListItemContent`
 
-Has all props of a React Native `View`. Vertically centred in the list item by default. When used through `ListItem`
-props, use `contentAlignment` to change this.
+Has all props of a React Native `View`, plus `alignment` (`ViewStyle['alignSelf']`). Vertically centred in the list
+item by default. Use `alignment`, or `contentAlignment` on `ListItem`, to change this.
 
 #### - `ListItemHeading`
 
@@ -123,9 +123,9 @@ Has all props of the `BodyText` component.
 
 #### - `ListItemTrailingContent`
 
-Has all props of a React Native `View`. When composed manually it is vertically centred in the list item. When used
-through `ListItem` props it is aligned to the top by default (trailing icons are centred); use
-`trailingContentAlignment` to change this.
+Has all props of a React Native `View`, plus `alignment` (`ViewStyle['alignSelf']`). Aligned to the top of the list
+item by default, or centred when it contains a `ListItemTrailingIcon`. Use `alignment`, or
+`trailingContentAlignment` on `ListItem`, to change this.
 
 #### - `ListItemTrailingIcon`
 
