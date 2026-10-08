@@ -155,10 +155,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | Pagination | UWDS-4999 | ✅ | Page windowing and ellipses, `aria-current`, first/prev/next/last and disabled states, condensed, no form submit |
 | Breadcrumbs | UWDS-4968 | ✅ | Links, current page (`aria-current`, not a link), hidden separators |
 | Chip | UWDS-4975 | ✅ | Default "Remove … filter" name and override, remove/add, disabled |
-| Alert | UWDS-4963 | ⏳ | |
-| HighlightBanner | UWDS-4990 | ⏳ | |
-| Card | UWDS-4970 | ⏳ | |
-| Table | UWDS-5017 | ⏳ | |
+| Alert | UWDS-4963 | ✅ | `role="alert"`, default `colorScheme`, close button only with `onClose`, no form submit |
+| HighlightBanner | UWDS-4990 | N/A | Presentational: a styled `Card` with a heading; no prop-driven behaviour |
+| Card | UWDS-4970 | N/A | Presentational: a styled `Flex` container (and `CardInteraction`, `CardContent` etc.); props only affect styling |
+| Table | UWDS-5017 | ✅ | Headers/rows, row headers, pagination paging, ref forwarding for both variants |
 | Avatar | UWDS-4964 | ⏳ | Likely N/A |
 | Badge | UWDS-4965 | ⏳ | Likely N/A |
 | BodyText | UWDS-4966 | ⏳ | Likely N/A |
