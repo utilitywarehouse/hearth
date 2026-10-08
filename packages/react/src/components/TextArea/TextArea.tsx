@@ -65,6 +65,8 @@ export const TextArea = forwardRef<TextAreaElement, TextAreaProps>((props, ref) 
     required,
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
     !!helperText ? helperTextId : undefined,
@@ -90,8 +92,8 @@ export const TextArea = forwardRef<TextAreaElement, TextAreaProps>((props, ref) 
           placeholder={!disabled ? placeholder : undefined}
           aria-labelledby={labelId}
           aria-describedby={ariaDescribedbyValue}
-          aria-invalid={validationStatus === 'invalid' ? true : undefined}
-          aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+          aria-invalid={isInvalid ? true : undefined}
+          aria-errormessage={isInvalid ? validationTextId : undefined}
           data-resize={resize}
           {...textAreaProps}
         />
