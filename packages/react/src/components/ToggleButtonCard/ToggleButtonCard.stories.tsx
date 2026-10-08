@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
@@ -425,5 +426,41 @@ export const ResponsiveDirection: Story = {
         ))}
       </ToggleGroup>
     );
+  },
+};
+
+/** Test-only: `aria-labelledby` and `aria-describedby` go to the card's toggle button. */
+export const ButtonAria: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="300">
+      <BodyText id="card-description">Card description</BodyText>
+      <ToggleGroup type="multiple">
+        <ToggleButtonCard
+          value="a"
+          label="Select"
+          aria-labelledby="card-a-heading"
+          aria-describedby="card-description"
+        >
+          <Heading id="card-a-heading">Card A</Heading>
+        </ToggleButtonCard>
+      </ToggleGroup>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button', { name: 'Card A' });
+
+    await expect(button).toHaveAccessibleDescription('Card description');
+    await expect(button).toHaveTextContent('Select');
+    await expect(canvas.getByTestId('h-ToggleButtonCard')).not.toHaveAttribute('aria-describedby');
+
+    await userEvent.click(button);
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
+    button.blur();
   },
 };
