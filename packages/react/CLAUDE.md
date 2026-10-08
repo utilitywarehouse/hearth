@@ -141,9 +141,9 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | SegmentedControl | UWDS-5009 | ✅ | Default and single selection, disabled options and control |
 | ToggleButton | UWDS-5022 | ✅ | Single (radio) and multiple (pressed) selection |
 | ToggleButtonCard | UWDS-5023 | ✅ | `aria-labelledby`/`aria-describedby` forwarded to the toggle button |
-| TextInput | UWDS-5020 | ⏳ | |
-| TextArea | UWDS-5019 | ⏳ | |
-| PasswordInput | UWDS-5000 | ⏳ | |
+| TextInput | UWDS-5020 | ✅ | Name/description/placeholder, typing, disabled/read-only, validation; hidden validation not invalid |
+| TextArea | UWDS-5019 | ✅ | Same as TextInput, plus rows and multi-line input. `Controlled` stays `!test` |
+| PasswordInput | UWDS-5000 | ✅ | Show/hide toggle and announcements, disabled toggle inert, hidden again on form submit |
 | SearchInput | UWDS-5007 | ⏳ | |
 | CurrencyInput | UWDS-4978 | ⏳ | |
 | VerificationInput | UWDS-5027 | ⏳ | |
