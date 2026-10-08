@@ -163,7 +163,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         importantForAccessibility={Platform.OS === 'android' ? 'no-hide-descendants' : undefined}
       >
         {toast.onPress ? (
-          <Pressable onPress={handlePress} style={styles.pressable}>
+          <Pressable accessibilityRole="button" onPress={handlePress} style={styles.pressable}>
             {toastContent}
           </Pressable>
         ) : (
