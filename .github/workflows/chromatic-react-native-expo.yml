@@ -139,6 +139,8 @@ jobs:
     needs: check
     if: needs.check.outputs.should_run == 'true'
     runs-on: macos-latest-xlarge
+    # A hung Chromatic build otherwise holds this runner until GitHub's 6h cap.
+    timeout-minutes: 45
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
@@ -204,6 +206,10 @@ jobs:
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
           NODE_OPTIONS: --max-old-space-size=8192
+          # Bundle only packages/react-native/visual-tests/** (see
+          # .rnstorybook/main.ts). There is no TurboSnap for native, so every
+          # included story is snapshotted on both devices on every build.
+          EXPO_PUBLIC_VISUAL_TESTS: 'true'
 
       - name: Collect Chromatic build log on failure
         if: steps.chromatic.outcome == 'failure'
