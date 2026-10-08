@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import {
   BroadbandMediumIcon,
   BroadbandSmallIcon,
@@ -149,6 +150,18 @@ export const Playground: Story = {
       <SegmentedControlOption value="option-4" label="Option 4" />
     </SegmentedControl>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const one = canvas.getByRole('button', { name: 'Option 1' });
+    const two = canvas.getByRole('button', { name: 'Option 2' });
+
+    await expect(one).toHaveAttribute('aria-pressed', 'true');
+
+    await userEvent.click(two);
+    await expect(two).toHaveAttribute('aria-pressed', 'true');
+    await expect(one).toHaveAttribute('aria-pressed', 'false');
+    two.blur();
+  },
 };
 
 /**
@@ -358,4 +371,33 @@ export const Disabled: Story = {
       </SegmentedControl>
     </Flex>
   ),
+};
+
+/** Test-only: disabled options, individually and for the whole control. */
+export const DisabledOptions: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="300">
+      <SegmentedControl defaultValue={['a']}>
+        <SegmentedControlOption value="a" label="Enabled" />
+        <SegmentedControlOption value="b" label="Disabled option" disabled />
+      </SegmentedControl>
+      <SegmentedControl defaultValue={['c']} disabled>
+        <SegmentedControlOption value="c" label="Group C" />
+        <SegmentedControlOption value="d" label="Group D" />
+      </SegmentedControl>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('button', { name: 'Enabled' })).toBeEnabled();
+    await expect(canvas.getByRole('button', { name: 'Disabled option' })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: 'Group C' })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: 'Group D' })).toBeDisabled();
+  },
 };
