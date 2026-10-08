@@ -8,7 +8,8 @@ import { AccordionItemProps } from './AccordionItem.props';
 const AccordionItem = ({ children, style, noPadding, disabled, ...props }: AccordionItemProps) => {
   const context = useMemo(() => ({ noPadding, disabled }), [noPadding, disabled]);
   const { disabled: contextDisabled } = useAccordionContext();
-  styles.useVariants({ disabled: disabled ?? contextDisabled });
+  // A disabled Accordion disables every item, so an item-level `disabled={false}` must not win.
+  styles.useVariants({ disabled: !!(disabled || contextDisabled) });
   return (
     <AccordionItemContext.Provider value={context}>
       <View style={[styles.item, style]} {...props}>
