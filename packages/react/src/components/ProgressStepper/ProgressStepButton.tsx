@@ -36,7 +36,7 @@ export const ProgressStepButton = forwardRef<ProgressStepButtonElement, Progress
           label
         ) : (
           <Link asChild aria-disabled={disabled}>
-            <button ref={ref} {...props} onClick={disabled ? undefined : onClick}>
+            <button ref={ref} type="button" {...props} onClick={disabled ? undefined : onClick}>
               {label}
             </button>
           </Link>

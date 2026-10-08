@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
@@ -285,4 +286,72 @@ export const ResponsiveWithBoxDisplay: Story = {
       </Box>
     </>
   ),
+};
+
+const onStepClick = fn<(step: string) => void>();
+const onStepperFormSubmit = fn<() => void>();
+
+/** Test-only: active steps aren't interactive, disabled steps are inert, and step buttons don't submit forms. */
+export const StepInteractivity: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        onStepperFormSubmit();
+      }}
+    >
+      <Flex direction="column" gap="400">
+        <ProgressStepper as="nav" aria-label="Link steps">
+          <ProgressStepLink status="complete" href="#done" label="Done link" />
+          <ProgressStepLink status="active" href="#current" label="Current link" />
+          <ProgressStepLink status="incomplete" href="#later" label="Disabled link" disabled />
+        </ProgressStepper>
+        <ProgressStepper aria-label="Button steps">
+          <ProgressStepButton
+            status="complete"
+            label="Done button"
+            onClick={() => onStepClick('done')}
+          />
+          <ProgressStepButton
+            status="active"
+            label="Current button"
+            onClick={() => onStepClick('current')}
+          />
+          <ProgressStepButton
+            status="incomplete"
+            label="Disabled button"
+            disabled
+            onClick={() => onStepClick('disabled')}
+          />
+        </ProgressStepper>
+      </Flex>
+    </form>
+  ),
+  play: async ({ canvasElement }) => {
+    onStepClick.mockClear();
+    onStepperFormSubmit.mockClear();
+    const canvas = within(canvasElement);
+    const links = within(canvas.getByRole('navigation', { name: 'Link steps' }));
+
+    await expect(links.getByRole('link', { name: 'Done link' })).toHaveAttribute('href', '#done');
+    await expect(links.queryByRole('link', { name: 'Current link' })).not.toBeInTheDocument();
+    await expect(links.getByRole('link', { name: 'Disabled link' })).not.toHaveAttribute('href');
+    await expect(links.getByRole('link', { name: 'Disabled link' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
+
+    await expect(canvas.queryByRole('button', { name: 'Current button' })).not.toBeInTheDocument();
+    await userEvent.click(canvas.getByRole('button', { name: 'Disabled button' }));
+    await userEvent.click(canvas.getByRole('button', { name: 'Done button' }));
+    await expect(onStepClick).toHaveBeenCalledOnce();
+    await expect(onStepClick).toHaveBeenCalledWith('done');
+    await expect(onStepperFormSubmit).not.toHaveBeenCalled();
+    (document.activeElement as HTMLElement | null)?.blur();
+  },
 };
