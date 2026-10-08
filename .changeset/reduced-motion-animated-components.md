@@ -13,7 +13,7 @@ away.
 - `Spinner`: shows a static arc instead of the looping animation
 - `Skeleton`: no pulsing
 - `VerificationInput`: the caret is solid instead of blinking
-- `Expandable`, and so `Accordion` and `ExpandableCard`: no height or opacity animation
+- `Expandable`, and so `ExpandableCard`: no height or opacity animation
 - `Toast`: no slide-in, slide-out or spring-back
 - `Carousel`: no animated scroll on mount or when the active item changes, and
   `scrollToIndex` and `scrollToOffset` default to `animated: false`. An explicit
