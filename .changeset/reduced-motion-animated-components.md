@@ -4,10 +4,11 @@
 
 🐛 [FIX]: Animated components support reduced motion
 
-Animated components now respect the system Reduce Motion setting, and the
-`ReducedMotionConfig` override from `react-native-reanimated`. When reduced
+Animated components now respect the system Reduce Motion setting. When reduced
 motion is on, they skip their animation and render the final state straight
-away.
+away. The setting is read when the app starts, so changing it needs an app
+restart. The `ReducedMotionConfig` override from `react-native-reanimated` does
+not switch these components to their reduced-motion state.
 
 **Components affected**:
 - `Spinner`: shows a static arc instead of the looping animation

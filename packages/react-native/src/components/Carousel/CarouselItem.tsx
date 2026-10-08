@@ -1,12 +1,8 @@
 import { useEffect } from 'react';
 import { Platform, View } from 'react-native';
-import Animated, {
-  useAnimatedStyle,
-  useReducedMotion,
-  useSharedValue,
-  withTiming,
-} from 'react-native-reanimated';
+import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 import { CarouselItemProps } from './Carousel.props';
 
@@ -19,7 +15,7 @@ export const CarouselItem = ({
   ...props
 }: CarouselItemProps) => {
   const isWeb = Platform.OS === 'web';
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
   const opacity = useSharedValue<number>(isReducedMotion && active ? 1 : inactiveOpacity);
 
   const animatedStyles = useAnimatedStyle(
