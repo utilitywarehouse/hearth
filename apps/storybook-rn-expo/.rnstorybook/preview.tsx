@@ -10,6 +10,12 @@ const preview = {
         date: /Date$/,
       },
     },
+    chromatic: {
+      // Snapshotting is disabled by default to limit Chromatic usage — opt
+      // individual stories back in (e.g. a component's KitchenSink story)
+      // with `chromatic: { disableSnapshot: false }`.
+      disableSnapshot: true,
+    },
   },
 
   decorators: [
