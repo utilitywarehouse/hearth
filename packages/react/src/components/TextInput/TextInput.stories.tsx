@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
 import { Card } from '../Card/Card';
@@ -103,9 +104,18 @@ export const KitchenSink: Story = {
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => <TextInput {...args} />,
+  play: async ({ canvasElement }) => {
+    const input = within(canvasElement).getByRole('textbox', { name: /^Label/ });
+
+    await expect(input).toHaveAccessibleDescription('Helper text');
+    await expect(input).toHaveAttribute('placeholder', 'Placeholder');
+
+    await userEvent.type(input, 'hello');
+    await expect(input).toHaveValue('hello');
+    input.blur();
+  },
 };
 
 /** Set disabled or readOnly to prevent the TextInput from being edited. */
@@ -114,7 +124,6 @@ export const DisabledAndReadOnly: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
     a11y: {
       config: {
         rules: [
@@ -139,6 +148,14 @@ export const DisabledAndReadOnly: Story = {
     </Flex>
   ),
   args: { helperText: undefined },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const disabled = canvas.getByRole('textbox', { name: /^Disabled/ });
+
+    await expect(disabled).toBeDisabled();
+    await expect(disabled).not.toHaveAttribute('placeholder');
+    await expect(canvas.getByRole('textbox', { name: /^Read only/ })).toHaveAttribute('readonly');
+  },
 };
 
 /** Set validationStatus and validationText to show valid or invalid feedback. */
@@ -146,7 +163,6 @@ export const Validation: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { helperText: undefined },
   render: args => (
@@ -171,6 +187,15 @@ export const Validation: Story = {
       />
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const [valid, invalid] = within(canvasElement).getAllByRole('textbox', { name: /^Email/ });
+
+    await expect(valid).not.toHaveAttribute('aria-invalid');
+    await expect(valid).toHaveAccessibleDescription('Valid email address');
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription('Please enter a valid email address');
+    await expect(invalid).toHaveAttribute('aria-errormessage');
+  },
 };
 
 /** Use InputSlot to add a prefix or suffix, such as a currency symbol or unit. */
@@ -289,5 +314,41 @@ export const ReactHookForm: Story = {
         </form>
       </Flex>
     );
+  },
+};
+
+/** Test-only: a disabled or read-only TextInput isn't marked invalid while its validation text is hidden. */
+export const HiddenValidationNotInvalid: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <TextInput
+        label="Disabled invalid"
+        disabled
+        validationStatus="invalid"
+        validationText="Disabled error"
+      />
+      <TextInput
+        label="Read-only invalid"
+        readOnly
+        validationStatus="invalid"
+        validationText="Read-only error"
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    for (const name of [/^Disabled invalid/, /^Read-only invalid/]) {
+      const field = canvas.getByRole('textbox', { name });
+      await expect(field).not.toHaveAttribute('aria-invalid');
+      await expect(field).not.toHaveAttribute('aria-errormessage');
+    }
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
   },
 };
