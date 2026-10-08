@@ -64,7 +64,7 @@ export const Playground: Story = {
   },
 };
 
-/** Use forceMount on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
+/** Use keepMounted on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
 export const SEOFriendly: Story = {
   parameters: {
     controls: { disable: true },
@@ -107,7 +107,11 @@ export const CustomItemHeader: Story = {
   render: () => {
     return (
       <Box width="600px">
-        <Accordion heading="Custom item headers" helperText="Including a badge, for example">
+        <Accordion
+          multiple
+          heading="Custom item headers"
+          helperText="Including a badge, for example"
+        >
           {[1, 2, 3].map(n => (
             <AccordionItem key={n} value={`item-${n}`}>
               <AccordionHeader>
@@ -175,7 +179,7 @@ export const DefaultExpanded: Story = {
   },
 };
 
-/** Set type to "multiple" to allow more than one item to stay open at once. */
+/** Set multiple to allow more than one item to stay open at once. */
 export const Multiple: Story = {
   parameters: {
     controls: { disable: true },
@@ -222,7 +226,7 @@ export const Multiple: Story = {
   },
 };
 
-/** Set type to "single" so opening an item closes any other open item. */
+/** By default, opening an item closes any other open item. */
 export const Single: Story = {
   parameters: {
     controls: { disable: true },

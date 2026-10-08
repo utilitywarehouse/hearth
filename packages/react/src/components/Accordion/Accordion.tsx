@@ -19,9 +19,9 @@ type AccordionElement = ComponentRef<'div'>;
  * Use Accordion to let users expand or collapse individual content sections,
  * presenting a large amount of information in a compact, organised interface.
  * Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
- * `AccordionContent` for each disclosure item. The `type` prop is required and
- * determines whether one (`single`) or multiple (`multiple`) items can be
- * expanded at once.
+ * `AccordionContent` for each disclosure item. By default only one item can
+ * be expanded at once — set `multiple` to allow more than one item to be
+ * expanded simultaneously.
  *
  * @summary A vertically stacked set of expandable and collapsible content sections.
  */

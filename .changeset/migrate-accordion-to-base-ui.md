@@ -16,7 +16,7 @@ of the public API.
 **Breaking changes**:
 
 - `Accordion: type="single"` — remove `type`, the accordion now defaults to single-select behaviour.
-- `Accordion: type="multiple"` — replace with `multiple` (or omit for the new default of single-select).
+- `Accordion: type="multiple"` — replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
 - `Accordion: collapsible` — removed entirely; single-mode panels are now always collapsible.
 - `Accordion: value` / `defaultValue` — must now always be an array, regardless of `multiple`, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
 - `Accordion: onValueChange` — now always receives an array as its first argument.
@@ -45,7 +45,7 @@ from Radix UI to Base UI internally. The following changes affect consumers:
 
 BREAKING:
   - `Accordion: type="single"` → remove `type`, accordion defaults to single-select behaviour
-  - `Accordion: type="multiple"` → replace with `multiple` (or omit for the new default)
+  - `Accordion: type="multiple"` → replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
   - `Accordion: collapsible` → remove entirely; single-mode panels are now always collapsible
   - `Accordion: value` / `defaultValue` → must now always be an array, e.g.
     `defaultValue="item-1"` becomes `defaultValue={['item-1']}`

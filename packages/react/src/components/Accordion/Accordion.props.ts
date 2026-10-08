@@ -14,5 +14,4 @@ export type AccordionProps = Omit<
      * @default 'h2'
      */
     headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
-    /** When `type` is `single`, allows an expanded item to be collapsed, closing all items. */
   };

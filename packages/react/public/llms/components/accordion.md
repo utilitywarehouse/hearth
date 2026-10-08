@@ -3,9 +3,9 @@
 Use Accordion to let users expand or collapse individual content sections,
 presenting a large amount of information in a compact, organised interface.
 Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
-`AccordionContent` for each disclosure item. The `type` prop is required and
-determines whether one (`single`) or multiple (`multiple`) items can be
-expanded at once.
+`AccordionContent` for each disclosure item. By default only one item can
+be expanded at once — set `multiple` to allow more than one item to be
+expanded simultaneously.
 
 ```tsx
 <Box width="600px">
@@ -83,7 +83,7 @@ However if you need something more custom, you can use the internal subcomponent
 `AccordionHeader` & `AccordionTrigger`, ensuring you wrap the trigger in a header component.
 
 ```tsx
-<Accordion heading="Custom item headers">
+<Accordion multiple heading="Custom item headers">
   <AccordionItem value='item-1'>
     <AccordionHeader>
       <AccordionTrigger>
@@ -101,7 +101,7 @@ However if you need something more custom, you can use the internal subcomponent
 
 ```tsx
 <Box width="600px">
-  <Accordion heading="Custom item headers" helperText="Including a badge, for example">
+  <Accordion multiple heading="Custom item headers" helperText="Including a badge, for example">
     {[1, 2, 3].map(n => (
       <AccordionItem key={n} value={`item-${n}`}>
         <AccordionHeader>
@@ -238,7 +238,7 @@ content is hidden.
 **Breaking changes:**
 
 - `Accordion: type="single"` — remove `type`, the accordion now defaults to single-select behaviour.
-- `Accordion: type="multiple"` — replace with `multiple` (or omit for the new default of single-select).
+- `Accordion: type="multiple"` — replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
 - `Accordion: collapsible` — remove entirely; single-mode panels are now always collapsible.
 - `Accordion: value` / `defaultValue` — must now always be an array, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
 - `Accordion: onValueChange` — now always receives an array as its first argument.
@@ -273,7 +273,7 @@ from Radix UI to Base UI internally. The following changes affect consumers:
 
 BREAKING:
   - `Accordion: type="single"` → remove `type`, accordion defaults to single-select behaviour
-  - `Accordion: type="multiple"` → replace with `multiple` (or omit for the new default)
+  - `Accordion: type="multiple"` → replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
   - `Accordion: collapsible` → remove entirely; single-mode panels are now always collapsible
   - `Accordion: value` / `defaultValue` → must now always be an array, e.g.
     `defaultValue="item-1"` becomes `defaultValue={['item-1']}`
@@ -316,26 +316,26 @@ This component is based on the `div` element and supports the following common p
 
 This component is based on the `div` element.
 
-| Prop             | Type                                                                           | Default | Description                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `style`          | `CSSProperties \| ((state: AccordionItemState) => CSSProperties \| undefined)` | —       | Style applied to the element, or a function that returns a style object based on the component's state.                                                                                                                                                                                                                                                                              |
-| `title`          | `string`                                                                       | —       | Shorthand that renders a default `AccordionHeader` + `AccordionTrigger` composition using this as the heading text. Omit to compose the header manually as children instead.                                                                                                                                                                                                         |
-| `className`      | `string`                                                                       | —       |                                                                                                                                                                                                                                                                                                                                                                                      |
-| `disabled`       | `boolean`                                                                      | `false` | Whether the component should ignore user interaction.                                                                                                                                                                                                                                                                                                                                |
-| `value`          | `any`                                                                          | —       | A unique value that identifies this accordion item. If no value is provided, a unique ID will be generated automatically. Use when controlling the accordion programmatically, or to set an initial open state. @example `tsx <Accordion.Root value={['a']}>   <Accordion.Item value="a" /> // initially open   <Accordion.Item value="b" /> // initially closed </Accordion.Root> ` |
-| `onOpenChange`   | `((open: boolean, eventDetails: AccordionItemChangeEventDetails) => void)`     | —       | Event handler called when the panel is opened or closed.                                                                                                                                                                                                                                                                                                                             |
-| `description`    | `string`                                                                       | —       | Helper text shown below the shorthand `title`.                                                                                                                                                                                                                                                                                                                                       |
-| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"`                                                 | `h3`    | Sets the semantic heading level used for the shorthand header when `title` is set.                                                                                                                                                                                                                                                                                                   |
+| Prop             | Type                                                                       | Default | Description                                                                                                                                                                  |
+| ---------------- | -------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `style`          | `CSSProperties`                                                            | —       |                                                                                                                                                                              |
+| `title`          | `string`                                                                   | —       | Shorthand that renders a default `AccordionHeader` + `AccordionTrigger` composition using this as the heading text. Omit to compose the header manually as children instead. |
+| `className`      | `string`                                                                   | —       |                                                                                                                                                                              |
+| `disabled`       | `boolean`                                                                  | `false` | Whether the component should ignore user interaction.                                                                                                                        |
+| `value`          | `string`                                                                   | —       | A unique value that identifies this accordion item. Used to control which item(s) are expanded via `value`/`defaultValue` on `Accordion`.                                    |
+| `onOpenChange`   | `((open: boolean, eventDetails: AccordionItemChangeEventDetails) => void)` | —       | Event handler called when the panel is opened or closed.                                                                                                                     |
+| `description`    | `string`                                                                   | —       | Helper text shown below the shorthand `title`.                                                                                                                               |
+| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"`                                             | `h3`    | Sets the semantic heading level used for the shorthand header when `title` is set.                                                                                           |
 
 ### AccordionHeader
 
 This component is based on the `h3` element.
 
-| Prop        | Type                                                                             | Default | Description                                                                                             |
-| ----------- | -------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
-| `style`     | `CSSProperties \| ((state: AccordionHeaderState) => CSSProperties \| undefined)` | —       | Style applied to the element, or a function that returns a style object based on the component's state. |
-| `className` | `string`                                                                         | —       |                                                                                                         |
-| `as`        | `"h3" \| "h1" \| "h2" \| "h4"`                                                   | `h3`    | Render the appropriate heading level for your page                                                      |
+| Prop        | Type                           | Default | Description                                        |
+| ----------- | ------------------------------ | ------- | -------------------------------------------------- |
+| `style`     | `CSSProperties`                | —       |                                                    |
+| `className` | `string`                       | —       |                                                    |
+| `as`        | `"h3" \| "h1" \| "h2" \| "h4"` | `h3`    | Render the appropriate heading level for your page |
 
 ### AccordionContent
 
