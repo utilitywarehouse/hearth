@@ -159,31 +159,31 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | HighlightBanner | UWDS-4990 | N/A | Presentational: a styled `Card` with a heading; no prop-driven behaviour |
 | Card | UWDS-4970 | N/A | Presentational: a styled `Flex` container (and `CardInteraction`, `CardContent` etc.); props only affect styling |
 | Table | UWDS-5017 | ✅ | Headers/rows, row headers, pagination paging, ref forwarding for both variants |
-| Avatar | UWDS-4964 | ⏳ | Likely N/A |
-| Badge | UWDS-4965 | ⏳ | Likely N/A |
-| BodyText | UWDS-4966 | ⏳ | Likely N/A |
-| Box | UWDS-4967 | ⏳ | Likely N/A |
-| Container | UWDS-4977 | ⏳ | Likely N/A |
-| DescriptionList | UWDS-4981 | ⏳ | Likely N/A |
-| DetailText | UWDS-4982 | ⏳ | Likely N/A |
-| Divider | UWDS-4983 | ⏳ | Likely N/A |
-| Em | UWDS-4984 | ⏳ | Likely N/A |
-| Flex | UWDS-4986 | ⏳ | Likely N/A |
-| Grid | UWDS-4987 | ⏳ | Likely N/A |
-| Heading | UWDS-4988 | ⏳ | Likely N/A |
-| HelperText | UWDS-4989 | ⏳ | Likely N/A |
-| IconContainer | UWDS-4992 | ⏳ | Likely N/A |
-| Label | UWDS-4994 | ⏳ | Likely N/A |
-| List | UWDS-4996 | ⏳ | Likely N/A |
-| ProgressBar | UWDS-5001 | ⏳ | Likely N/A |
-| ProgressStepper | UWDS-5002 | ⏳ | Likely N/A |
-| SectionHeader | UWDS-5008 | ⏳ | Likely N/A |
-| SkeletonBodyText | UWDS-5011 | ⏳ | Likely N/A |
-| SkeletonBox | UWDS-5012 | ⏳ | Likely N/A |
-| SkeletonHeading | UWDS-5013 | ⏳ | Likely N/A |
-| Spinner | UWDS-5014 | ⏳ | Likely N/A |
-| Strong | UWDS-5015 | ⏳ | Likely N/A |
-| ValidationText | UWDS-5026 | ⏳ | Likely N/A |
+| Avatar | UWDS-4964 | ✅ | Initials from first and last names, icon fallback |
+| Badge | UWDS-4965 | N/A | Presentational: styled label text |
+| BodyText | UWDS-4966 | N/A | Presentational: typography |
+| Box | UWDS-4967 | N/A | Presentational: layout primitive |
+| Container | UWDS-4977 | N/A | Presentational: layout primitive |
+| DescriptionList | UWDS-4981 | N/A | Presentational: static term/detail markup |
+| DetailText | UWDS-4982 | N/A | Presentational: typography |
+| Divider | UWDS-4983 | ✅ | `decorative` hidden, vertical `aria-orientation`, invalid orientation fallback |
+| Em | UWDS-4984 | N/A | Presentational: typography |
+| Flex | UWDS-4986 | N/A | Presentational: layout primitive |
+| Grid | UWDS-4987 | N/A | Presentational: layout primitive |
+| Heading | UWDS-4988 | N/A | Presentational: typography |
+| HelperText | UWDS-4989 | N/A | Presentational: typography |
+| IconContainer | UWDS-4992 | N/A | Presentational: styled icon wrapper |
+| Label | UWDS-4994 | N/A | Presentational: styled label; association tested via form controls |
+| List | UWDS-4996 | ✅ | Named by heading or `aria-label`, disabled buttons inert, no form submit |
+| ProgressBar | UWDS-5001 | ✅ | Clamping, `success` forces max, `formatValueText`, circular label |
+| ProgressStepper | UWDS-5002 | ✅ | Active step inert, disabled link/button, no form submit |
+| SectionHeader | UWDS-5008 | N/A | Presentational: heading, helper and trailing content layout |
+| SkeletonBodyText | UWDS-5011 | ✅ | `Skeleton` loading announcement and hidden placeholder, `lines` |
+| SkeletonBox | UWDS-5012 | N/A | Presentational: placeholder shape |
+| SkeletonHeading | UWDS-5013 | N/A | Presentational: placeholder shape |
+| Spinner | UWDS-5014 | N/A | Presentational: decorative indicator |
+| Strong | UWDS-5015 | N/A | Presentational: typography |
+| ValidationText | UWDS-5026 | N/A | Presentational: status icon and text; wiring tested via form controls |
 
 ### LLM docs
 
