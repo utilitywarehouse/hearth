@@ -509,7 +509,11 @@ the alignment props to any `alignSelf` value (`'flex-start'`, `'center'`, `'flex
 transaction amounts are centred in the design system, so set `trailingContentAlignment="center"` for them.
 
 For any other overrides, pass a `style` through `leadingContentProps`, `contentProps` or `trailingContentProps`; it
-takes precedence over the alignment props. If you compose the parts yourself, pass the `style` to the part directly.
+takes precedence over the alignment props.
+
+If you compose the parts yourself, the alignment props on `ListItem` still apply to `ListItemLeadingContent`,
+`ListItemContent` and `ListItemTrailingContent`. To override one part, pass an `alignment` prop to it, which takes
+precedence over the `ListItem` prop. A `style` passed to the part takes precedence over both.
 
 <UsageWrap>
   <List>
