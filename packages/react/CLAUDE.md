@@ -144,9 +144,9 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | TextInput | UWDS-5020 | ✅ | Name/description/placeholder, typing, disabled/read-only, validation; hidden validation not invalid |
 | TextArea | UWDS-5019 | ✅ | Same as TextInput, plus rows and multi-line input. `Controlled` stays `!test` |
 | PasswordInput | UWDS-5000 | ✅ | Show/hide toggle and announcements, disabled toggle inert, hidden again on form submit |
-| SearchInput | UWDS-5007 | ⏳ | |
-| CurrencyInput | UWDS-4978 | ⏳ | |
-| VerificationInput | UWDS-5027 | ⏳ | |
+| SearchInput | UWDS-5007 | ✅ | Clear button shows only with `onClear` and a value, clears and refocuses; disabled clear inert |
+| CurrencyInput | UWDS-4978 | ✅ | Formatting, sanitising, decimal limit, raw `onChange` value, `defaultValue`. onChange event bug held as expected failure (UWDS-5156) |
+| VerificationInput | UWDS-5027 | ✅ | Six inputs, typed value, password masking, invalid state; hidden validation not invalid |
 | Button | UWDS-4969 | ⏳ | |
 | IconButton | UWDS-4991 | ⏳ | |
 | UnstyledIconButton | UWDS-5025 | ⏳ | |
