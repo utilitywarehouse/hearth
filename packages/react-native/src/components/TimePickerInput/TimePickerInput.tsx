@@ -205,7 +205,7 @@ const TimePickerInput = ({
         style={styles.wrap}
         accessible={false}
       >
-        <Pressable
+        <Pressable accessibilityRole="button"
           style={styles.fieldPressable}
           disabled={!disableManualEntry || isDisabled || isReadonly}
           onPress={openPicker}

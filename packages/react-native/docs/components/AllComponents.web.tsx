@@ -139,7 +139,7 @@ const ComponentWrapper = ({
   return (
     <View style={styles.component}>
       <View style={styles.componentWrap}>{children}</View>
-      <Pressable style={styles.textWrap} onPress={navigate}>
+      <Pressable accessibilityRole="button" style={styles.textWrap} onPress={navigate}>
         <BodyText style={styles.text} weight="semibold">
           {name}
         </BodyText>
