@@ -79,6 +79,7 @@ export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
       </div>
       {onClose ? (
         <UnstyledIconButton
+          type="button"
           onClick={onClose}
           className={`${componentClassName}CloseButton`}
           title="Close"
