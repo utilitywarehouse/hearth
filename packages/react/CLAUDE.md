@@ -137,10 +137,10 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 | RadioGroup | UWDS-5005 | ✅ | Default/controlled value and description, validation, disabled items and group |
 | RadioCard | UWDS-5004 | ✅ | Name from label, selection via label; inner label now a `span` |
 | RadioTile | UWDS-5006 | ✅ | Selection via label, helper and consumer descriptions; inner label now a `span` |
-| Switch | UWDS-5016 | ⏳ | |
-| SegmentedControl | UWDS-5009 | ⏳ | |
-| ToggleButton | UWDS-5022 | ⏳ | |
-| ToggleButtonCard | UWDS-5023 | ⏳ | |
+| Switch | UWDS-5016 | ✅ | Toggle via control and label, disabled stays focusable but inert (incl. callback refs) |
+| SegmentedControl | UWDS-5009 | ✅ | Default and single selection, disabled options and control |
+| ToggleButton | UWDS-5022 | ✅ | Single (radio) and multiple (pressed) selection |
+| ToggleButtonCard | UWDS-5023 | ✅ | `aria-labelledby`/`aria-describedby` forwarded to the toggle button |
 | TextInput | UWDS-5020 | ⏳ | |
 | TextArea | UWDS-5019 | ⏳ | |
 | PasswordInput | UWDS-5000 | ⏳ | |
