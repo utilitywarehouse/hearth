@@ -9,6 +9,83 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.38.2
+
+### Patch Changes
+
+- [#1677](https://github.com/utilitywarehouse/hearth/pull/1677) [`7c86122`](https://github.com/utilitywarehouse/hearth/commit/7c86122152fb8ae093b3b028660ad9515aba47ef) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ListItem` alignment props are respected when composing with child components
+  
+  The `leadingContentAlignment`, `contentAlignment` and `trailingContentAlignment` props now apply when `ListItem` is
+  used with `children`. `ListItemLeadingContent`, `ListItemContent` and `ListItemTrailingContent` also accept an
+  `alignment` prop, which overrides the `ListItem` prop for that part.
+  
+  **Components affected**:
+  - `ListItem`
+  - `ListItemLeadingContent`
+  - `ListItemContent`
+  - `ListItemTrailingContent`
+  
+  **Developer changes**:
+  
+  No action is required. To override the alignment of one part:
+  
+  ```tsx
+  <ListItem onPress={onPress}>
+    <ListItemLeadingContent alignment="center">...</ListItemLeadingContent>
+    <ListItemContent>...</ListItemContent>
+    <ListItemTrailingContent alignment="center">...</ListItemTrailingContent>
+  </ListItem>
+  ```
+
+- [#1656](https://github.com/utilitywarehouse/hearth/pull/1656) [`4241cfc`](https://github.com/utilitywarehouse/hearth/commit/4241cfc54d0cbffd7fcf3e23cc79ec2c55583522) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` can be dismissed by pressing the backdrop while `loading`
+  
+  The `Modal` now ignores backdrop presses while `loading` is `true`.
+  
+  A new `closeOnBackdropPress` prop controls this behaviour. It defaults to
+  `true`, or `false` while `loading`. A custom `backdrop` takes precedence over
+  this prop. Other ways to close the modal, such as swiping down or the Android
+  back button, are unchanged.
+  
+  **Components affected**:
+  - `Modal`
+  
+  **Developer changes**:
+  
+  No action is required. To keep a modal open when the backdrop is pressed, or to
+  allow backdrop presses while loading, set the prop explicitly:
+  
+  ```tsx
+  <Modal ref={modalRef} closeOnBackdropPress={false}>
+    ...
+  </Modal>
+  ```
+
+- [#1670](https://github.com/utilitywarehouse/hearth/pull/1670) [`7c8ab26`](https://github.com/utilitywarehouse/hearth/commit/7c8ab2680404b4667b61c1540ef7cc083d744efb) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Animated components support reduced motion
+  
+  Animated components now respect the system Reduce Motion setting, and the
+  `ReducedMotionConfig` override from `react-native-reanimated`. When reduced
+  motion is on, they skip their animation and render the final state straight
+  away.
+  
+  **Components affected**:
+  - `Spinner`: shows a static arc instead of the looping animation
+  - `Skeleton`: no pulsing
+  - `VerificationInput`: the caret is solid instead of blinking
+  - `Expandable`, and so `ExpandableCard`: no height or opacity animation
+  - `Toast`: no slide-in, slide-out or spring-back
+  - `Carousel`: no animated scroll on mount or when the active item changes, and
+    `scrollToIndex` and `scrollToOffset` default to `animated: false`. An explicit
+    `animated` value still wins.
+  - `Tabs`: the scroll arrows jump instead of scrolling smoothly
+  - `CarouselItem`: no opacity fade between active and inactive
+  
+  `BottomSheet`, `BottomSheetModal`, `Modal`, `NavModal` and `Menu` need no change:
+  `@gorhom/bottom-sheet` already follows the reduced motion setting.
+  
+  **Developer changes**:
+  
+  No action is required.
+
 ## 0.38.1
 
 ### Patch Changes

@@ -4,12 +4,330 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.34.5
+
+### Patch Changes
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Alert` close button submits a surrounding form
+  
+  The close button shown when `onClose` is set had no `type`, so it defaulted
+  to `type="submit"` and submitted any form the `Alert` was in. It now has
+  `type="button"`.
+  
+  **Components affected**:
+  
+  - `Alert`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Checkbox` and `CheckboxTile` lose their accessible name when given `aria-labelledby`
+  
+  - An `aria-labelledby` passed by consumers was replaced with the ID of the
+    component's own label, so a `Checkbox` or `CheckboxTile` labelled externally
+    (without `label`) had no accessible name. The consumer's value is now used,
+    matching `Radio` and `RadioTile`.
+  - An invalid `Checkbox` or `CheckboxTile` now sets `aria-invalid` whenever
+    `validationStatus` is `invalid`, even without `validationText`, and only
+    references its validation text from `aria-describedby`/`aria-errormessage`
+    when it's rendered (a `Checkbox` without a `label` doesn't render it).
+  - Inside a `CheckboxGroup` with its own `helperText`, an item's hidden
+    `helperText` is no longer referenced by `aria-describedby`.
+  - `CheckboxTile` rendered a `label` nested inside its outer `label`, which is
+    invalid HTML. The inner label is now a `span`.
+  
+  **Components affected**:
+  
+  - `Checkbox`
+  - `CheckboxTile`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled or read-only `DatePicker` announced as invalid while its validation text is hidden
+  
+  A `disabled` or `readOnly` `DatePicker` hides its validation text, but its
+  trigger still set `aria-invalid` and `aria-errormessage` when
+  `validationStatus` was `invalid`. These are now only set when the validation
+  text is shown.
+  
+  **Components affected**:
+  
+  - `DatePicker`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled or loading `Button`, `IconButton` and `UnstyledIconButton` still submit forms and follow links
+  
+  These buttons use `aria-disabled` instead of the native `disabled` attribute
+  so they stay focusable. That only removed their `onClick` handler and didn't
+  cancel the browser's default action, so a disabled or loading
+  `type="submit"` button still submitted its form (by click, or by pressing
+  Enter in a field), and a disabled or loading `asChild` link still navigated.
+  The default action of clicks and middle-clicks is now cancelled while disabled
+  or loading.
+  
+  `UnstyledIconButton` also no longer calls `onClick` while `loading`,
+  matching `Button` and `IconButton`.
+  
+  **Components affected**:
+  
+  - `Button`
+  - `IconButton`
+  - `UnstyledIconButton`
+  
+  **Developer changes**:
+  
+  No changes required. A disabled `asChild` link can still be opened from the
+  browser's context menu, so remove its `href` while disabled if that matters.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Consumer `aria-describedby` and `aria-errormessage` dropped by form groups, and `DateInput` month segment accepts unlimited digits
+  
+  - `DateInput`, `CheckboxGroup` and `RadioGroup` replaced an `aria-describedby`
+    passed by consumers with the helper text's ID, and pointed at a helper text
+    element that wasn't rendered when no `helperText` was set. The consumer's
+    value is now kept alongside the helper and validation text.
+  - They likewise replaced a consumer `aria-errormessage` with the validation
+    text's ID, even when no validation text was shown. The consumer's value is
+    now used as-is.
+  - The `DateInput` month segment now accepts at most 2 characters, matching
+    the day segment.
+  
+  **Components affected**:
+  
+  - `DateInput`
+  - `CheckboxGroup`
+  - `RadioGroup`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Pagination` and `Tabs` buttons submit a surrounding form
+  
+  `Pagination`'s page and navigation buttons, `TabsList`'s scroll buttons and
+  `DatePicker`'s calendar header buttons had no `type`, so they defaulted to
+  `type="submit"`. Inside a `form`, clicking them submitted it. For `DatePicker`
+  this only applied when the calendar renders inside the form (for example with
+  `inline`), as it's portaled out of it by default. They now have
+  `type="button"`.
+  
+  **Components affected**:
+  
+  - `Pagination`
+  - `Tabs`
+  - `DatePicker`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `ListItemButton`, `ListActionButton` and `ProgressStepButton` submit a surrounding form
+  
+  These rendered a `button` without a `type`, so it defaulted to
+  `type="submit"`. Inside a `form`, clicking one, even while `disabled`,
+  submitted it. They now default to `type="button"`, and you can still pass
+  `type` to override it.
+  
+  **Components affected**:
+  
+  - `List` (`ListItemButton`, `ListActionButton`)
+  - `ProgressStepper` (`ProgressStepButton`)
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `PasswordInput` doesn't announce the password being hidden again when toggled quickly
+  
+  Showing and then hiding the password within 1.5 seconds cleared the
+  screen-reader announcement instead of updating it, so "Your password is
+  hidden!" was never announced. Each toggle now announces the current state.
+  
+  **Components affected**:
+  
+  - `PasswordInput`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `RadioCard` and `RadioTile` render a `label` inside their radio button
+  
+  `RadioCard` and `RadioTile` rendered their label as a `label` element inside
+  the radio's `button`, which is invalid HTML (interactive content inside a
+  button). The label is now a `span`. Its text still names the radio via
+  `aria-labelledby`, and clicking it still selects the option.
+  
+  **Components affected**:
+  
+  - `RadioCard`
+  - `RadioTile`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `aria-describedby` passed to `Radio`, `RadioTile`, `Checkbox` or `CheckboxTile` ignored
+  
+  These components overwrote an `aria-describedby` passed by consumers with
+  their own helper, validation or group text IDs. The consumer's value is now
+  kept alongside them.
+  
+  **Components affected**:
+  
+  - `Radio`
+  - `RadioTile`
+  - `Checkbox`
+  - `CheckboxTile`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `SearchInput` shows a clear button that does nothing when `onClear` isn't set
+  
+  The clear button appeared whenever `SearchInput` had a value, even without
+  an `onClear` handler, so clicking it had no effect. As documented, it now
+  only appears when `onClear` is provided.
+  
+  **Components affected**:
+  
+  - `SearchInput`
+  
+  **Developer changes**:
+  
+  If you rely on the clear button, make sure you pass `onClear`.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Select` and `Combobox` helper and validation text not announced by screen readers
+  
+  The `Select` trigger and `Combobox` input are now described by their
+  `helperText` and `validationText` via `aria-describedby`, and set
+  `aria-invalid` and `aria-errormessage` when `validationStatus` is `invalid`,
+  matching `TextInput`. A disabled field, which hides its validation text, is
+  no longer marked invalid. Both now also keep an `aria-describedby` passed by
+  consumers, which was previously dropped.
+  
+  **Components affected**:
+  
+  - `Select`
+  - `Combobox`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled `Switch` still toggles when given a callback `ref`
+  
+  A disabled `Switch` blocked clicks through a listener attached via its
+  `ref`, which only worked for object refs. With a callback ref (for example
+  from a merged-refs helper or a form library), clicking a disabled,
+  uncontrolled `Switch` still toggled it. Clicks are now blocked regardless of
+  the kind of `ref`, and the `Switch` stays focusable when disabled.
+  
+  A disabled `Switch` also no longer calls a consumer `onClick`, matching its
+  docs and `Button`.
+  
+  **Components affected**:
+  
+  - `Switch`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Table` doesn't forward its `ref` without a `variant`
+  
+  A `ref` passed to `Table` only reached the `table` element when `variant`
+  was set. With the default variant it stayed `null`. It's now forwarded in
+  both cases.
+  
+  **Components affected**:
+  
+  - `Table`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled or read-only `TextInput` and `TextArea` announced as invalid while their validation text is hidden
+  
+  A `disabled` or `readOnly` `TextInput` or `TextArea` hides its validation
+  text, but still set `aria-invalid` and `aria-errormessage` when
+  `validationStatus` was `invalid`. These are now only set when the validation
+  text is shown, matching `Select`, `Combobox` and `DatePicker`. This also
+  applies to `PasswordInput`, `SearchInput` and `CurrencyInput`, which are
+  built on `TextInput`.
+  
+  **Components affected**:
+  
+  - `TextInput`
+  - `TextArea`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `ToastProvider` viewport props such as `className` and `style` ignored
+  
+  `ToastProvider` accepts the toast viewport's props, but they were passed to
+  the context-only provider and never reached the rendered viewport. They now
+  apply to the viewport, with `className` merged alongside the default class.
+  
+  **Components affected**:
+  
+  - `ToastProvider`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Form fields reference validation text that isn't rendered
+  
+  Validation text only renders when both `validationStatus` and
+  `validationText` are set. These fields still pointed `aria-describedby` at it
+  when only `validationText` was set, and `aria-errormessage` at it when only
+  `validationStatus="invalid"` was set, leaving references to an element that
+  doesn't exist. They now only reference it when it's rendered.
+  `aria-invalid` is still set for an invalid field without validation text.
+  
+  **Components affected**:
+  
+  - `TextInput` (and `PasswordInput`, `SearchInput`, `CurrencyInput`)
+  - `TextArea`
+  - `Select`
+  - `Combobox`
+  - `DatePicker`
+  - `VerificationInput`
+  
+  **Developer changes**:
+  
+  No changes required.
+
+- [#1674](https://github.com/utilitywarehouse/hearth/pull/1674) [`469269d`](https://github.com/utilitywarehouse/hearth/commit/469269d3d1dbc9d7e41093826d3f95f5ec7f1234) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled or read-only `VerificationInput` announced as invalid while its validation text is hidden
+  
+  A `disabled` or `readOnly` `VerificationInput` hides its validation text, but
+  still set `aria-invalid` and `aria-errormessage` when `validationStatus` was
+  `invalid`. These are now only set when the validation text is shown.
+  
+  **Components affected**:
+  
+  - `VerificationInput`
+  
+  **Developer changes**:
+  
+  No changes required.
+
 ## 0.34.4
 
 ### Patch Changes
 
 - [#1633](https://github.com/utilitywarehouse/hearth/pull/1633) [`189ee8c`](https://github.com/utilitywarehouse/hearth/commit/189ee8c2302ab5ef8a456742cf52b971f5cd6605) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Excess space below a full-screen `Modal` with a single-button footer
-
+  
   The scrollable content area in a full-screen `Modal` reserved a fixed
   proportion of the viewport height for the header and footer on mobile,
   assuming a two-button footer. With a single-button footer this left a large
