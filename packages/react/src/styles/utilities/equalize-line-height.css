@@ -1,3 +1,9 @@
-:where([data-equalize-line-height]) {
+/*
+ * Not wrapped in :where() like other utilities here — component line-height
+ * rules (e.g. `.h-DetailText:where(.h-r-size-4xl)`) have specificity (0,1,0)
+ * from their leading class, so this needs the same specificity to win via
+ * cascade order (this file imports after component styles).
+ */
+[data-equalize-line-height] {
   line-height: 1;
 }
