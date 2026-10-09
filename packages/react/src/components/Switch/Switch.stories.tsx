@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { Switch } from './Switch';
@@ -108,19 +108,34 @@ export const Disabled: Story = {
   },
 };
 
-/** Test-only: a disabled Switch stays off when given a callback ref. */
+const onDisabledClick = fn<() => void>();
+const onDisabledCheckedChange = fn<(checked: boolean) => void>();
+
+/** Test-only: a disabled Switch stays off and calls no handlers, even when given a callback ref. */
 export const DisabledWithCallbackRef: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
   },
-  render: () => <Switch label="Callback ref" disabled ref={() => {}} />,
+  render: () => (
+    <Switch
+      label="Callback ref"
+      disabled
+      ref={() => {}}
+      onClick={onDisabledClick}
+      onCheckedChange={onDisabledCheckedChange}
+    />
+  ),
   play: async ({ canvasElement }) => {
+    onDisabledClick.mockClear();
+    onDisabledCheckedChange.mockClear();
     const control = within(canvasElement).getByRole('switch', { name: 'Callback ref' });
 
     await userEvent.click(control);
     await expect(control).not.toBeChecked();
+    await expect(onDisabledClick).not.toHaveBeenCalled();
+    await expect(onDisabledCheckedChange).not.toHaveBeenCalled();
     control.blur();
   },
 };

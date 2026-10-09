@@ -45,10 +45,11 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
   // still be focused with a keyboard. Radix skips toggling when the click is
   // default-prevented, which keeps a disabled Switch from changing state.
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-    onClick?.(event);
     if (disabled) {
       event.preventDefault();
+      return;
     }
+    onClick?.(event);
   };
 
   return (
