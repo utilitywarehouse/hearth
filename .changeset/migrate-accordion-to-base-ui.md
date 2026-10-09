@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react': major
 ---
 
-💔 [BREAKING CHANGE]: Migrate `Accordion` from Radix UI to Base UI
+💔 [BREAKING CHANGE]: `Accordion` `type` prop replaced by `multiple`; `collapsible` removed; `value`/`defaultValue`/`onValueChange` always arrays; `AccordionContent` `forceMount` removed
 
 `Accordion` now uses Base UI internally instead of Radix UI. This brings a
 simpler, more robust height-animation implementation, but changes a few parts
