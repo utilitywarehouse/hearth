@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { Grid } from '../Grid/Grid';
 import { InlineLink } from '../InlineLink/InlineLink';
@@ -190,4 +191,49 @@ export const StaticAlert: Story = {
       This alert is completely static with no interactive elements.
     </Alert>
   ),
+};
+
+const onAlertClose = fn<() => void>();
+const onAlertFormSubmit = fn<() => void>();
+
+/** Test-only: the close button only appears with onClose, calls it, and doesn't submit a surrounding form. */
+export const CloseButton: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          onAlertFormSubmit();
+        }}
+      >
+        <Alert
+          colorScheme="danger"
+          title="Dismissable"
+          text="Has a close button"
+          onClose={onAlertClose}
+        />
+      </form>
+      <Alert title="Not dismissable" text="Has no close button" />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    onAlertClose.mockClear();
+    onAlertFormSubmit.mockClear();
+    const canvas = within(canvasElement);
+    const [dismissable, notDismissable] = canvas.getAllByRole('alert');
+
+    await expect(dismissable).toHaveAttribute('data-colorscheme', 'danger');
+    await expect(notDismissable).toHaveAttribute('data-colorscheme', 'info');
+    await expect(within(notDismissable!).queryByRole('button')).not.toBeInTheDocument();
+
+    await userEvent.click(within(dismissable!).getByRole('button', { name: 'Close alert' }));
+    await expect(onAlertClose).toHaveBeenCalledOnce();
+    await expect(onAlertFormSubmit).not.toHaveBeenCalled();
+    (document.activeElement as HTMLElement | null)?.blur();
+  },
 };

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { BreadcrumbItem } from './BreadcrumbItem';
 import { Breadcrumbs } from './Breadcrumbs';
@@ -48,5 +49,15 @@ export const KitchenSink: Story = {
         </Flex>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const [breadcrumbs] = within(canvasElement).getAllByRole('navigation', { name: 'breadcrumbs' });
+    const trail = within(breadcrumbs!);
+    const current = breadcrumbs!.querySelector('[aria-current="page"]');
+
+    await expect(trail.getAllByRole('link')).toHaveLength(4);
+    await expect(current).not.toBeNull();
+    await expect(current!.querySelector('a')).toBeNull();
+    await expect(breadcrumbs!.querySelectorAll('li[aria-hidden]')).toHaveLength(4);
   },
 };

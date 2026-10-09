@@ -65,8 +65,12 @@ export const VerificationInput = forwardRef<VerificationInputElement, Verificati
     const ariaDescribedbyValue = mergeIds(
       ariaDescribedby,
       !!helperText ? helperTextId : undefined,
-      showValidation && validationText !== undefined ? validationTextId : undefined
+      showValidation && validationStatus !== undefined && validationText !== undefined
+        ? validationTextId
+        : undefined
     );
+
+    const isInvalid = showValidation && validationStatus === 'invalid';
 
     const PASSWORD_LENGTH = 6;
 
@@ -83,8 +87,10 @@ export const VerificationInput = forwardRef<VerificationInputElement, Verificati
           readOnly={readOnly}
           aria-labelledby={labelId}
           aria-describedby={ariaDescribedbyValue}
-          aria-invalid={validationStatus === 'invalid' ? true : undefined}
-          aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+          aria-invalid={isInvalid ? true : undefined}
+          aria-errormessage={
+            isInvalid && validationText !== undefined ? validationTextId : undefined
+          }
           data-validation-status={showValidation ? validationStatus : undefined}
           {...verificationInputProps}
         >

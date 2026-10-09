@@ -35,7 +35,9 @@ export const Table = forwardRef<TableElement, TableProps>((props, ref) => {
         data-testid={componentClassName}
         style={style}
       >
-        <table {...tableProps}>{children}</table>
+        <table ref={ref} {...tableProps}>
+          {children}
+        </table>
         {pagination}
       </div>
     );

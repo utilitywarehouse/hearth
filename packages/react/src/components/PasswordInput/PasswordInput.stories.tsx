@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { PasswordInput } from './PasswordInput';
 import { useState, ChangeEvent } from 'react';
@@ -69,9 +70,26 @@ export const KitchenSink: Story = {
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => <PasswordInput {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(/^Password/, { selector: 'input' });
+    const toggle = canvas.getByRole('button', { name: 'toggle password visibility' });
+
+    await expect(input).toHaveAttribute('type', 'password');
+    await expect(toggle).toHaveAttribute('aria-pressed', 'false');
+
+    await userEvent.click(toggle);
+    await expect(input).toHaveAttribute('type', 'text');
+    await expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    await expect(canvas.getByRole('status')).toHaveTextContent('Your password is shown!');
+
+    await userEvent.click(toggle);
+    await expect(input).toHaveAttribute('type', 'password');
+    await expect(canvas.getByRole('status')).toHaveTextContent('Your password is hidden!');
+    toggle.blur();
+  },
 };
 
 /** Set disabled or readOnly to control whether the password can be edited. */
@@ -79,7 +97,6 @@ export const DisabledAndReadOnly: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => (
     <Flex direction="column" gap="400">
@@ -92,6 +109,20 @@ export const DisabledAndReadOnly: Story = {
       <PasswordInput {...args} label="Read only" readOnly value="password123" />
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(/^Disabled/, { selector: 'input' });
+    const [disabledToggle] = canvas.getAllByRole('button', {
+      name: 'toggle password visibility',
+    });
+
+    await expect(disabledToggle).toHaveAttribute('aria-disabled', 'true');
+
+    await userEvent.click(disabledToggle!);
+    await expect(input).toHaveAttribute('type', 'password');
+    await expect(disabledToggle).toHaveAttribute('aria-pressed', 'false');
+    disabledToggle!.blur();
+  },
 };
 
 /** Set validationStatus and validationText to show valid or invalid feedback below the field. */
@@ -127,7 +158,6 @@ export const FormUsage: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     const [value, setValue] = useState<string>('password123');
@@ -158,5 +188,19 @@ export const FormUsage: Story = {
         </Flex>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText(/^Inside form/, { selector: 'input' });
+    const toggle = within(input.closest('form')!).getByRole('button', {
+      name: 'toggle password visibility',
+    });
+
+    await userEvent.click(toggle);
+    await expect(input).toHaveAttribute('type', 'text');
+
+    await userEvent.type(input, '{Enter}');
+    await expect(input).toHaveAttribute('type', 'password');
+    input.blur();
   },
 };

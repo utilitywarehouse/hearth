@@ -9,6 +9,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
+import { mergeIds } from '../../helpers/merge-ids';
 import { HelperText } from '../HelperText/HelperText';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
@@ -36,6 +37,7 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
       labelFontWeight,
       disabled,
       'aria-labelledby': ariaLabelledby,
+      'aria-describedby': consumerAriaDescribedby,
       ...props
     },
     ref
@@ -62,7 +64,10 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
             // items, which is the expected behavior for radio groups.
             disabled={disabled}
             id={id}
-            aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+            aria-describedby={mergeIds(
+              consumerAriaDescribedby,
+              showHelperText ? helperTextId : ariaDescribedby
+            )}
             aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
             className={`${componentClassName}Item`}
           >

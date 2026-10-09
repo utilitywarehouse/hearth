@@ -73,7 +73,7 @@ export const DatePickerHeader = ({
       data-disable-today-indicator={disableTodayIndicator ? '' : undefined}
     >
       <BodyText asChild size="md" weight="semibold">
-        <button className={`${componentClassName}MonthButton`} onClick={onClick}>
+        <button type="button" className={`${componentClassName}MonthButton`} onClick={onClick}>
           {buttonText[view]}
           {view === 'days' ? (
             <ChevronDownSmallIcon aria-hidden />
@@ -85,10 +85,20 @@ export const DatePickerHeader = ({
 
       {view !== 'months' ? (
         <div className={`${componentClassName}Control`}>
-          <UnstyledIconButton onClick={handlePrevClick} disabled={isPrevDisabled} label={prevLabel}>
+          <UnstyledIconButton
+            type="button"
+            onClick={handlePrevClick}
+            disabled={isPrevDisabled}
+            label={prevLabel}
+          >
             <ChevronLeftSmallIcon />
           </UnstyledIconButton>
-          <UnstyledIconButton onClick={handleNextClick} disabled={isNextDisabled} label={nextLabel}>
+          <UnstyledIconButton
+            type="button"
+            onClick={handleNextClick}
+            disabled={isNextDisabled}
+            label={nextLabel}
+          >
             <ChevronRightSmallIcon />
           </UnstyledIconButton>
         </div>

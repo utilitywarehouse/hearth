@@ -57,9 +57,11 @@ Disabled buttons use `aria-disabled`, rather than `disabled`, so that they are
 still focusable when using the keyboard. This means that screen readers are
 still able to find the button, with the insight that it is disabled and that
 there is perhaps an action which needs to be taken, rather than not knowing
-there is a button there at all. The `onClick` handler will be disabled, however
-you will need to make sure you disable any other expected actions, including
-when using `type="submit"`.
+there is a button there at all. While disabled or `loading`, the button's
+`onClick` handler isn't called and its default action is cancelled, so a
+`type="submit"` button won't submit its form and an `asChild` link won't
+navigate on click or middle-click. A link can still be opened from the browser's
+context menu, so remove its `href` while disabled if that matters.
 
 ## Size
 

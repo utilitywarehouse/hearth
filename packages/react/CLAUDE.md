@@ -112,6 +112,79 @@ See the `react-component-addition` skill for the full authoring rules: PropDef s
 - Accessibility: axe (`@storybook/addon-a11y`) runs on every story, non-blocking (`'todo'`) on PRs; it fails only in the weekly `a11y-weekly.yml` run (`VITE_A11Y_STRICT=true`). To opt out, add `data-a11y-ignore` to story scaffolding or set `parameters.a11y` — see [`scripts/a11y-report/README.md`](../../scripts/a11y-report/README.md).
 - Stories pattern: `src/**/*.stories.tsx`.
 
+### Interaction test coverage
+
+`play`-function coverage per component, tracked under UWDS-4962, in priority order (interactive first). Use the `react-interaction-tests` skill. ✅ covered · ⏳ to do · N/A presentational, no prop-driven behaviour to test (reason given). Known component bugs found by these tests are logged in `component-bugs.md` at the repo root.
+
+| Component | Sub-issue | Status | Notes |
+|-----------|-----------|--------|-------|
+| Accordion | UWDS-4957 | ✅ | Reference implementation |
+| Tabs | UWDS-5018 | ✅ | Selection, indicator sync, overflow scroll buttons, controlled value |
+| Select | UWDS-5010 | ✅ | Label wiring, default/selected value, disabled hides validation |
+| Combobox | UWDS-4976 | ✅ | `items` rendering, `triggerOnlyOnType`, disabled hides validation |
+| Menu | UWDS-4997 | ✅ | `asChild` links, `colorScheme`, close + focus return, `keepMounted`, deprecated `onSelect`/`forceMount` |
+| Modal | UWDS-4998 | ✅ | Label/description wiring, close + focus return, `hideCloseButton`, `loading` and its fallbacks |
+| Tooltip | UWDS-5024 | ✅ | Opens on focus with description linked to trigger, `heading`, `defaultOpen`/`open` |
+| Toast | UWDS-5021 | ✅ | Dismiss button, `ToastActionButton`, stacked toasts, `ToastProvider` viewport props |
+| DatePicker | UWDS-4980 | ✅ | Date format, week start, days/months/years view cycling and reset, disabled state |
+| DateInput | UWDS-4979 | ✅ | Group label/description, invalid state, disabled, segment max lengths, `hide*` props, consumer `aria-describedby` |
+| CardAccordion | UWDS-4971 | ✅ | Next/Previous/Edit step flow, summaries, focus on new step. `Playground` stays `!test` (reason unknown) |
+| ExpandableCard | UWDS-4985 | ✅ | Heading/helper/badge/numeric value in trigger name, expand and collapse |
+| Checkbox | UWDS-4972 | ✅ | Name/description, toggle via box and label, controlled, external `aria-labelledby`, invalid, group helper text |
+| CheckboxGroup | UWDS-4973 | ✅ | Group label/description, `defaultValue`, value changes, validation, disabled group |
+| CheckboxTile | UWDS-4974 | ✅ | Same as Checkbox; inner label now a `span` (no nested labels) |
+| Radio | UWDS-5003 | ✅ | Selection via label, helper text, disabled, external `aria-labelledby`/`aria-describedby`, group helper text. `Playground` stays `!test` |
+| RadioGroup | UWDS-5005 | ✅ | Default/controlled value and description, validation, disabled items and group |
+| RadioCard | UWDS-5004 | ✅ | Name from label, selection via label; inner label now a `span` |
+| RadioTile | UWDS-5006 | ✅ | Selection via label, helper and consumer descriptions; inner label now a `span` |
+| Switch | UWDS-5016 | ✅ | Toggle via control and label, disabled stays focusable but inert (incl. callback refs) |
+| SegmentedControl | UWDS-5009 | ✅ | Default and single selection, disabled options and control |
+| ToggleButton | UWDS-5022 | ✅ | Single (radio) and multiple (pressed) selection |
+| ToggleButtonCard | UWDS-5023 | ✅ | `aria-labelledby`/`aria-describedby` forwarded to the toggle button |
+| TextInput | UWDS-5020 | ✅ | Name/description/placeholder, typing, disabled/read-only, validation; hidden validation not invalid |
+| TextArea | UWDS-5019 | ✅ | Same as TextInput, plus rows and multi-line input. `Controlled` stays `!test` |
+| PasswordInput | UWDS-5000 | ✅ | Show/hide toggle and announcements, disabled toggle inert, hidden again on form submit |
+| SearchInput | UWDS-5007 | ✅ | Clear button shows only with `onClear` and a value, clears and refocuses; disabled clear inert |
+| CurrencyInput | UWDS-4978 | ✅ | Formatting, sanitising, decimal limit, raw `onChange` value, `defaultValue`. onChange event bug held as expected failure (UWDS-5156) |
+| VerificationInput | UWDS-5027 | ✅ | Six inputs, typed value, password masking, invalid state; hidden validation not invalid |
+| Button | UWDS-4969 | ✅ | Disabled/loading stay focusable but don't submit forms or follow `asChild` links |
+| IconButton | UWDS-4991 | ✅ | Same as Button |
+| UnstyledIconButton | UWDS-5025 | ✅ | Same as Button, including `loading` |
+| Link | UWDS-4995 | ✅ | `href`, new-tab name suffix and `hideOpenIcon` |
+| InlineLink | UWDS-4993 | ✅ | New-tab name suffix and `hideOpenIcon` |
+| Pagination | UWDS-4999 | ✅ | Page windowing and ellipses, `aria-current`, first/prev/next/last and disabled states, condensed, no form submit |
+| Breadcrumbs | UWDS-4968 | ✅ | Links, current page (`aria-current`, not a link), hidden separators |
+| Chip | UWDS-4975 | ✅ | Default "Remove … filter" name and override, remove/add, disabled |
+| Alert | UWDS-4963 | ✅ | `role="alert"`, default `colorScheme`, close button only with `onClose`, no form submit |
+| HighlightBanner | UWDS-4990 | N/A | Presentational: a styled `Card` with a heading; no prop-driven behaviour |
+| Card | UWDS-4970 | N/A | Presentational: a styled `Flex` container (and `CardInteraction`, `CardContent` etc.); props only affect styling |
+| Table | UWDS-5017 | ✅ | Headers/rows, row headers, pagination paging, ref forwarding for both variants |
+| Avatar | UWDS-4964 | ✅ | Initials from first and last names, icon fallback |
+| Badge | UWDS-4965 | N/A | Presentational: styled label text |
+| BodyText | UWDS-4966 | N/A | Presentational: typography |
+| Box | UWDS-4967 | N/A | Presentational: layout primitive |
+| Container | UWDS-4977 | N/A | Presentational: layout primitive |
+| DescriptionList | UWDS-4981 | N/A | Presentational: static term/detail markup |
+| DetailText | UWDS-4982 | N/A | Presentational: typography |
+| Divider | UWDS-4983 | ✅ | `decorative` hidden, vertical `aria-orientation`, invalid orientation fallback |
+| Em | UWDS-4984 | N/A | Presentational: typography |
+| Flex | UWDS-4986 | N/A | Presentational: layout primitive |
+| Grid | UWDS-4987 | N/A | Presentational: layout primitive |
+| Heading | UWDS-4988 | N/A | Presentational: typography |
+| HelperText | UWDS-4989 | N/A | Presentational: typography |
+| IconContainer | UWDS-4992 | N/A | Presentational: styled icon wrapper |
+| Label | UWDS-4994 | N/A | Presentational: styled label; association tested via form controls |
+| List | UWDS-4996 | ✅ | Named by heading or `aria-label`, disabled buttons inert, no form submit |
+| ProgressBar | UWDS-5001 | ✅ | Clamping, `success` forces max, `formatValueText`, circular label |
+| ProgressStepper | UWDS-5002 | ✅ | Active step inert, disabled link/button, no form submit |
+| SectionHeader | UWDS-5008 | N/A | Presentational: heading, helper and trailing content layout |
+| SkeletonBodyText | UWDS-5011 | ✅ | `Skeleton` loading announcement and hidden placeholder, `lines` |
+| SkeletonBox | UWDS-5012 | N/A | Presentational: placeholder shape |
+| SkeletonHeading | UWDS-5013 | N/A | Presentational: placeholder shape |
+| Spinner | UWDS-5014 | N/A | Presentational: decorative indicator |
+| Strong | UWDS-5015 | N/A | Presentational: typography |
+| ValidationText | UWDS-5026 | N/A | Presentational: status icon and text; wiring tested via form controls |
+
 ### LLM docs
 
 - `public/llms/` is **auto-generated** by `pnpm generate:llm-docs` from stories — **do not hand-edit**.

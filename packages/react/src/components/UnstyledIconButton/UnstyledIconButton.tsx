@@ -1,7 +1,7 @@
 'use client';
 
 import { forwardRef } from 'react';
-import type { ComponentRef } from 'react';
+import type { ComponentRef, MouseEvent } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
@@ -12,6 +12,11 @@ import type { SpinnerProps } from '../Spinner/Spinner.props';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
+
+// aria-disabled keeps the button focusable but doesn't block its default
+// action, so cancel clicks (including middle-click via auxclick) to stop form
+// submission and link navigation.
+const preventDefault = (event: MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
 const COMPONENT_NAME = 'UnstyledIconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -36,6 +41,7 @@ export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, Unstyled
       inverted,
       loading,
       onClick,
+      onAuxClick,
       asChild,
       ...unstyledIconButtonProps
     } = extractProps(props, unstyledIconButtonPropDefs);
@@ -50,7 +56,8 @@ export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, Unstyled
         aria-label={label}
         aria-disabled={disabled || loading}
         data-inverted={inverted ? '' : undefined}
-        onClick={disabled ? undefined : onClick}
+        onClick={disabled || loading ? preventDefault : onClick}
+        onAuxClick={disabled || loading ? preventDefault : onAuxClick}
         data-testid={componentClassName}
         {...unstyledIconButtonProps}
       >

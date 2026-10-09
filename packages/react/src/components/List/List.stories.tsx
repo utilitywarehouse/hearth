@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { Avatar } from '../Avatar/Avatar';
 import { Badge } from '../Badge/Badge';
 import { BodyText } from '../BodyText/BodyText';
@@ -975,5 +976,56 @@ export const CustomContent: Story = {
         ))}
       </List>
     );
+  },
+};
+
+const onListAction = fn<(action: string) => void>();
+const onListFormSubmit = fn<() => void>();
+
+/** Test-only: the list is named by its heading, and disabled item/action buttons are inert and never submit forms. */
+export const ButtonsAndNaming: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <form
+      onSubmit={event => {
+        event.preventDefault();
+        onListFormSubmit();
+      }}
+    >
+      <List heading="Account">
+        <ListItemButton heading="Enabled item" onClick={() => onListAction('enabled item')} />
+        <ListItemButton
+          heading="Disabled item"
+          disabled
+          onClick={() => onListAction('disabled item')}
+        />
+      </List>
+      <List aria-label="Custom name" heading="Ignored heading">
+        <ListItem>Item</ListItem>
+      </List>
+      <ListActionButton disabled onClick={() => onListAction('disabled action')}>
+        Disabled action
+      </ListActionButton>
+    </form>
+  ),
+  play: async ({ canvasElement }) => {
+    onListAction.mockClear();
+    onListFormSubmit.mockClear();
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('list', { name: 'Account' })).toBeInTheDocument();
+    await expect(canvas.getByRole('list', { name: 'Custom name' })).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByRole('button', { name: /Disabled item/ }));
+    await userEvent.click(canvas.getByRole('button', { name: /Disabled action/ }));
+    await userEvent.click(canvas.getByRole('button', { name: /Enabled item/ }));
+    await expect(onListAction).toHaveBeenCalledOnce();
+    await expect(onListAction).toHaveBeenCalledWith('enabled item');
+    await expect(onListFormSubmit).not.toHaveBeenCalled();
+    (document.activeElement as HTMLElement | null)?.blur();
   },
 };

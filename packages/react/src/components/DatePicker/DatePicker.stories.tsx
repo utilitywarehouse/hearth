@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { userEvent, within } from 'storybook/test';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { Modal } from '../Modal/Modal';
@@ -74,6 +74,7 @@ export const WithCalendarDisplayed: Story = {
     const canvas = within(canvasElement);
     const trigger = canvas.getByRole('button');
     await userEvent.click(trigger);
+    await screen.findByRole('button', { name: /January 2024/ });
     trigger.blur();
   },
 };
@@ -146,5 +147,141 @@ export const UsageInModal: Story = {
         </ModalRoot>
       </Flex>
     );
+  },
+};
+
+/** Test-only: date format, week start, and cycling between the days, months and years views. */
+export const ViewNavigation: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: args => {
+    const [selectedDate, setSelectedDate] = useState<Date | null>(new Date(2024, 0, 15));
+    return (
+      <DatePicker
+        {...args}
+        selected={selectedDate}
+        onChange={(date: Date | null) => setSelectedDate(date)}
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /^Label/ });
+
+    await expect(trigger).toHaveTextContent('15/01/2024');
+
+    await userEvent.click(trigger);
+    const header = await screen.findByRole('button', { name: /January 2024/ });
+    const dayNames = document.querySelectorAll('.react-datepicker__day-name');
+    await expect(dayNames[0]).toHaveTextContent('M');
+    await expect(screen.getByRole('button', { name: 'previous month' })).toBeInTheDocument();
+
+    await userEvent.click(header);
+    const yearHeader = await screen.findByRole('button', { name: /^2024/ });
+    await expect(screen.queryByRole('button', { name: /previous/ })).not.toBeInTheDocument();
+
+    await userEvent.click(yearHeader);
+    await screen.findByRole('button', { name: 'previous year' });
+    await userEvent.click(screen.getByText('2023'));
+    await screen.findByRole('button', { name: /^2023/ });
+
+    await userEvent.click(screen.getByText('Mar'));
+    await screen.findByRole('button', { name: /March 2023/ });
+
+    await userEvent.click(screen.getByRole('button', { name: /^March 2023/ }));
+    await screen.findByRole('button', { name: /^2023/ });
+    await userEvent.click(canvasElement);
+    await waitFor(() =>
+      expect(document.querySelector('.react-datepicker__month-container')).not.toBeInTheDocument()
+    );
+
+    await userEvent.click(trigger);
+    await screen.findByRole('button', { name: /March 2023/ });
+    trigger.blur();
+  },
+};
+
+/** Test-only: a disabled DatePicker stays focusable but doesn't open, and hides validation text. */
+export const DisabledState: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { disabled: true, validationStatus: 'invalid', validationText: 'Disabled error' },
+  render: args => <DatePicker {...args} selected={null} onChange={() => {}} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /^Label/ });
+
+    await expect(trigger).toHaveAttribute('aria-disabled', 'true');
+    await expect(trigger).not.toBeDisabled();
+    await expect(trigger).toHaveTextContent('DD/MM/YYYY');
+    await expect(trigger).not.toHaveAttribute('aria-invalid');
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+
+    await userEvent.click(trigger);
+    await expect(
+      document.querySelector('.react-datepicker__month-container')
+    ).not.toBeInTheDocument();
+    trigger.blur();
+  },
+};
+
+/** Test-only: a read-only DatePicker hides its validation text and isn't marked invalid. */
+export const ReadOnlyState: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { readOnly: true, validationStatus: 'invalid', validationText: 'Read-only error' },
+  render: args => <DatePicker {...args} selected={null} onChange={() => {}} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /^Label/ });
+
+    await expect(trigger).not.toHaveAttribute('aria-invalid');
+    await expect(trigger).not.toHaveAttribute('aria-errormessage');
+    await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
+  },
+};
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <DatePicker
+        label="Status only"
+        validationStatus="invalid"
+        selected={null}
+        onChange={() => {}}
+      />
+      <DatePicker
+        label="Text only"
+        validationText="Unused text"
+        selected={null}
+        onChange={() => {}}
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [/^Status only/, /^Text only/].map(name =>
+      canvas.getByRole('button', { name })
+    );
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
   },
 };

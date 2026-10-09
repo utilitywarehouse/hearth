@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState, useRef, useEffect } from 'react';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
 import { Toast } from './Toast';
@@ -37,7 +38,13 @@ type Story = StoryObj<typeof Toast>;
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    await userEvent.click(within(canvasElement).getByRole('button', { name: 'Show Toast' }));
+    const toast = (await screen.findByText('Toast description')).closest('li')!;
+
+    await userEvent.click(within(toast).getByRole('button', { name: 'Dismiss toast' }));
+    await waitFor(() => expect(screen.queryByText('Toast description')).not.toBeInTheDocument());
   },
   render: args => {
     const [open, setOpen] = useState(false);
@@ -101,7 +108,17 @@ export const Actions: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    await userEvent.click(
+      within(canvasElement).getByRole('button', { name: 'Show Button Action Toast' })
+    );
+    const undo = await screen.findByRole('button', { name: 'Undo' });
+
+    await expect(undo).toHaveAttribute('type', 'button');
+
+    await userEvent.click(undo);
+    await waitFor(() => expect(screen.queryByText('Settings updated')).not.toBeInTheDocument());
   },
   render: () => {
     const [openLinkActionToast, setOpenLinkActionToast] = useState(false);
@@ -176,7 +193,17 @@ export const DuplicateToasts: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const save = within(canvasElement).getByRole('button', { name: 'Save' });
+    await userEvent.click(save);
+    await userEvent.click(save);
+    const first = (await screen.findByText('Saved! (0)')).closest('li')!;
+    await screen.findByText('Saved! (1)');
+
+    await userEvent.click(within(first).getByRole('button', { name: 'Dismiss toast' }));
+    await waitFor(() => expect(screen.queryByText('Saved! (0)')).not.toBeInTheDocument());
+    await expect(screen.getByText('Saved! (1)')).toBeInTheDocument();
   },
   render: () => {
     const [savedCount, setSavedCount] = useState(0);
@@ -189,5 +216,26 @@ export const DuplicateToasts: Story = {
         ))}
       </div>
     );
+  },
+};
+
+/** Test-only: viewport props passed to ToastProvider reach the toast viewport. */
+export const ProviderViewportProps: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <ToastProvider className="custom-viewport" data-viewport-test="">
+      <Toast open description="Viewport toast" />
+    </ToastProvider>
+  ),
+  play: async () => {
+    const toast = await screen.findByText('Viewport toast');
+    const viewport = toast.closest('ol')!;
+
+    await expect(viewport).toHaveClass('h-ToastViewport', 'custom-viewport');
+    await expect(viewport).toHaveAttribute('data-viewport-test');
   },
 };

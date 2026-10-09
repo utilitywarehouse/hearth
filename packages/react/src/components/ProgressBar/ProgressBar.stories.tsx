@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { ProgressBar } from './ProgressBar';
 import type { ProgressBarProps } from './ProgressBar.props';
@@ -171,5 +172,41 @@ export const WithinFlex: Story = {
         </Flex>
       </Flex>
     );
+  },
+};
+
+/** Test-only: value clamping, success forcing the maximum, and custom value text. */
+export const Values: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <ProgressBar label="Over" value={150} />
+      <ProgressBar label="Under" value={-20} />
+      <ProgressBar label="Success" colorScheme="success" value={10} />
+      <ProgressBar
+        label="Steps"
+        min={0}
+        max={4}
+        value={1}
+        formatValueText={value => `Step ${value} of 4`}
+      />
+      <ProgressBar variant="circular" label="Circular" value={30} />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const bar = (name: string) => canvas.getByRole('progressbar', { name });
+
+    await expect(bar('Over')).toHaveAttribute('aria-valuenow', '100');
+    await expect(bar('Over')).toHaveAttribute('aria-valuetext', '100%');
+    await expect(bar('Under')).toHaveAttribute('aria-valuenow', '0');
+    await expect(bar('Success')).toHaveAttribute('aria-valuenow', '100');
+    await expect(bar('Steps')).toHaveAttribute('aria-valuemax', '4');
+    await expect(bar('Steps')).toHaveAttribute('aria-valuetext', 'Step 1 of 4');
+    await expect(bar('Circular')).toHaveAttribute('aria-valuetext', '30%');
   },
 };

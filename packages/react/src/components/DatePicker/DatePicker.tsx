@@ -76,7 +76,9 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
 
   const ariaDescribedbyValue = mergeIds(
     !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showValidation && validationStatus !== undefined && validationText !== undefined
+      ? validationTextId
+      : undefined
   );
 
   const prevView: { [key in View]: View } = {
@@ -138,11 +140,13 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     ),
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
   const ariaProps = {
     'aria-labelledby': labelId,
     'aria-describedby': ariaDescribedbyValue,
-    'aria-invalid': validationStatus === 'invalid' ? true : undefined,
-    'aria-errormessage': validationStatus === 'invalid' ? validationTextId : undefined,
+    'aria-invalid': isInvalid ? true : undefined,
+    'aria-errormessage': isInvalid && validationText !== undefined ? validationTextId : undefined,
   };
 
   const classNameProps = {

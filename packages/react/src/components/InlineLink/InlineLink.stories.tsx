@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
@@ -64,7 +65,6 @@ export const OpenInNewTab: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { target: '_blank' },
   render: args => (
@@ -75,6 +75,15 @@ export const OpenInNewTab: Story = {
       </InlineLink>
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const withIcon = canvas.getByRole('link', { name: 'Visit help pages (opens in new tab)' });
+    const withoutIcon = canvas.getByRole('link', { name: 'Go to help (opens in new tab)' });
+
+    await expect(withIcon).toHaveAttribute('target', '_blank');
+    await expect(withIcon.querySelector('svg')).not.toBeNull();
+    await expect(withoutIcon.querySelector('svg')).toBeNull();
+  },
 };
 
 /** Visual matrix of InlineLink across the surrounding BodyText's sizes and weights. */
