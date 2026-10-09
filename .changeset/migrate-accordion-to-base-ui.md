@@ -27,7 +27,9 @@ of the public API.
 ```diff
 - <Accordion type="single" collapsible defaultValue="item-1">
 + <Accordion defaultValue={['item-1']}>
--   <AccordionContent forceMount>...</AccordionContent>
-+   <AccordionContent keepMounted>...</AccordionContent>
+    <AccordionItem value="item-1">
+-     <AccordionContent forceMount>...</AccordionContent>
++     <AccordionContent keepMounted>...</AccordionContent>
+    </AccordionItem>
   </Accordion>
 ```

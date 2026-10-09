@@ -249,14 +249,18 @@ content is hidden.
   /* Before */
 }
 <Accordion type="single" collapsible defaultValue="item-1">
-  <AccordionContent forceMount>...</AccordionContent>
+  <AccordionItem value="item-1">
+    <AccordionContent forceMount>...</AccordionContent>
+  </AccordionItem>
 </Accordion>;
 
 {
   /* After */
 }
 <Accordion defaultValue={['item-1']}>
-  <AccordionContent keepMounted>...</AccordionContent>
+  <AccordionItem value="item-1">
+    <AccordionContent keepMounted>...</AccordionContent>
+  </AccordionItem>
 </Accordion>;
 ```
 
