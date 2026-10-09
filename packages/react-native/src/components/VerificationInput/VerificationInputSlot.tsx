@@ -3,6 +3,7 @@ import { Pressable, Text, View, ViewProps } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
+  useReducedMotion,
   useSharedValue,
   withRepeat,
   withTiming,
@@ -44,13 +45,21 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
       secureTextEntry,
     });
 
-    const caretOpacity = useSharedValue(0);
+    const isReducedMotion = useReducedMotion();
+    const caretOpacity = useSharedValue(
+      isReducedMotion && showCaret && !disabled && !readonly ? 1 : 0
+    );
     const animatedCaretStyle = useAnimatedStyle(() => ({
       opacity: caretOpacity.value,
     }));
 
     useEffect(() => {
       if (showCaret && !disabled && !readonly) {
+        if (isReducedMotion) {
+          caretOpacity.value = 1;
+          return;
+        }
+
         caretOpacity.value = withRepeat(
           withTiming(1, { duration: 500, easing: Easing.inOut(Easing.ease) }),
           -1,
@@ -59,8 +68,10 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
         return;
       }
 
-      caretOpacity.value = withTiming(0, { duration: 150, easing: Easing.out(Easing.ease) });
-    }, [caretOpacity, disabled, readonly, showCaret]);
+      caretOpacity.value = isReducedMotion
+        ? 0
+        : withTiming(0, { duration: 150, easing: Easing.out(Easing.ease) });
+    }, [caretOpacity, disabled, readonly, showCaret, isReducedMotion]);
 
     return (
       <Pressable

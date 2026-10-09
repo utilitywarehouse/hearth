@@ -30,3 +30,5 @@ supportedArchitectures:
   cpu:
     - current
 verifyDepsBeforeRun: warn
+minimumReleaseAgeExclude:
+  - chromatic@18.11.0

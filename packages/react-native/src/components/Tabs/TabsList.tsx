@@ -8,6 +8,7 @@ import Animated, {
   runOnJS,
   useAnimatedScrollHandler,
   useAnimatedStyle,
+  useReducedMotion,
   useSharedValue,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
@@ -29,6 +30,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
   const containerWidthRef = useRef(0);
   const contentWidthRef = useRef(0);
   const scrollX = useSharedValue(0);
+  const isReducedMotion = useReducedMotion();
 
   const indicatorStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: indicatorXSV.value }],
@@ -65,7 +67,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
     const current = scrollX.value;
     const max = Math.max(0, contentWidthRef.current - viewW);
     const target = Math.max(0, Math.min(current + direction * step, max));
-    scrollRef.current?.scrollTo({ x: target, animated: true });
+    scrollRef.current?.scrollTo({ x: target, animated: !isReducedMotion });
   };
 
   useEffect(() => {
