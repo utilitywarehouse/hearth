@@ -19,58 +19,47 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 <Description of={Accordion} />
 
 - [Accordion type](#accordion-type)
-- [Collapsible](#collapsible)
 - [Value](#value)
 - [Accordion items](#accordion-items)
 - [Heading levels](#heading-levels)
 - [Accessibility](#accessibility)
   - [Keyboard interactions](#keyboard-interactions)
 - [SEO](#seo)
+- [Migration](#migration)
 - [API](#api)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
 ## Accordion type
 
-`Accordion` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
-
-When `type` is set to `single`, only one item can be expanded at once.
+By default only one `Accordion` item can be expanded at once. Set the
+`multiple` prop to `true` to allow multiple items to be expanded
+simultaneously — items are always collapsible, so all items can be closed at
+the same time regardless of `multiple`.
 
 <Canvas of={Stories.Single} />
 
-When `type` is set to `multiple`, then multiple items can be expanded at once.
+When `multiple` is `true`, multiple items can be expanded at once.
 
 <Canvas of={Stories.Multiple} />
 
-## Collapsible
-
-The `collapsible` prop can be used when the `type` is set to `single`. When
-`true` items can be collapsed, allowing all items to be closed at the same
-time.
-
-<Canvas of={Stories.Collapsible} />
-
 ## Value
 
-The `value` prop differs depending on whether the `type` is set to `single` or
-`multiple`. This also affects the `defaultValue` and `onValueChange` props.
-
-When using a `single` type `Accordion`, the value is a `string`.
+The `value`, `defaultValue`, and `onValueChange` props always use an array of
+`string` values, listing the currently expanded item(s), regardless of
+whether `multiple` is set.
 
 ```tsx
 <Accordion
-  type="single"
-  defaultValue="item-1"
+  defaultValue={["item-1"]}
 >
 {...}
 </Accordion>
 ```
 
-When using a `multiple` type `Accordion`, the value is an array of `string` values.
-
 ```tsx
 <Accordion
-  type="multiple"
+  multiple
   defaultValue={["item-1", "item-2"]}
 >
 {...}
@@ -85,7 +74,7 @@ However if you need something more custom, you can use the internal subcomponent
 `AccordionHeader` & `AccordionTrigger`, ensuring you wrap the trigger in a header component.
 
 ```tsx
-<Accordion type="multiple" heading="Custom item headers">
+<Accordion multiple heading="Custom item headers">
   <AccordionItem value='item-1'>
     <AccordionHeader>
       <AccordionTrigger>
@@ -179,19 +168,54 @@ then an alternative disclosure pattern should be used.
 
 By default, `AccordionContent` is removed from the DOM when collapsed, which
 means search engines may not index its content. If the content is important for
-SEO (for example, FAQ answers), use the `forceMount` prop on `AccordionContent`
+SEO (for example, FAQ answers), use the `keepMounted` prop on `AccordionContent`
 to keep it in the DOM at all times.
 
-When `forceMount` is set, collapsed content is hidden from view and the
+When `keepMounted` is set, collapsed content is hidden from view and the
 accessibility tree using the `hidden` attribute, so it has no impact on the
 visual layout or screen reader experience. The close animation plays before the
 content is hidden.
 
 ```tsx
-<AccordionContent forceMount>Content</AccordionContent>
+<AccordionContent keepMounted>Content</AccordionContent>
 ```
 
 <Canvas of={Stories.SEOFriendly} />
+
+## Migration
+
+### Migrating from `v0.31.x`
+
+`Accordion` has migrated from Radix UI to Base UI internally.
+
+**Breaking changes:**
+
+- `Accordion: type="single"` — remove `type`, the accordion now defaults to single-select behaviour.
+- `Accordion: type="multiple"` — replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
+- `Accordion: collapsible` — remove entirely; single-mode panels are now always collapsible.
+- `Accordion: value` / `defaultValue` — must now always be an array, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
+- `Accordion: onValueChange` — now always receives an array as its first argument.
+- `AccordionContent: forceMount` — removed entirely; use `keepMounted` instead.
+
+```tsx
+{
+  /* Before */
+}
+<Accordion type="single" collapsible defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionContent forceMount>...</AccordionContent>
+  </AccordionItem>
+</Accordion>;
+
+{
+  /* After */
+}
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem value="item-1">
+    <AccordionContent keepMounted>...</AccordionContent>
+  </AccordionItem>
+</Accordion>;
+```
 
 ## API
 

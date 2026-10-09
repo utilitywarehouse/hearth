@@ -10,7 +10,7 @@ Use these as a starting point. Always verify against the live base-ui docs — A
 | `Accordion.Root` type `'multiple'` | `Accordion.Root multiple` | `type` replaced by `multiple: boolean` |
 | `Accordion.Root collapsible` | _(always collapsible)_ | remove prop |
 | `Accordion.Content` | `Accordion.Panel` | internal rename |
-| `forceMount` on Content | `keepMounted` on Panel | deprecation shim |
+| `forceMount` on Content | `keepMounted` on Panel | removed (breaking) — not deprecated, see `AccordionContent.props.ts` |
 
 ## Tabs
 

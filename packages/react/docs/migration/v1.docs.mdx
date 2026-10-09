@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { MarkdownDocHeader } from '../storybook-components/MarkdownDocHeader';
+
+<Meta title="Migration / v1" />
+
+<MarkdownDocHeader title="Migration to v1" to="docs/migration/v1" />
+
+**Hearth React** is pre-`v1`, and breaking changes land as they're needed on
+the way to a stable `v1` API. Each breaking change ships with a codemod in
+[`@utilitywarehouse/hearth-codemod`](https://github.com/utilitywarehouse/hearth/tree/main/packages/codemod),
+so you can apply it deterministically instead of updating usages by hand.
+
+- [Using the codemod CLI](#using-the-codemod-cli)
+- [Individual codemods](#individual-codemods)
+  - [`react/v1/remove-modal-loading-text`](#reactv1remove-modal-loading-text)
+- [Running the complete v1 migration](#running-the-complete-v1-migration)
+
+## Using the codemod CLI
+
+Run codemods with `npx`, no install required:
+
+```sh
+npx @utilitywarehouse/hearth-codemod <codemod> <path...>
+```
+
+- `<codemod>` — the name of the codemod, e.g. `react/v1/remove-modal-loading-text`.
+- `<path...>` — one or more files or directories to transform.
+
+Flags:
+
+| Flag      | Description                                                     |
+| --------- | --------------------------------------------------------------- |
+| `--dry`   | Dry run — prints what would change without writing any files    |
+| `--print` | Print transformed output to stdout (useful during development)  |
+| `--force` | Bypass the git-clean check and run against a dirty working tree |
+
+The CLI refuses to run against a dirty git working tree (unless `--dry` or
+`--force` is passed), so you can always review the diff and revert if needed.
+
+## Individual codemods
+
+Run these as each breaking change lands, rather than waiting for a full `v1`
+release.
+
+### `react/v1/remove-modal-loading-text`
+
+`Modal`'s deprecated `loadingText` prop has been removed in favour of
+`loadingHeading`.
+
+```diff
+- <Modal loadingText="Loading...">
++ <Modal loadingHeading="Loading...">
+```
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-loading-text src
+```
+
+## Running the complete v1 migration
+
+Once you're ready to migrate everything at once, `react/v1/migration` runs
+every `react/v1/*` codemod listed above in a single pass:
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/migration src
+```
+
+We recommend running with `--dry` first to review the changes before applying
+them for real.

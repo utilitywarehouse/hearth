@@ -42,7 +42,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       hideCloseButton,
       fullScreen,
       loading,
-      loadingText,
       loadingHeading,
       loadingDescription,
       children,
@@ -52,9 +51,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
   ) => {
     const portalProps = { forceMount, container };
     const containsImage = Boolean(image);
-    const hasDescription = Boolean(
-      loading ? (loadingText || loadingHeading) && loadingDescription : description
-    );
+    const hasDescription = Boolean(loading ? loadingHeading && loadingDescription : description);
 
     return (
       <DialogPrimitive.Portal {...portalProps}>
@@ -119,11 +116,11 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                         <Box asChild>
                           <DialogPrimitive.Title asChild>
                             <Heading size="lg" textAlign="center" textWrap="wrap">
-                              {loadingHeading || loadingText || 'Loading'}
+                              {loadingHeading || 'Loading'}
                             </Heading>
                           </DialogPrimitive.Title>
                         </Box>
-                        {(loadingText || loadingHeading) && loadingDescription ? (
+                        {loadingHeading && loadingDescription ? (
                           <DialogPrimitive.Description asChild>
                             <BodyText size="md" as="span" textAlign="center">
                               {loadingDescription}
