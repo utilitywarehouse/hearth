@@ -19,6 +19,12 @@ This gives you:
   component discovery (`docs-list`, `docs-show`,
   `docs-show-story`) beyond the raw markdown docs shipped in each
   package's `public/llms/` folder.
+- The `hearth-react-planning` skill, for scoping feature work against
+  `hearth-react` before any code is written — maps a Linear ticket, a
+  freeform description, or a Figma link onto the real component inventory
+  and writes the resulting task breakdown back to Linear as sub-issues.
+  React Native isn't covered yet. Needs the `linear@claude-plugins-official`
+  plugin installed too.
 - The `hearth-react-review` skill, for reviewing or auditing UI code that
   already uses `hearth-react` — hallucinated or deprecated props,
   design-token misuse, accessibility gaps, and layout anti-patterns. React
