@@ -1,0 +1,43 @@
+{
+  "skill_name": "hearth-react-planning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to scope out a new account settings page — it should have a form for editing name/email/phone, a danger-zone section for deleting the account with a confirmation step, and a sticky save bar at the bottom. No ticket yet, just plan this out and put it in Linear ticket ENG-412 as sub-issues.",
+      "expected_output": "A set of candidate sub-issues mapping the described features onto real Hearth React components (verified via docs-list/docs-show), each naming the specific component(s)/variant/props to use, shown to the user as a draft before creation, then created as sub-issues under ENG-412 on confirmation.",
+      "files": [],
+      "expectations": [
+        "Every distinct Hearth component named in the final breakdown has its own docs-show call behind it — not just an appearance in docs-list's inventory listing or in another component's story code sample",
+        "The breakdown is organised as discrete tasks (form section, danger-zone/delete confirmation, sticky save bar), not one monolithic task",
+        "Each task names specific Hearth component(s) to use",
+        "The draft breakdown was shown to the user before sub-issues were created",
+        "Sub-issues were created under the parent ticket ENG-412, not as a flat comment"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Can you scope ticket ENG-530 for me against Hearth React and break it into sub-issues? It's about adding a multi-step onboarding wizard with a progress indicator.",
+      "expected_output": "The ticket's description/comments are read from Linear, the ask is mapped onto Hearth components (e.g. stepper/progress and layout primitives) via docs-list/docs-show, a draft sub-issue breakdown is shown for confirmation, then created under ENG-530.",
+      "files": [],
+      "expectations": [
+        "The Linear ticket ENG-530's description (and comments, if present) was read before drafting the breakdown",
+        "Every distinct Hearth component named in the final breakdown has its own docs-show call behind it — not just an appearance in docs-list's inventory listing or in another component's story code sample",
+        "A draft was shown to the user before any sub-issue was created",
+        "Sub-issues were created under ENG-530 on confirmation",
+        "Sub-issues target the consumer's own app code (composing existing Hearth components) rather than Hearth-library package-authoring tasks (props.ts API design, Storybook stories, .docs.mdx, Figma Code Connect, changesets) — benchmarking found this is a real failure mode: without this scope reminder, 'add a wizard' gets misread as 'add a component to packages/react'"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Scope out a feature for a drag-and-drop file uploader with a visual progress grid showing upload status per file, and break it into sub-issues on ticket ENG-601.",
+      "expected_output": "The breakdown correctly identifies that Hearth React has no drag-and-drop uploader or per-file progress grid component, flags this as a gap in the sub-issue draft, and offers to file it via design-systems-feedback rather than inventing or guessing at a component that covers it.",
+      "files": [],
+      "expectations": [
+        "The gap (no drag-and-drop uploader / progress grid component) is explicitly flagged rather than silently mapped onto an unrelated or hallucinated component",
+        "The skill offers to hand off the gap to design-systems-feedback rather than auto-filing it",
+        "Any parts of the ask that Hearth does cover (e.g. layout, individual progress indicators) are still mapped to real components, each with its own docs-show call rather than being named purely from the docs-list inventory listing",
+        "The draft, including the flagged gap, was shown to the user before any sub-issues were created"
+      ]
+    }
+  ]
+}
