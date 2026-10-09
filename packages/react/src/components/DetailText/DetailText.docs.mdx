@@ -54,6 +54,16 @@ When using `BodyText` on a darker background, specifically `uwPurple` &
 
 <Canvas of={Stories.InvertedText} />
 
+## Equalize line-height
+
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
+
+<Canvas of={Stories.EqualizeLineHeight} />
+
 ## API
 
 This component is based on the `span` element and supports the following common props:

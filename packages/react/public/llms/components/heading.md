@@ -51,6 +51,29 @@ When using `Heading` on a darker background, specifically `purple700` &
 </Box>
 ```
 
+## Equalize line-height
+
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
+
+```tsx
+<Flex direction="column" gap="400">
+  <Flex direction="row" alignItems="end" gap="50">
+    <Heading size="2xl">£42.00</Heading>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+  <Flex direction="row" alignItems="end" gap="50">
+    <Heading size="2xl" equalizeLineHeight>
+      £42.00
+    </Heading>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+</Flex>
+```
+
 ## API
 
 This component is based on the `h2` element and supports the following common props:
@@ -60,9 +83,10 @@ This component is based on the `h2` element and supports the following common pr
 - Text align
 - Text wrap
 
-| Prop       | Type                                    | Default | Description                                                                                          |
-| ---------- | --------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `as`       | `"h2" \| "h1" \| "h3" \| "h4"`          | `h2`    | Shorthand for changing the default rendered element into a semantically appropriate alternative.     |
-| `asChild`  | `boolean`                               | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
-| `size`     | `"sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `md`    | Set the text size styles.                                                                            |
-| `inverted` | `boolean`                               | —       | Inverts the component colours, for use on darker surface colours.                                    |
+| Prop                 | Type                                    | Default | Description                                                                                                                                                               |
+| -------------------- | --------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`                 | `"h2" \| "h1" \| "h3" \| "h4"`          | `h2`    | Shorthand for changing the default rendered element into a semantically appropriate alternative.                                                                          |
+| `asChild`            | `boolean`                               | —       | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                      |
+| `size`               | `"sm" \| "md" \| "lg" \| "xl" \| "2xl"` | `md`    | Set the text size styles.                                                                                                                                                 |
+| `inverted`           | `boolean`                               | —       | Inverts the component colours, for use on darker surface colours.                                                                                                         |
+| `equalizeLineHeight` | `boolean`                               | —       | If true, overrides the line-height to `1`, regardless of `size` — useful when the default line-height affects layout (e.g. single-line text in a fixed-height container). |

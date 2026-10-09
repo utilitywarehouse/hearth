@@ -34,6 +34,7 @@ export const DetailText = forwardRef<DetailTextElement, DetailTextProps>((props,
     as: Tag = 'span',
     children,
     inverted,
+    equalizeLineHeight,
     ...detailTextProps
   } = extractProps(
     props,
@@ -49,6 +50,7 @@ export const DetailText = forwardRef<DetailTextElement, DetailTextProps>((props,
       ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
+      data-equalize-line-height={equalizeLineHeight ? '' : undefined}
       data-testid={componentClassName}
       {...detailTextProps}
     >

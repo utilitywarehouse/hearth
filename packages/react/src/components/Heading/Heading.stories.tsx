@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
 import { Heading } from './Heading';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
@@ -13,6 +14,7 @@ const meta: Meta<typeof Heading> = {
     as: { options: ['h1', 'h2', 'h3', 'h4'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
     inverted: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -48,6 +50,38 @@ export const KitchenSink: Story = {
         <Heading size="lg">Hamburgefons (lg)</Heading>
         <Heading size="xl">Hamburgefons (xl)</Heading>
         <Heading size="2xl">Hamburgefons (2xl)</Heading>
+      </Flex>
+    );
+  },
+};
+
+/**
+ * Without `equalizeLineHeight`, a large `Heading` next to smaller text in a
+ * bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <Heading size="2xl">£42.00</Heading>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <Heading size="2xl" equalizeLineHeight>
+            £42.00
+          </Heading>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },

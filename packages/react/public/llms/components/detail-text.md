@@ -78,6 +78,29 @@ When using `BodyText` on a darker background, specifically `uwPurple` &
 </Flex>
 ```
 
+## Equalize line-height
+
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
+
+```tsx
+<Flex direction="column" gap="400">
+  <Flex direction="row" alignItems="end" gap="50">
+    <DetailText size="2xl">£42.00</DetailText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+  <Flex direction="row" alignItems="end" gap="50">
+    <DetailText size="2xl" equalizeLineHeight>
+      £42.00
+    </DetailText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+</Flex>
+```
+
 ## API
 
 This component is based on the `span` element and supports the following common props:
@@ -87,10 +110,11 @@ This component is based on the `span` element and supports the following common 
 - Text align
 - Text wrap
 
-| Prop       | Type                                                                  | Default | Description                                                                                          |
-| ---------- | --------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `asChild`  | `boolean`                                                             | —       | Change the default rendered element for the one passed as a child, merging their props and behavior. |
-| `size`     | `Responsive<"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl">` | `md`    | Set the text size styles.                                                                            |
-| `color`    | `(Responsive<"text" \| "valid" \| "invalid"> & string)`               | `text`  | Set the text color                                                                                   |
-| `inverted` | `boolean`                                                             | —       | Inverts the component colours, for use on darker surface colours.                                    |
-| `as`       | `"span" \| "div" \| "p"`                                              | —       | Renders a `span` element. This is the default. Renders a `div` element. Renders a `p` element.       |
+| Prop                 | Type                                                                  | Default | Description                                                                                                                                                               |
+| -------------------- | --------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `asChild`            | `boolean`                                                             | —       | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                      |
+| `size`               | `Responsive<"sm" \| "md" \| "lg" \| "xl" \| "2xl" \| "3xl" \| "4xl">` | `md`    | Set the text size styles.                                                                                                                                                 |
+| `color`              | `(Responsive<"text" \| "valid" \| "invalid"> & string)`               | `text`  | Set the text color                                                                                                                                                        |
+| `inverted`           | `boolean`                                                             | —       | Inverts the component colours, for use on darker surface colours.                                                                                                         |
+| `equalizeLineHeight` | `boolean`                                                             | —       | If true, overrides the line-height to `1`, regardless of `size` — useful when the default line-height affects layout (e.g. single-line text in a fixed-height container). |
+| `as`                 | `"span" \| "div" \| "p"`                                              | —       | Renders a `span` element. This is the default. Renders a `div` element. Renders a `p` element.                                                                            |

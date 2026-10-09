@@ -35,6 +35,7 @@ export const BodyText = forwardRef<BodyTextElement, BodyTextProps>((props, ref) 
     as: Tag = 'p',
     children,
     truncate,
+    equalizeLineHeight,
     ...bodyTextProps
   } = extractProps(
     props,
@@ -51,6 +52,7 @@ export const BodyText = forwardRef<BodyTextElement, BodyTextProps>((props, ref) 
       ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
+      data-equalize-line-height={equalizeLineHeight ? '' : undefined}
       data-testid={componentClassName}
       {...bodyTextProps}
     >
