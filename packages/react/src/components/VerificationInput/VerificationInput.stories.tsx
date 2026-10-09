@@ -145,3 +145,27 @@ export const HiddenValidationNotInvalid: Story = {
     await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
   },
 };
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <VerificationInput label="Status only" validationStatus="invalid" />
+      <VerificationInput label="Text only" validationText="Unused text" />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [...canvasElement.querySelectorAll('.h-VerificationInputRoot')];
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
+  },
+};

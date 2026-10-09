@@ -427,3 +427,54 @@ export const FilterItemsStartsWith: Story = {
     );
   },
 };
+
+/** Test-only: a consumer's aria-describedby is kept alongside the helper text. */
+export const ConsumerDescribedBy: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <p id="combobox-external-description">External description</p>
+      <Combobox
+        label="Described combobox"
+        helperText="Helper text"
+        aria-describedby="combobox-external-description"
+        items={['Apple']}
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const input = within(canvasElement).getByRole('combobox', { name: /^Described combobox/ });
+
+    await expect(input).toHaveAccessibleDescription('External description Helper text');
+  },
+};
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Combobox label="Status only" validationStatus="invalid" items={['Apple']} />
+      <Combobox label="Text only" validationText="Unused text" items={['Apple']} />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [/^Status only/, /^Text only/].map(name =>
+      canvas.getByRole('combobox', { name })
+    );
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
+  },
+};

@@ -153,7 +153,8 @@ there is perhaps an action which needs to be taken, rather than not knowing
 there is a button there at all. While disabled or `loading`, the button's
 `onClick` handler isn't called and its default action is cancelled, so a
 `type="submit"` button won't submit its form and an `asChild` link won't
-navigate.
+navigate on click or middle-click. A link can still be opened from the browser's
+context menu, so remove its `href` while disabled if that matters.
 
 ## Variants
 

@@ -55,6 +55,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     loading,
     hideLabel,
     placeholder,
+    'aria-describedby': ariaDescribedby,
     ...comboboxProps
   } = extractProps(props, marginPropDefs);
 
@@ -82,8 +83,11 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
   const isInvalid = showValidation && validationStatus === 'invalid';
 
   const ariaDescribedbyValue = mergeIds(
+    ariaDescribedby,
     helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showValidation && validationStatus !== undefined && validationText !== undefined
+      ? validationTextId
+      : undefined
   );
 
   const popupHasContent = Boolean(statusText) || Boolean(props.items) || Boolean(children);
@@ -104,7 +108,9 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
               placeholder={placeholder}
               aria-describedby={ariaDescribedbyValue}
               aria-invalid={isInvalid ? true : undefined}
-              aria-errormessage={isInvalid ? validationTextId : undefined}
+              aria-errormessage={
+                isInvalid && validationText !== undefined ? validationTextId : undefined
+              }
             >
               <ComboboxPrimitive.Trigger
                 disabled={disabled}

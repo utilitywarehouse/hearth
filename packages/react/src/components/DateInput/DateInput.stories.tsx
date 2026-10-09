@@ -351,7 +351,7 @@ export const GroupingInputs: Story = {
   ),
 };
 
-/** Test-only: a consumer's aria-describedby is kept alongside the helper text. */
+/** Test-only: a consumer's aria-describedby and aria-errormessage are kept. */
 export const ConsumerDescribedBy: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
   parameters: {
@@ -366,11 +366,19 @@ export const ConsumerDescribedBy: Story = {
         helperText="Helper text"
         aria-describedby="external-description"
       />
+      <DateInput
+        label="Custom error date"
+        validationStatus="invalid"
+        aria-errormessage="external-description"
+      />
     </Flex>
   ),
   play: async ({ canvasElement }) => {
     const group = within(canvasElement).getByRole('group', { name: 'Described date' });
 
     await expect(group).toHaveAccessibleDescription('External description Helper text');
+    await expect(
+      within(canvasElement).getByRole('group', { name: 'Custom error date' })
+    ).toHaveAttribute('aria-errormessage', 'external-description');
   },
 };

@@ -67,7 +67,9 @@ export const TextInput = forwardRef<InputBaseElement, TextInputProps>((props, re
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
     !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showValidation && validationStatus !== undefined && validationText !== undefined
+      ? validationTextId
+      : undefined
   );
 
   return (
@@ -88,7 +90,7 @@ export const TextInput = forwardRef<InputBaseElement, TextInputProps>((props, re
         aria-labelledby={labelId}
         aria-describedby={ariaDescribedbyValue}
         aria-invalid={isInvalid ? true : undefined}
-        aria-errormessage={isInvalid ? validationTextId : undefined}
+        aria-errormessage={isInvalid && validationText !== undefined ? validationTextId : undefined}
         {...textInputProps}
       >
         {children}

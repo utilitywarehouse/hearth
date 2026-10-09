@@ -562,6 +562,10 @@ export const DisabledBlocksDefaultAction: Story = {
     await expect(onButtonSubmit).toHaveBeenCalledOnce();
     await expect(onButtonSubmit).toHaveBeenCalledWith('enabled form');
 
+    const blockedLink = canvas.getByRole('link', { name: 'Loading' });
+    const middleClick = new MouseEvent('auxclick', { bubbles: true, cancelable: true, button: 1 });
+    await expect(blockedLink.dispatchEvent(middleClick)).toBe(false);
+
     await userEvent.click(canvas.getByRole('link', { name: 'Loading' }));
     await expect(window.location.hash).not.toBe('#blocked-link');
     (document.activeElement as HTMLElement | null)?.blur();

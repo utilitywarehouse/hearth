@@ -14,7 +14,8 @@ import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 
 // aria-disabled keeps the button focusable but doesn't block its default
-// action, so cancel it to stop form submission and link navigation.
+// action, so cancel clicks (including middle-click via auxclick) to stop form
+// submission and link navigation.
 const preventDefault = (event: MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
 const COMPONENT_NAME = 'UnstyledIconButton';
@@ -40,6 +41,7 @@ export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, Unstyled
       inverted,
       loading,
       onClick,
+      onAuxClick,
       asChild,
       ...unstyledIconButtonProps
     } = extractProps(props, unstyledIconButtonPropDefs);
@@ -55,6 +57,7 @@ export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, Unstyled
         aria-disabled={disabled || loading}
         data-inverted={inverted ? '' : undefined}
         onClick={disabled || loading ? preventDefault : onClick}
+        onAuxClick={disabled || loading ? preventDefault : onAuxClick}
         data-testid={componentClassName}
         {...unstyledIconButtonProps}
       >

@@ -11,7 +11,8 @@ import { forwardRef } from 'react';
 import type { ComponentRef, MouseEvent } from 'react';
 
 // aria-disabled keeps the button focusable but doesn't block its default
-// action, so cancel it to stop form submission and link navigation.
+// action, so cancel clicks (including middle-click via auxclick) to stop form
+// submission and link navigation.
 const preventDefault = (event: MouseEvent<HTMLButtonElement>) => event.preventDefault();
 
 const COMPONENT_NAME = 'ButtonBase';
@@ -26,6 +27,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
     className,
     disabled,
     onClick,
+    onAuxClick,
     asChild,
     children,
     ...buttonBaseProps
@@ -51,6 +53,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
         aria-disabled={disabled || undefined}
         className={cn(componentClassName, className)}
         onClick={disabled ? preventDefault : onClick}
+        onAuxClick={disabled ? preventDefault : onAuxClick}
         {...dataAttributeProps}
         data-testid={componentClassName}
         {...buttonBaseProps}
@@ -74,6 +77,7 @@ export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props,
       aria-disabled={disabled || undefined}
       className={cn(componentClassName, className)}
       onClick={disabled ? preventDefault : onClick}
+      onAuxClick={disabled ? preventDefault : onAuxClick}
       {...dataAttributeProps}
       data-testid={componentClassName}
       {...buttonBaseProps}

@@ -214,3 +214,33 @@ export const ConsumerDescribedBy: Story = {
     await expect(trigger).toHaveAccessibleDescription('External description Helper text');
   },
 };
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Select label="Status only" validationStatus="invalid">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+      <Select label="Text only" validationText="Unused text">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [/^Status only/, /^Text only/].map(name =>
+      canvas.getByRole('combobox', { name })
+    );
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
+  },
+};

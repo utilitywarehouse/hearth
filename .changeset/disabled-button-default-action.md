@@ -9,7 +9,8 @@ so they stay focusable. That only removed their `onClick` handler and didn't
 cancel the browser's default action, so a disabled or loading
 `type="submit"` button still submitted its form (by click, or by pressing
 Enter in a field), and a disabled or loading `asChild` link still navigated.
-The default action is now cancelled while disabled or loading.
+The default action of clicks and middle-clicks is now cancelled while disabled
+or loading.
 
 `UnstyledIconButton` also no longer calls `onClick` while `loading`,
 matching `Button` and `IconButton`.
@@ -22,5 +23,5 @@ matching `Button` and `IconButton`.
 
 **Developer changes**:
 
-No changes required. Removing `href` from disabled `asChild` links is no
-longer needed.
+No changes required. A disabled `asChild` link can still be opened from the
+browser's context menu, so remove its `href` while disabled if that matters.

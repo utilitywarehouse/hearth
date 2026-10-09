@@ -65,7 +65,9 @@ export const VerificationInput = forwardRef<VerificationInputElement, Verificati
     const ariaDescribedbyValue = mergeIds(
       ariaDescribedby,
       !!helperText ? helperTextId : undefined,
-      showValidation && validationText !== undefined ? validationTextId : undefined
+      showValidation && validationStatus !== undefined && validationText !== undefined
+        ? validationTextId
+        : undefined
     );
 
     const isInvalid = showValidation && validationStatus === 'invalid';
@@ -86,7 +88,9 @@ export const VerificationInput = forwardRef<VerificationInputElement, Verificati
           aria-labelledby={labelId}
           aria-describedby={ariaDescribedbyValue}
           aria-invalid={isInvalid ? true : undefined}
-          aria-errormessage={isInvalid ? validationTextId : undefined}
+          aria-errormessage={
+            isInvalid && validationText !== undefined ? validationTextId : undefined
+          }
           data-validation-status={showValidation ? validationStatus : undefined}
           {...verificationInputProps}
         >

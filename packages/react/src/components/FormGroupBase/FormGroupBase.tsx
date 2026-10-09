@@ -47,7 +47,7 @@ export const FormGroupBase = forwardRef<FormGroupBaseElement, FormGroupBaseProps
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
     hasHelperText ? helperTextId : undefined,
-    ariaErrorMessage || showValidationText ? validationTextId : undefined
+    showValidationText ? validationTextId : undefined
   );
   const value = {
     hasGroupHelperText: hasHelperText,
@@ -64,7 +64,7 @@ export const FormGroupBase = forwardRef<FormGroupBaseElement, FormGroupBaseProps
       disabled={disabled}
       id={id}
       data-disabled={disabled ? '' : undefined}
-      aria-errormessage={ariaErrorMessage || showInvalid ? validationTextId : undefined}
+      aria-errormessage={ariaErrorMessage ?? (showInvalid ? validationTextId : undefined)}
       aria-labelledby={ariaLabelledby ?? (Boolean(label) ? labelId : undefined)}
       aria-invalid={showInvalid}
       aria-describedby={ariaDescribedbyValue}
