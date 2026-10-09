@@ -25,7 +25,7 @@ const Tab = ({
   } = useTabsContext();
   const { active: pressed } = states || { active: false };
   const isActive = active === value;
-  styles.useVariants({ size, pressed });
+  styles.useVariants({ size, pressed, disabled: !!(disabled || allDisabled) });
   const ref = useRef<View | null>(null);
   const handlePress = () => {
     if (disabled || allDisabled) return;
@@ -94,6 +94,11 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
         },
         false: {},
+      },
+      disabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
       },
     },
   },

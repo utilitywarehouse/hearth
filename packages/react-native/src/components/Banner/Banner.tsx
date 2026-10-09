@@ -297,7 +297,7 @@ const styles = StyleSheet.create(theme => ({
       direction: {
         horizontal: {},
         vertical: {
-          flex: 1,
+          flexGrow: 1,
         },
       },
     },

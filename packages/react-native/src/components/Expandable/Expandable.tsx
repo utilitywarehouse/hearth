@@ -3,11 +3,11 @@ import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { ExpandableProps } from './Expandable.props';
 
 /**
@@ -26,7 +26,7 @@ const Expandable = ({
   animateOpacity = true,
   ...props
 }: ExpandableProps) => {
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
   const height = useSharedValue(0);
   const open = useSharedValue(expanded);
 

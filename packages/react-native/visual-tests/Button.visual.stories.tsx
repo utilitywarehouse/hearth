@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
+import { ElectricitySmallIcon, MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Button } from '../src/components/Button';
 import { VTGrid, VTInvertedStrip, VTRow } from './_support';
 
@@ -14,86 +15,68 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const Solid = () => (
+const VariantMatrix = () => (
   <VTGrid>
     <VTRow label="Emphasis">
       <Button variant="emphasis" text="Emphasis" />
     </VTRow>
-    <VTRow label="Solid highlight">
+    <VTRow label="Solid">
       <Button text="Highlight" />
+      <Button colorScheme="affirmative" text="Affirm" />
+      <Button colorScheme="destructive" text="Destruct" />
     </VTRow>
-    <VTRow label="Solid affirmative">
-      <Button colorScheme="affirmative" text="Affirmative" />
+    <VTRow label="Outline">
+      <Button variant="outline" colorScheme="functional" text="Function" />
+      <Button variant="outline" colorScheme="affirmative" text="Affirm" />
+      <Button variant="outline" colorScheme="destructive" text="Destruct" />
     </VTRow>
-    <VTRow label="Solid destructive">
-      <Button colorScheme="destructive" text="Destructive" />
+    <VTRow label="Ghost">
+      <Button variant="ghost" colorScheme="functional" text="Function" />
+      <Button variant="ghost" colorScheme="affirmative" text="Affirm" />
+      <Button variant="ghost" colorScheme="destructive" text="Destruct" />
     </VTRow>
   </VTGrid>
 );
 
-export const Variants: Story = { render: () => <Solid /> };
+export const Variants: Story = { render: () => <VariantMatrix /> };
 
 export const VariantsDark: Story = {
   parameters: { colorMode: 'dark' },
-  render: () => <Solid />,
-};
-
-export const OutlineAndGhost: Story = {
-  render: () => (
-    <VTGrid>
-      <VTRow label="Functional">
-        <Button variant="outline" colorScheme="functional" text="Outline" />
-        <Button variant="ghost" colorScheme="functional" text="Ghost" />
-      </VTRow>
-      <VTRow label="Affirmative">
-        <Button variant="outline" colorScheme="affirmative" text="Outline" />
-        <Button variant="ghost" colorScheme="affirmative" text="Ghost" />
-      </VTRow>
-      <VTRow label="Destructive">
-        <Button variant="outline" colorScheme="destructive" text="Outline" />
-        <Button variant="ghost" colorScheme="destructive" text="Ghost" />
-      </VTRow>
-    </VTGrid>
-  ),
+  render: () => <VariantMatrix />,
 };
 
 export const States: Story = {
   render: () => (
     <VTGrid>
-      <VTRow label="Disabled">
-        <Button disabled text="Solid" />
-        <Button disabled variant="outline" colorScheme="functional" text="Outline" />
+      <VTRow label="Sizes">
+        <Button text="Medium" />
+        <Button size="sm" text="Small" />
       </VTRow>
-      <VTRow label="Loading">
+      <VTRow label="Loading and disabled">
         <Button loading text="Loading" />
+        <Button disabled text="Disabled" />
       </VTRow>
       <VTRow label="Pressed">
         <Button pressed text="Solid" />
         <Button pressed variant="outline" colorScheme="functional" text="Outline" />
       </VTRow>
-      <VTRow label="Small">
-        <Button size="sm" text="Small" />
-        <Button size="sm" variant="ghost" colorScheme="functional" text="Ghost" />
+      <VTRow label="Icons">
+        <Button icon={MobileSmallIcon} text="Left" />
+        <Button icon={ElectricitySmallIcon} iconPosition="right" text="Right" />
       </VTRow>
+      <VTInvertedStrip>
+        <VTGrid>
+          <VTRow label="Inverted">
+            <Button inverted variant="emphasis" text="Emphasis" />
+            <Button inverted text="Solid" />
+          </VTRow>
+          <VTRow label="Inverted outline, ghost, disabled">
+            <Button inverted variant="outline" colorScheme="functional" text="Outline" />
+            <Button inverted variant="ghost" colorScheme="functional" text="Ghost" />
+            <Button inverted disabled text="Disabled" />
+          </VTRow>
+        </VTGrid>
+      </VTInvertedStrip>
     </VTGrid>
-  ),
-};
-
-export const Inverted: Story = {
-  render: () => (
-    <VTInvertedStrip>
-      <VTGrid>
-        <VTRow label="Emphasis">
-          <Button inverted variant="emphasis" text="Emphasis" />
-        </VTRow>
-        <VTRow label="Solid">
-          <Button inverted text="Solid" />
-        </VTRow>
-        <VTRow label="Outline and ghost">
-          <Button inverted variant="outline" colorScheme="functional" text="Outline" />
-          <Button inverted variant="ghost" colorScheme="functional" text="Ghost" />
-        </VTRow>
-      </VTGrid>
-    </VTInvertedStrip>
   ),
 };

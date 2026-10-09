@@ -15,7 +15,8 @@ const ToggleButtonCardRoot = ({
 }: ToggleButtonCardProps & {
   states?: { disabled?: boolean; checked?: boolean; active?: boolean };
 }) => {
-  const { checked, active } = states ?? {};
+  const { checked, active, disabled: statesDisabled } = states ?? {};
+  const isDisabled = !!(statesDisabled ?? props.disabled);
   const containerRef = useRef<View>(null);
 
   const value = useMemo(
@@ -28,6 +29,7 @@ const ToggleButtonCardRoot = ({
 
   styles.useVariants({
     selected: checked,
+    disabled: isDisabled,
   });
 
   const handlePress = (e: GestureResponderEvent) => {
@@ -51,6 +53,7 @@ const ToggleButtonCardRoot = ({
     <ToggleButtonCardContext.Provider value={value}>
       <Pressable
         {...props}
+        disabled={isDisabled}
         ref={containerRef}
         onPress={onPress}
         style={[styles.container, style as ViewStyle]}
@@ -60,6 +63,7 @@ const ToggleButtonCardRoot = ({
           <ToggleButton
             text={label}
             toggled={checked}
+            disabled={isDisabled}
             onPress={handlePress}
             style={styles.button}
           />
@@ -100,10 +104,17 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.radio.gap,
     alignItems: 'stretch',
     justifyContent: 'flex-start',
-    flex: 1,
+    flexGrow: 1,
   },
   button: {
-    flex: 1,
+    flexGrow: 1,
+    variants: {
+      disabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
+    },
   },
 }));
 

@@ -1,9 +1,10 @@
 import type { ComponentType, ReactElement } from 'react';
-import { useEffect, useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Keyboard } from 'react-native';
+import { ReducedMotionConfig, ReduceMotion } from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useUnistyles } from 'react-native-unistyles';
-import { useColorMode } from '../../src/hooks';
+import { UnistylesRuntime } from 'react-native-unistyles';
+import { ReducedMotionOverride } from '../../src/hooks/useReducedMotionEnabled';
 
 export type VisualTestColorMode = 'light' | 'dark';
 
@@ -23,6 +24,8 @@ type VisualTestContext = {
  * - the story sits inside a `SafeAreaView` with a fixed background
  * - the colour mode comes from `parameters.colorMode`, never from the device
  * - the keyboard is dismissed on mount
+ * - reduced motion is always on, so animated components render their final
+ *   state whatever the device's Reduce Motion setting
  *
  * Content must fit the safe content box (about 360 x 650pt). See the README.
  */
@@ -31,12 +34,12 @@ export const VisualTestDecorator = (
   { parameters }: VisualTestContext
 ): ReactElement | null => {
   const mode: VisualTestColorMode = parameters.colorMode ?? 'light';
-  const [colorMode, setColorMode] = useColorMode();
-  const { theme } = useUnistyles();
+  const [appliedMode, setAppliedMode] = useState<VisualTestColorMode>();
 
   useLayoutEffect(() => {
-    setColorMode(mode);
-  }, [mode, setColorMode]);
+    if (UnistylesRuntime.themeName !== mode) UnistylesRuntime.setTheme(mode);
+    setAppliedMode(mode);
+  }, [mode]);
 
   useEffect(() => {
     Keyboard.dismiss();
@@ -44,7 +47,11 @@ export const VisualTestDecorator = (
 
   // Hold the story back until the theme has switched so a dark story is never
   // captured mid-flip from the previous story's mode.
-  if (colorMode !== mode) return null;
+  if (appliedMode !== mode) return null;
+
+  // Read the theme for `mode` directly: `useUnistyles()` only catches up on a
+  // later render, so the background would lag one story behind.
+  const theme = UnistylesRuntime.getTheme(mode);
 
   return (
     <SafeAreaView
@@ -55,7 +62,12 @@ export const VisualTestDecorator = (
         backgroundColor: theme.color.background.primary,
       }}
     >
-      <Story />
+      {/* `ReducedMotionConfig` covers Reanimated's own animations. Hearth's
+          reduced-motion branches read `ReducedMotionOverride` instead. */}
+      <ReducedMotionConfig mode={ReduceMotion.Always} />
+      <ReducedMotionOverride value>
+        <Story />
+      </ReducedMotionOverride>
     </SafeAreaView>
   );
 };
