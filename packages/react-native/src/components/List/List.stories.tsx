@@ -11,7 +11,18 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { FlatList } from 'react-native';
-import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
+import {
+  List,
+  ListAction,
+  ListItem,
+  ListItemContent,
+  ListItemHeading,
+  ListItemHelperText,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+} from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Badge } from '../Badge';
 import { BodyText } from '../BodyText';
@@ -330,6 +341,134 @@ export const WithTransactions: Story = {
         onPress={() => console.log('Transaction pressed')}
       />
     </List>
+  ),
+};
+
+const LONG_HELPER_TEXT =
+  'Supporting text that is long enough to wrap onto several lines so that the alignment of the other parts is visible.';
+
+export const Alignment: Story = {
+  parameters: {
+    controls: { include: [] },
+    chromatic: { disableSnapshot: false },
+  },
+  render: () => (
+    <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
+      <VariantTitle title="Default: leading and trailing icons top-aligned, chevron centred">
+        <List container="subtleWhite">
+          <ListItem
+            heading="Electricity"
+            helperText={LONG_HELPER_TEXT}
+            leadingContent={<ListItemIcon as={ElectricityMediumIcon} />}
+            onPress={() => console.log('Pressed')}
+          />
+        </List>
+      </VariantTitle>
+      <VariantTitle title="leadingContentAlignment center">
+        <List container="subtleWhite">
+          <ListItem
+            heading="Electricity"
+            helperText={LONG_HELPER_TEXT}
+            leadingContent={<ListItemIcon as={ElectricityMediumIcon} />}
+            leadingContentAlignment="center"
+            onPress={() => console.log('Pressed')}
+          />
+        </List>
+      </VariantTitle>
+      <VariantTitle title="contentAlignment flex-start">
+        <List container="subtleWhite">
+          <ListItem
+            heading="Electricity"
+            leadingContent={<ListItemIcon as={ElectricityMediumIcon} />}
+            trailingContent={<BodyText>Tall trailing{'\n'}content{'\n'}here</BodyText>}
+            contentAlignment="flex-start"
+          />
+        </List>
+      </VariantTitle>
+      <VariantTitle title="trailingContentAlignment center">
+        <List container="subtleWhite">
+          <ListItem
+            heading="Coffee Shop"
+            helperText={LONG_HELPER_TEXT}
+            trailingContent={<BodyText>-£100.00</BodyText>}
+            trailingContentAlignment="center"
+          />
+        </List>
+      </VariantTitle>
+      <VariantTitle title="trailingContentAlignment flex-end">
+        <List container="subtleWhite">
+          <ListItem
+            heading="Coffee Shop"
+            helperText={LONG_HELPER_TEXT}
+            trailingContent={<BodyText>-£100.00</BodyText>}
+            trailingContentAlignment="flex-end"
+          />
+        </List>
+      </VariantTitle>
+    </Flex>
+  ),
+};
+
+export const AdvancedAlignment: Story = {
+  parameters: {
+    controls: { include: [] },
+    chromatic: { disableSnapshot: false },
+  },
+  render: () => (
+    <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
+      <VariantTitle title="Composed parts use the defaults">
+        <List container="subtleWhite">
+          <ListItem onPress={() => console.log('Pressed')}>
+            <ListItemLeadingContent>
+              <ListItemIcon as={ElectricityMediumIcon} />
+            </ListItemLeadingContent>
+            <ListItemContent>
+              <ListItemHeading>Electricity</ListItemHeading>
+              <ListItemHelperText>{LONG_HELPER_TEXT}</ListItemHelperText>
+            </ListItemContent>
+            <ListItemTrailingContent>
+              <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+            </ListItemTrailingContent>
+          </ListItem>
+        </List>
+      </VariantTitle>
+      <VariantTitle title="ListItem alignment props apply to composed parts">
+        <List container="subtleWhite">
+          <ListItem
+            leadingContentAlignment="center"
+            trailingContentAlignment="flex-end"
+            onPress={() => console.log('Pressed')}
+          >
+            <ListItemLeadingContent>
+              <ListItemIcon as={ElectricityMediumIcon} />
+            </ListItemLeadingContent>
+            <ListItemContent>
+              <ListItemHeading>Electricity</ListItemHeading>
+              <ListItemHelperText>{LONG_HELPER_TEXT}</ListItemHelperText>
+            </ListItemContent>
+            <ListItemTrailingContent>
+              <BodyText>-£100.00</BodyText>
+            </ListItemTrailingContent>
+          </ListItem>
+        </List>
+      </VariantTitle>
+      <VariantTitle title="Per-part alignment overrides the ListItem prop">
+        <List container="subtleWhite">
+          <ListItem leadingContentAlignment="flex-start" onPress={() => console.log('Pressed')}>
+            <ListItemLeadingContent alignment="center">
+              <ListItemIcon as={ElectricityMediumIcon} />
+            </ListItemLeadingContent>
+            <ListItemContent alignment="flex-start">
+              <ListItemHeading>Electricity</ListItemHeading>
+              <ListItemHelperText>{LONG_HELPER_TEXT}</ListItemHelperText>
+            </ListItemContent>
+            <ListItemTrailingContent alignment="flex-end">
+              <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+            </ListItemTrailingContent>
+          </ListItem>
+        </List>
+      </VariantTitle>
+    </Flex>
   ),
 };
 
