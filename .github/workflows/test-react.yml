@@ -39,4 +39,8 @@ jobs:
       # whose package.json main/module/exports point at dist/ — build them first so Vite can
       # resolve those entries, otherwise Storybook fails with "Failed to resolve entry for package".
       - run: pnpm run build:react
-      - run: pnpm run test:react
+      # Sharded so each Chromium session runs about half the story files. A single session running
+      # all of them intermittently drops its connection partway through ("Browser connection was
+      # closed while running tests"), failing the job with no failing tests.
+      - run: pnpm run test:react --shard=1/2
+      - run: pnpm run test:react --shard=2/2
