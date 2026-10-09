@@ -73,7 +73,7 @@ export const DatePickerHeader = ({
       data-disable-today-indicator={disableTodayIndicator ? '' : undefined}
     >
       <BodyText asChild size="md" weight="semibold">
-        <button className={`${componentClassName}MonthButton`} onClick={onClick}>
+        <button type="button" className={`${componentClassName}MonthButton`} onClick={onClick}>
           {buttonText[view]}
           {view === 'days' ? (
             <ChevronDownSmallIcon aria-hidden />

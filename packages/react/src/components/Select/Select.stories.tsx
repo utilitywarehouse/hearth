@@ -188,3 +188,29 @@ export const DisabledHidesValidation: Story = {
     await expect(disabled).not.toHaveAttribute('aria-invalid');
   },
 };
+
+/** Test-only: a consumer's aria-describedby is kept alongside the helper text. */
+export const ConsumerDescribedBy: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <p id="select-external-description">External description</p>
+      <Select
+        label="Described select"
+        helperText="Helper text"
+        aria-describedby="select-external-description"
+      >
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('combobox', { name: /^Described select/ });
+
+    await expect(trigger).toHaveAccessibleDescription('External description Helper text');
+  },
+};

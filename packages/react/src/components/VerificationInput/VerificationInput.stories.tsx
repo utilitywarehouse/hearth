@@ -121,15 +121,27 @@ export const HiddenValidationNotInvalid: Story = {
         validationStatus="invalid"
         validationText="Disabled error"
       />
+      <VerificationInput
+        label="Read-only invalid"
+        readOnly
+        validationStatus="invalid"
+        validationText="Read-only error"
+      />
     </Flex>
   ),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const [invalid, disabled] = canvasElement.querySelectorAll('.h-VerificationInputRoot');
+    const [invalid, disabled, readOnly] = canvasElement.querySelectorAll(
+      '.h-VerificationInputRoot'
+    );
 
     await expect(invalid).toHaveAttribute('aria-invalid', 'true');
     await expect(invalid).toHaveAccessibleDescription(/Invalid error/);
-    await expect(disabled).not.toHaveAttribute('aria-invalid');
+    for (const hidden of [disabled, readOnly]) {
+      await expect(hidden).not.toHaveAttribute('aria-invalid');
+      await expect(hidden).not.toHaveAttribute('aria-errormessage');
+    }
     await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
   },
 };

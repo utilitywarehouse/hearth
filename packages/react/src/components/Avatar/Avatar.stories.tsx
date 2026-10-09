@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { expect } from 'storybook/test';
+import { expect, waitFor } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { Avatar } from './Avatar';
 
@@ -96,9 +96,12 @@ export const Initials: Story = {
     </Flex>
   ),
   play: async ({ canvasElement }) => {
-    const fallbacks = [...canvasElement.querySelectorAll('.h-AvatarFallback')];
+    // Radix renders the fallback after a `delayMs` timer, so wait for all four
+    const fallbacks = () => [...canvasElement.querySelectorAll('.h-AvatarFallback')];
 
-    await expect(fallbacks.map(fallback => fallback.textContent)).toEqual(['RP', 'AK', 'Z', '']);
-    await expect(fallbacks[3]!.querySelector('svg')).not.toBeNull();
+    await waitFor(() =>
+      expect(fallbacks().map(fallback => fallback.textContent)).toEqual(['RP', 'AK', 'Z', ''])
+    );
+    await expect(fallbacks()[3]!.querySelector('svg')).not.toBeNull();
   },
 };

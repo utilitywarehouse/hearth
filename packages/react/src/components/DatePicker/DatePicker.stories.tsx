@@ -230,3 +230,22 @@ export const DisabledState: Story = {
     trigger.blur();
   },
 };
+
+/** Test-only: a read-only DatePicker hides its validation text and isn't marked invalid. */
+export const ReadOnlyState: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { readOnly: true, validationStatus: 'invalid', validationText: 'Read-only error' },
+  render: args => <DatePicker {...args} selected={null} onChange={() => {}} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /^Label/ });
+
+    await expect(trigger).not.toHaveAttribute('aria-invalid');
+    await expect(trigger).not.toHaveAttribute('aria-errormessage');
+    await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
+  },
+};
