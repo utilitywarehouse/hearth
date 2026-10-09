@@ -18,6 +18,7 @@ const meta: Meta<typeof BodyText> = {
     color: { options: colorValues, control: { type: 'select' } },
     truncate: { control: { type: 'boolean' } },
     paragraphSpacing: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -198,6 +199,26 @@ export const InvertedText: Story = {
         <Box backgroundColor="brand" padding="400">
           <BodyText {...args}>Inverted text</BodyText>
         </Box>
+      </Flex>
+    );
+  },
+};
+
+/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400" width="200px">
+        <BodyText size="xl">The five boxing wizards jump quickly.</BodyText>
+        <BodyText size="xl" equalizeLineHeight>
+          The five boxing wizards jump quickly.
+        </BodyText>
       </Flex>
     );
   },

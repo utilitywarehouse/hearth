@@ -15,6 +15,7 @@ const meta: Meta<typeof DetailText> = {
     size: { options: sizes, control: { type: 'radio' } },
     color: { options: colorValues, control: { type: 'radio' } },
     inverted: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -70,6 +71,27 @@ export const TextSizes: Story = {
         ))}
         <DetailText size={{ mobile: 'sm', tablet: 'xl', desktop: '4xl' }}>
           Responsive size
+        </DetailText>
+      </Flex>
+    );
+  },
+};
+
+/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400" width="200px">
+        <DetailText size="4xl">The five boxing wizards jump quickly.</DetailText>
+        <DetailText size="4xl" equalizeLineHeight>
+          The five boxing wizards jump quickly.
         </DetailText>
       </Flex>
     );

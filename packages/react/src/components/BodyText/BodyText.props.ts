@@ -51,6 +51,12 @@ export interface CommonBodyTextProps
    * If true, the text will have a bottom margin.
    */
   paragraphSpacing?: boolean;
+  /**
+   * If true, overrides the line-height to `1`, regardless of `size` — useful
+   * when the default line-height affects layout (e.g. single-line text in a
+   * fixed-height container).
+   */
+  equalizeLineHeight?: boolean;
 }
 type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
 type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;

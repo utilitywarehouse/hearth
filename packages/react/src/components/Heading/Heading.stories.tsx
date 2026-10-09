@@ -13,6 +13,7 @@ const meta: Meta<typeof Heading> = {
     as: { options: ['h1', 'h2', 'h3', 'h4'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
     inverted: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -48,6 +49,27 @@ export const KitchenSink: Story = {
         <Heading size="lg">Hamburgefons (lg)</Heading>
         <Heading size="xl">Hamburgefons (xl)</Heading>
         <Heading size="2xl">Hamburgefons (2xl)</Heading>
+      </Flex>
+    );
+  },
+};
+
+/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400" width="200px">
+        <Heading size="2xl">The five boxing wizards jump quickly.</Heading>
+        <Heading size="2xl" equalizeLineHeight>
+          The five boxing wizards jump quickly.
+        </Heading>
       </Flex>
     );
   },

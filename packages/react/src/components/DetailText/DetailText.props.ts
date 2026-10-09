@@ -33,6 +33,12 @@ export interface CommonDetailTextProps
   color?: Responsive<(typeof colorValues)[number]>;
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
+  /**
+   * If true, overrides the line-height to `1`, regardless of `size` — useful
+   * when the default line-height affects layout (e.g. single-line text in a
+   * fixed-height container).
+   */
+  equalizeLineHeight?: boolean;
 }
 type DetailTextDivProps = {
   /** Renders a `div` element. */
