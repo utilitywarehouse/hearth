@@ -176,6 +176,7 @@ export const Labelling: Story = {
         <CheckboxTile label="Grouped" value="grouped" helperText="Own helper" />
       </CheckboxGroup>
       <CheckboxTile label="Disabled" value="disabled" disabled />
+      <CheckboxTile label="Status only" value="status-only" validationStatus="invalid" />
     </Flex>
   ),
   play: async ({ canvasElement }) => {
@@ -193,5 +194,9 @@ export const Labelling: Story = {
     );
     await expect(canvas.queryByText('Own helper')).not.toBeInTheDocument();
     await expect(disabled).toBeDisabled();
+
+    const statusOnly = canvas.getByRole('checkbox', { name: 'Status only' });
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
   },
 };

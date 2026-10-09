@@ -68,7 +68,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
     showHelperText ? helperTextId : undefined,
     showValidation ? validationTextId : undefined
   );
-  const isInvalid = showValidation && validationStatus === 'invalid';
+  const isInvalid = !hasGroupValidationText && validationStatus === 'invalid';
 
   return (
     <label
@@ -88,7 +88,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
         aria-describedby={ariaDescribedbyValue}
         aria-labelledby={ariaLabelledby ? ariaLabelledby : showLabel ? labelId : undefined}
         aria-invalid={isInvalid ? true : undefined}
-        aria-errormessage={isInvalid ? validationTextId : undefined}
+        aria-errormessage={isInvalid && showValidation ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {
