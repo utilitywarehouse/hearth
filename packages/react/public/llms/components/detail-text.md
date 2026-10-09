@@ -80,15 +80,24 @@ When using `BodyText` on a darker background, specifically `uwPurple` &
 
 ## Equalize line-height
 
-Use the `equalizeLineHeight` prop to override the line-height to `1`,
-regardless of `size`, for cases where the default line-height affects layout.
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
 
 ```tsx
-<Flex direction="column" gap="400" width="200px">
-  <DetailText size="4xl">The five boxing wizards jump quickly.</DetailText>
-  <DetailText size="4xl" equalizeLineHeight>
-    The five boxing wizards jump quickly.
-  </DetailText>
+<Flex direction="column" gap="400">
+  <Flex direction="row" alignItems="end" gap="50">
+    <DetailText size="2xl">£42.00</DetailText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+  <Flex direction="row" alignItems="end" gap="50">
+    <DetailText size="2xl" equalizeLineHeight>
+      £42.00
+    </DetailText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
 </Flex>
 ```
 

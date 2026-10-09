@@ -204,7 +204,12 @@ export const InvertedText: Story = {
   },
 };
 
-/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+/**
+ * Without `equalizeLineHeight`, a large `BodyText` next to smaller text in a
+ * bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
 export const EqualizeLineHeight: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -214,11 +219,19 @@ export const EqualizeLineHeight: Story = {
   name: 'Equalize line-height',
   render: () => {
     return (
-      <Flex direction="column" gap="400" width="200px">
-        <BodyText size="xl">The five boxing wizards jump quickly.</BodyText>
-        <BodyText size="xl" equalizeLineHeight>
-          The five boxing wizards jump quickly.
-        </BodyText>
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <BodyText size="xl" weight="bold">
+            £42.00
+          </BodyText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <BodyText size="xl" weight="bold" equalizeLineHeight>
+            £42.00
+          </BodyText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },

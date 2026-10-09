@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
 import { Heading } from './Heading';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
@@ -54,7 +55,12 @@ export const KitchenSink: Story = {
   },
 };
 
-/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+/**
+ * Without `equalizeLineHeight`, a large `Heading` next to smaller text in a
+ * bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
 export const EqualizeLineHeight: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -65,11 +71,17 @@ export const EqualizeLineHeight: Story = {
   name: 'Equalize line-height',
   render: () => {
     return (
-      <Flex direction="column" gap="400" width="200px">
-        <Heading size="2xl">The five boxing wizards jump quickly.</Heading>
-        <Heading size="2xl" equalizeLineHeight>
-          The five boxing wizards jump quickly.
-        </Heading>
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <Heading size="2xl">£42.00</Heading>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <Heading size="2xl" equalizeLineHeight>
+            £42.00
+          </Heading>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },

@@ -181,15 +181,26 @@ overflow).
 
 ## Equalize line-height
 
-Use the `equalizeLineHeight` prop to override the line-height to `1`,
-regardless of `size`, for cases where the default line-height affects layout.
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
 
 ```tsx
-<Flex direction="column" gap="400" width="200px">
-  <BodyText size="xl">The five boxing wizards jump quickly.</BodyText>
-  <BodyText size="xl" equalizeLineHeight>
-    The five boxing wizards jump quickly.
-  </BodyText>
+<Flex direction="column" gap="400">
+  <Flex direction="row" alignItems="end" gap="50">
+    <BodyText size="xl" weight="bold">
+      £42.00
+    </BodyText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+  <Flex direction="row" alignItems="end" gap="50">
+    <BodyText size="xl" weight="bold" equalizeLineHeight>
+      £42.00
+    </BodyText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
 </Flex>
 ```
 

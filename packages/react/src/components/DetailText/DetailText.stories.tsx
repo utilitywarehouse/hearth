@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
 import { DetailText } from './DetailText';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
@@ -77,7 +78,12 @@ export const TextSizes: Story = {
   },
 };
 
-/** Set equalizeLineHeight to override the line-height to 1, regardless of size. */
+/**
+ * Without `equalizeLineHeight`, a large `DetailText` next to smaller text in
+ * a bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
 export const EqualizeLineHeight: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -88,11 +94,17 @@ export const EqualizeLineHeight: Story = {
   name: 'Equalize line-height',
   render: () => {
     return (
-      <Flex direction="column" gap="400" width="200px">
-        <DetailText size="4xl">The five boxing wizards jump quickly.</DetailText>
-        <DetailText size="4xl" equalizeLineHeight>
-          The five boxing wizards jump quickly.
-        </DetailText>
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <DetailText size="2xl">£42.00</DetailText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <DetailText size="2xl" equalizeLineHeight>
+            £42.00
+          </DetailText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },
