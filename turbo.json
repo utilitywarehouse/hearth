@@ -86,12 +86,8 @@
       "dependsOn": ["^build"]
     },
     "lint:oversight": {},
-    "format": {
-      "dependsOn": ["^build"]
-    },
-    "format:ci": {
-      "dependsOn": ["^build"]
-    },
+    "format": {},
+    "format:ci": {},
     "test": {
       "cache": false,
       "dependsOn": ["^build"]
