@@ -141,7 +141,7 @@ export declare const tablet: {
       readonly lineHeight: 36;
     };
     readonly fontFamily: 'DM Mono';
-    readonly fontWeight: 600;
+    readonly fontWeight: 500;
     readonly lg: {
       readonly fontSize: 18;
       readonly letterSpacing: -0.5400000214576721;
@@ -237,7 +237,7 @@ export declare const desktop: {
       readonly lineHeight: 36;
     };
     readonly fontFamily: 'DM Mono';
-    readonly fontWeight: 600;
+    readonly fontWeight: 500;
     readonly lg: {
       readonly fontSize: 18;
       readonly letterSpacing: -0.5400000214576721;
@@ -430,7 +430,7 @@ declare const typography: {
         readonly lineHeight: 36;
       };
       readonly fontFamily: 'DM Mono';
-      readonly fontWeight: 600;
+      readonly fontWeight: 500;
       readonly lg: {
         readonly fontSize: 18;
         readonly letterSpacing: -0.5400000214576721;
@@ -526,7 +526,7 @@ declare const typography: {
         readonly lineHeight: 36;
       };
       readonly fontFamily: 'DM Mono';
-      readonly fontWeight: 600;
+      readonly fontWeight: 500;
       readonly lg: {
         readonly fontSize: 18;
         readonly letterSpacing: -0.5400000214576721;

@@ -143,7 +143,7 @@ export const tablet = {
       lineHeight: 36,
     },
     fontFamily: 'DM Mono',
-    fontWeight: 600,
+    fontWeight: 500,
     lg: {
       fontSize: 18,
       letterSpacing: -0.5400000214576721,
@@ -240,7 +240,7 @@ export const desktop = {
       lineHeight: 36,
     },
     fontFamily: 'DM Mono',
-    fontWeight: 600,
+    fontWeight: 500,
     lg: {
       fontSize: 18,
       letterSpacing: -0.5400000214576721,
