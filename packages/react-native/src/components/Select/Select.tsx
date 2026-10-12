@@ -143,7 +143,9 @@ const Select = ({
         invalidText={invalidText}
         validText={validText}
       >
-        <Pressable accessibilityRole="button"
+        <Pressable
+          accessibilityRole="button"
+          accessibilityState={{ expanded: isOpen, disabled: isDisabled || isReadonly }}
           onPress={openBottomSheet}
           disabled={isDisabled || isReadonly}
           testID={testID}

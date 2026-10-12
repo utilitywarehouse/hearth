@@ -36,7 +36,9 @@ const SelectOption = ({
   };
 
   return (
-    <Pressable accessibilityRole="button"
+    <Pressable
+      accessibilityRole="radio"
+      accessibilityState={{ checked: isSelected, disabled }}
       onPress={handlePress}
       disabled={disabled}
       testID={testID}
