@@ -198,6 +198,7 @@ const DatePickerInput = ({
         accessible={false}
       >
         <Pressable
+          accessibilityRole={disableManualEntry ? 'button' : undefined}
           style={styles.fieldPressable}
           disabled={!disableManualEntry || isDisabled || isReadonly}
           onPress={openPicker}
