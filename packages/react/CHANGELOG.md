@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react
 
+## 0.34.6
+
+### Patch Changes
+
+- [#1680](https://github.com/utilitywarehouse/hearth/pull/1680) [`679516a`](https://github.com/utilitywarehouse/hearth/commit/679516a3872e0638d7b0f8f677f6e845ce107915) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `equalizeLineHeight` prop overrides line-height to 1 on typography components
+  
+  Typography line-height is normally driven by the `size` prop's token, which can
+  affect layout when a single line of text needs to sit tightly inside a
+  fixed-height container. The `equalizeLineHeight` prop overrides the
+  line-height to `1`, regardless of `size`.
+  
+  **Components affected**:
+  - `BodyText`
+  - `DetailText`
+  - `Heading`
+
 ## 0.34.5
 
 ### Patch Changes
