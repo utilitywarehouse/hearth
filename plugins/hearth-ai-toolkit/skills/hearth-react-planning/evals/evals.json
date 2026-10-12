@@ -7,7 +7,7 @@
       "expected_output": "A set of candidate sub-issues mapping the described features onto real Hearth React components (verified via docs-list/docs-show), each naming the specific component(s)/variant/props to use, shown to the user as a draft before creation, then created as sub-issues under ENG-412 on confirmation.",
       "files": [],
       "expectations": [
-        "Every distinct Hearth component named in the final breakdown has its own docs-show call behind it — not just an appearance in docs-list's inventory listing or in another component's story code sample",
+        "Every distinct Hearth component named in the final breakdown is backed by a docs-show call that actually documents it — either its own entry, or, for a compound sub-part sharing a page with its parent (e.g. ModalFooter/ModalClose under Modal), the owning component's entry — not just an appearance in docs-list's inventory listing or incidentally in an unrelated component's story code sample",
         "The breakdown is organised as discrete tasks (form section, danger-zone/delete confirmation, sticky save bar), not one monolithic task",
         "Each task names specific Hearth component(s) to use",
         "The draft breakdown was shown to the user before sub-issues were created",
@@ -21,7 +21,7 @@
       "files": [],
       "expectations": [
         "The Linear ticket ENG-530's description (and comments, if present) was read before drafting the breakdown",
-        "Every distinct Hearth component named in the final breakdown has its own docs-show call behind it — not just an appearance in docs-list's inventory listing or in another component's story code sample",
+        "Every distinct Hearth component named in the final breakdown is backed by a docs-show call that actually documents it — either its own entry, or, for a compound sub-part sharing a page with its parent (e.g. ModalFooter/ModalClose under Modal), the owning component's entry — not just an appearance in docs-list's inventory listing or incidentally in an unrelated component's story code sample",
         "A draft was shown to the user before any sub-issue was created",
         "Sub-issues were created under ENG-530 on confirmation",
         "Sub-issues target the consumer's own app code (composing existing Hearth components) rather than Hearth-library package-authoring tasks (props.ts API design, Storybook stories, .docs.mdx, Figma Code Connect, changesets) — benchmarking found this is a real failure mode: without this scope reminder, 'add a wizard' gets misread as 'add a component to packages/react'"
@@ -35,7 +35,7 @@
       "expectations": [
         "The gap (no drag-and-drop uploader / progress grid component) is explicitly flagged rather than silently mapped onto an unrelated or hallucinated component",
         "The skill offers to hand off the gap to design-systems-feedback rather than auto-filing it",
-        "Any parts of the ask that Hearth does cover (e.g. layout, individual progress indicators) are still mapped to real components, each with its own docs-show call rather than being named purely from the docs-list inventory listing",
+        "Any parts of the ask that Hearth does cover (e.g. layout, individual progress indicators) are still mapped to real components, each backed by a docs-show call that documents it (its own entry, or its owning component's entry for a compound sub-part) rather than being named purely from the docs-list inventory listing",
         "The draft, including the flagged gap, was shown to the user before any sub-issues were created"
       ]
     }

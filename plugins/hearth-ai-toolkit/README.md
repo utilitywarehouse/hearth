@@ -24,7 +24,9 @@ This gives you:
   freeform description, or a Figma link onto the real component inventory
   and writes the resulting task breakdown back to Linear as sub-issues.
   React Native isn't covered yet. Needs the `linear@claude-plugins-official`
-  plugin installed too.
+  plugin installed too; reading a Figma link additionally needs a separate
+  Figma MCP integration of your own — this plugin doesn't bundle one — and
+  falls back to asking for a text description when that isn't configured.
 - The `hearth-react-review` skill, for reviewing or auditing UI code that
   already uses `hearth-react` — hallucinated or deprecated props,
   design-token misuse, accessibility gaps, and layout anti-patterns. React
