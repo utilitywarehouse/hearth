@@ -25,13 +25,11 @@ const meta: Meta<typeof Modal> = {
     heading: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
     hideCloseButton: { control: { type: 'boolean' } },
-    fullScreen: { control: { type: 'boolean' } },
   },
   args: {
     heading: 'Heading',
     description: 'Description',
     hideCloseButton: false,
-    fullScreen: false,
   },
 };
 
@@ -420,7 +418,7 @@ export const WithCard: Story = {
   ),
 };
 
-/** Set fullScreen with long content inside ModalContent to enable internal scrolling. */
+/** Long content inside ModalContent scrolls internally once it exceeds the available height. */
 export const WithLongContent: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -428,7 +426,7 @@ export const WithLongContent: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -538,7 +536,7 @@ export const WithLongContent: Story = {
   ),
 };
 
-/** Set fullScreen with long content inside ModalContent to enable internal scrolling on mobile. */
+/** Long content inside ModalContent scrolls internally on mobile once it exceeds the available height. */
 export const WithLongContentOnMobile: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -547,7 +545,7 @@ export const WithLongContentOnMobile: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -657,7 +655,7 @@ export const WithLongContentOnMobile: Story = {
   ),
 };
 
-/** Full-screen with long content and a single footer button, on mobile — content should fill the space down to the footer, not leave a gap. */
+/** Long content and a single footer button, on mobile — content should fill the space down to the footer, not leave a gap. */
 export const WithLongContentAndSingleFooterButton: Story = {
   tags: ['!test'],
   parameters: {
@@ -667,7 +665,7 @@ export const WithLongContentAndSingleFooterButton: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -744,7 +742,7 @@ export const WithLongContentAndSingleFooterButton: Story = {
   ),
 };
 
-/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
+/** Combine long content with an image and mobile viewport for the most content-heavy case. */
 export const WithLongContentAndImage: Story = {
   tags: ['!test'],
   parameters: {
@@ -753,14 +751,13 @@ export const WithLongContentAndImage: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { fullScreen: true },
   // globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
-      <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+      <Modal {...args} description="" image={<img src={SpotSavings} alt="Savings Pig" />}>
         <ModalContent>
           <List variant="emphasis" colorScheme="neutralStrong">
             {Array.from({ length: 50 }, (_, i) => (
@@ -787,7 +784,7 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
-/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
+/** Combine long content with an image and mobile viewport for the most content-heavy case. */
 export const WithLongContentAndImageOnMobile: Story = {
   tags: ['!test'],
   parameters: {
@@ -796,7 +793,6 @@ export const WithLongContentAndImageOnMobile: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { fullScreen: true },
   globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -838,7 +834,6 @@ export const WithoutFooter: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { fullScreen: true },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>

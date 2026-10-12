@@ -40,7 +40,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       heading,
       description,
       hideCloseButton,
-      fullScreen,
       loading,
       loadingText,
       loadingHeading,
@@ -66,7 +65,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                 className={cn(componentClassName, className)}
                 data-contains-image={containsImage ? '' : undefined}
                 data-hide-close-button={hideCloseButton ? '' : undefined}
-                data-full-screen={fullScreen ? '' : undefined}
                 data-testid={componentClassName}
                 {...(hasDescription ? {} : { 'aria-describedby': undefined })}
                 {...props}
