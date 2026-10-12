@@ -29,20 +29,22 @@ type HeadingElement = ComponentRef<'h2'>;
  */
 export const Heading = forwardRef<HeadingElement, HeadingProps>(
   ({ size, as: Tag = 'h2', ...props }, ref) => {
-    const { className, asChild, inverted, children, ...headingProps } = extractProps(
-      { size, ...props },
-      headingPropDefs,
-      textAlignPropDefs,
-      textTransformPropDefs,
-      textWrapPropDefs,
-      marginPropDefs
-    );
+    const { className, asChild, inverted, equalizeLineHeight, children, ...headingProps } =
+      extractProps(
+        { size, ...props },
+        headingPropDefs,
+        textAlignPropDefs,
+        textTransformPropDefs,
+        textWrapPropDefs,
+        marginPropDefs
+      );
 
     return (
       <Slot.Root
         ref={ref}
         className={cn(componentClassName, className)}
         data-inverted={inverted ? '' : undefined}
+        data-equalize-line-height={equalizeLineHeight ? '' : undefined}
         data-testid={componentClassName}
         {...headingProps}
       >
