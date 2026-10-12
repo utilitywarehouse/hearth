@@ -40,6 +40,7 @@ export const ListItemButton = forwardRef<ListItemButtonElement, ListItemButtonPr
     return (
       <button
         ref={ref}
+        type="button"
         className={cn(componentClassName, className)}
         {...props}
         aria-disabled={disabled || undefined}

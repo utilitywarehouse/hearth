@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { TextInput } from '../TextInput/TextInput';
 import { TextArea } from './TextArea';
@@ -78,9 +79,18 @@ export const KitchenSink: Story = {
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => <TextArea {...args} />,
+  play: async ({ canvasElement }) => {
+    const textarea = within(canvasElement).getByRole('textbox', { name: /^Label/ });
+
+    await expect(textarea).toHaveAccessibleDescription('Helper text');
+    await expect(textarea).toHaveAttribute('rows', '3');
+
+    await userEvent.type(textarea, 'line one{Enter}line two');
+    await expect(textarea).toHaveValue('line one\nline two');
+    textarea.blur();
+  },
 };
 
 /** Use minHeight and maxHeight to constrain the resizable range. */
@@ -121,7 +131,6 @@ export const Validation: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => (
     <Flex direction="column" gap="400">
@@ -142,6 +151,15 @@ export const Validation: Story = {
     </Flex>
   ),
   args: { helperText: undefined },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const valid = canvas.getByRole('textbox', { name: /^Valid TextArea/ });
+    const invalid = canvas.getByRole('textbox', { name: /^Invalid TextArea/ });
+
+    await expect(valid).not.toHaveAttribute('aria-invalid');
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription('Please correct the error.');
+  },
 };
 
 /** Use rows to set the TextArea's initial visible height in text rows. */
@@ -195,4 +213,66 @@ export const WithTextInput: Story = {
       <TextArea label="Text area" />
     </Flex>
   ),
+};
+
+/** Test-only: a disabled or read-only TextArea isn't marked invalid while its validation text is hidden. */
+export const HiddenValidationNotInvalid: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <TextArea
+        label="Disabled invalid"
+        disabled
+        validationStatus="invalid"
+        validationText="Disabled error"
+      />
+      <TextArea
+        label="Read-only invalid"
+        readOnly
+        validationStatus="invalid"
+        validationText="Read-only error"
+      />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    for (const name of [/^Disabled invalid/, /^Read-only invalid/]) {
+      const field = canvas.getByRole('textbox', { name });
+      await expect(field).not.toHaveAttribute('aria-invalid');
+      await expect(field).not.toHaveAttribute('aria-errormessage');
+    }
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(canvas.queryByText('Read-only error')).not.toBeInTheDocument();
+  },
+};
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <TextArea label="Status only" validationStatus="invalid" />
+      <TextArea label="Text only" validationText="Unused text" />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [/^Status only/, /^Text only/].map(name =>
+      canvas.getByRole('textbox', { name })
+    );
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
+  },
 };

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
 import { Card } from '../Card/Card';
@@ -106,5 +107,73 @@ export const AsLink: Story = {
         </UnstyledIconButton>
       </Flex>
     );
+  },
+};
+
+const onUnstyledSubmit = fn();
+
+/** Test-only: a disabled or loading UnstyledIconButton doesn't submit its form or follow its link. */
+export const DisabledBlocksDefaultAction: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          onUnstyledSubmit('disabled form');
+        }}
+      >
+        <input aria-label="Disabled form field" />
+        <UnstyledIconButton type="submit" label="Disabled submit" disabled>
+          <CloseMediumIcon />
+        </UnstyledIconButton>
+        <UnstyledIconButton type="submit" label="Loading" loading>
+          <CloseMediumIcon />
+        </UnstyledIconButton>
+      </form>
+      <form
+        onSubmit={event => {
+          event.preventDefault();
+          onUnstyledSubmit('enabled form');
+        }}
+      >
+        <UnstyledIconButton type="submit" label="Enabled submit">
+          <CloseMediumIcon />
+        </UnstyledIconButton>
+      </form>
+      <UnstyledIconButton asChild label="Disabled link" disabled>
+        <a href="#blocked-link">
+          <CloseMediumIcon />
+        </a>
+      </UnstyledIconButton>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    onUnstyledSubmit.mockClear();
+    const canvas = within(canvasElement);
+    const disabled = canvas.getByRole('button', { name: 'Disabled submit' });
+
+    await expect(disabled).toHaveAttribute('aria-disabled', 'true');
+    await userEvent.click(disabled);
+    await expect(disabled).toHaveFocus();
+    await userEvent.click(canvas.getByRole('button', { name: 'Loading' }));
+    await userEvent.type(canvas.getByRole('textbox', { name: 'Disabled form field' }), '{Enter}');
+    await expect(onUnstyledSubmit).not.toHaveBeenCalled();
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Enabled submit' }));
+    await expect(onUnstyledSubmit).toHaveBeenCalledOnce();
+    await expect(onUnstyledSubmit).toHaveBeenCalledWith('enabled form');
+
+    const blockedLink = canvas.getByRole('link', { name: 'Disabled link' });
+    const middleClick = new MouseEvent('auxclick', { bubbles: true, cancelable: true, button: 1 });
+    await expect(blockedLink.dispatchEvent(middleClick)).toBe(false);
+
+    await userEvent.click(canvas.getByRole('link', { name: 'Disabled link' }));
+    await expect(window.location.hash).not.toBe('#blocked-link');
+    (document.activeElement as HTMLElement | null)?.blur();
   },
 };

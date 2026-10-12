@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
@@ -103,4 +104,32 @@ export const UsageOutsideFlexbox: Story = {
       </Box>
     </Box>
   ),
+};
+
+/** Test-only: decorative dividers are hidden from assistive tech; semantic ones expose orientation. */
+export const Semantics: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="200" height="100px">
+      <Divider decorative />
+      <Divider />
+      <Divider orientation="vertical" />
+      {/* @ts-expect-error testing an invalid orientation falls back to horizontal */}
+      <Divider orientation="diagonal" />
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const [decorative, horizontal, vertical, invalid] = canvasElement.querySelectorAll('hr');
+    const separators = within(canvasElement).getAllByRole('separator');
+
+    await expect(decorative).toHaveAttribute('aria-hidden', 'true');
+    await expect(separators).toHaveLength(3);
+    await expect(horizontal).not.toHaveAttribute('aria-orientation');
+    await expect(vertical).toHaveAttribute('aria-orientation', 'vertical');
+    await expect(invalid).toHaveAttribute('data-orientation', 'horizontal');
+  },
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Box } from '../Box/Box';
 import { CheckboxTile } from '../CheckboxTile/CheckboxTile';
@@ -55,6 +56,17 @@ export const Playground: Story = {
       </form>
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', {
+      name: 'Which services do you currently have with UW?',
+    });
+
+    await expect(group).toHaveAccessibleDescription('Select all that apply');
+    await expect(within(group).getByRole('checkbox', { name: 'Energy' })).toBeChecked();
+    await expect(within(group).getByRole('checkbox', { name: 'Broadband' })).toBeChecked();
+    await expect(within(group).getByRole('checkbox', { name: 'Mobile' })).not.toBeChecked();
+  },
 };
 
 /** Use value and onValueChange to control the checked values externally. */
@@ -77,6 +89,16 @@ export const Controlled: Story = {
         <CheckboxTile value="3" label="Three" />
       </CheckboxGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByRole('checkbox', { name: 'Three' }));
+    await expect(canvas.getByText('Checked: 1, 3')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByRole('checkbox', { name: 'One' }));
+    await expect(canvas.getByText('Checked: 3')).toBeInTheDocument();
+    (document.activeElement as HTMLElement | null)?.blur();
   },
 };
 
@@ -131,6 +153,19 @@ export const Validation: Story = {
         <CheckboxTile value="6" label="Peacock" />
       </CheckboxGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const group = canvas.getByRole('group', { name: 'What are your two favourite animals?' });
+
+    await expect(group).toHaveAttribute('aria-invalid', 'true');
+    await expect(canvas.getByText('Please pick two.')).toBeInTheDocument();
+
+    await userEvent.click(canvas.getByRole('checkbox', { name: 'Bear' }));
+    await userEvent.click(canvas.getByRole('checkbox', { name: 'Koala' }));
+    await expect(group).not.toHaveAttribute('aria-invalid', 'true');
+    await expect(canvas.queryByText('Please pick two.')).not.toBeInTheDocument();
+    (document.activeElement as HTMLElement | null)?.blur();
   },
 };
 
@@ -206,5 +241,30 @@ export const Wrap: Story = {
         </CheckboxGroup>
       </Box>
     );
+  },
+};
+
+/** Test-only: a disabled CheckboxGroup disables every item. */
+export const DisabledGroup: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <CheckboxGroup label="Disabled group" disabled defaultValue={['1']}>
+      <CheckboxTile value="1" label="One" />
+      <CheckboxTile value="2" label="Two" />
+    </CheckboxGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const two = canvas.getByRole('checkbox', { name: 'Two' });
+
+    await expect(canvas.getByRole('checkbox', { name: 'One' })).toBeDisabled();
+    await expect(two).toBeDisabled();
+
+    await userEvent.click(two, { pointerEventsCheck: 0 });
+    await expect(two).not.toBeChecked();
   },
 };

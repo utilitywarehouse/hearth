@@ -33,11 +33,9 @@ export const PasswordInput = forwardRef<InputBaseElement, PasswordInputProps>(
     const [showVisibilityMessage, setShowVisibilityMessage] = useState(false);
 
     const handleVisibility = useCallback(() => {
-      const newVisibilityState = !visible;
-      const newVisibilityMessageState = !showVisibilityMessage;
-      setVisible(newVisibilityState);
-      setShowVisibilityMessage(newVisibilityMessageState);
-    }, [visible, showVisibilityMessage]);
+      setVisible(prevVisible => !prevVisible);
+      setShowVisibilityMessage(true);
+    }, []);
 
     // If the PasswordInput is inside a form we should switch the input type
     // back to password when its parent form is submitted
@@ -70,10 +68,12 @@ export const PasswordInput = forwardRef<InputBaseElement, PasswordInputProps>(
     const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
 
     useEffect(() => {
-      setTimeout(() => {
+      if (!showVisibilityMessage) return;
+      const timeout = setTimeout(() => {
         setShowVisibilityMessage(false);
       }, 1500);
-    }, [showVisibilityMessage]);
+      return () => clearTimeout(timeout);
+    }, [showVisibilityMessage, visible]);
 
     const { id } = useIds({ providedId, prefix: 'password-input' });
 

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect } from 'storybook/test';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Skeleton } from './Skeleton';
@@ -79,4 +80,27 @@ export const SingleLine: Story = {
       </Skeleton>
     </Box>
   ),
+};
+
+/** Test-only: Skeleton announces its loading title and hides its placeholder; lines renders one bar per line. */
+export const LoadingAndLines: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Skeleton loadingTitle="account details">
+      <SkeletonBodyText lines="3" />
+    </Skeleton>
+  ),
+  play: async ({ canvasElement }) => {
+    const live = canvasElement.querySelector('[aria-live="polite"]');
+
+    await expect(live).toHaveTextContent('Loading account details');
+    await expect(canvasElement.querySelectorAll('.h-SkeletonBodyText')).toHaveLength(3);
+    await expect(
+      canvasElement.querySelector('.h-SkeletonBodyText')!.closest('[aria-hidden]')
+    ).not.toBeNull();
+  },
 };

@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Badge } from '../Badge/Badge';
 import { Box } from '../Box/Box';
@@ -29,7 +30,6 @@ export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: () => {
     return (
@@ -79,6 +79,12 @@ export const Playground: Story = {
         </RadioGroup>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const card = within(canvasElement).getByRole('radio', { name: 'Debit card payment' });
+
+    await expect(card).toBeChecked();
+    await expect(card.querySelector('label')).toBeNull();
   },
 };
 
@@ -138,5 +144,29 @@ export const Disabled: Story = {
         </RadioGroup>
       </Flex>
     );
+  },
+};
+
+/** Test-only: clicking a card's label selects it. */
+export const Selection: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <RadioGroup label="Payment" defaultValue="1">
+      <RadioCard value="1" label="Card" />
+      <RadioCard value="2" label="Bank transfer" />
+    </RadioGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const bank = canvas.getByRole('radio', { name: 'Bank transfer' });
+
+    await userEvent.click(canvas.getByText('Bank transfer'));
+    await expect(bank).toBeChecked();
+    await expect(canvas.getByRole('radio', { name: 'Card' })).not.toBeChecked();
+    bank.blur();
   },
 };
