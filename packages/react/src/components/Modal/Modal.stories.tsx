@@ -742,7 +742,7 @@ export const WithLongContentAndSingleFooterButton: Story = {
   ),
 };
 
-/** Combine long content with an image and mobile viewport for the most content-heavy case. */
+/** Combine long content with an image for a content-heavy case. */
 export const WithLongContentAndImage: Story = {
   tags: ['!test'],
   parameters: {
