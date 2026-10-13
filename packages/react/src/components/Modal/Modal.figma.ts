@@ -17,7 +17,6 @@ const hideCloseButton = instance.getBoolean('Close?', {
   true: false,
   false: true,
 });
-const fullScreen = instance.getBoolean('Full screen?');
 
 const illustrationInstance = instance.findInstance('Modal illustration');
 const illustrationSwap =
@@ -44,7 +43,7 @@ export default {
         <ModalTrigger>
           <Button>Open modal</Button>
         </ModalTrigger>
-        <Modal${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp('loadingHeading', loadingHeading)}${figma.helpers.react.renderProp('loadingDescription', loadingDescription)}${figma.helpers.react.renderProp('hideCloseButton', hideCloseButton)}${figma.helpers.react.renderProp('fullScreen', fullScreen)}${figma.helpers.react.renderProp('image', image)}>
+        <Modal${figma.helpers.react.renderProp('loading', loading)}${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}${figma.helpers.react.renderProp('loadingHeading', loadingHeading)}${figma.helpers.react.renderProp('loadingDescription', loadingDescription)}${figma.helpers.react.renderProp('hideCloseButton', hideCloseButton)}${figma.helpers.react.renderProp('image', image)}>
           ${children ? children.flat() : ''}
           <ModalFooter>
             <ModalClose>
