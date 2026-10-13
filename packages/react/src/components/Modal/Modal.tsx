@@ -40,6 +40,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       heading,
       description,
       hideCloseButton,
+      // Deprecated and ignored; destructured so it isn't forwarded to the DOM.
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      fullScreen: _fullScreen,
       loading,
       loadingText,
       loadingHeading,
