@@ -30,6 +30,7 @@ import {
   Avatar,
   Badge,
   Banner,
+  BarChart,
   BodyText,
   BottomSheet,
   BottomSheetModal,
@@ -249,6 +250,21 @@ const AllComponents: React.FC = () => {
                   iconContainerColor="energy"
                   heading="I'm a Banner"
                   description="This is a banner description"
+                />
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Bar Chart" link="components-bar-chart">
+              <Center flex={1} p="200">
+                <BarChart
+                  height={80}
+                  yMax={24}
+                  yTicks={3}
+                  formatYLabel={value => `£${value}`}
+                  data={[
+                    { label: 'Jun', tooltipLabel: 'June', value: 12.4 },
+                    { label: 'Jul', tooltipLabel: 'July', value: 14.9 },
+                    { label: 'Aug', tooltipLabel: 'August', value: 21.8 },
+                  ]}
                 />
               </Center>
             </ComponentWrapper>

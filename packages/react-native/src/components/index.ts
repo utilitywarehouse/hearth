@@ -4,6 +4,7 @@ export * from './Alert';
 export * from './Avatar';
 export * from './Badge';
 export * from './Banner';
+export * from './BarChart';
 export * from './BodyText';
 export * from './BottomSheet';
 export * from './Box';

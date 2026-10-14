@@ -65,6 +65,7 @@
 - [Avatar](llms/components/avatar.md): Avatars help humanise the product experience by connecting users with the product and to each other.
 - [Badge](llms/components/badge.md): Use the `Badge` component to draw attention to another interface element or to provide additional context (such as status).
 - [Banner](llms/components/banner.md): The `Banner` component is a versatile card-based component for displaying informational content with an icon or image. It supports various layouts, interactive features like pressable states and close buttons, and optional action elements like buttons or links.
+- [Bar Chart](llms/components/bar-chart.md): A bar chart compares values across categories with one bar each. Tap a bar to select it and see its
 - [BodyText](llms/components/body-text.md): The `BodyText` component gives you the ability to create text for your screen. It can be used to display text in different sizes and styles.
 - [Bottom Sheet](llms/components/bottom-sheet.md): The `BottomSheet` component provides a drawer-like interface that slides up from the bottom of the screen. It's commonly used for displaying additional content or actions without navigating away from the current screen.
 - [Box](llms/components/box.md): When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.

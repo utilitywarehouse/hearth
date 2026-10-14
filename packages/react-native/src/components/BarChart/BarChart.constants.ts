@@ -1,0 +1,15 @@
+/** Line height of the axis labels (Body Text SM). */
+export const AXIS_LABEL_HEIGHT = 20;
+/** Space between the baseline and the x-axis labels. */
+export const X_LABEL_GAP = 8;
+/** Space above the plot so the top y-axis label can centre on the top gridline. */
+export const PLOT_TOP_INSET = AXIS_LABEL_HEIGHT / 2;
+/** Minimum space between neighbouring bars. */
+export const MIN_BAR_GAP = 8;
+export const BAR_RADIUS = 6;
+export const BAR_STROKE_WIDTH = 2;
+export const GRIDLINE_DASH = '4 4';
+export const CARET_WIDTH = 16;
+export const CARET_HEIGHT = 8;
+export const TOOLTIP_GAP = 8;
+export const ANIMATION_DURATION = 250;
