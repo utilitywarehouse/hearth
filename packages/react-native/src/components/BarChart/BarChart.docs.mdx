@@ -89,9 +89,9 @@ const MyComponent = () => (
 
 ## Selecting a bar
 
-The last bar is selected by default. Pressing a bar selects it, colours it with the brand surface colour, and
+The last bar is selected by default. Pressing a bar selects it, fills it with the brand surface colour, and
 shows its `tooltipLabel` and formatted value in the tooltip. Set `defaultSelectedIndex` to start on a different
-bar, or `null` to start with nothing selected.
+bar, or to `null` to start with nothing selected.
 
 <Canvas of={Stories.SelectBar} />
 
@@ -122,9 +122,9 @@ Without `yMax` the top of the y-axis is the largest value rounded up to a tidy n
 
 ## Accessibility
 
-Each bar is a radio in a radio group, named with its tooltip label and formatted value, for example "August, £21.80", and reports
-whether it is checked. The axes, gridlines and bar shapes are hidden from assistive technology so the buttons
-carry the data. The tooltip is announced when the selection changes. Animations are skipped when the device's
-Reduce Motion setting is on.
+Each bar is a radio in a radio group. Its accessible name is the tooltip label and formatted value, for
+example "August, £21.80", and it reports whether it is checked. The axes, gridlines and bar shapes are hidden
+from assistive technology, so the radios carry the data. The tooltip is announced when the selection changes.
+The chart skips its animations when the device's Reduce Motion setting is on.
 
 <BackToTopButton />

@@ -18,7 +18,7 @@ export interface BarChartDatum {
 
 export interface BarChartProps extends ViewProps {
   /**
-   * The data points to plot, one bar per item.
+   * The data points to plot, one bar each.
    */
   data: BarChartDatum[];
   /**
