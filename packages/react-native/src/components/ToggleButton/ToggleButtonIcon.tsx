@@ -3,13 +3,19 @@ import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
+import { useToggleButtonContext } from './ToggleButton.context';
 
 const ButtonIcon = ({
   children,
-  toggled,
+  toggled: toggledProp,
   as = TickSmallIcon,
   ...props
-}: IconProps & { toggled: boolean }) => {
+}: IconProps & {
+  /** Overrides the toggled state read from the parent `ToggleButton`. */
+  toggled?: boolean;
+}) => {
+  const context = useToggleButtonContext();
+  const toggled = toggledProp ?? context.toggled;
   styles.useVariants({ toggled });
 
   const IconAny = Icon as any;

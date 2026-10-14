@@ -1,3 +1,4 @@
+import { ToggleButtonContext } from './ToggleButton.context';
 import type { ToggleButtonProps } from './ToggleButton.props';
 import ToggleButtonTextComponent from './ToggleButtonText';
 import ToggleButtonIconComponent from './ToggleButtonIcon';
@@ -30,14 +31,16 @@ const ToggleButton = ({
   ...props
 }: ToggleButtonProps) => {
   return (
-    <ToggleButtonComponent toggled={toggled} onToggle={onToggle} {...props}>
-      {children ?? (
-        <>
-          {toggled && <ToggleButtonIcon toggled={toggled} />}
-          <ToggleButtonText toggled={toggled}>{text}</ToggleButtonText>
-        </>
-      )}
-    </ToggleButtonComponent>
+    <ToggleButtonContext.Provider value={{ toggled }}>
+      <ToggleButtonComponent toggled={toggled} onToggle={onToggle} {...props}>
+        {children ?? (
+          <>
+            {toggled && <ToggleButtonIcon />}
+            <ToggleButtonText>{text}</ToggleButtonText>
+          </>
+        )}
+      </ToggleButtonComponent>
+    </ToggleButtonContext.Provider>
   );
 };
 

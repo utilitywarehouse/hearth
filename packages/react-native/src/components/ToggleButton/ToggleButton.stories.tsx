@@ -42,10 +42,8 @@ export const AdvancedUsage: Story = {
     const [toggled, setToggled] = useState(false);
     return (
       <ToggleButton toggled={toggled} onToggle={setToggled}>
-        <ToggleButtonIcon toggled={toggled} as={MobileSmallIcon} />
-        <ToggleButtonText toggled={toggled}>
-          {toggled ? 'Mobile on' : 'Mobile off'}
-        </ToggleButtonText>
+        <ToggleButtonIcon as={MobileSmallIcon} />
+        <ToggleButtonText>{toggled ? 'Mobile on' : 'Mobile off'}</ToggleButtonText>
       </ToggleButton>
     );
   },

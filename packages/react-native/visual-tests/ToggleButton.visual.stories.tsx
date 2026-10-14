@@ -32,14 +32,14 @@ export const Advanced: Story = {
     <VTGrid>
       <VTRow label="Off">
         <ToggleButton>
-          <ToggleButtonIcon as={MobileSmallIcon} toggled={false} />
-          <ToggleButtonText toggled={false}>Mobile</ToggleButtonText>
+          <ToggleButtonIcon as={MobileSmallIcon} />
+          <ToggleButtonText>Mobile</ToggleButtonText>
         </ToggleButton>
       </VTRow>
       <VTRow label="On">
         <ToggleButton toggled>
-          <ToggleButtonIcon as={MobileSmallIcon} toggled />
-          <ToggleButtonText toggled>Mobile</ToggleButtonText>
+          <ToggleButtonIcon as={MobileSmallIcon} />
+          <ToggleButtonText>Mobile</ToggleButtonText>
         </ToggleButton>
       </VTRow>
     </VTGrid>

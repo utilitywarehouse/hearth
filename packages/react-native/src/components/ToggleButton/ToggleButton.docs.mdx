@@ -33,6 +33,7 @@ A pressable button that switches between an on and off state, such as for a sing
 </UsageWrap>
 
 ```tsx
+import { useState } from 'react';
 import { ToggleButton } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
@@ -55,11 +56,12 @@ const MyComponent = () => {
 
 ## Advanced Usage
 
-Pass `ToggleButtonIcon` and `ToggleButtonText` as `children` to use your own icon and label. When `children` is set, the built-in tick icon and `text` are not rendered. Each part takes its own `toggled` prop, so pass the same value you give to `ToggleButton`.
+Pass `ToggleButtonIcon` and `ToggleButtonText` as `children` to use your own icon and label. When `children` is set, the built-in tick icon and `text` are not rendered. `ToggleButtonIcon` and `ToggleButtonText` read the `toggled` state from the parent `ToggleButton`, so you don't need to pass it to each part.
 
 <Canvas of={Stories.AdvancedUsage} />
 
 ```tsx
+import { useState } from 'react';
 import {
   ToggleButton,
   ToggleButtonIcon,
@@ -72,9 +74,27 @@ const MyComponent = () => {
 
   return (
     <ToggleButton toggled={toggled} onToggle={setToggled}>
-      <ToggleButtonIcon toggled={toggled} as={MobileSmallIcon} />
-      <ToggleButtonText toggled={toggled}>Mobile</ToggleButtonText>
+      <ToggleButtonIcon as={MobileSmallIcon} />
+      <ToggleButtonText>Mobile</ToggleButtonText>
     </ToggleButton>
   );
 };
 ```
+
+### ToggleButtonIcon Props
+
+`ToggleButtonIcon` accepts all `Icon` props, such as `as`, `size` and `color`. It must be used inside a `ToggleButton`.
+
+| Property  | Type            | Description                                                                     | Default         |
+| --------- | --------------- | ------------------------------------------------------------------------------- | --------------- |
+| `as`      | `ComponentType` | The icon component to render.                                                   | `TickSmallIcon` |
+| `toggled` | `boolean`       | Overrides the toggled state read from the parent `ToggleButton`. Rarely needed. |                 |
+
+### ToggleButtonText Props
+
+`ToggleButtonText` accepts all React Native `Text` props. It must be used inside a `ToggleButton`.
+
+| Property   | Type        | Description                                                                     | Default |
+| ---------- | ----------- | ------------------------------------------------------------------------------- | ------- |
+| `children` | `ReactNode` | The text label.                                                                 |         |
+| `toggled`  | `boolean`   | Overrides the toggled state read from the parent `ToggleButton`. Rarely needed. |         |

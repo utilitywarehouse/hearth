@@ -13,7 +13,7 @@ export interface ToggleButtonProps extends PressableProps {
   onToggle?: (toggled: boolean) => void;
   /**
    * Custom content, typically `ToggleButtonIcon` and `ToggleButtonText`. When provided, it
-   * replaces the built-in tick icon and `text` label. Each part needs its own `toggled` prop.
+   * replaces the built-in tick icon and `text` label. The parts read `toggled` from the button.
    */
   children?: ReactNode;
 }
