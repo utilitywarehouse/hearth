@@ -5,6 +5,10 @@ import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
 import { useToggleButtonContext } from './ToggleButton.context';
 
+/**
+ * The icon of a `ToggleButton`, for composing a custom button. Defaults to a tick, and its
+ * colour follows the toggled state of the parent `ToggleButton`.
+ */
 const ButtonIcon = ({
   children,
   toggled: toggledProp,

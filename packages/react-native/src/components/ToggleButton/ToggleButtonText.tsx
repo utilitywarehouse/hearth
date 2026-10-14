@@ -3,6 +3,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { useToggleButtonContext } from './ToggleButton.context';
 
+/**
+ * The label of a `ToggleButton`, for composing a custom button. Its colour follows the
+ * toggled state of the parent `ToggleButton`.
+ */
 const ToggleButtonText = ({
   children,
   toggled: toggledProp,

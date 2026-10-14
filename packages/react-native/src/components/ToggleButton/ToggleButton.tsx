@@ -13,7 +13,15 @@ const ToggleButtonComponent = createButton({
   Text: ToggleButtonTextComponent,
 });
 
+/**
+ * The label of a `ToggleButton`, for composing a custom button. Its colour follows the
+ * toggled state of the parent `ToggleButton`.
+ */
 export const ToggleButtonText = ToggleButtonComponent.Text;
+/**
+ * The icon of a `ToggleButton`, for composing a custom button. Defaults to a tick, and its
+ * colour follows the toggled state of the parent `ToggleButton`.
+ */
 export const ToggleButtonIcon = ToggleButtonComponent.Icon;
 
 ToggleButtonText.displayName = 'ToggleButtonText';
