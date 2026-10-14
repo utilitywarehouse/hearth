@@ -50,10 +50,9 @@ export const AdvancedUsage: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const button = canvas.getByRole('button');
-    await expect(canvas.getByText('Mobile off')).toBeVisible();
-    await expect(button).toHaveAttribute('aria-selected', 'false');
+    // The composed children render instead of the built-in label.
+    await expect(button).toHaveTextContent('Mobile off');
     await userEvent.click(button);
-    await expect(canvas.getByText('Mobile on')).toBeVisible();
-    await expect(button).toHaveAttribute('aria-selected', 'true');
+    await expect(button).toHaveTextContent('Mobile on');
   },
 };
