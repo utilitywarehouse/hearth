@@ -35,8 +35,6 @@ const BottomSheetScrollView = ({
 const styles = StyleSheet.create((theme, rt) => ({
   container: {
     backgroundColor: theme.color.surface.neutral.strong,
-    borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
-    borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
   },
   contentContainer: {
     paddingHorizontal: theme.components.bottomSheet.padding,

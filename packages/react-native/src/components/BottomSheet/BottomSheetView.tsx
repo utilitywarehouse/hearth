@@ -29,8 +29,6 @@ const BottomSheetView = ({
 
 const styles = StyleSheet.create((theme, rt) => ({
   contentContainer: {
-    borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
-    borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
     backgroundColor: theme.color.surface.neutral.strong,
     paddingHorizontal: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.bottomSheet.padding,
