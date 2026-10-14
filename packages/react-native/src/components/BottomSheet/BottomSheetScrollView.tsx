@@ -35,6 +35,16 @@ const BottomSheetScrollView = ({
 const styles = StyleSheet.create((theme, rt) => ({
   container: {
     backgroundColor: theme.color.surface.neutral.strong,
+    variants: {
+      handle: {
+        // Without a handle the content reaches the top of the sheet, so it needs the sheet's
+        // rounded corners. With a handle, the handle covers the rounded edge instead.
+        false: {
+          borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
+          borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
+        },
+      },
+    },
   },
   contentContainer: {
     paddingHorizontal: theme.components.bottomSheet.padding,
