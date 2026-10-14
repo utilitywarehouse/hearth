@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
-import { Alert } from '../src/components/Alert';
+import {
+  Alert,
+  AlertCloseButton,
+  AlertContent,
+  AlertIcon,
+  AlertIconButton,
+  AlertLink,
+  AlertText,
+  AlertTitle,
+} from '../src/components/Alert';
 import { VTGrid } from './_support';
 
 const meta = {
@@ -58,4 +67,33 @@ export const ColorSchemes: Story = { render: () => <Schemes /> };
 export const ColorSchemesDark: Story = {
   parameters: { colorMode: 'dark' },
   render: () => <Schemes />,
+};
+
+/**
+ * Alerts composed from the child parts. `AlertIconButton` is not combined with
+ * `AlertLink`, as the docs advise.
+ */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <Alert colorScheme="info">
+        <AlertIcon />
+        <AlertContent>
+          <AlertTitle>Information</AlertTitle>
+          <AlertText>Short message.</AlertText>
+          <AlertLink onPress={noop}>Learn more</AlertLink>
+        </AlertContent>
+        <AlertCloseButton onPress={noop} />
+      </Alert>
+      <Alert colorScheme="warning">
+        <AlertIcon />
+        <AlertContent>
+          <AlertTitle>Warning</AlertTitle>
+          <AlertText>Short message.</AlertText>
+        </AlertContent>
+        <AlertIconButton onPress={noop} />
+        <AlertCloseButton onPress={noop} />
+      </Alert>
+    </VTGrid>
+  ),
 };

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Badge } from '../src/components/Badge';
+import { Badge, BadgeIcon, BadgeText } from '../src/components/Badge';
 import type BadgeProps from '../src/components/Badge/Badge.props';
 import { VTGrid, VTRow } from './_support';
 
@@ -85,6 +85,27 @@ export const SizesAndOptions: Story = {
           text="Medium"
         />
         <Badge icon={TickSmallIcon} variant="outline" colorScheme="positive" text="Outline" />
+      </VTRow>
+    </VTGrid>
+  ),
+};
+
+/** Badges composed from `BadgeIcon` and `BadgeText` child parts. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Icon and text">
+        <Badge colorScheme="positive" variant="outline">
+          <BadgeIcon as={TickSmallIcon} />
+          <BadgeText>Outline</BadgeText>
+        </Badge>
+        <Badge colorScheme="danger" variant="emphasis" size="md">
+          <BadgeIcon as={TickSmallIcon} />
+          <BadgeText>Emphasis</BadgeText>
+        </Badge>
+        <Badge colorScheme="warning">
+          <BadgeText>Text only</BadgeText>
+        </Badge>
       </VTRow>
     </VTGrid>
   ),

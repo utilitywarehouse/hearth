@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import {
+  BillMediumIcon,
+  ChevronRightSmallIcon,
   ElectricityMediumIcon,
+  PaymentMediumIcon,
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
@@ -8,7 +11,18 @@ import { useUnistyles } from 'react-native-unistyles';
 import { Badge } from '../src/components/Badge';
 import { IconContainer } from '../src/components/IconContainer';
 import { Link } from '../src/components/Link';
-import { List, ListItem, ListItemIcon } from '../src/components/List';
+import {
+  List,
+  ListItem,
+  ListItemContent,
+  ListItemHeading,
+  ListItemHelperText,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+} from '../src/components/List';
+import { SectionHeader } from '../src/components/SectionHeader';
 import { Switch } from '../src/components/Switch';
 import { VTGrid } from './_support';
 
@@ -72,6 +86,39 @@ export const Variants: Story = { render: () => <Lists /> };
 export const VariantsDark: Story = {
   parameters: { colorMode: 'dark' },
   render: () => <Lists />,
+};
+
+/** List items composed from their parts (ListItemLeadingContent, ListItemContent, ...). */
+export const Advanced: Story = {
+  render: () => (
+    <List>
+      <SectionHeader heading="Your account" helperText="Tap the links below" />
+      <ListItem onPress={noop}>
+        <ListItemLeadingContent>
+          <ListItemIcon as={BillMediumIcon} />
+        </ListItemLeadingContent>
+        <ListItemContent>
+          <ListItemHeading>Bills</ListItemHeading>
+          <ListItemHelperText>View your bills</ListItemHelperText>
+        </ListItemContent>
+        <ListItemTrailingContent>
+          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+        </ListItemTrailingContent>
+      </ListItem>
+      <ListItem onPress={noop}>
+        <ListItemLeadingContent>
+          <ListItemIcon as={PaymentMediumIcon} />
+        </ListItemLeadingContent>
+        <ListItemContent>
+          <ListItemHeading>Payments</ListItemHeading>
+          <ListItemHelperText>Make a payment</ListItemHelperText>
+        </ListItemContent>
+        <ListItemTrailingContent>
+          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+        </ListItemTrailingContent>
+      </ListItem>
+    </List>
+  ),
 };
 
 export const Containers: Story = {

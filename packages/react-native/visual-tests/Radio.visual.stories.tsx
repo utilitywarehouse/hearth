@@ -1,7 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import type { ReactNode } from 'react';
 import { View } from 'react-native';
-import { Radio, RadioGroup } from '../src/components/Radio';
+import {
+  Radio,
+  RadioGroup,
+  RadioIcon,
+  RadioIndicator,
+  RadioLabel,
+  RadioTile,
+} from '../src/components/Radio';
 import { VTGrid, VTRow } from './_support';
 
 const meta = {
@@ -55,6 +62,66 @@ export const States: Story = {
           <RadioGroup value="a" onValueChange={noop} type="tile" direction="row">
             <Radio value="a" label="Tile on" />
             <Radio value="b" label="Tile" />
+          </RadioGroup>
+        </View>
+      </VTRow>
+    </VTGrid>
+  ),
+};
+
+/** Radio built from its child parts: RadioIndicator, RadioIcon, RadioLabel and RadioTile. */
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Radio child parts">
+        <Cell>
+          <RadioGroup value="a" onValueChange={noop}>
+            <Radio value="a" aria-label="Selected">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Selected</RadioLabel>
+            </Radio>
+            <Radio value="b" aria-label="Unselected">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Unselected</RadioLabel>
+            </Radio>
+          </RadioGroup>
+        </Cell>
+        <Cell>
+          <RadioGroup value="a" onValueChange={noop} disabled>
+            <Radio value="a" aria-label="Disabled on">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Disabled on</RadioLabel>
+            </Radio>
+            <Radio value="b" aria-label="Disabled">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Disabled</RadioLabel>
+            </Radio>
+          </RadioGroup>
+        </Cell>
+      </VTRow>
+      <VTRow label="Radio tile child parts">
+        <View style={{ width: '100%' }}>
+          <RadioGroup value="a" onValueChange={noop} type="tile">
+            <Radio value="a" aria-label="Tile on">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Tile on</RadioLabel>
+            </Radio>
+            <RadioTile value="b" aria-label="Tile">
+              <RadioIndicator>
+                <RadioIcon />
+              </RadioIndicator>
+              <RadioLabel>Tile</RadioLabel>
+            </RadioTile>
           </RadioGroup>
         </View>
       </VTRow>
