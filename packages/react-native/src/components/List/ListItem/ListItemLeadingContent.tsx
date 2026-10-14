@@ -1,18 +1,25 @@
-import { View, type ViewProps } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+import { View, type ViewProps, type ViewStyle } from 'react-native';
+import { useListItemContext } from './ListItem.context';
 
-const ListItemLeadingContent = ({ children, ...props }: ViewProps) => (
-  <View {...props} style={[styles.container, props.style]}>
-    {children}
-  </View>
-);
+export interface ListItemLeadingContentProps extends ViewProps {
+  /** Vertical alignment within the list item. Overrides `leadingContentAlignment` on `ListItem`.
+   * @default 'flex-start' */
+  alignment?: ViewStyle['alignSelf'];
+}
+
+const ListItemLeadingContent = ({ children, alignment, ...props }: ListItemLeadingContentProps) => {
+  const { leadingContentAlignment } = useListItemContext();
+
+  return (
+    <View
+      {...props}
+      style={[{ alignSelf: alignment ?? leadingContentAlignment ?? 'flex-start' }, props.style]}
+    >
+      {children}
+    </View>
+  );
+};
 
 ListItemLeadingContent.displayName = 'ListItemLeadingContent';
-
-const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'flex-start',
-  },
-});
 
 export default ListItemLeadingContent;

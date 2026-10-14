@@ -42,6 +42,7 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
     onCheckedChange,
     value = 'on',
     'aria-labelledby': ariaLabelledby,
+    'aria-describedby': consumerAriaDescribedby,
     image,
     validationStatus,
     validationText,
@@ -61,12 +62,16 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
   const showLabel = !!label;
   const showValidation =
     !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
+  // Validation text is rendered alongside the label, so it's absent without one
+  const showValidationText = showValidation && showLabel;
 
   const ariaDescribedbyValue = mergeIds(
+    consumerAriaDescribedby,
     ariaDescribedby,
-    !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showHelperText ? helperTextId : undefined,
+    showValidationText ? validationTextId : undefined
   );
+  const isInvalid = !hasGroupValidationText && validationStatus === 'invalid';
 
   return (
     <Flex
@@ -84,8 +89,9 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
         id={id}
         disabled={disabled}
         aria-describedby={ariaDescribedbyValue}
-        aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
-        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+        aria-labelledby={ariaLabelledby ? ariaLabelledby : showLabel ? labelId : undefined}
+        aria-invalid={isInvalid ? true : undefined}
+        aria-errormessage={isInvalid && showValidationText ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {

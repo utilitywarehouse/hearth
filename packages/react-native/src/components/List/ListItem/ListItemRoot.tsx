@@ -32,8 +32,8 @@ const ListItemRoot = ({
   leadingContentProps,
   contentProps,
   trailingContentProps,
-  leadingContentAlignment = 'flex-start',
-  contentAlignment = 'center',
+  leadingContentAlignment,
+  contentAlignment,
   trailingContentAlignment,
   ...props
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
@@ -77,14 +77,6 @@ const ListItemRoot = ({
   const resolvedTrailingAlignment =
     trailingContentAlignment ?? (isTrailingIcon ? 'center' : 'flex-start');
 
-  // Alignment props come first so `style` passed through the part props still overrides them.
-  const leadingContentStyle = [{ alignSelf: leadingContentAlignment }, leadingContentProps?.style];
-  const contentStyle = [{ alignSelf: contentAlignment }, contentProps?.style];
-  const trailingContentStyle = [
-    { alignSelf: resolvedTrailingAlignment },
-    trailingContentProps?.style,
-  ];
-
   const testID = props.testID || 'list-item';
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
@@ -104,8 +96,19 @@ const ListItemRoot = ({
       active,
       loading: isLoading,
       disabled: isDisabled,
+      leadingContentAlignment,
+      contentAlignment,
+      trailingContentAlignment,
     };
-  }, [active, showPressed, isLoading, isDisabled]);
+  }, [
+    active,
+    showPressed,
+    isLoading,
+    isDisabled,
+    leadingContentAlignment,
+    contentAlignment,
+    trailingContentAlignment,
+  ]);
 
   if (loading || listContext?.loading) {
     return (
@@ -116,16 +119,16 @@ const ListItemRoot = ({
         disabled={isDisabled}
       >
         {leadingContent ? (
-          <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+          <ListItemLeadingContent {...leadingContentProps} alignment={leadingContentAlignment}>
             <Skeleton width={24} height={24} />
           </ListItemLeadingContent>
         ) : null}
-        <ListItemContent {...contentProps} style={contentStyle}>
+        <ListItemContent {...contentProps} alignment={contentAlignment}>
           <Skeleton width="80%" height={20} />
           <Skeleton width="100%" height={16} />
         </ListItemContent>
         {onPress || trailingContent ? (
-          <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+          <ListItemTrailingContent {...trailingContentProps} alignment={resolvedTrailingAlignment}>
             <Skeleton width={24} height={24} />
           </ListItemTrailingContent>
         ) : null}
@@ -147,11 +150,11 @@ const ListItemRoot = ({
         ) : (
           <>
             {leadingContent ? (
-              <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+              <ListItemLeadingContent {...leadingContentProps} alignment={leadingContentAlignment}>
                 {leadingContent}
               </ListItemLeadingContent>
             ) : null}
-            <ListItemContent {...contentProps} style={contentStyle}>
+            <ListItemContent {...contentProps} alignment={contentAlignment}>
               {badgePosition === 'top' && badge ? badge : null}
               <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
               {helperText ? (
@@ -161,11 +164,11 @@ const ListItemRoot = ({
             </ListItemContent>
             {!!numericValue && <BodyText weight="semibold">{numericValue}</BodyText>}
             {trailingContent ? (
-              <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+              <ListItemTrailingContent {...trailingContentProps} alignment={trailingContentAlignment}>
                 {trailingContent}
               </ListItemTrailingContent>
             ) : showDefaultTrailingIcon ? (
-              <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+              <ListItemTrailingContent {...trailingContentProps} alignment={trailingContentAlignment}>
                 <ListItemTrailingIcon as={ChevronRightSmallIcon} />
               </ListItemTrailingContent>
             ) : null}

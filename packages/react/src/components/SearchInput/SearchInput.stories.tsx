@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { Box } from '../Box/Box';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
@@ -33,7 +34,6 @@ export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     const [value, setValue] = useState<string>('');
@@ -46,6 +46,21 @@ export const Playground: Story = {
         {...args}
       />
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('searchbox', { name: /^Search/ });
+
+    await expect(canvas.queryByRole('button', { name: 'clear search' })).not.toBeInTheDocument();
+
+    await userEvent.type(input, 'gas');
+    const clear = canvas.getByRole('button', { name: 'clear search' });
+
+    await userEvent.click(clear);
+    await expect(input).toHaveValue('');
+    await expect(input).toHaveFocus();
+    await expect(canvas.queryByRole('button', { name: 'clear search' })).not.toBeInTheDocument();
+    input.blur();
   },
 };
 
@@ -122,5 +137,39 @@ export const UsageWithButton: Story = {
         </Flex>
       </Box>
     );
+  },
+};
+
+/** Test-only: no clear button without onClear, and a disabled clear button doesn't clear. */
+export const ClearButton: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => {
+    const [value, setValue] = useState<string>('Energy');
+    return (
+      <Flex direction="column" gap="400">
+        <SearchInput label="No onClear" value="Broadband" onChange={() => {}} />
+        <SearchInput
+          label="Disabled"
+          value={value}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+          onClear={() => setValue('')}
+          disabled
+        />
+      </Flex>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const clearButtons = canvas.getAllByRole('button', { name: 'clear search' });
+
+    await expect(clearButtons).toHaveLength(1);
+    await expect(clearButtons[0]).toHaveAttribute('aria-disabled', 'true');
+
+    await userEvent.click(clearButtons[0]!);
+    await expect(canvas.getByRole('searchbox', { name: /^Disabled/ })).toHaveValue('Energy');
   },
 };

@@ -49,9 +49,8 @@ The disabled `Switch` uses `aria-disabled`, rather than the `disabled`
 attribute, so that they are still focusable when using the keyboard. This means
 that screen readers are still able to find the button, with the insight that it
 is disabled and that there is perhaps an action which needs to be taken, rather
-than not knowing there is a button there at all. The `onClick` handler will be
-disabled, however you will need to make sure you disable any other expected
-actions.
+than not knowing there is a button there at all. While disabled, the `Switch`
+won't toggle and its `onClick` and `onCheckedChange` handlers aren't called.
 
 ## Responsive Sizes
 
