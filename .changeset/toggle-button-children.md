@@ -1,8 +1,8 @@
 ---
-'@utilitywarehouse/hearth-react-native': minor
+'@utilitywarehouse/hearth-react-native': patch
 ---
 
-🌟 [FEATURE]: `ToggleButton` renders `children` for custom content
+💅 [ENHANCEMENT]: `ToggleButton` renders `children` for custom content
 
 `ToggleButton` now renders `children` in place of the built-in tick icon and `text` label, so `ToggleButtonIcon` and `ToggleButtonText` can be composed with your own icon and label. Previously, any `children` were ignored.
 
