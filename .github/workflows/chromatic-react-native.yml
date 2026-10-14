@@ -1,16 +1,60 @@
 name: 'Chromatic - React Native'
 
+# Preview only: publishes the React Native Web Storybook to Chromatic so a PR
+# gets a link to browse it. No stories are snapshotted (see
+# `chromatic.disableSnapshot` in packages/react-native/.storybook/preview.tsx);
+# visual regression for React Native runs natively in
+# chromatic-react-native-expo.yml instead.
+# PRs are opt-in: nothing runs unless the PR has the `build preview` label.
+# Once labelled, every push to the PR republishes the preview.
+# Pushes to main always publish, since the hosted Hearth React Native MCP
+# server (main--<app id>.chromatic.com/mcp) is served from main's build.
+
 on:
-  push:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
     paths:
       - 'packages/react-native/**'
+      - '.github/workflows/chromatic-react-native.yml'
+  push:
     branches:
-      - '*'
+      - main
+    paths:
+      - 'packages/react-native/**'
+      - '.github/workflows/chromatic-react-native.yml'
+
+concurrency:
+  # Unrelated `labeled` events get their own group, so adding some other label
+  # never cancels an in-flight build.
+  group: >-
+    ${{ github.workflow }}-${{ github.ref }}${{
+      (github.event.action == 'labeled' && github.event.label.name != 'build preview')
+      && format('-{0}', github.run_id) || ''
+    }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   chromatic:
-    name: Run Chromatic
+    name: Publish Storybook preview
+    # On `labeled`, only the opt-in label itself starts a build — any other
+    # label means the PR either already built on an earlier event or still
+    # isn't opted in.
+    if: >-
+      github.event_name == 'push'
+      || github.event.action == 'labeled'
+      && github.event.label.name == 'build preview'
+      || github.event.action != 'labeled'
+      && contains(github.event.pull_request.labels.*.name, 'build preview')
     runs-on: ubuntu-latest
+    # This job runs PR code (install and build scripts), so it keeps a
+    # read-only token. Commenting happens in the separate `comment` job.
+    permissions:
+      contents: read
+    outputs:
+      storybook_url: ${{ steps.chromatic.outputs.storybookUrl }}
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
@@ -23,6 +67,8 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          # Don't leave the job token in .git/config for PR code to read.
+          persist-credentials: false
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
         with:
           node-version: '22.x'
@@ -33,12 +79,49 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
       - name: Run Chromatic
+        id: chromatic
         uses: chromaui/action@db3ceb5efb0cd7447d63c2d8cce7da732ce89322 # latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE }}
           buildScriptName: build:storybook:react-native
-          autoAcceptChanges: 'main'
           exitOnceUploaded: true
-          onlyChanged: true
           zip: true
           storybookBaseDir: packages/react-native
+
+  comment:
+    name: Post preview link on the PR
+    needs: chromatic
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    # Trusted job: it never checks out or runs PR code, so it can hold the
+    # write token needed to comment.
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@bf7454d06d71f1098171f2acdf0cd4708d7b5920 # v2.20.0
+        with:
+          egress-policy: audit
+
+      - name: Post or update the preview comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          STORYBOOK_URL: ${{ needs.chromatic.outputs.storybook_url }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          marker='<!-- chromatic-react-native-preview -->'
+          body="$marker
+          **React Native Web Storybook preview:** $STORYBOOK_URL
+
+          Built from $SHA."
+          # Update the previous preview comment rather than adding a new one on
+          # every push. Only match the bot's own comments, so a comment someone
+          # else starts with the marker can't block the update.
+          comment_id=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" \
+            --jq "map(select(.user.login == \"github-actions[bot]\" and (.body | startswith(\"$marker\")))) | .[0].id // empty" | head -n 1)
+          if [[ -n "$comment_id" ]]; then
+            gh api --method PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$comment_id" -f body="$body"
+          else
+            gh api --method POST "repos/$GITHUB_REPOSITORY/issues/$PR_NUMBER/comments" -f body="$body"
+          fi
