@@ -1,5 +1,8 @@
-import { ToggleButton } from '.';
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
+import { useState } from 'react';
+import { ToggleButton, ToggleButtonIcon, ToggleButtonText } from '.';
 
 const meta = {
   title: 'Stories / ToggleButton',
@@ -31,5 +34,28 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: ({ ...args }) => {
     return <ToggleButton {...args} />;
+  },
+};
+
+export const AdvancedUsage: Story = {
+  render: () => {
+    const [toggled, setToggled] = useState(false);
+    return (
+      <ToggleButton toggled={toggled} onToggle={setToggled}>
+        <ToggleButtonIcon toggled={toggled} as={MobileSmallIcon} />
+        <ToggleButtonText toggled={toggled}>
+          {toggled ? 'Mobile on' : 'Mobile off'}
+        </ToggleButtonText>
+      </ToggleButton>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+    await expect(canvas.getByText('Mobile off')).toBeVisible();
+    await expect(button).toHaveAttribute('aria-selected', 'false');
+    await userEvent.click(button);
+    await expect(canvas.getByText('Mobile on')).toBeVisible();
+    await expect(button).toHaveAttribute('aria-selected', 'true');
   },
 };

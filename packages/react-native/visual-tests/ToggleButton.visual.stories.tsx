@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
-import { ToggleButton } from '../src/components/ToggleButton';
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { ToggleButton, ToggleButtonIcon, ToggleButtonText } from '../src/components/ToggleButton';
 import { VTGrid, VTRow } from './_support';
 
 const meta = {
@@ -21,6 +22,25 @@ export const ToggleButtons: Story = {
       </VTRow>
       <VTRow label="On">
         <ToggleButton toggled text="On" />
+      </VTRow>
+    </VTGrid>
+  ),
+};
+
+export const Advanced: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="Off">
+        <ToggleButton>
+          <ToggleButtonIcon as={MobileSmallIcon} toggled={false} />
+          <ToggleButtonText toggled={false}>Mobile</ToggleButtonText>
+        </ToggleButton>
+      </VTRow>
+      <VTRow label="On">
+        <ToggleButton toggled>
+          <ToggleButtonIcon as={MobileSmallIcon} toggled />
+          <ToggleButtonText toggled>Mobile</ToggleButtonText>
+        </ToggleButton>
       </VTRow>
     </VTGrid>
   ),

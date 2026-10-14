@@ -1,0 +1,80 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Box, Center, ToggleButton } from '../..';
+import { BackToTopButton, UsageWrap } from '../../../docs/components';
+import * as Stories from './ToggleButton.stories';
+
+<Meta title="Components / ToggleButton" />
+
+<BackToTopButton />
+
+# ToggleButton
+
+A pressable button that switches between an on and off state, such as for a single standalone setting.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Advanced Usage](#advanced-usage)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <ToggleButton text="Press me" toggled />
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { ToggleButton } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [toggled, setToggled] = useState(false);
+
+  return <ToggleButton text="Press me" toggled={toggled} onToggle={setToggled} />;
+};
+```
+
+## Props
+
+`ToggleButton` also accepts all React Native `Pressable` props.
+
+| Property   | Type                         | Description                                                                                                 | Default |
+| ---------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------- | ------- |
+| `text`     | `string`                     | The text label of the button.                                                                               |         |
+| `toggled`  | `boolean`                    | Whether the button is in the toggled (pressed/selected) state.                                              | `false` |
+| `onToggle` | `(toggled: boolean) => void` | Called with the new toggled state whenever the button is pressed.                                           |         |
+| `children` | `ReactNode`                  | Custom content, typically `ToggleButtonIcon` and `ToggleButtonText`. Replaces the built-in icon and `text`. |         |
+
+## Advanced Usage
+
+Pass `ToggleButtonIcon` and `ToggleButtonText` as `children` to use your own icon and label. When `children` is set, the built-in tick icon and `text` are not rendered. Each part takes its own `toggled` prop, so pass the same value you give to `ToggleButton`.
+
+<Canvas of={Stories.AdvancedUsage} />
+
+```tsx
+import {
+  ToggleButton,
+  ToggleButtonIcon,
+  ToggleButtonText,
+} from '@utilitywarehouse/hearth-react-native';
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  const [toggled, setToggled] = useState(false);
+
+  return (
+    <ToggleButton toggled={toggled} onToggle={setToggled}>
+      <ToggleButtonIcon toggled={toggled} as={MobileSmallIcon} />
+      <ToggleButtonText toggled={toggled}>Mobile</ToggleButtonText>
+    </ToggleButton>
+  );
+};
+```
