@@ -3,12 +3,12 @@ import { Text, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedProps,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import useTheme from '../../hooks/useTheme';
 import { BodyText } from '../BodyText';
 import type { ProgressBarInternalProps } from './ProgressBar.props';
@@ -24,7 +24,7 @@ const ProgressBarCircular = ({
   size,
 }: ProgressBarInternalProps) => {
   const { components } = useTheme();
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
   const progress = useSharedValue(0);
   const hasMountedRef = useRef(false);
 

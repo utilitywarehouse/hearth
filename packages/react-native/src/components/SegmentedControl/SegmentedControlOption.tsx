@@ -4,11 +4,11 @@ import { Platform, Pressable, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import { useSegmentedControlContext } from './SegmentedControl.context';
@@ -34,7 +34,7 @@ const SegmentedControlOptionRoot = ({
     registerOptionLayout,
   } = useSegmentedControlContext();
   const { active = false } = states;
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useReducedMotionEnabled();
 
   const selected = selectedValue === value;
   const isDisabled = disabled || !!allDisabled;

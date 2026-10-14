@@ -19,8 +19,8 @@ import {
   ViewStyle,
   ViewToken,
 } from 'react-native';
-import { useReducedMotion } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 import CarouselContext from './Carousel.context';
 import { CarouselItemProps, CarouselProps } from './Carousel.props';
@@ -59,7 +59,7 @@ const Carousel = ({
   const flatListRef = useRef<FlatList>(null);
   const isWeb = Platform.OS === 'web';
   const isProgrammaticScroll = useRef(false);
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
 
   // Expose scroll methods through ref
   useImperativeHandle(

@@ -5,12 +5,12 @@ import Animated, {
   Easing,
   interpolateColor,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { useTheme } from '../../hooks';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
@@ -32,7 +32,7 @@ const CustomSwitch = ({
   const THUMB_SIZE =
     resolvedSize === 'md' ? components.switch.md.circle.size : components.switch.sm.circle.size;
   const PADDING = components.switch.padding;
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
 
   styles.useVariants({ size: resolvedSize, disabled, value });
 

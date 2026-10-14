@@ -3,12 +3,12 @@ import { Pressable, Text, View, ViewProps } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 interface VerificationInputSlotProps extends ViewProps {
   value: string;
@@ -45,7 +45,7 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
       secureTextEntry,
     });
 
-    const isReducedMotion = useReducedMotion();
+    const isReducedMotion = useReducedMotionEnabled();
     const caretOpacity = useSharedValue(
       isReducedMotion && showCaret && !disabled && !readonly ? 1 : 0
     );

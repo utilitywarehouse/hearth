@@ -43,7 +43,7 @@ ToggleButtonCardGroup.displayName = 'ToggleButtonCardGroup';
 const ToggleButtonCard = ({ children, contentStyle, ...props }: ToggleButtonCardProps) => {
   const { computedStyles } = useStyleProps(props);
   return (
-    <ToggleButtonCardComponent {...props}>
+    <ToggleButtonCardComponent {...props} isDisabled={props.disabled ?? undefined}>
       {!!children && <View style={[computedStyles, contentStyle]}>{children}</View>}
     </ToggleButtonCardComponent>
   );

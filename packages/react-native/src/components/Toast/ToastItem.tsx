@@ -4,12 +4,12 @@ import { AccessibilityInfo, Platform, Pressable, View } from 'react-native';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import Animated, {
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { scheduleOnRN } from 'react-native-worklets';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
@@ -29,7 +29,7 @@ interface Props {
 }
 
 const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) => {
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
   // Under reduced motion the toast starts at its final position with no slide-in.
   const translateY = useSharedValue(isReducedMotion ? 0 : 30);
   const opacity = useSharedValue(isReducedMotion ? 1 : 0);
