@@ -19,6 +19,7 @@ export const ListActionButton = forwardRef<
   return (
     <BodyText ref={ref} size="md" weight="semibold" asChild>
       <button
+        type="button"
         className={cn(componentClassName, className)}
         {...props}
         aria-disabled={disabled || undefined}

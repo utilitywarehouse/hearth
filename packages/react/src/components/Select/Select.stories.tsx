@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, screen, userEvent, within } from 'storybook/test';
+import { Flex } from '../Flex/Flex';
 import { Select } from './Select';
 import { SelectItem } from './SelectItem';
 
@@ -30,7 +32,6 @@ export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => {
     return (
@@ -44,6 +45,14 @@ export const Playground: Story = {
       </Select>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('combobox', { name: /^Select/ });
+
+    await expect(trigger).toHaveTextContent('Select');
+    await expect(canvas.getByText('(optional)')).toBeInTheDocument();
+    await expect(trigger).toHaveAccessibleDescription('Helper text');
+  },
 };
 
 /** Set defaultOpen to render the Select with its options already visible. */
@@ -52,9 +61,20 @@ export const DefaultOpen: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { defaultOpen: true, defaultValue: '2' },
+  play: async () => {
+    const listbox = await screen.findByRole('listbox');
+
+    await expect(within(listbox).getByRole('option', { name: 'Item 2' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    );
+    await expect(within(listbox).getByRole('option', { name: 'Item 4' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
+  },
   render: args => {
     return (
       <Select {...args}>
@@ -74,7 +94,17 @@ export const ScrollArea: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('combobox');
+
+    await userEvent.click(trigger);
+    await userEvent.click(await screen.findByRole('option', { name: 'Item 3' }));
+
+    await expect(trigger).toHaveTextContent('Item 3');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    trigger.blur();
   },
   render: args => {
     return (
@@ -119,5 +149,98 @@ export const Truncate: Story = {
         </SelectItem>
       </Select>
     );
+  },
+};
+
+/** Test-only: a disabled Select suppresses its validation text. */
+export const DisabledHidesValidation: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Select label="Invalid select" validationStatus="invalid" validationText="Invalid error">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+      <Select
+        label="Disabled select"
+        validationStatus="invalid"
+        validationText="Disabled error"
+        disabled
+      >
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const invalid = canvas.getByRole('combobox', { name: /^Invalid select/ });
+    const disabled = canvas.getByRole('combobox', { name: /^Disabled select/ });
+
+    await expect(canvas.getByText('Invalid error')).toBeInTheDocument();
+    await expect(canvas.queryByText('Disabled error')).not.toBeInTheDocument();
+    await expect(disabled).toBeDisabled();
+    await expect(invalid).toBeEnabled();
+    await expect(invalid).toHaveAttribute('aria-invalid', 'true');
+    await expect(invalid).toHaveAccessibleDescription('Invalid error');
+    await expect(disabled).not.toHaveAttribute('aria-invalid');
+  },
+};
+
+/** Test-only: a consumer's aria-describedby is kept alongside the helper text. */
+export const ConsumerDescribedBy: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <p id="select-external-description">External description</p>
+      <Select
+        label="Described select"
+        helperText="Helper text"
+        aria-describedby="select-external-description"
+      >
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('combobox', { name: /^Described select/ });
+
+    await expect(trigger).toHaveAccessibleDescription('External description Helper text');
+  },
+};
+
+/** Test-only: no ARIA references to validation text that isn't rendered. */
+export const ValidationWithoutText: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="400">
+      <Select label="Status only" validationStatus="invalid">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+      <Select label="Text only" validationText="Unused text">
+        <SelectItem value="1">Item 1</SelectItem>
+      </Select>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const [statusOnly, textOnly] = [/^Status only/, /^Text only/].map(name =>
+      canvas.getByRole('combobox', { name })
+    );
+
+    await expect(statusOnly).toHaveAttribute('aria-invalid', 'true');
+    await expect(statusOnly).not.toHaveAttribute('aria-errormessage');
+    await expect(textOnly).not.toHaveAttribute('aria-describedby');
+    await expect(canvas.queryByText('Unused text')).not.toBeInTheDocument();
   },
 };

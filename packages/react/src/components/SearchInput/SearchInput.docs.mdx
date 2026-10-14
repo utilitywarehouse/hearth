@@ -54,9 +54,10 @@ to screen readers. You can change this by setting `hideLabel` to `false`.
 
 ## Clear
 
-You can pass a function to the `onClear` prop to clear the input. When there is
-a value the `clear` button will be present, and clicking it will call the
-`onClear` function. This should be used only to clear the value of the input.
+You can pass a function to the `onClear` prop to clear the input. When
+`onClear` is provided and there is a value, the `clear` button will be present,
+and clicking it will call the `onClear` function. Without `onClear`, no clear
+button is shown. This should be used only to clear the value of the input.
 
 ## Loading
 

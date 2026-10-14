@@ -5,7 +5,6 @@ import { View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedProps,
-  useReducedMotion,
   useSharedValue,
   withRepeat,
   withSequence,
@@ -13,6 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { useTheme } from '../../hooks';
 import { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
@@ -33,7 +33,7 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const STROKE_WIDTH = components.spinner[size].strokeWidth;
   const HALF_CIRCLE = R + STROKE_WIDTH;
   const DIAMETER = 2 * HALF_CIRCLE;
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
 
   // Under reduced motion the spinner is a static three-quarter arc, correct from the first frame.
   const progress = useSharedValue(isReducedMotion ? 0.75 : 1);

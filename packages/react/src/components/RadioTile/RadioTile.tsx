@@ -7,6 +7,7 @@ import type { RadioTileProps } from './RadioTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { useIds } from '../../hooks/use-ids';
+import { mergeIds } from '../../helpers/merge-ids';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
@@ -35,6 +36,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
       helperText,
       image,
       'aria-labelledby': ariaLabelledby,
+      'aria-describedby': consumerAriaDescribedby,
       badge,
       flex,
       flexBasis,
@@ -57,7 +59,10 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
           {...props}
           disabled={disabled}
           id={id}
-          aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+          aria-describedby={mergeIds(
+            consumerAriaDescribedby,
+            showHelperText ? helperTextId : ariaDescribedby
+          )}
           aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
         >
           <div className={withGlobalPrefix('RadioContainer')}>
@@ -65,7 +70,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
               <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
             </div>
             <Flex direction="column" alignItems="start">
-              <Label id={labelId} htmlFor={id} disableUserSelect>
+              <Label as="span" id={labelId} disableUserSelect>
                 {image}
                 {label}
               </Label>

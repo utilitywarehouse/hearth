@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-tokens",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "description": "",
   "repository": {
     "type": "git",
@@ -46,7 +46,7 @@
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,js,css}\" \"!./index.css\"",
-    "lint:fix": "pnpm run lint:css && pnpm run format"
+    "lint:fix": "pnpm run lint:css"
   },
   "keywords": [],
   "author": "Design Systems <design-systems@uw.co.uk>",

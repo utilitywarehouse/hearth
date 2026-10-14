@@ -21,11 +21,22 @@ Native Web Storybook (`packages/react-native/.storybook`). That workflow's
 `branches: '*'` filter doesn't match branch names containing `/` (e.g.
 `feat/button`), so it only runs on branches with flat names — don't assume the
 web build covered a change unless its "Chromatic - React Native" check actually
-ran on the PR (`gh pr checks <number>`). Both
-Storybooks load the same `*.stories.tsx` files and both have
-`chromatic: { disableSnapshot: true }` set globally in their `preview.tsx`, so only
-stories that opt back in with `chromatic: { disableSnapshot: false }` (typically a
-component's `KitchenSink`) are ever snapshotted.
+ran on the PR (`gh pr checks <number>`).
+
+The two builds snapshot different stories:
+
+- **Native (this workflow)** builds with `EXPO_PUBLIC_VISUAL_TESTS=true`, so it
+  loads **only** `packages/react-native/visual-tests/*.visual.stories.tsx` and
+  snapshots each of them on iOS and Android. The rules for those stories are in
+  the [react-native-visual-tests](../react-native-visual-tests/SKILL.md) skill.
+- **Web** loads `src/**/*.stories.tsx` with `chromatic: { disableSnapshot: true }`
+  set globally, so only stories that opt back in with
+  `chromatic: { disableSnapshot: false }` (a few `KitchenSink` stories) are
+  snapshotted.
+
+The job exits once the Storybook is uploaded (`--exit-once-uploaded`); results
+appear on the PR as Chromatic's **"UI Tests: hearth-react-native (Native)"**
+check, not in the job log.
 
 ## How to opt in
 
@@ -61,17 +72,18 @@ Otherwise, decide yourself. Start from the diff:
 git diff --stat origin/main...HEAD -- packages/react-native packages/react-native-icons packages/fonts apps/storybook-rn-expo
 ```
 
-Then work out which components the change can affect and whether any of their
-stories are snapshotted:
+Then work out which components the change can affect and whether they have a
+visual test:
 
 ```bash
-grep -rln "disableSnapshot: false" packages/react-native/src apps/storybook-rn-expo/components
+ls packages/react-native/visual-tests/
 ```
 
-A change can only show up in Chromatic if it changes how a **snapshotted** story
-renders. If none of the affected components have a snapshotted story, opting in
-spends a macOS build to compare nothing — skip it (and mention that adding a
-`KitchenSink` with `disableSnapshot: false` is the way to cover that component).
+A change can only show up in the native build if it changes how a **visual
+test** story renders. If none of the affected components (or the components
+built on them) has one, opting in spends a macOS build to compare nothing.
+Skip it, and add the missing visual test if the change is one that needs it
+(see [react-native-visual-tests](../react-native-visual-tests/SKILL.md)).
 
 ### Opt in when
 
@@ -92,8 +104,8 @@ spends a macOS build to compare nothing — skip it (and mention that adding a
 - **Cross-cutting change** — the same visual change spread across roughly three or
   more components, or a refactor of a shared primitive (e.g. a pressable, text, or
   icon wrapper) that many components build on.
-- **New baseline** — a story is newly opted into snapshotting
-  (`disableSnapshot: false` added) or a snapshotted story's content changes.
+- **New baseline** — a `visual-tests/*.visual.stories.tsx` file or export is
+  added, or a visual test story's content changes.
 - **Breaking / release-bound change** — a `major` changeset, or a large change
   landing on the `hearth-react-native-v1` branch, where an unnoticed regression
   would ship to every consumer at once.
@@ -104,7 +116,7 @@ spends a macOS build to compare nothing — skip it (and mention that adding a
   accessibility props (`accessibilityLabel`, `role`, etc.), prop types, JSDoc.
 - Only tests, interaction tests (`play` functions), changesets, Figma Code Connect
   (`*.figma.ts`), LLM docs (`public/llms/`), or docs change.
-- Stories change but none of them are snapshotted.
+- Only `src/**/*.stories.tsx` stories change (the native build doesn't load them).
 - Web-only (`_web`) styles.
 - A small, contained style tweak to a single component that the React Native Web
   Chromatic build actually ran on for this PR (see the branch-name caveat above) —

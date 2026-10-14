@@ -8,10 +8,10 @@ import Animated, {
   runOnJS,
   useAnimatedScrollHandler,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { useTabsContext } from './Tabs.context';
 import type TabsListProps from './TabsList.props';
@@ -30,7 +30,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
   const containerWidthRef = useRef(0);
   const contentWidthRef = useRef(0);
   const scrollX = useSharedValue(0);
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
 
   const indicatorStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: indicatorXSV.value }],

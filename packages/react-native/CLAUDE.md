@@ -101,6 +101,20 @@ There are two distinct test configs, and they check different things:
 Storybook itself targets `@storybook/react-native-web-vite`, so stories run against `react-native-web`, not a
 native simulator — this is also why `_web`-scoped Unistyles blocks matter for how components look in Storybook.
 
+### Visual tests (native Chromatic)
+
+`visual-tests/<Component>.visual.stories.tsx` holds the stories the native Chromatic build snapshots on
+iOS and Android. They load only in `apps/storybook-rn-expo` with `EXPO_PUBLIC_VISUAL_TESTS=true`; the web
+Storybook above never sees them. Add or update a component's visual test when a change:
+
+- adds a new component;
+- adds or changes a visual prop or variant (`variant`, `colorScheme`, `size`, a new state);
+- changes styles, layout or theme tokens the component uses;
+- is a major refactor or migration (e.g. moving off gluestack).
+
+Not needed for docs-only, behaviour-only or test-only changes. Follow the `react-native-visual-tests` skill
+for the story rules and snapshot budget, and `chromatic-react-native-opt-in` for labelling the PR.
+
 Accessibility: axe (`@storybook/addon-a11y`) plus React Native-level rules in `.storybook/a11y/` (roles on
 pressables, touch target size, nested pressables, etc.) run on every story. They are non-blocking (`'todo'`)
 on PRs and fail only in the weekly `a11y-weekly.yml` run (`VITE_A11Y_STRICT=true`). To opt a story out, wrap

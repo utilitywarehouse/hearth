@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
 import { Flex } from '../Flex/Flex';
@@ -35,7 +36,6 @@ type Story = StoryObj<typeof Tabs>;
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: args => (
     <Tabs {...args}>
@@ -55,6 +55,26 @@ export const Playground: Story = {
       </TabContent>
     </Tabs>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const account = canvas.getByRole('tab', { name: 'Account' });
+    const security = canvas.getByRole('tab', { name: 'Security' });
+    const indicator = canvasElement.querySelector<HTMLElement>('.h-TabsListIndicator')!;
+
+    await expect(account).toHaveAttribute('aria-selected', 'true');
+    await expect(canvas.getByText('Manage your personal details and preferences.')).toBeVisible();
+    await waitFor(() => expect(indicator.style.width).toBe(`${account.offsetWidth}px`));
+
+    await userEvent.click(security);
+    await expect(security).toHaveAttribute('aria-selected', 'true');
+    await expect(account).toHaveAttribute('aria-selected', 'false');
+    await expect(canvas.getByText('Update your password and security settings.')).toBeVisible();
+    await waitFor(() => expect(indicator.style.width).toBe(`${security.offsetWidth}px`));
+    await waitFor(() =>
+      expect(indicator.style.transform).toBe(`translateX(${security.offsetLeft}px)`)
+    );
+    security.blur();
+  },
 };
 
 /** Set size to md or lg to change the Tabs' dimensions. */
@@ -113,7 +133,26 @@ export const WithScrolling: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const scrollArea = canvasElement.querySelector<HTMLElement>('.h-TabsListScroll')!;
+    const scrollLeftButton = () =>
+      canvasElement.querySelector<HTMLButtonElement>('.h-TabsListScrollButtonLeft button');
+    const scrollRightButton = () =>
+      canvasElement.querySelector<HTMLButtonElement>('.h-TabsListScrollButtonRight button');
+
+    await waitFor(() => expect(scrollRightButton()).toBeInTheDocument());
+    await expect(scrollLeftButton()).not.toBeInTheDocument();
+    await expect(scrollArea).toHaveAttribute('data-scroll-right');
+
+    await userEvent.click(scrollRightButton()!);
+    await waitFor(() => expect(scrollLeftButton()).toBeInTheDocument());
+    await expect(scrollArea).toHaveAttribute('data-scroll-left');
+
+    await userEvent.click(scrollLeftButton()!);
+    await waitFor(() => expect(scrollLeftButton()).not.toBeInTheDocument());
+    await expect(scrollArea.scrollLeft).toBe(0);
+    scrollRightButton()!.blur();
   },
   render: () => (
     <Tabs defaultValue="one">
@@ -248,7 +287,27 @@ export const Controlled: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await expect(canvas.getByRole('tab', { name: 'Account' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    );
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Next Tab' }));
+    await expect(canvas.getByRole('tab', { name: 'Billing' })).toHaveAttribute(
+      'aria-selected',
+      'true'
+    );
+    await expect(canvas.getByText('Billing content')).toBeVisible();
+
+    const usage = canvas.getByRole('tab', { name: 'Usage' });
+    await userEvent.click(usage);
+    await expect(usage).toHaveAttribute('aria-selected', 'true');
+    await expect(canvas.getByText('Usage metrics content')).toBeVisible();
+    usage.blur();
   },
   render: () => {
     const [value, setValue] = useState('account');

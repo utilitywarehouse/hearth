@@ -40,7 +40,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
       heading,
       description,
       hideCloseButton,
-      fullScreen,
+      // Deprecated and ignored; destructured so it isn't forwarded to the DOM.
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      fullScreen: _fullScreen,
       loading,
       loadingHeading,
       loadingDescription,
@@ -63,7 +65,6 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
                 className={cn(componentClassName, className)}
                 data-contains-image={containsImage ? '' : undefined}
                 data-hide-close-button={hideCloseButton ? '' : undefined}
-                data-full-screen={fullScreen ? '' : undefined}
                 data-testid={componentClassName}
                 {...(hasDescription ? {} : { 'aria-describedby': undefined })}
                 {...props}

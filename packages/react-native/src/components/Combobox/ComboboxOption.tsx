@@ -35,6 +35,8 @@ const ComboboxOption = ({
 
   return (
     <Pressable
+      accessibilityRole="radio"
+      accessibilityState={{ checked: isSelected, disabled }}
       onPress={handlePress}
       disabled={disabled}
       style={({ pressed }) => [styles.container, pressed && styles.pressed]}

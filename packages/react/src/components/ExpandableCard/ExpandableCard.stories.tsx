@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Badge } from '../Badge/Badge';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
@@ -49,6 +50,24 @@ export const Playground: Story = {
       </ExpandableCard>
     </Box>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /Heading.*Helper text/ });
+
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await expect(canvas.queryByText(/expandable content area/)).not.toBeInTheDocument();
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    await expect(await canvas.findByText(/expandable content area/)).toBeVisible();
+
+    await userEvent.click(trigger);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await waitFor(() =>
+      expect(canvas.queryByText(/expandable content area/)).not.toBeInTheDocument()
+    );
+    trigger.blur();
+  },
 };
 
 export const WithLeadingIcon: Story = {
@@ -100,7 +119,11 @@ export const WithBadge: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    await expect(
+      within(canvasElement).getByRole('button', { name: /Heading.*Badge/ })
+    ).toBeInTheDocument();
   },
   render: args => (
     <Box width="400px">
@@ -126,7 +149,11 @@ export const WithNumericValue: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    await expect(
+      within(canvasElement).getAllByRole('button', { name: /Heading.*£100/ })
+    ).toHaveLength(2);
   },
   render: args => (
     <Flex direction="column" width="400px" gap="200">

@@ -1,13 +1,13 @@
 import { Children, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import Animated, {
-    Easing,
-    useAnimatedStyle,
-    useReducedMotion,
-    useSharedValue,
-    withTiming,
+  Easing,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { useStyleProps } from '../../hooks';
 import { SegmentedControlContext } from './SegmentedControl.context';
 import type SegmentedControlProps from './SegmentedControl.props';
@@ -31,7 +31,7 @@ const SegmentedControl = ({
   ...props
 }: SegmentedControlProps) => {
   const { computedStyles, remainingProps } = useStyleProps(props);
-  const isReducedMotion = useReducedMotion();
+  const isReducedMotion = useReducedMotionEnabled();
   const indicatorPositionOffset = GROUP_BORDER_WIDTH;
 
   const optionValues = useMemo(() => {

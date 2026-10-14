@@ -118,7 +118,12 @@ export const TabsList = forwardRef<TabsListElement, TabsListProps>(
       <TabsPrimitive.List ref={ref} className={cn(componentClassName, className)} {...rest}>
         {canScrollLeft ? (
           <div className={`${componentClassName}ScrollButtonLeft`} aria-hidden>
-            <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
+            <UnstyledIconButton
+              type="button"
+              label="scroll left"
+              tabIndex={-1}
+              onClick={handleScrollLeft}
+            >
               <ChevronLeftSmallIcon />
             </UnstyledIconButton>
           </div>
@@ -143,7 +148,12 @@ export const TabsList = forwardRef<TabsListElement, TabsListProps>(
         </div>
         {canScrollRight ? (
           <div className={`${componentClassName}ScrollButtonRight`} aria-hidden>
-            <UnstyledIconButton label="scroll right" tabIndex={-1} onClick={handleScrollRight}>
+            <UnstyledIconButton
+              type="button"
+              label="scroll right"
+              tabIndex={-1}
+              onClick={handleScrollRight}
+            >
               <ChevronRightSmallIcon />
             </UnstyledIconButton>
           </div>

@@ -18,10 +18,7 @@ export interface BaseModalProps
    */
   hideCloseButton?: boolean;
   /**
-   * Makes the modal take up the full screen on mobile, ensuring long content
-   * scrolls correctly.
-   *
-   * @default false
+   * @deprecated this prop has no effect and will be removed in a future major version.
    */
   fullScreen?: boolean;
   /**

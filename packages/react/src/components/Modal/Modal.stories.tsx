@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { expect, screen, userEvent, waitFor, within } from 'storybook/test';
 import SpotSavings from '../../../docs/assets/spot-savings.svg';
 import { BodyText } from '../BodyText/BodyText';
 import { Button } from '../Button/Button';
@@ -24,13 +25,11 @@ const meta: Meta<typeof Modal> = {
     heading: { control: { type: 'text' } },
     description: { control: { type: 'text' } },
     hideCloseButton: { control: { type: 'boolean' } },
-    fullScreen: { control: { type: 'boolean' } },
   },
   args: {
     heading: 'Heading',
     description: 'Description',
     hideCloseButton: false,
-    fullScreen: false,
   },
 };
 
@@ -41,7 +40,18 @@ type Story = StoryObj<typeof Modal>;
 export const Playground: Story = {
   parameters: {
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('button', { name: 'Open modal' });
+
+    await userEvent.click(trigger);
+    const dialog = await screen.findByRole('dialog', { name: 'Heading' });
+    await expect(dialog).toHaveAccessibleDescription('Description');
+
+    await userEvent.click(within(dialog).getByRole('button', { name: 'Close' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    await waitFor(() => expect(trigger).toHaveFocus());
+    trigger.blur();
   },
   render: args => (
     <ModalRoot>
@@ -139,7 +149,11 @@ export const WithoutDescription: Story = {
     chromatic: { disableSnapshot: false, delay: 300 },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async () => {
+    const dialog = await screen.findByRole('dialog');
+
+    await expect(dialog).not.toHaveAttribute('aria-describedby');
   },
   args: {
     heading:
@@ -300,7 +314,19 @@ export const HideCloseButton: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const trigger = within(canvasElement).getByRole('button', { name: 'Open modal' });
+
+    await userEvent.click(trigger);
+    const dialog = await screen.findByRole('dialog');
+    const close = within(dialog).getByRole('button', { name: 'Close' });
+
+    await expect(close).toHaveAttribute('data-visually-hidden');
+
+    await userEvent.click(close);
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    trigger.blur();
   },
   args: { hideCloseButton: true },
   render: args => (
@@ -332,7 +358,14 @@ export const Loading: Story = {
     chromatic: { disableSnapshot: false, delay: 300 },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async () => {
+    const dialog = await screen.findByRole('dialog', { name: 'Matching your details.' });
+
+    await expect(dialog).toHaveAccessibleDescription(
+      "We're checking your details for the best deal. This may take a minute or two."
+    );
+    await expect(within(dialog).queryByText('Loading modal')).not.toBeInTheDocument();
   },
   args: {
     heading: 'Loading modal',
@@ -384,7 +417,7 @@ export const WithCard: Story = {
   ),
 };
 
-/** Set fullScreen with long content inside ModalContent to enable internal scrolling. */
+/** Long content inside ModalContent scrolls internally once it exceeds the available height. */
 export const WithLongContent: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -392,7 +425,7 @@ export const WithLongContent: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -502,7 +535,7 @@ export const WithLongContent: Story = {
   ),
 };
 
-/** Set fullScreen with long content inside ModalContent to enable internal scrolling on mobile. */
+/** Long content inside ModalContent scrolls internally on mobile once it exceeds the available height. */
 export const WithLongContentOnMobile: Story = {
   parameters: {
     chromatic: { disableSnapshot: false, delay: 300 },
@@ -511,7 +544,7 @@ export const WithLongContentOnMobile: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -621,7 +654,7 @@ export const WithLongContentOnMobile: Story = {
   ),
 };
 
-/** Full-screen with long content and a single footer button, on mobile — content should fill the space down to the footer, not leave a gap. */
+/** Long content and a single footer button, on mobile — content should fill the space down to the footer, not leave a gap. */
 export const WithLongContentAndSingleFooterButton: Story = {
   tags: ['!test'],
   parameters: {
@@ -631,7 +664,7 @@ export const WithLongContentAndSingleFooterButton: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { heading: 'Tariff details', description: undefined, fullScreen: true },
+  args: { heading: 'Tariff details', description: undefined },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -708,7 +741,7 @@ export const WithLongContentAndSingleFooterButton: Story = {
   ),
 };
 
-/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
+/** Combine long content with an image for a content-heavy case. */
 export const WithLongContentAndImage: Story = {
   tags: ['!test'],
   parameters: {
@@ -717,14 +750,13 @@ export const WithLongContentAndImage: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { fullScreen: true },
   // globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
-      <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+      <Modal {...args} description="" image={<img src={SpotSavings} alt="Savings Pig" />}>
         <ModalContent>
           <List variant="emphasis" colorScheme="neutralStrong">
             {Array.from({ length: 50 }, (_, i) => (
@@ -751,7 +783,7 @@ export const WithLongContentAndImage: Story = {
   ),
 };
 
-/** Combine fullScreen content with an image and mobile viewport for the most content-heavy case. */
+/** Combine long content with an image and mobile viewport for the most content-heavy case. */
 export const WithLongContentAndImageOnMobile: Story = {
   tags: ['!test'],
   parameters: {
@@ -760,7 +792,6 @@ export const WithLongContentAndImageOnMobile: Story = {
     actions: { disable: true },
     interactions: { disable: true },
   },
-  args: { fullScreen: true },
   globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -802,7 +833,6 @@ export const WithoutFooter: Story = {
     interactions: { disable: true },
   },
   globals: { viewport: { value: 'mobile' } },
-  args: { fullScreen: true },
   render: (args, { viewMode }: { viewMode?: string }) => (
     <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
@@ -889,5 +919,28 @@ export const WithCombobox: Story = {
         </Modal>
       </ModalRoot>
     );
+  },
+};
+
+/** Test-only: without loadingHeading, a loading Modal falls back to a "Loading" title and no description. */
+export const LoadingDefaults: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  args: { loading: true, loadingDescription: 'Ignored without a loadingHeading' },
+  render: args => (
+    <ModalRoot defaultOpen>
+      <Modal {...args} />
+    </ModalRoot>
+  ),
+  play: async () => {
+    const dialog = await screen.findByRole('dialog', { name: 'Loading' });
+
+    await expect(dialog).not.toHaveAttribute('aria-describedby');
+    await expect(
+      within(dialog).queryByText('Ignored without a loadingHeading')
+    ).not.toBeInTheDocument();
   },
 };

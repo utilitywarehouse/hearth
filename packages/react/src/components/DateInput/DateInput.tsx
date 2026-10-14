@@ -92,6 +92,7 @@ export const DateInput = ({
         )}
         {hideMonth ? null : (
           <DateInputSegment
+            maxLength={2}
             placeholder={monthPlaceholder}
             value={monthValue}
             defaultValue={defaultMonthValue}
