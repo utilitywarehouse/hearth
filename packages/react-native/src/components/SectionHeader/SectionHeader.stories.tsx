@@ -36,7 +36,6 @@ export const Playground: Story = {
 export const KitchenSink: Story = {
   parameters: {
     controls: { include: [] },
-    chromatic: { disableSnapshot: false },
   },
   render: () => {
     return (
