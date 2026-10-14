@@ -64,6 +64,7 @@ Skills live in `.agents/skills/` (symlinked to `.claude/skills/`). Invoke them w
 | `react-component-addition` | Adding a new component to `packages/react` — file structure, props, stories, docs, exports |
 | `react-native-component-addition` | Adding a new component to `packages/react-native` |
 | `react-native-component-docs` | Creating or updating `.docs.mdx` files for React Native components |
+| `react-native-visual-tests` | Adding or updating `packages/react-native/visual-tests/` stories — required for new components and for visual prop, variant, style or token changes to existing ones |
 | `react-interaction-tests` | Adding Storybook interaction tests (`play` functions) to `packages/react` stories |
 | `react-audit` | Auditing `packages/react` for completeness — missing stories, docs, or Figma Code Connect files |
 | `base-ui-migration` | Migrating a `packages/react` component off Radix UI onto Base UI |
