@@ -190,29 +190,20 @@ jobs:
         # run `expo prebuild` against it, corrupting root package.json/app.json.
         working-directory: apps/storybook-rn-expo
         continue-on-error: true
-        # Below the job's 45 minutes, so a stalled capture still leaves time to
-        # upload the logs below.
-        timeout-minutes: 38
         # ulimit: metro.config.js sets watchFolders to the whole monorepo root, which
         # crawls far more files than the default macOS open-file limit allows on a
         # fresh runner (vs. a dev machine where this is usually raised already) — a
         # likely cause of "works locally, fails in CI" for this exact build step.
         # NODE_OPTIONS: release builds enable minification, which is far more memory-
         # hungry than the dev bundle this app is normally built with.
-        # --exit-zero-on-changes: visual changes are reviewed in Chromatic, so they
-        # don't fail the CI job. Genuine build/test errors still exit non-zero and
-        # fail this step.
-        # --debug and --diagnostics-file: verbose output and a
-        # chromatic-diagnostics.json dump for Chromatic support while we
-        # investigate native capture stalls and system errors. This waits for the
-        # capture (no --exit-once-uploaded) so the logs cover it. Once resolved,
-        # drop both flags and switch to --exit-once-uploaded, as the web
-        # Chromatic workflows do.
+        # --exit-once-uploaded: stop once the Storybook is published instead of
+        # holding this macOS runner while Chromatic captures the snapshots. The
+        # results (changes, errors, stalls) are reported on the PR by Chromatic's
+        # own "UI Tests: hearth-react-native (Native)" check. Build and upload
+        # errors still exit non-zero and fail this step.
         run: |
           ulimit -n 65536 || true
-          set -o pipefail
-          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN" --exit-zero-on-changes \
-            --debug --diagnostics-file 2>&1 | tee chromatic-debug.log
+          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN" --exit-once-uploaded
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
           NODE_OPTIONS: --max-old-space-size=8192
@@ -221,21 +212,18 @@ jobs:
           # included story is snapshotted on both devices on every build.
           EXPO_PUBLIC_VISUAL_TESTS: 'true'
 
-      # Always collected, including when the job times out, so Chromatic support
-      # gets the logs from passing and stalled builds.
-      - name: Collect Chromatic logs
-        if: always() && steps.chromatic.outcome != 'skipped'
+      - name: Collect Chromatic build log on failure
+        if: steps.chromatic.outcome == 'failure'
         run: |
           mkdir -p chromatic-logs
           find "${TMPDIR:-/tmp}" -maxdepth 4 -path '*chromatic--*/.chromatic/react-native-build.log' -exec cp {} chromatic-logs/ \; 2>/dev/null || true
-          cp apps/storybook-rn-expo/chromatic-debug.log apps/storybook-rn-expo/chromatic-diagnostics.json chromatic-logs/ 2>/dev/null || true
           ls -la chromatic-logs || true
 
-      - name: Upload Chromatic logs
-        if: always() && steps.chromatic.outcome != 'skipped'
+      - name: Upload Chromatic build log
+        if: steps.chromatic.outcome == 'failure'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: chromatic-react-native-logs
+          name: chromatic-react-native-build-log
           path: chromatic-logs/
           if-no-files-found: warn
           retention-days: 5
