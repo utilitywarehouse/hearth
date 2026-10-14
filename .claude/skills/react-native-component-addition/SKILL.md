@@ -1,6 +1,6 @@
 ---
 name: react-native-component-addition
-description: "Use when: adding a new component to Hearth React Native (packages/react-native), or mirroring an existing React component's API in React Native. Covers component files, props, exports, stories, and All Components registration — sequences through the react-native-component-docs and figma-code-connect skills for those steps."
+description: "Use when: adding a new component to Hearth React Native (packages/react-native), mirroring an existing React component's API in React Native, or changing an existing RN component's props, variants or styles. Covers component files, props, exports, stories, visual tests, and All Components registration — sequences through the react-native-component-docs, figma-code-connect and react-native-visual-tests skills for those steps."
 argument-hint: "Component name and any special variants or animation requirements"
 ---
 
@@ -10,6 +10,8 @@ argument-hint: "Component name and any special variants or animation requirement
 - Adding a new component under packages/react-native/src/components
 - Mirroring an existing React component API in React Native
 - Creating stories, docs, and Figma Code Connect entries for a new RN component
+- Updating an existing RN component's props, variants, states or styles — follow the
+  steps that apply (props, stories, docs, Figma, visual tests) rather than all of them
 
 ## Before You Start
 - Check for an existing React web implementation for props and behavior.
@@ -27,6 +29,9 @@ packages/react-native/src/components/<Component>/
   <Component>.docs.mdx
   <Component>.figma.tsx
   index.ts
+  ...
+packages/react-native/visual-tests/
+  <Component>.visual.stories.tsx  # Native visual regression — see step 10
   <SubComponent>.tsx        # Sub-components (compound patterns)
   <SubComponent>.stories.tsx  # Required — see "Sub-component stories" below
 ```
@@ -67,6 +72,7 @@ guard against it regressing until one exists.
    - **react-native-web gotchas**:
      - A disabled `Pressable` gets `pointer-events: none`, so to prove a press is ignored use `userEvent.click(el, { pointerEventsCheck: 0 })`.
      - When a `fn()` spy receives a press event, set `parameters: { actions: { disable: true } }` on that story. Otherwise the actions addon tries to serialise the event and throws a Reanimated error on web.
+10. **Visual tests**: Add `packages/react-native/visual-tests/<Component>.visual.stories.tsx` (title `Visual Tests/<Component>`) so the native Chromatic build covers the component on iOS and Android. When updating an existing component, add or update it if the change adds or changes a visual prop, variant or state, changes styles, layout or tokens, or is a major refactor. Not needed for docs-only, behaviour-only or test-only changes. See the [react-native-visual-tests](./../react-native-visual-tests/SKILL.md) skill for the rules (content box, states through props, determinism, `Dark` exports) and the snapshot budget, and the [chromatic-react-native-opt-in](./../chromatic-react-native-opt-in/SKILL.md) skill for labelling the PR.
 
 ## Checklist
 - Component folder with props, implementation, stories, docs, figma, and index exports
@@ -78,6 +84,7 @@ guard against it regressing until one exists.
 - Every sub-component (compound pattern) has its own `<SubComponent>.stories.tsx` — see [Sub-component stories](#sub-component-stories); required for the MCP server, not optional
 - Run `pnpm build:storybook && npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript` (from `packages/react-native`) and fix any findings — confirms the MCP can actually resolve the new component's description and props, not just that JSDoc was added by eye
 - All Components list updated
+- `visual-tests/<Component>.visual.stories.tsx` added or updated for any visual change, or the PR says why none is needed — see step 10
 
 ## Notes
 - Prefer Unsityles StyleSheet variants for size, colorScheme, and state styling e.g `styles.useVariants({...variants})`.
