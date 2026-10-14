@@ -23,19 +23,21 @@ const Cols = ({ children }: { children: ReactNode }) => (
   </View>
 );
 
-const Cell = ({ children }: { children: ReactNode }) => (
-  <View style={{ width: '48%' }}>{children}</View>
+const Cell = ({ children, fullWidth }: { children: ReactNode; fullWidth?: boolean }) => (
+  <View style={{ width: fullWidth ? '100%' : '48%' }}>{children}</View>
 );
 
-/** CurrencyInput in two columns. */
+/** CurrencyInput in two columns; the long value gets a full-width row. */
 export const States: Story = {
   render: () => (
     <Cols>
-      <Cell>
-        <CurrencyInput caretHidden />
+      {/* A half-width cell is narrower than CurrencyInput is ever used, and Android scrolls an
+          unfocused input to the end of a value that overflows, clipping its first digit. */}
+      <Cell fullWidth>
+        <CurrencyInput caretHidden value="1,234.50" onChangeText={noop} />
       </Cell>
       <Cell>
-        <CurrencyInput caretHidden value="1,234.50" onChangeText={noop} />
+        <CurrencyInput caretHidden />
       </Cell>
       <Cell>
         <CurrencyInput caretHidden focused value="10.00" onChangeText={noop} />
