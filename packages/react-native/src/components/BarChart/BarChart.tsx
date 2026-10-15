@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import { type LayoutChangeEvent, Pressable, View } from 'react-native';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { AccessibilityInfo, type LayoutChangeEvent, Platform, Pressable, View } from 'react-native';
 import Animated, {
-  Easing,
   useAnimatedRef,
   useAnimatedStyle,
   useScrollOffset,
@@ -14,7 +13,7 @@ import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import useTheme from '../../hooks/useTheme';
 import { BodyText } from '../BodyText';
 import {
-  ANIMATION_DURATION,
+  ANIMATION_TIMING,
   AXIS_LABEL_HEIGHT,
   BAR_STROKE_WIDTH,
   CARET_HEIGHT,
@@ -25,18 +24,20 @@ import {
   TOOLTIP_GAP,
   X_LABEL_GAP,
 } from './BarChart.constants';
-import type { BarChartProps } from './BarChart.props';
+import type { BarChartDatum, BarChartProps } from './BarChart.props';
 import {
   clamp,
   DEFAULT_Y_TICKS,
   getBandWidth,
+  getCaretMotion,
   getYMax,
   getYTicks,
-  resolveSelectedIndex,
+  shouldScrollToEnd,
 } from './BarChart.utils';
 import BarChartBar from './BarChartBar';
 import BarChartTooltip from './BarChartTooltip';
 import BarChartYAxis from './BarChartYAxis';
+import { useBarChartSelection } from './useBarChartSelection';
 
 /**
  * Compares values across categories with one bar each. Tap a bar to select it and see its value in
@@ -45,6 +46,7 @@ import BarChartYAxis from './BarChartYAxis';
  */
 const BarChart = ({
   data,
+  dataId,
   height = 288,
   barWidth = 48,
   yTicks = DEFAULT_Y_TICKS,
@@ -61,26 +63,29 @@ const BarChart = ({
   const isReducedMotion = useReducedMotionEnabled();
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollOffset(scrollRef);
-  const hasScrolledToEnd = useRef(false);
-  const hasPositionedCaretRef = useRef(false);
+  const scrolledToEndId = useRef<string | null>(null);
+  const nativeContentWidth = useRef<number | null>(null);
+  const hasPositionedCaret = useRef(false);
+  const previousBandWidth = useRef<number | null>(null);
   const selectedCenter = useSharedValue(0);
   // 0 tucks the caret under the tooltip, 1 shows it below.
   const caretReveal = useSharedValue(0);
 
   const [viewportWidth, setViewportWidth] = useState(0);
   const [yAxisWidth, setYAxisWidth] = useState(0);
-  const [internalSelected, setInternalSelected] = useState(defaultSelectedIndex);
-
-  const isControlled = selectedIndex !== undefined;
-  const rawSelected = isControlled
-    ? selectedIndex
-    : internalSelected === undefined
-      ? data.length - 1
-      : internalSelected;
-  const activeIndex = resolveSelectedIndex(rawSelected, data.length);
+  const { activeIndex, select } = useBarChartSelection({
+    selectedIndex,
+    defaultSelectedIndex,
+    length: data.length,
+    dataKey: dataId,
+  });
+  // Starts on the initial selection so only later changes are announced.
+  const previousActiveIndex = useRef(activeIndex);
   const activeDatum = activeIndex === null ? undefined : data[activeIndex];
 
   const formatTooltip = formatTooltipValue ?? formatYLabel;
+  const describeDatum = (datum: BarChartDatum) =>
+    `${datum.tooltipLabel ?? datum.label}, ${formatTooltip(datum.value)}`;
   const axisMax = getYMax(
     data.map(datum => datum.value),
     yTicks,
@@ -100,16 +105,22 @@ const BarChart = ({
       return;
     }
     const target = activeIndex * bandWidth + bandWidth / 2;
-    const timing = { duration: ANIMATION_DURATION, easing: Easing.out(Easing.ease) };
-    if (!hasPositionedCaretRef.current) {
-      hasPositionedCaretRef.current = true;
+    const motion = getCaretMotion({
+      hasPositioned: hasPositionedCaret.current,
+      bandWidthChanged: previousBandWidth.current !== bandWidth,
+      isReducedMotion,
+    });
+    hasPositionedCaret.current = true;
+    previousBandWidth.current = bandWidth;
+
+    if (motion === 'reveal') {
       // Move into place while tucked under the tooltip, then slide out from under it.
       selectedCenter.value = target;
-      caretReveal.value = isReducedMotion ? 1 : withTiming(1, timing);
-    } else if (isReducedMotion) {
+      caretReveal.value = isReducedMotion ? 1 : withTiming(1, ANIMATION_TIMING);
+    } else if (motion === 'snap') {
       selectedCenter.value = target;
     } else {
-      selectedCenter.value = withTiming(target, timing);
+      selectedCenter.value = withTiming(target, ANIMATION_TIMING);
     }
   }, [
     activeIndex,
@@ -121,13 +132,62 @@ const BarChart = ({
     caretReveal,
   ]);
 
+  // Keeps the scroll position valid for `width`: back to the start when everything fits (a stale
+  // offset past the new end would leave the plot blank), otherwise to the newest bar once per dataset.
+  // Only a native content size that already matches counts as scrolled, as scrolling before the
+  // native view resizes lands on the old end.
+  const syncScroll = useCallback(
+    (width: number, isNativeSized: boolean) => {
+      if (width <= viewportWidth) {
+        // A later overflow is a fresh need to scroll to the newest bar.
+        scrolledToEndId.current = null;
+        scrollRef.current?.scrollTo({ x: 0, animated: false });
+        return;
+      }
+      if (
+        !shouldScrollToEnd({
+          scrolledId: scrolledToEndId.current,
+          dataId,
+          viewportWidth,
+          contentWidth: width,
+        })
+      ) {
+        return;
+      }
+      if (isNativeSized) {
+        scrolledToEndId.current = dataId;
+      }
+      scrollRef.current?.scrollToEnd({ animated: false });
+      if (isNativeSized && Platform.OS !== 'web') {
+        // The native scroll view applies its new content size after this callback, so the call
+        // above can clamp to the previous end. Scroll again once it has caught up.
+        requestAnimationFrame(() => scrollRef.current?.scrollToEnd({ animated: false }));
+      }
+    },
+    [viewportWidth, dataId, scrollRef]
+  );
+
   useEffect(() => {
-    if (hasScrolledToEnd.current || viewportWidth === 0 || contentWidth <= viewportWidth) {
+    syncScroll(contentWidth, nativeContentWidth.current === contentWidth);
+  }, [syncScroll, contentWidth]);
+
+  const handleContentSizeChange = (width: number) => {
+    nativeContentWidth.current = width;
+    syncScroll(width, true);
+  };
+
+  const activeDescription = activeDatum ? describeDatum(activeDatum) : undefined;
+
+  useEffect(() => {
+    if (previousActiveIndex.current === activeIndex) {
       return;
     }
-    hasScrolledToEnd.current = true;
-    scrollRef.current?.scrollToEnd({ animated: false });
-  }, [viewportWidth, contentWidth, scrollRef]);
+    previousActiveIndex.current = activeIndex;
+    // Android announces the tooltip through its live region; iOS has no equivalent prop.
+    if (Platform.OS === 'ios' && activeDescription) {
+      AccessibilityInfo.announceForAccessibility(activeDescription);
+    }
+  }, [activeIndex, activeDescription]);
 
   const caretStyle = useAnimatedStyle(() => {
     const centerInViewport = selectedCenter.value - scrollOffset.value;
@@ -158,9 +218,7 @@ const BarChart = ({
   };
 
   const handlePress = (index: number) => {
-    if (!isControlled) {
-      setInternalSelected(index);
-    }
+    select(index);
     onSelectedChange?.(index, data[index]);
   };
 
@@ -186,6 +244,7 @@ const BarChart = ({
           bounces={false}
           horizontal
           nestedScrollEnabled
+          onContentSizeChange={handleContentSizeChange}
           onLayout={handleViewportLayout}
           overScrollMode="never"
           scrollEventThrottle={16}
@@ -211,7 +270,7 @@ const BarChart = ({
               })}
               {data.map((datum, index) => (
                 <BarChartBar
-                  key={datum.label}
+                  key={`${datum.label}-${index}`}
                   x={index * bandWidth + (bandWidth - barWidth) / 2}
                   width={barWidth}
                   baselineY={baselineY}
@@ -239,10 +298,10 @@ const BarChart = ({
                 const selected = index === activeIndex;
                 return (
                   <Pressable
-                    key={datum.label}
+                    key={`${datum.label}-${index}`}
                     role="radio"
                     aria-checked={selected}
-                    aria-label={`${datum.tooltipLabel ?? datum.label}, ${formatTooltip(datum.value)}`}
+                    aria-label={describeDatum(datum)}
                     onPress={() => handlePress(index)}
                     style={[styles.band, { width: bandWidth }]}
                   >

@@ -120,3 +120,65 @@ export const resolveSelectedIndex = (
   }
   return clamp(Math.round(index), 0, length - 1);
 };
+
+/**
+ * The index of the selected bar. A `selectedIndex` (including `null`) controls the selection;
+ * otherwise the internal selection applies, starting on the last bar when no default was given.
+ * Always kept inside the data, so shrinking `data` never leaves a stale selection.
+ */
+export const getActiveIndex = ({
+  selectedIndex,
+  internalSelected,
+  length,
+}: {
+  selectedIndex: number | null | undefined;
+  internalSelected: number | null | undefined;
+  length: number;
+}): number | null => {
+  if (selectedIndex !== undefined) {
+    return resolveSelectedIndex(selectedIndex, length);
+  }
+  if (internalSelected !== undefined) {
+    return resolveSelectedIndex(internalSelected, length);
+  }
+  return resolveSelectedIndex(length - 1, length);
+};
+
+export type CaretMotion = 'reveal' | 'snap' | 'slide';
+
+/**
+ * How the caret should move to the selected bar. It reveals from under the tooltip the first time,
+ * snaps when the bar slots resized (data or viewport changed, so an animation would sweep across
+ * stale positions) or motion is reduced, and slides between bars otherwise.
+ */
+export const getCaretMotion = ({
+  hasPositioned,
+  bandWidthChanged,
+  isReducedMotion,
+}: {
+  hasPositioned: boolean;
+  bandWidthChanged: boolean;
+  isReducedMotion: boolean;
+}): CaretMotion => {
+  if (!hasPositioned) {
+    return 'reveal';
+  }
+  return bandWidthChanged || isReducedMotion ? 'snap' : 'slide';
+};
+
+/**
+ * Whether the chart should jump to its newest (last) bar. That happens once per `dataId`, as soon
+ * as the bars overflow the viewport, so replacing the data re-scrolls but ordinary re-renders and
+ * the user's own scrolling are left alone.
+ */
+export const shouldScrollToEnd = ({
+  scrolledId,
+  dataId,
+  viewportWidth,
+  contentWidth,
+}: {
+  scrolledId: string | null;
+  dataId: string;
+  viewportWidth: number;
+  contentWidth: number;
+}): boolean => viewportWidth > 0 && contentWidth > viewportWidth && scrolledId !== dataId;

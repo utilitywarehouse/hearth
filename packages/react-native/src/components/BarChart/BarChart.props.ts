@@ -22,6 +22,11 @@ export interface BarChartProps extends ViewProps {
    */
   data: BarChartDatum[];
   /**
+   * Identifies the dataset and must be unique to it, e.g. `2025`. When it changes, the chart scrolls to
+   * the newest bar. Updating `data` while keeping the same `dataId` leaves the scroll position alone.
+   */
+  dataId: string;
+  /**
    * Height of the plot area (the bars and gridlines) in dp. The x-axis labels and tooltip sit outside it.
    * @default 288
    */

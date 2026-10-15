@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-native';
 import { type ComponentProps, type ReactElement, useState } from 'react';
-import { expect, fn, userEvent, within } from 'storybook/test';
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 import { BarChart } from '.';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -63,6 +63,7 @@ const meta: Meta<typeof BarChart> = {
   },
   args: {
     data: monthlyCashback,
+    dataId: 'monthly-cashback',
     height: 240,
     barWidth: 48,
     yTicks: 6,
@@ -157,6 +158,7 @@ export const Controlled: Story = {
 export const Scrolling: Story = {
   args: {
     data: manyMonths,
+    dataId: 'many-months',
   },
 };
 
@@ -164,5 +166,155 @@ export const AutomaticYAxis: Story = {
   args: {
     yMax: undefined,
     formatYLabel: undefined,
+  },
+};
+
+export const DefaultSelectedIndex: Story = {
+  args: {
+    defaultSelectedIndex: 1,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio', { name: 'July, £14.90' })).toHaveAttribute(
+      'aria-checked',
+      'true'
+    );
+
+    await userEvent.click(canvas.getByRole('radio', { name: 'June, £12.40' }));
+    await expect(canvas.getByRole('radio', { name: 'June, £12.40' })).toHaveAttribute(
+      'aria-checked',
+      'true'
+    );
+    await expect(canvas.getByRole('radio', { name: 'July, £14.90' })).toHaveAttribute(
+      'aria-checked',
+      'false'
+    );
+  },
+};
+
+export const OutOfRangeSelection: Story = {
+  args: {
+    selectedIndex: 99,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio', { name: 'September, £8.20' })).toHaveAttribute(
+      'aria-checked',
+      'true'
+    );
+  },
+};
+
+const findScrollContainer = (element: HTMLElement): HTMLElement | null => {
+  let node: HTMLElement | null = element.parentElement;
+  while (node && node.scrollWidth <= node.clientWidth) {
+    node = node.parentElement;
+  }
+  return node;
+};
+
+const scrollTolerance = 2;
+
+const isScrolledToEnd = (container: HTMLElement) =>
+  Math.abs(container.scrollLeft + container.clientWidth - container.scrollWidth) <= scrollTolerance;
+
+const DataChangeExample = (args: ComponentProps<typeof BarChart>) => {
+  const [data, setData] = useState(monthlyCashback);
+
+  return (
+    <Box gap="200">
+      <BarChart {...args} data={data} dataId={data === manyMonths ? 'year' : 'quarter'} />
+      <Button variant="outline" colorScheme="functional" onPress={() => setData(manyMonths)}>
+        Show a year
+      </Button>
+      <Button variant="outline" colorScheme="functional" onPress={() => setData(monthlyCashback)}>
+        Show a quarter
+      </Button>
+    </Box>
+  );
+};
+
+export const DataChange: Story = {
+  render: args => <DataChangeExample {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('radio', { name: 'September, £8.20' })).toHaveAttribute(
+      'aria-checked',
+      'true'
+    );
+
+    // More bars than fit: the chart scrolls to the newest one and selects it, even after the user
+    // picked a bar in the previous data.
+    await userEvent.click(canvas.getByRole('radio', { name: 'July, £14.90' }));
+    await userEvent.click(canvas.getByRole('button', { name: 'Show a year' }));
+    const december = await canvas.findByRole('radio', { name: 'December, £22.70' });
+    await expect(december).toHaveAttribute('aria-checked', 'true');
+    await waitFor(async () => {
+      const container = findScrollContainer(december);
+      await expect(container).not.toBeNull();
+      await expect(isScrolledToEnd(container!)).toBe(true);
+    });
+
+    // Fewer bars again: the selection follows the data and the chart is back at the start.
+    await userEvent.click(canvas.getByRole('button', { name: 'Show a quarter' }));
+    const september = await canvas.findByRole('radio', { name: 'September, £8.20' });
+    await expect(september).toHaveAttribute('aria-checked', 'true');
+    await expect(canvas.queryByRole('radio', { name: 'December, £22.70' })).toBeNull();
+    await waitFor(async () => {
+      await expect(findScrollContainer(september)?.scrollLeft ?? 0).toBe(0);
+    });
+  },
+};
+
+const cashback2024 = manyMonths.map(datum => ({
+  ...datum,
+  label: datum.label.replace('25', '24'),
+  value: datum.value + 1,
+}));
+
+const DataChangeSameLengthExample = (args: ComponentProps<typeof BarChart>) => {
+  const [year, setYear] = useState<'2024' | '2025'>('2025');
+  const [bump, setBump] = useState(0);
+  const base = year === '2025' ? manyMonths : cashback2024;
+  const data = base.map(datum => ({ ...datum, value: datum.value + bump }));
+
+  return (
+    <Box gap="200">
+      <BarChart {...args} data={data} dataId={year} />
+      <Button variant="outline" colorScheme="functional" onPress={() => setYear('2024')}>
+        Show 2024
+      </Button>
+      <Button variant="outline" colorScheme="functional" onPress={() => setYear('2025')}>
+        Show 2025
+      </Button>
+      <Button variant="outline" colorScheme="functional" onPress={() => setBump(1)}>
+        Update values
+      </Button>
+    </Box>
+  );
+};
+
+export const DataChangeSameLength: Story = {
+  render: args => <DataChangeSameLengthExample {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const december = await canvas.findByRole('radio', { name: 'December, £22.70' });
+    await waitFor(async () => {
+      await expect(isScrolledToEnd(findScrollContainer(december)!)).toBe(true);
+    });
+
+    // A new `dataId` with the same number of bars scrolls to the newest bar again.
+    findScrollContainer(december)!.scrollLeft = 0;
+    await userEvent.click(canvas.getByRole('button', { name: 'Show 2024' }));
+    const december2024 = await canvas.findByRole('radio', { name: 'December, £23.70' });
+    await waitFor(async () => {
+      await expect(isScrolledToEnd(findScrollContainer(december2024)!)).toBe(true);
+    });
+
+    // The same `dataId` with new values leaves the scroll position alone.
+    findScrollContainer(december2024)!.scrollLeft = 0;
+    await userEvent.click(canvas.getByRole('button', { name: 'Update values' }));
+    await canvas.findByRole('radio', { name: 'December, £24.70' });
+    await expect(findScrollContainer(december2024)!.scrollLeft).toBe(0);
   },
 };

@@ -3,7 +3,7 @@
 A bar chart compares values across categories with one bar each. Tap a bar to select it and see its
 value in a tooltip. When there are more bars than fit the available width, the bars scroll horizontally
 while the y-axis stays in view. The chart fills the width of its parent, so place it in a container
-with a definite width.
+with a definite width. Give each dataset a `dataId` that is unique to it, for example `2025`.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -20,6 +20,7 @@ with a definite width.
 // Example usage
 <BarChart
   data={monthlyCashback}
+  dataId="monthly-cashback"
   height={240}
   barWidth={48}
   yTicks={6}
@@ -36,6 +37,7 @@ import { BarChart } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
   <BarChart
+    dataId="monthly-cashback"
     yMax={24}
     formatYLabel={value => `£${value}`}
     data={[
@@ -50,18 +52,19 @@ const MyComponent = () => (
 
 ## Props
 
-| Property               | Type                                            | Description                                                                             | Default        |
-| ---------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------- | -------------- |
-| `data`                 | `BarChartDatum[]`                               | The data points to plot, one bar each.                                                  |                |
-| `height`               | `number`                                        | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.            | `288`          |
-| `barWidth`             | `number`                                        | Width of each bar in dp. The chart scrolls when the bars do not fit.                    | `48`           |
-| `yTicks`               | `number`                                        | Number of y-axis labels and gridlines, including the baseline.                          | `6`            |
-| `yMax`                 | `number`                                        | The value at the top of the y-axis. Defaults to the largest value rounded up.           |                |
-| `formatYLabel`         | `(value: number) => string`                     | Formats the y-axis labels, for example to add a currency symbol.                        | `String`       |
-| `formatTooltipValue`   | `(value: number) => string`                     | Formats the value shown in the tooltip.                                                 | `formatYLabel` |
-| `selectedIndex`        | `number \| null`                                | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection. |                |
-| `defaultSelectedIndex` | `number \| null`                                | The bar selected on first render when the selection is uncontrolled.                    | The last bar   |
-| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void` | Called when a bar is pressed.                                                           |                |
+| Property               | Type                                            | Description                                                                                           | Default        |
+| ---------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
+| `data`                 | `BarChartDatum[]`                               | The data points to plot, one bar each.                                                                |                |
+| `dataId`               | `string`                                        | Identifies the dataset and must be unique to it. The chart scrolls to the latest bar when it changes. |                |
+| `height`               | `number`                                        | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.                          | `288`          |
+| `barWidth`             | `number`                                        | Width of each bar in dp. The chart scrolls when the bars do not fit.                                  | `48`           |
+| `yTicks`               | `number`                                        | Number of y-axis labels and gridlines, including the baseline.                                        | `6`            |
+| `yMax`                 | `number`                                        | The value at the top of the y-axis. Defaults to the largest value rounded up.                         |                |
+| `formatYLabel`         | `(value: number) => string`                     | Formats the y-axis labels, for example to add a currency symbol.                                      | `String`       |
+| `formatTooltipValue`   | `(value: number) => string`                     | Formats the value shown in the tooltip.                                                               | `formatYLabel` |
+| `selectedIndex`        | `number \| null`                                | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection.               |                |
+| `defaultSelectedIndex` | `number \| null`                                | The bar selected on first render when the selection is uncontrolled.                                  | The last bar   |
+| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void` | Called when a bar is pressed.                                                                         |                |
 
 ### BarChartDatum
 
@@ -81,6 +84,7 @@ bar, or to `null` to start with nothing selected.
 // Example usage
 <BarChart
   data={monthlyCashback}
+  dataId="monthly-cashback"
   height={240}
   barWidth={48}
   yTicks={6}
@@ -103,7 +107,12 @@ Pass `selectedIndex` together with `onSelectedChange` to own the selection. Pass
 // Example usage
 const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
-<BarChart data={data} selectedIndex={selectedIndex} onSelectedChange={setSelectedIndex} />;
+<BarChart
+  data={data}
+  dataId="monthly-cashback"
+  selectedIndex={selectedIndex}
+  onSelectedChange={setSelectedIndex}
+/>;
 ```
 
 ## Scrolling
@@ -115,6 +124,7 @@ horizontally and starts scrolled to the latest bar. The y-axis labels stay in pl
 // Example usage
 <BarChart
   data={manyMonths}
+  dataId="many-months"
   height={240}
   barWidth={48}
   yTicks={6}
@@ -123,13 +133,29 @@ horizontally and starts scrolled to the latest bar. The y-axis labels stay in pl
 />
 ```
 
+### Changing the data
+
+The chart scrolls back to the latest bar whenever `dataId` changes, for example when switching between two
+years. Updating the values while keeping the same `dataId` leaves the scroll position alone, so change the
+`dataId` whenever you swap in a different dataset.
+
+```tsx
+// Example usage
+<DataChangeSameLengthExample {...args} />
+```
+
+```tsx
+// Example usage
+<BarChart data={dataByYear[year]} dataId={String(year)} />
+```
+
 ## Automatic y-axis
 
 Without `yMax` the top of the y-axis is the largest value rounded up to a tidy number.
 
 ```tsx
 // Example usage
-<BarChart data={monthlyCashback} height={240} barWidth={48} yTicks={6} />
+<BarChart data={monthlyCashback} dataId="monthly-cashback" height={240} barWidth={48} yTicks={6} />
 ```
 
 ## Accessibility

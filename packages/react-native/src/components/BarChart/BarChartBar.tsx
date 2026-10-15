@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { Platform } from 'react-native';
 import Animated, {
-  Easing,
   interpolateColor,
   useAnimatedProps,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { Path } from 'react-native-svg';
-import { ANIMATION_DURATION, BAR_RADIUS, BAR_STROKE_WIDTH } from './BarChart.constants';
+import {
+  ANIMATION_TIMING,
+  BAR_RADIUS,
+  BAR_STROKE_WIDTH,
+  FILL_FADE_TIMING,
+} from './BarChart.constants';
 import { getBarHeight, getRoundedTopBarPath } from './BarChart.utils';
 
 const isWeb = Platform.OS === 'web';
@@ -45,18 +49,14 @@ const BarChartBar = ({
   const displayValue = useSharedValue(isReducedMotion ? value : 0);
 
   useEffect(() => {
-    displayValue.value = isReducedMotion
-      ? value
-      : withTiming(value, { duration: ANIMATION_DURATION, easing: Easing.out(Easing.ease) });
+    displayValue.value = isReducedMotion ? value : withTiming(value, ANIMATION_TIMING);
   }, [value, isReducedMotion, displayValue]);
 
   const selectedProgress = useSharedValue(selected ? 1 : 0);
 
   useEffect(() => {
     const target = selected ? 1 : 0;
-    selectedProgress.value = isReducedMotion
-      ? target
-      : withTiming(target, { duration: ANIMATION_DURATION, easing: Easing.out(Easing.ease) });
+    selectedProgress.value = isReducedMotion ? target : withTiming(target, FILL_FADE_TIMING);
   }, [selected, isReducedMotion, selectedProgress]);
 
   const animatedProps = useAnimatedProps((): { d: string; fill?: string } => {

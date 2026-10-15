@@ -77,7 +77,6 @@
     "@storybook/addon-vitest": "^10.6.0",
     "@storybook/react-native-web-vite": "^10.6.0",
     "@types/d3-scale": "^4.0.9",
-    "@types/d3-shape": "^3.1.8",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",

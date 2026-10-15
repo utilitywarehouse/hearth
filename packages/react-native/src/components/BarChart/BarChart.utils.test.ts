@@ -1,12 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
   clamp,
+  getActiveIndex,
   getBandWidth,
   getBarHeight,
+  getCaretMotion,
   getRoundedTopBarPath,
   getYMax,
   getYTicks,
   resolveSelectedIndex,
+  shouldScrollToEnd,
 } from './BarChart.utils';
 
 describe('getYMax', () => {
@@ -113,5 +116,105 @@ describe('resolveSelectedIndex', () => {
     expect(resolveSelectedIndex(2, 4)).toBe(2);
     expect(resolveSelectedIndex(9, 4)).toBe(3);
     expect(resolveSelectedIndex(-3, 4)).toBe(0);
+  });
+});
+
+describe('getActiveIndex', () => {
+  it('selects the last bar when uncontrolled with no default', () => {
+    expect(
+      getActiveIndex({ selectedIndex: undefined, internalSelected: undefined, length: 4 })
+    ).toBe(3);
+  });
+
+  it('uses the internal selection when uncontrolled', () => {
+    expect(getActiveIndex({ selectedIndex: undefined, internalSelected: 1, length: 4 })).toBe(1);
+  });
+
+  it('honours an uncontrolled `null` default as no selection', () => {
+    expect(
+      getActiveIndex({ selectedIndex: undefined, internalSelected: null, length: 4 })
+    ).toBeNull();
+  });
+
+  it('lets a controlled index win over the internal selection', () => {
+    expect(getActiveIndex({ selectedIndex: 0, internalSelected: 2, length: 4 })).toBe(0);
+  });
+
+  it('treats a controlled `null` as no selection, not the last bar', () => {
+    expect(getActiveIndex({ selectedIndex: null, internalSelected: 2, length: 4 })).toBeNull();
+  });
+
+  it('clamps an out-of-range index in either mode', () => {
+    expect(getActiveIndex({ selectedIndex: 9, internalSelected: undefined, length: 4 })).toBe(3);
+    expect(getActiveIndex({ selectedIndex: undefined, internalSelected: -2, length: 4 })).toBe(0);
+  });
+
+  it('follows the data when it shrinks below the internal selection', () => {
+    expect(getActiveIndex({ selectedIndex: undefined, internalSelected: 5, length: 3 })).toBe(2);
+  });
+
+  it('returns null when there is no data', () => {
+    expect(
+      getActiveIndex({ selectedIndex: undefined, internalSelected: undefined, length: 0 })
+    ).toBeNull();
+    expect(getActiveIndex({ selectedIndex: 0, internalSelected: undefined, length: 0 })).toBeNull();
+  });
+});
+
+describe('getCaretMotion', () => {
+  it('reveals the caret the first time it is positioned', () => {
+    expect(
+      getCaretMotion({ hasPositioned: false, bandWidthChanged: true, isReducedMotion: false })
+    ).toBe('reveal');
+    expect(
+      getCaretMotion({ hasPositioned: false, bandWidthChanged: false, isReducedMotion: true })
+    ).toBe('reveal');
+  });
+
+  it('slides between bars when only the selection changed', () => {
+    expect(
+      getCaretMotion({ hasPositioned: true, bandWidthChanged: false, isReducedMotion: false })
+    ).toBe('slide');
+  });
+
+  it('snaps when the bar slots resized, e.g. the data or viewport changed', () => {
+    expect(
+      getCaretMotion({ hasPositioned: true, bandWidthChanged: true, isReducedMotion: false })
+    ).toBe('snap');
+  });
+
+  it('snaps when motion is reduced', () => {
+    expect(
+      getCaretMotion({ hasPositioned: true, bandWidthChanged: false, isReducedMotion: true })
+    ).toBe('snap');
+  });
+});
+
+describe('shouldScrollToEnd', () => {
+  const overflowing = { viewportWidth: 240, contentWidth: 672 };
+
+  it('scrolls once the bars overflow a measured viewport', () => {
+    expect(shouldScrollToEnd({ scrolledId: null, dataId: '12', ...overflowing })).toBe(true);
+  });
+
+  it('does not scroll again for the same id', () => {
+    expect(shouldScrollToEnd({ scrolledId: '12', dataId: '12', ...overflowing })).toBe(false);
+  });
+
+  it('scrolls again when the id changes', () => {
+    expect(shouldScrollToEnd({ scrolledId: '12', dataId: '13', ...overflowing })).toBe(true);
+    expect(shouldScrollToEnd({ scrolledId: '2024', dataId: '2025', ...overflowing })).toBe(true);
+  });
+
+  it('does not scroll before the viewport is measured', () => {
+    expect(
+      shouldScrollToEnd({ scrolledId: null, dataId: '12', viewportWidth: 0, contentWidth: 672 })
+    ).toBe(false);
+  });
+
+  it('does not scroll when the bars fit', () => {
+    expect(
+      shouldScrollToEnd({ scrolledId: null, dataId: '4', viewportWidth: 240, contentWidth: 240 })
+    ).toBe(false);
   });
 });

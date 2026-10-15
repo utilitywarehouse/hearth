@@ -881,9 +881,6 @@ importers:
       '@types/d3-scale':
         specifier: ^4.0.9
         version: 4.0.9
-      '@types/d3-shape':
-        specifier: ^3.1.8
-        version: 3.1.8
       '@types/prismjs':
         specifier: ^1.26.5
         version: 1.26.6
