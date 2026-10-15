@@ -4,11 +4,10 @@
 
 🌟 [FEATURE]: `BarChart` component for comparing values across categories
 
-`BarChart` compares values across categories with one bar each. Tap a bar to select it and see its
-value in a tooltip. The y-axis stays in view while the bars scroll horizontally when they need more
-space than is available. Selection can be controlled with `selectedIndex` and `onSelectedChange`, or
-left uncontrolled with `defaultSelectedIndex`. The chart scrolls to the latest bar when the required
-`dataId` changes, so give each dataset a `dataId` that is unique to it.
+`BarChart` compares values across categories, one bar each. Tap a bar to see its value in a tooltip.
+Bars scroll horizontally when they don't fit, y-axis stays fixed. Control selection with
+`selectedIndex` and `onSelectedChange`, or leave it uncontrolled with `defaultSelectedIndex`. Give
+each dataset its own `dataId`; the chart scrolls to the latest bar when it changes.
 
 **Components affected**:
 
