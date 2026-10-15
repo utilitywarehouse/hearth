@@ -196,14 +196,13 @@ jobs:
         # likely cause of "works locally, fails in CI" for this exact build step.
         # NODE_OPTIONS: release builds enable minification, which is far more memory-
         # hungry than the dev bundle this app is normally built with.
-        # --exit-once-uploaded: stop once the Storybook is published instead of
-        # holding this macOS runner while Chromatic captures the snapshots. The
-        # results (changes, errors, stalls) are reported on the PR by Chromatic's
-        # own "UI Tests: hearth-react-native (Native)" check. Build and upload
-        # errors still exit non-zero and fail this step.
+        # The CLI waits for Chromatic to capture every snapshot, so this step fails
+        # on unreviewed visual changes, capture errors and stalls as well as build
+        # and upload errors. Chromatic's own "UI Tests: hearth-react-native (Native)"
+        # check on the PR goes green once the changes are accepted.
         run: |
           ulimit -n 65536 || true
-          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN" --exit-once-uploaded
+          npx chromatic --project-token="$CHROMATIC_PROJECT_TOKEN"
         env:
           CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN_REACT_NATIVE_EXPO }}
           NODE_OPTIONS: --max-old-space-size=8192

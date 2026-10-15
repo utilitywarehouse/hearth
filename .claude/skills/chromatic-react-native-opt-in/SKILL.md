@@ -16,27 +16,19 @@ renderers in Chromatic. It is slow, uses an expensive runner, and every snapshot
 counts towards the Chromatic quota, so it is **opt-in**: it does nothing on a PR
 unless that PR asks for it.
 
-This is separate from `chromatic-react-native.yml`, which snapshots the React
-Native Web Storybook (`packages/react-native/.storybook`). That workflow's
-`branches: '*'` filter doesn't match branch names containing `/` (e.g.
-`feat/button`), so it only runs on branches with flat names — don't assume the
-web build covered a change unless its "Chromatic - React Native" check actually
-ran on the PR (`gh pr checks <number>`).
+This is separate from `chromatic-react-native.yml`, which publishes the React
+Native Web Storybook (`packages/react-native/.storybook`) as a preview only, with
+no snapshots, on PRs with the `build preview` label.
 
-The two builds snapshot different stories:
+The native build uses `EXPO_PUBLIC_VISUAL_TESTS=true`, so it loads **only**
+`packages/react-native/visual-tests/*.visual.stories.tsx` and snapshots each of
+them on iOS and Android. The rules for those stories are in the
+[react-native-visual-tests](../react-native-visual-tests/SKILL.md) skill.
 
-- **Native (this workflow)** builds with `EXPO_PUBLIC_VISUAL_TESTS=true`, so it
-  loads **only** `packages/react-native/visual-tests/*.visual.stories.tsx` and
-  snapshots each of them on iOS and Android. The rules for those stories are in
-  the [react-native-visual-tests](../react-native-visual-tests/SKILL.md) skill.
-- **Web** loads `src/**/*.stories.tsx` with `chromatic: { disableSnapshot: true }`
-  set globally, so only stories that opt back in with
-  `chromatic: { disableSnapshot: false }` (a few `KitchenSink` stories) are
-  snapshotted.
-
-The job exits once the Storybook is uploaded (`--exit-once-uploaded`); results
-appear on the PR as Chromatic's **"UI Tests: hearth-react-native (Native)"**
-check, not in the job log.
+The job waits for Chromatic to capture every snapshot, so it fails on
+unreviewed visual changes as well as build errors. Review the changes in
+Chromatic: once they are accepted, Chromatic's
+**"UI Tests: hearth-react-native (Native)"** check on the PR goes green.
 
 ## How to opt in
 
