@@ -45,9 +45,9 @@ only when the new prop, variant or state is not shown yet.
   [chromatic-react-native-opt-in](../chromatic-react-native-opt-in/SKILL.md)
   skill for when to add it. Pushes to `main` build when the merged PR had the
   label, and a maintainer can run it by hand (`workflow_dispatch`).
-- The job exits once the Storybook is uploaded (`--exit-once-uploaded`).
-  Results (changes, errors) appear on the PR as Chromatic's
-  **"UI Tests: hearth-react-native (Native)"** check, not in the job log.
+- The job waits for every snapshot, so it fails on unreviewed visual changes
+  and capture errors. Accept the changes in Chromatic, and its
+  **"UI Tests: hearth-react-native (Native)"** check on the PR goes green.
 
 ### Preview locally
 

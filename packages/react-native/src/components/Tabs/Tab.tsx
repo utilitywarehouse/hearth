@@ -52,7 +52,7 @@ const Tab = ({
       {...props}
     >
       <View style={styles.content}>
-        {icon ? <Icon as={icon} /> : null}
+        {icon ? <Icon as={icon} style={styles.icon} /> : null}
         <BodyText size={size} weight="semibold">
           {children}
         </BodyText>
@@ -106,6 +106,11 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.components.tabs.item.gap,
+  },
+  // Without an explicit colour the icon falls back to `currentColor`, which iOS resolves
+  // inconsistently between renders.
+  icon: {
+    color: theme.color.icon.primary,
   },
   badge: {
     marginLeft: theme.space[25],
