@@ -193,6 +193,8 @@ export const ViewNavigation: Story = {
 
     await userEvent.click(screen.getByRole('button', { name: /^March 2023/ }));
     await screen.findByRole('button', { name: /^2023/ });
+    await userEvent.click(screen.getByText('Mar'));
+    await screen.findByRole('button', { name: 'previous month' });
     await userEvent.click(canvasElement);
     await waitFor(() =>
       expect(document.querySelector('.react-datepicker__month-container')).not.toBeInTheDocument()
