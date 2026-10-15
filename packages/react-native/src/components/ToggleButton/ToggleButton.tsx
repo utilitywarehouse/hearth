@@ -1,3 +1,4 @@
+import { ToggleButtonContext } from './ToggleButton.context';
 import type { ToggleButtonProps } from './ToggleButton.props';
 import ToggleButtonTextComponent from './ToggleButtonText';
 import ToggleButtonIconComponent from './ToggleButtonIcon';
@@ -12,7 +13,15 @@ const ToggleButtonComponent = createButton({
   Text: ToggleButtonTextComponent,
 });
 
+/**
+ * The label of a `ToggleButton`, for composing a custom button. Its colour follows the
+ * toggled state of the parent `ToggleButton`.
+ */
 export const ToggleButtonText = ToggleButtonComponent.Text;
+/**
+ * The icon of a `ToggleButton`, for composing a custom button. Defaults to a tick, and its
+ * colour follows the toggled state of the parent `ToggleButton`.
+ */
 export const ToggleButtonIcon = ToggleButtonComponent.Icon;
 
 ToggleButtonText.displayName = 'ToggleButtonText';
@@ -22,12 +31,24 @@ ToggleButtonIcon.displayName = 'ToggleButtonIcon';
  * A pressable button that switches between an on and off state, such as for a single
  * standalone setting.
  */
-const ToggleButton = ({ text, toggled = false, onToggle, ...props }: ToggleButtonProps) => {
+const ToggleButton = ({
+  text,
+  toggled = false,
+  onToggle,
+  children,
+  ...props
+}: ToggleButtonProps) => {
   return (
-    <ToggleButtonComponent toggled={toggled} onToggle={onToggle} {...props}>
-      {toggled && <ToggleButtonIcon toggled={toggled} />}
-      <ToggleButtonText toggled={toggled}>{text}</ToggleButtonText>
-    </ToggleButtonComponent>
+    <ToggleButtonContext.Provider value={{ toggled }}>
+      <ToggleButtonComponent toggled={toggled} onToggle={onToggle} {...props}>
+        {children ?? (
+          <>
+            {toggled && <ToggleButtonIcon />}
+            <ToggleButtonText>{text}</ToggleButtonText>
+          </>
+        )}
+      </ToggleButtonComponent>
+    </ToggleButtonContext.Provider>
   );
 };
 
