@@ -95,6 +95,21 @@ To run all checks use the following command:
 pnpm check
 ```
 
+### Chromatic PR labels
+
+The React Native Chromatic builds don't run on PRs by default. Add a label to
+the PR to opt in:
+
+| Label | What it does |
+|-------|--------------|
+| `build preview` | Publishes the React Native Web Storybook to Chromatic and posts a comment on the PR with the preview link. No snapshots are taken. Every push to a labelled PR updates the preview. |
+| `chromatic: React Native` | Runs the native (Expo) visual regression build, which snapshots `packages/react-native/visual-tests/` on iOS and Android. It uses an expensive macOS runner and counts towards the Chromatic snapshot quota, so only add it when a change affects how components look. See the `chromatic-react-native-opt-in` skill. |
+
+Both builds only run when the PR changes files under `packages/react-native`
+(the native build also watches `packages/react-native-icons`,
+`packages/fonts` and `apps/storybook-rn-expo`). Merges to `main` always
+publish the React Native Web Storybook.
+
 ### Deploying changes
 
 The libraries are deployed by semi-automatic script that creates the release

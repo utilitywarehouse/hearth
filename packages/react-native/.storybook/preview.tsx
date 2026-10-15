@@ -101,9 +101,9 @@ const preview = {
       context: { exclude: [A11Y_IGNORE_SELECTOR] },
     },
     chromatic: {
-      // Snapshotting is disabled by default to limit Chromatic usage — opt
-      // individual stories back in (e.g. a component's KitchenSink story)
-      // with `chromatic: { disableSnapshot: false }`.
+      // The web Storybook is published to Chromatic as a preview only — don't
+      // opt stories back in. Visual regression runs natively against
+      // visual-tests/ (see chromatic-react-native-expo.yml).
       disableSnapshot: true,
     },
   },

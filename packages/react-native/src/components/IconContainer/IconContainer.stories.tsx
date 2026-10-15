@@ -88,7 +88,6 @@ export const RadiusNone: Story = {
 export const KitchenSink: Story = {
   parameters: {
     controls: { exclude: ['radiusNone', 'variant', 'color', 'size'] },
-    chromatic: { disableSnapshot: false },
   },
   render: ({ icon }: { icon: ComponentType }) => {
     const sizes: Array<'sm' | 'md' | 'lg'> = ['sm', 'md', 'lg'];

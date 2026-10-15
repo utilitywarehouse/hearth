@@ -1,4 +1,4 @@
-name: Build Tokens
+name: '🎨 Build Tokens'
 
 on:
   pull_request:

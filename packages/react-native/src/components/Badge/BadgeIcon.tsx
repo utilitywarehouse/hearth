@@ -17,6 +17,9 @@ const styles = StyleSheet.create(theme => ({
     height: theme.components.icon.sm.height,
     minWidth: theme.components.icon.sm.width,
     minHeight: theme.components.icon.sm.height,
+    // `outline` with a brand colour scheme matches no compound variant. Without a base colour
+    // the icon falls back to `currentColor`, which iOS resolves inconsistently between renders.
+    color: theme.color.text.primary,
     variants: {
       colorScheme: {
         info: {},
