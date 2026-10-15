@@ -62,7 +62,6 @@
     "@gluestack-ui/textarea": "0.1.23",
     "@quidone/react-native-wheel-picker": "^1.6.1",
     "@react-stately/utils": "^3.12.1",
-    "d3-scale": "^4.0.2",
     "dayjs": "^1.11.13",
     "nanoid": "3.3.11"
   },
@@ -76,7 +75,6 @@
     "@storybook/addon-mcp": "^10.6.0",
     "@storybook/addon-vitest": "^10.6.0",
     "@storybook/react-native-web-vite": "^10.6.0",
-    "@types/d3-scale": "^4.0.9",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",

@@ -29,6 +29,112 @@ describe('getYMax', () => {
   it('ignores a non-positive explicit yMax', () => {
     expect(getYMax([10], 6, 0)).toBe(10);
   });
+
+  it.each([
+    // [values, yTicks, expected]
+    [[8, 22], 6, 25],
+    [[5, 3, 22], 6, 25],
+    [[-4, 22], 6, 25],
+    [[10], 6, 10],
+    [[8], 6, 10],
+    [[12], 6, 25],
+    [[100], 6, 100],
+    [[101], 6, 250],
+    [[1], 6, 1],
+    [[0.37], 6, 0.5],
+    [[0.0034], 6, 0.005],
+    [[0.3], 6, 0.5],
+    [[1340], 6, 2500],
+    [[1_234_567], 6, 2_500_000],
+    [[1e15], 6, 1e15],
+    [[7], 2, 10],
+    [[7], 3, 10],
+    [[7], 11, 10],
+    [[7], 0, 10],
+    [[7], 1, 10],
+    [[7], 5.5, 10],
+  ])('rounds %j with %s ticks up to %s', (values, yTicks, expected) => {
+    expect(getYMax(values, yTicks)).toBe(expected);
+  });
+
+  it('never returns a non-positive or non-finite max', () => {
+    expect(getYMax([Number.MIN_VALUE], 6)).toBe(1);
+    expect(getYMax([Number.POSITIVE_INFINITY], 6)).toBe(1);
+  });
+});
+
+describe('y-axis niceness', () => {
+  const bases = [1, 1.1, 1.2, 1.5, 2, 2.4, 2.5, 3, 4, 5, 6, 7, 8, 9, 9.99];
+  const largestValues = bases
+    .flatMap(base =>
+      Array.from({ length: 13 }, (_, index) => base * 10 ** (index - 3)).flatMap(value => [
+        value,
+        value * (1 + 1e-12),
+        value * (1 - 1e-12),
+      ])
+    )
+    .sort((a, b) => a - b);
+  const tickCounts = Array.from({ length: 11 }, (_, index) => index + 2);
+
+  const significantDigits = (value: number) =>
+    value === 0 ? 0 : value.toExponential().split('e')[0].replace(/[.-]/g, '').length;
+
+  it('covers the tallest bar without overshooting by more than 2.5x', () => {
+    for (const largest of largestValues) {
+      for (const ticks of tickCounts) {
+        const max = getYMax([largest], ticks);
+        expect(max, `${largest} @ ${ticks}`).toBeGreaterThanOrEqual(largest * (1 - 1e-9));
+        expect(max, `${largest} @ ${ticks}`).toBeLessThanOrEqual(largest * 2.5);
+      }
+    }
+  });
+
+  it('uses a 1, 2 or 5 x 10^k step between ticks', () => {
+    for (const largest of largestValues) {
+      for (const ticks of tickCounts) {
+        const step = getYMax([largest], ticks) / (ticks - 1);
+        const mantissa = step / 10 ** Math.floor(Math.log10(step));
+        const nearest = [1, 2, 5, 10].reduce((best, candidate) =>
+          Math.abs(candidate - mantissa) < Math.abs(best - mantissa) ? candidate : best
+        );
+        expect(mantissa, `${largest} @ ${ticks}`).toBeCloseTo(nearest, 8);
+      }
+    }
+  });
+
+  it('produces ticks with no float tails and at most two significant digits', () => {
+    for (const largest of largestValues) {
+      for (const ticks of tickCounts) {
+        const labels = getYTicks(getYMax([largest], ticks), ticks);
+        for (const tick of labels) {
+          expect(Number(tick.toPrecision(12)), `${largest} @ ${ticks}`).toBe(tick);
+          expect(significantDigits(tick), `${tick} from ${largest} @ ${ticks}`).toBeLessThanOrEqual(
+            2
+          );
+        }
+      }
+    }
+  });
+
+  it('never decreases as the largest value grows', () => {
+    for (const ticks of tickCounts) {
+      let previous = 0;
+      for (const largest of largestValues) {
+        const max = getYMax([largest], ticks);
+        expect(max, `${largest} @ ${ticks}`).toBeGreaterThanOrEqual(previous);
+        previous = max;
+      }
+    }
+  });
+
+  it('is stable when its own result is fed back in', () => {
+    for (const largest of largestValues) {
+      for (const ticks of tickCounts) {
+        const max = getYMax([largest], ticks);
+        expect(getYMax([max], ticks), `${largest} @ ${ticks}`).toBe(max);
+      }
+    }
+  });
 });
 
 describe('getYTicks', () => {

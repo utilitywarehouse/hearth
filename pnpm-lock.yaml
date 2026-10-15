@@ -841,9 +841,6 @@ importers:
       '@react-stately/utils':
         specifier: ^3.12.1
         version: 3.12.1(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      d3-scale:
-        specifier: ^4.0.2
-        version: 4.0.2
       dayjs:
         specifier: ^1.11.13
         version: 1.11.21
@@ -878,9 +875,6 @@ importers:
       '@storybook/react-native-web-vite':
         specifier: ^10.6.0
         version: 10.6.0(@types/react-dom@19.2.3(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.3(react@19.2.3))(react-native-web@0.20.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react-native@0.86.2(@babel/core@7.29.7)(@react-native/metro-config@0.86.2(@babel/core@7.29.7))(@types/react@19.2.18)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(rollup@4.62.0)(storybook@10.6.0(@types/react@19.2.18)(prettier@3.8.4)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(supports-color@8.1.1)(typescript@6.0.3)(vite@7.3.6(@types/node@22.20.1)(lightningcss@1.33.0)(terser@5.48.0)(tsx@4.22.4)(yaml@2.9.0))
-      '@types/d3-scale':
-        specifier: ^4.0.9
-        version: 4.0.9
       '@types/prismjs':
         specifier: ^1.26.5
         version: 1.26.6

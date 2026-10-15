@@ -1,10 +1,20 @@
-import { scaleLinear } from 'd3-scale';
-
 export const DEFAULT_Y_TICKS = 6;
 
+const NICE_STEPS = [1, 2, 5, 10];
+
+/** Smallest 1, 2 or 5 x 10^k that is at least `raw`. */
+const getNiceStep = (raw: number): number => {
+  const magnitude = 10 ** Math.floor(Math.log10(raw));
+  const normalised = raw / magnitude;
+  // The tolerance stops float noise (2.0000000000000004) bumping a value up to the next step.
+  const mantissa = NICE_STEPS.find(step => normalised <= step * (1 + 1e-9)) ?? 10;
+  return mantissa * magnitude;
+};
+
 /**
- * The top of the y-axis: `yMax` when given, otherwise the largest value rounded up to a tidy
- * number that splits evenly across the ticks. Never zero, so the scale is always valid.
+ * The top of the y-axis: `yMax` when given, otherwise the largest value rounded up to the
+ * smallest multiple of a 1, 2 or 5 x 10^k step that covers it, so every tick is a whole multiple
+ * of that step. Never zero, so the scale is always valid.
  */
 export const getYMax = (values: number[], yTicks: number, yMax?: number): number => {
   if (yMax !== undefined && yMax > 0) {
@@ -16,11 +26,11 @@ export const getYMax = (values: number[], yTicks: number, yMax?: number): number
     return 1;
   }
 
-  const [, niceMax] = scaleLinear()
-    .domain([0, largest])
-    .nice(Math.max(1, yTicks - 1))
-    .domain();
-  return niceMax;
+  const intervals = Math.max(1, Math.round(yTicks) - 1);
+  const step = getNiceStep(largest / intervals);
+  const niceMax = Number((step * intervals).toPrecision(12));
+  // Subnormal or non-finite input underflows or overflows the step maths.
+  return niceMax > 0 && Number.isFinite(niceMax) ? niceMax : 1;
 };
 
 /**
@@ -28,7 +38,9 @@ export const getYMax = (values: number[], yTicks: number, yMax?: number): number
  */
 export const getYTicks = (yMax: number, tickCount: number): number[] => {
   const count = Math.max(2, Math.round(tickCount));
-  return Array.from({ length: count }, (_, index) => (yMax * index) / (count - 1));
+  return Array.from({ length: count }, (_, index) =>
+    Number(((yMax * index) / (count - 1)).toPrecision(12))
+  );
 };
 
 /**
