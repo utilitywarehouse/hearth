@@ -1,4 +1,4 @@
-name: Build Storybook
+name: '📚 Build Storybook'
 on:
   pull_request:
     types: [opened, synchronize, reopened]

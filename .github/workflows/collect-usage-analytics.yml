@@ -1,4 +1,4 @@
-name: Collect Hearth Usage Analytics
+name: '📊 Collect Hearth Usage Analytics'
 
 # Weekly sweep of the utilitywarehouse org for @utilitywarehouse/hearth-* usage.
 # Discovers dependent repos via code search, shallow-clones + parses each, and

@@ -1,4 +1,4 @@
-name: 'Chromatic - React Native Expo'
+name: '📱 Chromatic - React Native Visual Tests'
 
 # Opt-in only: native builds run on an expensive macOS runner and every
 # snapshot counts towards the Chromatic quota, so this workflow does nothing
