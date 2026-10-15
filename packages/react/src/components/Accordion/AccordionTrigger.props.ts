@@ -1,7 +1,11 @@
-import type { ComponentPropsWithRef } from 'react';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, CSSProperties, ReactNode } from 'react';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 
 export type AccordionTriggerProps = Omit<
   ComponentPropsWithRef<typeof AccordionPrimitive.Trigger>,
-  'asChild'
->;
+  'render' | 'className' | 'nativeButton' | 'children' | 'style'
+> & {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
+};

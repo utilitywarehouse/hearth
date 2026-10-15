@@ -3,9 +3,9 @@
 Use Accordion to let users expand or collapse individual content sections,
 presenting a large amount of information in a compact, organised interface.
 Compose it with `AccordionItem`, `AccordionHeader`, `AccordionTrigger`, and
-`AccordionContent` for each disclosure item. The `type` prop is required and
-determines whether one (`single`) or multiple (`multiple`) items can be
-expanded at once.
+`AccordionContent` for each disclosure item. By default only one item can
+be expanded at once — set `multiple` to allow more than one item to be
+expanded simultaneously.
 
 ```tsx
 <Box width="600px">
@@ -21,23 +21,10 @@ expanded at once.
 
 ## Accordion type
 
-`Accordion` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
-
-When `type` is set to `single`, only one item can be expanded at once.
-
-```tsx
-<Box width="600px">
-  <Accordion {...args}>
-    {[1, 2, 3, 4, 5, 6].map(n => (
-      <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
-        <AccordionContent>{`Content ${n}`}</AccordionContent>
-      </AccordionItem>
-    ))}
-  </Accordion>
-</Box>
-```
-
-When `type` is set to `multiple`, then multiple items can be expanded at once.
+By default only one `Accordion` item can be expanded at once. Set the
+`multiple` prop to `true` to allow multiple items to be expanded
+simultaneously — items are always collapsible, so all items can be closed at
+the same time regardless of `multiple`.
 
 ```tsx
 <Box width="600px">
@@ -51,11 +38,7 @@ When `type` is set to `multiple`, then multiple items can be expanded at once.
 </Box>
 ```
 
-## Collapsible
-
-The `collapsible` prop can be used when the `type` is set to `single`. When
-`true` items can be collapsed, allowing all items to be closed at the same
-time.
+When `multiple` is `true`, multiple items can be expanded at once.
 
 ```tsx
 <Box width="600px">
@@ -71,25 +54,21 @@ time.
 
 ## Value
 
-The `value` prop differs depending on whether the `type` is set to `single` or
-`multiple`. This also affects the `defaultValue` and `onValueChange` props.
-
-When using a `single` type `Accordion`, the value is a `string`.
+The `value`, `defaultValue`, and `onValueChange` props always use an array of
+`string` values, listing the currently expanded item(s), regardless of
+whether `multiple` is set.
 
 ```tsx
 <Accordion
-  type="single"
-  defaultValue="item-1"
+  defaultValue={["item-1"]}
 >
 {...}
 </Accordion>
 ```
 
-When using a `multiple` type `Accordion`, the value is an array of `string` values.
-
 ```tsx
 <Accordion
-  type="multiple"
+  multiple
   defaultValue={["item-1", "item-2"]}
 >
 {...}
@@ -104,7 +83,7 @@ However if you need something more custom, you can use the internal subcomponent
 `AccordionHeader` & `AccordionTrigger`, ensuring you wrap the trigger in a header component.
 
 ```tsx
-<Accordion type="multiple" heading="Custom item headers">
+<Accordion multiple heading="Custom item headers">
   <AccordionItem value='item-1'>
     <AccordionHeader>
       <AccordionTrigger>
@@ -122,11 +101,7 @@ However if you need something more custom, you can use the internal subcomponent
 
 ```tsx
 <Box width="600px">
-  <Accordion
-    type="multiple"
-    heading="Custom item headers"
-    helperText="Including a badge, for example"
-  >
+  <Accordion multiple heading="Custom item headers" helperText="Including a badge, for example">
     {[1, 2, 3].map(n => (
       <AccordionItem key={n} value={`item-${n}`}>
         <AccordionHeader>
@@ -232,16 +207,16 @@ then an alternative disclosure pattern should be used.
 
 By default, `AccordionContent` is removed from the DOM when collapsed, which
 means search engines may not index its content. If the content is important for
-SEO (for example, FAQ answers), use the `forceMount` prop on `AccordionContent`
+SEO (for example, FAQ answers), use the `keepMounted` prop on `AccordionContent`
 to keep it in the DOM at all times.
 
-When `forceMount` is set, collapsed content is hidden from view and the
+When `keepMounted` is set, collapsed content is hidden from view and the
 accessibility tree using the `hidden` attribute, so it has no impact on the
 visual layout or screen reader experience. The close animation plays before the
 content is hidden.
 
 ```tsx
-<AccordionContent forceMount>Content</AccordionContent>
+<AccordionContent keepMounted>Content</AccordionContent>
 ```
 
 ```tsx
@@ -249,11 +224,44 @@ content is hidden.
   <Accordion {...args}>
     {[1, 2, 3, 4, 5, 6].map(n => (
       <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
-        <AccordionContent forceMount>{`Content ${n}`}</AccordionContent>
+        <AccordionContent keepMounted>{`Content ${n}`}</AccordionContent>
       </AccordionItem>
     ))}
   </Accordion>
 </Box>
+```
+
+### Migrating from `v0.31.x`
+
+`Accordion` has migrated from Radix UI to Base UI internally.
+
+**Breaking changes:**
+
+- `Accordion: type="single"` — remove `type`, the accordion now defaults to single-select behaviour.
+- `Accordion: type="multiple"` — replace with `multiple`. Do not simply omit `type` — the new default is single-select, so omitting it silently changes behaviour.
+- `Accordion: collapsible` — remove entirely; single-mode panels are now always collapsible.
+- `Accordion: value` / `defaultValue` — must now always be an array, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
+- `Accordion: onValueChange` — now always receives an array as its first argument.
+- `AccordionContent: forceMount` — removed entirely; use `keepMounted` instead.
+
+```tsx
+{
+  /* Before */
+}
+<Accordion type="single" collapsible defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionContent forceMount>...</AccordionContent>
+  </AccordionItem>
+</Accordion>;
+
+{
+  /* After */
+}
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem value="item-1">
+    <AccordionContent keepMounted>...</AccordionContent>
+  </AccordionItem>
+</Accordion>;
 ```
 
 ## API
@@ -262,41 +270,48 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Prop               | Type                                                       | Default | Description                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | ---------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `defaultValue`     | `string \| string[]`                                       | —       | The value of the item whose content is expanded when the accordion is initially rendered. Use `defaultValue` if you do not need to control the state of an accordion. The value of the items whose contents are expanded when the accordion is initially rendered. Use `defaultValue` if you do not need to control the state of an accordion. |
-| `heading`          | `string`                                                   | —       | Actual string to display as section header                                                                                                                                                                                                                                                                                                     |
-| `type`             | `"single" \| "multiple"`                                   | —       |                                                                                                                                                                                                                                                                                                                                                |
-| `value`            | `string \| string[]`                                       | —       | The controlled stateful value of the accordion item whose content is expanded. The controlled stateful value of the accordion items whose contents are expanded.                                                                                                                                                                               |
-| `onValueChange`    | `((value: string) => void) \| ((value: string[]) => void)` | —       | The callback that fires when the state of the accordion changes.                                                                                                                                                                                                                                                                               |
-| `collapsible`      | `boolean`                                                  | —       | When `type` is `single`, allows an expanded item to be collapsed, closing all items.                                                                                                                                                                                                                                                           |
-| `disabled`         | `boolean`                                                  | —       | Whether or not an accordion is disabled from user interaction. @defaultValue false                                                                                                                                                                                                                                                             |
-| `headingElement`   | `"h1" \| "h2" \| "h3" \| "h4"`                             | `'h2'`  | The heading element to render for the `heading` prop.                                                                                                                                                                                                                                                                                          |
-| `helperText`       | `string`                                                   | —       | Optional helper text to provide additional context or instructions.                                                                                                                                                                                                                                                                            |
-| `trailingContent`  | `ReactNode`                                                | —       | Optional trailing content element                                                                                                                                                                                                                                                                                                              |
-| `validationStatus` | `"invalid"`                                                | —       | Indicates the validation state                                                                                                                                                                                                                                                                                                                 |
-| `validationText`   | `string`                                                   | —       | Text to display when the `validationStatus` is set.                                                                                                                                                                                                                                                                                            |
-| `direction`        | `Responsive<"row" \| "column">`                            | —       | Responsive direction of the section header content. By default, the content is laid out in a row.                                                                                                                                                                                                                                              |
+| Prop               | Type                                                                                       | Default | Description                                                                                                                                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `defaultValue`     | `AccordionValue<string>`                                                                   | —       | The uncontrolled value of the item(s) that should be initially expanded. To render a controlled accordion, use the `value` prop instead.                                                                |
+| `value`            | `AccordionValue<string>`                                                                   | —       | The controlled value of the item(s) that should be expanded. To render an uncontrolled accordion, use the `defaultValue` prop instead.                                                                  |
+| `disabled`         | `boolean`                                                                                  | `false` | Whether the component should ignore user interaction.                                                                                                                                                   |
+| `hiddenUntilFound` | `boolean`                                                                                  | `false` | Allows the browser's built-in page search to find and expand the panel contents. Overrides the `keepMounted` prop and uses `hidden="until-found"` to hide the element without removing it from the DOM. |
+| `keepMounted`      | `boolean`                                                                                  | `false` | Whether to keep the element in the DOM while the panel is closed. This prop is ignored when `hiddenUntilFound` is used.                                                                                 |
+| `loopFocus`        | `boolean`                                                                                  | `true`  | Whether to loop keyboard focus back to the first item when the end of the list is reached while using the arrow keys.                                                                                   |
+| `onValueChange`    | `((value: AccordionValue<string>, eventDetails: AccordionRootChangeEventDetails) => void)` | —       | Event handler called when an accordion item is expanded or collapsed. Provides the new value as an argument.                                                                                            |
+| `multiple`         | `boolean`                                                                                  | `false` | Whether multiple items can be open at the same time.                                                                                                                                                    |
+| `headingElement`   | `"h1" \| "h2" \| "h3" \| "h4"`                                                             | `'h2'`  | The heading element to render for the `heading` prop.                                                                                                                                                   |
+| `heading`          | `string`                                                                                   | —       | Actual string to display as section header                                                                                                                                                              |
+| `helperText`       | `string`                                                                                   | —       | Optional helper text to provide additional context or instructions.                                                                                                                                     |
+| `trailingContent`  | `ReactNode`                                                                                | —       | Optional trailing content element                                                                                                                                                                       |
+| `validationStatus` | `"invalid"`                                                                                | —       | Indicates the validation state                                                                                                                                                                          |
+| `validationText`   | `string`                                                                                   | —       | Text to display when the `validationStatus` is set.                                                                                                                                                     |
+| `direction`        | `Responsive<"row" \| "column">`                                                            | —       | Responsive direction of the section header content. By default, the content is laid out in a row.                                                                                                       |
 
 ### AccordionItem
 
 This component is based on the `div` element.
 
-| Prop             | Type                           | Default | Description                                                                                                                                                                  |
-| ---------------- | ------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `title`          | `string`                       | —       | Shorthand that renders a default `AccordionHeader` + `AccordionTrigger` composition using this as the heading text. Omit to compose the header manually as children instead. |
-| `disabled`       | `boolean`                      | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false                                                                                      |
-| `value`          | `string`                       | —       | A string value for the accordion item. All items within an accordion should use a unique value.                                                                              |
-| `description`    | `string`                       | —       | Helper text shown below the shorthand `title`.                                                                                                                               |
-| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"` | `h3`    | Sets the semantic heading level used for the shorthand header when `title` is set.                                                                                           |
+| Prop             | Type                                                                       | Default | Description                                                                                                                                                                  |
+| ---------------- | -------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `style`          | `CSSProperties`                                                            | —       |                                                                                                                                                                              |
+| `title`          | `string`                                                                   | —       | Shorthand that renders a default `AccordionHeader` + `AccordionTrigger` composition using this as the heading text. Omit to compose the header manually as children instead. |
+| `className`      | `string`                                                                   | —       |                                                                                                                                                                              |
+| `disabled`       | `boolean`                                                                  | `false` | Whether the component should ignore user interaction.                                                                                                                        |
+| `value`          | `string`                                                                   | —       | A unique value that identifies this accordion item. Used to control which item(s) are expanded via `value`/`defaultValue` on `Accordion`.                                    |
+| `onOpenChange`   | `((open: boolean, eventDetails: AccordionItemChangeEventDetails) => void)` | —       | Event handler called when the panel is opened or closed.                                                                                                                     |
+| `description`    | `string`                                                                   | —       | Helper text shown below the shorthand `title`.                                                                                                                               |
+| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"`                                             | `h3`    | Sets the semantic heading level used for the shorthand header when `title` is set.                                                                                           |
 
 ### AccordionHeader
 
 This component is based on the `h3` element.
 
-| Prop | Type                           | Default | Description                                        |
-| ---- | ------------------------------ | ------- | -------------------------------------------------- |
-| `as` | `"h3" \| "h1" \| "h2" \| "h4"` | `h3`    | Render the appropriate heading level for your page |
+| Prop        | Type                           | Default | Description                                        |
+| ----------- | ------------------------------ | ------- | -------------------------------------------------- |
+| `style`     | `CSSProperties`                | —       |                                                    |
+| `className` | `string`                       | —       |                                                    |
+| `as`        | `"h3" \| "h1" \| "h2" \| "h4"` | `h3`    | Render the appropriate heading level for your page |
 
 ### AccordionContent
 

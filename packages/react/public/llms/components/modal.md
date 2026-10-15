@@ -286,9 +286,9 @@ more of the viewport height, and centre aligning the text and actions.
 
 ## Loading
 
-Use the `loading` and `loadingText` props to indicate a loading state within the modal.
+Use the `loading` and `loadingHeading` props to indicate a loading state within the modal.
 
-When `loading` is `true` the `loadingText` is required for accessibility purposes.
+When `loading` is `true` you should provide a `loadingHeading` for accessibility purposes (it defaults to `"Loading"` if omitted).
 
 ```tsx
 <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
@@ -368,7 +368,6 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
 | `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
 | `fullScreen`           | `boolean`                                                         | `false` | Makes the modal take up the full screen on mobile, ensuring long content scrolls correctly.                                                                                               |
-| `loadingText`          | `string`                                                          | —       | @deprecated Please use loadingHeading and loadingDescription instead                                                                                                                      |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
 | `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |
 | `loading`              | `boolean`                                                         | `false` | Whether the modal is in a loading state. When `true`, a loading heading (via `loadingHeading`) is required for accessibility purposes.                                                    |
