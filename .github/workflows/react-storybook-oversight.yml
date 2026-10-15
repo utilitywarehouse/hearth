@@ -1,4 +1,4 @@
-name: React Storybook Oversight
+name: '🔍 React Storybook Oversight'
 on:
   pull_request:
     types: [opened, synchronize, reopened]

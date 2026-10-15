@@ -1,4 +1,4 @@
-name: Test React Native
+name: '🧪 Test React Native'
 on:
   pull_request:
     types: [opened, synchronize, reopened]

@@ -1,4 +1,4 @@
-name: 'Chromatic - React Native'
+name: '🌐 Chromatic - React Native Web Preview'
 
 # Preview only: publishes the React Native Web Storybook to Chromatic so a PR
 # gets a link to browse it. No stories are snapshotted (see

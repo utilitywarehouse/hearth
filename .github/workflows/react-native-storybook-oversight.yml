@@ -1,4 +1,4 @@
-name: React Native Storybook Oversight
+name: '🔍 React Native Storybook Oversight'
 
 on:
   pull_request:

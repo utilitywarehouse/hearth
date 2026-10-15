@@ -1,4 +1,4 @@
-name: Release Claude plugin version change
+name: '🤖 Release Claude plugin version change'
 on:
   push:
     branches:
