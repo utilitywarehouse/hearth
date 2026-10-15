@@ -26,6 +26,9 @@ const styles = StyleSheet.create(theme => ({
   icon: {
     width: theme.components.icon.sm.width,
     height: theme.components.icon.sm.height,
+    // Without a base colour a custom icon falls back to `currentColor`, which iOS resolves
+    // inconsistently between renders.
+    color: theme.color.icon.primary,
     variants: {
       validationStatus: {
         valid: {
