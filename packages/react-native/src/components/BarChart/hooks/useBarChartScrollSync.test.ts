@@ -1,5 +1,7 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { renderHook, resetHarness } from './hookHarness';
+// @vitest-environment happy-dom
+import { cleanup, renderHook } from '@testing-library/react';
+import { useRef } from 'react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { useBarChartScrollSync } from './useBarChartScrollSync';
 
 const mocks = vi.hoisted(() => ({
@@ -8,13 +10,11 @@ const mocks = vi.hoisted(() => ({
   isWeb: false,
 }));
 
-vi.mock('react', async () => (await import('./hookHarness')).reactMock);
-vi.mock('react-native-reanimated', async () => {
-  const { reactMock } = await import('./hookHarness');
+vi.mock('react-native-reanimated', () => {
   return {
     Easing: { out: () => () => 0, ease: () => 0 },
     useAnimatedRef: () => {
-      const ref = reactMock.useRef<unknown>(null);
+      const ref = useRef<unknown>(null);
       ref.current ??= { scrollTo: mocks.scrollTo, scrollToEnd: mocks.scrollToEnd };
       return ref;
     },
@@ -30,9 +30,12 @@ type Options = Parameters<typeof useBarChartScrollSync>[0];
 
 const base: Options = { dataId: 'a', viewportWidth: 300, contentWidth: 600 };
 
+const render = (props: Options) => renderHook(useBarChartScrollSync, { initialProps: props });
+
 describe('useBarChartScrollSync', () => {
+  afterEach(cleanup);
+
   beforeEach(() => {
-    resetHarness();
     mocks.scrollTo.mockClear();
     mocks.scrollToEnd.mockClear();
     mocks.isWeb = false;
@@ -40,30 +43,30 @@ describe('useBarChartScrollSync', () => {
   });
 
   it('scrolls to the newest bar when the content overflows', () => {
-    renderHook(useBarChartScrollSync, base);
+    render(base);
     expect(mocks.scrollToEnd).toHaveBeenCalledExactlyOnceWith({ animated: false });
   });
 
   it('scrolls back to the start when everything fits', () => {
-    renderHook(useBarChartScrollSync, { ...base, contentWidth: 200 });
+    render({ ...base, contentWidth: 200 });
     expect(mocks.scrollTo).toHaveBeenCalledExactlyOnceWith({ x: 0, animated: false });
     expect(mocks.scrollToEnd).not.toHaveBeenCalled();
   });
 
   it('does not scroll before the viewport has a width', () => {
-    renderHook(useBarChartScrollSync, { ...base, viewportWidth: 0 });
+    render({ ...base, viewportWidth: 0 });
     expect(mocks.scrollToEnd).not.toHaveBeenCalled();
   });
 
   it('scrolls to the start when the content shrinks to fit', () => {
-    const { rerender } = renderHook(useBarChartScrollSync, base);
+    const { rerender } = render(base);
     mocks.scrollTo.mockClear();
     rerender({ ...base, contentWidth: 100 });
     expect(mocks.scrollTo).toHaveBeenCalledExactlyOnceWith({ x: 0, animated: false });
   });
 
   it('scrolls to the end again when the dataset changes', () => {
-    const { result, rerender } = renderHook(useBarChartScrollSync, base);
+    const { result, rerender } = render(base);
     result.current.handleContentSizeChange(600);
     mocks.scrollToEnd.mockClear();
     rerender({ ...base, dataId: 'b' });
@@ -71,13 +74,13 @@ describe('useBarChartScrollSync', () => {
   });
 
   it('exposes the scroll ref', () => {
-    const { result } = renderHook(useBarChartScrollSync, base);
+    const { result } = render(base);
     expect(result.current.scrollRef.current).toBeTruthy();
   });
 
   describe('handleContentSizeChange', () => {
     it('scrolls to the end twice on native so the second call lands on the new end', () => {
-      const { result } = renderHook(useBarChartScrollSync, { ...base, contentWidth: 200 });
+      const { result } = render({ ...base, contentWidth: 200 });
       mocks.scrollToEnd.mockClear();
       result.current.handleContentSizeChange(600);
       expect(mocks.scrollToEnd).toHaveBeenCalledTimes(2);
@@ -85,14 +88,14 @@ describe('useBarChartScrollSync', () => {
 
     it('scrolls to the end once on web', () => {
       mocks.isWeb = true;
-      const { result } = renderHook(useBarChartScrollSync, { ...base, contentWidth: 200 });
+      const { result } = render({ ...base, contentWidth: 200 });
       mocks.scrollToEnd.mockClear();
       result.current.handleContentSizeChange(600);
       expect(mocks.scrollToEnd).toHaveBeenCalledTimes(1);
     });
 
     it('does not scroll again for the same dataset once a native size has been applied', () => {
-      const { result } = renderHook(useBarChartScrollSync, base);
+      const { result } = render(base);
       result.current.handleContentSizeChange(600);
       mocks.scrollToEnd.mockClear();
       result.current.handleContentSizeChange(600);
@@ -100,7 +103,7 @@ describe('useBarChartScrollSync', () => {
     });
 
     it('scrolls to the start when the native size fits the viewport', () => {
-      const { result } = renderHook(useBarChartScrollSync, base);
+      const { result } = render(base);
       mocks.scrollTo.mockClear();
       result.current.handleContentSizeChange(250);
       expect(mocks.scrollTo).toHaveBeenCalledExactlyOnceWith({ x: 0, animated: false });
