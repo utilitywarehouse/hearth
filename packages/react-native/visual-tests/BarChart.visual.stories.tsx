@@ -44,6 +44,18 @@ export const Selected: Story = {
           selectedIndex={null}
         />
       </VTRow>
+      {(['info', 'positive', 'danger', 'cashback'] as const).map(colorScheme => (
+        <VTRow key={colorScheme} label={`colorScheme: ${colorScheme}`}>
+          <BarChart
+            dataId="visual-tests"
+            data={data}
+            height={160}
+            yMax={24}
+            formatYLabel={formatCurrency}
+            colorScheme={colorScheme}
+          />
+        </VTRow>
+      ))}
     </VTGrid>
   ),
 };

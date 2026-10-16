@@ -3,6 +3,7 @@ import {
   clamp,
   getActiveIndex,
   getBandWidth,
+  getBarColors,
   getBarHeight,
   getCaretMotion,
   getRoundedTopBarPath,
@@ -12,6 +13,27 @@ import {
   resolveSelectedIndex,
   shouldScrollToEnd,
 } from './BarChart.utils';
+
+describe('getBarColors', () => {
+  const color = {
+    feedback: { info: { surface: { subtle: 'info-subtle', default: 'info-default' } } },
+    surface: { cashback: { subtle: 'cashback-subtle', default: 'cashback-default' } },
+  } as unknown as Parameters<typeof getBarColors>[0];
+
+  it('uses the feedback surface tokens for feedback schemes', () => {
+    expect(getBarColors(color, 'info')).toEqual({
+      fill: 'info-subtle',
+      selectedFill: 'info-default',
+    });
+  });
+
+  it('uses the surface tokens for brand schemes', () => {
+    expect(getBarColors(color, 'cashback')).toEqual({
+      fill: 'cashback-subtle',
+      selectedFill: 'cashback-default',
+    });
+  });
+});
 
 describe('getYMax', () => {
   it('returns the explicit yMax when provided', () => {

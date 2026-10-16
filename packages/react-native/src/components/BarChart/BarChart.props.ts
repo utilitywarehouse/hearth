@@ -16,7 +16,26 @@ export interface BarChartDatum {
   tooltipLabel?: string;
 }
 
+export type BarChartColorScheme =
+  | 'info'
+  | 'positive'
+  | 'danger'
+  | 'warning'
+  | 'functional'
+  | 'energy'
+  | 'broadband'
+  | 'mobile'
+  | 'insurance'
+  | 'cashback'
+  | 'pig';
+
 export interface BarChartProps extends ViewProps {
+  /**
+   * The colour scheme of the bars. Unselected bars use the subtle colour and the selected bar uses
+   * the emphasis colour.
+   * @default 'info'
+   */
+  colorScheme?: BarChartColorScheme;
   /**
    * The data points to plot, one bar each.
    */

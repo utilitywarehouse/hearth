@@ -1,4 +1,24 @@
+import type useTheme from '../../hooks/useTheme';
 import { space } from '../../tokens';
+import type { BarChartColorScheme } from './BarChart.props';
+
+type ThemeColor = ReturnType<typeof useTheme>['color'];
+
+const FEEDBACK_SCHEMES = ['info', 'positive', 'danger', 'warning', 'functional'] as const;
+
+/**
+ * The fill of unselected bars (the scheme's subtle colour) and of the selected bar (its emphasis
+ * colour), following Badge's `colorScheme`.
+ */
+export const getBarColors = (
+  color: ThemeColor,
+  colorScheme: BarChartColorScheme
+): { fill: string; selectedFill: string } => {
+  const surface = (FEEDBACK_SCHEMES as readonly string[]).includes(colorScheme)
+    ? color.feedback[colorScheme as (typeof FEEDBACK_SCHEMES)[number]].surface
+    : color.surface[colorScheme as Exclude<BarChartColorScheme, (typeof FEEDBACK_SCHEMES)[number]>];
+  return { fill: surface.subtle, selectedFill: surface.default };
+};
 
 export const DEFAULT_Y_TICKS = 6;
 /** Minimum space between neighbouring bars. */

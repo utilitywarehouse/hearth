@@ -9,6 +9,9 @@ Bars scroll horizontally when they don't fit, y-axis stays fixed. Control select
 `selectedIndex` and `onSelectedChange`, or leave it uncontrolled with `defaultSelectedIndex`. Give
 each dataset its own `dataId`; the chart scrolls to the latest bar when it changes.
 
+Set the bar colours with the `colorScheme` prop, following `Badge`. Unselected bars use the scheme's
+subtle colour and the selected bar uses its emphasis colour. It defaults to `info`.
+
 **Components affected**:
 
 - `BarChart`
@@ -25,6 +28,7 @@ which are already peer dependencies. It adds no new dependencies.
     { label: 'Jun', tooltipLabel: 'June', value: 12.4 },
     { label: 'Jul', tooltipLabel: 'July', value: 14.9 },
   ]}
+  colorScheme="cashback"
   formatYLabel={value => `£${value}`}
 />
 ```

@@ -9,6 +9,7 @@ dataset its own `dataId`, for example `2025`.
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
+- [Color Schemes](#color-schemes)
 - [Selecting a bar](#selecting-a-bar)
 - [Controlled selection](#controlled-selection)
 - [Scrolling](#scrolling)
@@ -20,6 +21,7 @@ dataset its own `dataId`, for example `2025`.
 ```tsx
 // Example usage
 <BarChart
+  colorScheme="info"
   data={monthlyCashback}
   dataId="monthly-cashback"
   height={240}
@@ -53,19 +55,20 @@ const MyComponent = () => (
 
 ## Props
 
-| Property               | Type                                            | Description                                                                                           | Default        |
-| ---------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------- |
-| `data`                 | `BarChartDatum[]`                               | The data points to plot, one bar each.                                                                |                |
-| `dataId`               | `string`                                        | Identifies the dataset and must be unique to it. The chart scrolls to the latest bar when it changes. |                |
-| `height`               | `number`                                        | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.                          | `288`          |
-| `barWidth`             | `number`                                        | Width of each bar in dp. The chart scrolls when the bars do not fit.                                  | `48`           |
-| `yTicks`               | `number`                                        | Number of y-axis labels and gridlines, including the baseline.                                        | `6`            |
-| `yMax`                 | `number`                                        | The value at the top of the y-axis. Defaults to the largest value rounded up.                         |                |
-| `formatYLabel`         | `(value: number) => string`                     | Formats the y-axis labels, for example to add a currency symbol.                                      | `String`       |
-| `formatTooltipValue`   | `(value: number) => string`                     | Formats the value shown in the tooltip.                                                               | `formatYLabel` |
-| `selectedIndex`        | `number \| null`                                | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection.               |                |
-| `defaultSelectedIndex` | `number \| null`                                | The bar selected on first render when the selection is uncontrolled.                                  | The last bar   |
-| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void` | Called when a bar is pressed.                                                                         |                |
+| Property               | Type                                                                                                                                                       | Description                                                                                                 | Default        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- |
+| `colorScheme`          | `'info' \| 'positive' \| 'danger' \| 'warning' \| 'functional' \|`<br />`'energy' \| 'broadband' \| 'mobile' \| 'insurance' \|`<br />`'cashback' \| 'pig'` | The colour scheme of the bars. Unselected bars use the subtle colour, the selected bar the emphasis colour. | `info`         |
+| `data`                 | `BarChartDatum[]`                                                                                                                                          | The data points to plot, one bar each.                                                                      |                |
+| `dataId`               | `string`                                                                                                                                                   | Identifies the dataset and must be unique to it. The chart scrolls to the latest bar when it changes.       |                |
+| `height`               | `number`                                                                                                                                                   | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.                                | `288`          |
+| `barWidth`             | `number`                                                                                                                                                   | Width of each bar in dp. The chart scrolls when the bars do not fit.                                        | `48`           |
+| `yTicks`               | `number`                                                                                                                                                   | Number of y-axis labels and gridlines, including the baseline.                                              | `6`            |
+| `yMax`                 | `number`                                                                                                                                                   | The value at the top of the y-axis. Defaults to the largest value rounded up.                               |                |
+| `formatYLabel`         | `(value: number) => string`                                                                                                                                | Formats the y-axis labels, for example to add a currency symbol.                                            | `String`       |
+| `formatTooltipValue`   | `(value: number) => string`                                                                                                                                | Formats the value shown in the tooltip.                                                                     | `formatYLabel` |
+| `selectedIndex`        | `number \| null`                                                                                                                                           | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection.                     |                |
+| `defaultSelectedIndex` | `number \| null`                                                                                                                                           | The bar selected on first render when the selection is uncontrolled.                                        | The last bar   |
+| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void`                                                                                                            | Called when a bar is pressed.                                                                               |                |
 
 ### BarChartDatum
 
@@ -75,15 +78,38 @@ const MyComponent = () => (
 | `value`        | `number` | The value the bar represents.                               |         |
 | `tooltipLabel` | `string` | Longer label shown in the tooltip, for example `September`. | `label` |
 
+## Color Schemes
+
+Use `colorScheme` to colour the bars. Unselected bars use the scheme's subtle colour and the selected bar uses
+its emphasis colour, as in `Badge`. Each chart below has four bars with the last one selected.
+
+```tsx
+// Example usage
+<Box gap="400">
+  {colorSchemes.map(colorScheme => (
+    <Box key={colorScheme} gap="100">
+      <BodyText weight="semibold">{colorScheme}</BodyText>
+      <BarChart {...args} colorScheme={colorScheme} dataId={`color-scheme-${colorScheme}`} />
+    </Box>
+  ))}
+</Box>
+```
+
+```tsx
+// Example usage
+<BarChart data={data} dataId="monthly-cashback" colorScheme="cashback" />
+```
+
 ## Selecting a bar
 
-The last bar is selected by default. Pressing a bar selects it, fills it with the brand surface colour, and
+The last bar is selected by default. Pressing a bar selects it, fills it with the emphasis colour of the `colorScheme`, and
 shows its `tooltipLabel` and formatted value in the tooltip. Set `defaultSelectedIndex` to start on a different
 bar, or to `null` to start with nothing selected.
 
 ```tsx
 // Example usage
 <BarChart
+  colorScheme="info"
   data={monthlyCashback}
   dataId="monthly-cashback"
   height={240}
@@ -93,6 +119,15 @@ bar, or to `null` to start with nothing selected.
   formatYLabel={formatCurrency}
   onSelectedChange={fn()}
 />
+```
+
+```tsx
+// Example usage
+// Start on the first bar
+<BarChart data={data} dataId="monthly-cashback" defaultSelectedIndex={0} />
+
+// Start with nothing selected
+<BarChart data={data} dataId="monthly-cashback" defaultSelectedIndex={null} />
 ```
 
 ## Controlled selection
@@ -124,6 +159,7 @@ horizontally and starts scrolled to the latest bar. The y-axis labels stay in pl
 ```tsx
 // Example usage
 <BarChart
+  colorScheme="info"
   data={manyMonths}
   dataId="many-months"
   height={240}
@@ -132,6 +168,11 @@ horizontally and starts scrolled to the latest bar. The y-axis labels stay in pl
   yMax={24}
   formatYLabel={formatCurrency}
 />
+```
+
+```tsx
+// Example usage
+<BarChart data={twelveMonths} dataId="2025" barWidth={48} />
 ```
 
 ### Changing the data
@@ -147,7 +188,9 @@ years. Updating the values while keeping the same `dataId` leaves the scroll pos
 
 ```tsx
 // Example usage
-<BarChart data={dataByYear[year]} dataId={String(year)} />
+const [year, setYear] = useState(2025);
+
+<BarChart data={dataByYear[year]} dataId={String(year)} />;
 ```
 
 ## Automatic y-axis
@@ -156,7 +199,23 @@ Without `yMax` the top of the y-axis is the largest value rounded up to a tidy n
 
 ```tsx
 // Example usage
-<BarChart data={monthlyCashback} dataId="monthly-cashback" height={240} barWidth={48} yTicks={6} />
+<BarChart
+  colorScheme="info"
+  data={monthlyCashback}
+  dataId="monthly-cashback"
+  height={240}
+  barWidth={48}
+  yTicks={6}
+/>
+```
+
+```tsx
+// Example usage
+// Top of the y-axis is calculated from the data
+<BarChart data={data} dataId="monthly-cashback" />
+
+// Fixed top of the y-axis
+<BarChart data={data} dataId="monthly-cashback" yMax={24} />
 ```
 
 ## Accessibility

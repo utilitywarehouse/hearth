@@ -44,6 +44,7 @@ const BarChart = ({
   barWidth = 48,
   yTicks = DEFAULT_Y_TICKS,
   yMax,
+  colorScheme = 'info',
   formatYLabel = String,
   formatTooltipValue,
   selectedIndex,
@@ -161,6 +162,7 @@ const BarChart = ({
                   yMax={axisMax}
                   isSelected={index === activeIndex}
                   isReducedMotion={isReducedMotion}
+                  colorScheme={colorScheme}
                 />
               ))}
               <Line

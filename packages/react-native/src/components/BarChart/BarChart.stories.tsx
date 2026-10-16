@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-native';
 import { type ComponentProps, type ReactElement, useState } from 'react';
 import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 import { BarChart } from '.';
+import { BodyText } from '../BodyText';
 import { Box } from '../Box';
 import { Button } from '../Button';
 
@@ -44,6 +45,23 @@ const meta: Meta<typeof BarChart> = {
     layout: 'centered',
   },
   argTypes: {
+    colorScheme: {
+      control: { type: 'select' },
+      options: [
+        'info',
+        'positive',
+        'danger',
+        'warning',
+        'functional',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
+      description: 'The colour scheme of the bars.',
+    },
     height: {
       control: { type: 'number' },
       description: 'Height of the plot area in dp.',
@@ -62,6 +80,7 @@ const meta: Meta<typeof BarChart> = {
     },
   },
   args: {
+    colorScheme: 'info',
     data: monthlyCashback,
     dataId: 'monthly-cashback',
     height: 240,
@@ -83,6 +102,33 @@ export const Playground: Story = {
     const selected = canvas.getByRole('radio', { name: 'September, £8.20' });
     await expect(selected).toHaveAttribute('aria-checked', 'true');
   },
+};
+
+const colorSchemes = [
+  'info',
+  'positive',
+  'danger',
+  'warning',
+  'functional',
+  'energy',
+  'broadband',
+  'mobile',
+  'insurance',
+  'cashback',
+  'pig',
+] as const;
+
+export const ColorSchemes: Story = {
+  render: args => (
+    <Box gap="400">
+      {colorSchemes.map(colorScheme => (
+        <Box key={colorScheme} gap="100">
+          <BodyText weight="semibold">{colorScheme}</BodyText>
+          <BarChart {...args} colorScheme={colorScheme} dataId={`color-scheme-${colorScheme}`} />
+        </Box>
+      ))}
+    </Box>
+  ),
 };
 
 export const SelectBar: Story = {

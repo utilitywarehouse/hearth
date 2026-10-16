@@ -14,7 +14,8 @@ import {
   FILL_FADE_TIMING,
   IS_WEB,
 } from '../BarChart.constants';
-import { getBarHeight, getRoundedTopBarPath } from '../BarChart.utils';
+import type { BarChartColorScheme } from '../BarChart.props';
+import { getBarColors, getBarHeight, getRoundedTopBarPath } from '../BarChart.utils';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path as React.ComponentType<any>);
 
@@ -27,6 +28,7 @@ interface BarChartBarProps {
   yMax: number;
   isSelected: boolean;
   isReducedMotion: boolean;
+  colorScheme: BarChartColorScheme;
 }
 
 const BarChartBar = ({
@@ -38,10 +40,10 @@ const BarChartBar = ({
   yMax,
   isSelected,
   isReducedMotion,
+  colorScheme,
 }: BarChartBarProps) => {
   const { color } = useTheme();
-  const fill = color.surface.cashback.default;
-  const selectedFill = color.surface.brand.default;
+  const { fill, selectedFill } = getBarColors(color, colorScheme);
   const displayValue = useSharedValue(isReducedMotion ? value : 0);
 
   useEffect(() => {
