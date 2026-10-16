@@ -318,3 +318,62 @@ export const DataChangeSameLength: Story = {
     await expect(findScrollContainer(december2024)!.scrollLeft).toBe(0);
   },
 };
+
+const smallValues = [
+  { label: 'Jun 25', tooltipLabel: 'June', value: 2.4 },
+  { label: 'Jul 25', tooltipLabel: 'July', value: 5.1 },
+  { label: 'Aug 25', tooltipLabel: 'August', value: 3.8 },
+  { label: 'Sep 25', tooltipLabel: 'September', value: 7.2 },
+];
+
+const largeValues = [
+  { label: 'Jun 25', tooltipLabel: 'June', value: 820 },
+  { label: 'Jul 25', tooltipLabel: 'July', value: 1450 },
+  { label: 'Aug 25', tooltipLabel: 'August', value: 2300 },
+  { label: 'Sep 25', tooltipLabel: 'September', value: 4900 },
+];
+
+const YAxisRescaleExample = (args: ComponentProps<typeof BarChart>) => {
+  const [isLarge, setIsLarge] = useState(false);
+
+  return (
+    <Box gap="200">
+      <BarChart
+        {...args}
+        data={isLarge ? largeValues : smallValues}
+        dataId={isLarge ? 'large-values' : 'small-values'}
+      />
+      <Button variant="outline" colorScheme="functional" onPress={() => setIsLarge(false)}>
+        Show small values
+      </Button>
+      <Button variant="outline" colorScheme="functional" onPress={() => setIsLarge(true)}>
+        Show large values
+      </Button>
+    </Box>
+  );
+};
+
+export const YAxisRescale: Story = {
+  args: {
+    yMax: undefined,
+  },
+  render: args => <YAxisRescaleExample {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByText('£10')).toBeVisible();
+    await expect(canvas.queryByText('£5000')).toBeNull();
+
+    // The axis rescales to the new maximum and the newest bar is selected again.
+    await userEvent.click(canvas.getByRole('button', { name: 'Show large values' }));
+    await expect(await canvas.findByText('£5000')).toBeVisible();
+    await expect(canvas.queryByText('£10')).toBeNull();
+    await expect(canvas.getByRole('radio', { name: 'September, £4900' })).toHaveAttribute(
+      'aria-checked',
+      'true'
+    );
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Show small values' }));
+    await expect(await canvas.findByText('£10')).toBeVisible();
+    await expect(canvas.queryByText('£5000')).toBeNull();
+  },
+};

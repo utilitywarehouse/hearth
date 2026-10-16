@@ -270,7 +270,8 @@ const BarChart = ({
               })}
               {data.map((datum, index) => (
                 <BarChartBar
-                  key={`${datum.label}-${index}`}
+                  // A new dataset remounts the bars so they grow from 0 instead of from the old values.
+                  key={`${dataId}-${datum.label}-${index}`}
                   x={index * bandWidth + (bandWidth - barWidth) / 2}
                   width={barWidth}
                   baselineY={baselineY}
