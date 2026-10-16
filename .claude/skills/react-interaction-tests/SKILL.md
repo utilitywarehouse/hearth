@@ -81,6 +81,7 @@ Focus `play` functions on behavior driven by **this component's own props and cu
 - Boolean flags that change behavior, not just styling (e.g. a `collapsible`-style prop, a `forceMount`-style DOM-retention prop)
 - Default/initial state derived from props (e.g. `defaultValue`)
 - Any bespoke DOM-manipulation logic the component adds on top of the primitive (animation-sync `hidden`-attribute toggling, custom mount/unmount timing)
+- For selection components, picking the value that's already selected or highlighted, not just a new one — logic hung off `onChange` may never run when nothing changes (e.g. `DatePicker`'s `ReselectHighlightedMonth` story)
 
 Skip `play` functions for stories that are pure rendering/visual variants (custom markup composition, heading level, color scheme) with no distinct state-toggling behavior — those are already covered by the component rendering without error.
 
