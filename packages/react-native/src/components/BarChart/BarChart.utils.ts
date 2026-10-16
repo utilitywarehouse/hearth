@@ -1,4 +1,8 @@
+import { space } from '../../tokens';
+
 export const DEFAULT_Y_TICKS = 6;
+/** Minimum space between neighbouring bars. */
+export const MIN_BAR_GAP = space['100'];
 
 const NICE_STEPS = [1, 2, 5, 10];
 
@@ -45,15 +49,10 @@ export const getYTicks = (yMax: number, tickCount: number): number[] => {
 
 /**
  * Width of the slot each bar sits in. Slots stretch to fill the viewport when there are few bars
- * and never shrink below the bar width plus `minGap`, which is what makes the chart scroll.
+ * and never shrink below the bar width plus `MIN_BAR_GAP`, which is what makes the chart scroll.
  */
-export const getBandWidth = (
-  count: number,
-  viewportWidth: number,
-  barWidth: number,
-  minGap: number
-): number => {
-  const minBand = barWidth + minGap;
+export const getBandWidth = (count: number, viewportWidth: number, barWidth: number): number => {
+  const minBand = barWidth + MIN_BAR_GAP;
   if (count <= 0) {
     return minBand;
   }
@@ -78,14 +77,21 @@ export const getBarHeight = (value: number, yMax: number, plotHeight: number): n
  * fill still closes it). The sides and top are inset by half the stroke width so the outline stays
  * inside the bar's slot; the base sits on `baselineY`.
  */
-export const getRoundedTopBarPath = (
-  x: number,
-  baselineY: number,
-  width: number,
-  height: number,
-  radius: number,
-  strokeWidth: number
-): string => {
+export const getRoundedTopBarPath = ({
+  x,
+  baselineY,
+  width,
+  height,
+  radius,
+  strokeWidth,
+}: {
+  x: number;
+  baselineY: number;
+  width: number;
+  height: number;
+  radius: number;
+  strokeWidth: number;
+}): string => {
   'worklet';
   const inset = strokeWidth / 2;
   const left = x + inset;

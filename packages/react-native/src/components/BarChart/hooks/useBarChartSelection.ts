@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { getActiveIndex } from './BarChart.utils';
+import { getActiveIndex } from '../BarChart.utils';
 
 interface UseBarChartSelectionOptions {
   selectedIndex?: number | null;
   defaultSelectedIndex?: number | null;
   length: number;
   /** Identifies the dataset; a change drops the uncontrolled selection back to its default. */
-  dataKey: string;
+  dataId: string;
 }
 
 /**
@@ -17,13 +17,13 @@ export const useBarChartSelection = ({
   selectedIndex,
   defaultSelectedIndex,
   length,
-  dataKey,
+  dataId,
 }: UseBarChartSelectionOptions) => {
   const [internalSelected, setInternalSelected] = useState(defaultSelectedIndex);
-  const [selectedDataKey, setSelectedDataKey] = useState(dataKey);
-  if (selectedDataKey !== dataKey) {
+  const [selectedDataId, setSelectedDataId] = useState(dataId);
+  if (selectedDataId !== dataId) {
     // A new dataset starts from the default selection, not the previous dataset's pick.
-    setSelectedDataKey(dataKey);
+    setSelectedDataId(dataId);
     setInternalSelected(defaultSelectedIndex);
   }
   const isControlled = selectedIndex !== undefined;

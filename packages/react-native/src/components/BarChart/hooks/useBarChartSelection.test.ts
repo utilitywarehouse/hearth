@@ -47,7 +47,7 @@ const renderHook = (initialOptions: Options) => {
   };
 };
 
-const base: Options = { length: 4, dataKey: 'a' };
+const base: Options = { length: 4, dataId: 'a' };
 
 describe('useBarChartSelection', () => {
   beforeEach(() => {
@@ -112,33 +112,33 @@ describe('useBarChartSelection', () => {
     });
   });
 
-  describe('dataKey', () => {
-    it('keeps the selection while the dataKey is unchanged', () => {
+  describe('dataId', () => {
+    it('keeps the selection while the dataId is unchanged', () => {
       const { result, select, rerender } = renderHook({ ...base, defaultSelectedIndex: 1 });
       select(2, { ...base, defaultSelectedIndex: 1 });
       rerender({ ...base, defaultSelectedIndex: 1 });
       expect(result.current.activeIndex).toBe(2);
     });
 
-    it('returns to defaultSelectedIndex when the dataKey changes', () => {
+    it('returns to defaultSelectedIndex when the dataId changes', () => {
       const options = { ...base, defaultSelectedIndex: 1 };
       const { result, select, rerender } = renderHook(options);
       select(3, options);
-      rerender({ ...options, dataKey: 'b' });
+      rerender({ ...options, dataId: 'b' });
       expect(result.current.activeIndex).toBe(1);
     });
 
-    it('returns to the last bar when the dataKey changes without a default', () => {
+    it('returns to the last bar when the dataId changes without a default', () => {
       const { result, select, rerender } = renderHook(base);
       select(0, base);
-      rerender({ ...base, dataKey: 'b', length: 6 });
+      rerender({ ...base, dataId: 'b', length: 6 });
       expect(result.current.activeIndex).toBe(5);
     });
 
     it('does not override a controlled selectedIndex', () => {
       const options = { ...base, selectedIndex: 2 };
       const { result, rerender } = renderHook(options);
-      rerender({ ...options, dataKey: 'b' });
+      rerender({ ...options, dataId: 'b' });
       expect(result.current.activeIndex).toBe(2);
     });
   });

@@ -1,8 +1,8 @@
 import type { LayoutChangeEvent } from 'react-native';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../BodyText';
-import { AXIS_LABEL_HEIGHT } from './BarChart.constants';
+import { BodyText } from '../../BodyText';
+import { AXIS_LABEL_HEIGHT } from '../BarChart.constants';
 
 interface BarChartYAxisProps {
   ticks: number[];

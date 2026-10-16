@@ -18,8 +18,6 @@ each dataset its own `dataId`; the chart scrolls to the latest bar when it chang
 No action is required. `BarChart` is built with `react-native-svg` and `react-native-reanimated`,
 which are already peer dependencies. It adds no new dependencies.
 
-Each `label` in `data` must be unique, as it is used to identify the bar.
-
 ```tsx
 <BarChart
   dataId="monthly-cashback"

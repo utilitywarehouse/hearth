@@ -1,14 +1,14 @@
+import { Platform } from 'react-native';
 import { Easing } from 'react-native-reanimated';
 import { borderRadius, borderWidth, lineHeight, motion, space } from '../../tokens';
 
+export const IS_WEB = Platform.OS === 'web';
 /** Line height of the axis labels (Body Text SM). */
 export const AXIS_LABEL_HEIGHT = lineHeight['300'];
 /** Space between the baseline and the x-axis labels. */
 export const X_LABEL_GAP = space['100'];
 /** Space above the plot so the top y-axis label can centre on the top gridline. */
 export const PLOT_TOP_INSET = AXIS_LABEL_HEIGHT / 2;
-/** Minimum space between neighbouring bars. */
-export const MIN_BAR_GAP = space['100'];
 export const BAR_RADIUS = borderRadius.sm;
 export const BAR_STROKE_WIDTH = borderWidth['2'];
 export const GRIDLINE_DASH = '4 4';

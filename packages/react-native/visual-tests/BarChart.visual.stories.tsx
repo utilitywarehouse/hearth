@@ -26,10 +26,17 @@ export const Selected: Story = {
   render: () => (
     <VTGrid>
       <VTRow label="Last bar selected">
-        <BarChart data={data} height={160} yMax={24} formatYLabel={formatCurrency} />
+        <BarChart
+          dataId="visual-tests"
+          data={data}
+          height={160}
+          yMax={24}
+          formatYLabel={formatCurrency}
+        />
       </VTRow>
       <VTRow label="No selection">
         <BarChart
+          dataId="visual-tests"
           data={data}
           height={160}
           yMax={24}
@@ -46,6 +53,7 @@ export const Scrolling: Story = {
     <VTGrid>
       <VTRow label="More bars than fit">
         <BarChart
+          dataId="visual-tests"
           data={[
             ...data,
             { label: 'Oct 25', tooltipLabel: 'October', value: 16.1 },
@@ -57,6 +65,29 @@ export const Scrolling: Story = {
           yMax={24}
           formatYLabel={formatCurrency}
           defaultSelectedIndex={7}
+        />
+      </VTRow>
+    </VTGrid>
+  ),
+};
+
+export const ScrollingStart: Story = {
+  render: () => (
+    <VTGrid>
+      <VTRow label="First bar selected, scrolled to the newest bar">
+        <BarChart
+          dataId="visual-tests"
+          data={[
+            ...data,
+            { label: 'Oct 25', tooltipLabel: 'October', value: 16.1 },
+            { label: 'Nov 25', tooltipLabel: 'November', value: 19.3 },
+            { label: 'Dec 25', tooltipLabel: 'December', value: 22.7 },
+            { label: 'Jan 26', tooltipLabel: 'January', value: 11.5 },
+          ]}
+          height={160}
+          yMax={24}
+          formatYLabel={formatCurrency}
+          defaultSelectedIndex={0}
         />
       </VTRow>
     </VTGrid>

@@ -4,9 +4,9 @@ import { Path, Svg } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
 import type { StyleProp, ViewStyle } from 'react-native';
 import { View } from 'react-native';
-import useTheme from '../../hooks/useTheme';
-import { BodyText } from '../BodyText';
-import { CARET_HEIGHT, CARET_WIDTH } from './BarChart.constants';
+import useTheme from '../../../hooks/useTheme';
+import { BodyText } from '../../BodyText';
+import { CARET_HEIGHT, CARET_WIDTH } from '../BarChart.constants';
 
 interface BarChartTooltipProps {
   label: string;

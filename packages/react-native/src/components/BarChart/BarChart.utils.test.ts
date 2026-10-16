@@ -8,6 +8,7 @@ import {
   getRoundedTopBarPath,
   getYMax,
   getYTicks,
+  MIN_BAR_GAP,
   resolveSelectedIndex,
   shouldScrollToEnd,
 } from './BarChart.utils';
@@ -151,15 +152,15 @@ describe('getYTicks', () => {
 
 describe('getBandWidth', () => {
   it('stretches bands to fill the viewport when there are few bars', () => {
-    expect(getBandWidth(4, 240, 48, 8)).toBe(60);
+    expect(getBandWidth(4, 400, 48)).toBe(100);
   });
 
   it('never shrinks below the bar width plus the minimum gap', () => {
-    expect(getBandWidth(12, 240, 48, 8)).toBe(56);
+    expect(getBandWidth(12, 240, 48)).toBe(48 + MIN_BAR_GAP);
   });
 
   it('handles an empty data set', () => {
-    expect(getBandWidth(0, 240, 48, 8)).toBe(56);
+    expect(getBandWidth(0, 240, 48)).toBe(48 + MIN_BAR_GAP);
   });
 });
 
@@ -179,23 +180,23 @@ describe('getBarHeight', () => {
 });
 
 describe('getRoundedTopBarPath', () => {
+  const bar = { x: 0, baselineY: 100, width: 40, height: 60, radius: 6, strokeWidth: 2 };
+
   it('draws an open path with rounded top corners, inset by the stroke and sitting on the baseline', () => {
-    expect(getRoundedTopBarPath(0, 100, 40, 60, 6, 2)).toBe(
-      'M1 100 L1 47 Q1 41 7 41 L33 41 Q39 41 39 47 L39 100'
-    );
+    expect(getRoundedTopBarPath(bar)).toBe('M1 100 L1 47 Q1 41 7 41 L33 41 Q39 41 39 47 L39 100');
   });
 
   it('leaves the path open so the base is not stroked', () => {
-    expect(getRoundedTopBarPath(0, 100, 40, 60, 6, 2)).not.toContain('Z');
+    expect(getRoundedTopBarPath(bar)).not.toContain('Z');
   });
 
   it('limits the radius to half the bar width', () => {
-    const path = getRoundedTopBarPath(0, 100, 10, 60, 20, 2);
+    const path = getRoundedTopBarPath({ ...bar, width: 10, radius: 20 });
     expect(path).toContain('Q1 41 5 41');
   });
 
   it('returns a degenerate path for an empty bar', () => {
-    expect(getRoundedTopBarPath(0, 100, 40, 0, 6, 2)).toBe('M1 100');
+    expect(getRoundedTopBarPath({ ...bar, height: 0 })).toBe('M1 100');
   });
 });
 

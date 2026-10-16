@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Platform } from 'react-native';
 import Animated, {
   interpolateColor,
   useAnimatedProps,
@@ -7,15 +6,15 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { Path } from 'react-native-svg';
+import useTheme from '../../../hooks/useTheme';
 import {
   ANIMATION_TIMING,
   BAR_RADIUS,
   BAR_STROKE_WIDTH,
   FILL_FADE_TIMING,
-} from './BarChart.constants';
-import { getBarHeight, getRoundedTopBarPath } from './BarChart.utils';
-
-const isWeb = Platform.OS === 'web';
+  IS_WEB,
+} from '../BarChart.constants';
+import { getBarHeight, getRoundedTopBarPath } from '../BarChart.utils';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path as React.ComponentType<any>);
 
@@ -26,11 +25,8 @@ interface BarChartBarProps {
   plotHeight: number;
   value: number;
   yMax: number;
-  selected: boolean;
+  isSelected: boolean;
   isReducedMotion: boolean;
-  fill: string;
-  selectedFill: string;
-  stroke: string;
 }
 
 const BarChartBar = ({
@@ -40,36 +36,36 @@ const BarChartBar = ({
   plotHeight,
   value,
   yMax,
-  selected,
+  isSelected,
   isReducedMotion,
-  fill,
-  selectedFill,
-  stroke,
 }: BarChartBarProps) => {
+  const { color } = useTheme();
+  const fill = color.surface.cashback.default;
+  const selectedFill = color.surface.brand.default;
   const displayValue = useSharedValue(isReducedMotion ? value : 0);
 
   useEffect(() => {
     displayValue.value = isReducedMotion ? value : withTiming(value, ANIMATION_TIMING);
   }, [value, isReducedMotion, displayValue]);
 
-  const selectedProgress = useSharedValue(selected ? 1 : 0);
+  const selectedProgress = useSharedValue(isSelected ? 1 : 0);
 
   useEffect(() => {
-    const target = selected ? 1 : 0;
+    const target = isSelected ? 1 : 0;
     selectedProgress.value = isReducedMotion ? target : withTiming(target, FILL_FADE_TIMING);
-  }, [selected, isReducedMotion, selectedProgress]);
+  }, [isSelected, isReducedMotion, selectedProgress]);
 
   const animatedProps = useAnimatedProps((): { d: string; fill?: string } => {
-    const d = getRoundedTopBarPath(
+    const d = getRoundedTopBarPath({
       x,
       baselineY,
       width,
-      getBarHeight(displayValue.value, yMax, plotHeight),
-      BAR_RADIUS,
-      BAR_STROKE_WIDTH
-    );
+      height: getBarHeight(displayValue.value, yMax, plotHeight),
+      radius: BAR_RADIUS,
+      strokeWidth: BAR_STROKE_WIDTH,
+    });
     // react-native-web does not apply an animated fill, so web sets it as a plain prop below.
-    return isWeb
+    return IS_WEB
       ? { d }
       : { d, fill: interpolateColor(selectedProgress.value, [0, 1], [fill, selectedFill]) };
   });
@@ -77,8 +73,8 @@ const BarChartBar = ({
   return (
     <AnimatedPath
       animatedProps={animatedProps}
-      fill={isWeb ? (selected ? selectedFill : fill) : undefined}
-      stroke={stroke}
+      fill={IS_WEB ? (isSelected ? selectedFill : fill) : undefined}
+      stroke={color.border.strong}
       strokeWidth={BAR_STROKE_WIDTH}
       strokeLinejoin="round"
     />
