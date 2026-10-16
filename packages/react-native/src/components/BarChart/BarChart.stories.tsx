@@ -48,6 +48,7 @@ const meta: Meta<typeof BarChart> = {
     colorScheme: {
       control: { type: 'select' },
       options: [
+        'brand',
         'info',
         'positive',
         'danger',
@@ -80,7 +81,7 @@ const meta: Meta<typeof BarChart> = {
     },
   },
   args: {
-    colorScheme: 'info',
+    colorScheme: 'brand',
     data: monthlyCashback,
     dataId: 'monthly-cashback',
     height: 240,
@@ -105,6 +106,7 @@ export const Playground: Story = {
 };
 
 const colorSchemes = [
+  'brand',
   'info',
   'positive',
   'danger',

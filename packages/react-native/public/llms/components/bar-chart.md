@@ -21,7 +21,7 @@ dataset its own `dataId`, for example `2025`.
 ```tsx
 // Example usage
 <BarChart
-  colorScheme="info"
+  colorScheme="brand"
   data={monthlyCashback}
   dataId="monthly-cashback"
   height={240}
@@ -55,20 +55,20 @@ const MyComponent = () => (
 
 ## Props
 
-| Property               | Type                                                                                                                                                       | Description                                                                                                 | Default        |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- |
-| `colorScheme`          | `'info' \| 'positive' \| 'danger' \| 'warning' \| 'functional' \|`<br />`'energy' \| 'broadband' \| 'mobile' \| 'insurance' \|`<br />`'cashback' \| 'pig'` | The colour scheme of the bars. Unselected bars use the subtle colour, the selected bar the emphasis colour. | `info`         |
-| `data`                 | `BarChartDatum[]`                                                                                                                                          | The data points to plot, one bar each.                                                                      |                |
-| `dataId`               | `string`                                                                                                                                                   | Identifies the dataset and must be unique to it. The chart scrolls to the latest bar when it changes.       |                |
-| `height`               | `number`                                                                                                                                                   | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.                                | `288`          |
-| `barWidth`             | `number`                                                                                                                                                   | Width of each bar in dp. The chart scrolls when the bars do not fit.                                        | `48`           |
-| `yTicks`               | `number`                                                                                                                                                   | Number of y-axis labels and gridlines, including the baseline.                                              | `6`            |
-| `yMax`                 | `number`                                                                                                                                                   | The value at the top of the y-axis. Defaults to the largest value rounded up.                               |                |
-| `formatYLabel`         | `(value: number) => string`                                                                                                                                | Formats the y-axis labels, for example to add a currency symbol.                                            | `String`       |
-| `formatTooltipValue`   | `(value: number) => string`                                                                                                                                | Formats the value shown in the tooltip.                                                                     | `formatYLabel` |
-| `selectedIndex`        | `number \| null`                                                                                                                                           | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection.                     |                |
-| `defaultSelectedIndex` | `number \| null`                                                                                                                                           | The bar selected on first render when the selection is uncontrolled.                                        | The last bar   |
-| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void`                                                                                                            | Called when a bar is pressed.                                                                               |                |
+| Property               | Type                                                                                                                                                                  | Description                                                                                                 | Default        |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- |
+| `colorScheme`          | `'brand' \| 'info' \| 'positive' \| 'danger' \| 'warning' \|`<br />`'functional' \| 'energy' \| 'broadband' \| 'mobile' \|`<br />`'insurance' \| 'cashback' \| 'pig'` | The colour scheme of the bars. Unselected bars use the subtle colour, the selected bar the emphasis colour. | `brand`        |
+| `data`                 | `BarChartDatum[]`                                                                                                                                                     | The data points to plot, one bar each.                                                                      |                |
+| `dataId`               | `string`                                                                                                                                                              | Identifies the dataset and must be unique to it. The chart scrolls to the latest bar when it changes.       |                |
+| `height`               | `number`                                                                                                                                                              | Height of the plot area in dp. The x-axis labels and tooltip sit outside it.                                | `288`          |
+| `barWidth`             | `number`                                                                                                                                                              | Width of each bar in dp. The chart scrolls when the bars do not fit.                                        | `48`           |
+| `yTicks`               | `number`                                                                                                                                                              | Number of y-axis labels and gridlines, including the baseline.                                              | `6`            |
+| `yMax`                 | `number`                                                                                                                                                              | The value at the top of the y-axis. Defaults to the largest value rounded up.                               |                |
+| `formatYLabel`         | `(value: number) => string`                                                                                                                                           | Formats the y-axis labels, for example to add a currency symbol.                                            | `String`       |
+| `formatTooltipValue`   | `(value: number) => string`                                                                                                                                           | Formats the value shown in the tooltip.                                                                     | `formatYLabel` |
+| `selectedIndex`        | `number \| null`                                                                                                                                                      | The selected bar. Use with `onSelectedChange` to control it. `null` shows no selection.                     |                |
+| `defaultSelectedIndex` | `number \| null`                                                                                                                                                      | The bar selected on first render when the selection is uncontrolled.                                        | The last bar   |
+| `onSelectedChange`     | `(index: number, datum: BarChartDatum) => void`                                                                                                                       | Called when a bar is pressed.                                                                               |                |
 
 ### BarChartDatum
 
@@ -109,7 +109,7 @@ bar, or to `null` to start with nothing selected.
 ```tsx
 // Example usage
 <BarChart
-  colorScheme="info"
+  colorScheme="brand"
   data={monthlyCashback}
   dataId="monthly-cashback"
   height={240}
@@ -159,7 +159,7 @@ horizontally and starts scrolled to the latest bar. The y-axis labels stay in pl
 ```tsx
 // Example usage
 <BarChart
-  colorScheme="info"
+  colorScheme="brand"
   data={manyMonths}
   dataId="many-months"
   height={240}
@@ -200,7 +200,7 @@ Without `yMax` the top of the y-axis is the largest value rounded up to a tidy n
 ```tsx
 // Example usage
 <BarChart
-  colorScheme="info"
+  colorScheme="brand"
   data={monthlyCashback}
   dataId="monthly-cashback"
   height={240}

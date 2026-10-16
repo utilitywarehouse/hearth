@@ -17,6 +17,7 @@ export interface BarChartDatum {
 }
 
 export type BarChartColorScheme =
+  | 'brand'
   | 'info'
   | 'positive'
   | 'danger'
@@ -33,7 +34,7 @@ export interface BarChartProps extends ViewProps {
   /**
    * The colour scheme of the bars. Unselected bars use the subtle colour and the selected bar uses
    * the emphasis colour.
-   * @default 'info'
+   * @default 'brand'
    */
   colorScheme?: BarChartColorScheme;
   /**

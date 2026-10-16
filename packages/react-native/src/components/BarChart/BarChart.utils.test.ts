@@ -17,7 +17,10 @@ import {
 describe('getBarColors', () => {
   const color = {
     feedback: { info: { surface: { subtle: 'info-subtle', default: 'info-default' } } },
-    surface: { cashback: { subtle: 'cashback-subtle', default: 'cashback-default' } },
+    surface: {
+      brand: { subtle: 'brand-subtle', default: 'brand-default' },
+      cashback: { subtle: 'cashback-subtle', default: 'cashback-default' },
+    },
   } as unknown as Parameters<typeof getBarColors>[0];
 
   it('uses the feedback surface tokens for feedback schemes', () => {
@@ -27,7 +30,14 @@ describe('getBarColors', () => {
     });
   });
 
-  it('uses the surface tokens for brand schemes', () => {
+  it('uses the brand surface tokens for the brand scheme', () => {
+    expect(getBarColors(color, 'brand')).toEqual({
+      fill: 'brand-subtle',
+      selectedFill: 'brand-default',
+    });
+  });
+
+  it('uses the surface tokens for category schemes', () => {
     expect(getBarColors(color, 'cashback')).toEqual({
       fill: 'cashback-subtle',
       selectedFill: 'cashback-default',

@@ -44,7 +44,7 @@ const BarChart = ({
   barWidth = 48,
   yTicks = DEFAULT_Y_TICKS,
   yMax,
-  colorScheme = 'info',
+  colorScheme = 'brand',
   formatYLabel = String,
   formatTooltipValue,
   selectedIndex,

@@ -10,7 +10,7 @@ Bars scroll horizontally when they don't fit, y-axis stays fixed. Control select
 each dataset its own `dataId`; the chart scrolls to the latest bar when it changes.
 
 Set the bar colours with the `colorScheme` prop, following `Badge`. Unselected bars use the scheme's
-subtle colour and the selected bar uses its emphasis colour. It defaults to `info`.
+subtle colour and the selected bar uses its emphasis colour. It defaults to `brand`.
 
 **Components affected**:
 
