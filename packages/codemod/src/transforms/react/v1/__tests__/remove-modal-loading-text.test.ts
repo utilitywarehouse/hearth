@@ -10,4 +10,12 @@ describe('remove-modal-loading-text', () => {
   it('transforms elements imported under an alias', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-aliased-import');
   });
+
+  it('leaves an empty file untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-empty');
+  });
+
+  it('leaves a comment-only file untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-comment-only');
+  });
 });

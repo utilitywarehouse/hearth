@@ -10,4 +10,12 @@ describe('remove-modal-fullscreen', () => {
   it('transforms elements imported under an alias', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-aliased-import');
   });
+
+  it('leaves an empty file untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-empty');
+  });
+
+  it('leaves a comment-only file untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-comment-only');
+  });
 });
