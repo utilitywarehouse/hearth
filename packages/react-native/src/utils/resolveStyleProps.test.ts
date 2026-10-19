@@ -334,4 +334,14 @@ describe('resolveThemeValue (cached slow path)', () => {
     expect(resolveThemeValue('deeplyNestedMiss', mapping)).toBe('deeplyNestedMiss');
     expect(resolveThemeValue('deeplyNestedMiss', mapping)).toBe('deeplyNestedMiss');
   });
+
+  it('does not cache unresolved values', () => {
+    const mapping: Record<string, any> = {};
+
+    expect(resolveThemeValue('brand100', mapping)).toBe('brand100');
+
+    // A cached miss would keep returning the raw value here
+    mapping.brand = { 100: '#abcdef' };
+    expect(resolveThemeValue('brand100', mapping)).toBe('#abcdef');
+  });
 });

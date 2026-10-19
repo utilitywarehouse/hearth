@@ -47,8 +47,10 @@ const resolveThemeValueSlow = (value: string, themeMapping: any): any => {
  * Cache for the slow resolution path (camelCase paths and numeric suffixes), keyed by
  * theme mapping object. Mapping objects are static for the lifetime of a theme, so each
  * (mapping, value) pair only pays the regex/split cost once.
- * resolveThemeValueSlow never returns `undefined` for string values (it falls back to
- * the input value), so `undefined` is safe as the cache-miss sentinel.
+ * Only successful resolutions are cached: unresolved values (raw colours, percentages,
+ * computed dimensions) are unbounded and would otherwise grow the cache for as long as
+ * the theme mapping is alive. Cached values are never `undefined`, so `undefined` is
+ * safe as the cache-miss sentinel.
  */
 const slowResolutionCache = new WeakMap<object, Map<string, any>>();
 
@@ -76,6 +78,10 @@ export const resolveThemeValue = (value: any, themeMapping: any): any => {
   }
 
   const resolved = resolveThemeValueSlow(value, themeMapping);
+
+  if (resolved === value) {
+    return resolved;
+  }
 
   if (!cache) {
     cache = new Map();

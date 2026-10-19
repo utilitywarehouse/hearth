@@ -37,7 +37,12 @@ const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
 };
 
 const styles = StyleSheet.create(theme => ({
-  computedStyles: (styleProps: Record<string, any>) => resolveStyleProps(styleProps, theme),
+  // Return an object literal: the Unistyles Babel plugin only attaches theme
+  // dependency metadata (needed for native theme switching without a React
+  // re-render) to object-literal returns, not to a bare call expression.
+  computedStyles: (styleProps: Record<string, any>) => ({
+    ...resolveStyleProps(styleProps, theme),
+  }),
 }));
 
 BoxComponent.displayName = 'Box';
