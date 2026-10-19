@@ -129,6 +129,59 @@ export const Controlled: Story = {
   },
 };
 
+export const KeyboardNavigation: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => (
+    <ToggleGroup type="single" defaultValue="week" gap="200">
+      <ToggleButton value="day" text="Day" />
+      <ToggleButton value="week" text="Week" />
+      <ToggleButton value="month" text="Month" disabled />
+      <ToggleButton value="year" text="Year" />
+    </ToggleGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const day = canvas.getByRole('radio', { name: 'Day' });
+    const week = canvas.getByRole('radio', { name: 'Week' });
+    const year = canvas.getByRole('radio', { name: 'Year' });
+
+    // The group is one Tab stop: focus arriving on it (e.g. by Tab) moves to the selected
+    // item. Focusing the group directly keeps this independent of the page's Tab order.
+    const group = canvas.getByRole('radiogroup');
+    await expect(group).toHaveAttribute('tabindex', '0');
+    group.focus();
+    await expect(week).toHaveFocus();
+    await expect(group).toHaveAttribute('tabindex', '-1');
+    await expect(day).toHaveAttribute('tabindex', '-1');
+    await expect(year).toHaveAttribute('tabindex', '-1');
+
+    // Arrow keys move focus but not selection, skip disabled items and wrap.
+    await userEvent.keyboard('{ArrowRight}');
+    await expect(year).toHaveFocus();
+    await expect(week).toHaveAttribute('aria-checked', 'true');
+    await userEvent.keyboard('{ArrowRight}');
+    await expect(day).toHaveFocus();
+    await userEvent.keyboard('{ArrowLeft}');
+    await expect(year).toHaveFocus();
+    await userEvent.keyboard('{Home}');
+    await expect(day).toHaveFocus();
+    await userEvent.keyboard('{End}');
+    await expect(year).toHaveFocus();
+
+    // Space selects the focused item, and the focused item becomes the Tab stop.
+    await userEvent.keyboard(' ');
+    await expect(year).toHaveAttribute('aria-checked', 'true');
+    await expect(week).toHaveAttribute('aria-checked', 'false');
+    await expect(year).toHaveAttribute('tabindex', '0');
+
+    // Tab leaves the group rather than visiting another item.
+    await userEvent.tab();
+    await expect([day, week, year, group]).not.toContain(document.activeElement);
+  },
+};
+
 const disabledOnValueChange = fn();
 
 export const DisabledItem: Story = {

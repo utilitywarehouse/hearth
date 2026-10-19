@@ -117,6 +117,14 @@ The semantics match `ToggleGroup` in `@utilitywarehouse/hearth-react`:
 
 On web, the state is set as `aria-checked` or `aria-pressed`. On iOS and Android, it is set through `accessibilityState`, so screen readers announce it.
 
+On web, keyboard behaviour also matches the React package:
+
+- The group is a single Tab stop. Tabbing in focuses the selected item, or the first enabled item, and then the last focused item.
+- Arrow keys move focus to the next or previous enabled item, wrapping at the ends. Home and End move to the first and last enabled item.
+- Arrow keys don't change the selection. Space or Enter toggles the focused item.
+
+<Canvas of={Stories.KeyboardNavigation} />
+
 ## ToggleGroup or ToggleButtonCardGroup
 
 `ToggleButtonCardGroup` still works and is not deprecated. Use `ToggleGroup` for new code, as it matches the React package and supports both single and multiple selection. Keep `ToggleButtonCardGroup` when you need its `columns` grid layout, or when a selected card must stay selected: in a `ToggleButtonCardGroup`, pressing the selected card again does not clear the value.

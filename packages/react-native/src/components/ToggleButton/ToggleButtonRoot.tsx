@@ -107,7 +107,9 @@ const styles = StyleSheet.create(theme => ({
         },
       },
       disabled: {
-        true: {},
+        true: {
+          opacity: theme.opacity.disabled,
+        },
       },
     },
     compoundVariants: [

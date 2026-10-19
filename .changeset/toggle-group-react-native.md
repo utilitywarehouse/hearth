@@ -30,6 +30,13 @@ On web, `ToggleButton` now sets `aria-pressed`, or `aria-checked` in a
 exposed no toggled state. In a `type="single"` group, the buttons have the
 `radio` role and the group has the `radiogroup` role, on all platforms.
 
+On web, a `ToggleGroup` is a single Tab stop. Arrow keys, Home and End move
+focus between its enabled items, and Space or Enter toggles the focused item,
+as in the React package.
+
+A disabled `ToggleButton` now has the disabled opacity. Before, only a
+`ToggleButton` inside a `ToggleButtonCard` looked disabled.
+
 **Components affected**:
 
 - `ToggleGroup` (new)

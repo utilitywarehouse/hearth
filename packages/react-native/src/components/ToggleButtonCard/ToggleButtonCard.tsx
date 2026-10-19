@@ -28,7 +28,7 @@ const ToggleButtonCard = ({
   const handleToggle = () => {
     if (disabled) return;
     if (inToggleGroup) {
-      toggleGroup.toggle(value);
+      // The card's toggle button is the group item and updates the group itself.
       onChange?.(!checked);
       return;
     }
@@ -39,7 +39,7 @@ const ToggleButtonCard = ({
   return (
     <ToggleButtonCardRootComponent
       {...props}
-      value={value}
+      groupItemValue={inToggleGroup ? value : undefined}
       disabled={disabled}
       checked={checked}
       onToggle={handleToggle}

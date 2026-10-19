@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { Platform } from 'react-native';
 import { ToggleButtonContext } from './ToggleButton.context';
 import type { ToggleButtonProps } from './ToggleButton.props';
 import ToggleButtonTextComponent from './ToggleButtonText';
@@ -41,6 +43,30 @@ const ToggleButton = ({
     onToggle?.(nextToggled);
   };
 
+  // If this button is the group's Tab stop and gets disabled or removed, hand the Tab stop
+  // back to the group so keyboard users can still reach it.
+  const releaseTabStop = group?.releaseTabStop;
+  const disabled = !!props.disabled;
+  useEffect(() => {
+    if (!releaseTabStop || value === undefined) return;
+    if (disabled) releaseTabStop(value);
+    return () => releaseTabStop(value);
+  }, [releaseTabStop, value, disabled]);
+
+  // Web roving focus: only the group's Tab stop is tabbable, and the group finds its items
+  // through `data-toggle-group-item`. See `ToggleGroup`.
+  const rovingFocusProps =
+    inGroup && Platform.OS === 'web'
+      ? {
+          dataSet: { toggleGroupItem: value },
+          tabIndex: disabled ? undefined : group.tabStop === value ? 0 : -1,
+          onFocus: (event: Parameters<NonNullable<ToggleButtonProps['onFocus']>>[0]) => {
+            group.setTabStop(value);
+            props.onFocus?.(event);
+          },
+        }
+      : null;
+
   return (
     <ToggleButtonContext.Provider value={{ toggled }}>
       <ToggleButtonRoot
@@ -48,6 +74,7 @@ const ToggleButton = ({
         onToggle={handleToggle}
         groupType={group?.type}
         {...props}
+        {...(rovingFocusProps as object)}
       >
         {children ?? (
           <>

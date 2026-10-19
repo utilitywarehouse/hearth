@@ -11,12 +11,18 @@ const ToggleButtonCardRoot = ({
   label,
   checked,
   disabled,
+  groupItemValue,
   onPress,
   onToggle,
   onPressIn,
   onPressOut,
   ...props
-}: ToggleButtonCardProps & { checked?: boolean; onToggle?: () => void }) => {
+}: Omit<ToggleButtonCardProps, 'value'> & {
+  checked?: boolean;
+  onToggle?: () => void;
+  /** The card's `value` when it is inside a `ToggleGroup`, which makes its button the group item. */
+  groupItemValue?: string;
+}) => {
   const [touchPressed, setTouchPressed] = useState(false);
   const active = touchPressed;
   const isDisabled = !!disabled;
@@ -31,7 +37,6 @@ const ToggleButtonCardRoot = ({
 
   styles.useVariants({
     selected: checked,
-    disabled: isDisabled,
   });
 
   const handlePressIn = (event: GestureResponderEvent) => {
@@ -66,6 +71,7 @@ const ToggleButtonCardRoot = ({
         <View style={styles.buttonContainer}>
           <ToggleButton
             text={label}
+            value={groupItemValue}
             toggled={checked}
             disabled={isDisabled}
             onPress={handleTogglePress}
@@ -110,15 +116,9 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'flex-start',
     flexGrow: 1,
   },
+  // `ToggleButton` dims itself when disabled.
   button: {
     flexGrow: 1,
-    variants: {
-      disabled: {
-        true: {
-          opacity: theme.opacity.disabled,
-        },
-      },
-    },
   },
 }));
 
