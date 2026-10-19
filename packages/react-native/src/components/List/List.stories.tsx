@@ -350,7 +350,6 @@ const LONG_HELPER_TEXT =
 export const Alignment: Story = {
   parameters: {
     controls: { include: [] },
-    chromatic: { disableSnapshot: false },
   },
   render: () => (
     <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
@@ -412,7 +411,6 @@ export const Alignment: Story = {
 export const AdvancedAlignment: Story = {
   parameters: {
     controls: { include: [] },
-    chromatic: { disableSnapshot: false },
   },
   render: () => (
     <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
@@ -577,7 +575,6 @@ export const WithFlatList: Story = {
 export const KitchenSink: Story = {
   parameters: {
     controls: { include: [] },
-    chromatic: { disableSnapshot: false },
   },
   render: () => {
     const list = [

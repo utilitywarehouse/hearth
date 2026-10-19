@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { PressableProps } from 'react-native';
 
 export interface ToggleButtonProps extends PressableProps {
@@ -10,4 +11,9 @@ export interface ToggleButtonProps extends PressableProps {
   toggled?: boolean;
   /** Called with the new toggled state whenever the button is pressed. */
   onToggle?: (toggled: boolean) => void;
+  /**
+   * Custom content, typically `ToggleButtonIcon` and `ToggleButtonText`. When provided, it
+   * replaces the built-in tick icon and `text` label. The parts read `toggled` from the button.
+   */
+  children?: ReactNode;
 }

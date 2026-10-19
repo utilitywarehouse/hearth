@@ -4,6 +4,54 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.35.1
+
+### Patch Changes
+
+- [#1697](https://github.com/utilitywarehouse/hearth/pull/1697) [`1a100e9`](https://github.com/utilitywarehouse/hearth/commit/1a100e938f939d93814c4e47197ced5e7cc2cd25) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: `DatePicker` gets stuck on the month or year grid when the highlighted option is picked again
+  
+  Picking a year highlights January, so a customer born in January who then
+  picks January stays on the month grid and never sees the days. The field
+  silently keeps the 1st of the month, so the customer has to pick a different
+  month and come back, or submits the wrong date. Picking the highlighted month
+  or year now always moves on to the next grid.
+  
+  **Components affected**:
+  
+  - `DatePicker`
+  
+  **Developer changes**:
+  
+  No action is required. A custom `onSelect` handler is still called.
+
+## 0.35.0
+
+### Minor Changes
+
+- [#1685](https://github.com/utilitywarehouse/hearth/pull/1685) [`5d4701d`](https://github.com/utilitywarehouse/hearth/commit/5d4701df365a7adf5e47bf413226253d66511bb0) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING CHANGE]: `Modal`'s `fullScreen` prop no longer has an effect
+  
+  `fullScreen` made desktop modals grow to 90vh even though it was documented
+  as a mobile-only behaviour. Rather than patch the height rules for one
+  breakpoint, the modal's content area now automatically caps its height (70vh
+  on mobile, 60vh on tablet and above, 40vh when an image is present) and
+  scrolls internally whenever content overflows, on every viewport, without
+  needing an opt-in prop.
+  
+  `fullScreen` is deprecated and will be removed in a future major version.
+  
+  **Components affected**:
+  - `Modal`
+  
+  **Developer changes**:
+  
+  No replacement prop is needed — remove `fullScreen` from your `Modal` usage,
+  long content now scrolls automatically.
+  
+  ```diff
+  - <Modal heading="Tariff details" fullScreen>
+  + <Modal heading="Tariff details">
+  ```
+
 ## 0.34.6
 
 ### Patch Changes

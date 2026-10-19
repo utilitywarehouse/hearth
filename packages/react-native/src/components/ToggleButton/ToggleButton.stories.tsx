@@ -1,5 +1,8 @@
-import { ToggleButton } from '.';
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
+import { useState } from 'react';
+import { ToggleButton, ToggleButtonIcon, ToggleButtonText } from '.';
 
 const meta = {
   title: 'Stories / ToggleButton',
@@ -31,5 +34,25 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   render: ({ ...args }) => {
     return <ToggleButton {...args} />;
+  },
+};
+
+export const AdvancedUsage: Story = {
+  render: () => {
+    const [toggled, setToggled] = useState(false);
+    return (
+      <ToggleButton toggled={toggled} onToggle={setToggled}>
+        <ToggleButtonIcon as={MobileSmallIcon} />
+        <ToggleButtonText>{toggled ? 'Mobile on' : 'Mobile off'}</ToggleButtonText>
+      </ToggleButton>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+    // The composed children render instead of the built-in label.
+    await expect(button).toHaveTextContent('Mobile off');
+    await userEvent.click(button);
+    await expect(button).toHaveTextContent('Mobile on');
   },
 };

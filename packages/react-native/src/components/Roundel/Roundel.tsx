@@ -13,7 +13,7 @@ const Roundel = ({ variant = 'success', style, ...props }: RoundelProps) => {
 
   return (
     <View {...props} style={[styles.container, style]}>
-      {icon ? <Icon as={icon} size="sm" /> : null}
+      {icon ? <Icon as={icon} size="sm" style={styles.icon} /> : null}
     </View>
   );
 };
@@ -44,6 +44,21 @@ const styles = StyleSheet.create(theme => ({
           borderStyle: 'dashed',
           borderColor: theme.color.border.strong,
         },
+      },
+    },
+  },
+  // Without an explicit colour the icon falls back to `currentColor`, which iOS resolves
+  // inconsistently between renders.
+  icon: {
+    variants: {
+      variant: {
+        success: {
+          color: theme.color.feedback.positive.foreground.default,
+        },
+        error: {
+          color: theme.color.feedback.danger.foreground.default,
+        },
+        pending: {},
       },
     },
   },

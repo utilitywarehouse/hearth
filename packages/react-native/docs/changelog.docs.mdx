@@ -9,6 +9,132 @@ import { BackToTopButton, NextPrevPage } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.38.4
+
+### Patch Changes
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `Accordion` items now use the disabled opacity
+  
+  A disabled `Accordion`, or a disabled `Accordion.Item`, now renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Banner` no longer collapses its `button` to zero width in the vertical direction
+  
+  The vertical `Banner` wrapped its `button` in a view with `flex: 1`, inside a
+  row whose width is set by its content. The wrapper started at zero width, so
+  the button label was squeezed and wrapped (for example "Acti" and "on"). The
+  wrapper now sizes to its content, and still grows to fill a parent that gives
+  it a fixed width.
+  
+  **Components affected**:
+  
+  - `Banner`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1689](https://github.com/utilitywarehouse/hearth/pull/1689) [`7c6b078`](https://github.com/utilitywarehouse/hearth/commit/7c6b078058a6e8eaa36fbb43072ec0e5eb24d760) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `BottomSheet` no longer shows a second set of rounded corners below the handle
+  
+  `BottomSheetView` and `BottomSheetScrollView` no longer round their own top corners. Only the outer sheet is rounded, so the backdrop no longer shows through a gap under the drag handle on iOS and Android.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1690](https://github.com/utilitywarehouse/hearth/pull/1690) [`50ca657`](https://github.com/utilitywarehouse/hearth/commit/50ca657ae4d8c28669f8a819c4c53e419b6fe7c7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `CardAction` built from its parts now has the same spacing as the props API
+  
+  A `CardAction` that uses `children` (`CardActionLeadingContent`, `CardActionContent`, `CardActionTrailingContent` and so on) previously rendered with no padding and no gap between its parts. It now has the same padding, gap and height as a `CardAction` built with props such as `heading` and `helperText`.
+  
+  **Developer changes**:
+  
+  No action is required. If you added your own padding or gap to a composed `CardAction` to work around this, you can remove it.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `HighlightBanner` no longer collapses to zero height
+  
+  `HighlightBanner` used `flex: 1` on its content, so inside a parent that sizes
+  to its content (for example a plain `View` stack) it shrank to zero height and
+  only the card border was visible. It now sizes to its content, and still grows
+  to fill a parent that gives it a fixed height.
+  
+  **Components affected**:
+  
+  - `HighlightBanner`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1695](https://github.com/utilitywarehouse/hearth/pull/1695) [`eeb8871`](https://github.com/utilitywarehouse/hearth/commit/eeb8871b6825717fd282dce51e621beda98c6d21) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Icon` defaults to `color.icon.primary`, and `FormField`/`Helper`, `Badge` and `Tabs` icons always have a colour
+  
+  Icons fill with `currentColor`. When nothing set a colour, that had nothing to resolve against, so icons could render white or dark depending on the render.
+  
+  - `Icon` now uses `color.icon.primary` when no `color`, `fill` or `stroke` prop and no `style.color` is set. Any of those still overrides it.
+  - `Helper` (and `FormField`) custom helper icons with no validation status now use `color.icon.primary`.
+  - `Badge` icons with `variant="outline"` and a brand colour scheme (`energy`, `broadband`, `mobile`, `insurance`, `cashback`, `pig`, `highlight`) now use `color.text.primary`.
+  - `Tab` icons now use `color.icon.primary`.
+  
+  **Developer changes**:
+  
+  No action is required. To keep an icon in a different colour, pass `color` (or `fill`/`stroke`) to `Icon`.
+
+- [#1695](https://github.com/utilitywarehouse/hearth/pull/1695) [`eeb8871`](https://github.com/utilitywarehouse/hearth/commit/eeb8871b6825717fd282dce51e621beda98c6d21) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Roundel` success and error icons now always use the feedback foreground colour
+  
+  The tick and cross icons had no colour set, so they fell back to `currentColor` and could render white or dark depending on the render. They now use `color.feedback.positive.foreground.default` and `color.feedback.danger.foreground.default`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `Tab` now uses the disabled opacity
+  
+  A disabled `Tab`, or every `Tab` inside a disabled `Tabs`, now renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ToggleButtonCard` button no longer overflows the card
+  
+  The toggle button row in `ToggleButtonCard` used `flex: 1`, so in a card that
+  sizes to its content the row had no height and the button spilled out below the
+  card border, with its label cut off. The button now sizes to its content and
+  still grows to fill the card's width.
+  
+  **Components affected**:
+  
+  - `ToggleButtonCard`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `ToggleButtonCard` now disables its button
+  
+  A disabled `ToggleButtonCard` now disables its toggle button. The button renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`, and it can no longer be pressed. The card content keeps its normal opacity.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1691](https://github.com/utilitywarehouse/hearth/pull/1691) [`bcc27d9`](https://github.com/utilitywarehouse/hearth/commit/bcc27d9279422354c41b2ebf954aa8d9a465cce9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: `ToggleButton` renders `children` and shares `toggled` with `ToggleButtonIcon` and `ToggleButtonText`
+  
+  `ToggleButton` now renders `children` in place of the built-in tick icon and `text` label, so you can compose `ToggleButtonIcon` and `ToggleButtonText` with your own icon and label. Previously, any `children` were ignored. The parts read `toggled` from the parent `ToggleButton`, so you no longer need to pass it to each one.
+  
+  **Developer changes**:
+  
+  No action is required. Without `children`, `ToggleButton` renders the same as before. Passing `toggled` to `ToggleButtonIcon` or `ToggleButtonText` still works and overrides the value from the button.
+  
+  ```tsx
+  <ToggleButton toggled={toggled} onToggle={setToggled}>
+    <ToggleButtonIcon as={MobileSmallIcon} />
+    <ToggleButtonText>Mobile</ToggleButtonText>
+  </ToggleButton>
+  ```
+
 ## 0.38.3
 
 ### Patch Changes

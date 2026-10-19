@@ -112,7 +112,7 @@ const CardActionRoot = ({
         accessibilityRole={onPress ? 'button' : undefined}
       >
         {children ? (
-          children
+          <View style={styles.withIconContainer}>{children}</View>
         ) : (
           <>
             {leadingIcon && iconContainer ? (

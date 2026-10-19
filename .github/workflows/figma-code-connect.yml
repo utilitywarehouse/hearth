@@ -1,4 +1,4 @@
-name: Figma Code Connect publish
+name: '🧩 Figma Code Connect publish'
 on:
   push:
     branches:

@@ -130,7 +130,6 @@ type Variant = IconButtonProps['variant'];
 export const KitchenSink: Story = {
   parameters: {
     controls: { include: ['icon'] },
-    chromatic: { disableSnapshot: false },
   },
   render: ({ icon: _icon, inverted, size }) => {
     // @ts-expect-error - This is a playground

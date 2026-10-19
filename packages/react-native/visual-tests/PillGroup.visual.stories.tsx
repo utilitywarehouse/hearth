@@ -8,7 +8,8 @@ const meta = {
   title: 'Visual Tests/PillGroup',
   parameters: {
     // Belt and braces: `.rnstorybook/preview.tsx` disables snapshots globally.
-    chromatic: { disableSnapshot: false },
+    // The delay lets the iOS home indicator settle; without it the indicator differs between builds.
+    chromatic: { disableSnapshot: false, delay: 500 },
   },
 } satisfies Meta;
 
