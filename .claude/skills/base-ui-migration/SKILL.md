@@ -284,8 +284,8 @@ If there are no consumer-facing changes, state that explicitly: "No prop changes
 3. **Add to `.docs.mdx`** — if there are any consumer-facing changes, add a `## Migration` section at the bottom of the component's docs file describing the change and the old → new prop names.
 
 4. **Create a changeset** (see `add-changeset` skill):
-   - `patch` for deprecation-only (old names still work)
-   - `minor` for breaking prop removals
+   - `minor` for deprecation-only (old names still work)
+   - `major` for breaking prop removals
 
 5. **Include in the PR description:**
    - The API diff table
