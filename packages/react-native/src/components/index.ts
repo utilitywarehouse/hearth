@@ -67,7 +67,9 @@ export * from './Timeline';
 export * from './TimePicker';
 export * from './TimePickerInput';
 export * from './Toast';
+export * from './ToggleButton';
 export * from './ToggleButtonCard';
+export * from './ToggleGroup';
 export * from './UnstyledIconButton';
 export * from './VerificationInput';
 

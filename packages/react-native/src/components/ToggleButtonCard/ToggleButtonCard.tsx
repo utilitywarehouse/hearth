@@ -3,10 +3,11 @@ import { View } from 'react-native';
 import { useStyleProps } from '../../hooks';
 import ToggleButtonCardRootComponent from './ToggleButtonCardRoot';
 import { useToggleButtonCardGroupContext } from './ToggleButtonCardGroup.context';
+import { useToggleGroupContext } from '../ToggleGroup/ToggleGroup.context';
 
 /**
- * A selectable card used as a single option within a `ToggleButtonCardGroup`. Use it to let
- * users pick one option from a set of predefined choices in forms or surveys.
+ * A selectable card used as an option within a `ToggleGroup` or `ToggleButtonCardGroup`. Use
+ * it to let users pick from a set of predefined choices in forms or surveys.
  */
 const ToggleButtonCard = ({
   children,
@@ -18,10 +19,19 @@ const ToggleButtonCard = ({
 }: ToggleButtonCardProps) => {
   const { computedStyles } = useStyleProps(props);
   const { selectedValue, select } = useToggleButtonCardGroupContext();
-  const checked = selectedValue === value;
+  const toggleGroup = useToggleGroupContext();
+  // A `ToggleButtonCardGroup` keeps its own single-select behaviour; otherwise join a
+  // surrounding `ToggleGroup`, if there is one.
+  const inToggleGroup = select === undefined && toggleGroup !== null;
+  const checked = inToggleGroup ? toggleGroup.isSelected(value) : selectedValue === value;
 
   const handleToggle = () => {
     if (disabled) return;
+    if (inToggleGroup) {
+      toggleGroup.toggle(value);
+      onChange?.(!checked);
+      return;
+    }
     select?.(value);
     onChange?.(true);
   };

@@ -1,18 +1,28 @@
 import { useState } from 'react';
-import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
+import { GestureResponderEvent, Platform, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import type { ToggleGroupType } from '../ToggleGroup/ToggleGroup.utils';
 import type { ToggleButtonProps } from './ToggleButton.props';
+
+interface ToggleButtonRootProps extends ToggleButtonProps {
+  /** The type of the enclosing `ToggleGroup`, if any. Sets the button's accessibility role. */
+  groupType?: ToggleGroupType;
+}
 
 const ToggleButtonRoot = ({
   children,
   onToggle,
   toggled,
+  groupType,
   accessibilityRole = 'button',
   onPress,
   onPressIn,
   onPressOut,
   ...props
-}: ToggleButtonProps) => {
+}: ToggleButtonRootProps) => {
+  // In a single-select group the buttons behave as radios, matching Radix's `ToggleGroup` in
+  // the React package. Otherwise they are pressed/unpressed toggle buttons.
+  const isRadio = groupType === 'single';
   const [touchPressed, setTouchPressed] = useState(false);
 
   styles.useVariants({
@@ -40,9 +50,16 @@ const ToggleButtonRoot = ({
 
   return (
     <Pressable
-      accessibilityRole={accessibilityRole}
+      accessibilityRole={isRadio ? 'radio' : accessibilityRole}
       {...props}
-      accessibilityState={{ ...props.accessibilityState, selected: toggled }}
+      accessibilityState={{
+        ...props.accessibilityState,
+        ...(isRadio ? { checked: toggled } : { selected: toggled }),
+      }}
+      // react-native-web ignores `accessibilityState`, so expose the state as ARIA on web.
+      {...(Platform.OS === 'web'
+        ? ((isRadio ? { 'aria-checked': !!toggled } : { 'aria-pressed': !!toggled }) as object)
+        : null)}
       style={state => [
         styles.container,
         (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
