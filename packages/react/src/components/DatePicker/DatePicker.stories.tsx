@@ -193,6 +193,8 @@ export const ViewNavigation: Story = {
 
     await userEvent.click(screen.getByRole('button', { name: /^March 2023/ }));
     await screen.findByRole('button', { name: /^2023/ });
+    await userEvent.click(screen.getByText('Mar'));
+    await screen.findByRole('button', { name: 'previous month' });
     await userEvent.click(canvasElement);
     await waitFor(() =>
       expect(document.querySelector('.react-datepicker__month-container')).not.toBeInTheDocument()
@@ -200,6 +202,44 @@ export const ViewNavigation: Story = {
 
     await userEvent.click(trigger);
     await screen.findByRole('button', { name: /March 2023/ });
+    trigger.blur();
+  },
+};
+
+export const ReselectHighlightedMonth: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: args => {
+    const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+    return (
+      <DatePicker
+        {...args}
+        selected={selectedDate}
+        openToDate={new Date(2024, 0, 15)}
+        onChange={(date: Date | null) => setSelectedDate(date)}
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = canvas.getByRole('button', { name: /^Label/ });
+
+    await userEvent.click(trigger);
+    await userEvent.click(await screen.findByRole('button', { name: /January 2024/ }));
+    await userEvent.click(await screen.findByRole('button', { name: /^2024/ }));
+    await screen.findByRole('button', { name: 'previous year' });
+
+    await userEvent.click(screen.getByText('2024'));
+    await userEvent.click(await screen.findByText('Jan'));
+
+    await screen.findByRole('button', { name: 'previous month' });
+    await userEvent.click(
+      screen.getByRole('gridcell', { name: 'Choose Monday, January 15th, 2024' })
+    );
+    await expect(trigger).toHaveTextContent('15/01/2024');
     trigger.blur();
   },
 };
