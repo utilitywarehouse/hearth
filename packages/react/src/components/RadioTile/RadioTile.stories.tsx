@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 
 import { Badge } from '../Badge/Badge';
 import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 import { RadioTile } from './RadioTile';
+import { BodyText } from '../BodyText/BodyText';
 import type { RadioTileProps } from './RadioTile.props';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../../../docs/assets/mastercard.png';
@@ -174,3 +176,44 @@ export const RadioTileStoryWithOneLongLabel: Story = {
 //     );
 //   },
 // };
+
+/** Test-only: clicking the label selects the tile, and group helper text replaces the tile's own. */
+export const Behaviour: Story = {
+  tags: ['!dev', '!autodocs', '!manifest'],
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  render: () => (
+    <Flex gap="500" direction="column">
+      <BodyText id="consumer-description">Consumer description</BodyText>
+      <RadioGroup label="Group" defaultValue="1">
+        <RadioTile value="1" label="One" helperText="One helper" />
+        <RadioTile value="2" label="Two" aria-describedby="consumer-description" />
+      </RadioGroup>
+      <RadioGroup label="Helper group" helperText="Group helper">
+        <RadioTile value="grouped" label="Grouped" helperText="Own helper" />
+      </RadioGroup>
+    </Flex>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const one = canvas.getByRole('radio', { name: 'One' });
+    const two = canvas.getByRole('radio', { name: 'Two' });
+
+    await expect(one).toBeChecked();
+    await expect(one).toHaveAccessibleDescription('One helper');
+    await expect(one.querySelector('label')).toBeNull();
+
+    await expect(two).toHaveAccessibleDescription('Consumer description');
+
+    await userEvent.click(canvas.getByText('Two'));
+    await expect(two).toBeChecked();
+    await expect(one).not.toBeChecked();
+
+    await expect(canvas.getByRole('radio', { name: 'Grouped' })).toHaveAccessibleDescription(
+      'Group helper'
+    );
+    two.blur();
+  },
+};

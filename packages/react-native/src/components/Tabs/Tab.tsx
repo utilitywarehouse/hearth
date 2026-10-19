@@ -15,7 +15,7 @@ const Tab = ({ value, children, icon, disabled, style, ...props }: TabProps) => 
     registerTabLayout,
   } = useTabsContext();
   const isActive = active === value;
-  styles.useVariants({ size });
+  styles.useVariants({ size, disabled: !!(disabled || allDisabled) });
   const ref = useRef<View | null>(null);
   const handlePress = () => {
     if (disabled || allDisabled) return;
@@ -42,7 +42,7 @@ const Tab = ({ value, children, icon, disabled, style, ...props }: TabProps) => 
       {...props}
     >
       <View style={styles.content}>
-        {icon ? <Icon as={icon} /> : null}
+        {icon ? <Icon as={icon} style={styles.icon} /> : null}
         <BodyText size={size} weight="semibold">
           {children}
         </BodyText>
@@ -79,6 +79,11 @@ const styles = StyleSheet.create(theme => ({
         md: { minHeight: theme.components.tabs.md.height },
         lg: { minHeight: theme.components.tabs.lg.height },
       },
+      disabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
     },
   },
   tabPressed: {
@@ -88,6 +93,11 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     gap: theme.components.tabs.item.gap,
+  },
+  // Without an explicit colour the icon falls back to `currentColor`, which iOS resolves
+  // inconsistently between renders.
+  icon: {
+    color: theme.color.icon.primary,
   },
   badge: {
     marginLeft: theme.space[25],

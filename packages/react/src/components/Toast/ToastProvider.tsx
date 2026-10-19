@@ -1,6 +1,7 @@
 import { Toast as ToastPrimitive } from 'radix-ui';
 import type { ToastProviderProps } from './ToastProvider.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { cn } from '../../helpers/cn';
 
 const COMPONENT_NAME = 'ToastProvider';
 
@@ -13,20 +14,23 @@ const COMPONENT_NAME = 'ToastProvider';
 export const ToastProvider = ({
   children,
   duration = 5000,
+  label,
   viewportLabel,
   viewportHotkey,
-  ...props
+  className,
+  ...viewportProps
 }: ToastProviderProps) => {
   return (
     <ToastPrimitive.Provider
-      {...props}
+      label={label}
       duration={duration}
       swipeDirection="down"
       swipeThreshold={50}
     >
       {children}
       <ToastPrimitive.Viewport
-        className={withGlobalPrefix('ToastViewport')}
+        {...viewportProps}
+        className={cn(withGlobalPrefix('ToastViewport'), className)}
         label={viewportLabel}
         hotkey={viewportHotkey}
       />

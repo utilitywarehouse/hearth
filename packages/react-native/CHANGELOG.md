@@ -1,5 +1,232 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.38.4
+
+### Patch Changes
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `Accordion` items now use the disabled opacity
+  
+  A disabled `Accordion`, or a disabled `Accordion.Item`, now renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Banner` no longer collapses its `button` to zero width in the vertical direction
+  
+  The vertical `Banner` wrapped its `button` in a view with `flex: 1`, inside a
+  row whose width is set by its content. The wrapper started at zero width, so
+  the button label was squeezed and wrapped (for example "Acti" and "on"). The
+  wrapper now sizes to its content, and still grows to fill a parent that gives
+  it a fixed width.
+  
+  **Components affected**:
+  
+  - `Banner`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1689](https://github.com/utilitywarehouse/hearth/pull/1689) [`7c6b078`](https://github.com/utilitywarehouse/hearth/commit/7c6b078058a6e8eaa36fbb43072ec0e5eb24d760) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `BottomSheet` no longer shows a second set of rounded corners below the handle
+  
+  `BottomSheetView` and `BottomSheetScrollView` no longer round their own top corners. Only the outer sheet is rounded, so the backdrop no longer shows through a gap under the drag handle on iOS and Android.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1690](https://github.com/utilitywarehouse/hearth/pull/1690) [`50ca657`](https://github.com/utilitywarehouse/hearth/commit/50ca657ae4d8c28669f8a819c4c53e419b6fe7c7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `CardAction` built from its parts now has the same spacing as the props API
+  
+  A `CardAction` that uses `children` (`CardActionLeadingContent`, `CardActionContent`, `CardActionTrailingContent` and so on) previously rendered with no padding and no gap between its parts. It now has the same padding, gap and height as a `CardAction` built with props such as `heading` and `helperText`.
+  
+  **Developer changes**:
+  
+  No action is required. If you added your own padding or gap to a composed `CardAction` to work around this, you can remove it.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `HighlightBanner` no longer collapses to zero height
+  
+  `HighlightBanner` used `flex: 1` on its content, so inside a parent that sizes
+  to its content (for example a plain `View` stack) it shrank to zero height and
+  only the card border was visible. It now sizes to its content, and still grows
+  to fill a parent that gives it a fixed height.
+  
+  **Components affected**:
+  
+  - `HighlightBanner`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1695](https://github.com/utilitywarehouse/hearth/pull/1695) [`eeb8871`](https://github.com/utilitywarehouse/hearth/commit/eeb8871b6825717fd282dce51e621beda98c6d21) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Icon` defaults to `color.icon.primary`, and `FormField`/`Helper`, `Badge` and `Tabs` icons always have a colour
+  
+  Icons fill with `currentColor`. When nothing set a colour, that had nothing to resolve against, so icons could render white or dark depending on the render.
+  
+  - `Icon` now uses `color.icon.primary` when no `color`, `fill` or `stroke` prop and no `style.color` is set. Any of those still overrides it.
+  - `Helper` (and `FormField`) custom helper icons with no validation status now use `color.icon.primary`.
+  - `Badge` icons with `variant="outline"` and a brand colour scheme (`energy`, `broadband`, `mobile`, `insurance`, `cashback`, `pig`, `highlight`) now use `color.text.primary`.
+  - `Tab` icons now use `color.icon.primary`.
+  
+  **Developer changes**:
+  
+  No action is required. To keep an icon in a different colour, pass `color` (or `fill`/`stroke`) to `Icon`.
+
+- [#1695](https://github.com/utilitywarehouse/hearth/pull/1695) [`eeb8871`](https://github.com/utilitywarehouse/hearth/commit/eeb8871b6825717fd282dce51e621beda98c6d21) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Roundel` success and error icons now always use the feedback foreground colour
+  
+  The tick and cross icons had no colour set, so they fell back to `currentColor` and could render white or dark depending on the render. They now use `color.feedback.positive.foreground.default` and `color.feedback.danger.foreground.default`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `Tab` now uses the disabled opacity
+  
+  A disabled `Tab`, or every `Tab` inside a disabled `Tabs`, now renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ToggleButtonCard` button no longer overflows the card
+  
+  The toggle button row in `ToggleButtonCard` used `flex: 1`, so in a card that
+  sizes to its content the row had no height and the button spilled out below the
+  card border, with its label cut off. The button now sizes to its content and
+  still grows to fill the card's width.
+  
+  **Components affected**:
+  
+  - `ToggleButtonCard`
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1676](https://github.com/utilitywarehouse/hearth/pull/1676) [`4cdd433`](https://github.com/utilitywarehouse/hearth/commit/4cdd4334c90be3ebccf74903873c57693dd831fc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Disabled `ToggleButtonCard` now disables its button
+  
+  A disabled `ToggleButtonCard` now disables its toggle button. The button renders at the same reduced opacity as other disabled components such as `Button` and `Checkbox`, and it can no longer be pressed. The card content keeps its normal opacity.
+  
+  **Developer changes**:
+  
+  No action is required.
+
+- [#1691](https://github.com/utilitywarehouse/hearth/pull/1691) [`bcc27d9`](https://github.com/utilitywarehouse/hearth/commit/bcc27d9279422354c41b2ebf954aa8d9a465cce9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: `ToggleButton` renders `children` and shares `toggled` with `ToggleButtonIcon` and `ToggleButtonText`
+  
+  `ToggleButton` now renders `children` in place of the built-in tick icon and `text` label, so you can compose `ToggleButtonIcon` and `ToggleButtonText` with your own icon and label. Previously, any `children` were ignored. The parts read `toggled` from the parent `ToggleButton`, so you no longer need to pass it to each one.
+  
+  **Developer changes**:
+  
+  No action is required. Without `children`, `ToggleButton` renders the same as before. Passing `toggled` to `ToggleButtonIcon` or `ToggleButtonText` still works and overrides the value from the button.
+  
+  ```tsx
+  <ToggleButton toggled={toggled} onToggle={setToggled}>
+    <ToggleButtonIcon as={MobileSmallIcon} />
+    <ToggleButtonText>Mobile</ToggleButtonText>
+  </ToggleButton>
+  ```
+
+## 0.38.3
+
+### Patch Changes
+
+- [#1675](https://github.com/utilitywarehouse/hearth/pull/1675) [`2bf0fe9`](https://github.com/utilitywarehouse/hearth/commit/2bf0fe9bea14a6938891651af4f7933b01f6e6f6) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Pressable parts of some components have no accessibility role
+  
+  Screen readers did not announce what some pressable areas were, or whether
+  an option was selected. These elements now have a role that matches what they
+  do.
+  
+  **Components affected**:
+  
+  - `Select`: the trigger is announced as a button and reports whether the
+    options sheet is expanded
+  - `SelectOption` and `ComboboxOption`: announced as radio options with their
+    checked and disabled state
+  - `DatePickerInput` and `TimePickerInput`: the field is announced as a button
+    when `disableManualEntry` is set and pressing it opens the picker
+  - `Toast`: a toast with `onPress` is announced as a button
+  
+  **Developer changes**:
+  
+  No action is required.
+
+## 0.38.2
+
+### Patch Changes
+
+- [#1677](https://github.com/utilitywarehouse/hearth/pull/1677) [`7c86122`](https://github.com/utilitywarehouse/hearth/commit/7c86122152fb8ae093b3b028660ad9515aba47ef) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `ListItem` alignment props are respected when composing with child components
+  
+  The `leadingContentAlignment`, `contentAlignment` and `trailingContentAlignment` props now apply when `ListItem` is
+  used with `children`. `ListItemLeadingContent`, `ListItemContent` and `ListItemTrailingContent` also accept an
+  `alignment` prop, which overrides the `ListItem` prop for that part.
+  
+  **Components affected**:
+  - `ListItem`
+  - `ListItemLeadingContent`
+  - `ListItemContent`
+  - `ListItemTrailingContent`
+  
+  **Developer changes**:
+  
+  No action is required. To override the alignment of one part:
+  
+  ```tsx
+  <ListItem onPress={onPress}>
+    <ListItemLeadingContent alignment="center">...</ListItemLeadingContent>
+    <ListItemContent>...</ListItemContent>
+    <ListItemTrailingContent alignment="center">...</ListItemTrailingContent>
+  </ListItem>
+  ```
+
+- [#1656](https://github.com/utilitywarehouse/hearth/pull/1656) [`4241cfc`](https://github.com/utilitywarehouse/hearth/commit/4241cfc54d0cbffd7fcf3e23cc79ec2c55583522) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` can be dismissed by pressing the backdrop while `loading`
+  
+  The `Modal` now ignores backdrop presses while `loading` is `true`.
+  
+  A new `closeOnBackdropPress` prop controls this behaviour. It defaults to
+  `true`, or `false` while `loading`. A custom `backdrop` takes precedence over
+  this prop. Other ways to close the modal, such as swiping down or the Android
+  back button, are unchanged.
+  
+  **Components affected**:
+  - `Modal`
+  
+  **Developer changes**:
+  
+  No action is required. To keep a modal open when the backdrop is pressed, or to
+  allow backdrop presses while loading, set the prop explicitly:
+  
+  ```tsx
+  <Modal ref={modalRef} closeOnBackdropPress={false}>
+    ...
+  </Modal>
+  ```
+
+- [#1670](https://github.com/utilitywarehouse/hearth/pull/1670) [`7c8ab26`](https://github.com/utilitywarehouse/hearth/commit/7c8ab2680404b4667b61c1540ef7cc083d744efb) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Animated components support reduced motion
+  
+  Animated components now respect the system Reduce Motion setting, and the
+  `ReducedMotionConfig` override from `react-native-reanimated`. When reduced
+  motion is on, they skip their animation and render the final state straight
+  away.
+  
+  **Components affected**:
+  - `Spinner`: shows a static arc instead of the looping animation
+  - `Skeleton`: no pulsing
+  - `VerificationInput`: the caret is solid instead of blinking
+  - `Expandable`, and so `ExpandableCard`: no height or opacity animation
+  - `Toast`: no slide-in, slide-out or spring-back
+  - `Carousel`: no animated scroll on mount or when the active item changes, and
+    `scrollToIndex` and `scrollToOffset` default to `animated: false`. An explicit
+    `animated` value still wins.
+  - `Tabs`: the scroll arrows jump instead of scrolling smoothly
+  - `CarouselItem`: no opacity fade between active and inactive
+  
+  `BottomSheet`, `BottomSheetModal`, `Modal`, `NavModal` and `Menu` need no change:
+  `@gorhom/bottom-sheet` already follows the reduced motion setting.
+  
+  **Developer changes**:
+  
+  No action is required.
+
 ## 0.38.1
 
 ### Patch Changes

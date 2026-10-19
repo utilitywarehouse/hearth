@@ -8,6 +8,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 interface VerificationInputSlotProps extends ViewProps {
   value: string;
@@ -44,13 +45,21 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
       secureTextEntry,
     });
 
-    const caretOpacity = useSharedValue(0);
+    const isReducedMotion = useReducedMotionEnabled();
+    const caretOpacity = useSharedValue(
+      isReducedMotion && showCaret && !disabled && !readonly ? 1 : 0
+    );
     const animatedCaretStyle = useAnimatedStyle(() => ({
       opacity: caretOpacity.value,
     }));
 
     useEffect(() => {
       if (showCaret && !disabled && !readonly) {
+        if (isReducedMotion) {
+          caretOpacity.value = 1;
+          return;
+        }
+
         caretOpacity.value = withRepeat(
           withTiming(1, { duration: 500, easing: Easing.inOut(Easing.ease) }),
           -1,
@@ -59,8 +68,10 @@ export const VerificationInputSlot = forwardRef<View, VerificationInputSlotProps
         return;
       }
 
-      caretOpacity.value = withTiming(0, { duration: 150, easing: Easing.out(Easing.ease) });
-    }, [caretOpacity, disabled, readonly, showCaret]);
+      caretOpacity.value = isReducedMotion
+        ? 0
+        : withTiming(0, { duration: 150, easing: Easing.out(Easing.ease) });
+    }, [caretOpacity, disabled, readonly, showCaret, isReducedMotion]);
 
     return (
       <Pressable

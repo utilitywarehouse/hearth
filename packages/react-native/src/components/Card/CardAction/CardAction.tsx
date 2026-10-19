@@ -134,7 +134,7 @@ const CardAction = ({
         onPressOut={handlePressOut}
       >
         {children ? (
-          children
+          <View style={styles.withIconContainer}>{children}</View>
         ) : (
           <>
             {leadingIcon && iconContainer ? (

@@ -58,10 +58,6 @@ If you have a lot of content within the modal, it is recommended to wrap the
 content in a `ModalContent` component. This will ensure that the content is
 scrollable and fits within the viewport.
 
-If you have long content that needs to scroll on mobile, you need to set the
-`fullScreen` prop to `true`, which will make the modal take up the full screen
-on mobile, and ensure the content scrolls correctly.
-
 ```tsx
 <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
   <ModalTrigger>
@@ -367,7 +363,7 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `onCloseAutoFocus`     | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on close. Can be prevented.                                                                                                                       |
 | `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
 | `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
-| `fullScreen`           | `boolean`                                                         | `false` | Makes the modal take up the full screen on mobile, ensuring long content scrolls correctly.                                                                                               |
+| `fullScreen`           | `boolean`                                                         | —       | @deprecated this prop has no effect and will be removed in a future major version.                                                                                                        |
 | `loadingText`          | `string`                                                          | —       | @deprecated Please use loadingHeading and loadingDescription instead                                                                                                                      |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
 | `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |

@@ -49,7 +49,7 @@ HighlightBanner.displayName = 'HighlightBanner';
 const styles = StyleSheet.create(theme => ({
   container: {
     overflow: 'hidden',
-    flex: 1,
+    flexGrow: 1,
     width: '100%',
   },
   header: {
@@ -116,7 +116,7 @@ const styles = StyleSheet.create(theme => ({
       },
       hasImage: {
         true: {
-          flex: 1,
+          flexGrow: 1,
         },
       },
     },

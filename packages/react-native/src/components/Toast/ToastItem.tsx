@@ -9,6 +9,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { scheduleOnRN } from 'react-native-worklets';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
@@ -28,13 +29,20 @@ interface Props {
 }
 
 const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) => {
-  const translateY = useSharedValue(30);
-  const opacity = useSharedValue(0);
+  const isReducedMotion = useReducedMotionEnabled();
+  // Under reduced motion the toast starts at its final position with no slide-in.
+  const translateY = useSharedValue(isReducedMotion ? 0 : 30);
+  const opacity = useSharedValue(isReducedMotion ? 1 : 0);
   const gestureTranslateY = useSharedValue(0);
 
   useEffect(() => {
-    translateY.value = withTiming(0, { duration: 300 });
-    opacity.value = withTiming(1, { duration: 300 });
+    if (isReducedMotion) {
+      translateY.value = 0;
+      opacity.value = 1;
+    } else {
+      translateY.value = withTiming(0, { duration: 300 });
+      opacity.value = withTiming(1, { duration: 300 });
+    }
 
     // Announce toast content to screen readers
     // Use a slight delay to ensure iOS VoiceOver picks it up
@@ -45,7 +53,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [toast.text, toast.actionText, translateY, opacity]);
+  }, [toast.text, toast.actionText, translateY, opacity, isReducedMotion]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: translateY.value + gestureTranslateY.value }],
@@ -61,6 +69,11 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
     // animate out then call onClose
     if (!fromGesture) {
       gestureTranslateY.value = 0;
+    }
+    if (isReducedMotion) {
+      opacity.value = 0;
+      scheduleOnRN(onClose, toast.id);
+      return;
     }
     // Continue from current position and animate further down
     translateY.value = withTiming(100, { duration: 250 });
@@ -85,10 +98,12 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         handleDismiss(true);
       } else {
         // spring back to original position
-        gestureTranslateY.value = withSpring(0, {
-          damping: 20,
-          stiffness: 300,
-        });
+        gestureTranslateY.value = isReducedMotion
+          ? 0
+          : withSpring(0, {
+              damping: 20,
+              stiffness: 300,
+            });
       }
     });
 
@@ -148,7 +163,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         importantForAccessibility={Platform.OS === 'android' ? 'no-hide-descendants' : undefined}
       >
         {toast.onPress ? (
-          <Pressable onPress={handlePress} style={styles.pressable}>
+          <Pressable accessibilityRole="button" onPress={handlePress} style={styles.pressable}>
             {toastContent}
           </Pressable>
         ) : (

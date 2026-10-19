@@ -8,6 +8,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { useTheme } from '../../hooks';
 import type { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
@@ -23,6 +24,7 @@ const Skeleton = ({
   style,
   ...props
 }: SkeletonProps) => {
+  const isReducedMotion = useReducedMotionEnabled();
   const opacity = useSharedValue(1);
 
   const { components } = useTheme();
@@ -53,6 +55,11 @@ const Skeleton = ({
   }, [opacity]);
 
   React.useEffect(() => {
+    if (isReducedMotion) {
+      opacity.value = 1;
+      return;
+    }
+
     opacity.value = withRepeat(
       withTiming(0.5, {
         duration: 1000,
@@ -61,7 +68,7 @@ const Skeleton = ({
       -1,
       true
     );
-  }, [opacity]);
+  }, [opacity, isReducedMotion]);
 
   return <Animated.View {...props} style={[styles.skeleton, style, animatedStyle]} />;
 };

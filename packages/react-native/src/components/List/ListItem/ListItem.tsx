@@ -81,14 +81,6 @@ const ListItem = ({
   const resolvedTrailingAlignment =
     trailingContentAlignment ?? alignItems ?? (isTrailingIcon ? 'center' : 'flex-start');
 
-  // Alignment props come first so `style` passed through the part props still overrides them.
-  const leadingContentStyle = [{ alignSelf: resolvedLeadingAlignment }, leadingContentProps?.style];
-  const contentStyle = [{ alignSelf: resolvedContentAlignment }, contentProps?.style];
-  const trailingContentStyle = [
-    { alignSelf: resolvedTrailingAlignment },
-    trailingContentProps?.style,
-  ];
-
   const testID = props.testID || 'list-item';
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
@@ -112,14 +104,27 @@ const ListItem = ({
     container: listContext?.container,
   });
 
+  // Composed children read their alignment from context, so `alignItems` is the fallback there too.
   const value: IListItemContext = useMemo(() => {
     return {
       showPressed,
       active,
       loading: isLoading,
       disabled: isDisabled,
+      leadingContentAlignment: leadingContentAlignment ?? alignItems,
+      contentAlignment: contentAlignment ?? alignItems,
+      trailingContentAlignment: trailingContentAlignment ?? alignItems,
     };
-  }, [active, showPressed, isLoading, isDisabled]);
+  }, [
+    active,
+    showPressed,
+    isLoading,
+    isDisabled,
+    leadingContentAlignment,
+    contentAlignment,
+    trailingContentAlignment,
+    alignItems,
+  ]);
 
   if (loading || listContext?.loading) {
     return (
@@ -135,16 +140,19 @@ const ListItem = ({
           disabled={isDisabled}
         >
           {leadingContent ? (
-            <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+            <ListItemLeadingContent {...leadingContentProps} alignment={resolvedLeadingAlignment}>
               <Skeleton width={24} height={24} />
             </ListItemLeadingContent>
           ) : null}
-          <ListItemContent {...contentProps} style={contentStyle}>
+          <ListItemContent {...contentProps} alignment={resolvedContentAlignment}>
             <Skeleton width="80%" height={20} />
             <Skeleton width="100%" height={16} />
           </ListItemContent>
           {onPress || trailingContent ? (
-            <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+            <ListItemTrailingContent
+              {...trailingContentProps}
+              alignment={resolvedTrailingAlignment}
+            >
               <Skeleton width={24} height={24} />
             </ListItemTrailingContent>
           ) : null}
@@ -174,11 +182,14 @@ const ListItem = ({
           ) : (
             <>
               {leadingContent ? (
-                <ListItemLeadingContent {...leadingContentProps} style={leadingContentStyle}>
+                <ListItemLeadingContent
+                  {...leadingContentProps}
+                  alignment={resolvedLeadingAlignment}
+                >
                   {leadingContent}
                 </ListItemLeadingContent>
               ) : null}
-              <ListItemContent {...contentProps} style={contentStyle}>
+              <ListItemContent {...contentProps} alignment={resolvedContentAlignment}>
                 {badgePosition === 'top' && badge ? badge : null}
                 <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
                 {helperText ? (
@@ -190,11 +201,17 @@ const ListItem = ({
               </ListItemContent>
               {!!numericValue && <BodyText weight="semibold">{numericValue}</BodyText>}
               {trailingContent ? (
-                <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+                <ListItemTrailingContent
+                  {...trailingContentProps}
+                  alignment={resolvedTrailingAlignment}
+                >
                   {trailingContent}
                 </ListItemTrailingContent>
               ) : showDefaultTrailingIcon ? (
-                <ListItemTrailingContent {...trailingContentProps} style={trailingContentStyle}>
+                <ListItemTrailingContent
+                  {...trailingContentProps}
+                  alignment={resolvedTrailingAlignment}
+                >
                   <ListItemTrailingIcon as={ChevronRightSmallIcon} />
                 </ListItemTrailingContent>
               ) : null}

@@ -179,6 +179,31 @@ overflow).
 </Flex>
 ```
 
+## Equalize line-height
+
+The default line-height adds space below the glyphs, which is usually what
+you want, but can throw off alignment when text is placed next to other text
+in a bottom-aligned row — for example a large amount next to a smaller
+qualifier. Use the `equalizeLineHeight` prop to override the line-height to
+`1`, regardless of `size`, so the text sits flush with its neighbour.
+
+```tsx
+<Flex direction="column" gap="400">
+  <Flex direction="row" alignItems="end" gap="50">
+    <BodyText size="xl" weight="bold">
+      £42.00
+    </BodyText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+  <Flex direction="row" alignItems="end" gap="50">
+    <BodyText size="xl" weight="bold" equalizeLineHeight>
+      £42.00
+    </BodyText>
+    <BodyText size="sm">/month</BodyText>
+  </Flex>
+</Flex>
+```
+
 ## Paragraph Spacing
 
 The `paragraphSpacing` prop aligns with the auto spacing between paragraphs in
@@ -220,11 +245,12 @@ This component is based on the `p` element and supports the following common pro
 - Text wrap
 - Text transform
 
-| Prop               | Type                                            | Default   | Description                                                                                                                                                                                                                           |
-| ------------------ | ----------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `as`               | `"span" \| "div" \| "label" \| "p"`             | `p`       | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`.                                                                                        |
-| `asChild`          | `boolean`                                       | —         | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                                                                                  |
-| `size`             | `Responsive<"sm" \| "md" \| "lg" \| "xl">`      | `md`      | Set the text size styles.                                                                                                                                                                                                             |
-| `weight`           | `Responsive<"regular" \| "semibold" \| "bold">` | `regular` | Set the font-weight                                                                                                                                                                                                                   |
-| `truncate`         | `boolean`                                       | —         | If true, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow). |
-| `paragraphSpacing` | `boolean`                                       | —         | If true, the text will have a bottom margin.                                                                                                                                                                                          |
+| Prop                 | Type                                            | Default   | Description                                                                                                                                                                                                                           |
+| -------------------- | ----------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`                 | `"span" \| "div" \| "label" \| "p"`             | `p`       | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`.                                                                                        |
+| `asChild`            | `boolean`                                       | —         | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                                                                                  |
+| `size`               | `Responsive<"sm" \| "md" \| "lg" \| "xl">`      | `md`      | Set the text size styles.                                                                                                                                                                                                             |
+| `weight`             | `Responsive<"regular" \| "semibold" \| "bold">` | `regular` | Set the font-weight                                                                                                                                                                                                                   |
+| `truncate`           | `boolean`                                       | —         | If true, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow). |
+| `paragraphSpacing`   | `boolean`                                       | —         | If true, the text will have a bottom margin.                                                                                                                                                                                          |
+| `equalizeLineHeight` | `boolean`                                       | —         | If true, overrides the line-height to `1`, regardless of `size` — useful when the default line-height affects layout (e.g. single-line text in a fixed-height container).                                                             |

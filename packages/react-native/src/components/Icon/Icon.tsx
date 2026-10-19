@@ -1,5 +1,6 @@
 import type React from 'react';
 import { useMemo } from 'react';
+import { StyleSheet } from 'react-native';
 import { Svg } from 'react-native-svg';
 import { withUnistyles } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
@@ -25,9 +26,16 @@ const PrimitiveIcon = withUnistyles(
       [color, colorMode]
     );
 
+    // Icons fill with `currentColor`, which has nothing to resolve against unless a colour is
+    // set, so fall back to the theme's icon colour when nothing else colours the icon.
+    const styleColor = (StyleSheet.flatten(props.style) as { color?: ColorValue } | undefined)
+      ?.color;
+
     let colorProps = {};
     if (color) {
       colorProps = { ...colorProps, color: colorValue };
+    } else if (!styleColor && !fill && !stroke) {
+      colorProps = { ...colorProps, color: themeColor.icon.primary };
     }
     if (stroke) {
       colorProps = { ...colorProps, stroke };

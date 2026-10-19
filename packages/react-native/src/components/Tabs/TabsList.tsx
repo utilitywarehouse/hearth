@@ -11,6 +11,7 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { useTabsContext } from './Tabs.context';
 import { computeScrollTarget, computeScrollVisibility } from './Tabs.utils';
@@ -29,6 +30,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
   const containerWidthRef = useRef(0);
   const contentWidthRef = useRef(0);
   const scrollX = useSharedValue(0);
+  const isReducedMotion = useReducedMotionEnabled();
 
   const indicatorStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: indicatorXSV.value }],
@@ -67,7 +69,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
       currentScrollX: scrollX.value,
       direction,
     });
-    scrollRef.current?.scrollTo({ x: target, animated: true });
+    scrollRef.current?.scrollTo({ x: target, animated: !isReducedMotion });
   };
 
   useEffect(() => {

@@ -3,11 +3,11 @@ import { Platform, View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { ExpandableProps } from './Expandable.props';
 
 /**
@@ -26,8 +26,8 @@ const Expandable = ({
   animateOpacity = true,
   ...props
 }: ExpandableProps) => {
-  const reducedMotion = useReducedMotion();
-  const animationDuration = reducedMotion ? 0 : duration;
+  const isReducedMotion = useReducedMotionEnabled();
+  const animationDuration = isReducedMotion ? 0 : duration;
   const height = useSharedValue(0);
   const open = useSharedValue(expanded);
   // Collapsed content stays mounted (at height 0) so it can be measured and animated, so it
@@ -61,19 +61,17 @@ const Expandable = ({
     if (node) node.inert = hidden;
   }, [hidden]);
 
-  const derivedHeight = useDerivedValue(() =>
-    withTiming(height.value * Number(open.value), {
-      duration: animationDuration,
-    })
-  );
+  // Under reduced motion, jump straight to the end state with no height or opacity tween.
+  const derivedHeight = useDerivedValue(() => {
+    const target = height.value * Number(open.value);
+    return isReducedMotion ? target : withTiming(target, { duration });
+  });
 
-  const derivedOpacity = useDerivedValue(() =>
-    animateOpacity
-      ? withTiming(Number(open.value), {
-          duration: animationDuration,
-        })
-      : 1
-  );
+  const derivedOpacity = useDerivedValue(() => {
+    if (!animateOpacity) return 1;
+    const target = Number(open.value);
+    return isReducedMotion ? target : withTiming(target, { duration });
+  });
 
   const heightStyle = useAnimatedStyle(() => ({
     height: derivedHeight.value,

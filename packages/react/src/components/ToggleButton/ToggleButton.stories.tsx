@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { useState } from 'react';
 import { BodyText } from '../BodyText/BodyText';
 import { Box } from '../Box/Box';
@@ -76,7 +77,6 @@ export const Single: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: () => (
     <ToggleGroup type="single" gap="200">
@@ -87,6 +87,19 @@ export const Single: Story = {
       ))}
     </ToggleGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const one = canvas.getByRole('radio', { name: 'One' });
+    const two = canvas.getByRole('radio', { name: 'Two' });
+
+    await userEvent.click(one);
+    await expect(one).toBeChecked();
+
+    await userEvent.click(two);
+    await expect(two).toBeChecked();
+    await expect(one).not.toBeChecked();
+    two.blur();
+  },
 };
 
 /** Use type="multiple" on the parent ToggleGroup to allow several ToggleButtons to be selected at once. */
@@ -94,7 +107,6 @@ export const Multiple: Story = {
   parameters: {
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   render: () => (
     <ToggleGroup type="multiple" gap="200">
@@ -105,6 +117,17 @@ export const Multiple: Story = {
       ))}
     </ToggleGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const one = canvas.getByRole('button', { name: 'One' });
+    const two = canvas.getByRole('button', { name: 'Two' });
+
+    await userEvent.click(one);
+    await userEvent.click(two);
+    await expect(one).toHaveAttribute('aria-pressed', 'true');
+    await expect(two).toHaveAttribute('aria-pressed', 'true');
+    two.blur();
+  },
 };
 
 const tariffs = [

@@ -260,7 +260,6 @@ type Variant = ButtonProps['variant'];
 export const KitchenSink: Story = {
   parameters: {
     controls: { include: ['text', 'size', 'inverted'] },
-    chromatic: { disableSnapshot: false },
   },
   render: ({ text, inverted, size }: StoryObj<typeof meta.args>) => {
     const schemes: Array<ColorScheme> = ['highlight', 'destructive', 'affirmative', 'functional'];

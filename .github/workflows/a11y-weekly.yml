@@ -1,4 +1,4 @@
-name: Weekly Accessibility Report
+name: '♿ Weekly Accessibility Report'
 
 # Runs every Storybook story for hearth-react and hearth-react-native with a11y
 # checks set to fail (VITE_A11Y_STRICT=true). The report job then:

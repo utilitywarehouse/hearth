@@ -48,7 +48,7 @@ export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, re
         <div className={withGlobalPrefix('RadioItem')}>
           <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
         </div>
-        <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
+        <Label as="span" id={labelId} disableUserSelect fontWeight="semibold">
           {image}
           {label}
         </Label>

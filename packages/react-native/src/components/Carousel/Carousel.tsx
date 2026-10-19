@@ -20,6 +20,7 @@ import {
   ViewToken,
 } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 import CarouselContext from './Carousel.context';
 import { CarouselItemProps, CarouselProps } from './Carousel.props';
@@ -59,45 +60,52 @@ const Carousel = ({
   const flatListRef = useRef<FlatList>(null);
   const isWeb = Platform.OS === 'web';
   const isProgrammaticScroll = useRef(false);
+  const isReducedMotion = useReducedMotionEnabled();
 
   // Expose scroll methods through ref
   useImperativeHandle(
     ref,
     () => ({
-      scrollToIndex: ({ index, animated = true }: { index: number; animated?: boolean | null }) => {
+      scrollToIndex: ({
+        index,
+        animated = !isReducedMotion,
+      }: {
+        index: number;
+        animated?: boolean | null;
+      }) => {
         if (isWeb && scrollViewRef.current) {
           isProgrammaticScroll.current = true;
           const itemWidthValue = itemWidth || width;
           const offset = centered ? (width - (itemWidth || width)) / 2 : 0;
           const scrollX = index * itemWidthValue - offset;
-          scrollViewRef.current.scrollTo({ x: scrollX, animated: animated ?? true });
+          scrollViewRef.current.scrollTo({ x: scrollX, animated: animated ?? !isReducedMotion });
           setTimeout(() => {
             isProgrammaticScroll.current = false;
           }, 500);
         } else if (flatListRef.current) {
-          flatListRef.current.scrollToIndex({ index, animated: animated ?? true });
+          flatListRef.current.scrollToIndex({ index, animated: animated ?? !isReducedMotion });
         }
         setActiveIndex(index);
       },
       scrollToOffset: ({
         offset,
-        animated = true,
+        animated = !isReducedMotion,
       }: {
         offset: number;
         animated?: boolean | null;
       }) => {
         if (isWeb && scrollViewRef.current) {
           isProgrammaticScroll.current = true;
-          scrollViewRef.current.scrollTo({ x: offset, animated: animated ?? true });
+          scrollViewRef.current.scrollTo({ x: offset, animated: animated ?? !isReducedMotion });
           setTimeout(() => {
             isProgrammaticScroll.current = false;
           }, 500);
         } else if (flatListRef.current) {
-          flatListRef.current.scrollToOffset({ offset, animated: animated ?? true });
+          flatListRef.current.scrollToOffset({ offset, animated: animated ?? !isReducedMotion });
         }
       },
     }),
-    [isWeb, itemWidth, width, centered]
+    [isWeb, itemWidth, width, centered, isReducedMotion]
   );
 
   // Recursively check if CarouselControls exists in the children tree
@@ -222,20 +230,29 @@ const Carousel = ({
         const offset = centered ? innerMargin / 2 : 0;
         const scrollX = activeIndex * itemWidthValue - offset;
 
-        scrollViewRef.current.scrollTo({ x: scrollX, animated: true });
+        scrollViewRef.current.scrollTo({ x: scrollX, animated: !isReducedMotion });
       } else if (
         !isWeb &&
         flatListRef.current &&
         isIndexInRange({ index: activeIndex, numItems: carouselItems.length })
       ) {
-        flatListRef.current.scrollToIndex({ index: activeIndex, animated: true });
+        flatListRef.current.scrollToIndex({ index: activeIndex, animated: !isReducedMotion });
       }
 
       setTimeout(() => {
         isProgrammaticScroll.current = false;
       }, 500);
     }
-  }, [activeIndex, isWeb, itemWidth, width, centered, innerMargin, carouselItems.length]);
+  }, [
+    activeIndex,
+    isWeb,
+    itemWidth,
+    width,
+    centered,
+    innerMargin,
+    carouselItems.length,
+    isReducedMotion,
+  ]);
 
   // Web scroll handler - track scroll position
   const handleWebScroll = useCallback(

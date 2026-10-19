@@ -29,8 +29,6 @@ const BottomSheetView = ({
 
 const styles = StyleSheet.create((theme, rt) => ({
   contentContainer: {
-    borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
-    borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
     backgroundColor: theme.color.surface.neutral.strong,
     paddingHorizontal: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.bottomSheet.padding,
@@ -41,8 +39,12 @@ const styles = StyleSheet.create((theme, rt) => ({
         },
       },
       handle: {
+        // Without a handle the content reaches the top of the sheet, so it needs the sheet's
+        // rounded corners. With a handle, the handle covers the rounded edge instead.
         false: {
           paddingTop: theme.components.bottomSheet.padding,
+          borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
+          borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
         },
       },
       useSafeAreaInsets: {

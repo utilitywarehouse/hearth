@@ -5,10 +5,19 @@ interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
   disabled?: boolean;
   variant?: 'subtle' | 'emphasis';
-  /** Vertical alignment of the list item's parts. Without `children`, it sets the default for
-   * `leadingContentAlignment`, `contentAlignment` and `trailingContentAlignment`, which take precedence.
+  /** Vertical alignment of the list item's parts. It sets the default for `leadingContentAlignment`,
+   * `contentAlignment` and `trailingContentAlignment`, which take precedence.
    * @default 'center' */
   alignItems?: ViewStyle['alignItems'];
+  /** Vertical alignment of the leading content within the list item.
+   * @default 'flex-start' */
+  leadingContentAlignment?: ViewStyle['alignSelf'];
+  /** Vertical alignment of the content (heading, helper text and badge) within the list item.
+   * @default 'center' */
+  contentAlignment?: ViewStyle['alignSelf'];
+  /** Vertical alignment of the trailing content within the list item.
+   * @default 'flex-start', or 'center' when the trailing content is the default chevron or a `ListItemTrailingIcon` */
+  trailingContentAlignment?: ViewStyle['alignSelf'];
 }
 
 export interface ListItemWithChildren extends ListItemBaseProps {
@@ -25,9 +34,6 @@ export interface ListItemWithChildren extends ListItemBaseProps {
   leadingContentProps?: never;
   contentProps?: never;
   trailingContentProps?: never;
-  leadingContentAlignment?: never;
-  contentAlignment?: never;
-  trailingContentAlignment?: never;
 }
 
 export interface ListItemWithoutChildren extends ListItemBaseProps {
@@ -47,15 +53,6 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   contentProps?: Omit<ViewProps, 'children'>;
   /** Extra props forwarded to the `ListItemTrailingContent` part, including the default chevron. */
   trailingContentProps?: Omit<ViewProps, 'children'>;
-  /** Vertical alignment of the leading content within the list item.
-   * @default 'flex-start' */
-  leadingContentAlignment?: ViewStyle['alignSelf'];
-  /** Vertical alignment of the content (heading, helper text and badge) within the list item.
-   * @default 'center' */
-  contentAlignment?: ViewStyle['alignSelf'];
-  /** Vertical alignment of the trailing content within the list item.
-   * @default 'flex-start', or 'center' when the trailing content is the default chevron or a `ListItemTrailingIcon` */
-  trailingContentAlignment?: ViewStyle['alignSelf'];
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;

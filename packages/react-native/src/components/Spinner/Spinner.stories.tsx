@@ -50,9 +50,6 @@ export const Playground: Story = {
 };
 
 export const KitchenSink: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-  },
   render: args => (
     <Box gap="200">
       <VariantTitle title="XS">

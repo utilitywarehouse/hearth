@@ -114,9 +114,6 @@ export const Icon: Story = {
 };
 
 export const KitchenSink: Story = {
-  parameters: {
-    chromatic: { disableSnapshot: false },
-  },
   render: () => {
     const colorSchemes: NonNullable<BadgeProps['colorScheme']>[] = [
       'info',

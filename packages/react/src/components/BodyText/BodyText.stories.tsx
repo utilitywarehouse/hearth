@@ -18,6 +18,7 @@ const meta: Meta<typeof BodyText> = {
     color: { options: colorValues, control: { type: 'select' } },
     truncate: { control: { type: 'boolean' } },
     paragraphSpacing: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -198,6 +199,39 @@ export const InvertedText: Story = {
         <Box backgroundColor="brand" padding="400">
           <BodyText {...args}>Inverted text</BodyText>
         </Box>
+      </Flex>
+    );
+  },
+};
+
+/**
+ * Without `equalizeLineHeight`, a large `BodyText` next to smaller text in a
+ * bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <BodyText size="xl" weight="bold">
+            £42.00
+          </BodyText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <BodyText size="xl" weight="bold" equalizeLineHeight>
+            £42.00
+          </BodyText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },

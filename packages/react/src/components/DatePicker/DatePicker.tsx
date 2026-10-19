@@ -36,6 +36,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
   const {
     className,
     onChange,
+    onSelect,
     onCalendarOpen,
     onCalendarClose,
     validationStatus,
@@ -76,7 +77,9 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
 
   const ariaDescribedbyValue = mergeIds(
     !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
+    showValidation && validationStatus !== undefined && validationText !== undefined
+      ? validationTextId
+      : undefined
   );
 
   const prevView: { [key in View]: View } = {
@@ -95,11 +98,20 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     date: Date | null,
     event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
   ) => {
+    if (onChange !== undefined) {
+      onChange(date, event);
+    }
+  };
+
+  const handleSelect = (
+    date: Date | null,
+    event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
+  ) => {
     if (view !== 'days') {
       setView(prevView[view]);
     }
-    if (onChange !== undefined) {
-      onChange(date, event);
+    if (onSelect !== undefined) {
+      onSelect(date, event);
     }
   };
 
@@ -138,11 +150,13 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     ),
   };
 
+  const isInvalid = showValidation && validationStatus === 'invalid';
+
   const ariaProps = {
     'aria-labelledby': labelId,
     'aria-describedby': ariaDescribedbyValue,
-    'aria-invalid': validationStatus === 'invalid' ? true : undefined,
-    'aria-errormessage': validationStatus === 'invalid' ? validationTextId : undefined,
+    'aria-invalid': isInvalid ? true : undefined,
+    'aria-errormessage': isInvalid && validationText !== undefined ? validationTextId : undefined,
   };
 
   const classNameProps = {
@@ -174,6 +188,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
 
   const eventHandlingProps = {
     onChange: handleChange,
+    onSelect: handleSelect,
     onCalendarClose: handleCalendarClose,
     onCalendarOpen: handleCalendarOpen,
   };

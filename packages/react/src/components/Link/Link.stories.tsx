@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Flex } from '../Flex/Flex';
 import { Link } from './Link';
 import type { LinkProps } from './Link.props';
@@ -31,7 +32,12 @@ export const Playground: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
     actions: { disable: true },
-    interactions: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const link = within(canvasElement).getByRole('link', { name: 'Link' });
+
+    await expect(link).toHaveAttribute('href', '#');
+    await expect(link).not.toHaveAttribute('target');
   },
 };
 
@@ -41,7 +47,6 @@ export const OpenInNewTab: Story = {
     chromatic: { disableSnapshot: false },
     controls: { disable: true },
     actions: { disable: true },
-    interactions: { disable: true },
   },
   args: { target: '_blank' },
   render: args => (
@@ -53,6 +58,15 @@ export const OpenInNewTab: Story = {
       </Link>
     </Flex>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const withIcon = canvas.getByRole('link', { name: 'Visit help pages (opens in new tab)' });
+    const withoutIcon = canvas.getByRole('link', { name: 'Go to help (opens in new tab)' });
+
+    await expect(withIcon).toHaveAttribute('target', '_blank');
+    await expect(withIcon.querySelectorAll('svg')).toHaveLength(1);
+    await expect(withoutIcon.querySelectorAll('svg')).toHaveLength(1);
+  },
 };
 
 /** Pass an icon as a child, before or after the label, to add a leading or trailing icon. */

@@ -107,7 +107,7 @@ export const Column: Story = {
 };
 
 export const KitchenSink: Story = {
-  parameters: { controls: { include: [] }, chromatic: { disableSnapshot: false } },
+  parameters: { controls: { include: [] } },
   render: () => (
     <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
       <VariantTitle title="Row direction">

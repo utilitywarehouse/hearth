@@ -83,7 +83,7 @@ export const SearchInput = forwardRef<InputBaseElement, SearchInputProps>(
             <Spinner size="xs" color="primary" />
           </InputSlot>
         ) : null}
-        {value !== undefined && String(value).length > 0 ? (
+        {onClear !== undefined && value !== undefined && String(value).length > 0 ? (
           <InputSlot placement="suffix">
             <UnstyledIconButton
               type="button"

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
 import { DetailText } from './DetailText';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
@@ -15,6 +16,7 @@ const meta: Meta<typeof DetailText> = {
     size: { options: sizes, control: { type: 'radio' } },
     color: { options: colorValues, control: { type: 'radio' } },
     inverted: { control: { type: 'boolean' } },
+    equalizeLineHeight: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -71,6 +73,38 @@ export const TextSizes: Story = {
         <DetailText size={{ mobile: 'sm', tablet: 'xl', desktop: '4xl' }}>
           Responsive size
         </DetailText>
+      </Flex>
+    );
+  },
+};
+
+/**
+ * Without `equalizeLineHeight`, a large `DetailText` next to smaller text in
+ * a bottom-aligned row doesn't sit flush with it, because the default
+ * line-height adds space below the glyphs. Set `equalizeLineHeight` to
+ * remove that space.
+ */
+export const EqualizeLineHeight: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  name: 'Equalize line-height',
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <Flex direction="row" alignItems="end" gap="50">
+          <DetailText size="2xl">£42.00</DetailText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
+        <Flex direction="row" alignItems="end" gap="50">
+          <DetailText size="2xl" equalizeLineHeight>
+            £42.00
+          </DetailText>
+          <BodyText size="sm">/month</BodyText>
+        </Flex>
       </Flex>
     );
   },

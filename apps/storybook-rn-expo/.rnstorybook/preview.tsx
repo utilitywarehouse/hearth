@@ -1,6 +1,10 @@
 import { Label, StyleSheet, Switch, useColorMode } from '@utilitywarehouse/hearth-react-native';
 import React, { useEffect } from 'react';
 import { Appearance, ScrollView, View } from 'react-native';
+import {
+  isVisualTest,
+  VisualTestDecorator,
+} from '../../../packages/react-native/visual-tests/_support';
 
 /** @type{import("@storybook/react-vite").Preview} */
 const preview = {
@@ -10,44 +14,54 @@ const preview = {
         date: /Date$/,
       },
     },
+    chromatic: {
+      // Snapshotting is disabled by default to limit Chromatic usage — opt
+      // individual stories back in (e.g. a component's KitchenSink story)
+      // with `chromatic: { disableSnapshot: false }`.
+      disableSnapshot: true,
+    },
   },
 
-  decorators: [
-    (Story, { parameters, args }) => {
-      const [colorMode, setColorMode] = useColorMode();
+  // Visual regression builds swap the interactive decorator (top bar, scrolling,
+  // device colour scheme) for a deterministic one.
+  decorators: isVisualTest()
+    ? [VisualTestDecorator]
+    : [
+        (Story, { parameters, args }) => {
+          const [colorMode, setColorMode] = useColorMode();
 
-      styles.useVariants({ inverted: args.inverted });
+          styles.useVariants({ inverted: args.inverted });
 
-      useEffect(() => {
-        setColorMode(Appearance.getColorScheme() || 'light');
-      }, []);
+          useEffect(() => {
+            setColorMode(Appearance.getColorScheme() || 'light');
+          }, []);
 
-      return (
-        <>
-          <View style={styles.topBar} key={colorMode}>
-            <Label>{colorMode === 'dark' ? 'Dark mode on' : 'Dark mode off'}</Label>
-            <Switch
-              value={colorMode === 'dark'}
-              size="small"
-              onValueChange={() => {
-                Appearance.setColorScheme(colorMode === 'dark' ? 'light' : 'dark');
-                setColorMode(colorMode === 'dark' ? 'light' : 'dark');
-              }}
-            />
-          </View>
-          {parameters.noScroll ? (
-            <View style={styles.container}>
-              <Story />
-            </View>
-          ) : (
-            <ScrollView style={styles.container} contentContainerStyle={styles.story}>
-              <Story />
-            </ScrollView>
-          )}
-        </>
-      );
-    },
-  ],
+          return (
+            <>
+              <View style={styles.topBar} key={colorMode}>
+                <Label>{colorMode === 'dark' ? 'Dark mode on' : 'Dark mode off'}</Label>
+                <Switch
+                  value={colorMode === 'dark'}
+                  size="small"
+                  onValueChange={() => {
+                    Appearance.setColorScheme(colorMode === 'dark' ? 'light' : 'dark');
+                    setColorMode(colorMode === 'dark' ? 'light' : 'dark');
+                  }}
+                />
+              </View>
+              {parameters.noScroll ? (
+                <View style={styles.container}>
+                  <Story />
+                </View>
+              ) : (
+                <ScrollView style={styles.container} contentContainerStyle={styles.story}>
+                  <Story />
+                </ScrollView>
+              )}
+            </>
+          );
+        },
+      ],
 };
 
 const styles = StyleSheet.create(theme => ({
