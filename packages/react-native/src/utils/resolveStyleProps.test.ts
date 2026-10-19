@@ -1,5 +1,6 @@
 import { ViewStyle } from 'react-native';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+import { darkTheme, lightTheme } from '../core/themes';
 import { isStyleProp, resolveStyleProps } from './resolveStyleProps';
 import {
   propStyleMapping,
@@ -8,7 +9,14 @@ import {
   themeStyleMapping,
   viewStyleProps,
 } from './styleUtils';
-import { resolveThemeKey, resolveThemeValue, resolveThemeValueWithFallback } from './themeValueHelpers';
+import {
+  resolveThemeKey,
+  resolveThemeValue,
+  resolveThemeValueWithFallback,
+} from './themeValueHelpers';
+
+// The real themes only need `Platform` from react-native, which can't load in the node environment
+vi.mock('react-native', () => ({ Platform: { OS: 'ios' } }));
 
 const fakeTheme = {
   space: {
@@ -166,6 +174,8 @@ describe('resolveStyleProps', () => {
     ['full theme', fakeTheme],
     ['theme without semantic helpers', themeWithoutHelpers],
     ['empty theme', emptyTheme],
+    ['light theme', lightTheme],
+    ['dark theme', darkTheme],
   ])('matches the legacy implementation with %s', (_label, theme) => {
     it.each(propsCorpus.map((props, index) => [index, props] as const))(
       'produces identical output for corpus entry %#',
@@ -179,6 +189,20 @@ describe('resolveStyleProps', () => {
         expect(remainingProps).toEqual(expected.remainingProps);
       }
     );
+  });
+
+  it.each([
+    ['light', lightTheme],
+    ['dark', darkTheme],
+  ])('resolves tokens from the real %s theme', (_label, theme) => {
+    const [backgroundToken, backgroundValue] = Object.entries(
+      theme.helpers.semanticColor.background
+    )[0];
+
+    expect(resolveStyleProps({ p: 'md', bg: backgroundToken }, theme)).toEqual({
+      padding: theme.space.md,
+      backgroundColor: backgroundValue,
+    });
   });
 
   it('resolves shorthand props against the theme', () => {
