@@ -12,6 +12,7 @@ so you can apply it deterministically instead of updating usages by hand.
 
 - [Using the codemod CLI](#using-the-codemod-cli)
 - [Individual codemods](#individual-codemods)
+  - [`react/v1/remove-modal-fullscreen`](#reactv1remove-modal-fullscreen)
   - [`react/v1/remove-modal-loading-text`](#reactv1remove-modal-loading-text)
 - [Running the complete v1 migration](#running-the-complete-v1-migration)
 
@@ -41,6 +42,24 @@ The CLI refuses to run against a dirty git working tree (unless `--dry` or
 
 Run these as each breaking change lands, rather than waiting for a full `v1`
 release.
+
+### `react/v1/remove-modal-fullscreen`
+
+`Modal`'s `fullScreen` prop has been removed. It had no effect, so deleting it
+never changes behaviour.
+
+```diff
+- <Modal fullScreen>
++ <Modal>
+```
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-fullscreen src
+```
+
+If `fullScreen` reaches `Modal` through a prop spread (e.g. `<Modal {...props} />`),
+the codemod leaves the element unchanged and prints a warning with the file and
+line so you can remove it manually.
 
 ### `react/v1/remove-modal-loading-text`
 

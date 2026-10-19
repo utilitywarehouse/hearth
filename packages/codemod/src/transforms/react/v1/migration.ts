@@ -1,4 +1,5 @@
 import type { API, FileInfo } from 'jscodeshift';
+import removeModalFullscreen from './remove-modal-fullscreen';
 import removeModalLoadingText from './remove-modal-loading-text';
 
 /**
@@ -6,6 +7,7 @@ import removeModalLoadingText from './remove-modal-loading-text';
  * the full `v1` API in one pass instead of running each codemod individually.
  */
 function transformer(file: FileInfo, api: API): string {
+  file.source = removeModalFullscreen(file, api);
   file.source = removeModalLoadingText(file, api);
   return file.source;
 }

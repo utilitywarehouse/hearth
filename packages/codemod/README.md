@@ -29,5 +29,6 @@ for the full list of available codemods and worked before/after examples.
 
 | Codemod | Description |
 | --- | --- |
+| `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |
 | `react/v1/remove-modal-loading-text` | Removes `Modal`'s deprecated `loadingText` prop |
 | `react/v1/migration` | Runs every `react/v1/*` codemod in one pass |
