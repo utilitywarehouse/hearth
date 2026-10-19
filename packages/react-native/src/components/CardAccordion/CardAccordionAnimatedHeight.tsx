@@ -3,11 +3,11 @@ import { LayoutChangeEvent, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
-  useReducedMotion,
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { motion } from '../../tokens';
 
 const duration = motion.duration['500'];
@@ -20,7 +20,7 @@ const easing = Easing.bezier(0.19, 0.91, 0.38, 1);
  * height animates, so it's revealed as the card grows. Internal to `CardAccordion`.
  */
 const CardAccordionAnimatedHeight = ({ children }: { children?: ReactNode }) => {
-  const reducedMotion = useReducedMotion();
+  const reducedMotion = useReducedMotionEnabled();
   const height = useSharedValue(0);
   // Until the first measurement the content sits in normal flow, so the initial render sizes
   // naturally without animating. After that it's absolutely positioned: on iOS/Android, Yoga caps
