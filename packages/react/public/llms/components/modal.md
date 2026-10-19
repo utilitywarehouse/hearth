@@ -363,7 +363,23 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `onCloseAutoFocus`     | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on close. Can be prevented.                                                                                                                       |
 | `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
 | `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
-| `fullScreen`           | `boolean`                                                         | —       | @deprecated this prop has no effect and will be removed in a future major version.                                                                                                        |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
 | `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |
 | `loading`              | `boolean`                                                         | `false` | Whether the modal is in a loading state. When `true`, a loading heading (via `loadingHeading`) is required for accessibility purposes.                                                    |
+
+### `fullScreen` removed
+
+`Modal`'s `fullScreen` prop has been removed. It had no effect, so delete it:
+
+```diff
+- <Modal fullScreen>
++ <Modal>
+```
+
+Run the codemod to update your code automatically:
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-fullscreen <path>
+```
+
+See the v1 migration guide for details.

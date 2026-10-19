@@ -21,6 +21,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [Loading](#loading)
 - [Preventing dismissal](#preventing-dismissal)
 - [API](#api)
+- [Migration](#migration)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
@@ -156,3 +157,22 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
 <ArgTypes of={Modal} exclude={'margin*'} />
+
+## Migration
+
+### `fullScreen` removed
+
+`Modal`'s `fullScreen` prop has been removed. It had no effect, so delete it:
+
+```diff
+- <Modal fullScreen>
++ <Modal>
+```
+
+Run the codemod to update your code automatically:
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-fullscreen <path>
+```
+
+See the <StorybookLink to="migration-v1">v1 migration guide</StorybookLink> for details.
