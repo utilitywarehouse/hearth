@@ -18,10 +18,6 @@ export interface BaseModalProps
    */
   hideCloseButton?: boolean;
   /**
-   * @deprecated this prop has no effect and will be removed in a future major version.
-   */
-  fullScreen?: boolean;
-  /**
    * An image, such as an SVG illustration, rendered at the top of the modal.
    * The layout automatically adjusts to accommodate it.
    */
