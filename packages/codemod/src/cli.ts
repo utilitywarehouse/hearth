@@ -54,13 +54,21 @@ function checkGitStatus(force: boolean): void {
 }
 
 function runJscodeshiftTransform(codemod: string, files: Array<string>, flags: RunFlags): void {
-  if (codemod.includes('..') || /__test(s|fixtures)__/.test(codemod)) {
+  const transformsDirectory = path.resolve(__dirname, '..', 'src', 'transforms');
+  const transformPath = path.resolve(transformsDirectory, `${codemod}.ts`);
+  const relativePath = path.relative(transformsDirectory, transformPath);
+
+  // Only bundled codemods may run: reject absolute or `..` names that resolve outside the
+  // transforms directory, and anything under the test directories
+  if (
+    relativePath.startsWith('..') ||
+    path.isAbsolute(relativePath) ||
+    /__test(s|fixtures)__/.test(relativePath)
+  ) {
     throw new Error(
       `Codemod '${codemod}' not found. See README.md for a list of available codemods.`
     );
   }
-
-  const transformPath = path.resolve(__dirname, '..', 'src', 'transforms', `${codemod}.ts`);
 
   if (!existsSync(transformPath)) {
     throw new Error(
