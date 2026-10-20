@@ -380,7 +380,7 @@ export const Modality: Story = {
 const onSelect = fn();
 const onClick = fn();
 
-/** Test-only: the deprecated `onSelect` (MenuItem) and `forceMount` (MenuContent) props still work. */
+/** Test-only: the deprecated `onSelect` (MenuItem) prop still works. */
 export const DeprecatedProps: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
   parameters: {
@@ -394,7 +394,7 @@ export const DeprecatedProps: Story = {
           Menu trigger
         </Button>
       </MenuTrigger>
-      <MenuContent forceMount>
+      <MenuContent>
         <MenuItem onSelect={onSelect} onClick={onClick}>
           Deprecated item
         </MenuItem>

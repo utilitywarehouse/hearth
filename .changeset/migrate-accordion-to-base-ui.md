@@ -20,6 +20,7 @@ of the public API.
 - `Accordion: collapsible` — removed entirely; single-mode panels are now always collapsible.
 - `Accordion: value` / `defaultValue` — must now always be an array, regardless of `multiple`, e.g. `defaultValue="item-1"` becomes `defaultValue={['item-1']}`.
 - `Accordion: onValueChange` — now always receives an array as its first argument.
+
 - `AccordionContent: forceMount` — removed entirely; use `keepMounted` instead.
 
 **Developer changes**:
