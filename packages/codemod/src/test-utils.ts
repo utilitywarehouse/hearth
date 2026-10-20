@@ -9,20 +9,26 @@ import { applyTransform } from 'jscodeshift/dist/testUtils';
  *
  * @param dirname `__dirname` of the calling `__tests__/*.test.ts` file
  * @param transformModule the `import * as` module object for the transform under test
+ * @param name fixture name, without the `.input`/`.output` suffix and extension
+ * @param extension fixture file extension
  */
 export function runTransformFixtureTest(
   dirname: string,
   transformModule: unknown,
-  name: string
+  name: string,
+  extension = 'tsx'
 ): void {
   const fixturesDir = path.join(dirname, '..', '__testfixtures__');
-  const source = readFileSync(path.join(fixturesDir, `${name}.input.tsx`), 'utf8');
-  const expectedOutput = readFileSync(path.join(fixturesDir, `${name}.output.tsx`), 'utf8');
+  const source = readFileSync(path.join(fixturesDir, `${name}.input.${extension}`), 'utf8');
+  const expectedOutput = readFileSync(
+    path.join(fixturesDir, `${name}.output.${extension}`),
+    'utf8'
+  );
 
   const output = applyTransform(
     transformModule,
     {},
-    { source, path: `${name}.input.tsx` },
+    { source, path: `${name}.input.${extension}` },
     { parser: 'tsx' }
   );
 

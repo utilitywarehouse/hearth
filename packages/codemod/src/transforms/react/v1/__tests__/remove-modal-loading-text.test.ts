@@ -53,6 +53,18 @@ describe('remove-modal-loading-text', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-shadowed-namespace');
   });
 
+  it('transforms a .jsx file', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-jsx', 'jsx');
+  });
+
+  it('transforms an aliased Modal imported alongside other components', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-mixed-imports');
+  });
+
+  it('leaves a non-Hearth Modal untouched when Modal is only imported as a type', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-type-import');
+  });
+
   it('leaves an empty file untouched', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-empty');
   });
