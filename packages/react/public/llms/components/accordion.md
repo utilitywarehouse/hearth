@@ -231,9 +231,11 @@ content is hidden.
 </Box>
 ```
 
-### Migrating from `v0.31.x`
+### Migrating from `v0.x`
 
-`Accordion` has migrated from Radix UI to Base UI internally.
+`Accordion` has migrated from Radix UI to Base UI internally. The
+`react/v1/migrate-accordion` codemod applies the mechanical changes below — see
+the v1 migration guide.
 
 **Breaking changes:**
 
