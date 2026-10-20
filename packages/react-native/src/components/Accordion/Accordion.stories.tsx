@@ -211,7 +211,8 @@ export const WithInteractiveContent: Story = {
 
     // Expanded content is not grouped into one element: the button inside is reachable on its own.
     const contactButton = await canvas.findByRole('button', { name: /contact us/i });
-    expect(contactButton).toBeVisible();
+    // Expandable fades in over 200 ms, so wait for it rather than sampling a frame at opacity 0.
+    await waitFor(() => expect(contactButton).toBeVisible());
 
     await userEvent.click(trigger);
     await waitFor(() =>
