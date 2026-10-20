@@ -1,4 +1,5 @@
 import type { API, FileInfo, Identifier, JSXAttribute, JSXElement } from 'jscodeshift';
+import { getStringValue } from '../../../utils/get-string-value';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -71,14 +72,16 @@ function transformer(file: FileInfo, api: API): string {
     .forEach(element => {
       const attributes = element.node.openingElement.attributes ?? [];
       const loadingTextAttribute = attributes.find(isJSXAttributeNamed('loadingText'));
+
+      if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
+        // The spread may also carry `loadingText` (or override the migrated value), so leave it for review
+        warn(
+          element.node,
+          '<Modal> spreads props that may include `loadingText`; rename it to `loadingHeading` manually if so'
+        );
+      }
+
       if (!loadingTextAttribute) {
-        if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-          // No literal attribute to match — the spread may carry `loadingText`, so leave it for review
-          warn(
-            element.node,
-            '<Modal> spreads props that may include `loadingText`; rename it to `loadingHeading` manually if so'
-          );
-        }
         return;
       }
 
@@ -87,16 +90,17 @@ function transformer(file: FileInfo, api: API): string {
       if (!loadingHeadingAttribute) {
         // `loadingText` was the fallback heading — rename it to its replacement
         loadingTextAttribute.name = j.jsxIdentifier('loadingHeading');
-      } else if (loadingHeadingAttribute.value?.type === 'StringLiteral') {
-        // A literal `loadingHeading` always takes precedence, so `loadingText` is redundant
+      } else if (getStringValue(loadingHeadingAttribute)) {
+        // A non-empty literal `loadingHeading` always takes precedence, so `loadingText` is redundant
         element.node.openingElement.attributes = attributes.filter(
           attribute => attribute !== loadingTextAttribute
         );
       } else {
-        // `loadingHeading` may be empty at runtime, in which case `loadingText` was the fallback
+        // `loadingHeading` may be empty at runtime (a non-literal, or `""`), in which case
+        // `loadingText` was the fallback
         warn(
           element.node,
-          '<Modal> has `loadingText` and a non-literal `loadingHeading`; merge them manually'
+          '<Modal> has `loadingText` and a `loadingHeading` that may be empty; merge them manually'
         );
       }
     });
