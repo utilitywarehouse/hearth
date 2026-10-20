@@ -9,7 +9,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useRef } from 'react';
 import { Platform, View } from 'react-native';
-import { expect, userEvent, waitFor, within } from 'storybook/test';
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
 import { BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 import { Menu, MenuItem, MenuTrigger } from './';
@@ -82,7 +82,10 @@ export const Playground: Story = {
       </View>
     );
   },
-  play: async ({ canvasElement }) => {
+  args: {
+    onChange: fn(),
+  },
+  play: async ({ args, canvasElement }) => {
     const canvas = within(canvasElement);
 
     // The menu is closed until the trigger is pressed.
@@ -98,6 +101,13 @@ export const Playground: Story = {
       expect(canvas.getByRole('button', { name: 'Download' })).toBeInTheDocument();
       expect(canvas.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
     });
+
+    // The items mount before the sheet has measured its layout and finished opening. A
+    // dismiss before then is dropped by @gorhom/bottom-sheet, so wait until the sheet
+    // reports it has settled at index 0 before pressing an item.
+    await waitFor(() =>
+      expect(args.onChange).toHaveBeenLastCalledWith(0, expect.anything(), expect.anything())
+    );
 
     const editItem = canvas.getByRole('button', { name: 'Edit' });
     await userEvent.click(editItem);
