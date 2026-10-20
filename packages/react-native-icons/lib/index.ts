@@ -82,6 +82,8 @@ export { default as GasMediumIcon } from './GasMediumIcon';
 export { default as GasSmallIcon } from './GasSmallIcon';
 export { default as GoalMediumIcon } from './GoalMediumIcon';
 export { default as GreenDealElectricityMediumIcon } from './GreenDealElectricityMediumIcon';
+export { default as HeadsetOffMediumIcon } from './HeadsetOffMediumIcon';
+export { default as HeadsetOffSmallIcon } from './HeadsetOffSmallIcon';
 export { default as HeartMediumIcon } from './HeartMediumIcon';
 export { default as HeartOutlineMediumIcon } from './HeartOutlineMediumIcon';
 export { default as HeartSmallIcon } from './HeartSmallIcon';

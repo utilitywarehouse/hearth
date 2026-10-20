@@ -82,6 +82,8 @@ export { GasMediumIcon } from './GasMediumIcon';
 export { GasSmallIcon } from './GasSmallIcon';
 export { GoalMediumIcon } from './GoalMediumIcon';
 export { GreenDealElectricityMediumIcon } from './GreenDealElectricityMediumIcon';
+export { HeadsetOffMediumIcon } from './HeadsetOffMediumIcon';
+export { HeadsetOffSmallIcon } from './HeadsetOffSmallIcon';
 export { HeartMediumIcon } from './HeartMediumIcon';
 export { HeartOutlineMediumIcon } from './HeartOutlineMediumIcon';
 export { HeartSmallIcon } from './HeartSmallIcon';
