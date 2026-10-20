@@ -2,6 +2,8 @@
 '@utilitywarehouse/hearth-codemod': patch
 ---
 
-Skip files without a Hearth `Modal` import in the `remove-modal-loading-text` and `remove-modal-fullscreen` codemods
+🐛 [BUG FIX]: Skip files without a `Modal` import in the Modal codemods
 
-Files that don't import `Modal` from `@utilitywarehouse/hearth-react`, including empty and comment-only files, are now returned unchanged.
+The `remove-modal-loading-text` and `remove-modal-fullscreen` codemods now
+return files that don't import `Modal` from `@utilitywarehouse/hearth-react`
+unchanged, including empty and comment-only files.
