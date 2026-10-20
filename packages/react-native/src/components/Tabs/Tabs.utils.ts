@@ -67,13 +67,15 @@ export interface ResolveValidValueOptions {
 /**
  * Keeps the uncontrolled value valid when the set of rendered tabs changes:
  * falls back to the first tab value when there is no previous value, or when
- * the previous value no longer matches any rendered tab.
+ * the previous value no longer matches any rendered tab. An empty string is an
+ * explicit "no tab selected" and is kept as-is.
  */
 export const resolveValidValue = ({
   prev,
   tabValues,
 }: ResolveValidValueOptions): string | undefined => {
-  if (!prev) return tabValues[0];
+  if (prev === undefined) return tabValues[0];
+  if (prev === '') return prev;
   if (!tabValues.includes(prev)) return tabValues[0];
   return prev;
 };
