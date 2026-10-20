@@ -36,6 +36,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
   const {
     className,
     onChange,
+    onSelect,
     onCalendarOpen,
     onCalendarClose,
     validationStatus,
@@ -97,11 +98,20 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     date: Date | null,
     event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
   ) => {
+    if (onChange !== undefined) {
+      onChange(date, event);
+    }
+  };
+
+  const handleSelect = (
+    date: Date | null,
+    event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
+  ) => {
     if (view !== 'days') {
       setView(prevView[view]);
     }
-    if (onChange !== undefined) {
-      onChange(date, event);
+    if (onSelect !== undefined) {
+      onSelect(date, event);
     }
   };
 
@@ -178,6 +188,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
 
   const eventHandlingProps = {
     onChange: handleChange,
+    onSelect: handleSelect,
     onCalendarClose: handleCalendarClose,
     onCalendarOpen: handleCalendarOpen,
   };
