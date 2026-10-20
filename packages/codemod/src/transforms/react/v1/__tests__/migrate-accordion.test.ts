@@ -26,7 +26,9 @@ describe('migrate-accordion', () => {
       expect.stringContaining('`onValueChange`'),
       expect.stringContaining('non-literal `type`'),
       expect.stringContaining('no `type` attribute'),
-      expect.stringContaining('no `type` attribute'),
+      expect.stringContaining('spreads props that may include `type`'),
+      expect.stringContaining('spreads props that may include `type`'),
+      expect.stringContaining('spreads props that may include `forceMount`'),
     ]);
   });
 });

@@ -21,7 +21,17 @@ const Component = ({ items, spread, mode, selected }) => (
     <Accordion {...spread} />
     <Accordion multiple defaultValue={['a']} />
     <AccordionContent keepMounted={false} />
+    <Accordion multiple />
+    <Accordion {...spread} />
+    <AccordionContent {...spread} />
+    <AccordionContent keepMounted />
   </>
+);
+
+const Shadowed = ({ Accordion, AccordionContent }) => (
+  <Accordion type="single" value="x">
+    <AccordionContent forceMount />
+  </Accordion>
 );
 
 export default Component;

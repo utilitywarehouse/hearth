@@ -24,6 +24,10 @@ function getStringValue(attribute: JSXAttribute): string | undefined {
   return undefined;
 }
 
+interface NodeWithScope {
+  scope?: { lookup(name: string): { isGlobal: boolean } | null } | null;
+}
+
 interface NodeWithComments {
   comments?: unknown;
 }
@@ -53,8 +57,15 @@ function transformer(file: FileInfo, api: API): string {
         .map(specifier => ((specifier.local ?? specifier.imported) as Identifier).name)
     );
 
+  // Only elements that resolve to the import — a parameter or local with the same name shadows it
+  const findImportedElements = (localName: string) =>
+    root.findJSXElements(localName).filter(
+      // jscodeshift's `NodePath#scope` isn't typed, so narrow it to the one method we use
+      element => (element as NodeWithScope).scope?.lookup(localName)?.isGlobal ?? false
+    );
+
   getLocalNames('Accordion').forEach(localName => {
-    root.findJSXElements(localName).forEach(element => {
+    findImportedElements(localName).forEach(element => {
       const warn = (message: string) =>
         console.warn(
           `${file.path}:${element.node.loc?.start.line ?? '?'} <${localName}> ${message}`
@@ -62,6 +73,14 @@ function transformer(file: FileInfo, api: API): string {
       const attributes = element.node.openingElement.attributes ?? [];
       const find = (name: string) => attributes.find(isJSXAttributeNamed(name));
       const remove = new Set<JSXAttribute | JSXSpreadAttribute>();
+      const hasSpread = attributes.some(attribute => attribute.type === 'JSXSpreadAttribute');
+
+      if (hasSpread) {
+        // No literal attributes to match — the spread may carry any of the removed or changed props
+        warn(
+          'spreads props that may include `type`, `collapsible`, `value`, `defaultValue` or `onValueChange`; review them manually'
+        );
+      }
 
       const typeAttribute = find('type');
       if (typeAttribute) {
@@ -69,12 +88,17 @@ function transformer(file: FileInfo, api: API): string {
         if (type === 'single') {
           remove.add(typeAttribute);
         } else if (type === 'multiple') {
-          typeAttribute.name = j.jsxIdentifier('multiple');
-          typeAttribute.value = null;
+          if (find('multiple')) {
+            // Already migrated — `multiple` is kept, so `type` is redundant
+            remove.add(typeAttribute);
+          } else {
+            typeAttribute.name = j.jsxIdentifier('multiple');
+            typeAttribute.value = null;
+          }
         } else {
           warn('has a non-literal `type`; replace it with `multiple` (or remove it) manually');
         }
-      } else if (!find('multiple')) {
+      } else if (!find('multiple') && !hasSpread) {
         // No literal `type` — the old runtime default was multi-select, so single-select may be wrong
         warn(
           'has no `type` attribute; it used to default to multi-select, add `multiple` if that is still intended'
@@ -122,13 +146,24 @@ function transformer(file: FileInfo, api: API): string {
   });
 
   getLocalNames('AccordionContent').forEach(localName => {
-    root.findJSXElements(localName).forEach(element => {
-      const forceMountAttribute = (element.node.openingElement.attributes ?? []).find(
-        isJSXAttributeNamed('forceMount')
-      );
+    findImportedElements(localName).forEach(element => {
+      const attributes = element.node.openingElement.attributes ?? [];
+      const forceMountAttribute = attributes.find(isJSXAttributeNamed('forceMount'));
+
       if (forceMountAttribute) {
-        // Same semantics, new name — rename preserves the value and the shorthand form
-        forceMountAttribute.name = j.jsxIdentifier('keepMounted');
+        if (attributes.some(isJSXAttributeNamed('keepMounted'))) {
+          // Already migrated — `keepMounted` takes precedence, so `forceMount` is redundant
+          element.node.openingElement.attributes = attributes.filter(
+            attribute => attribute !== forceMountAttribute
+          );
+        } else {
+          // Same semantics, new name — rename preserves the value and the shorthand form
+          forceMountAttribute.name = j.jsxIdentifier('keepMounted');
+        }
+      } else if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
+        console.warn(
+          `${file.path}:${element.node.loc?.start.line ?? '?'} <${localName}> spreads props that may include \`forceMount\`; rename it to \`keepMounted\` manually if so`
+        );
       }
     });
   });
