@@ -22,6 +22,7 @@ interface RunArgv extends RunFlags {
 function checkGitStatus(force: boolean): void {
   let clean = false;
   let errorMessage = 'Unable to determine if git directory is clean';
+  let gitError = '';
   try {
     const output = execSync('git status --porcelain', { encoding: 'utf8' });
     clean = output.trim() === '';
@@ -31,6 +32,8 @@ function checkGitStatus(force: boolean): void {
     const stderrText = Buffer.isBuffer(stderr) ? stderr.toString('utf8') : stderr;
     if (stderrText.toLowerCase().includes('not a git repository')) {
       clean = true;
+    } else {
+      gitError = stderrText.trim();
     }
   }
 
@@ -39,7 +42,11 @@ function checkGitStatus(force: boolean): void {
       console.log(`WARNING: ${errorMessage}. Forcibly continuing.`);
     } else {
       console.log('Thank you for using @utilitywarehouse/hearth-codemod!');
-      console.log('\nBut before we continue, please stash or commit your git changes.');
+      if (gitError) {
+        console.log(`\n${errorMessage}: ${gitError}`);
+      } else {
+        console.log('\nBut before we continue, please stash or commit your git changes.');
+      }
       console.log('\nYou may use the --force flag to override this safety check.');
       process.exit(1);
     }
@@ -47,6 +54,12 @@ function checkGitStatus(force: boolean): void {
 }
 
 function runJscodeshiftTransform(codemod: string, files: Array<string>, flags: RunFlags): void {
+  if (codemod.includes('..') || /__test(s|fixtures)__/.test(codemod)) {
+    throw new Error(
+      `Codemod '${codemod}' not found. See README.md for a list of available codemods.`
+    );
+  }
+
   const transformPath = path.resolve(__dirname, '..', 'src', 'transforms', `${codemod}.ts`);
 
   if (!existsSync(transformPath)) {
@@ -66,6 +79,8 @@ function runJscodeshiftTransform(codemod: string, files: Array<string>, flags: R
     'tsx',
     '--ignore-pattern',
     '**/node_modules/**',
+    // jscodeshift exits 0 when a file fails to parse unless told otherwise
+    '--fail-on-error',
   ];
 
   if (flags.dry) {
@@ -83,8 +98,9 @@ function runJscodeshiftTransform(codemod: string, files: Array<string>, flags: R
   if (result.error) {
     throw result.error;
   }
-  if (typeof result.status === 'number' && result.status !== 0) {
-    process.exitCode = result.status;
+  if (result.status !== 0) {
+    // `status` is null when the child was killed by a signal
+    process.exitCode = result.status ?? 1;
   }
 }
 
