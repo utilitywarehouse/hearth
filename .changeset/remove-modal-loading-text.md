@@ -20,6 +20,12 @@ Replace `loadingText` with `loadingHeading`:
 + <Modal loadingHeading="Loading...">
 ```
 
+`loadingDescription` is only rendered when `loadingHeading` is set. Previously
+`loadingText` acted as the heading, so a `Modal` with `loadingText` and
+`loadingDescription` showed both; after this change that description is no
+longer rendered until `loadingText` is replaced with `loadingHeading`. Without a
+`loadingHeading` the loading state shows a default "Loading" heading.
+
 Run the codemod to update your code automatically:
 
 ```sh
