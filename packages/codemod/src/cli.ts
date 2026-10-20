@@ -33,7 +33,8 @@ function checkGitStatus(force: boolean): void {
     if (stderrText.toLowerCase().includes('not a git repository')) {
       clean = true;
     } else {
-      gitError = stderrText.trim();
+      // `execSync` can fail before git writes anything (e.g. git can't be spawned)
+      gitError = stderrText.trim() || (error as Error).message;
     }
   }
 
