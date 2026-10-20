@@ -11,7 +11,14 @@ A container component that groups multiple `Pill` components together for filter
 
 ```tsx
 // Example usage
-<PillGroup {...props} value={value} onChange={setValue}>
+<PillGroup
+  {...props}
+  value={value}
+  onChange={next => {
+    setValue(next);
+    playgroundOnChange(next);
+  }}
+>
   <Pill value="1" label="All" />
   <Pill value="2" label="Energy" />
   <Pill value="3" label="Broadband" />

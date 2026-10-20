@@ -63,18 +63,17 @@ export const Playground: Story = {
 
     // ToggleButton has no local toggle state of its own - `toggled` is a plain
     // controlled prop, and pressing calls `onToggle` with the flipped value.
-    // `react-native-web` does not map `accessibilityState={{ selected }}` to
-    // an `aria-selected`/`aria-pressed` DOM attribute here (verified via live
-    // DOM inspection - same gap as Tab/SegmentedControlOption/Pill, see
-    // UWDS-4909), and the Unistyles-variant-driven background colour change
-    // isn't reliably observable via `getComputedStyle` in every test
-    // environment either, so this characterizes the `onToggle` callback
-    // contract instead of the rendered style.
+    // `react-native-web` ignores `accessibilityState`, so the button sets
+    // `aria-pressed` itself on web.
+    await expect(button).toHaveAttribute('aria-pressed', 'false');
+
     await userEvent.click(button);
     expect(playgroundOnToggle).toHaveBeenLastCalledWith(true);
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
 
     await userEvent.click(button);
     expect(playgroundOnToggle).toHaveBeenLastCalledWith(false);
+    await expect(button).toHaveAttribute('aria-pressed', 'false');
   },
 };
 

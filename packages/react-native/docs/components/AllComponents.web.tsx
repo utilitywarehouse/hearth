@@ -121,8 +121,10 @@ import {
   TimePicker,
   TimePickerInput,
   ToastItem,
+  ToggleButton,
   ToggleButtonCard,
   ToggleButtonCardGroup,
+  ToggleGroup,
   UL,
   useColorMode,
   VerificationInput,
@@ -963,6 +965,14 @@ const AllComponents: React.FC = () => {
                     <BodyText size="md">I'm a toggle button card</BodyText>
                   </ToggleButtonCard>
                 </ToggleButtonCardGroup>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Toggle Group" link="components-togglegroup">
+              <Center flex={1}>
+                <ToggleGroup type="single" defaultValue="1" gap="200">
+                  <ToggleButton value="1" text="Monthly" />
+                  <ToggleButton value="2" text="Annually" />
+                </ToggleGroup>
               </Center>
             </ComponentWrapper>
 
