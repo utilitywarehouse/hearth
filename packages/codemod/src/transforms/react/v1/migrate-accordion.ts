@@ -21,14 +21,6 @@ function transformer(file: FileInfo, api: API): string {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  const getFirstNode = (): NodeWithComments =>
-    // jscodeshift's NodePath#get() isn't generic, so `.node` resolves to `any`
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    root.find(j.Program).get('body', 0).node as NodeWithComments;
-  // Save the comments attached to the first node
-  const firstNode = getFirstNode();
-  const { comments } = firstNode;
-
   const getLocalNames = (importedName: string) =>
     new Set(
       root
@@ -41,6 +33,20 @@ function transformer(file: FileInfo, api: API): string {
         // broader `IdentifierKind` type only matters for `TSTypeParameter`, which can't appear here
         .map(specifier => ((specifier.local ?? specifier.imported) as Identifier).name)
     );
+
+  // Nothing to transform — also avoids a crash on empty/comment-only files (no first node)
+  // and reprinting files that don't use Accordion
+  if (getLocalNames('Accordion').size === 0) {
+    return file.source;
+  }
+
+  const getFirstNode = (): NodeWithComments =>
+    // jscodeshift's NodePath#get() isn't generic, so `.node` resolves to `any`
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    root.find(j.Program).get('body', 0).node as NodeWithComments;
+  // Save the comments attached to the first node
+  const firstNode = getFirstNode();
+  const { comments } = firstNode;
 
   // Only elements that resolve to the import — a parameter or local with the same name shadows it
   const findImportedElements = (localName: string) =>
