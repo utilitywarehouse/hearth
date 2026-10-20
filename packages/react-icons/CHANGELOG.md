@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.10.0
+
+### Minor Changes
+
+- [#1713](https://github.com/utilitywarehouse/hearth/pull/1713) [`e8bb66e`](https://github.com/utilitywarehouse/hearth/commit/e8bb66ee9f5b1393f49cda4fc07a3c5d2054a033) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+  
+  - HeadsetOffSmallIcon
+  - HeadsetOffMediumIcon
+  
+  ## CHANGED ICONS
+  
+  No changed icons.
+  
+  ## REMOVED ICONS
+  
+  No removed icons.
+
 ## 0.9.4
 
 ### Patch Changes
