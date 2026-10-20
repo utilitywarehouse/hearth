@@ -92,6 +92,12 @@ function run(argv: RunArgv): void {
   const { codemod, paths, force, ...flags } = argv;
   const files = paths.map(filePath => path.resolve(filePath));
 
+  const missing = files.filter(file => !existsSync(file));
+  if (missing.length > 0) {
+    console.error(`Path not found: ${missing.join(', ')}`);
+    process.exit(1);
+  }
+
   if (!flags.dry) {
     checkGitStatus(force);
   }
@@ -133,6 +139,7 @@ void yargs(hideBin(process.argv))
         }),
     handler: run,
   })
+  .strict()
   .scriptName('npx @utilitywarehouse/hearth-codemod')
   .example(
     '$0 react/v1/remove-modal-loading-text src',
