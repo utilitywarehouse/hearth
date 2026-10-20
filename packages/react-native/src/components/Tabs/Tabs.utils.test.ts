@@ -113,6 +113,10 @@ describe('resolveValidValue', () => {
   it('keeps the previous value when it is still a valid tab', () => {
     expect(resolveValidValue({ prev: 'b', tabValues: ['a', 'b'] })).toBe('b');
   });
+
+  it('keeps an explicit empty-string value rather than falling back to the first tab', () => {
+    expect(resolveValidValue({ prev: '', tabValues: ['a', 'b'] })).toBe('');
+  });
 });
 
 describe('computeScrollVisibility', () => {
