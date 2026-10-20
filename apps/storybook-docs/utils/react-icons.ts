@@ -83,6 +83,8 @@ import { GasMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasMediu
 import { GasSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasSmallIcon';
 import { GoalMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GoalMediumIcon';
 import { GreenDealElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GreenDealElectricityMediumIcon';
+import { HeadsetOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeadsetOffMediumIcon';
+import { HeadsetOffSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeadsetOffSmallIcon';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartMediumIcon';
 import { HeartOutlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartOutlineMediumIcon';
 import { HeartSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartSmallIcon';
@@ -298,6 +300,8 @@ export const reactIcons = [
   GasSmallIcon,
   GoalMediumIcon,
   GreenDealElectricityMediumIcon,
+  HeadsetOffMediumIcon,
+  HeadsetOffSmallIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
   HeartSmallIcon,

@@ -132,6 +132,10 @@
     "name": "GasSmallIcon"
   },
   {
+    "id": "2866:31",
+    "name": "HeadsetOffSmallIcon"
+  },
+  {
     "id": "2165:39",
     "name": "HeartSmallIcon"
   },
@@ -558,6 +562,10 @@
   {
     "id": "20:127",
     "name": "GreenDealElectricityMediumIcon"
+  },
+  {
+    "id": "2866:40",
+    "name": "HeadsetOffMediumIcon"
   },
   {
     "id": "6:459",
