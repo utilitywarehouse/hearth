@@ -45,6 +45,14 @@ describe('remove-modal-loading-text', () => {
     );
   });
 
+  it('leaves a locally shadowed Modal untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-shadowed');
+  });
+
+  it('leaves a locally shadowed namespace untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-shadowed-namespace');
+  });
+
   it('leaves an empty file untouched', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-empty');
   });
