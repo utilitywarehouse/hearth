@@ -233,6 +233,13 @@
       "source": "../lib/GasSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2866:31&m=dev",
+      "id": "headset-off-small-icon",
+      "name": "HeadsetOffSmallIcon",
+      "component": "HeadsetOffSmallIcon",
+      "source": "../lib/HeadsetOffSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2165:39&m=dev",
       "id": "heart-small-icon",
       "name": "HeartSmallIcon",
@@ -980,6 +987,13 @@
       "name": "GreenDealElectricityMediumIcon",
       "component": "GreenDealElectricityMediumIcon",
       "source": "../lib/GreenDealElectricityMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2866:40&m=dev",
+      "id": "headset-off-medium-icon",
+      "name": "HeadsetOffMediumIcon",
+      "component": "HeadsetOffMediumIcon",
+      "source": "../lib/HeadsetOffMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:459&m=dev",

@@ -166,6 +166,11 @@
       "hash": "9a37b92f86871a603346288d775c849024fb173562c3a159d1abf45e1a5d1dc3"
     },
     {
+      "name": "HeadsetOffSmallIcon",
+      "path": "headset-off-small-icon.svg",
+      "hash": "9be88d308e146852a54cc913a1a9840242e4d77cae3f744507c68bc69bfa347b"
+    },
+    {
       "name": "HeartSmallIcon",
       "path": "heart-small-icon.svg",
       "hash": "ec39fcd11f7f1f930d9dc308495c8c14052f5b4c039a205ba146b7a3cf7780fc"
@@ -699,6 +704,11 @@
       "name": "GreenDealElectricityMediumIcon",
       "path": "green-deal-electricity-medium-icon.svg",
       "hash": "ae73ada79ee6b0ec3c7cd496544fe179e842980057cf9d3a9aa0ecf3351328cf"
+    },
+    {
+      "name": "HeadsetOffMediumIcon",
+      "path": "headset-off-medium-icon.svg",
+      "hash": "82aa081df897576a7c8fdefd902c2f8b7e299a706938e7ff5331e536ce57f2e3"
     },
     {
       "name": "HeartMediumIcon",
