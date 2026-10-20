@@ -33,6 +33,7 @@ import FilterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/filter-small
 import FlameSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/flame-small-icon.svg';
 import FullscreenSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/fullscreen-small-icon.svg';
 import GasSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-small-icon.svg';
+import HeadsetOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/headset-off-small-icon.svg';
 import HeartSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-small-icon.svg';
 import HomeAndBoilerSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/home-and-boiler-small-icon.svg';
 import HomeInsuranceSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/home-insurance-small-icon.svg';
@@ -140,6 +141,7 @@ import FullscreenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fullscr
 import GasMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-medium-icon.svg';
 import GoalMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/goal-medium-icon.svg';
 import GreenDealElectricityMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/green-deal-electricity-medium-icon.svg';
+import HeadsetOffMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/headset-off-medium-icon.svg';
 import HeartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-medium-icon.svg';
 import HeartOutlineMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/heart-outline-medium-icon.svg';
 import HistoryMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/history-medium-icon.svg';
@@ -248,6 +250,7 @@ export const svgIcons = [
   FlameSmallIcon,
   FullscreenSmallIcon,
   GasSmallIcon,
+  HeadsetOffSmallIcon,
   HeartSmallIcon,
   HomeAndBoilerSmallIcon,
   HomeInsuranceSmallIcon,
@@ -355,6 +358,7 @@ export const svgIcons = [
   GasMediumIcon,
   GoalMediumIcon,
   GreenDealElectricityMediumIcon,
+  HeadsetOffMediumIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
   HistoryMediumIcon,
