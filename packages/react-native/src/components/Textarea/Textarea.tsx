@@ -96,7 +96,7 @@ const Textarea = ({
   helperText,
   validText,
   invalidText,
-  required = true,
+  required,
   helperIcon,
   onLayout,
   ...props
