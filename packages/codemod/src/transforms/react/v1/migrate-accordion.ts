@@ -1,4 +1,5 @@
 import type { API, FileInfo, Identifier, JSXAttribute, JSXSpreadAttribute } from 'jscodeshift';
+import { getStringValue } from '../../../utils/get-string-value';
 
 const ACCORDION_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -6,22 +7,6 @@ function isJSXAttributeNamed(name: string) {
   return (attribute: unknown): attribute is JSXAttribute =>
     (attribute as JSXAttribute).type === 'JSXAttribute' &&
     (attribute as JSXAttribute).name.name === name;
-}
-
-/** The attribute's value if it is a plain string, as `a="x"` or `a={'x'}`; otherwise `undefined`. */
-function getStringValue(attribute: JSXAttribute): string | undefined {
-  const node =
-    attribute.value?.type === 'JSXExpressionContainer'
-      ? attribute.value.expression
-      : attribute.value;
-  if (
-    node &&
-    (node.type === 'StringLiteral' || node.type === 'Literal') &&
-    typeof node.value === 'string'
-  ) {
-    return node.value;
-  }
-  return undefined;
 }
 
 interface NodeWithScope {
