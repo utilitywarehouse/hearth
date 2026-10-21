@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-native';
 import { View } from 'react-native';
 import { expect, within } from 'storybook/test';
 import { Textarea } from '.';
+import { FormField } from '../FormField';
 
 const meta = {
   title: 'Stories / Textarea',
@@ -61,7 +62,7 @@ const meta = {
     required: {
       control: 'boolean',
       description: 'Whether the Textarea component is required',
-      defaultValue: true,
+      defaultValue: false,
     },
     resizable: {
       control: 'boolean',
@@ -97,6 +98,28 @@ export const Playground: Story = {
     expect(textarea).not.toHaveAttribute('aria-disabled');
     expect(textarea).toHaveAttribute('aria-invalid', 'false');
     expect(textarea).not.toHaveAttribute('readonly');
+    expect(textarea.getAttribute('aria-required')).not.toBe('true');
+  },
+};
+
+export const RequiredFromFormField: Story = {
+  render: () => (
+    <View style={{ gap: 16 }}>
+      <FormField label="Required notes" required>
+        <Textarea placeholder="Inherits required" />
+      </FormField>
+      <FormField label="Overridden notes" required>
+        <Textarea placeholder="Overrides required" required={false} />
+      </FormField>
+    </View>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inherited = await canvas.findByPlaceholderText('Inherits required');
+    const overridden = await canvas.findByPlaceholderText('Overrides required');
+
+    expect(inherited).toHaveAttribute('aria-required', 'true');
+    expect(overridden.getAttribute('aria-required')).not.toBe('true');
   },
 };
 
