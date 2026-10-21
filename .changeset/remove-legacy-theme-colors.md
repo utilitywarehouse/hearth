@@ -46,6 +46,10 @@ UnistylesRuntime.updateTheme('dark', theme => ({
 Use `updateTheme` rather than a second `StyleSheet.configure`: on native, `configure` doesn't replace a
 theme that's already registered.
 
+For every change in v1, see the
+[Migrating to v1](https://hearth.prod.uw.systems/react-native/?path=/docs/guides-migrating-to-v1--docs)
+guide.
+
 **References**:
 
 - [UWDS-4917](https://linear.app/utilitywarehouse/issue/UWDS-4917/remove-legacy-tokens-from-hearth-react-native-and-provide-an-auto)
