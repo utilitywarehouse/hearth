@@ -56,11 +56,10 @@ function transformer(file: FileInfo, api: API): string {
           element.node.openingElement.attributes = attributes.filter(
             attribute => attribute !== fullScreenAttribute
           );
-          return;
         }
 
         if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-          // No literal attribute to match — the spread may carry `fullScreen`, so leave it for review
+          // The spread may also carry `fullScreen`, so leave it for review
           console.warn(
             `${file.path}:${element.node.loc?.start.line ?? '?'} <${localName}> spreads props that may include \`fullScreen\`; remove it manually if so`
           );
