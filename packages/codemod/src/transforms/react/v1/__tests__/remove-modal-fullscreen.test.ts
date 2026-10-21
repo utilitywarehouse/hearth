@@ -1,8 +1,12 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { runTransformFixtureTest } from '../../../../test-utils';
 import * as transform from '../remove-modal-fullscreen';
 
 describe('remove-modal-fullscreen', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
   it('transforms correctly', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen');
   });
@@ -19,7 +23,6 @@ describe('remove-modal-fullscreen', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-spread');
     expect(warn).toHaveBeenCalledOnce();
-    warn.mockRestore();
   });
 
   it('leaves an empty file untouched', () => {
