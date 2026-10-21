@@ -11,6 +11,10 @@ describe('remove-modal-fullscreen', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-aliased-import');
   });
 
+  it('leaves a locally shadowed Modal untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-shadowed');
+  });
+
   it('leaves an empty file untouched', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-empty');
   });

@@ -1,4 +1,5 @@
 import type { API, FileInfo, Identifier, JSXAttribute } from 'jscodeshift';
+import { isShadowed } from '../../../utils/is-shadowed';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -42,25 +43,29 @@ function transformer(file: FileInfo, api: API): string {
   const { comments } = firstNode;
 
   modalLocalNames.forEach(localName => {
-    root.findJSXElements(localName).forEach(element => {
-      const attributes = element.node.openingElement.attributes ?? [];
-      const fullScreenAttribute = attributes.find(isJSXAttributeNamed('fullScreen'));
+    root
+      .findJSXElements(localName)
+      // a binding declared in an inner scope shadows the import
+      .filter(element => !isShadowed(element, localName))
+      .forEach(element => {
+        const attributes = element.node.openingElement.attributes ?? [];
+        const fullScreenAttribute = attributes.find(isJSXAttributeNamed('fullScreen'));
 
-      if (fullScreenAttribute) {
-        // `fullScreen` was a no-op, so removing it in any form never changes behaviour
-        element.node.openingElement.attributes = attributes.filter(
-          attribute => attribute !== fullScreenAttribute
-        );
-        return;
-      }
+        if (fullScreenAttribute) {
+          // `fullScreen` was a no-op, so removing it in any form never changes behaviour
+          element.node.openingElement.attributes = attributes.filter(
+            attribute => attribute !== fullScreenAttribute
+          );
+          return;
+        }
 
-      if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-        // No literal attribute to match — the spread may carry `fullScreen`, so leave it for review
-        console.warn(
-          `${file.path}:${element.node.loc?.start.line ?? '?'} <${localName}> spreads props that may include \`fullScreen\`; remove it manually if so`
-        );
-      }
-    });
+        if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
+          // No literal attribute to match — the spread may carry `fullScreen`, so leave it for review
+          console.warn(
+            `${file.path}:${element.node.loc?.start.line ?? '?'} <${localName}> spreads props that may include \`fullScreen\`; remove it manually if so`
+          );
+        }
+      });
   });
 
   // If the first node has been modified or deleted, reattach the comments

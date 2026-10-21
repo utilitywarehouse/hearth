@@ -1,5 +1,6 @@
 import type { API, FileInfo, Identifier, JSXAttribute, JSXElement } from 'jscodeshift';
 import { getStringValue } from '../../../utils/get-string-value';
+import { isShadowed } from '../../../utils/is-shadowed';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -57,15 +58,17 @@ function transformer(file: FileInfo, api: API): string {
 
   root
     .find(j.JSXElement)
-    .filter(({ node }) => {
-      const { name } = node.openingElement;
+    .filter(path => {
+      const { name } = path.node.openingElement;
       if (name.type === 'JSXIdentifier') {
-        return modalLocalNames.has(name.name);
+        // a binding declared in an inner scope shadows the import
+        return modalLocalNames.has(name.name) && !isShadowed(path, name.name);
       }
       return (
         name.type === 'JSXMemberExpression' &&
         name.object.type === 'JSXIdentifier' &&
         namespaceNames.has(name.object.name) &&
+        !isShadowed(path, name.object.name) &&
         name.property.name === 'Modal'
       );
     })
