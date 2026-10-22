@@ -1,8 +1,8 @@
 ---
-'@utilitywarehouse/hearth-react': minor
+'@utilitywarehouse/hearth-react': major
 ---
 
-💔 [BREAKING CHANGE]: Remove deprecated `loadingText` prop from `Modal`
+💔 [BREAKING CHANGE]: `Modal` `loadingText` prop removed
 
 `loadingText` was deprecated in favour of `loadingHeading` and
 `loadingDescription`, which provide a clearer separation of the loading
@@ -32,4 +32,4 @@ Run the codemod to update your code automatically:
 npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-loading-text <path>
 ```
 
-See the [`v1` migration guide](../docs/migration/v1.docs.mdx) for details.
+See the [`v1` migration guide](../packages/react/docs/migration/v1.docs.mdx) for details.

@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react': major
 ---
 
-💔 [BREAKING CHANGE]: Remove deprecated `fullScreen` prop from `Modal`
+💔 [BREAKING CHANGE]: `Modal` `fullScreen` prop removed
 
 `fullScreen` has had no effect since `Modal` stopped forcing a 90vh desktop
 height, and has been marked `@deprecated` since. It has now been removed.
@@ -25,4 +25,4 @@ Run the codemod to update your code automatically:
 npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-fullscreen <path>
 ```
 
-See the [`v1` migration guide](../docs/migration/v1.docs.mdx) for details.
+See the [`v1` migration guide](../packages/react/docs/migration/v1.docs.mdx) for details.

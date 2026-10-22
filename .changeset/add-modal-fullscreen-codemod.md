@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-codemod': minor
 ---
 
-🔧 [ENHANCEMENT]: Add `react/v1/remove-modal-fullscreen` codemod
+🌟 [FEATURE]: `react/v1/remove-modal-fullscreen` codemod available
 
 Removes `Modal`'s `fullScreen` prop in every form (`fullScreen`,
 `fullScreen={true}`, `fullScreen={false}` and `fullScreen={expr}`). The prop
