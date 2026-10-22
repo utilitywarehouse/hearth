@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionTriggerProps } from './AccordionTrigger.props';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import type { ComponentRef } from 'react';
 
