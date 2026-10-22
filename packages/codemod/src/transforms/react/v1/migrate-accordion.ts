@@ -35,8 +35,8 @@ function transformer(file: FileInfo, api: API): string {
     );
 
   // Nothing to transform — also avoids a crash on empty/comment-only files (no first node)
-  // and reprinting files that don't use Accordion
-  if (getLocalNames('Accordion').size === 0) {
+  // and reprinting files that use neither Accordion nor AccordionContent
+  if (getLocalNames('Accordion').size === 0 && getLocalNames('AccordionContent').size === 0) {
     return file.source;
   }
 

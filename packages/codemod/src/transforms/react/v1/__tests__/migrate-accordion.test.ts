@@ -16,6 +16,10 @@ describe('migrate-accordion', () => {
     runTransformFixtureTest(__dirname, transform, 'migrate-accordion-aliased-import');
   });
 
+  it('migrates AccordionContent in files that do not import Accordion', () => {
+    runTransformFixtureTest(__dirname, transform, 'migrate-accordion-content-only');
+  });
+
   it('warns about usages that need manual migration', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     runTransformFixtureTest(__dirname, transform, 'migrate-accordion');
