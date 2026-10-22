@@ -1,4 +1,5 @@
-import type { API, FileInfo, Identifier, JSXAttribute } from 'jscodeshift';
+import type { API, FileInfo, JSXAttribute } from 'jscodeshift';
+import { getImportLocalNames } from '../../../utils/get-import-local-names';
 import { isShadowed } from '../../../utils/is-shadowed';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
@@ -17,17 +18,7 @@ function transformer(file: FileInfo, api: API): string {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  const modalLocalNames = new Set(
-    root
-      .find(j.ImportDeclaration)
-      .filter(path => MODAL_IMPORT_SOURCES.includes(String(path.value.source.value)))
-      .find(j.ImportSpecifier)
-      .filter(path => path.node.imported.name === 'Modal')
-      .nodes()
-      // `local`/`imported` are always plain `Identifier`s on an `ImportSpecifier` — the
-      // broader `IdentifierKind` type only matters for `TSTypeParameter`, which can't appear here
-      .map(specifier => ((specifier.local ?? specifier.imported) as Identifier).name)
-  );
+  const modalLocalNames = getImportLocalNames(j, root, MODAL_IMPORT_SOURCES, 'Modal');
 
   // Nothing to transform — also avoids a crash on empty/comment-only files (no first node)
   if (modalLocalNames.size === 0) {
