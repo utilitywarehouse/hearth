@@ -39,6 +39,9 @@
   },
   "files": [
     "dist",
-    "src/transforms"
+    "src/transforms",
+    "src/utils",
+    "!**/__tests__",
+    "!**/__testfixtures__"
   ]
 }
