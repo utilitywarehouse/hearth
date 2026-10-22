@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-codemod': minor
 ---
 
-🔧 [ENHANCEMENT]: Add `react/v1/migrate-accordion` codemod
+🌟 [FEATURE]: `react/v1/migrate-accordion` codemod available
 
 Migrates `Accordion` usages to the Base UI API: removes `type="single"` and
 `collapsible`, replaces `type="multiple"` with `multiple`, wraps string literal

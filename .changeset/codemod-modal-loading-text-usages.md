@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-codemod': patch
 ---
 
-🐛 [BUG FIX]: `remove-modal-loading-text` leaves some `Modal` usages unmigrated without saying so
+🐛 [FIX]: `remove-modal-loading-text` leaves some `Modal` usages unmigrated without saying so
 
 `<H.Modal>` from a namespace import was skipped, and `loadingText` was dropped
 whenever `loadingHeading` was present, even a conditional or empty one that
