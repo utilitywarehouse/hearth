@@ -90,6 +90,18 @@ Guidelines, taken from `remove-modal-loading-text.ts`:
   resolving to `any`) are expected — cast to a small local interface capturing
   only the fields you use, rather than disabling type-checking broadly.
 
+## Cases every transform covers
+
+Give each its own fixture:
+
+- **Imports**: namespace (`import * as H`), aliased, and mixed with other specifiers.
+- **Spread props** (`{...props}`): warn with file and line, even when a literal prop is also present.
+- **Shadowed binding**: a parameter or inner component with the same name; use `isShadowed` from `src/utils/is-shadowed.ts`.
+- **Type-only imports**: `import type { X }` and `import { type X }` are ignored.
+- **Same name from another library** or `./Local`: left untouched.
+- **Empty and comment-only files**: return `file.source`.
+- **Values**: read string literals with `getStringValue`, which accepts `"x"` and `{'x'}`. Treat `""` and non-literals as unsafe to rewrite: keep the prop and warn.
+
 ## Writing fixture tests
 
 Add `__testfixtures__/<name>.input.tsx` and `<name>.output.tsx`, then a test
@@ -119,6 +131,12 @@ output into the fixture, rather than authoring it by hand.
 (`eslint.config.js` and `.prettierignore` at the repo root) — fixture content
 must stay byte-for-byte what the transform actually produces, not what a
 formatter would prefer.
+
+### Fixtures that prove their guard
+
+- A fixture that expects unchanged output proves its guard only if it fails once the guard is removed. Remove the guard, watch the fixture fail, then restore it.
+- Assert every warning: spy on `console.warn` and match the line number and message. `restoreMocks` is on in `vitest.config.ts`.
+- Check byte-for-byte identity by calling the transform directly: `applyTransform` trims its output.
 
 ## Registering it in the version's migration
 
