@@ -297,9 +297,9 @@ for SEO (for example, primary navigation links), use the `keepMounted` prop on
 - `onSelect` is deprecated. Use `onClick` instead: it fires for both mouse and keyboard activation.
 - `textValue` is deprecated. Use `label` instead: it is used for accessibility and keyboard navigation.
 
-**`MenuContent` deprecation:**
+**`MenuContent` breaking change:**
 
-- `forceMount` is deprecated. Use `keepMounted` instead.
+- `forceMount` has been removed. Use `keepMounted` instead.
 
 ```tsx
 {/* Before */}
@@ -324,13 +324,12 @@ RENAMED (deprecated — old name still works but logs a dev-mode warning):
     both mouse and keyboard activation.
   - `MenuItem: textValue` → `label`: used for keyboard text navigation and
     accessibility.
-  - `MenuContent: forceMount` → `keepMounted`: aligned with Base UI's API.
 
 Please search this codebase for all usages of MenuItem and MenuContent imported
 from '@utilitywarehouse/hearth-react' and apply the following changes:
   - Replace every `onSelect=` on MenuItem with `onClick=`
   - Replace every `textValue=` on MenuItem with `label=`
-  - Replace every `forceMount` on MenuContent with `keepMounted`
+  - Replace every `forceMount` on MenuContent with `keepMounted` (`forceMount` has been removed)
 
 Do not change any other logic, styling, or structure. After making changes,
 run TypeScript to confirm no type errors remain.
@@ -372,7 +371,6 @@ run TypeScript to confirm no type errors remain.
 | `style`       | `CSSProperties`                                            | —            | The style applied to the element                                                     |
 | `placement`   | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` | `bottomLeft` | The placement of the menu relative to the trigger element. Defaults to 'bottomLeft'. |
 | `keepMounted` | `boolean`                                                  | `false`      | Whether the menu should be kept mounted in the DOM when closed. Defaults to false.   |
-| `forceMount`  | `true`                                                     | —            | @deprecated Use `keepMounted` instead. Will be removed in next major.                |
 
 ### MenuItem API
 
