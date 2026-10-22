@@ -1,5 +1,7 @@
-import type { API, FileInfo, Identifier, JSXAttribute, JSXSpreadAttribute } from 'jscodeshift';
+import type { API, FileInfo, JSXAttribute, JSXSpreadAttribute } from 'jscodeshift';
+import { getImportLocalNames } from '../../../utils/get-import-local-names';
 import { getStringValue } from '../../../utils/get-string-value';
+import { isShadowed } from '../../../utils/is-shadowed';
 
 const ACCORDION_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 
@@ -7,10 +9,6 @@ function isJSXAttributeNamed(name: string) {
   return (attribute: unknown): attribute is JSXAttribute =>
     (attribute as JSXAttribute).type === 'JSXAttribute' &&
     (attribute as JSXAttribute).name.name === name;
-}
-
-interface NodeWithScope {
-  scope?: { lookup(name: string): { isGlobal: boolean } | null } | null;
 }
 
 interface NodeWithComments {
@@ -22,17 +20,7 @@ function transformer(file: FileInfo, api: API): string {
   const root = j(file.source);
 
   const getLocalNames = (importedName: string) =>
-    new Set(
-      root
-        .find(j.ImportDeclaration)
-        .filter(path => ACCORDION_IMPORT_SOURCES.includes(String(path.value.source.value)))
-        .find(j.ImportSpecifier)
-        .filter(path => path.node.imported.name === importedName)
-        .nodes()
-        // `local`/`imported` are always plain `Identifier`s on an `ImportSpecifier` — the
-        // broader `IdentifierKind` type only matters for `TSTypeParameter`, which can't appear here
-        .map(specifier => ((specifier.local ?? specifier.imported) as Identifier).name)
-    );
+    getImportLocalNames(j, root, ACCORDION_IMPORT_SOURCES, importedName);
 
   // Nothing to transform — also avoids a crash on empty/comment-only files (no first node)
   // and reprinting files that use neither Accordion nor AccordionContent
@@ -49,11 +37,9 @@ function transformer(file: FileInfo, api: API): string {
   const { comments } = firstNode;
 
   // Only elements that resolve to the import — a parameter or local with the same name shadows it
+  // Only elements that resolve to the import — a parameter or local with the same name shadows it
   const findImportedElements = (localName: string) =>
-    root.findJSXElements(localName).filter(
-      // jscodeshift's `NodePath#scope` isn't typed, so narrow it to the one method we use
-      element => (element as NodeWithScope).scope?.lookup(localName)?.isGlobal ?? false
-    );
+    root.findJSXElements(localName).filter(element => !isShadowed(element, localName));
 
   getLocalNames('Accordion').forEach(localName => {
     findImportedElements(localName).forEach(element => {
