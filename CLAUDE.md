@@ -50,7 +50,6 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts.
 Skills live in `.claude/skills/` (`.agents/skills` links to it); each description says when to use it. Invoke with `/skill-name`.
 
 - Edit skills in their own branch, outside PR stacks: rebasing a commit that touches `.claude/skills/` fails in the agent sandbox.
-- Applying review feedback to a stacked PR: `/stack-review-fix`.
 
 ---
 
