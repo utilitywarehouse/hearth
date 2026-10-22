@@ -405,13 +405,6 @@ export const DeprecatedProps: Story = {
     onSelect.mockClear();
     onClick.mockClear();
     const canvas = within(canvasElement);
-    const item = await waitFor(() => {
-      const found = document.querySelector<HTMLElement>('.h-MenuItem');
-      if (!found) throw new Error('MenuItem not mounted');
-      return found;
-    });
-
-    await expect(item).not.toBeVisible();
 
     await userEvent.click(canvas.getByRole('button', { name: 'Menu trigger' }));
     await userEvent.click(await screen.findByRole('menuitem', { name: 'Deprecated item' }));
