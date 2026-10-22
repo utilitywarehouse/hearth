@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-react': minor
+'@utilitywarehouse/hearth-react': major
 ---
 
 💔 [BREAKING CHANGE]: `MenuContent` `forceMount` removed in favour of `keepMounted`
