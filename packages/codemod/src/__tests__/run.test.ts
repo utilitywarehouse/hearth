@@ -1,14 +1,16 @@
 import { execSync, spawnSync } from 'node:child_process';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi, type MockInstance } from 'vitest';
 import { checkGitStatus, run, runJscodeshiftTransform } from '../run';
 
 vi.mock('node:child_process', () => ({ execSync: vi.fn(), spawnSync: vi.fn() }));
 
 const execSyncMock = vi.mocked(execSync);
 const spawnSyncMock = vi.mocked(spawnSync);
-const exit = vi.spyOn(process, 'exit');
+let exit: MockInstance<typeof process.exit>;
 
 beforeEach(() => {
+  // created per test: `restoreMocks` detaches a spy made at module level
+  exit = vi.spyOn(process, 'exit');
   vi.spyOn(console, 'log').mockImplementation(() => undefined);
   vi.spyOn(console, 'error').mockImplementation(() => undefined);
   exit.mockImplementation(() => {
