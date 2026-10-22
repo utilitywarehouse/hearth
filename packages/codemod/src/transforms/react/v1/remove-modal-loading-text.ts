@@ -10,6 +10,11 @@ function isJSXAttributeNamed(name: string) {
     (attribute as JSXAttribute).name.name === name;
 }
 
+// jscodeshift's typings omit `importKind` on specifiers, but the parser sets it
+function isTypeOnly(node: object): boolean {
+  return (node as { importKind?: string }).importKind === 'type';
+}
+
 interface NodeWithComments {
   comments?: unknown;
 }
@@ -20,12 +25,17 @@ function transformer(file: FileInfo, api: API): string {
 
   const hearthImports = root
     .find(j.ImportDeclaration)
-    .filter(path => MODAL_IMPORT_SOURCES.includes(String(path.value.source.value)));
+    // `import type { Modal }` has no runtime binding to render
+    .filter(
+      path =>
+        !isTypeOnly(path.value) && MODAL_IMPORT_SOURCES.includes(String(path.value.source.value))
+    );
 
   const modalLocalNames = new Set(
     hearthImports
       .find(j.ImportSpecifier)
-      .filter(path => path.node.imported.name === 'Modal')
+      // `import { type Modal }` is type-only too
+      .filter(path => path.node.imported.name === 'Modal' && !isTypeOnly(path.node))
       .nodes()
       // `local`/`imported` are always plain `Identifier`s on an `ImportSpecifier` — the
       // broader `IdentifierKind` type only matters for `TSTypeParameter`, which can't appear here
