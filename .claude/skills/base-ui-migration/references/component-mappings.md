@@ -19,7 +19,7 @@ Use these as a starting point. Always verify against the live base-ui docs — A
 | `Tabs.Trigger` | `Tabs.Tab` | internal rename |
 | `Tabs.Content` | `Tabs.Panel` | internal rename |
 | `activationMode` on Root | `activateOnFocus` on `Tabs.List` | moved + renamed; expose on Hearth's List sub-component if needed |
-| `forceMount` on Content | `keepMounted` on Panel | deprecation shim |
+| `forceMount` on Content | `keepMounted` on Panel | removed (breaking) |
 
 ## Checkbox
 
