@@ -61,7 +61,7 @@ describe('remove-modal-loading-text', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-mixed-imports');
   });
 
-  it('leaves a non-Hearth Modal untouched when Modal is only imported as a type', () => {
+  it('ignores a Modal that is only imported as a type', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-type-import');
   });
 

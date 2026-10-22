@@ -1,8 +1,11 @@
 import type { Modal } from '@utilitywarehouse/hearth-react';
-import { Modal as Other } from './Other';
+import { type Modal as InlineModal } from '@utilitywarehouse/hearth-react';
 
-const Component = (props: React.ComponentProps<typeof Modal>) => (
-  <Other loadingText="Not Hearth" {...props} />
+const Component = () => (
+  <>
+    <Modal loadingText="Type-only import">Content</Modal>
+    <InlineModal loadingText="Inline type-only import">Content</InlineModal>
+  </>
 );
 
 export default Component;
