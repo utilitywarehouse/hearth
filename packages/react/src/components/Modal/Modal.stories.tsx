@@ -386,6 +386,34 @@ export const Loading: Story = {
   ),
 };
 
+/** Without a loadingHeading, the loading state falls back to a default "Loading" heading, and loadingDescription is not rendered. */
+export const LoadingWithoutHeading: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  play: async () => {
+    const dialog = await screen.findByRole('dialog', { name: 'Loading' });
+
+    await expect(dialog).not.toHaveAccessibleDescription();
+    await expect(within(dialog).queryByText('This will not be shown.')).not.toBeInTheDocument();
+  },
+  args: {
+    heading: 'Loading modal',
+    loading: true,
+    loadingDescription: 'This will not be shown.',
+    hideCloseButton: true,
+  },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args} />
+    </ModalRoot>
+  ),
+};
+
 /** Nest a Card inside the modal to demonstrate content composition. */
 export const WithCard: Story = {
   parameters: {
