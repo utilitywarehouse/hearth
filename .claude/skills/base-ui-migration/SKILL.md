@@ -57,7 +57,7 @@ Produce an API diff table as the primary output of the plan. The user must appro
 | Radix prop / part | Base UI equivalent | Change type | Exposed in Hearth props? | Consumer impact |
 |-------------------|--------------------|-------------|--------------------------|-----------------|
 | `Accordion.Content` | `Accordion.Panel` | structural | no | none — internal rename |
-| `forceMount` | `keepMounted` | renamed | yes | deprecated shim |
+| `forceMount` | `keepMounted` | removed | yes | breaking |
 | `type='single'\|'multiple'` | `multiple: boolean` | prop change | yes | breaking |
 | `delayDuration` on Provider | `delay` on Provider | renamed | yes | deprecated shim |
 
@@ -91,7 +91,7 @@ Apply these rules when deciding how to handle each change:
 | Sub-component part rename and Hearth re-exports the sub-component's props type | Breaking — update the exported type name or add a type alias with `@deprecated` |
 | `asChild` on Hearth's public API | Keep as-is — implement internally with `@radix-ui/react-slot` or base-ui's `render` prop |
 | `asChild` only used internally on a primitive sub-part | Remove, switch to base-ui `render` prop |
-| `forceMount` | Always rename to `keepMounted`; deprecation shim |
+| `forceMount` | Remove, switch to base-ui `keepMounted` prop |
 | Positioning props (`side`, `align`, `sideOffset`, etc.) moved from `Content` to `Positioner` | Internal structural change — absorb in Hearth's opaque component; no consumer impact |
 | Radix prop appears absent from Base UI at first glance | **Check carefully before marking as removed** — Base UI often renames rather than drops (e.g. `textValue` → `label`). Always fetch the live Base UI docs and search for synonyms before deciding to break. |
 
@@ -129,24 +129,14 @@ onSelect?: ComponentPropsWithoutRef<typeof MenuPrimitive.Item>['onClick'];
 onSelect?: MouseEventHandler<HTMLElement>;
 ```
 
-**In the props file:**
+### `forceMount` → `keepMounted` (breaking, no shim)
+
+Do not deprecate `forceMount`. Remove it and expose `keepMounted`, typed from the primitive sub-part that owns it (e.g. `Portal`, not `Popup`):
+
 ```ts
-/** @deprecated Use `keepMounted` instead. Will be removed in the next major version. */
-forceMount?: true;
 /** Keep the panel mounted in the DOM even when closed. */
 keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted'];
 ```
-
-Note: always pull `keepMounted`'s type from the primitive sub-part that actually owns it (e.g. `Portal`, not `Popup`).
-
-**In the component file:**
-    import { warn } from '../../helpers/logger';
-
-    warn(
-      forceMount !== undefined,
-      '<ComponentName>: the `forceMount` prop is deprecated. Use `keepMounted` instead.'
-    );
-    const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
 
 ---
 
@@ -183,7 +173,7 @@ Because Hearth's components are opaque (consumers don't compose raw primitives),
 | `side`, `align`, `sideOffset`, `alignOffset` | `Positioner` |
 | `avoidCollisions`, `collisionPadding`, `collisionBoundary` | `Positioner` (as `collisionAvoidance`) |
 | `className`, styling | `Popup` |
-| `forceMount` | `Popup keepMounted` (after shim) |
+| `forceMount` | `keepMounted` (on the sub-part that owns it) |
 
 Example:
 ```tsx
@@ -219,8 +209,6 @@ export interface MenuContentProps {
   children: ReactNode;
   placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
   keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted'];
-  /** @deprecated Use `keepMounted` instead. */
-  forceMount?: true;
 }
 
 // ❌ AVOID — inherits internals (render, style callbacks, nativeButton…)
