@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { PillGroup } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -18,6 +19,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnChange = fn();
+
 export const Playground: Story = {
   args: {
     wrap: false,
@@ -32,13 +35,36 @@ export const Playground: Story = {
     const [value, setValue] = useState<string | string[]>(props.value || '');
 
     return (
-      <PillGroup {...props} value={value} onChange={setValue}>
+      <PillGroup
+        {...props}
+        value={value}
+        onChange={next => {
+          setValue(next);
+          playgroundOnChange(next);
+        }}
+      >
         <Pill value="1" label="All" />
         <Pill value="2" label="Energy" />
         <Pill value="3" label="Broadband" />
         <Pill value="4" label="Mobile" />
       </PillGroup>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const broadbandPill = await canvas.findByRole('button', { name: 'Broadband' });
+
+    // Pill's `accessibilityState={{ selected }}` isn't mapped to an
+    // `aria-selected`/similar DOM attribute by react-native-web (see
+    // UWDS-4909), and the Unistyles-variant-driven "selected" background
+    // colour change isn't reliably observable via `getComputedStyle` in
+    // every test environment either, so this characterizes single-select
+    // mode via the `onChange` callback contract instead of rendered style:
+    // pressing Broadband replaces the current value ('2', Energy) rather
+    // than toggling it onto an array.
+    await userEvent.click(broadbandPill);
+    expect(playgroundOnChange).toHaveBeenLastCalledWith('3');
   },
 };
 

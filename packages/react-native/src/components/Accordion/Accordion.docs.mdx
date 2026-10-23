@@ -84,8 +84,8 @@ const MyComponent = () => {
 | `defaultValue`     | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`        |
 | `value`            | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`        |
 | `onValueChange`    | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
-| `type`             | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
-| `collapsible`      | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
+| `type`             | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'multiple'` |
+| `collapsible`      | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `true`    |
 | `disabled`         | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`    |
 | `noPadding`        | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
 | `contentNoPadding` | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
@@ -150,11 +150,11 @@ const MyComponent = () => {
       <AccordionItem value="a">
         <AccordionHeader>
           <AccordionTrigger>
-            {({ isExpanded }: { isExpanded: boolean }) => {
+            {({ expanded }: { expanded: boolean }) => {
               return (
                 <>
                   <AccordionTitleText>How do I place an order?</AccordionTitleText>
-                  {isExpanded ? (
+                  {expanded ? (
                     <AccordionIcon as={ChevronUpSmallIcon} />
                   ) : (
                     <AccordionIcon as={ChevronDowSmallIcon} />
@@ -174,11 +174,11 @@ const MyComponent = () => {
       <AccordionItem value="b">
         <AccordionHeader>
           <AccordionTrigger>
-            {({ isExpanded }: { isExpanded: boolean }) => {
+            {({ expanded }: { expanded: boolean }) => {
               return (
                 <>
                   <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
-                  {isExpanded ? (
+                  {expanded ? (
                     <AccordionIcon as={ChevronUpMediumIcon} />
                   ) : (
                     <AccordionIcon as={ChevronDownMediumIcon} />

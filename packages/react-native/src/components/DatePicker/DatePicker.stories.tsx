@@ -6,8 +6,37 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { DatePicker, DateType } from '.';
 import { ViewWrap } from '../../../docs/components';
 import { BodyText } from '../BodyText';
-import { BottomSheetModal } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
+
+// Calendar day buttons are exposed with an accessibilityLabel like "Wednesday, July 15",
+// which react-native-web maps to the DOM accessible name (there is no aria-selected;
+// ", selected" is appended to the label itself when a day is selected).
+const DAY_BUTTON_NAME = /^[A-Za-z]+, [A-Za-z]+ \d+$/;
+
+// The BottomSheetModal mounts its content asynchronously after `present()` is called,
+// so opening it needs an explicit, generous wait before the calendar can be queried.
+const openDatePicker = async (canvas: ReturnType<typeof within>, triggerName: string) => {
+  await userEvent.click(await canvas.findByRole('button', { name: triggerName }));
+  await canvas.findByTestId('calendar', {}, { timeout: 5000 });
+};
+
+const findDayButtons = (canvas: ReturnType<typeof within>) =>
+  waitFor(
+    () => {
+      const days = canvas.getAllByRole('button', { name: DAY_BUTTON_NAME });
+      expect(days.length).toBeGreaterThan(17);
+      return days;
+    },
+    { timeout: 5000 }
+  );
+
+// Indexes chosen to always land within the currently displayed month (never a leading/trailing
+// "outside day"), regardless of how many outside days lead the grid — so selecting them can't
+// navigate the calendar to a different month out from under the test (single mode moves
+// `currentDate`, and therefore the visible month, to whichever date is selected).
+const FIRST_DAY_INDEX = 10;
+const SECOND_DAY_INDEX = 17;
 
 const PREFILLED_DATE = dayjs().startOf('day').toDate();
 
@@ -19,6 +48,13 @@ const meta = {
   },
   argTypes: {},
   args: {},
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof DatePicker>;
 
 export default meta;
@@ -26,6 +62,64 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
+  args: {
+    mode: 'single',
+  },
+  render: () => {
+    const [selected, setSelected] = useState<DateType>();
+    const [confirmedDate, setConfirmedDate] = useState<DateType>();
+    const modalRef = useRef<BottomSheetModal>(null);
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>
+          <Button onPress={() => modalRef.current?.present()}>Show Date Picker</Button>
+          <BodyText>
+            {confirmedDate ? `Confirmed: ${dayjs(confirmedDate).format('YYYY-MM-DD')}` : 'Not confirmed'}
+          </BodyText>
+          <DatePicker
+            ref={modalRef}
+            mode="single"
+            date={selected}
+            onChange={({ date }) => {
+              setSelected(date);
+              setConfirmedDate(date);
+            }}
+            onCancel={() => setSelected(undefined)}
+          />
+        </ViewWrap>
+      </View>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await openDatePicker(canvas, 'Show Date Picker');
+
+    const days = await findDayButtons(canvas);
+    const firstDayName = days[FIRST_DAY_INDEX]!.getAttribute('aria-label');
+    const secondDayName = days[SECOND_DAY_INDEX]!.getAttribute('aria-label');
+
+    // Pressing a day selects it.
+    await userEvent.click(days[FIRST_DAY_INDEX]!);
+    await waitFor(() =>
+      expect(canvas.getByRole('button', { name: `${firstDayName}, selected` })).toBeInTheDocument()
+    );
+
+    // Pressing a different day moves the selection.
+    await userEvent.click(canvas.getByRole('button', { name: secondDayName! }));
+    await waitFor(() => {
+      expect(
+        canvas.getByRole('button', { name: `${secondDayName}, selected` })
+      ).toBeInTheDocument();
+      expect(
+        canvas.queryByRole('button', { name: `${firstDayName}, selected` })
+      ).not.toBeInTheDocument();
+    });
+  },
+};
+
+export const ConfirmWithoutSelection: Story = {
   args: {
     mode: 'single',
   },
@@ -139,6 +233,30 @@ export const Range: Story = {
       </View>
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await openDatePicker(canvas, 'Show Range Date Picker');
+
+    const days = await findDayButtons(canvas);
+    const startDayName = days[FIRST_DAY_INDEX]!.getAttribute('aria-label');
+    const endDayName = days[SECOND_DAY_INDEX]!.getAttribute('aria-label');
+
+    // Pressing a start day selects it as the range start.
+    await userEvent.click(days[FIRST_DAY_INDEX]!);
+    await waitFor(() =>
+      expect(canvas.getByRole('button', { name: `${startDayName}, selected` })).toBeInTheDocument()
+    );
+
+    // Pressing a later day selects it as the range end, keeping the start selected.
+    await userEvent.click(canvas.getByRole('button', { name: endDayName! }));
+    await waitFor(() => {
+      expect(
+        canvas.getByRole('button', { name: `${startDayName}, selected` })
+      ).toBeInTheDocument();
+      expect(canvas.getByRole('button', { name: `${endDayName}, selected` })).toBeInTheDocument();
+    });
+  },
 };
 
 export const Multi: Story = {
@@ -162,5 +280,41 @@ export const Multi: Story = {
         </ViewWrap>
       </View>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await openDatePicker(canvas, 'Show Multi Date Picker');
+
+    const days = await findDayButtons(canvas);
+    const firstDayName = days[FIRST_DAY_INDEX]!.getAttribute('aria-label');
+    const secondDayName = days[SECOND_DAY_INDEX]!.getAttribute('aria-label');
+
+    // Pressing multiple days accumulates the selection.
+    await userEvent.click(days[FIRST_DAY_INDEX]!);
+    await waitFor(() =>
+      expect(canvas.getByRole('button', { name: `${firstDayName}, selected` })).toBeInTheDocument()
+    );
+
+    await userEvent.click(canvas.getByRole('button', { name: secondDayName! }));
+    await waitFor(() => {
+      expect(
+        canvas.getByRole('button', { name: `${firstDayName}, selected` })
+      ).toBeInTheDocument();
+      expect(
+        canvas.getByRole('button', { name: `${secondDayName}, selected` })
+      ).toBeInTheDocument();
+    });
+
+    // Pressing an already-selected day removes it.
+    await userEvent.click(canvas.getByRole('button', { name: `${firstDayName}, selected` }));
+    await waitFor(() => {
+      expect(
+        canvas.queryByRole('button', { name: `${firstDayName}, selected` })
+      ).not.toBeInTheDocument();
+      expect(
+        canvas.getByRole('button', { name: `${secondDayName}, selected` })
+      ).toBeInTheDocument();
+    });
   },
 };

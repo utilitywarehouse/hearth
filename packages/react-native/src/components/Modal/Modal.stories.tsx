@@ -73,6 +73,13 @@ const meta = {
     onPressPrimaryButton: () => null,
     onPressSecondaryButton: () => null,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof Modal>;
 
 export default meta;

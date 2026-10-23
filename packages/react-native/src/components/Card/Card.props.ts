@@ -1,8 +1,30 @@
-import { PressableProps } from 'react-native';
-import { DisplayProps, FlexLayoutProps, GapProps, MarginProps, SpacingValues } from '../../types';
+import { PressableProps, ViewStyle } from 'react-native';
+import {
+  BorderRadiusProps,
+  DisplayProps,
+  FlexLayoutProps,
+  GapProps,
+  MarginProps,
+  PaddingProps,
+  SizeProps,
+  SpacingValues,
+} from '../../types';
 
 interface CardProps
-  extends PressableProps, MarginProps, GapProps, FlexLayoutProps, Omit<DisplayProps, 'direction'> {
+  extends
+    PressableProps,
+    MarginProps,
+    PaddingProps,
+    GapProps,
+    FlexLayoutProps,
+    SizeProps,
+    BorderRadiusProps,
+    Omit<DisplayProps, 'direction'> {
+  /**
+   * The direction of the flex container. Alias for `flexDirection`, which takes precedence.
+   * @default 'column'
+   */
+  direction?: ViewStyle['flexDirection'];
   /** Visual emphasis of the card.
    * @default 'subtle'
    */

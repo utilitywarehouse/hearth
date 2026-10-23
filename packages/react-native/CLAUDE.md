@@ -23,7 +23,6 @@ pnpm lint                   # eslint .
 pnpm lint:fix               # eslint --fix .
 
 pnpm copyTokens             # vendors CSS tokens from packages/tokens into src/tokens — run after changing hearth-tokens
-pnpm generateColours        # regenerates legacy colour token files
 
 pnpm generate:llm-docs      # regenerate public/llms/ from stories — run after any API change
 
@@ -55,13 +54,13 @@ styles (`_hover`, `_focus-visible`, `_active`) since Unistyles targets both nati
 Unistyles is configured once in `src/core/index.ts` (`StyleSheet.configure({ breakpoints, themes, settings })`),
 which is why components never configure themes themselves — they just consume `theme` inside `StyleSheet.create`.
 
-### Token pipeline: tokens package → legacy + generated → theme
+### Token pipeline: tokens package → generated → theme
 
 - `src/tokens/` is **generated, not hand-edited** ("Do not edit directly" — see file headers). It's populated
   by `pnpm copyTokens` from `@utilitywarehouse/hearth-tokens` (see root CLAUDE.md: tokens are vendored, not a
   runtime dependency).
-- `src/legacyTokens/` holds older colour tokens (`colors`, `colorsCommon`, `colorsDark`) still consumed by
-  `src/core/themes.ts` alongside the generated tokens — check both when tracing a colour value.
+- There is no legacy `theme.colors` palette. Apps still on `@utilitywarehouse/native-ui` supply it themselves
+  (UWDS-4917) — don't reintroduce it here.
 - `src/core/themes.ts` assembles the final `light`/`dark` theme objects consumed via `theme.*` inside
   components, merging `tokens/*` (space, color, typography, shadow, border, `components.*` for
   per-component tokens) with responsive breakpoint-aware values (`base`/`md`/`lg` per breakpoint).

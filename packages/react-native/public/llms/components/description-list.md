@@ -154,9 +154,11 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 
 The component applies the following roles:
 
-| Element                       | Role                                  |
-| ----------------------------- | ------------------------------------- |
-| `DescriptionList` root        | `list`                                |
-| `DescriptionListItem` wrapper | `text` (combined label when possible) |
+| Element                                         | Role                                                               |
+| ----------------------------------------------- | ------------------------------------------------------------------ |
+| `DescriptionList` items wrapper (below heading) | `list`                                                             |
+| `DescriptionListItem` wrapper                   | `text` on native, `listitem` on web (combined label when possible) |
+
+The optional `heading` is rendered above the list, not inside it. Label props (`accessibilityLabel`, `aria-label`, `accessibilityLabelledBy`, `aria-labelledby`) are applied to the list.
 
 When both heading and description are plain text they are merged into one accessibility node (e.g. “Account Number: 123456789”) and the child elements are hidden from the a11y tree to avoid duplicate reading (TalkBack / VoiceOver). If either part is non‑text the children remain individually exposed.

@@ -80,7 +80,7 @@ const MyComponent = () => {
 | `duration`           | `number`                      | `200`   | Duration of the animation in milliseconds            |
 | `animateOpacity`     | `boolean`                     | `true`  | Whether to animate opacity during expansion/collapse |
 | `style`              | `ViewStyle`                   | -       | Additional style for the container                   |
-| `accessibilityLabel` | `string`                      | -       | Accessibility label for screen readers               |
+| `accessibilityLabel` | `string`                      | -       | Names the content as a region on web                 |
 | `testID`             | `string`                      | -       | Test ID for testing purposes                         |
 
 ## Animation Duration
@@ -325,9 +325,10 @@ const MyComponent = () => {
 
 The Expandable component includes built-in accessibility support:
 
-- Uses `accessibilityState` to communicate expanded/collapsed state to screen readers
-- Set `accessibilityLabel` to provide context about the expandable content
-- Automatically announces state changes to assistive technologies
+- Content is not grouped into a single accessibility element, so links, buttons and inputs inside it can each be focused by VoiceOver and TalkBack
+- Collapsed content is hidden from screen readers once the collapse animation finishes. On web, it also can't be reached with the keyboard
+- The animation is skipped when the user has turned on reduced motion
+- On web, set `accessibilityLabel` to expose the content as a labelled region. iOS and Android screen readers do not announce this label
 
 ```tsx
 // Example usage
@@ -338,8 +339,4 @@ The Expandable component includes built-in accessibility support:
 
 ### Screen Reader Announcements
 
-When using the Expandable component:
-
-- The `accessibilityState` prop automatically includes the `expanded` state
-- Screen readers will announce "expanded" or "collapsed" based on the current state
-- Provide descriptive `accessibilityLabel` values to give users context
+Expandable does not announce its own expanded or collapsed state. Put `accessibilityState={{ expanded }}` on the control that toggles it, as `AccordionTrigger` and `ExpandableCardTrigger` do.

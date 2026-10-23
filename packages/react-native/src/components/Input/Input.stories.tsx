@@ -3,6 +3,7 @@ import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useRef, useState } from 'react';
 import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, View } from 'react-native';
+import { expect, within } from 'storybook/test';
 import { Input } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { useTheme } from '../../hooks';
@@ -92,6 +93,17 @@ export const Playground: Story = {
       />
     );
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // The field is required by default, so it should be exposed as such to assistive tech,
+    // and remain editable (not disabled/read-only) with no validation state set. `aria-disabled`
+    // is only rendered when true (react-native-web's convention), so it's absent here.
+    const input = await canvas.findByPlaceholderText('Input placeholder');
+    expect(input).toHaveAttribute('aria-required', 'true');
+    expect(input).not.toHaveAttribute('aria-disabled');
+    expect(input).toHaveAttribute('aria-invalid', 'false');
+  },
 };
 
 export const Variants: Story = {
@@ -162,6 +174,31 @@ export const Variants: Story = {
         </VariantTitle>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Validation status is exposed via aria-invalid, independent of the disabled/readonly state.
+    const placeholderInputs = (await canvas.findAllByPlaceholderText(
+      'Input placeholder'
+    )) as HTMLInputElement[];
+
+    // Password fields mask their value via the native input's `type`, driven by `secureTextEntry`.
+    const passwordInput = placeholderInputs.find(el => el.type === 'password');
+    expect(passwordInput).toBeDefined();
+    expect(passwordInput).toHaveDisplayValue('filling the value');
+    const invalidInput = placeholderInputs.find(el => el.getAttribute('aria-invalid') === 'true');
+    expect(invalidInput).toBeDefined();
+
+    // Disabled inputs are exposed as such via aria-disabled and remain in the accessibility
+    // tree (unlike the previous gluestack-backed implementation, which fully hid them via
+    // accessibilityElementsHidden).
+    const disabledInput = placeholderInputs.find(el => el.getAttribute('aria-disabled') === 'true');
+    expect(disabledInput).toBeDefined();
+
+    // Readonly inputs remain focusable/selectable but not editable.
+    const readonlyInput = placeholderInputs.find(el => el.readOnly);
+    expect(readonlyInput).toBeDefined();
   },
 };
 

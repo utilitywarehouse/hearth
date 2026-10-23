@@ -24,6 +24,7 @@ import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 
 import CarouselContext from './Carousel.context';
 import { CarouselItemProps, CarouselProps } from './Carousel.props';
+import { computeActiveIndexFromScroll, isIndexInRange } from './Carousel.utils';
 import { CarouselControls } from './CarouselControls';
 import { CarouselItem } from './CarouselItem';
 
@@ -233,8 +234,7 @@ const Carousel = ({
       } else if (
         !isWeb &&
         flatListRef.current &&
-        activeIndex >= 0 &&
-        activeIndex < carouselItems.length
+        isIndexInRange({ index: activeIndex, numItems: carouselItems.length })
       ) {
         flatListRef.current.scrollToIndex({ index: activeIndex, animated: !isReducedMotion });
       }
@@ -264,9 +264,9 @@ const Carousel = ({
 
       // For centered layouts, account for the padding offset
       const offset = centered ? innerMargin / 2 : 0;
-      const index = Math.round((scrollX + offset) / itemWidthValue);
+      const index = computeActiveIndexFromScroll({ scrollX, itemWidth: itemWidthValue, offset });
 
-      if (index >= 0 && index < carouselItems.length && index !== activeIndex) {
+      if (isIndexInRange({ index, numItems: carouselItems.length }) && index !== activeIndex) {
         setActiveIndex?.(index);
       }
     },
@@ -292,9 +292,9 @@ const Carousel = ({
 
       // For centered layouts, account for the padding offset
       const offset = centered ? innerMargin / 2 : 0;
-      const index = Math.round((scrollX + offset) / itemWidthValue);
+      const index = computeActiveIndexFromScroll({ scrollX, itemWidth: itemWidthValue, offset });
 
-      if (index >= 0 && index < carouselItems.length) {
+      if (isIndexInRange({ index, numItems: carouselItems.length })) {
         setActiveIndex?.(index);
         onSnapToItem?.(index);
       }

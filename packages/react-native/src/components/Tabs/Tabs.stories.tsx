@@ -7,6 +7,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { Platform } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText, Button, Flex, Tab, TabPanel, Tabs, TabsList } from '../';
 
 const meta = {
@@ -52,6 +53,19 @@ export const Playground: Story = {
       </TabPanel>
     </Tabs>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => expect(canvas.getByText('Account content')).toBeInTheDocument());
+
+    const billingTab = await canvas.findByRole('tab', { name: 'Billing' });
+    await userEvent.click(billingTab);
+
+    await waitFor(() => {
+      expect(canvas.getByText('Billing content')).toBeInTheDocument();
+      expect(canvas.queryByText('Account content')).not.toBeInTheDocument();
+    });
+  },
 };
 
 export const Sizes: Story = {

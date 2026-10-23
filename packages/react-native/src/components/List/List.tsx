@@ -22,6 +22,11 @@ const List = ({
     testID,
     style,
     accessibilityRole,
+    role,
+    accessibilityLabel,
+    accessibilityLabelledBy,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
     ...rest
   } = props;
 
@@ -51,21 +56,29 @@ const List = ({
     };
   }, []);
 
+  // The role and label props describe the list, so they go on the items wrapper, not the root.
+  // `role` takes precedence over `accessibilityRole`, as in React Native.
+  const isList = (role ?? accessibilityRole ?? 'list') === 'list';
+  const listSemantics = {
+    ...(role ? { role } : { accessibilityRole: accessibilityRole ?? 'list' }),
+    accessibilityLabel,
+    accessibilityLabelledBy,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+  };
+
   const value = {
     loading,
     disabled,
     container,
+    isList,
     firstItemId,
     registerItem,
   };
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>
-      <View
-        {...rest}
-        accessibilityRole={accessibilityRole ?? 'list'}
-        style={[styles.container, style]}
-      >
+      <View {...rest} style={[styles.container, style]}>
         {heading ? (
           <SectionHeader
             heading={heading}
@@ -74,12 +87,15 @@ const List = ({
             invalidText={invalidText}
           />
         ) : null}
+        {/* The list only wraps the items: a heading inside role="list" is not a valid child. */}
         {container === 'none' ? (
-          <View testID={testID}>{children}</View>
+          <View testID={testID} {...listSemantics}>
+            {children}
+          </View>
         ) : (
           React.Children.count(children) > 0 && (
             <Card {...containerToCard} noPadding style={styles.card} testID={testID}>
-              <>{children}</>
+              <View {...listSemantics}>{children}</View>
             </Card>
           )
         )}

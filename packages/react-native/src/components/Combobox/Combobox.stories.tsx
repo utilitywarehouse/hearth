@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite';
 import { useEffect, useState } from 'react';
-import { BottomSheetFlatList } from '../BottomSheet';
+import { BottomSheetFlatList, BottomSheetModalProvider } from '../BottomSheet';
 import { Box } from '../Box';
 import { ComboboxOptionItemProps } from './Combobox.props';
 import Combobox from './Combobox';
@@ -103,6 +103,13 @@ const meta = {
     noOptionsFoundText: 'No options found',
     options: countries,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof Combobox>;
 
 export default meta;
