@@ -339,21 +339,10 @@ users click outside of the modal or press the escape key.
 </ModalRoot>
 ```
 
-## Keeping content mounted
+## Deprecated props
 
-Use the `keepMounted` prop to keep the modal content in the DOM when it is
-closed. The content is hidden from view and the accessibility tree while
-closed.
-
-```tsx
-<Modal keepMounted heading="Hearth modal">
-  {/* Modal content */}
-</Modal>
-```
-
-`forceMount` is still accepted and behaves the same way, but it will be removed
-when `Modal` migrates to Base UI. Prefer `keepMounted` in new usage. If both are
-passed, `keepMounted` takes precedence.
+`forceMount` is deprecated and will be removed when `Modal` migrates to Base UI.
+Passing it logs a warning in development. Do not use it in new code.
 
 ### ModalRoot
 
@@ -369,7 +358,7 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | ---------------------- | ----------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `image`                | `ReactNode`                                                       | —       | An image, such as an SVG illustration, rendered at the top of the modal. The layout automatically adjusts to accommodate it.                                                              |
 | `container`            | `Element \| DocumentFragment \| null`                             | —       | Specify a container element to portal the content into.                                                                                                                                   |
-| `forceMount`           | `boolean`                                                         | `false` | Keeps the modal content mounted in the DOM when closed. Prefer `keepMounted`. Will be removed when Modal migrates to Base UI.                                                             |
+| `forceMount`           | `boolean`                                                         | —       | @deprecated Will be removed when Modal migrates to Base UI.                                                                                                                               |
 | `heading`              | `string`                                                          | —       | The heading shown in the modal's main content. Required unless `loading` is `true`. The heading shown in the modal's main content. Optional while `loading` is `true`.                    |
 | `onEscapeKeyDown`      | `((event: KeyboardEvent) => void)`                                | —       | Event handler called when the escape key is down. Can be prevented.                                                                                                                       |
 | `onPointerDownOutside` | `((event: PointerDownOutsideEvent) => void)`                      | —       | Event handler called when the a `pointerdown` event happens outside of the `DismissableLayer`. Can be prevented.                                                                          |
@@ -377,7 +366,6 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `onInteractOutside`    | `((event: PointerDownOutsideEvent \| FocusOutsideEvent) => void)` | —       | Event handler called when an interaction happens outside the `DismissableLayer`. Specifically, when a `pointerdown` event happens outside or focus moves outside of it. Can be prevented. |
 | `onOpenAutoFocus`      | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on open. Can be prevented.                                                                                                                        |
 | `onCloseAutoFocus`     | `((event: Event) => void)`                                        | —       | Event handler called when auto-focusing on close. Can be prevented.                                                                                                                       |
-| `keepMounted`          | `boolean`                                                         | `false` | Keeps the modal content mounted in the DOM when closed.                                                                                                                                   |
 | `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
 | `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
