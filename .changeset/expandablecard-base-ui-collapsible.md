@@ -2,4 +2,10 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-ExpandableCard now uses Base UI's Collapsible instead of Radix UI's Collapsible. Internal change only; the public API is unchanged.
+🧹 [HOUSEKEEPING]: `ExpandableCard` uses Base UI for its collapsible behaviour
+
+No public API changes. Props, types and rendered output are unchanged.
+
+**Developer changes**:
+
+No action is required.
