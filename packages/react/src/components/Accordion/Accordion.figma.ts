@@ -32,7 +32,7 @@ const itemsSlot = instance.getSlot('Accordion items');
 const items = itemsSlot?.connectedInstances.map(item => item.executeTemplate().example) ?? [];
 
 export default {
-  example: figma.code`<Accordion type="single"${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${
+  example: figma.code`<Accordion${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('helperText', helperText)}${
     trailingContent ? figma.code` trailingContent={${trailingContent}}` : ''
   }>${items.flat()}</Accordion>`,
   imports: [`import { Accordion } from "@utilitywarehouse/hearth-react"`],
