@@ -31,6 +31,10 @@ const meta: Meta<typeof List> = {
       control: { type: 'radio' },
       options: [undefined, 'subtle', 'emphasis'],
     },
+    listItemsVariant: {
+      control: { type: 'radio' },
+      options: [undefined, 'subtle'],
+    },
     as: {
       control: { type: 'radio' },
       options: ['ul', 'ol'],
@@ -170,6 +174,34 @@ export const Playground: Story = {
     variant: 'emphasis',
     colorScheme: 'neutralStrong',
   },
+};
+
+/** Set listItemsVariant to 'subtle' to override the list items border colour. */
+export const ListItemsVariant: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: args => (
+    <List {...args} colorScheme="neutralStrong" variant="emphasis" listItemsVariant="subtle">
+      <ListItem>List item</ListItem>
+      <ListItem>
+        <ListItemContent heading="List item" helperText="Helper text" />
+      </ListItem>
+      <ListItem>
+        <ListItemButton
+          heading="List item button"
+          helperText="Helper text"
+          onClick={() => console.log('clickety click')}
+        />
+      </ListItem>
+      <ListItem>
+        <ListItemLink heading="List item as link" href="#" />
+      </ListItem>
+    </List>
+  ),
 };
 
 /** Set paddingNone to remove List's outer padding. */
