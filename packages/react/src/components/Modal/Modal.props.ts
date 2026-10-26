@@ -3,9 +3,13 @@ import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 
 
 export interface BaseModalProps
   extends
-    ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>,
+    Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>, 'forceMount'>,
     Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
     ComponentPropsWithRef<'div'> {
+  /**
+   * @deprecated Will be removed when Modal migrates to Base UI.
+   */
+  forceMount?: boolean;
   /**
    * Additional descriptive text shown below the heading.
    */
