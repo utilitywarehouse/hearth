@@ -25,7 +25,8 @@ type DatePickerElement = ComponentRef<'button'>;
 // react-datepicker's `popperContainer` expects a component that portals its
 // children — Base UI has no standalone exported Portal primitive to swap in
 // for Radix's `Portal.Root`, so this mirrors it directly on createPortal.
-const PopperPortal = ({ children }: { children: ReactNode }) => createPortal(children, document.body);
+const PopperPortal = ({ children }: { children: ReactNode }) =>
+  createPortal(children, document.body);
 
 /**
  * Use DatePicker when a user needs to specify a single date via an
