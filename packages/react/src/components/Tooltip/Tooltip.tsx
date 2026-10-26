@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 import type { ComponentRef } from 'react';
 import { Tooltip as TooltipPrimitive } from '@base-ui/react';
 import { cn } from '../../helpers/cn';
@@ -37,6 +37,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
     ref
   ) => {
     const rootProps = { open, defaultOpen, onOpenChange };
+    const popupId = useId();
 
     const alignmentTranslation: {
       [key: string]: {
@@ -56,7 +57,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
 
     return (
       <TooltipPrimitive.Root {...rootProps}>
-        <TooltipPrimitive.Trigger render={children} />
+        <TooltipPrimitive.Trigger render={children} aria-describedby={popupId} />
         <TooltipPrimitive.Portal>
           <TooltipPrimitive.Positioner
             {...alignmentTranslation[align]}
@@ -65,6 +66,8 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
           >
             <TooltipPrimitive.Popup
               ref={ref}
+              id={popupId}
+              role="tooltip"
               className={cn(componentClassName, className)}
               data-testid={componentClassName}
               {...props}
