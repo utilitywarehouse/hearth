@@ -1,5 +1,29 @@
 # @utilitywarehouse/hearth-react
 
+## 0.35.2
+
+### Patch Changes
+
+- [#1743](https://github.com/utilitywarehouse/hearth/pull/1743) [`59ed7f6`](https://github.com/utilitywarehouse/hearth/commit/59ed7f6f8f932126e7917dd9bd7350f7d012d096) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `List` items can use a `subtle` border when the `List` itself uses a stronger `variant`
+  
+  The new `listItemsVariant` prop overrides the border styling of the child list
+  items. For example, a `List` with `variant="emphasis"` can render its items with
+  a subtle border by setting `listItemsVariant="subtle"`.
+  
+  **Components affected**:
+  
+  - `List`
+  
+  **Developer changes**:
+  
+  No action required. To opt in, add the `listItemsVariant` prop:
+  
+  ```tsx
+  <List variant="emphasis" listItemsVariant="subtle">
+    ...
+  </List>
+  ```
+
 ## 0.35.1
 
 ### Patch Changes
