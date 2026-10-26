@@ -32,4 +32,5 @@ for the full list of available codemods and worked before/after examples.
 | `react/v1/migrate-accordion` | Migrates `Accordion` to its Base UI API (`type`, `collapsible`, `value`/`defaultValue`, `forceMount`) and flags usages needing manual review |
 | `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |
 | `react/v1/remove-modal-loading-text` | Removes `Modal`'s deprecated `loadingText` prop |
+| `react/v1/remove-text-wrap-prop` | Removes the deprecated `wrap` prop from `BodyText`, `Heading`, `Strong`, `Em` and `DetailText`, in favour of `textWrap` |
 | `react/v1/migration` | Runs every `react/v1/*` codemod in one pass |
