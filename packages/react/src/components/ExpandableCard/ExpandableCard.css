@@ -97,12 +97,14 @@
     }
 
     to {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
       height: var(--collapsible-panel-height);
     }
   }
 
   @keyframes h-expandable-card-slide-up {
     from {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
       height: var(--collapsible-panel-height);
     }
 
