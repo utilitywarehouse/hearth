@@ -4,6 +4,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.35.3
+
+### Patch Changes
+
+- [#1747](https://github.com/utilitywarehouse/hearth/pull/1747) [`e54257f`](https://github.com/utilitywarehouse/hearth/commit/e54257f6c1d8f07d714b9cbacdeef61a975ecfd0) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: `DatePicker`'s calendar popper now portals via a local `createPortal` wrapper instead of Radix's `Portal`
+  
+  Part of the ongoing migration off `radix-ui`. Base UI has no standalone
+  exported `Portal` primitive to swap in, so this is implemented directly on
+  `ReactDOM.createPortal`, portaling into `document.body` as before.
+  
+  No public API change — `DatePickerProps` has no `container` prop.
+
 ## 0.35.2
 
 ### Patch Changes
