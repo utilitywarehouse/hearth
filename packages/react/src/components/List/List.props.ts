@@ -34,4 +34,5 @@ export type ListProps = ComponentPropsWithRef<'ol'> &
      * Remove the inline padding for better alignment with other elements.
      */
     paddingNone?: boolean;
+    listItemsVariant?: 'subtle';
   };
