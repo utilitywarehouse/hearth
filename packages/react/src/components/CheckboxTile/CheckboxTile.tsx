@@ -104,9 +104,9 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
           }
         }}
       >
-        <CheckboxPrimitive.Indicator className={`${componentClassName}Indicator`}>
-          <TickSmallIcon />
-        </CheckboxPrimitive.Indicator>
+        <CheckboxPrimitive.Indicator
+          render={<TickSmallIcon className={`${componentClassName}Indicator`} />}
+        />
       </CheckboxPrimitive.Root>
       <Flex direction="column">
         <Label as="span" id={labelId} disableUserSelect>
