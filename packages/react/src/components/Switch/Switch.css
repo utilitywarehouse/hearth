@@ -27,7 +27,7 @@
       }
     }
 
-    &:where([data-state='checked']) {
+    &:where([data-checked]) {
       background-color: var(--h-interactive-brand-surface-strong-default);
 
       @media (hover: hover) {
@@ -74,7 +74,7 @@
       transition: transform 200ms ease-in-out;
       will-change: transform;
 
-      &:where([data-state='checked']) {
+      &:where([data-checked]) {
         transform: translateX(var(--h-switch-thumb-translate-x));
 
         & :where(.h-SwitchCloseIcon) {
@@ -82,7 +82,7 @@
         }
       }
 
-      &:where([data-state='unchecked']) {
+      &:where([data-unchecked]) {
         & :where(.h-SwitchTickIcon) {
           display: none;
         }
