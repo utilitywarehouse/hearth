@@ -96,7 +96,7 @@ export const Initials: Story = {
     </Flex>
   ),
   play: async ({ canvasElement }) => {
-    // Radix renders the fallback after a `delayMs` timer, so wait for all four
+    // The fallback renders after a `delay` timer, so wait for all four
     const fallbacks = () => [...canvasElement.querySelectorAll('.h-AvatarFallback')];
 
     await waitFor(() =>
