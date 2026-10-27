@@ -46,6 +46,14 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
   // We're using aria-disabled rather than disabled, so that the element can
   // still be focused with a keyboard. Cancelling the change event keeps a
   // disabled Switch from changing state.
+  const handleClick: SwitchPrimitive.Root.Props['onClick'] = event => {
+    if (disabled) {
+      event.preventDefault();
+      return;
+    }
+    onClick?.(event);
+  };
+
   const handleCheckedChange: SwitchPrimitive.Root.Props['onCheckedChange'] = (
     checked,
     eventDetails
@@ -75,7 +83,7 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
         aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
         aria-disabled={disabled || undefined}
         data-disabled={disabled || undefined}
-        onClick={onClick}
+        onClick={handleClick}
         onCheckedChange={handleCheckedChange}
         render={asChild ? <Slot.Root /> : <button type="button" />}
         nativeButton={!asChild}
