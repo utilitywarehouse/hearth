@@ -3,9 +3,13 @@ import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 
 
 export interface BaseModalProps
   extends
-    ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>,
+    Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>, 'forceMount'>,
     Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
     ComponentPropsWithRef<'div'> {
+  /**
+   * @deprecated Will be removed when Modal migrates to Base UI.
+   */
+  forceMount?: boolean;
   /**
    * Additional descriptive text shown below the heading.
    */
@@ -18,18 +22,10 @@ export interface BaseModalProps
    */
   hideCloseButton?: boolean;
   /**
-   * @deprecated this prop has no effect and will be removed in a future major version.
-   */
-  fullScreen?: boolean;
-  /**
    * An image, such as an SVG illustration, rendered at the top of the modal.
    * The layout automatically adjusts to accommodate it.
    */
   image?: ReactNode;
-  /**
-   * @deprecated Please use loadingHeading and loadingDescription instead
-   */
-  loadingText?: string;
   /**
    * The heading shown while `loading` is `true`.
    */

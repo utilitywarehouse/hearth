@@ -1,24 +1,32 @@
-import type { ComponentPropsWithRef } from 'react';
-import { Accordion as CardAccordionPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, CSSProperties } from 'react';
+import { Accordion as CardAccordionPrimitive } from '@base-ui/react/accordion';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CardAccordionProps
   extends
     Omit<
-      ComponentPropsWithRef<typeof CardAccordionPrimitive.Root>,
+      ComponentPropsWithRef<typeof CardAccordionPrimitive.Root<string>>,
       | 'orientation'
-      | 'asChild'
+      | 'render'
       | 'dir'
-      | 'type'
+      | 'className'
+      | 'style'
+      | 'multiple'
       | 'defaultValue'
       | 'onValueChange'
       | 'value'
-      | 'collapsible'
       | 'disabled'
+      | 'hiddenUntilFound'
+      | 'keepMounted'
+      | 'loopFocus'
     >,
     MarginProps {
+  className?: string;
+  style?: CSSProperties;
   /** The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. */
-  value?: CardAccordionPrimitive.AccordionSingleProps['value'];
+  value?: ComponentPropsWithRef<typeof CardAccordionPrimitive.Root<string>>['value'];
   /** Called with the new `value` when the active step changes. */
-  onValueChange?: CardAccordionPrimitive.AccordionSingleProps['onValueChange'];
+  onValueChange?: (
+    value: NonNullable<ComponentPropsWithRef<typeof CardAccordionPrimitive.Root<string>>['value']>
+  ) => void;
 }
