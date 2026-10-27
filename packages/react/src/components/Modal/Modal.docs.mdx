@@ -20,7 +20,9 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [With Image](#with-image)
 - [Loading](#loading)
 - [Preventing dismissal](#preventing-dismissal)
+- [Deprecated props](#deprecated-props)
 - [API](#api)
+- [Migration](#migration)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
 
@@ -118,9 +120,9 @@ more of the viewport height, and centre aligning the text and actions.
 
 ## Loading
 
-Use the `loading` and `loadingText` props to indicate a loading state within the modal.
+Use the `loading` and `loadingHeading` props to indicate a loading state within the modal.
 
-When `loading` is `true` the `loadingText` is required for accessibility purposes.
+When `loading` is `true` you should provide a `loadingHeading` for accessibility purposes (it defaults to `"Loading"` if omitted).
 
 <Canvas of={Stories.Loading} />
 
@@ -143,6 +145,11 @@ users click outside of the modal or press the escape key.
 
 <Canvas of={Stories.PreventOutsideDismiss} />
 
+## Deprecated props
+
+`forceMount` is deprecated and will be removed when `Modal` migrates to Base UI.
+Passing it logs a warning in development. Do not use it in new code.
+
 ## API
 
 ### ModalRoot
@@ -156,3 +163,22 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 - <StorybookLink to="common-props-margin">Margin</StorybookLink>
 
 <ArgTypes of={Modal} exclude={'margin*'} />
+
+## Migration
+
+### `fullScreen` removed
+
+`Modal`'s `fullScreen` prop has been removed. It had no effect, so delete it:
+
+```diff
+- <Modal fullScreen>
++ <Modal>
+```
+
+Run the codemod to update your code automatically:
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-modal-fullscreen <path>
+```
+
+See the <StorybookLink to="migration-v1">v1 migration guide</StorybookLink> for details.
