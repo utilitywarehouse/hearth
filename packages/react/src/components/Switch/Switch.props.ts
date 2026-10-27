@@ -1,8 +1,8 @@
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentPropsWithRef, CSSProperties } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
 import { MarginProps } from '../../props/margin.props';
-import { Switch as SwitchPrimitive } from 'radix-ui';
+import { Switch as SwitchPrimitive } from '@base-ui/react/switch';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -13,7 +13,14 @@ export const switchPropDefs = {
 };
 
 export interface SwitchProps
-  extends ComponentPropsWithRef<typeof SwitchPrimitive.Switch>, MarginProps {
+  extends
+    Omit<
+      ComponentPropsWithRef<typeof SwitchPrimitive.Root>,
+      'render' | 'nativeButton' | 'className' | 'style'
+    >,
+    MarginProps {
+  className?: string;
+  style?: CSSProperties;
   /**
    * Merges the component's props onto its immediate child instead of
    * rendering its own DOM element, so the child determines the rendered tag.
