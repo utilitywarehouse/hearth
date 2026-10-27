@@ -84,7 +84,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
         name={checkboxContext?.name}
         checked={checked}
         value={value}
-        {...(restProps as CheckboxPrimitive.Root.Props)}
+        {...restProps}
         id={id}
         disabled={disabled}
         aria-describedby={ariaDescribedbyValue}
