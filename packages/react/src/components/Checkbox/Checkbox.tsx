@@ -81,6 +81,8 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
     >
       <CheckboxPrimitive.Root
         ref={ref}
+        render={<button />}
+        nativeButton
         className={`${componentClassName}Root`}
         name={checkboxContext?.name}
         checked={checked}
