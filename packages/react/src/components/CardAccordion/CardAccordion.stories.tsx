@@ -130,8 +130,14 @@ export const StepNavigation: Story = {
     const canvas = within(canvasElement);
 
     await expect(canvas.getByText('Step 1 content')).toBeVisible();
-    await expect(canvas.getByRole('button', { name: 'Step 2' })).toBeDisabled();
-    await expect(canvas.getByRole('button', { name: 'Step 3' })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: 'Step 2' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
+    await expect(canvas.getByRole('button', { name: 'Step 3' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
     await expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
 
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
@@ -144,7 +150,10 @@ export const StepNavigation: Story = {
 
     await userEvent.click(canvas.getByRole('button', { name: 'Previous' }));
     await expect(await canvas.findByText('Step 1 content')).toBeVisible();
-    await expect(canvas.getByRole('button', { name: 'Step 2' })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: 'Step 2' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
 
     await userEvent.click(canvas.getByRole('button', { name: 'Next' }));
     await canvas.findByText('Step 2 content');
@@ -154,8 +163,14 @@ export const StepNavigation: Story = {
 
     await userEvent.click(canvas.getAllByRole('button', { name: 'Edit' })[0]!);
     await expect(await canvas.findByText('Step 1 content')).toBeVisible();
-    await expect(canvas.getByRole('button', { name: 'Step 2' })).toBeDisabled();
-    await expect(canvas.getByRole('button', { name: 'Step 3' })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: 'Step 2' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
+    await expect(canvas.getByRole('button', { name: 'Step 3' })).toHaveAttribute(
+      'aria-disabled',
+      'true'
+    );
     await expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
     (document.activeElement as HTMLElement | null)?.blur();
   },

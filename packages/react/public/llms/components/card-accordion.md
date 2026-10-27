@@ -219,29 +219,66 @@ Follows the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/
   ))}
 </Flex>
 
+### Migrating from `v0.x`
+
+`CardAccordion` has migrated from Radix UI to Base UI internally, matching
+`Accordion`'s own migration. A step always stays open as before — this is now
+preserved internally rather than via a `collapsible` prop, since Base UI has
+no such prop.
+
+**Breaking changes:**
+
+- `CardAccordion: value` / `onValueChange` — now always use an array of
+  `string` values, e.g. `value="step-1"` becomes `value={['step-1']}`, and
+  `onValueChange` now receives a `string[]` as its argument.
+
+```tsx
+{
+  /* Before */
+}
+<CardAccordion value="step-1" onValueChange={value => console.log(value)}>
+  ...
+</CardAccordion>;
+
+{
+  /* After */
+}
+<CardAccordion value={['step-1']} onValueChange={value => console.log(value)}>
+  ...
+</CardAccordion>;
+```
+
+A codemod for this change is tracked separately (UWDS-5255) and isn't
+available yet — update usages by hand in the meantime.
+
 ## API
 
 This component is based on the `div` element and supports the following common props:
 
 - Margin
 
-| Prop            | Type                        | Default | Description                                                                               |
-| --------------- | --------------------------- | ------- | ----------------------------------------------------------------------------------------- |
-| `onValueChange` | `((value: string) => void)` | —       | Called with the new `value` when the active step changes.                                 |
-| `value`         | `string`                    | —       | The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. |
+| Prop            | Type                                        | Default | Description                                                                               |
+| --------------- | ------------------------------------------- | ------- | ----------------------------------------------------------------------------------------- |
+| `style`         | `CSSProperties`                             | —       |                                                                                           |
+| `className`     | `string`                                    | —       |                                                                                           |
+| `onValueChange` | `((value: AccordionValue<string>) => void)` | —       | Called with the new `value` when the active step changes.                                 |
+| `value`         | `AccordionValue<string>`                    | —       | The `value` of the currently active (expanded) `CardAccordionItem`, for controlled usage. |
 
 ### CardAccordionItem
 
-| Prop                 | Type                                   | Default | Description                                                                             |
-| -------------------- | -------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
-| `title`              | `string`                               | —       | The step heading, shown while the step is current.                                      |
-| `value`              | `string`                               | —       | A unique identifier for the step, used to track progress through the CardAccordion.     |
-| `disabled`           | `boolean`                              | —       | Whether or not an accordion item is disabled from user interaction. @defaultValue false |
-| `description`        | `string`                               | —       | Helper text shown below `title` while the step is current.                              |
-| `summaryTitle`       | `string`                               | —       | Heading shown instead of `title` once the step becomes `previous`.                      |
-| `summaryDescription` | `ReactNode`                            | —       | Content shown below `summaryTitle` once the step becomes `previous`.                    |
-| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`         | `h3`    | Sets the heading element rendered for `title`.                                          |
-| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>` | —       | Called when the user clicks the Edit button on a completed (`previous`) step.           |
+| Prop                 | Type                                                                       | Default | Description                                                                         |
+| -------------------- | -------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------- |
+| `style`              | `CSSProperties`                                                            | —       |                                                                                     |
+| `title`              | `string`                                                                   | —       | The step heading, shown while the step is current.                                  |
+| `className`          | `string`                                                                   | —       |                                                                                     |
+| `disabled`           | `boolean`                                                                  | `false` | Whether the component should ignore user interaction.                               |
+| `value`              | `string`                                                                   | —       | A unique identifier for the step, used to track progress through the CardAccordion. |
+| `onOpenChange`       | `((open: boolean, eventDetails: AccordionItemChangeEventDetails) => void)` | —       | Event handler called when the panel is opened or closed.                            |
+| `description`        | `string`                                                                   | —       | Helper text shown below `title` while the step is current.                          |
+| `summaryTitle`       | `string`                                                                   | —       | Heading shown instead of `title` once the step becomes `previous`.                  |
+| `summaryDescription` | `ReactNode`                                                                | —       | Content shown below `summaryTitle` once the step becomes `previous`.                |
+| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`                                             | `h3`    | Sets the heading element rendered for `title`.                                      |
+| `onEditClick`        | `MouseEventHandler<HTMLButtonElement>`                                     | —       | Called when the user clicks the Edit button on a completed (`previous`) step.       |
 
 ### CardAccordionButton
 
