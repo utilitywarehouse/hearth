@@ -7,7 +7,8 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import type { SelectProps } from './Select.props';
-import { Select as SelectPrimitive, ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
+import { Select as SelectPrimitive } from '@base-ui/react/select';
+import { ScrollArea as ScrollAreaPrimitive } from '@base-ui/react/scroll-area';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
@@ -98,26 +99,23 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
           </SelectPrimitive.Icon>
         </SelectPrimitive.Trigger>
         <SelectPrimitive.Portal>
-          <SelectPrimitive.Content
-            className={`${componentClassName}Content`}
-            position="popper"
-            side="bottom"
-            sideOffset={4}
-          >
-            <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')} type="auto">
-              <SelectPrimitive.Viewport className={`${componentClassName}Viewport`}>
+          <SelectPrimitive.Positioner side="bottom" sideOffset={4} alignItemWithTrigger={false}>
+            <SelectPrimitive.Popup className={`${componentClassName}Content`}>
+              <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')}>
                 <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
-                  {children}
+                  <SelectPrimitive.List className={`${componentClassName}List`}>
+                    {children}
+                  </SelectPrimitive.List>
                 </ScrollAreaPrimitive.Viewport>
-              </SelectPrimitive.Viewport>
-              <ScrollAreaPrimitive.Scrollbar
-                className={withGlobalPrefix('ScrollAreaScrollbar')}
-                orientation="vertical"
-              >
-                <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
-              </ScrollAreaPrimitive.Scrollbar>
-            </ScrollAreaPrimitive.Root>
-          </SelectPrimitive.Content>
+                <ScrollAreaPrimitive.Scrollbar
+                  className={withGlobalPrefix('ScrollAreaScrollbar')}
+                  orientation="vertical"
+                >
+                  <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
+                </ScrollAreaPrimitive.Scrollbar>
+              </ScrollAreaPrimitive.Root>
+            </SelectPrimitive.Popup>
+          </SelectPrimitive.Positioner>
         </SelectPrimitive.Portal>
       </SelectPrimitive.Root>
     </FormField>
