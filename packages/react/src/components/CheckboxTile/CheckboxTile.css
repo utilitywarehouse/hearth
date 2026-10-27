@@ -43,6 +43,14 @@
     outline: none;
   }
 
+  & :where(.h-CheckboxRoot[data-unchecked]) {
+    background-color: var(--h-surface-neutral-strong);
+  }
+
+  & :where(.h-CheckboxRoot[data-checked]) {
+    background-color: var(--h-checkbox-checked-background-color);
+  }
+
   & :where(.h-CheckboxTileIndicator) {
     position: absolute;
   }
