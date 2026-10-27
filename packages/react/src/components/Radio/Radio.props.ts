@@ -1,10 +1,18 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import type { ReactNode } from 'react';
 import { LabelProps } from '../Label/Label.props';
 
-export interface RadioProps extends ComponentPropsWithRef<
-  typeof RadioGroupPrimitive.RadioGroupItem
-> {
+export interface RadioProps {
+  /** The unique identifying value of the radio within its group. */
+  value: string;
+  /** Whether the radio should ignore user interaction. */
+  disabled?: boolean;
+  /** Whether the user must choose a value before submitting a form. */
+  required?: boolean;
+  id?: string;
+  className?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
+  children?: ReactNode;
   /**
    * Merges the component's props onto its immediate child instead of
    * rendering its own DOM element, so the child determines the rendered tag.
