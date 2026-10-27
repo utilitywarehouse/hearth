@@ -22,13 +22,6 @@ export interface SwitchProps
   className?: string;
   style?: CSSProperties;
   /**
-   * Merges the component's props onto its immediate child instead of
-   * rendering its own DOM element, so the child determines the rendered tag.
-   *
-   * @default false
-   */
-  asChild?: boolean;
-  /**
    * Sets the Switch size.
    * @default md
    */

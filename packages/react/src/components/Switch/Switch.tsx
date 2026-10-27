@@ -4,7 +4,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { switchPropDefs } from './Switch.props';
 import type { SwitchProps } from './Switch.props';
 import { cn } from '../../helpers/cn';
-import { Slot } from 'radix-ui';
 import { Switch as SwitchPrimitive } from '@base-ui/react/switch';
 import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -34,7 +33,6 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
     label,
     id: providedId,
     'aria-labelledby': ariaLabelledby,
-    asChild,
     disabled,
     onCheckedChange,
     onClick,
@@ -85,8 +83,8 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
         data-disabled={disabled || undefined}
         onClick={handleClick}
         onCheckedChange={handleCheckedChange}
-        render={asChild ? <Slot.Root /> : <button type="button" />}
-        nativeButton={!asChild}
+        render={<button type="button" />}
+        nativeButton
         {...switchProps}
       >
         <SwitchPrimitive.Thumb className={`${componentClassName}Thumb`}>
