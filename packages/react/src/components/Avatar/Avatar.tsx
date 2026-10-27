@@ -33,14 +33,11 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
  * @summary A visual representation of a user, shown as an image, initials, or a fallback icon.
  */
 export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const {
-    className,
-    src,
-    name,
-    delay,
-    delayMs,
-    ...avatarProps
-  } = extractProps(props, avatarPropDefs, marginPropDefs);
+  const { className, src, name, delay, delayMs, ...avatarProps } = extractProps(
+    props,
+    avatarPropDefs,
+    marginPropDefs
+  );
 
   warn(delayMs !== undefined, '<Avatar>: the `delayMs` prop is deprecated. Use `delay` instead.');
   const resolvedDelay = delay ?? delayMs ?? 0;
