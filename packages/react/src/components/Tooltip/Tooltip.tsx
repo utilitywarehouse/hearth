@@ -61,7 +61,7 @@ export const Tooltip = forwardRef<TooltipContentElement, TooltipProps>(
         <TooltipPrimitive.Portal>
           <TooltipPrimitive.Positioner
             {...alignmentTranslation[align]}
-            sideOffset={4}
+            sideOffset={16}
             arrowPadding={32}
           >
             <TooltipPrimitive.Popup
