@@ -78,6 +78,7 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
     >
       <CheckboxPrimitive.Root
         ref={ref}
+        nativeButton
         className="h-CheckboxRoot"
         name={checkboxContext?.name}
         checked={checked}
