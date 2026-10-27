@@ -1,7 +1,7 @@
 'use client';
 
-import { forwardRef } from 'react';
-import type { ComponentRef } from 'react';
+import { Children, forwardRef, isValidElement } from 'react';
+import type { ComponentRef, ReactNode } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -13,6 +13,7 @@ import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { FormField } from '../FormField/FormField';
+import { SelectItem } from './SelectItem';
 
 const COMPONENT_NAME = 'Select';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -49,6 +50,22 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
     prefix: 'select',
   });
 
+  // Base UI's Select.Value shows the raw selected value unless it can look up
+  // a label — derive one from each SelectItem's children since consumers
+  // compose options as children rather than via Base UI's `items` prop.
+  const items = Children.toArray(children).reduce<Record<string, ReactNode>>((acc, child) => {
+    if (isValidElement(child) && child.type === SelectItem) {
+      const { value, children: itemLabel } = child.props as {
+        value?: string;
+        children?: ReactNode;
+      };
+      if (value !== undefined) {
+        acc[value] = itemLabel;
+      }
+    }
+    return acc;
+  }, {});
+
   const showValidation = !disabled;
 
   const formFieldProps = {
@@ -81,7 +98,7 @@ export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
       data-testid={componentClassName}
       {...formFieldProps}
     >
-      <SelectPrimitive.Root {...selectProps}>
+      <SelectPrimitive.Root items={items} {...selectProps}>
         <SelectPrimitive.Trigger
           id={id}
           ref={ref}
