@@ -53,5 +53,6 @@
 
   & :where(.h-CheckboxTileIndicator) {
     position: absolute;
+    display: flex;
   }
 }
