@@ -1,6 +1,7 @@
 'use client';
 
 import { cn } from '../../helpers/cn';
+import { warn } from '../../helpers/logger';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionContentProps } from './AccordionContent.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
@@ -15,13 +16,19 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type AccordionContentElement = ComponentRef<'div'>;
 
 export const AccordionContent = forwardRef<AccordionContentElement, AccordionContentProps>(
-  ({ className, children, forceMount, ...props }, ref) => {
+  ({ className, children, keepMounted, forceMount, ...props }, ref) => {
+    warn(
+      forceMount !== undefined,
+      'AccordionContent `forceMount` is deprecated. Use `keepMounted` instead.'
+    );
+    const resolvedKeepMounted = keepMounted ?? forceMount;
+
     const internalRef = useRef<AccordionContentElement>(null);
     const mergedRef = useMergedRefs(internalRef, ref);
 
     useLayoutEffect(() => {
       const node = internalRef.current;
-      if (!node || !forceMount) return;
+      if (!node || !resolvedKeepMounted) return;
 
       node.hidden = node.dataset.state !== 'open';
 
@@ -97,13 +104,13 @@ export const AccordionContent = forwardRef<AccordionContentElement, AccordionCon
         pendingCleanup?.();
         node.hidden = false;
       };
-    }, [forceMount]);
+    }, [resolvedKeepMounted]);
 
     return (
       <AccordionPrimitive.Content
         ref={mergedRef}
         className={cn(componentClassName, className)}
-        forceMount={forceMount}
+        forceMount={resolvedKeepMounted || undefined}
         {...props}
       >
         <BodyText as="div" className={`${componentClassName}Text`}>
