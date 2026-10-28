@@ -132,6 +132,6 @@ scaffolding in `<A11yIgnore>` or set `parameters.nativeA11y` with a `reason` —
 This package is built on and requires consumers to install `react-native-unistyles`, `react-native-svg`,
 `react-native-reanimated` (+ `react-native-worklets`), `react-native-gesture-handler`,
 `react-native-safe-area-context`, `@gorhom/bottom-sheet`, and `@utilitywarehouse/hearth-react-native-icons`
-(see `docs/introduction.mdx` for consumer-side setup — Babel plugin, font linking, Jest mocks). When changing a
+(see `docs/introduction.docs.mdx` for consumer-side setup — Babel plugin, font linking, Jest mocks). When changing a
 component's animation or gesture behaviour, assume these are the only native modules available; don't add a new
 native dependency without checking the peerDependencies list in `package.json`.
