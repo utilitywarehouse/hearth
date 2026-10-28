@@ -20,6 +20,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [With Image](#with-image)
 - [Loading](#loading)
 - [Preventing dismissal](#preventing-dismissal)
+- [Keeping content mounted](#keeping-content-mounted)
 - [API](#api)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
@@ -142,6 +143,22 @@ users click outside of the modal or press the escape key.
 ```
 
 <Canvas of={Stories.PreventOutsideDismiss} />
+
+## Keeping content mounted
+
+Use the `keepMounted` prop to keep the modal content in the DOM when it is
+closed. The content is hidden from view and the accessibility tree while
+closed.
+
+```tsx
+<Modal keepMounted heading="Hearth modal">
+  {/* Modal content */}
+</Modal>
+```
+
+`forceMount` is still accepted and behaves the same way, but it will be removed
+when `Modal` migrates to Base UI. Prefer `keepMounted` in new usage. If both are
+passed, `keepMounted` takes precedence.
 
 ## API
 
