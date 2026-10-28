@@ -2,6 +2,7 @@
 
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import { cn } from '../../helpers/cn';
+import { warn } from '../../helpers/logger';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ModalProps } from './Modal.props';
 import { Heading } from '../Heading/Heading';
@@ -35,6 +36,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
     {
       className,
       image,
+      keepMounted,
       forceMount,
       container,
       heading,
@@ -52,7 +54,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
     },
     ref
   ) => {
-    const portalProps = { forceMount, container };
+    warn(forceMount !== undefined, 'Modal `forceMount` is deprecated. Use `keepMounted` instead.');
+    const resolvedKeepMounted = keepMounted ?? forceMount;
+    const portalProps = { forceMount: resolvedKeepMounted || undefined, container };
     const containsImage = Boolean(image);
     const hasDescription = Boolean(
       loading ? (loadingText || loadingHeading) && loadingDescription : description
