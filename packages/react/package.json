@@ -60,7 +60,7 @@
     "figma:preview": "figma connect preview",
     "build:storybook": "pnpm generate:llm-docs && storybook build",
     "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
-    "copy:changelog": "node ./scripts/copy-changelog.js",
+    "copy:changelog": "node ./scripts/copy-changelog.js && pnpm run format",
     "test:storybook": "vitest run --project storybook"
   },
   "publishConfig": {
