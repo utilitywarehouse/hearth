@@ -1,4 +1,4 @@
-import { Select as SelectPrimitive } from 'radix-ui';
+import { Select as SelectPrimitive } from '@base-ui/react/select';
 import { MarginProps } from '../../props/margin.props';
 import { FormFieldProps } from '../FormField/FormField.props';
 import type { ComponentPropsWithoutRef, ComponentPropsWithRef } from 'react';
@@ -7,11 +7,31 @@ type SelectRootProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Root>;
 
 export type SelectProps = Omit<
   ComponentPropsWithRef<typeof SelectPrimitive.Trigger>,
-  'value' | 'defaultValue' | 'dir' | 'asChild'
+  'value' | 'defaultValue' | 'dir' | 'render' | 'nativeButton' | 'className'
 > &
-  Omit<SelectRootProps, 'asChild' | 'dir' | 'value' | 'defaultValue' | 'onValueChange'> &
+  Omit<
+    SelectRootProps,
+    | 'dir'
+    | 'value'
+    | 'defaultValue'
+    | 'onValueChange'
+    | 'id'
+    | 'form'
+    | 'items'
+    | 'multiple'
+    | 'modal'
+    | 'readOnly'
+    | 'highlightItemOnHover'
+    | 'actionsRef'
+    | 'inputRef'
+    | 'isItemEqualToValue'
+    | 'itemToStringLabel'
+    | 'itemToStringValue'
+    | 'onOpenChangeComplete'
+  > &
   Omit<FormFieldProps, 'hideLabel' | 'dir'> &
   MarginProps & {
+    className?: string;
     /** Placeholder text shown when no value is selected. */
     placeholder?: string;
     /**
@@ -29,6 +49,8 @@ export type SelectProps = Omit<
   };
 
 export type SelectItemProps = Omit<
-  ComponentPropsWithRef<typeof SelectPrimitive.SelectItem>,
-  'textValue' | 'asChild'
->;
+  ComponentPropsWithRef<typeof SelectPrimitive.Item>,
+  'label' | 'render' | 'nativeButton' | 'className'
+> & {
+  className?: string;
+};

@@ -5,7 +5,7 @@ import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { RadioTileProps } from './RadioTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Label } from '../Label/Label';
@@ -53,7 +53,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
     const flexItemProps = { flex, flexBasis, flexShrink, flexGrow };
     return (
       <Box asChild data-testid={componentClassName} {...flexItemProps}>
-        <RadioGroupPrimitive.Item
+        <RadioPrimitive.Root
           ref={ref}
           className={cn(componentClassName, className)}
           {...props}
@@ -64,10 +64,12 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
             showHelperText ? helperTextId : ariaDescribedby
           )}
           aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
+          nativeButton
+          render={<button type="button" />}
         >
           <div className={withGlobalPrefix('RadioContainer')}>
             <div className={withGlobalPrefix('RadioItem')}>
-              <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
+              <RadioPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
             </div>
             <Flex direction="column" alignItems="start">
               <Label as="span" id={labelId} disableUserSelect>
@@ -82,7 +84,7 @@ export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
               {badge}
             </Flex>
           </div>
-        </RadioGroupPrimitive.Item>
+        </RadioPrimitive.Root>
       </Box>
     );
   }

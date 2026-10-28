@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { RadioProps } from './Radio.props';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
@@ -53,7 +53,7 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
         data-disabled={disabled ? true : undefined}
       >
         <div className={`${componentClassName}Container`}>
-          <RadioGroupPrimitive.Item
+          <RadioPrimitive.Root
             ref={ref}
             {...props}
             // We're not following the same pattern as Button here, where we
@@ -70,9 +70,11 @@ export const Radio = forwardRef<RadioElement, RadioProps>(
             )}
             aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
             className={`${componentClassName}Item`}
+            nativeButton
+            render={<button type="button" />}
           >
-            <RadioGroupPrimitive.Indicator className={`${componentClassName}Indicator`} />
-          </RadioGroupPrimitive.Item>
+            <RadioPrimitive.Indicator className={`${componentClassName}Indicator`} />
+          </RadioPrimitive.Root>
         </div>
         {showLabel ? (
           <Flex direction="column" gap="50">

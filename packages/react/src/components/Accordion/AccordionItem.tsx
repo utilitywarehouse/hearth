@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionItemProps } from './AccordionItem.props';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { AccordionTrigger } from './AccordionTrigger';
 import { AccordionHeader } from './AccordionHeader';
 import type { ComponentRef } from 'react';

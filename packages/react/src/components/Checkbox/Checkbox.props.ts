@@ -1,14 +1,27 @@
-import type { ComponentPropsWithRef, ReactNode } from 'react';
-import { Checkbox as CheckboxPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, CSSProperties, ReactNode } from 'react';
+import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CheckboxProps
   extends
     Omit<
-      ComponentPropsWithRef<typeof CheckboxPrimitive.Checkbox>,
-      'asChild' | 'value' | 'onCheckedChange' | 'defaultChecked' | 'defaultValue'
+      ComponentPropsWithRef<typeof CheckboxPrimitive.Root>,
+      | 'render'
+      | 'nativeButton'
+      | 'parent'
+      | 'uncheckedValue'
+      | 'indeterminate'
+      | 'readOnly'
+      | 'className'
+      | 'style'
+      | 'value'
+      | 'onCheckedChange'
+      | 'defaultChecked'
+      | 'defaultValue'
     >,
     MarginProps {
+  className?: string;
+  style?: CSSProperties;
   /** The value given as data when submitted with a `name`. */
   value?: string;
   /** The value given as data when submitted with a `name`, when the checkbox is initially rendered uncontrolled. */
