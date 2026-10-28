@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { getFlattenedColorValue } from '../../utils';
 import { IconButtonContext } from './IconButton.context';
@@ -11,23 +11,41 @@ const IconButtonRoot = ({
   variant = 'solid',
   size = 'md',
   inverted = false,
-  states,
+  disabled,
+  pressed,
+  accessibilityRole = 'button',
+  onPressIn,
+  onPressOut,
   backgroundColor,
   activeBackgroundColor,
   shadowColor,
   ...props
-}: IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active, disabled } = states || {};
+}: IconButtonProps) => {
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = pressed || touchPressed;
   styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
   const value = useMemo(
     () => ({ colorScheme, variant, size, inverted, disabled, active }),
     [colorScheme, variant, size, inverted, disabled, active]
   );
+
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
   return (
     <IconButtonContext.Provider value={value}>
       <Pressable
+        accessibilityRole={accessibilityRole}
+        disabled={disabled}
         {...props}
-        style={[
+        style={state => [
           styles.container,
           styles.overrides({
             backgroundColor,
@@ -36,8 +54,10 @@ const IconButtonRoot = ({
             active,
             variant,
           }),
-          props.style as ViewStyle,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
         ]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
       >
         {children}
       </Pressable>

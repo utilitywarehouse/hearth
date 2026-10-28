@@ -167,6 +167,8 @@ export type InputContextValue = {
   readonly?: InputProps['readonly'];
   validationStatus?: InputProps['validationStatus'];
   type?: InputProps['type'];
+  required?: boolean;
+  setFocused?: (focused: boolean) => void;
 };
 
 export default InputProps;

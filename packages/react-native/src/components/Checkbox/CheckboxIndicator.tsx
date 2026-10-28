@@ -3,10 +3,11 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useCheckboxContext } from './Checkbox.context';
 
 const CheckboxIndicator = (props: ViewProps) => {
-  const { checked, active } = useCheckboxContext();
+  const { checked, active, disabled } = useCheckboxContext();
   styles.useVariants({
     checked,
     active,
+    disabled: !!disabled,
   });
   return (
     <View {...props} style={[styles.container, props.style]}>
@@ -31,17 +32,6 @@ const styles = StyleSheet.create(theme => ({
     outlineWidth: theme.components.checkbox.outlineWidth,
     outlineStyle: 'solid',
     outlineColor: 'transparent',
-    _web: {
-      _hover: {
-        outlineColor: theme.components.checkbox.outlineColorHover,
-      },
-      // '_focus-within': {
-      //   ...theme.helpers.focusVisible,
-      // },
-      _active: {
-        outlineColor: theme.components.checkbox.outlineColorActive,
-      },
-    },
     variants: {
       checked: {
         true: {
@@ -52,6 +42,18 @@ const styles = StyleSheet.create(theme => ({
       active: {
         true: {
           outlineColor: theme.components.checkbox.outlineColorActive,
+        },
+      },
+      disabled: {
+        false: {
+          _web: {
+            _hover: {
+              outlineColor: theme.components.checkbox.outlineColorHover,
+            },
+            _active: {
+              outlineColor: theme.components.checkbox.outlineColorActive,
+            },
+          },
         },
       },
     },

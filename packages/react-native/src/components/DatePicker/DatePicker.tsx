@@ -11,7 +11,6 @@ import { usePrevious } from '../../hooks/usePrevious';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { DatePickerContext } from './DatePicker.context';
 import type {
-  CalendarAction,
   DatePickerBaseProps,
   DateType,
   LocalState,
@@ -21,7 +20,14 @@ import type {
 } from './DatePicker.props';
 import Calendar from './DatePickerCalendar';
 import { CalendarActionKind, CalendarViews, CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
-import { areDatesOnSameDay, dateToUnix, getEndOfDay, getStartOfDay, removeTime } from './utils';
+import {
+  areDatesOnSameDay,
+  calendarReducer,
+  dateToUnix,
+  getEndOfDay,
+  getStartOfDay,
+  removeTime,
+} from './utils';
 
 dayjs.extend(localeData);
 dayjs.extend(relativeTime);
@@ -214,52 +220,7 @@ const DateTimePicker = (
     initialCalendarView,
   ]);
 
-  const [state, dispatch] = useReducer((prevState: LocalState, action: CalendarAction) => {
-    switch (action.type) {
-      case CalendarActionKind.SET_CALENDAR_VIEW:
-        return {
-          ...prevState,
-          calendarView: action.payload,
-        };
-      case CalendarActionKind.CHANGE_CURRENT_DATE:
-        return {
-          ...prevState,
-          currentDate: action.payload,
-        };
-      case CalendarActionKind.CHANGE_CURRENT_YEAR:
-        return {
-          ...prevState,
-          currentYear: action.payload,
-        };
-      case CalendarActionKind.CHANGE_SELECTED_DATE: {
-        const { date: selectedDate } = action.payload;
-        return {
-          ...prevState,
-          date: selectedDate,
-          currentDate: selectedDate,
-        };
-      }
-      case CalendarActionKind.CHANGE_SELECTED_RANGE: {
-        const { startDate: start, endDate: end } = action.payload;
-        return {
-          ...prevState,
-          startDate: start,
-          endDate: end,
-        };
-      }
-      case CalendarActionKind.CHANGE_SELECTED_MULTIPLE: {
-        const { dates: selectedDates } = action.payload;
-        return {
-          ...prevState,
-          dates: selectedDates,
-        };
-      }
-      case CalendarActionKind.RESET_STATE:
-        return action.payload;
-      default:
-        return prevState;
-    }
-  }, initialState);
+  const [state, dispatch] = useReducer(calendarReducer, initialState);
 
   const stateRef = useRef(state);
   stateRef.current = state;
@@ -449,13 +410,13 @@ const DateTimePicker = (
               startDate: isStart
                 ? dayjs(selected).toDate()
                 : start
-                  ? dayjs.tz(start).toDate()
-                  : start,
+                ? dayjs.tz(start).toDate()
+                : start,
               endDate: !isStart
                 ? dayjs.tz(getEndOfDay(selected), timeZone).toDate()
                 : end
-                  ? dayjs.tz(getEndOfDay(end), timeZone).toDate()
-                  : end,
+                ? dayjs.tz(getEndOfDay(end), timeZone).toDate()
+                : end,
             });
           }
         } else if (mode === 'multiple') {
@@ -672,7 +633,9 @@ const DateTimePicker = (
   );
 
   const handleChange = useCallback((index: number) => {
-    if (index > -1) {
+    // react-native-web's findNodeHandle always throws, and the focus/announce calls
+    // it feeds are no-ops there anyway, so skip this native-only accessibility step on web.
+    if (index > -1 && Platform.OS !== 'web') {
       hasChangedRef.current = false;
 
       // Add a small delay to ensure the bottom sheet is fully rendered

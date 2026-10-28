@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
+import { expect, within } from 'storybook/test';
 import { Icon } from '.';
 import { ColorValue } from '../../types';
 import { coloursAsArray } from '../../utils';
@@ -40,5 +41,22 @@ export const Playground: Story = {
     // @ts-expect-error - This is a playground
     const as = icon === 'none' ? undefined : Icons[icon];
     return <Icon as={as} color={color} />;
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Icon is decorative — `role="img"` is set (by the underlying
+    // @gluestack-ui/icon createIcon wrapper), but it's also hidden from the
+    // accessibility tree (`aria-hidden="true"`), so it must be queried with
+    // `{ hidden: true }`.
+    const icon = await canvas.findByRole('img', { hidden: true });
+    expect(icon).toBeInTheDocument();
+    expect(icon.tagName.toLowerCase()).toBe('svg');
+    expect(icon).toHaveAttribute('aria-hidden', 'true');
+    expect(icon).toHaveAttribute('focusable', 'false');
+
+    // args.color defaults to 'grey1000', which resolves to this hex value.
+    const path = icon.querySelector('path');
+    expect(path).toHaveAttribute('fill', '#101010');
   },
 };

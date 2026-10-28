@@ -1,28 +1,26 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useId, useLayoutEffect } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
+import ListItemRole from '../ListItemRole';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
 import ListActionText from './ListActionText';
 import ListActionTrailingContent from './ListActionTrailingContent';
 import ListActionTrailingIcon from './ListActionTrailingIcon';
 
-const ListActionRoot = ({
+const ListAction = ({
   heading,
   disabled,
   variant = 'subtle',
   loading,
   ...props
-}: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+}: ListActionProps) => {
   const { onPress } = props;
   const listContext = useListContext();
   const { registerItem, firstItemId } = listContext;
-
-  const { active } = props.states || { active: false };
 
   const getListContainer = (): ListActionProps['variant'] => {
     if (listContext?.container?.includes('subtle')) {
@@ -53,42 +51,48 @@ const ListActionRoot = ({
   styles.useVariants({
     variant: listItemVariant,
     disabled: isDisabled,
-    active,
     showDisabled: !listContext?.disabled && disabled,
     isFirstChild,
     container: listContext?.container,
   });
 
   return (
-    <Pressable
-      {...props}
-      accessibilityRole={props.accessibilityRole ?? 'button'}
-      testID={testID}
-      style={[styles.container, props.style as ViewStyle]}
-      disabled={isDisabled || !onPress}
-    >
-      {loading ? (
-        <View style={styles.loadingWrap}>
-          <Skeleton style={{ flex: 1, maxWidth: 166 }} width="auto" height={24} borderRadius="sm" />
-          <Skeleton width={24} height={24} borderRadius="sm" />
-        </View>
-      ) : (
-        <>
-          <ListActionContent>
-            <ListActionText>{heading}</ListActionText>
-          </ListActionContent>
-          <ListActionTrailingContent style={styles.centeredTrailingIcon}>
-            <ListActionTrailingIcon as={ChevronRightSmallIcon} />
-          </ListActionTrailingContent>
-        </>
-      )}
-    </Pressable>
+    <ListItemRole>
+      <Pressable
+        {...props}
+        accessibilityRole={props.accessibilityRole ?? 'button'}
+        testID={testID}
+        style={state => [
+          styles.container,
+          state.pressed && styles.containerPressed,
+          (typeof props.style === 'function' ? props.style(state) : props.style) as ViewStyle,
+        ]}
+        disabled={isDisabled || !onPress}
+      >
+        {loading ? (
+          <View style={styles.loadingWrap}>
+            <Skeleton
+              style={{ flex: 1, maxWidth: 166 }}
+              width="auto"
+              height={24}
+              borderRadius="sm"
+            />
+            <Skeleton width={24} height={24} borderRadius="sm" />
+          </View>
+        ) : (
+          <>
+            <ListActionContent>
+              <ListActionText>{heading}</ListActionText>
+            </ListActionContent>
+            <ListActionTrailingContent style={styles.centeredTrailingIcon}>
+              <ListActionTrailingIcon as={ChevronRightSmallIcon} />
+            </ListActionTrailingContent>
+          </>
+        )}
+      </Pressable>
+    </ListItemRole>
   );
 };
-
-const ListAction = createPressable({
-  Root: ListActionRoot,
-});
 
 ListAction.displayName = 'ListAction';
 
@@ -112,11 +116,6 @@ const styles = StyleSheet.create(theme => ({
         },
         emphasis: {
           borderTopColor: theme.color.border.strong,
-        },
-      },
-      active: {
-        true: {
-          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
         },
       },
       disabled: {
@@ -150,6 +149,9 @@ const styles = StyleSheet.create(theme => ({
         emphasisWarmWhite: {},
       },
     },
+  },
+  containerPressed: {
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
   },
   centeredTrailingIcon: {
     justifyContent: 'center',

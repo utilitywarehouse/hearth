@@ -1,5 +1,5 @@
-import { useMemo, useRef } from 'react';
-import { GestureResponderEvent, Platform, Pressable, View, ViewStyle } from 'react-native';
+import { useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import ToggleButton from '../ToggleButton/ToggleButton';
 import { ToggleButtonCardContext } from './ToggleButtonCard.context';
@@ -9,15 +9,23 @@ const ToggleButtonCardRoot = ({
   children,
   style,
   label,
-  states,
+  checked,
+  disabled,
+  groupItemValue,
   onPress,
+  onToggle,
+  onPressIn,
+  onPressOut,
   ...props
-}: ToggleButtonCardProps & {
-  states?: { disabled?: boolean; checked?: boolean; active?: boolean };
+}: Omit<ToggleButtonCardProps, 'value'> & {
+  checked?: boolean;
+  onToggle?: () => void;
+  /** The card's `value` when it is inside a `ToggleGroup`, which makes its button the group item. */
+  groupItemValue?: string;
 }) => {
-  const { checked, active, disabled: statesDisabled } = states ?? {};
-  const isDisabled = !!(statesDisabled ?? props.disabled);
-  const containerRef = useRef<View>(null);
+  const [touchPressed, setTouchPressed] = useState(false);
+  const active = touchPressed;
+  const isDisabled = !!disabled;
 
   const value = useMemo(
     () => ({
@@ -29,24 +37,21 @@ const ToggleButtonCardRoot = ({
 
   styles.useVariants({
     selected: checked,
-    disabled: isDisabled,
   });
 
-  const handlePress = (e: GestureResponderEvent) => {
-    // gluestack's Radio selection state on web is driven by the hidden native
-    // <input type="radio"> receiving a real click (label-forwarding). The
-    // ToggleButton nested inside is itself an interactive element, so browsers
-    // don't forward the click to that hidden input. Click it directly instead.
-    if (Platform.OS === 'web') {
-      const node = containerRef.current as unknown as HTMLElement | null;
-      const input = node?.querySelector?.('input[type="radio"]') as HTMLInputElement | null;
-      if (input && !input.checked) {
-        input.click();
-        return;
-      }
-    }
-    onPress?.(e);
-    props.onChange?.(!checked);
+  const handlePressIn = (event: GestureResponderEvent) => {
+    setTouchPressed(true);
+    onPressIn?.(event);
+  };
+
+  const handlePressOut = (event: GestureResponderEvent) => {
+    setTouchPressed(false);
+    onPressOut?.(event);
+  };
+
+  const handleTogglePress = (event: GestureResponderEvent) => {
+    onPress?.(event);
+    onToggle?.();
   };
 
   return (
@@ -54,17 +59,22 @@ const ToggleButtonCardRoot = ({
       <Pressable
         {...props}
         disabled={isDisabled}
-        ref={containerRef}
         onPress={onPress}
-        style={[styles.container, style as ViewStyle]}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        style={state => [
+          styles.container,
+          (typeof style === 'function' ? style(state) : style) as ViewStyle,
+        ]}
       >
         {children}
         <View style={styles.buttonContainer}>
           <ToggleButton
             text={label}
+            value={groupItemValue}
             toggled={checked}
             disabled={isDisabled}
-            onPress={handlePress}
+            onPress={handleTogglePress}
             style={styles.button}
           />
         </View>
@@ -106,15 +116,9 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'flex-start',
     flexGrow: 1,
   },
+  // `ToggleButton` dims itself when disabled.
   button: {
     flexGrow: 1,
-    variants: {
-      disabled: {
-        true: {
-          opacity: theme.opacity.disabled,
-        },
-      },
-    },
   },
 }));
 

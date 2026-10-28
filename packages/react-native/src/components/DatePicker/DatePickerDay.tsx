@@ -1,6 +1,5 @@
-import { createPressable } from '@gluestack-ui/pressable';
-import React, { memo, useMemo } from 'react';
-import { Pressable, PressableProps, View, ViewStyle } from 'react-native';
+import React, { memo, useMemo, useState } from 'react';
+import { GestureResponderEvent, Pressable, PressableProps, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { isEqual } from '../../utils';
 import { BodyText } from '../BodyText';
@@ -18,13 +17,30 @@ export const EmptyDay = React.memo(() => {
   return <View style={styles.dayWrapper} />;
 });
 
-const DayPressable = createPressable({
-  Root: (props: PressableProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-    const { states, style } = props;
-    styles.useVariants({ isActive: states?.active });
-    return <Pressable {...props} style={[styles.dayContainer, style as ViewStyle]} />;
-  },
-});
+const DayPressable = (props: PressableProps) => {
+  const { style, ...rest } = props;
+  const [pressed, setPressed] = useState(false);
+  styles.useVariants({ isActive: pressed });
+
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setPressed(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setPressed(false);
+  };
+
+  return (
+    <Pressable
+      {...rest}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      style={[styles.dayContainer, style as ViewStyle]}
+    />
+  );
+};
 
 const Day = ({
   day,

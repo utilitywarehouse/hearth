@@ -1,6 +1,6 @@
 # ToggleButton
 
-A pressable button that switches between an on and off state, such as for a single standalone setting.
+A pressable button that switches between an on and off state, such as for a single standalone setting. To manage a set of toggle buttons together, wrap them in a `ToggleGroup`.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -11,7 +11,14 @@ A pressable button that switches between an on and off state, such as for a sing
 
 ```tsx
 // Example usage
-<ToggleButton {...args} />
+<ToggleButton
+  {...args}
+  toggled={toggled}
+  onToggle={value => {
+    setToggled(value);
+    playgroundOnToggle(value);
+  }}
+/>
 ```
 
 ## Usage
@@ -37,6 +44,7 @@ const MyComponent = () => {
 | `text`     | `string`                     | The text label of the button.                                                                               |         |
 | `toggled`  | `boolean`                    | Whether the button is in the toggled (pressed/selected) state.                                              | `false` |
 | `onToggle` | `(toggled: boolean) => void` | Called with the new toggled state whenever the button is pressed.                                           |         |
+| `value`    | `string`                     | Identifies the button inside a `ToggleGroup`, which then manages its toggled state and ignores `toggled`.   |         |
 | `children` | `ReactNode`                  | Custom content, typically `ToggleButtonIcon` and `ToggleButtonText`. Replaces the built-in icon and `text`. |         |
 
 ## Advanced Usage

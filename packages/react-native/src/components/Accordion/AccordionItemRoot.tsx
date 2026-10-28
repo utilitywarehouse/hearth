@@ -5,8 +5,28 @@ import { useAccordionContext } from './Accordion.context';
 import AccordionItemContext from './AccordionItem.context';
 import { AccordionItemProps } from './AccordionItem.props';
 
-const AccordionItem = ({ children, style, noPadding, disabled, ...props }: AccordionItemProps) => {
-  const context = useMemo(() => ({ noPadding, disabled }), [noPadding, disabled]);
+type AccordionItemRootProps = Omit<AccordionItemProps, 'expanded'> & {
+  expanded?: boolean;
+  onPress?: () => void;
+  triggerId?: string;
+  contentId?: string;
+};
+
+const AccordionItem = ({
+  children,
+  style,
+  noPadding,
+  disabled,
+  expanded,
+  onPress,
+  triggerId,
+  contentId,
+  ...props
+}: AccordionItemRootProps) => {
+  const context = useMemo(
+    () => ({ noPadding, disabled, expanded, onPress, triggerId, contentId }),
+    [noPadding, disabled, expanded, onPress, triggerId, contentId]
+  );
   const { disabled: contextDisabled } = useAccordionContext();
   // A disabled Accordion disables every item, so an item-level `disabled={false}` must not win.
   styles.useVariants({ disabled: !!(disabled || contextDisabled) });

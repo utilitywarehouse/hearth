@@ -77,23 +77,17 @@ export const Playground: Story = {
     const canvas = within(canvasElement);
     const link = await canvas.findByRole('link', { name: 'Link' });
 
-    // On web, Link (built on `createLink` from `@gluestack-ui/link`) renders as
-    // a real anchor when `href` is set and the link is enabled - not just an
-    // element with `role="link"`.
+    // On web, Link renders as a real anchor when `href` is set and the link
+    // is enabled - not just an element with `role="link"`.
     expect(link.tagName).toBe('A');
     expect(link).toHaveAttribute('href', 'https://www.uw.co.uk');
     expect(link).toHaveAttribute('tabindex', '0');
     expect(link).not.toHaveAttribute('aria-disabled');
 
-    // The story's default `target` is `_blank`. `@gluestack-ui/link`'s
-    // `useLink` hook sets `target`/`rel` on the underlying DOM node
-    // imperatively via a ref mutation during render rather than passing them
-    // as props, so they never reliably land as DOM attributes - see
-    // UWDS-4909. Link now passes `target`/`rel` through explicitly as props
-    // (converted to react-native-web's `hrefAttrs`) instead of relying on
-    // gluestack's ref mutation, so both are applied here, including the
-    // `rel="noopener noreferrer"` default that guards against reverse
-    // tabnabbing on `target="_blank"` links.
+    // The story's default `target` is `_blank`. `target`/`rel` are passed
+    // through explicitly as props (converted to react-native-web's
+    // `hrefAttrs`), including the `rel="noopener noreferrer"` default that
+    // guards against reverse tabnabbing on `target="_blank"` links.
     expect(link).toHaveAttribute('target', '_blank');
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   },

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Checkbox, CheckboxGroup } from '.';
 
 const meta = {
@@ -79,6 +80,25 @@ export const Playground: Story = {
       <Checkbox aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Checkbox-3" />
     </CheckboxGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const option1 = await canvas.findByRole('checkbox', { name: 'Label 1' });
+    const option2 = await canvas.findByRole('checkbox', { name: 'Label 2' });
+
+    expect(option1).toHaveAttribute('aria-checked', 'false');
+    expect(option2).toHaveAttribute('aria-checked', 'false');
+
+    await userEvent.click(option1);
+    await userEvent.click(option2);
+
+    // Unlike a RadioGroup, checking one option in a CheckboxGroup does not
+    // uncheck the others - multiple checkboxes can be checked at once.
+    await waitFor(() => {
+      expect(option1).toHaveAttribute('aria-checked', 'true');
+      expect(option2).toHaveAttribute('aria-checked', 'true');
+    });
+  },
 };
 
 export const LongContent: Story = {

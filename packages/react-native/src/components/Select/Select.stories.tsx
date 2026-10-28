@@ -5,6 +5,7 @@ import {
   UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { BottomSheetModalProvider } from '../BottomSheet';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { FormField } from '../FormField';
@@ -87,6 +88,13 @@ const meta = {
       { label: 'Option 3', value: '3' },
     ],
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof Select>;
 
 export default meta;

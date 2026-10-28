@@ -5,6 +5,8 @@ export const RadioGroupContext = createContext<{
   validationStatus?: 'valid' | 'invalid' | 'initial';
   type?: 'default' | 'tile';
   direction?: 'column' | 'row';
+  selectedValue?: string;
+  select?: (value: string) => void;
 }>({});
 
 export const useRadioGroupContext = () => useContext(RadioGroupContext);

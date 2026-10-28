@@ -1,8 +1,14 @@
 import ToggleButtonCardGroupProps from './ToggleButtonCardGroup.props';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useSingleSelection } from '../../hooks/useSingleSelection';
 import { Grid } from '../Grid';
+import { ToggleButtonCardGroupContext } from './ToggleButtonCardGroup.context';
 
+/**
+ * Groups a set of `ToggleButtonCard`s so only one can be selected at a time, laid out as a
+ * flexbox row or a grid. Use it for forms or surveys that present multiple selectable options.
+ */
 const ToggleButtonCardGroup = ({
   children,
   gap = '200',
@@ -12,28 +18,43 @@ const ToggleButtonCardGroup = ({
   justifyContent,
   alignItems,
   columns,
+  value,
+  onChange,
+  onValueChange,
   ...props
 }: ToggleButtonCardGroupProps) => {
+  const { selectedValue, select } = useSingleSelection({
+    value,
+    onValueChange: groupValue => {
+      onChange?.(groupValue);
+      onValueChange?.(groupValue);
+    },
+  });
+  const contextValue = { selectedValue, select };
   return columns ? (
-    <Grid {...props} gap={gap} columns={columns} style={style}>
-      {children as any}
-    </Grid>
+    <ToggleButtonCardGroupContext.Provider value={contextValue}>
+      <Grid {...props} gap={gap} columns={columns} style={style}>
+        {children as any}
+      </Grid>
+    </ToggleButtonCardGroupContext.Provider>
   ) : (
-    <View
-      {...props}
-      style={[
-        styles.containerGap(gap),
-        {
-          flexDirection,
-          flexWrap,
-          justifyContent,
-          alignItems,
-        },
-        style,
-      ]}
-    >
-      {children}
-    </View>
+    <ToggleButtonCardGroupContext.Provider value={contextValue}>
+      <View
+        {...props}
+        style={[
+          styles.containerGap(gap),
+          {
+            flexDirection,
+            flexWrap,
+            justifyContent,
+            alignItems,
+          },
+          style,
+        ]}
+      >
+        {children}
+      </View>
+    </ToggleButtonCardGroupContext.Provider>
   );
 };
 
