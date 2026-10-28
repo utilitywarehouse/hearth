@@ -1,80 +1,83 @@
 /* Don't edit this file directly, it was auto generated */
 // @ts-nocheck
-import AnimatedSpotAccountDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json';
 import AnimatedSpotAccountLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-light.json';
-import AnimatedSpotBillingDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-dark.json';
+import AnimatedSpotAccountLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json';
 import AnimatedSpotBillingLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-light.json';
-import AnimatedSpotBoilerDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-dark.json';
+import AnimatedSpotBillingLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-dark.json';
 import AnimatedSpotBoilerLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-light.json';
-import AnimatedSpotBookAppointmentsDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-dark.json';
+import AnimatedSpotBoilerLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-dark.json';
 import AnimatedSpotBookAppointmentsLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json';
-import AnimatedSpotBroadbandSymbolDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-dark.json';
+import AnimatedSpotBookAppointmentsLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-dark.json';
 import AnimatedSpotBroadbandSymbolLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-light.json';
-import AnimatedSpotBundle1Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-dark.json';
+import AnimatedSpotBroadbandSymbolLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-dark.json';
 import AnimatedSpotBundle1Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-light.json';
-import AnimatedSpotBundle2Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-dark.json';
+import AnimatedSpotBundle1LottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-dark.json';
 import AnimatedSpotBundle2Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-light.json';
-import AnimatedSpotCalendarDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-dark.json';
+import AnimatedSpotBundle2LottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-dark.json';
 import AnimatedSpotCalendarLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-light.json';
-import AnimatedSpotCelebratoryDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-dark.json';
+import AnimatedSpotCalendarLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-dark.json';
+import AnimatedSpotCarKeysDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-dark.json';
+import AnimatedSpotCarKeysLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-light.json';
 import AnimatedSpotCelebratoryLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-light.json';
-import AnimatedSpotDarkModeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-dark.json';
+import AnimatedSpotCelebratoryLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-dark.json';
 import AnimatedSpotDarkModeLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-light.json';
-import AnimatedSpotEarningsDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-dark.json';
-import AnimatedSpotEarningsLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-light.json';
-import AnimatedSpotEmptyState1Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-dark.json';
-import AnimatedSpotEmptyState1Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-light.json';
-import AnimatedSpotEmptyState2Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-dark.json';
-import AnimatedSpotEmptyState2Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-light.json';
-import AnimatedSpotErrorDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-dark.json';
-import AnimatedSpotErrorLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-light.json';
-import AnimatedSpotEVDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-dark.json';
-import AnimatedSpotEVLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-light.json';
-import AnimatedSpotHeartDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-dark.json';
-import AnimatedSpotHeartLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-light.json';
-import AnimatedSpotHelpDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-dark.json';
-import AnimatedSpotHelpLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-light.json';
-import AnimatedSpotHowToVideosDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-dark.json';
-import AnimatedSpotHowToVideosLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-light.json';
-import AnimatedSpotInnovationDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-dark.json';
-import AnimatedSpotInnovationLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-light.json';
-import AnimatedSpotKeepTrackDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-dark.json';
-import AnimatedSpotKeepTrackLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-light.json';
-import AnimatedSpotLeadsDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-dark.json';
-import AnimatedSpotLeadsLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-light.json';
-import AnimatedSpotMovingHouseDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-dark.json';
-import AnimatedSpotMovingHouseLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-light.json';
-import AnimatedSpotNeighboursDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-dark.json';
-import AnimatedSpotNeighboursLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-light.json';
-import AnimatedSpotNewLookDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-dark.json';
-import AnimatedSpotNewLookLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-light.json';
-import AnimatedSpotNoBroadbandDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-dark.json';
-import AnimatedSpotNoBroadbandLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-light.json';
-import AnimatedSpotNotificationDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-dark.json';
-import AnimatedSpotNotificationLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-light.json';
-import AnimatedSpotPestsDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-dark.json';
-import AnimatedSpotPestsLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-light.json';
-import AnimatedSpotProcessCompleteCelebratoryDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-dark.json';
-import AnimatedSpotProcessCompleteCelebratoryLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-light.json';
-import AnimatedSpotProcessCompleteFunctionalDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-dark.json';
-import AnimatedSpotProcessCompleteFunctionalLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-light.json';
-import AnimatedSpotQuoteSalesDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-dark.json';
-import AnimatedSpotQuoteSalesLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-light.json';
-import AnimatedSpotRecognitionDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-dark.json';
-import AnimatedSpotRecognitionLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-light.json';
-import AnimatedSpotSavings2Dark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-dark.json';
-import AnimatedSpotSavings2Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-light.json';
-import AnimatedSpotSecurityCodeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-dark.json';
-import AnimatedSpotSecurityCodeLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-light.json';
-import AnimatedSpotSecurityDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-dark.json';
-import AnimatedSpotSecurityLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-light.json';
-import AnimatedSpotSmartMeterDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-dark.json';
-import AnimatedSpotSmartMeterLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-light.json';
-import AnimatedSpotSuccessDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-dark.json';
-import AnimatedSpotSwitchDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-dark.json';
-import AnimatedSpotSwitchLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-light.json';
-import AnimatedSpotWelcomeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-dark.json';
-import AnimatedSpotWelcomeLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-light.json';
+import AnimatedSpotDarkModeLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-dark.json';
+import AnimatedSpotEarningsLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-dark.json';
+import AnimatedSpotEarningsLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-light.json';
+import AnimatedSpotEmptyState1LottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-dark.json';
+import AnimatedSpotEmptyState1LottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-light.json';
+import AnimatedSpotEmptyState2LottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-dark.json';
+import AnimatedSpotEmptyState2LottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-light.json';
+import AnimatedSpotErrorLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-dark.json';
+import AnimatedSpotErrorLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-light.json';
+import AnimatedSpotEVLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-dark.json';
+import AnimatedSpotEVLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-light.json';
+import AnimatedSpotHeartLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-dark.json';
+import AnimatedSpotHeartLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-light.json';
+import AnimatedSpotHelpLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-dark.json';
+import AnimatedSpotHelpLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-light.json';
+import AnimatedSpotHowToVideosLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-dark.json';
+import AnimatedSpotHowToVideosLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-light.json';
+import AnimatedSpotInnovationLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-dark.json';
+import AnimatedSpotInnovationLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-light.json';
+import AnimatedSpotKeepTrackLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-dark.json';
+import AnimatedSpotKeepTrackLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-light.json';
+import AnimatedSpotLeadsLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-dark.json';
+import AnimatedSpotLeadsLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-light.json';
+import AnimatedSpotMovingHouseLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-dark.json';
+import AnimatedSpotMovingHouseLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-light.json';
+import AnimatedSpotNeighboursLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-dark.json';
+import AnimatedSpotNeighboursLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-light.json';
+import AnimatedSpotNewLookLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-dark.json';
+import AnimatedSpotNewLookLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-light.json';
+import AnimatedSpotNoBroadbandLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-dark.json';
+import AnimatedSpotNoBroadbandLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-light.json';
+import AnimatedSpotNotificationLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-dark.json';
+import AnimatedSpotNotificationLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-light.json';
+import AnimatedSpotPestsLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-dark.json';
+import AnimatedSpotPestsLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-light.json';
+import AnimatedSpotProcessCompleteCelebratoryLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-dark.json';
+import AnimatedSpotProcessCompleteCelebratoryLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-light.json';
+import AnimatedSpotProcessCompleteFunctionalLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-dark.json';
+import AnimatedSpotProcessCompleteFunctionalLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-light.json';
+import AnimatedSpotQuoteSalesLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-dark.json';
+import AnimatedSpotQuoteSalesLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-light.json';
+import AnimatedSpotRecognitionLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-dark.json';
+import AnimatedSpotRecognitionLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-light.json';
+import AnimatedSpotSavings2LottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-dark.json';
+import AnimatedSpotSavings2LottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-light.json';
+import AnimatedSpotSecurityCodeLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-dark.json';
+import AnimatedSpotSecurityCodeLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-light.json';
+import AnimatedSpotSecurityLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-dark.json';
+import AnimatedSpotSecurityLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-light.json';
+import AnimatedSpotSmartMeterLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-dark.json';
+import AnimatedSpotSmartMeterLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-light.json';
+import AnimatedSpotSuccessLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-dark.json';
+import AnimatedSpotSuccessLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-light.json';
+import AnimatedSpotSwitchLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-dark.json';
+import AnimatedSpotSwitchLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-light.json';
+import AnimatedSpotWelcomeLottieDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-dark.json';
+import AnimatedSpotWelcomeLottieLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-light.json';
 import AnimatedUWLogoExtendedOffWhiteLight from '@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-extended-off-white-light.json';
 import AnimatedUWLogoExtendedPurpleLight from '@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-extended-purple-light.json';
 import AnimatedUWLogoStandardOffWhiteLight from '@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-standard-off-white-light.json';
@@ -84,19 +87,14 @@ import AnimatedUWMonoPurpleLight from '@utilitywarehouse/hearth-json-assets/lib/
 
 export const jsonAssets = [
   {
-    name: 'AnimatedSpotAccountDark',
-    src: AnimatedSpotAccountDark,
-    path: 'animated-spot-account-dark.json',
-  },
-  {
     name: 'AnimatedSpotAccountLight',
     src: AnimatedSpotAccountLight,
     path: 'animated-spot-account-light.json',
   },
   {
-    name: 'AnimatedSpotBillingDark',
-    src: AnimatedSpotBillingDark,
-    path: 'animated-spot-billing-dark.json',
+    name: 'AnimatedSpotAccountLottieDark',
+    src: AnimatedSpotAccountLottieDark,
+    path: 'animated-spot-account-dark.json',
   },
   {
     name: 'AnimatedSpotBillingLight',
@@ -104,9 +102,9 @@ export const jsonAssets = [
     path: 'animated-spot-billing-light.json',
   },
   {
-    name: 'AnimatedSpotBoilerDark',
-    src: AnimatedSpotBoilerDark,
-    path: 'animated-spot-boiler-dark.json',
+    name: 'AnimatedSpotBillingLottieDark',
+    src: AnimatedSpotBillingLottieDark,
+    path: 'animated-spot-billing-dark.json',
   },
   {
     name: 'AnimatedSpotBoilerLight',
@@ -114,9 +112,9 @@ export const jsonAssets = [
     path: 'animated-spot-boiler-light.json',
   },
   {
-    name: 'AnimatedSpotBookAppointmentsDark',
-    src: AnimatedSpotBookAppointmentsDark,
-    path: 'animated-spot-book-appointments-dark.json',
+    name: 'AnimatedSpotBoilerLottieDark',
+    src: AnimatedSpotBoilerLottieDark,
+    path: 'animated-spot-boiler-dark.json',
   },
   {
     name: 'AnimatedSpotBookAppointmentsLight',
@@ -124,9 +122,9 @@ export const jsonAssets = [
     path: 'animated-spot-book-appointments-light.json',
   },
   {
-    name: 'AnimatedSpotBroadbandSymbolDark',
-    src: AnimatedSpotBroadbandSymbolDark,
-    path: 'animated-spot-broadband-symbol-dark.json',
+    name: 'AnimatedSpotBookAppointmentsLottieDark',
+    src: AnimatedSpotBookAppointmentsLottieDark,
+    path: 'animated-spot-book-appointments-dark.json',
   },
   {
     name: 'AnimatedSpotBroadbandSymbolLight',
@@ -134,9 +132,9 @@ export const jsonAssets = [
     path: 'animated-spot-broadband-symbol-light.json',
   },
   {
-    name: 'AnimatedSpotBundle1Dark',
-    src: AnimatedSpotBundle1Dark,
-    path: 'animated-spot-bundle-1-dark.json',
+    name: 'AnimatedSpotBroadbandSymbolLottieDark',
+    src: AnimatedSpotBroadbandSymbolLottieDark,
+    path: 'animated-spot-broadband-symbol-dark.json',
   },
   {
     name: 'AnimatedSpotBundle1Light',
@@ -144,9 +142,9 @@ export const jsonAssets = [
     path: 'animated-spot-bundle-1-light.json',
   },
   {
-    name: 'AnimatedSpotBundle2Dark',
-    src: AnimatedSpotBundle2Dark,
-    path: 'animated-spot-bundle-2-dark.json',
+    name: 'AnimatedSpotBundle1LottieDark',
+    src: AnimatedSpotBundle1LottieDark,
+    path: 'animated-spot-bundle-1-dark.json',
   },
   {
     name: 'AnimatedSpotBundle2Light',
@@ -154,9 +152,9 @@ export const jsonAssets = [
     path: 'animated-spot-bundle-2-light.json',
   },
   {
-    name: 'AnimatedSpotCalendarDark',
-    src: AnimatedSpotCalendarDark,
-    path: 'animated-spot-calendar-dark.json',
+    name: 'AnimatedSpotBundle2LottieDark',
+    src: AnimatedSpotBundle2LottieDark,
+    path: 'animated-spot-bundle-2-dark.json',
   },
   {
     name: 'AnimatedSpotCalendarLight',
@@ -164,9 +162,19 @@ export const jsonAssets = [
     path: 'animated-spot-calendar-light.json',
   },
   {
-    name: 'AnimatedSpotCelebratoryDark',
-    src: AnimatedSpotCelebratoryDark,
-    path: 'animated-spot-celebratory-dark.json',
+    name: 'AnimatedSpotCalendarLottieDark',
+    src: AnimatedSpotCalendarLottieDark,
+    path: 'animated-spot-calendar-dark.json',
+  },
+  {
+    name: 'AnimatedSpotCarKeysDark',
+    src: AnimatedSpotCarKeysDark,
+    path: 'animated-spot-car-keys-dark.json',
+  },
+  {
+    name: 'AnimatedSpotCarKeysLight',
+    src: AnimatedSpotCarKeysLight,
+    path: 'animated-spot-car-keys-light.json',
   },
   {
     name: 'AnimatedSpotCelebratoryLight',
@@ -174,9 +182,9 @@ export const jsonAssets = [
     path: 'animated-spot-celebratory-light.json',
   },
   {
-    name: 'AnimatedSpotDarkModeDark',
-    src: AnimatedSpotDarkModeDark,
-    path: 'animated-spot-dark-mode-dark.json',
+    name: 'AnimatedSpotCelebratoryLottieDark',
+    src: AnimatedSpotCelebratoryLottieDark,
+    path: 'animated-spot-celebratory-dark.json',
   },
   {
     name: 'AnimatedSpotDarkModeLight',
@@ -184,266 +192,288 @@ export const jsonAssets = [
     path: 'animated-spot-dark-mode-light.json',
   },
   {
-    name: 'AnimatedSpotEarningsDark',
-    src: AnimatedSpotEarningsDark,
+    name: 'AnimatedSpotDarkModeLottieDark',
+    src: AnimatedSpotDarkModeLottieDark,
+    path: 'animated-spot-dark-mode-dark.json',
+  },
+  {
+    name: 'AnimatedSpotEarningsLottieDark',
+    src: AnimatedSpotEarningsLottieDark,
     path: 'animated-spot-earnings-dark.json',
   },
   {
-    name: 'AnimatedSpotEarningsLight',
-    src: AnimatedSpotEarningsLight,
+    name: 'AnimatedSpotEarningsLottieLight',
+    src: AnimatedSpotEarningsLottieLight,
     path: 'animated-spot-earnings-light.json',
   },
   {
-    name: 'AnimatedSpotEmptyState1Dark',
-    src: AnimatedSpotEmptyState1Dark,
+    name: 'AnimatedSpotEmptyState1LottieDark',
+    src: AnimatedSpotEmptyState1LottieDark,
     path: 'animated-spot-empty-state-1-dark.json',
   },
   {
-    name: 'AnimatedSpotEmptyState1Light',
-    src: AnimatedSpotEmptyState1Light,
+    name: 'AnimatedSpotEmptyState1LottieLight',
+    src: AnimatedSpotEmptyState1LottieLight,
     path: 'animated-spot-empty-state-1-light.json',
   },
   {
-    name: 'AnimatedSpotEmptyState2Dark',
-    src: AnimatedSpotEmptyState2Dark,
+    name: 'AnimatedSpotEmptyState2LottieDark',
+    src: AnimatedSpotEmptyState2LottieDark,
     path: 'animated-spot-empty-state-2-dark.json',
   },
   {
-    name: 'AnimatedSpotEmptyState2Light',
-    src: AnimatedSpotEmptyState2Light,
+    name: 'AnimatedSpotEmptyState2LottieLight',
+    src: AnimatedSpotEmptyState2LottieLight,
     path: 'animated-spot-empty-state-2-light.json',
   },
   {
-    name: 'AnimatedSpotErrorDark',
-    src: AnimatedSpotErrorDark,
+    name: 'AnimatedSpotErrorLottieDark',
+    src: AnimatedSpotErrorLottieDark,
     path: 'animated-spot-error-dark.json',
   },
   {
-    name: 'AnimatedSpotErrorLight',
-    src: AnimatedSpotErrorLight,
+    name: 'AnimatedSpotErrorLottieLight',
+    src: AnimatedSpotErrorLottieLight,
     path: 'animated-spot-error-light.json',
   },
-  { name: 'AnimatedSpotEVDark', src: AnimatedSpotEVDark, path: 'animated-spot-ev-dark.json' },
-  { name: 'AnimatedSpotEVLight', src: AnimatedSpotEVLight, path: 'animated-spot-ev-light.json' },
   {
-    name: 'AnimatedSpotHeartDark',
-    src: AnimatedSpotHeartDark,
+    name: 'AnimatedSpotEVLottieDark',
+    src: AnimatedSpotEVLottieDark,
+    path: 'animated-spot-ev-dark.json',
+  },
+  {
+    name: 'AnimatedSpotEVLottieLight',
+    src: AnimatedSpotEVLottieLight,
+    path: 'animated-spot-ev-light.json',
+  },
+  {
+    name: 'AnimatedSpotHeartLottieDark',
+    src: AnimatedSpotHeartLottieDark,
     path: 'animated-spot-heart-dark.json',
   },
   {
-    name: 'AnimatedSpotHeartLight',
-    src: AnimatedSpotHeartLight,
+    name: 'AnimatedSpotHeartLottieLight',
+    src: AnimatedSpotHeartLottieLight,
     path: 'animated-spot-heart-light.json',
   },
-  { name: 'AnimatedSpotHelpDark', src: AnimatedSpotHelpDark, path: 'animated-spot-help-dark.json' },
   {
-    name: 'AnimatedSpotHelpLight',
-    src: AnimatedSpotHelpLight,
+    name: 'AnimatedSpotHelpLottieDark',
+    src: AnimatedSpotHelpLottieDark,
+    path: 'animated-spot-help-dark.json',
+  },
+  {
+    name: 'AnimatedSpotHelpLottieLight',
+    src: AnimatedSpotHelpLottieLight,
     path: 'animated-spot-help-light.json',
   },
   {
-    name: 'AnimatedSpotHowToVideosDark',
-    src: AnimatedSpotHowToVideosDark,
+    name: 'AnimatedSpotHowToVideosLottieDark',
+    src: AnimatedSpotHowToVideosLottieDark,
     path: 'animated-spot-how-to-videos-dark.json',
   },
   {
-    name: 'AnimatedSpotHowToVideosLight',
-    src: AnimatedSpotHowToVideosLight,
+    name: 'AnimatedSpotHowToVideosLottieLight',
+    src: AnimatedSpotHowToVideosLottieLight,
     path: 'animated-spot-how-to-videos-light.json',
   },
   {
-    name: 'AnimatedSpotInnovationDark',
-    src: AnimatedSpotInnovationDark,
+    name: 'AnimatedSpotInnovationLottieDark',
+    src: AnimatedSpotInnovationLottieDark,
     path: 'animated-spot-innovation-dark.json',
   },
   {
-    name: 'AnimatedSpotInnovationLight',
-    src: AnimatedSpotInnovationLight,
+    name: 'AnimatedSpotInnovationLottieLight',
+    src: AnimatedSpotInnovationLottieLight,
     path: 'animated-spot-innovation-light.json',
   },
   {
-    name: 'AnimatedSpotKeepTrackDark',
-    src: AnimatedSpotKeepTrackDark,
+    name: 'AnimatedSpotKeepTrackLottieDark',
+    src: AnimatedSpotKeepTrackLottieDark,
     path: 'animated-spot-keep-track-dark.json',
   },
   {
-    name: 'AnimatedSpotKeepTrackLight',
-    src: AnimatedSpotKeepTrackLight,
+    name: 'AnimatedSpotKeepTrackLottieLight',
+    src: AnimatedSpotKeepTrackLottieLight,
     path: 'animated-spot-keep-track-light.json',
   },
   {
-    name: 'AnimatedSpotLeadsDark',
-    src: AnimatedSpotLeadsDark,
+    name: 'AnimatedSpotLeadsLottieDark',
+    src: AnimatedSpotLeadsLottieDark,
     path: 'animated-spot-leads-dark.json',
   },
   {
-    name: 'AnimatedSpotLeadsLight',
-    src: AnimatedSpotLeadsLight,
+    name: 'AnimatedSpotLeadsLottieLight',
+    src: AnimatedSpotLeadsLottieLight,
     path: 'animated-spot-leads-light.json',
   },
   {
-    name: 'AnimatedSpotMovingHouseDark',
-    src: AnimatedSpotMovingHouseDark,
+    name: 'AnimatedSpotMovingHouseLottieDark',
+    src: AnimatedSpotMovingHouseLottieDark,
     path: 'animated-spot-moving-house-dark.json',
   },
   {
-    name: 'AnimatedSpotMovingHouseLight',
-    src: AnimatedSpotMovingHouseLight,
+    name: 'AnimatedSpotMovingHouseLottieLight',
+    src: AnimatedSpotMovingHouseLottieLight,
     path: 'animated-spot-moving-house-light.json',
   },
   {
-    name: 'AnimatedSpotNeighboursDark',
-    src: AnimatedSpotNeighboursDark,
+    name: 'AnimatedSpotNeighboursLottieDark',
+    src: AnimatedSpotNeighboursLottieDark,
     path: 'animated-spot-neighbours-dark.json',
   },
   {
-    name: 'AnimatedSpotNeighboursLight',
-    src: AnimatedSpotNeighboursLight,
+    name: 'AnimatedSpotNeighboursLottieLight',
+    src: AnimatedSpotNeighboursLottieLight,
     path: 'animated-spot-neighbours-light.json',
   },
   {
-    name: 'AnimatedSpotNewLookDark',
-    src: AnimatedSpotNewLookDark,
+    name: 'AnimatedSpotNewLookLottieDark',
+    src: AnimatedSpotNewLookLottieDark,
     path: 'animated-spot-new-look-dark.json',
   },
   {
-    name: 'AnimatedSpotNewLookLight',
-    src: AnimatedSpotNewLookLight,
+    name: 'AnimatedSpotNewLookLottieLight',
+    src: AnimatedSpotNewLookLottieLight,
     path: 'animated-spot-new-look-light.json',
   },
   {
-    name: 'AnimatedSpotNoBroadbandDark',
-    src: AnimatedSpotNoBroadbandDark,
+    name: 'AnimatedSpotNoBroadbandLottieDark',
+    src: AnimatedSpotNoBroadbandLottieDark,
     path: 'animated-spot-no-broadband-dark.json',
   },
   {
-    name: 'AnimatedSpotNoBroadbandLight',
-    src: AnimatedSpotNoBroadbandLight,
+    name: 'AnimatedSpotNoBroadbandLottieLight',
+    src: AnimatedSpotNoBroadbandLottieLight,
     path: 'animated-spot-no-broadband-light.json',
   },
   {
-    name: 'AnimatedSpotNotificationDark',
-    src: AnimatedSpotNotificationDark,
+    name: 'AnimatedSpotNotificationLottieDark',
+    src: AnimatedSpotNotificationLottieDark,
     path: 'animated-spot-notification-dark.json',
   },
   {
-    name: 'AnimatedSpotNotificationLight',
-    src: AnimatedSpotNotificationLight,
+    name: 'AnimatedSpotNotificationLottieLight',
+    src: AnimatedSpotNotificationLottieLight,
     path: 'animated-spot-notification-light.json',
   },
   {
-    name: 'AnimatedSpotPestsDark',
-    src: AnimatedSpotPestsDark,
+    name: 'AnimatedSpotPestsLottieDark',
+    src: AnimatedSpotPestsLottieDark,
     path: 'animated-spot-pests-dark.json',
   },
   {
-    name: 'AnimatedSpotPestsLight',
-    src: AnimatedSpotPestsLight,
+    name: 'AnimatedSpotPestsLottieLight',
+    src: AnimatedSpotPestsLottieLight,
     path: 'animated-spot-pests-light.json',
   },
   {
-    name: 'AnimatedSpotProcessCompleteCelebratoryDark',
-    src: AnimatedSpotProcessCompleteCelebratoryDark,
+    name: 'AnimatedSpotProcessCompleteCelebratoryLottieDark',
+    src: AnimatedSpotProcessCompleteCelebratoryLottieDark,
     path: 'animated-spot-process-complete-celebratory-dark.json',
   },
   {
-    name: 'AnimatedSpotProcessCompleteCelebratoryLight',
-    src: AnimatedSpotProcessCompleteCelebratoryLight,
+    name: 'AnimatedSpotProcessCompleteCelebratoryLottieLight',
+    src: AnimatedSpotProcessCompleteCelebratoryLottieLight,
     path: 'animated-spot-process-complete-celebratory-light.json',
   },
   {
-    name: 'AnimatedSpotProcessCompleteFunctionalDark',
-    src: AnimatedSpotProcessCompleteFunctionalDark,
+    name: 'AnimatedSpotProcessCompleteFunctionalLottieDark',
+    src: AnimatedSpotProcessCompleteFunctionalLottieDark,
     path: 'animated-spot-process-complete-functional-dark.json',
   },
   {
-    name: 'AnimatedSpotProcessCompleteFunctionalLight',
-    src: AnimatedSpotProcessCompleteFunctionalLight,
+    name: 'AnimatedSpotProcessCompleteFunctionalLottieLight',
+    src: AnimatedSpotProcessCompleteFunctionalLottieLight,
     path: 'animated-spot-process-complete-functional-light.json',
   },
   {
-    name: 'AnimatedSpotQuoteSalesDark',
-    src: AnimatedSpotQuoteSalesDark,
+    name: 'AnimatedSpotQuoteSalesLottieDark',
+    src: AnimatedSpotQuoteSalesLottieDark,
     path: 'animated-spot-quote-sales-dark.json',
   },
   {
-    name: 'AnimatedSpotQuoteSalesLight',
-    src: AnimatedSpotQuoteSalesLight,
+    name: 'AnimatedSpotQuoteSalesLottieLight',
+    src: AnimatedSpotQuoteSalesLottieLight,
     path: 'animated-spot-quote-sales-light.json',
   },
   {
-    name: 'AnimatedSpotRecognitionDark',
-    src: AnimatedSpotRecognitionDark,
+    name: 'AnimatedSpotRecognitionLottieDark',
+    src: AnimatedSpotRecognitionLottieDark,
     path: 'animated-spot-recognition-dark.json',
   },
   {
-    name: 'AnimatedSpotRecognitionLight',
-    src: AnimatedSpotRecognitionLight,
+    name: 'AnimatedSpotRecognitionLottieLight',
+    src: AnimatedSpotRecognitionLottieLight,
     path: 'animated-spot-recognition-light.json',
   },
   {
-    name: 'AnimatedSpotSavings2Dark',
-    src: AnimatedSpotSavings2Dark,
+    name: 'AnimatedSpotSavings2LottieDark',
+    src: AnimatedSpotSavings2LottieDark,
     path: 'animated-spot-savings-2-dark.json',
   },
   {
-    name: 'AnimatedSpotSavings2Light',
-    src: AnimatedSpotSavings2Light,
+    name: 'AnimatedSpotSavings2LottieLight',
+    src: AnimatedSpotSavings2LottieLight,
     path: 'animated-spot-savings-2-light.json',
   },
   {
-    name: 'AnimatedSpotSecurityCodeDark',
-    src: AnimatedSpotSecurityCodeDark,
+    name: 'AnimatedSpotSecurityCodeLottieDark',
+    src: AnimatedSpotSecurityCodeLottieDark,
     path: 'animated-spot-security-code-dark.json',
   },
   {
-    name: 'AnimatedSpotSecurityCodeLight',
-    src: AnimatedSpotSecurityCodeLight,
+    name: 'AnimatedSpotSecurityCodeLottieLight',
+    src: AnimatedSpotSecurityCodeLottieLight,
     path: 'animated-spot-security-code-light.json',
   },
   {
-    name: 'AnimatedSpotSecurityDark',
-    src: AnimatedSpotSecurityDark,
+    name: 'AnimatedSpotSecurityLottieDark',
+    src: AnimatedSpotSecurityLottieDark,
     path: 'animated-spot-security-dark.json',
   },
   {
-    name: 'AnimatedSpotSecurityLight',
-    src: AnimatedSpotSecurityLight,
+    name: 'AnimatedSpotSecurityLottieLight',
+    src: AnimatedSpotSecurityLottieLight,
     path: 'animated-spot-security-light.json',
   },
   {
-    name: 'AnimatedSpotSmartMeterDark',
-    src: AnimatedSpotSmartMeterDark,
+    name: 'AnimatedSpotSmartMeterLottieDark',
+    src: AnimatedSpotSmartMeterLottieDark,
     path: 'animated-spot-smart-meter-dark.json',
   },
   {
-    name: 'AnimatedSpotSmartMeterLight',
-    src: AnimatedSpotSmartMeterLight,
+    name: 'AnimatedSpotSmartMeterLottieLight',
+    src: AnimatedSpotSmartMeterLottieLight,
     path: 'animated-spot-smart-meter-light.json',
   },
   {
-    name: 'AnimatedSpotSuccessDark',
-    src: AnimatedSpotSuccessDark,
+    name: 'AnimatedSpotSuccessLottieDark',
+    src: AnimatedSpotSuccessLottieDark,
     path: 'animated-spot-success-dark.json',
   },
   {
-    name: 'AnimatedSpotSwitchDark',
-    src: AnimatedSpotSwitchDark,
+    name: 'AnimatedSpotSuccessLottieLight',
+    src: AnimatedSpotSuccessLottieLight,
+    path: 'animated-spot-success-light.json',
+  },
+  {
+    name: 'AnimatedSpotSwitchLottieDark',
+    src: AnimatedSpotSwitchLottieDark,
     path: 'animated-spot-switch-dark.json',
   },
   {
-    name: 'AnimatedSpotSwitchLight',
-    src: AnimatedSpotSwitchLight,
+    name: 'AnimatedSpotSwitchLottieLight',
+    src: AnimatedSpotSwitchLottieLight,
     path: 'animated-spot-switch-light.json',
   },
   {
-    name: 'AnimatedSpotWelcomeDark',
-    src: AnimatedSpotWelcomeDark,
+    name: 'AnimatedSpotWelcomeLottieDark',
+    src: AnimatedSpotWelcomeLottieDark,
     path: 'animated-spot-welcome-dark.json',
   },
   {
-    name: 'AnimatedSpotWelcomeLight',
-    src: AnimatedSpotWelcomeLight,
+    name: 'AnimatedSpotWelcomeLottieLight',
+    src: AnimatedSpotWelcomeLottieLight,
     path: 'animated-spot-welcome-light.json',
   },
   {
