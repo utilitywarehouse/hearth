@@ -14,6 +14,7 @@ export { spaceTokens } from './tokens/space';
 export { media } from './utils/media';
 export { useMediaQuery } from './hooks/use-media-query';
 export { useComboboxFilter } from './hooks/use-combobox-filter';
+export { Slot } from 'radix-ui';
 
 /********************
  *
@@ -336,3 +337,6 @@ export { Timeline } from './components/Timeline/Timeline';
 export type { TimelineProps } from './components/Timeline/Timeline.props';
 export { TimelineItem } from './components/Timeline/TimelineItem';
 export type { TimelineItemProps } from './components/Timeline/TimelineItem.props';
+
+export { VisuallyHidden } from './components/VisuallyHidden/VisuallyHidden';
+export type { VisuallyHiddenProps } from './components/VisuallyHidden/VisuallyHidden.props';

@@ -1,0 +1,32 @@
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './VisuallyHidden.stories';
+import { VisuallyHidden } from './VisuallyHidden';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+
+<Meta title="Components / VisuallyHidden" />
+
+<MarkdownDocHeader title="VisuallyHidden" to="components/visually-hidden" />
+
+<Description of={VisuallyHidden} />
+
+<Canvas of={Stories.Playground} sourceState="show" />
+
+## As child
+
+Use `asChild` to apply the hidden styles to your own element, keeping its semantics.
+
+```tsx
+<VisuallyHidden asChild>
+  <h2>Account settings</h2>
+</VisuallyHidden>
+```
+
+<Canvas of={Stories.AsChild} sourceState="show" />
+
+## API
+
+This component is based on the `span` element.
+
+<ArgTypes of={VisuallyHidden} include={'asChild|children'} exclude={'aria-*'} />
