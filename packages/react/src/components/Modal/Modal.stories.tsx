@@ -17,9 +17,6 @@ import { ModalContent } from './ModalContent';
 import { ModalFooter } from './ModalFooter';
 import { ModalRoot } from './ModalRoot';
 import { ModalTrigger } from './ModalTrigger';
-import { Flex } from '../Flex/Flex';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { CheckboxTile } from '../CheckboxTile/CheckboxTile';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components / Modal',
