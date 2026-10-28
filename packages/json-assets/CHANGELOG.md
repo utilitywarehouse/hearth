@@ -1,5 +1,86 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.6.0
+
+### Minor Changes
+
+- [#1777](https://github.com/utilitywarehouse/hearth/pull/1777) [`7e03a2b`](https://github.com/utilitywarehouse/hearth/commit/7e03a2bb4bf9b39254312813871883944a7759d6) Thanks [@robphoenix](https://github.com/robphoenix)! - ## NEW ANIMATED ASSETS
+  
+  - AnimatedSpotCarKeysDark
+  - AnimatedSpotCarKeysLight
+  - AnimatedSpotSuccessLight
+  
+  ## CHANGED ANIMATED ASSETS
+  
+  - AnimatedSpotAccountLight
+  - AnimatedSpotBillingDark
+  - AnimatedSpotBillingLight
+  - AnimatedSpotBoilerDark
+  - AnimatedSpotBoilerLight
+  - AnimatedSpotBookAppointmentsDark
+  - AnimatedSpotBookAppointmentsLight
+  - AnimatedSpotBroadbandSymbolDark
+  - AnimatedSpotBroadbandSymbolLight
+  - AnimatedSpotBundle1Dark
+  - AnimatedSpotBundle2Dark
+  - AnimatedSpotCalendarDark
+  - AnimatedSpotCalendarLight
+  - AnimatedSpotCelebratoryDark
+  - AnimatedSpotCelebratoryLight
+  - AnimatedSpotDarkModeDark
+  - AnimatedSpotEarningsDark
+  - AnimatedSpotEarningsLight
+  - AnimatedSpotEmptyState1Dark
+  - AnimatedSpotEmptyState2Dark
+  - AnimatedSpotErrorDark
+  - AnimatedSpotErrorLight
+  - AnimatedSpotEVDark
+  - AnimatedSpotEVLight
+  - AnimatedSpotHeartDark
+  - AnimatedSpotHelpDark
+  - AnimatedSpotHelpLight
+  - AnimatedSpotHowToVideosDark
+  - AnimatedSpotHowToVideosLight
+  - AnimatedSpotInnovationDark
+  - AnimatedSpotInnovationLight
+  - AnimatedSpotKeepTrackDark
+  - AnimatedSpotLeadsDark
+  - AnimatedSpotLeadsLight
+  - AnimatedSpotMovingHouseDark
+  - AnimatedSpotMovingHouseLight
+  - AnimatedSpotNeighboursDark
+  - AnimatedSpotNeighboursLight
+  - AnimatedSpotNewLookDark
+  - AnimatedSpotNewLookLight
+  - AnimatedSpotNoBroadbandDark
+  - AnimatedSpotNoBroadbandLight
+  - AnimatedSpotNotificationDark
+  - AnimatedSpotPestsDark
+  - AnimatedSpotPestsLight
+  - AnimatedSpotProcessCompleteCelebratoryDark
+  - AnimatedSpotProcessCompleteCelebratoryLight
+  - AnimatedSpotProcessCompleteFunctionalDark
+  - AnimatedSpotProcessCompleteFunctionalLight
+  - AnimatedSpotQuoteSalesDark
+  - AnimatedSpotQuoteSalesLight
+  - AnimatedSpotRecognitionDark
+  - AnimatedSpotSavings2Dark
+  - AnimatedSpotSavings2Light
+  - AnimatedSpotSecurityCodeDark
+  - AnimatedSpotSecurityCodeLight
+  - AnimatedSpotSecurityDark
+  - AnimatedSpotSecurityLight
+  - AnimatedSpotSmartMeterDark
+  - AnimatedSpotSmartMeterLight
+  - AnimatedSpotSuccessDark
+  - AnimatedSpotSwitchDark
+  - AnimatedSpotSwitchLight
+  - AnimatedSpotWelcomeDark
+  
+  ## REMOVED ANIMATED ASSETS
+  
+  No removed assets.
+
 ## 0.5.1
 
 ### Patch Changes
