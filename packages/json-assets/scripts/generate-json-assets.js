@@ -28,7 +28,8 @@ const transformers = {
     const name = `${fileName
       .split('.')[0]
       .replace(/^Dark-mode_/, '')
-      .replace(/_/g, '-')}`;
+      .replace(/_/g, '-')
+      .replace(/Lottie/g, '')}`;
     return `animated-${name.toLowerCase()}-${isDarkMode ? 'dark' : 'light'}.json`;
   },
   toJsxName(filePath) {
