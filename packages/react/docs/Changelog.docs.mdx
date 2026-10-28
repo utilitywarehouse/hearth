@@ -4,6 +4,22 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.35.3
+
+### Patch Changes
+
+- [#1764](https://github.com/utilitywarehouse/hearth/pull/1764) [`3bc067e`](https://github.com/utilitywarehouse/hearth/commit/3bc067e65482cd35d8c0e47c0b0475f72c54e252) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `Checkbox` tick icon stays in place when its scroll container scrolls
+  
+  The tick icon was absolutely positioned without a positioned parent, so inside a scrolling container such as `Modal` it did not move with the checkbox. The checkbox now anchors the icon to itself.
+  
+  **Components affected**:
+  
+  - `Checkbox`
+  
+  **Developer changes**:
+  
+  No action required.
+
 ## 0.35.2
 
 ### Patch Changes

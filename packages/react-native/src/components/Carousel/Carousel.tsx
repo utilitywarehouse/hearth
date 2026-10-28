@@ -59,6 +59,9 @@ const Carousel = ({
   const flatListRef = useRef<FlatList>(null);
   const isWeb = Platform.OS === 'web';
   const isProgrammaticScroll = useRef(false);
+  const userScrolledIndex = useRef<number | null>(null);
+  const activeIndexRef = useRef(activeIndex);
+  activeIndexRef.current = activeIndex;
   const isReducedMotion = useReducedMotionEnabled();
 
   // Expose scroll methods through ref
@@ -221,6 +224,11 @@ const Carousel = ({
 
   // Scroll to active index when it changes (for programmatic navigation)
   useEffect(() => {
+    // Index changed from user's own scroll: don't fight the drag with scrollToIndex
+    const fromUserScroll = userScrolledIndex.current === activeIndex;
+    userScrolledIndex.current = null;
+    if (fromUserScroll) return;
+
     if (!isProgrammaticScroll.current) {
       isProgrammaticScroll.current = true;
 
@@ -320,6 +328,12 @@ const Carousel = ({
 
       const index = viewableItems[viewableItems.length - 1].index || 0;
 
+      // Only flag a user scroll if the index changed. Otherwise the flag never clears, so a
+      // later rotation or resize skips realigning and the carousel ends up off the active slide.
+      // E.g. a carousel opens on slide 3, the user rotates their phone, and it stays between slides.
+      if (index !== activeIndexRef.current) {
+        userScrolledIndex.current = index;
+      }
       setActiveIndex?.(index);
       onSnapToItem?.(index);
     },
