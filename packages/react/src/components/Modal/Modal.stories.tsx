@@ -926,49 +926,6 @@ export const WithCombobox: Story = {
   },
 };
 
-/** Nest a Combobox inside the modal to demonstrate content composition. */
-export const WithCheckboxes: Story = {
-  parameters: {
-    controls: { disable: true },
-    actions: { disable: true },
-    interactions: { disable: true },
-  },
-  render: (args, { viewMode }: { viewMode?: string }) => {
-    return (
-      <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
-        <ModalTrigger>
-          <Button>Open modal</Button>
-        </ModalTrigger>
-        <Modal {...args}>
-          <ModalContent>
-            <Flex gap="200" direction="column">
-              {/* eslint-disable-next-line @typescript-eslint/no-unused-vars */}
-              {Array.from({ length: 100 }, _ => (
-                <>
-                  <Checkbox defaultChecked />
-                  <CheckboxTile defaultChecked />
-                </>
-              ))}
-            </Flex>
-          </ModalContent>
-          <ModalFooter>
-            <ModalClose>
-              <Button variant="ghost" colorScheme="functional">
-                Cancel
-              </Button>
-            </ModalClose>
-            <ModalClose>
-              <Button variant="solid" colorScheme="highlight">
-                Primary
-              </Button>
-            </ModalClose>
-          </ModalFooter>
-        </Modal>
-      </ModalRoot>
-    );
-  },
-};
-
 /** Test-only: without loadingHeading, a loading Modal falls back to a "Loading" title and no description. */
 export const LoadingDefaults: Story = {
   tags: ['!dev', '!autodocs', '!manifest'],
