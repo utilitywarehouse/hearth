@@ -1,5 +1,12 @@
 # @utilitywarehouse/hearth-react
 
+## 0.36.1
+
+### Patch Changes
+
+- Updated dependencies [[`9e1e9ec`](https://github.com/utilitywarehouse/hearth/commit/9e1e9ec568700684a979e48bde77c17fec592d1e)]:
+  - @utilitywarehouse/hearth-fonts@0.1.2
+
 ## 0.36.0
 
 ### Minor Changes
