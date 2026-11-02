@@ -38,8 +38,9 @@ This gives you:
 
 ## Monorepo checkout note
 
-This plugin's skills are symlinks into `packages/react/SKILL.md` and
-`packages/react-native/SKILL.md` elsewhere in this repo. If you add this
+The `hearth-react` and `hearth-react-native` skills are symlinks into
+`packages/react/SKILL.md` and `packages/react-native/SKILL.md` (plus their
+`references/` folders) elsewhere in this repo. If you add this
 marketplace with `--sparse`, include those paths too:
 
 ```sh
