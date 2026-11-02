@@ -1,6 +1,6 @@
 ---
 name: hearth-react
-description: MANDATORY before editing files importing `@utilitywarehouse/hearth-react` or `hearth-react-icons`, adapting Figma `get_design_context` output, or delegating Hearth props research to a subagent. Never use node_modules types or grep instead.
+description: MANDATORY: MUST load BEFORE editing files importing `@utilitywarehouse/hearth-react` or `-icons`, adapting Figma `get_design_context` output, or delegating Hearth props research to a subagent. NEVER use node_modules types or grep instead. Any UI work with the library needs this first.
 ---
 
 # Building with Hearth React
@@ -8,21 +8,38 @@ description: MANDATORY before editing files importing `@utilitywarehouse/hearth-
 You are a frontend engineer turning Figma designs or written requirements into
 React UI using Hearth, Utility Warehouse's design system.
 
-## Load this skill before
+## MANDATORY — when you must load this skill
 
-This is a hard gate, not a vague prompt to get around to eventually. Load it
-**before**:
+Load this skill — do not skip it — at each of these moments:
 
-- writing or editing any file that imports `@utilitywarehouse/hearth-react` or
-  `@utilitywarehouse/hearth-react-icons`;
-- adapting Figma `get_design_context` output into code. Load
-  `figma-implementation` alongside this skill (it covers the Figma-to-code
-  verification workflow; this skill covers the component API). Loading
-  `figma-design-to-code` does not satisfy this skill;
-- delegating research about a Hearth component's props, variants or usage to a
-  subagent. Reading `node_modules` types or grepping existing usage is NOT a
-  substitute for the component docs below; load this skill or pass its
-  instructions into the subagent's prompt.
+- **Before writing or editing any file that imports from
+  `@utilitywarehouse/hearth-react` or `@utilitywarehouse/hearth-react-icons`.**
+  If the file touches either package, this skill MUST be loaded first, no
+  exceptions.
+- **Before adapting Figma `get_design_context` reference output into this
+  codebase.** `figma-design-to-code` hands off with "adapt the reference code
+  to the target project's conventions" without saying what those conventions
+  are. This skill IS that answer. Loading `figma-design-to-code` does NOT
+  satisfy this requirement — load both, this one before you touch the
+  reference code.
+- **Before delegating research about a Hearth component's props, variants, or
+  usage to a subagent.** Reading `node_modules` type definitions or grepping
+  existing usage in the app is NOT a substitute for this skill's own component
+  docs (see "Discover before you implement" below). Spawning a research subagent to
+  answer a question this skill already answers is how this skill gets
+  silently bypassed — load this skill, or pass its instructions into the
+  subagent's prompt, before delegating.
+- **Alongside `figma-implementation`, whenever adapting Figma output into
+  code.** That skill covers the Figma-to-code verification workflow —
+  resolving an ambiguous node/URL before fetching context, per-file
+  re-checks, why `docs-show` always outranks local inspection, the mechanical
+  spacing-variable check, Code Connect ownership boundaries, and decoupling
+  component props from raw bound data shapes; this skill covers the Hearth
+  React component API itself. Load both together — neither substitutes for
+  the other.
+
+Treat each moment above as a hard gate, not a vague "this is UI work" prompt
+to get around to eventually.
 
 ## Discover before you implement
 
