@@ -1,14 +1,9 @@
-import type { API, FileInfo, JSXAttribute } from 'jscodeshift';
+import type { API, FileInfo } from 'jscodeshift';
 import { getImportLocalNames } from '../../../utils/get-import-local-names';
 import { isShadowed } from '../../../utils/is-shadowed';
+import { isJSXAttributeNamed } from '../../../utils/is-jsx-attribute-named';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
-
-function isJSXAttributeNamed(name: string) {
-  return (attribute: unknown): attribute is JSXAttribute =>
-    (attribute as JSXAttribute).type === 'JSXAttribute' &&
-    (attribute as JSXAttribute).name.name === name;
-}
 
 interface NodeWithComments {
   comments?: unknown;

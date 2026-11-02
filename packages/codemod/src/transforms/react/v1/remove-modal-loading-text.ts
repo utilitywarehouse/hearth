@@ -1,19 +1,10 @@
-import type { API, FileInfo, Identifier, JSXAttribute, JSXElement } from 'jscodeshift';
+import type { API, FileInfo, Identifier, JSXElement } from 'jscodeshift';
 import { getStringValue } from '../../../utils/get-string-value';
 import { isShadowed } from '../../../utils/is-shadowed';
+import { isJSXAttributeNamed } from '../../../utils/is-jsx-attribute-named';
+import { isTypeOnly } from '../../../utils/is-type-only';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
-
-function isJSXAttributeNamed(name: string) {
-  return (attribute: unknown): attribute is JSXAttribute =>
-    (attribute as JSXAttribute).type === 'JSXAttribute' &&
-    (attribute as JSXAttribute).name.name === name;
-}
-
-// jscodeshift's typings omit `importKind` on specifiers, but the parser sets it
-function isTypeOnly(node: object): boolean {
-  return (node as { importKind?: string }).importKind === 'type';
-}
 
 interface NodeWithComments {
   comments?: unknown;

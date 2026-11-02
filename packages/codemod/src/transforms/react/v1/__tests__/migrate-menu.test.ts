@@ -31,7 +31,7 @@ describe('migrate-menu', () => {
       expect.stringMatching(/:6 <MenuItem> has both `onSelect` and `onClick`; merge them manually/),
       expect.stringMatching(/:7 <MenuItem> has `textValue` and a `label` that may be undefined/),
       expect.stringMatching(
-        /:8 <MenuItem> spreads props that may include `onSelect` or `textValue`/
+        /:8 <MenuItem> spreads props that may include `onSelect`, `onClick` or `textValue`/
       ),
       expect.stringMatching(/:10 <MenuContent> spreads props that may include `forceMount`/),
     ]);
@@ -43,7 +43,7 @@ describe('migrate-menu', () => {
 
     expect(warn).toHaveBeenCalledOnce();
     expect(String(warn.mock.calls[0][0])).toMatch(
-      /:5 <MenuItem> spreads props that may include `onSelect` or `textValue`/
+      /:5 <MenuItem> spreads props that may include `onSelect`, `onClick` or `textValue`/
     );
   });
 

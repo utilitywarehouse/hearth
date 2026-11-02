@@ -1,20 +1,11 @@
 import type { API, FileInfo, Identifier, JSXAttribute } from 'jscodeshift';
 import { getStringValue } from '../../../utils/get-string-value';
 import { isShadowed } from '../../../utils/is-shadowed';
+import { isJSXAttributeNamed } from '../../../utils/is-jsx-attribute-named';
+import { isTypeOnly } from '../../../utils/is-type-only';
 
 const HEARTH_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
 const MENU_COMPONENTS = ['MenuItem', 'MenuContent'];
-
-function isJSXAttributeNamed(name: string) {
-  return (attribute: unknown): attribute is JSXAttribute =>
-    (attribute as JSXAttribute).type === 'JSXAttribute' &&
-    (attribute as JSXAttribute).name.name === name;
-}
-
-// jscodeshift's typings omit `importKind` on specifiers, but the parser sets it
-function isTypeOnly(node: object): boolean {
-  return (node as { importKind?: string }).importKind === 'type';
-}
 
 /** Whether the attribute is a literal boolean, as `a`, `a={true}` or `a={false}`. */
 function isBooleanLiteral(attribute: JSXAttribute): boolean {
@@ -126,7 +117,9 @@ function transformer(file: FileInfo, api: API): string {
     if (component === 'MenuItem') {
       if (hasSpread) {
         // The spread may also carry the deprecated props (or override the migrated values)
-        warn('spreads props that may include `onSelect` or `textValue`; review them manually');
+        warn(
+          'spreads props that may include `onSelect`, `onClick` or `textValue`; review them manually'
+        );
       }
 
       const onSelectAttribute = attributes.find(isJSXAttributeNamed('onSelect'));
