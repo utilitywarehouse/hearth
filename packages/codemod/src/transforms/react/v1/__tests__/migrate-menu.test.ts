@@ -31,19 +31,31 @@ describe('migrate-menu', () => {
       expect.stringMatching(/:6 <MenuItem> has both `onSelect` and `onClick`; merge them manually/),
       expect.stringMatching(/:7 <MenuItem> has `textValue` and a `label` that may be undefined/),
       expect.stringMatching(
-        /:8 <MenuItem> spreads props that may include `onSelect`, `onClick` or `textValue`/
+        /:8 <MenuItem> spreads props that may include `onSelect`, `onClick`, `textValue` or `label`/
       ),
-      expect.stringMatching(/:10 <MenuContent> spreads props that may include `forceMount`/),
+      expect.stringMatching(
+        /:10 <MenuContent> spreads props that may include `forceMount` or `keepMounted`/
+      ),
     ]);
   });
 
-  it('migrates a literal onSelect and still warns about a spread', () => {
+  it('leaves an element with a spread unchanged and warns', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     runTransformFixtureTest(__dirname, transform, 'migrate-menu-spread');
 
     expect(warn).toHaveBeenCalledOnce();
     expect(String(warn.mock.calls[0][0])).toMatch(
-      /:5 <MenuItem> spreads props that may include `onSelect`, `onClick` or `textValue`/
+      /:5 <MenuItem> spreads props that may include `onSelect`, `onClick`, `textValue` or `label`/
+    );
+  });
+
+  it('leaves a MenuContent with a spread unchanged and warns', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    runTransformFixtureTest(__dirname, transform, 'migrate-menu-content-spread');
+
+    expect(warn).toHaveBeenCalledOnce();
+    expect(String(warn.mock.calls[0][0])).toMatch(
+      /:4 <MenuContent> spreads props that may include `forceMount` or `keepMounted`/
     );
   });
 

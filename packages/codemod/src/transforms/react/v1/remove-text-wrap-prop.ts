@@ -99,8 +99,10 @@ function transformer(file: FileInfo, api: API): string {
       const textWrapAttribute = attributes.find(isJSXAttributeNamed('textWrap'));
 
       if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-        // The spread may also carry `wrap` or `textWrap`, so leave it for review
+        // The spread may carry `wrap` or `textWrap` and so override the migrated value, so
+        // leave the element unchanged for review
         warn('spreads props that may include `wrap` or `textWrap`; review them manually');
+        return;
       }
 
       if (!wrapAttribute) {

@@ -41,7 +41,7 @@ describe('remove-text-wrap-prop', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-text-wrap-prop-shadowed-namespace');
   });
 
-  it('renames wrap when spread props are also present, and warns about the spread', () => {
+  it('leaves an element with a spread unchanged and warns', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     runTransformFixtureTest(__dirname, transform, 'remove-text-wrap-prop-spread');
 

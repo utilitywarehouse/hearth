@@ -116,10 +116,12 @@ function transformer(file: FileInfo, api: API): string {
 
     if (component === 'MenuItem') {
       if (hasSpread) {
-        // The spread may also carry the deprecated props (or override the migrated values)
+        // The spread may carry `onClick`, `label` or the deprecated props, and the renamed prop
+        // would override (or be overridden by) it, so leave the element unchanged for review
         warn(
-          'spreads props that may include `onSelect`, `onClick` or `textValue`; review them manually'
+          'spreads props that may include `onSelect`, `onClick`, `textValue` or `label`; review them manually'
         );
+        return;
       }
 
       const onSelectAttribute = attributes.find(isJSXAttributeNamed('onSelect'));
@@ -148,9 +150,10 @@ function transformer(file: FileInfo, api: API): string {
       }
     } else {
       if (hasSpread) {
-        warn(
-          'spreads props that may include `forceMount`; rename it to `keepMounted` manually if so'
-        );
+        // The spread may carry `keepMounted` or `forceMount`, and the renamed prop would
+        // override it, so leave the element unchanged for review
+        warn('spreads props that may include `forceMount` or `keepMounted`; review them manually');
+        return;
       }
 
       const forceMountAttribute = attributes.find(isJSXAttributeNamed('forceMount'));

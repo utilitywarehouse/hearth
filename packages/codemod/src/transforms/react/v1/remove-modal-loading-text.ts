@@ -78,11 +78,13 @@ function transformer(file: FileInfo, api: API): string {
       const loadingTextAttribute = attributes.find(isJSXAttributeNamed('loadingText'));
 
       if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-        // The spread may also carry `loadingText` (or override the migrated value), so leave it for review
+        // The spread may carry `loadingText` or `loadingHeading` and so override the migrated
+        // value, so leave the element unchanged for review
         warn(
           element.node,
-          '<Modal> spreads props that may include `loadingText`; rename it to `loadingHeading` manually if so'
+          '<Modal> spreads props that may include `loadingText` or `loadingHeading`; review them manually'
         );
+        return;
       }
 
       if (!loadingTextAttribute) {
