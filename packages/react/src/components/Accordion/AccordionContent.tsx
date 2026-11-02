@@ -14,14 +14,9 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type AccordionContentElement = ComponentRef<'div'>;
 
 export const AccordionContent = forwardRef<AccordionContentElement, AccordionContentProps>(
-  ({ className, children, keepMounted, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
-      <AccordionPrimitive.Panel
-        ref={ref}
-        className={cn(componentClassName, className)}
-        keepMounted={keepMounted}
-        {...props}
-      >
+      <AccordionPrimitive.Panel ref={ref} className={cn(componentClassName, className)} {...props}>
         <BodyText as="div" className={`${componentClassName}Text`}>
           {children}
         </BodyText>

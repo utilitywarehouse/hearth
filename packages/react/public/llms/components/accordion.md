@@ -203,7 +203,7 @@ then an alternative disclosure pattern should be used.
   ))}
 </Flex>
 
-## SEO
+## Keeping content mounted
 
 By default, `AccordionContent` is removed from the DOM when collapsed, which
 means search engines may not index its content. If the content is important for
@@ -218,6 +218,10 @@ content is hidden.
 ```tsx
 <AccordionContent keepMounted>Content</AccordionContent>
 ```
+
+`forceMount` is still accepted and behaves the same way, but it will be removed
+when `Accordion` migrates to Base UI. Prefer `keepMounted` in new usage. If both
+are passed, `keepMounted` takes precedence.
 
 ```tsx
 <Box width="600px">

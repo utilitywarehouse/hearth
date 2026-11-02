@@ -36,6 +36,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
     {
       className,
       image,
+      keepMounted,
       forceMount,
       container,
       heading,
@@ -49,11 +50,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>(
     },
     ref
   ) => {
-    warn(
-      forceMount !== undefined,
-      'Modal `forceMount` is deprecated and will be removed when Modal migrates to Base UI.'
-    );
-    const portalProps = { forceMount: forceMount || undefined, container };
+    warn(forceMount !== undefined, 'Modal `forceMount` is deprecated. Use `keepMounted` instead.');
+    const resolvedKeepMounted = keepMounted ?? forceMount;
+    const portalProps = { forceMount: resolvedKeepMounted || undefined, container };
     const containsImage = Boolean(image);
     const hasDescription = Boolean(loading ? loadingHeading && loadingDescription : description);
 

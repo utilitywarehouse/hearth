@@ -7,7 +7,15 @@ export interface BaseModalProps
     Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
     ComponentPropsWithRef<'div'> {
   /**
-   * @deprecated Will be removed when Modal migrates to Base UI.
+   * Keeps the modal content mounted in the DOM when closed.
+   *
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
+   * Keeps the modal content mounted in the DOM when closed. Prefer `keepMounted`.
+   *
+   * @deprecated Use `keepMounted` instead. Will be removed when Modal migrates to Base UI.
    */
   forceMount?: boolean;
   /**

@@ -16,6 +16,8 @@ import AnimatedSpotBundle2Dark from '@utilitywarehouse/hearth-json-assets/lib/an
 import AnimatedSpotBundle2Light from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-light.json';
 import AnimatedSpotCalendarDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-dark.json';
 import AnimatedSpotCalendarLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-light.json';
+import AnimatedSpotCarKeysDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-dark.json';
+import AnimatedSpotCarKeysLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-light.json';
 import AnimatedSpotCelebratoryDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-dark.json';
 import AnimatedSpotCelebratoryLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-light.json';
 import AnimatedSpotDarkModeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-dark.json';
@@ -71,6 +73,7 @@ import AnimatedSpotSecurityLight from '@utilitywarehouse/hearth-json-assets/lib/
 import AnimatedSpotSmartMeterDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-dark.json';
 import AnimatedSpotSmartMeterLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-light.json';
 import AnimatedSpotSuccessDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-dark.json';
+import AnimatedSpotSuccessLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-light.json';
 import AnimatedSpotSwitchDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-dark.json';
 import AnimatedSpotSwitchLight from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-light.json';
 import AnimatedSpotWelcomeDark from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-dark.json';
@@ -162,6 +165,16 @@ export const jsonAssets = [
     name: 'AnimatedSpotCalendarLight',
     src: AnimatedSpotCalendarLight,
     path: 'animated-spot-calendar-light.json',
+  },
+  {
+    name: 'AnimatedSpotCarKeysDark',
+    src: AnimatedSpotCarKeysDark,
+    path: 'animated-spot-car-keys-dark.json',
+  },
+  {
+    name: 'AnimatedSpotCarKeysLight',
+    src: AnimatedSpotCarKeysLight,
+    path: 'animated-spot-car-keys-light.json',
   },
   {
     name: 'AnimatedSpotCelebratoryDark',
@@ -425,6 +438,11 @@ export const jsonAssets = [
     name: 'AnimatedSpotSuccessDark',
     src: AnimatedSpotSuccessDark,
     path: 'animated-spot-success-dark.json',
+  },
+  {
+    name: 'AnimatedSpotSuccessLight',
+    src: AnimatedSpotSuccessLight,
+    path: 'animated-spot-success-light.json',
   },
   {
     name: 'AnimatedSpotSwitchDark',

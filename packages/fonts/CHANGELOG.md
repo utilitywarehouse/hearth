@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-fonts
 
+## 0.1.2
+
+### Patch Changes
+
+- [#1779](https://github.com/utilitywarehouse/hearth/pull/1779) [`9e1e9ec`](https://github.com/utilitywarehouse/hearth/commit/9e1e9ec568700684a979e48bde77c17fec592d1e) Thanks [@BuddhaBing](https://github.com/BuddhaBing)! - 🐛 [FIX]: Comic Hams CDN `@font-face` URLs in `cdn/comic-hams-hosted.css` pointing to the outdated `cdn.bfldr.com` host
+  
+  The `src` URLs now point to the Unicom team's S3-hosted assets. The font families, weights and formats are unchanged, so no action is required.
+
 ## 0.1.1
 
 ### Patch Changes
