@@ -1,5 +1,5 @@
 import { execFileSync, spawnSync } from 'node:child_process';
-import { copyFileSync, mkdtempSync, readFileSync } from 'node:fs';
+import { copyFileSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -28,5 +28,20 @@ describe('built cli', () => {
     expect(result.status).toBe(0);
     expect(result.stdout).toContain('1 ok');
     expect(readFileSync(target, 'utf8')).toBe(readFileSync(fixture, 'utf8'));
+  });
+
+  it('parses .ts files containing angle-bracket assertions', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'hearth-codemod-'));
+    writeFileSync(
+      path.join(dir, 'assert.ts'),
+      'declare const input: unknown;\nexport const value = <number>input;\n'
+    );
+    copyFileSync(fixture, path.join(dir, 'Component.tsx'));
+
+    const result = spawnSync('node', [cli, 'react/v1/remove-modal-loading-text', dir, '--dry'], {
+      encoding: 'utf8',
+    });
+
+    expect(result.status).toBe(0);
   });
 });
