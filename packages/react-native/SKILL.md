@@ -1,6 +1,6 @@
 ---
 name: hearth-react-native
-description: MANDATORY: MUST load BEFORE editing files importing `@utilitywarehouse/hearth-react-native` or `-icons`, adapting Figma `get_design_context` output, or delegating Hearth props research to a subagent. NEVER use node_modules types or grep instead. Any UI work with the library needs this first.
+description: MANDATORY prerequisite — you MUST load this skill BEFORE writing or editing any file that imports from `@utilitywarehouse/hearth-react-native` or `@utilitywarehouse/hearth-react-native-icons`, BEFORE adapting Figma `get_design_context` reference output into a React Native screen in a Hearth app, and BEFORE delegating research about a Hearth component's props or usage to a subagent. NEVER substitute node_modules type definitions or a grep of existing usage for this skill's own component docs — that is how this skill gets silently bypassed. This skill IS the "target project's conventions" that figma-design-to-code hands off to; loading that skill does NOT satisfy this requirement. Do not wait for an explicit mention of "Hearth React Native" — any React Native UI work in an app with the library installed requires this skill first.
 ---
 
 # Building with Hearth React Native
