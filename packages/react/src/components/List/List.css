@@ -51,6 +51,10 @@
       border-color: var(--h-border-strong);
     }
 
+    :where([data-list-items-variant='subtle']) & {
+      border-color: var(--h-border-subtle);
+    }
+
     &:has(button:not([aria-disabled='true']), a):not(:has(.h-Switch), :has(.h-Link)) {
       @media (hover: hover) {
         &:where(:hover) {

@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.38.5
+
+### Patch Changes
+
+- [#1759](https://github.com/utilitywarehouse/hearth/pull/1759) [`ae4a634`](https://github.com/utilitywarehouse/hearth/commit/ae4a634551b77bc438495c63a84c916b41ed07e2) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🐛 [FIX]: `Carousel` snaps to an item while the user is still dragging on native
+  
+  **Components affected**:
+  
+  - `Carousel`
+
 ## 0.38.4
 
 ### Patch Changes

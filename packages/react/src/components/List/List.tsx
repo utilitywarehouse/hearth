@@ -32,6 +32,7 @@ export const List = forwardRef<ListElement, ListProps>((props, ref) => {
     className,
     colorScheme = undefined,
     variant,
+    listItemsVariant,
     heading,
     headingElement,
     helperText,
@@ -63,6 +64,7 @@ export const List = forwardRef<ListElement, ListProps>((props, ref) => {
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledbyValue,
     'data-padding-none': paddingNone ? '' : undefined,
+    'data-list-items-variant': listItemsVariant,
   };
 
   return (

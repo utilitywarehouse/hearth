@@ -162,6 +162,19 @@ conjunction with the `variant` prop.
 - **`'neutralStrong'`**: A clean, neutral white background.
 - **`'neutralSubtle'`**: A softer, warmer white background.
 
+### List Items Variant
+
+The `listItemsVariant` prop allows you to override the container variant. If
+the List itself is set to `emphasis` you can set the child List Items to
+`subtle`.
+
+- **`undefined`**: Default appearance inheriting the contianer.
+- **`'subtle'`**: Subtle border overriding the contianer variant styling.
+
+```tsx
+<List heading="List" headingElement="h1" helperText="Helper text" />
+```
+
 ### Padding None
 
 You can remove the inline padding from all list items with the `paddingNone`
@@ -543,6 +556,7 @@ This component is based on the `ul` element and supports the following common pr
 | `colorScheme`      | `"neutralStrong" \| "neutralSubtle"`    | —           | Sets the color scheme of the list.                                                                |
 | `as`               | `"ol" \| "ul"`                          | `ul`        | Shorthand for changing the default rendered element into a semantically appropriate alternative.  |
 | `paddingNone`      | `boolean`                               | —           | Remove the inline padding for better alignment with other elements.                               |
+| `listItemsVariant` | `"subtle"`                              | —           |                                                                                                   |
 
 ## ListItem
 

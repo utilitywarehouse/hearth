@@ -228,28 +228,32 @@ then an alternative disclosure pattern should be used.
   ))}
 </Flex>
 
-## SEO
+## Keeping content mounted
 
 By default, `AccordionContent` is removed from the DOM when collapsed, which
 means search engines may not index its content. If the content is important for
-SEO (for example, FAQ answers), use the `forceMount` prop on `AccordionContent`
+SEO (for example, FAQ answers), use the `keepMounted` prop on `AccordionContent`
 to keep it in the DOM at all times.
 
-When `forceMount` is set, collapsed content is hidden from view and the
+When `keepMounted` is set, collapsed content is hidden from view and the
 accessibility tree using the `hidden` attribute, so it has no impact on the
 visual layout or screen reader experience. The close animation plays before the
 content is hidden.
 
 ```tsx
-<AccordionContent forceMount>Content</AccordionContent>
+<AccordionContent keepMounted>Content</AccordionContent>
 ```
+
+`forceMount` is still accepted and behaves the same way, but it will be removed
+when `Accordion` migrates to Base UI. Prefer `keepMounted` in new usage. If both
+are passed, `keepMounted` takes precedence.
 
 ```tsx
 <Box width="600px">
   <Accordion {...args}>
     {[1, 2, 3, 4, 5, 6].map(n => (
       <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
-        <AccordionContent forceMount>{`Content ${n}`}</AccordionContent>
+        <AccordionContent keepMounted>{`Content ${n}`}</AccordionContent>
       </AccordionItem>
     ))}
   </Accordion>

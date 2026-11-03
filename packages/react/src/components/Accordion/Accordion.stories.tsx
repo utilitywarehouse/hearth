@@ -67,7 +67,7 @@ export const Playground: Story = {
   },
 };
 
-/** Use forceMount on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
+/** Use keepMounted on AccordionContent to keep collapsed content in the DOM for search engines and assistive tech, hidden visually until expanded. */
 export const SEOFriendly: Story = {
   parameters: {
     controls: { disable: true },
@@ -80,7 +80,7 @@ export const SEOFriendly: Story = {
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
             <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
-              <AccordionContent forceMount>{`Content ${n}`}</AccordionContent>
+              <AccordionContent keepMounted>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

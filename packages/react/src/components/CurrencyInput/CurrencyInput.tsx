@@ -105,21 +105,25 @@ export const CurrencyInput = forwardRef<InputBaseElement, CurrencyInputProps>(
         setInternalValue(limitedValue);
       }
 
-      // Return numeric value WITHOUT commas
+      // Return numeric value WITHOUT commas, via a Proxy so everything else
+      // (target.name, target.id, preventDefault, instanceof checks, etc.)
+      // still passes through to the real event and element.
       if (onChange) {
-        const syntheticEvent = {
-          ...e,
-          target: {
-            ...e.target,
-            value: limitedValue, // Raw numeric value without commas
+        const proxiedTarget = new Proxy(e.target, {
+          get(target, prop): unknown {
+            if (prop === 'value') return limitedValue;
+            return Reflect.get(target, prop, target) as unknown;
           },
-          currentTarget: {
-            ...e.currentTarget,
-            value: limitedValue,
-          },
-        } as ChangeEvent<HTMLInputElement>;
+        });
 
-        onChange(syntheticEvent);
+        const proxiedEvent = new Proxy(e, {
+          get(target, prop): unknown {
+            if (prop === 'target' || prop === 'currentTarget') return proxiedTarget;
+            return Reflect.get(target, prop, target) as unknown;
+          },
+        });
+
+        onChange(proxiedEvent);
       }
     };
 
