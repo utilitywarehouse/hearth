@@ -45,11 +45,11 @@
     outline: 2px solid transparent;
   }
 
-  &:where([data-state='unchecked']) {
+  &:where([data-unchecked]) {
     background-color: var(--h-surface-neutral-strong);
   }
 
-  &:where([data-state='checked']) {
+  &:where([data-checked]) {
     background-color: var(--h-checkbox-checked-background-color);
   }
 

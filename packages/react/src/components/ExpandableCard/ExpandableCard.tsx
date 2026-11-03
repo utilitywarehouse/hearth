@@ -2,7 +2,7 @@
 
 import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
+import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -77,10 +77,10 @@ export const ExpandableCard = forwardRef<ExpandableCardElement, ExpandableCardPr
           ) : null}
           <ChevronDownSmallIcon className={`${componentClassName}Chevron`} aria-hidden />
         </CollapsiblePrimitive.Trigger>
-        <CollapsiblePrimitive.Content className={`${componentClassName}Content`}>
+        <CollapsiblePrimitive.Panel className={`${componentClassName}Content`}>
           <Divider decorative />
           <div className={`${componentClassName}ContentInner`}>{children}</div>
-        </CollapsiblePrimitive.Content>
+        </CollapsiblePrimitive.Panel>
       </CollapsiblePrimitive.Root>
     );
   }

@@ -67,13 +67,16 @@ Make sure the package name is correct, it should be one of the following:
 - `@utilitywarehouse/hearth-tokens`
 - `@utilitywarehouse/hearth-css-reset`
 
-While the packages are in a pre `v1` state, we are not strictly adhering to
-semver guidelines, but we do want to be mindful of the impact of changes. Use
-the following guidelines for selecting the appropriate change type:
+Hearth follows [semantic versioning](https://semver.org). Use the following
+guidelines for selecting the appropriate change type:
 
-- **Patch**: Use for bug fixes, performance improvements, new props, backward-compatible changes and non-breaking internal Changes
-- **Minor**: Use for new features, breaking changes, removed features, and renamed APIs
-- **Major**: Do not use for any changes at this time. This will change after we reach `v1` and start following semver guidelines more strictly.
+- **Patch**: Use for bug fixes, performance improvements, backward-compatible enhancements and non-breaking internal changes
+- **Minor**: Use for new features, such as new components, new props and new variants, and for deprecations (the old API still works)
+- **Major**: Use for breaking changes, such as removed features, removed deprecated APIs, renamed APIs and changed default behaviour
+
+A `[BREAKING CHANGE]` changeset is always `major`. Note that while a package is
+still on `0.x`, a `major` changeset publishes `1.0.0` for that package when its
+Version Packages PR is merged, so only land one when you intend to release it.
 
 ## Change Type Classification
 
@@ -260,7 +263,14 @@ When running `pnpm changeset`, you'll be asked which packages to include:
 
 ## Semver Guidelines
 
-Standard semver does not apply while the packages are pre-v1. Follow the bump-level rules in "Create a New Changeset" above, which take precedence. In particular: **do not use `major`** at this time.
+Follow the bump-level rules in "Create a New Changeset" above. The change type
+and the bump level go together:
+
+| Change type | Bump |
+|-------------|------|
+| [BREAKING CHANGE] | `major` |
+| [FEATURE] | `minor` |
+| [ENHANCEMENT], [FIX], [DEPS], [HOUSEKEEPING] | `patch` |
 
 ## Final Review
 

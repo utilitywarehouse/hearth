@@ -30,6 +30,8 @@ for the full list of available codemods and worked before/after examples.
 
 | Codemod | Description |
 | --- | --- |
+| `react/v1/migrate-accordion` | Migrates `Accordion` to its Base UI API (`type`, `collapsible`, `value`/`defaultValue`, `forceMount`) and flags usages needing manual review |
+| `react/v1/migrate-card-accordion` | Migrates `CardAccordion`'s `value` to a `string[]` and flags non-literal `value`s and `onValueChange` usages for manual review. Breaking: `react/v1/migration` only |
 | `react/v1/migrate-menu` | Renames `MenuItem`'s deprecated `onSelect` and `textValue` props to `onClick` and `label`, and `MenuContent`'s `forceMount` to `keepMounted` |
 | `react/v1/remove-accordion-content-force-mount` | Renames `AccordionContent`'s deprecated `forceMount` prop to `keepMounted` |
 | `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |

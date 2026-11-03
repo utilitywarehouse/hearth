@@ -24,6 +24,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [Heading levels](#heading-levels)
 - [Accessibility](#accessibility)
   - [Keyboard interactions](#keyboard-interactions)
+- [Migration](#migration)
 - [API](#api)
 
 <Canvas of={Stories.Playground} sourceState="hide" />
@@ -180,6 +181,40 @@ Follows the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/
     </>
   ))}
 </Flex>
+
+## Migration
+
+### Migrating from `v0.x`
+
+`CardAccordion` has migrated from Radix UI to Base UI internally, matching
+`Accordion`'s own migration. A step always stays open as before — this is now
+preserved internally rather than via a `collapsible` prop, since Base UI has
+no such prop.
+
+**Breaking changes:**
+
+- `CardAccordion: value` / `onValueChange` — now always use an array of
+  `string` values, e.g. `value="step-1"` becomes `value={['step-1']}`, and
+  `onValueChange` now receives a `string[]` as its argument.
+
+```tsx
+{
+  /* Before */
+}
+<CardAccordion value="step-1" onValueChange={value => console.log(value)}>
+  ...
+</CardAccordion>;
+
+{
+  /* After */
+}
+<CardAccordion value={['step-1']} onValueChange={value => console.log(value)}>
+  ...
+</CardAccordion>;
+```
+
+A codemod for this change is tracked separately (UWDS-5255) and isn't
+available yet — update usages by hand in the meantime.
 
 ## API
 

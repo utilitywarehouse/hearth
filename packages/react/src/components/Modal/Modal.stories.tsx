@@ -371,10 +371,37 @@ export const Loading: Story = {
     heading: 'Loading modal',
     description: 'This is a loading modal, and the heading and description should not show.',
     loading: true,
-    loadingText: 'Loading Text (Deprecated prop, please use loadingHeading instead)',
     loadingHeading: 'Matching your details.',
     loadingDescription:
       "We're checking your details for the best deal. This may take a minute or two.",
+    hideCloseButton: true,
+  },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args} />
+    </ModalRoot>
+  ),
+};
+
+/** Without a loadingHeading, the loading state falls back to a default "Loading" heading, and loadingDescription is not rendered. */
+export const LoadingWithoutHeading: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+  },
+  play: async () => {
+    const dialog = await screen.findByRole('dialog', { name: 'Loading' });
+
+    await expect(dialog).not.toHaveAccessibleDescription();
+    await expect(within(dialog).queryByText('This will not be shown.')).not.toBeInTheDocument();
+  },
+  args: {
+    heading: 'Loading modal',
+    loading: true,
+    loadingDescription: 'This will not be shown.',
     hideCloseButton: true,
   },
   render: (args, { viewMode }: { viewMode?: string }) => (

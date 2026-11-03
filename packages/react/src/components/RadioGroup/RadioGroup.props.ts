@@ -1,18 +1,8 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import { SizeProps } from '../../props/size.props';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 import { FlexProps } from '../Flex/Flex.props';
 
-type DivProps = Omit<ComponentPropsWithoutRef<'div'>, 'defaultValue'>;
-
-export interface RadioGroupProps
-  extends
-    Omit<
-      ComponentPropsWithoutRef<typeof RadioGroupPrimitive.RadioGroup>,
-      'dir' | 'orientation' | keyof DivProps
-    >,
-    Omit<FormGroupBaseProps, 'defaultValue'> {
+export interface RadioGroupProps extends Omit<FormGroupBaseProps, 'defaultValue'> {
   /**
    * Merges the component's props onto its immediate child instead of
    * rendering its own DOM element, so the child determines the rendered tag.
@@ -30,4 +20,18 @@ export interface RadioGroupProps
    * parent RadioGroup.
    */
   contentWidth?: SizeProps['width'];
+  /** Identifies the field when a form is submitted. */
+  name?: string;
+  /** Whether the user must choose a value before submitting a form. */
+  required?: boolean;
+  /** Whether the group should ignore user interaction. */
+  disabled?: boolean;
+  /** Whether keyboard navigation wraps around from the last item to the first. */
+  loop?: boolean;
+  /** The uncontrolled value of the radio item that should be initially selected. */
+  defaultValue?: string;
+  /** The controlled value of the radio item that should be currently selected. */
+  value?: string;
+  /** Callback fired when the selected value changes. */
+  onValueChange?: (value: string) => void;
 }

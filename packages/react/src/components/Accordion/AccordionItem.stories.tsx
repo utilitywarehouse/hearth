@@ -24,7 +24,7 @@ export const Playground: Story = {
   },
   render: args => (
     <Box width="600px">
-      <Accordion type="multiple" heading="Accordion" helperText="Not the musical one">
+      <Accordion multiple heading="Accordion" helperText="Not the musical one">
         <AccordionItem {...args} value="item-1">
           <AccordionContent>Content 1</AccordionContent>
         </AccordionItem>

@@ -7,7 +7,7 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
-import { Checkbox as CheckboxPrimitive } from 'radix-ui';
+import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import type { CheckboxProps } from '../Checkbox/Checkbox.props';
@@ -78,6 +78,8 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
     >
       <CheckboxPrimitive.Root
         ref={ref}
+        render={<button />}
+        nativeButton
         className="h-CheckboxRoot"
         name={checkboxContext?.name}
         checked={checked}
@@ -102,9 +104,9 @@ export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((prop
           }
         }}
       >
-        <CheckboxPrimitive.Indicator asChild className={`${componentClassName}Indicator`}>
-          <TickSmallIcon />
-        </CheckboxPrimitive.Indicator>
+        <CheckboxPrimitive.Indicator
+          render={<TickSmallIcon className={`${componentClassName}Indicator`} />}
+        />
       </CheckboxPrimitive.Root>
       <Flex direction="column">
         <Label as="span" id={labelId} disableUserSelect>

@@ -1,5 +1,5 @@
 import type { ReactNode, ComponentPropsWithRef } from 'react';
-import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
+import { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible';
 import type { MarginProps } from '../../props/margin.props';
 import { IconContainerProps } from '../IconContainer/IconContainer.props';
 
@@ -7,9 +7,13 @@ export interface ExpandableCardProps
   extends
     Pick<
       ComponentPropsWithRef<typeof CollapsiblePrimitive.Root>,
-      'open' | 'defaultOpen' | 'onOpenChange' | 'className'
+      'open' | 'defaultOpen' | 'onOpenChange'
     >,
     MarginProps {
+  /**
+   * Additional class name applied to the card's root element.
+   */
+  className?: string;
   /**
    * The heading shown in the card's summary header, always visible regardless
    * of expanded state.

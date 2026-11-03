@@ -27,11 +27,7 @@ export const Playground: Story = {
   },
   render: () => (
     <Box width="600px">
-      <Accordion
-        type="multiple"
-        heading="Custom item headers"
-        helperText="Including a badge, for example"
-      >
+      <Accordion multiple heading="Custom item headers" helperText="Including a badge, for example">
         <AccordionItem value="item-1">
           <AccordionHeader>
             <AccordionTrigger>

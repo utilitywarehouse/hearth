@@ -13,14 +13,20 @@ import { DatePickerHeader } from './DatePickerHeader';
 import { FormField } from '../FormField/FormField';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
-import { Portal } from 'radix-ui';
 import { forwardRef, useState } from 'react';
-import type { ComponentRef, MouseEvent, KeyboardEvent } from 'react';
+import type { ComponentRef, MouseEvent, KeyboardEvent, ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DatePickerElement = ComponentRef<'button'>;
+
+// react-datepicker's `popperContainer` expects a component that portals its
+// children — Base UI has no standalone exported Portal primitive to swap in
+// for Radix's `Portal.Root`, so this mirrors it directly on createPortal.
+const PopperPortal = ({ children }: { children: ReactNode }) =>
+  createPortal(children, document.body);
 
 /**
  * Use DatePicker when a user needs to specify a single date via an
@@ -183,7 +189,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     popperModifiers: [offset(-6)],
     popperPlacement: 'bottom-start',
     popperProps: { strategy: 'fixed' },
-    popperContainer: Portal.Root,
+    popperContainer: PopperPortal,
   };
 
   const eventHandlingProps = {

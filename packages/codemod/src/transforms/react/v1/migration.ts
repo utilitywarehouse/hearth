@@ -1,4 +1,6 @@
 import type { API, FileInfo } from 'jscodeshift';
+import migrateAccordion from './migrate-accordion';
+import migrateCardAccordion from './migrate-card-accordion';
 import preV1Migration from '../pre-v1/migration';
 
 /**
@@ -8,6 +10,8 @@ import preV1Migration from '../pre-v1/migration';
  */
 function transformer(file: FileInfo, api: API): string {
   file.source = preV1Migration(file, api);
+  file.source = migrateAccordion(file, api);
+  file.source = migrateCardAccordion(file, api);
   return file.source;
 }
 

@@ -20,6 +20,4 @@ export interface MenuContentProps {
    * @default false
    */
   keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted'];
-  /** @deprecated Use `keepMounted` instead. Will be removed in next major. */
-  forceMount?: true;
 }

@@ -118,25 +118,27 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop               | Type                        | Default | Description                                                                                        |
-| ------------------ | --------------------------- | ------- | -------------------------------------------------------------------------------------------------- |
-| `label`            | `string`                    | —       | The label for the form field, describing its purpose.                                              |
-| `value`            | `string`                    | —       | The controlled value of the selected option. Must be used with an `onValueChange` handler.         |
-| `defaultValue`     | `string`                    | —       | The initial value of the selected option when rendered, for uncontrolled usage.                    |
-| `open`             | `boolean`                   | —       |                                                                                                    |
-| `defaultOpen`      | `boolean`                   | —       |                                                                                                    |
-| `onOpenChange`     | `((open: boolean) => void)` | —       |                                                                                                    |
-| `autoComplete`     | `string`                    | —       |                                                                                                    |
-| `required`         | `boolean`                   | —       | Marks the field as required.                                                                       |
-| `onValueChange`    | `((value: string) => void)` | —       | Callback fired when the selected value changes.                                                    |
-| `labelId`          | `string`                    | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.            |
-| `helperTextId`     | `string`                    | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.     |
-| `validationTextId` | `string`                    | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association. |
-| `labelVariant`     | `"body" \| "heading"`       | —       | Change the label variant                                                                           |
-| `helperText`       | `string`                    | —       | Optional helper text to provide additional context or instructions.                                |
-| `validationText`   | `string`                    | —       | Text to display when the `validationStatus` is set.                                                |
-| `validationStatus` | `"valid" \| "invalid"`      | —       | Indicates the validation status.                                                                   |
-| `placeholder`      | `string`                    | —       | Placeholder text shown when no value is selected.                                                  |
+| Prop               | Type                                                                                             | Default | Description                                                                                                                           |
+| ------------------ | ------------------------------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`            | `string`                                                                                         | —       | The label for the form field, describing its purpose.                                                                                 |
+| `style`            | `CSSProperties \| (((state: SelectTriggerState) => CSSProperties \| undefined) & CSSProperties)` | —       | Style applied to the element, or a function that returns a style object based on the component's state.                               |
+| `defaultValue`     | `unknown`                                                                                        | —       | The initial value of the selected option when rendered, for uncontrolled usage.                                                       |
+| `disabled`         | `boolean`                                                                                        | `false` | Whether the component should ignore user interaction.                                                                                 |
+| `value`            | `unknown`                                                                                        | —       | The controlled value of the selected option. Must be used with an `onValueChange` handler.                                            |
+| `autoComplete`     | `string`                                                                                         | —       | Provides a hint to the browser for autofill. @see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete |
+| `required`         | `boolean`                                                                                        | `false` | Whether the user must choose a value before submitting a form. Marks the field as required.                                           |
+| `defaultOpen`      | `boolean`                                                                                        | `false` | Whether the select popup is initially open. To render a controlled select popup, use the `open` prop instead.                         |
+| `onOpenChange`     | `((open: boolean, eventDetails: SelectRootChangeEventDetails) => void)`                          | —       | Event handler called when the select popup is opened or closed.                                                                       |
+| `open`             | `boolean`                                                                                        | —       | Whether the select popup is currently open.                                                                                           |
+| `onValueChange`    | `((value: unknown, eventDetails: SelectRootChangeEventDetails) => void)`                         | —       | Callback fired when the selected value changes.                                                                                       |
+| `labelId`          | `string`                                                                                         | —       | The `id` of the element rendering the field's label, for `aria-labelledby` association.                                               |
+| `helperTextId`     | `string`                                                                                         | —       | The `id` of the element rendering the field's helper text, for `aria-describedby` association.                                        |
+| `validationTextId` | `string`                                                                                         | —       | The `id` of the element rendering the field's validation text, for `aria-describedby` association.                                    |
+| `labelVariant`     | `"body" \| "heading"`                                                                            | —       | Change the label variant                                                                                                              |
+| `helperText`       | `string`                                                                                         | —       | Optional helper text to provide additional context or instructions.                                                                   |
+| `validationText`   | `string`                                                                                         | —       | Text to display when the `validationStatus` is set.                                                                                   |
+| `validationStatus` | `"valid" \| "invalid"`                                                                           | —       | Indicates the validation status.                                                                                                      |
+| `placeholder`      | `string`                                                                                         | —       | Placeholder text shown when no value is selected.                                                                                     |
 
 ### SelectItem API
 

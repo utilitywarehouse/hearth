@@ -44,6 +44,34 @@
   & .h-TooltipArrow {
     fill: var(--h-tooltip-background-color);
     visibility: visible;
+
+    --h-tooltip-arrow-height: 11px;
+    --h-tooltip-arrow-width: 21px;
+
+    /* Base UI positions and centers the arrow itself; these rules push it
+     * out past the popup's edge and rotate it to point outward. The offset
+     * is applied to the arrow's unrotated 21x11 layout box, so a 90/-90deg
+     * rotation (which swaps the visual axes) needs -(21 + 11) / 2 to sit
+     * flush, while 0/180deg only needs -11 (its own unrotated height). */
+    &[data-side='top'] {
+      bottom: calc(-1 * var(--h-tooltip-arrow-height));
+      transform: rotate(0deg);
+    }
+
+    &[data-side='bottom'] {
+      top: calc(-1 * var(--h-tooltip-arrow-height));
+      transform: rotate(180deg);
+    }
+
+    &[data-side='left'] {
+      right: calc((var(--h-tooltip-arrow-height) + var(--h-tooltip-arrow-width)) / -2);
+      transform: rotate(-90deg);
+    }
+
+    &[data-side='right'] {
+      left: calc((var(--h-tooltip-arrow-height) + var(--h-tooltip-arrow-width)) / -2);
+      transform: rotate(90deg);
+    }
   }
 }
 
