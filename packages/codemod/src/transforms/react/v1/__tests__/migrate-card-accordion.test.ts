@@ -16,6 +16,10 @@ describe('migrate-card-accordion', () => {
     runTransformFixtureTest(__dirname, transform, 'migrate-card-accordion-aliased-import');
   });
 
+  it('transforms elements used through a namespace import', () => {
+    runTransformFixtureTest(__dirname, transform, 'migrate-card-accordion-namespace-import');
+  });
+
   it('warns about usages that need manual migration', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     runTransformFixtureTest(__dirname, transform, 'migrate-card-accordion');

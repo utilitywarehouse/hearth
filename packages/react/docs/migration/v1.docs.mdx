@@ -98,7 +98,8 @@ with the file and line, for manual review:
 
 - a non-literal `value`
 - every `onValueChange`, which now receives a `string[]` as its first argument
-- a prop spread, which may carry `value` or `onValueChange`
+- a prop spread, which may carry `value` or `onValueChange` (a literal `value` on the same
+  element is still migrated)
 
 This is a breaking change, so it is only included in `react/v1/migration`, not
 `react/pre-v1/migration`.

@@ -5,9 +5,11 @@
 🌟 [FEATURE]: `react/v1/migrate-card-accordion` codemod available
 
 Migrates `CardAccordion` usages to the Base UI API: wraps a string literal
-`value` in an array. Usages it can't safely rewrite (non-literal `value`, every
-`onValueChange`, prop spreads) are left unchanged and printed as warnings for
-manual review.
+`value` in an array, including through namespace imports (`<H.CardAccordion>`).
+Usages it can't safely rewrite (non-literal `value`, every `onValueChange`) are
+left unchanged and printed as warnings for manual review, as are prop spreads,
+which may carry `value` or `onValueChange` (a literal `value` on the same element
+is still migrated).
 
 ```sh
 npx @utilitywarehouse/hearth-codemod react/v1/migrate-card-accordion <path>
