@@ -22,32 +22,9 @@ type MenuItemElement = ComponentRef<'div'>;
  */
 export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
   (
-    {
-      className,
-      colorScheme = 'functional',
-      asChild,
-      children,
-      onClick,
-      label,
-      onSelect,
-      textValue,
-      ...props
-    },
+    { className, colorScheme = 'functional', asChild, children, ...props },
     ref
   ) => {
-    warn(onSelect !== undefined, 'MenuItem: `onSelect` is deprecated. Use `onClick` instead.');
-    warn(textValue !== undefined, 'MenuItem: `textValue` is deprecated. Use `label` instead.');
-
-    const resolvedlabel = label ?? textValue;
-
-    const handleClick =
-      onSelect !== undefined
-        ? (event: Parameters<NonNullable<typeof onClick>>[0]) => {
-            onSelect(event);
-            onClick?.(event);
-          }
-        : onClick;
-
     const isElementChild = asChild && isValidElement(children);
     warn(
       asChild === true && !isValidElement(children),
@@ -60,8 +37,6 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
         className={cn(componentClassName, className)}
         data-colorscheme={colorScheme}
         render={isElementChild ? (children as ReactElement) : undefined}
-        onClick={handleClick}
-        label={resolvedlabel}
         {...props}
       >
         {isElementChild ? undefined : children}
