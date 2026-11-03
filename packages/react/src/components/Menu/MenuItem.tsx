@@ -21,10 +21,7 @@ type MenuItemElement = ComponentRef<'div'>;
  * @summary A selectable action or option within a Menu.
  */
 export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>(
-  (
-    { className, colorScheme = 'functional', asChild, children, ...props },
-    ref
-  ) => {
+  ({ className, colorScheme = 'functional', asChild, children, ...props }, ref) => {
     const isElementChild = asChild && isValidElement(children);
     warn(
       asChild === true && !isValidElement(children),
