@@ -1,19 +1,10 @@
-import type { API, FileInfo, Identifier, JSXAttribute, JSXElement } from 'jscodeshift';
+import type { API, FileInfo, Identifier, JSXElement } from 'jscodeshift';
 import { getStringValue } from '../../../utils/get-string-value';
 import { isShadowed } from '../../../utils/is-shadowed';
+import { isJSXAttributeNamed } from '../../../utils/is-jsx-attribute-named';
+import { isTypeOnly } from '../../../utils/is-type-only';
 
 const MODAL_IMPORT_SOURCES = ['@utilitywarehouse/hearth-react'];
-
-function isJSXAttributeNamed(name: string) {
-  return (attribute: unknown): attribute is JSXAttribute =>
-    (attribute as JSXAttribute).type === 'JSXAttribute' &&
-    (attribute as JSXAttribute).name.name === name;
-}
-
-// jscodeshift's typings omit `importKind` on specifiers, but the parser sets it
-function isTypeOnly(node: object): boolean {
-  return (node as { importKind?: string }).importKind === 'type';
-}
 
 interface NodeWithComments {
   comments?: unknown;
@@ -87,11 +78,13 @@ function transformer(file: FileInfo, api: API): string {
       const loadingTextAttribute = attributes.find(isJSXAttributeNamed('loadingText'));
 
       if (attributes.some(attribute => attribute.type === 'JSXSpreadAttribute')) {
-        // The spread may also carry `loadingText` (or override the migrated value), so leave it for review
+        // The spread may carry `loadingText` or `loadingHeading` and so override the migrated
+        // value, so leave the element unchanged for review
         warn(
           element.node,
-          '<Modal> spreads props that may include `loadingText`; rename it to `loadingHeading` manually if so'
+          '<Modal> spreads props that may include `loadingText` or `loadingHeading`; review them manually'
         );
+        return;
       }
 
       if (!loadingTextAttribute) {

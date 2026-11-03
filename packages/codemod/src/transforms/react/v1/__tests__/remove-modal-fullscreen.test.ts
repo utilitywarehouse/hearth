@@ -15,6 +15,14 @@ describe('remove-modal-fullscreen', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-aliased-import');
   });
 
+  it('transforms a namespace-imported Modal', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-namespace-import');
+  });
+
+  it('leaves a type-only imported Modal untouched', () => {
+    runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-type-only-import');
+  });
+
   it('leaves a locally shadowed Modal untouched', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-fullscreen-shadowed');
   });

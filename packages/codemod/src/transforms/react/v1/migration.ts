@@ -1,5 +1,6 @@
 import type { API, FileInfo } from 'jscodeshift';
 import migrateAccordion from './migrate-accordion';
+import migrateMenu from './migrate-menu';
 import removeModalFullscreen from './remove-modal-fullscreen';
 import removeModalLoadingText from './remove-modal-loading-text';
 import removeTextWrapProp from './remove-text-wrap-prop';
@@ -10,6 +11,7 @@ import removeTextWrapProp from './remove-text-wrap-prop';
  */
 function transformer(file: FileInfo, api: API): string {
   file.source = migrateAccordion(file, api);
+   file.source = migrateMenu(file, api);
   file.source = removeModalFullscreen(file, api);
   file.source = removeModalLoadingText(file, api);
   file.source = removeTextWrapProp(file, api);
@@ -17,3 +19,4 @@ function transformer(file: FileInfo, api: API): string {
 }
 
 export default transformer;
+

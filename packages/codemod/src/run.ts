@@ -1,5 +1,5 @@
-import { execSync, spawnSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const jscodeshiftDirectory = path.dirname(require.resolve('jscodeshift'));
@@ -16,23 +16,46 @@ export interface RunArgv extends RunFlags {
   paths: Array<string>;
 }
 
-export function checkGitStatus(force: boolean): void {
-  let clean = false;
-  let errorMessage = 'Unable to determine if git directory is clean';
+function stderrOf(error: unknown): string {
+  const stderr = (error as { stderr?: Buffer | string }).stderr ?? '';
+  return Buffer.isBuffer(stderr) ? stderr.toString('utf8') : stderr;
+}
+
+/** Checks the repository containing each target, not the CLI's own working directory. */
+export function checkGitStatus(files: Array<string>, force: boolean): void {
+  let clean = true;
+  let errorMessage = 'Git directory is not clean';
   let gitError = '';
+  const roots = new Set<string>();
+
   try {
-    const output = execSync('git status --porcelain', { encoding: 'utf8' });
-    clean = output.trim() === '';
-    errorMessage = 'Git directory is not clean';
-  } catch (error) {
-    const stderr = (error as { stderr?: Buffer | string }).stderr ?? '';
-    const stderrText = Buffer.isBuffer(stderr) ? stderr.toString('utf8') : stderr;
-    if (stderrText.toLowerCase().includes('not a git repository')) {
-      clean = true;
-    } else {
-      // `execSync` can fail before git writes anything (e.g. git can't be spawned)
-      gitError = stderrText.trim() || (error as Error).message;
+    for (const file of files) {
+      const cwd = statSync(file).isDirectory() ? file : path.dirname(file);
+      try {
+        roots.add(
+          execFileSync('git', ['rev-parse', '--show-toplevel'], { cwd, encoding: 'utf8' }).trim()
+        );
+      } catch (error) {
+        // a target outside any repository has nothing to protect
+        if (!stderrOf(error).toLowerCase().includes('not a git repository')) {
+          throw error;
+        }
+      }
     }
+    for (const root of roots) {
+      const output = execFileSync('git', ['status', '--porcelain'], {
+        cwd: root,
+        encoding: 'utf8',
+      });
+      if (output.trim() !== '') {
+        clean = false;
+      }
+    }
+  } catch (error) {
+    // `execFileSync` can fail before git writes anything (e.g. git can't be spawned)
+    clean = false;
+    errorMessage = 'Unable to determine if git directory is clean';
+    gitError = stderrOf(error).trim() || (error as Error).message;
   }
 
   if (!clean) {
@@ -78,39 +101,59 @@ export function runJscodeshiftTransform(
     );
   }
 
-  const args = [
-    // can't directly spawn `jscodeshiftExecutable` due to https://github.com/facebook/jscodeshift/issues/424
-    jscodeshiftExecutable,
-    '--transform',
-    transformPath,
-    '--extensions',
-    'ts,tsx,js,jsx',
-    '--parser',
-    'tsx',
-    '--ignore-pattern',
-    '**/node_modules/**',
-    // jscodeshift exits 0 when a file fails to parse unless told otherwise
-    '--fail-on-error',
+  // `.ts` files may contain `<T>value` assertions, which only parse without JSX enabled, while
+  // `.tsx`/`.js`/`.jsx` need the `tsx` parser. Directories are walked by both passes; explicit
+  // files go to the pass matching their extension
+  const isTsFile = (file: string): boolean => path.extname(file) === '.ts';
+  const isDirectory = (file: string): boolean => statSync(file).isDirectory();
+  const passes = [
+    { parser: 'ts', extensions: 'ts', targets: files.filter(f => isDirectory(f) || isTsFile(f)) },
+    {
+      parser: 'tsx',
+      extensions: 'tsx,js,jsx',
+      targets: files.filter(f => isDirectory(f) || !isTsFile(f)),
+    },
   ];
 
-  if (flags.dry) {
-    args.push('--dry');
-  }
-  if (flags.print) {
-    args.push('--print');
-  }
+  for (const { parser, extensions, targets } of passes) {
+    if (targets.length === 0) {
+      continue;
+    }
 
-  args.push(...files);
+    const args = [
+      // can't directly spawn `jscodeshiftExecutable` due to https://github.com/facebook/jscodeshift/issues/424
+      jscodeshiftExecutable,
+      '--transform',
+      transformPath,
+      '--extensions',
+      extensions,
+      '--parser',
+      parser,
+      '--ignore-pattern',
+      '**/node_modules/**',
+      // jscodeshift exits 0 when a file fails to parse unless told otherwise
+      '--fail-on-error',
+    ];
 
-  console.log(`Executing command: jscodeshift ${args.join(' ')}`);
-  const result = spawnSync('node', args, { stdio: 'inherit' });
+    if (flags.dry) {
+      args.push('--dry');
+    }
+    if (flags.print) {
+      args.push('--print');
+    }
 
-  if (result.error) {
-    throw result.error;
-  }
-  if (result.status !== 0) {
-    // `status` is null when the child was killed by a signal
-    process.exitCode = result.status ?? 1;
+    args.push(...targets);
+
+    console.log(`Executing command: jscodeshift ${args.join(' ')}`);
+    const result = spawnSync('node', args, { stdio: 'inherit' });
+
+    if (result.error) {
+      throw result.error;
+    }
+    if (result.status !== 0) {
+      // `status` is null when the child was killed by a signal
+      process.exitCode = result.status ?? 1;
+    }
   }
 }
 
@@ -125,7 +168,7 @@ export function run(argv: RunArgv): void {
   }
 
   if (!flags.dry) {
-    checkGitStatus(force);
+    checkGitStatus(files, force);
   }
 
   runJscodeshiftTransform(codemod, files, { force, ...flags });

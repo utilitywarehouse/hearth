@@ -27,7 +27,9 @@ describe('remove-modal-loading-text', () => {
     expect(messages).toEqual([
       expect.stringMatching(/:5 .*`loadingHeading` that may be empty; merge them manually/),
       expect.stringMatching(/:8 .*`loadingHeading` that may be empty; merge them manually/),
-      expect.stringMatching(/:11 .*spreads props that may include `loadingText`/),
+      expect.stringMatching(
+        /:11 .*spreads props that may include `loadingText` or `loadingHeading`/
+      ),
     ]);
   });
 
@@ -35,13 +37,13 @@ describe('remove-modal-loading-text', () => {
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-heading-expression');
   });
 
-  it('migrates a literal loadingText and still warns about a spread', () => {
+  it('leaves an element with a spread unchanged and warns', () => {
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     runTransformFixtureTest(__dirname, transform, 'remove-modal-loading-text-spread');
 
     expect(warn).toHaveBeenCalledOnce();
     expect(String(warn.mock.calls[0][0])).toMatch(
-      /:4 .*spreads props that may include `loadingText`/
+      /:4 .*spreads props that may include `loadingText` or `loadingHeading`/
     );
   });
 
