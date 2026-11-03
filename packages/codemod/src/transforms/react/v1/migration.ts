@@ -11,7 +11,7 @@ import removeTextWrapProp from './remove-text-wrap-prop';
  */
 function transformer(file: FileInfo, api: API): string {
   file.source = migrateAccordion(file, api);
-   file.source = migrateMenu(file, api);
+  file.source = migrateMenu(file, api);
   file.source = removeModalFullscreen(file, api);
   file.source = removeModalLoadingText(file, api);
   file.source = removeTextWrapProp(file, api);
@@ -19,4 +19,3 @@ function transformer(file: FileInfo, api: API): string {
 }
 
 export default transformer;
-
