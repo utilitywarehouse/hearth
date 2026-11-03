@@ -3,9 +3,21 @@ import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 
 
 export interface BaseModalProps
   extends
-    ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>,
+    Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal>, 'forceMount'>,
     Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'>,
     ComponentPropsWithRef<'div'> {
+  /**
+   * Keeps the modal content mounted in the DOM when closed.
+   *
+   * @default false
+   */
+  keepMounted?: boolean;
+  /**
+   * Keeps the modal content mounted in the DOM when closed. Prefer `keepMounted`.
+   *
+   * @deprecated Use `keepMounted` instead. Will be removed when Modal migrates to Base UI.
+   */
+  forceMount?: boolean;
   /**
    * Additional descriptive text shown below the heading.
    */

@@ -27,6 +27,7 @@ const transformers = {
     const isDarkMode = fileName.startsWith('Dark-mode');
     const name = `${fileName
       .split('.')[0]
+      .replace(/_Lottie/g, '')
       .replace(/^Dark-mode_/, '')
       .replace(/_/g, '-')}`;
     return `animated-${name.toLowerCase()}-${isDarkMode ? 'dark' : 'light'}.json`;
@@ -35,6 +36,7 @@ const transformers = {
     const isDarkMode = filePath.startsWith('Dark-mode');
     const withoutExt = filePath.replace(/\.[^.]+$/, '');
     const parts = withoutExt
+      .replace(/_Lottie/g, '')
       .replace(/^Dark-mode_/, '')
       .split(/[\\/]/)
       .flatMap(part => part.split(/[^a-zA-Z0-9]+/))

@@ -28,21 +28,6 @@ const meta: Meta<typeof CurrencyInput> = {
 export default meta;
 type Story = StoryObj<typeof CurrencyInput>;
 
-// Expected-failure marker for known component bugs logged in component-bugs.md (repo root).
-// Passes while the assertion fails; fails once the bug is fixed, as the cue to remove the wrapper.
-const expectToFail = async (assertion: () => Promise<unknown>) => {
-  let failed = false;
-  try {
-    await assertion();
-  } catch {
-    failed = true;
-  }
-  await expect(
-    failed,
-    'Expected failure now passes: remove expectToFail and update component-bugs.md'
-  ).toBe(true);
-};
-
 /** Shows uncontrolled and controlled usage, plus disableGroupSeparators to remove thousands separators. */
 export const KitchenSink: Story = {
   tags: ['!manifest'],
@@ -149,9 +134,9 @@ export const Formatting: Story = {
     const lastEvent = onAmountChange.mock.lastCall?.[0] as ChangeEvent<HTMLInputElement>;
     await expect(lastEvent.target.value).toBe('1234567.89');
 
-    // Expected failure — see component-bugs.md and UWDS-5156
-    await expectToFail(() => expect(lastEvent.target.name).toBe('amount'));
-    await expectToFail(() => expect(typeof lastEvent.preventDefault).toBe('function'));
+    await expect(lastEvent.target.name).toBe('amount');
+    await expect(typeof lastEvent.preventDefault).toBe('function');
+    await expect(lastEvent.target).toBeInstanceOf(HTMLInputElement);
 
     await userEvent.type(ungrouped, '1234567');
     await expect(ungrouped).toHaveValue('1234567');
