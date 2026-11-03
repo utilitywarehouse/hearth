@@ -219,10 +219,6 @@ content is hidden.
 <AccordionContent keepMounted>Content</AccordionContent>
 ```
 
-`forceMount` is still accepted and behaves the same way, but it will be removed
-when `Accordion` migrates to Base UI. Prefer `keepMounted` in new usage. If both
-are passed, `keepMounted` takes precedence.
-
 ```tsx
 <Box width="600px">
   <Accordion {...args}>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Accordion, AccordionContent, MenuContent, MenuItem, Modal } from '@utilitywarehouse/hearth-react';
+import { Accordion, AccordionContent, BodyText, MenuContent, MenuItem, Modal } from '@utilitywarehouse/hearth-react';
 
 const Component = () => (
   <>
@@ -10,7 +10,7 @@ const Component = () => (
     <MenuItem onSelect={() => {}} textValue="Edit">Edit</MenuItem>
   </MenuContent>
   <Modal open fullScreen loading loadingText="Fetching your details...">
-    Content
+    <BodyText wrap="balance">Content</BodyText>
   </Modal>
   </>
 );
