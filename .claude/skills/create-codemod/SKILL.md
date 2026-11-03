@@ -28,8 +28,10 @@ packages/codemod/src/
   cli.ts                              # yargs CLI — do not touch for a new codemod
   transforms/
     react/
+      pre-v1/
+        migration.ts                  # composed: runs the non-breaking transforms
       v1/
-        migration.ts                  # composed: runs every react/v1/* transform
+        migration.ts                  # composed: pre-v1 migration + breaking transforms
         <your-transform>.ts
         __tests__/
           <your-transform>.test.ts
@@ -138,14 +140,23 @@ formatter would prefer.
 - Assert every warning: spy on `console.warn` and match the line number and message. `restoreMocks` is on in `vitest.config.ts`.
 - Check byte-for-byte identity by calling the transform directly: `applyTransform` trims its output.
 
-## Registering it in the version's migration
+## Registering it in a composed migration
 
-Add your transform to that version's composed `migration.ts` so it runs as
-part of "the complete vX migration":
+There are two composed migrations. Register the transform in exactly one:
+
+- **Non-breaking** (moves a deprecated prop to its replacement, safe to run
+  before upgrading): add it to `react/pre-v1/migration.ts`. `react/v1/migration`
+  calls the pre-v1 migration, so it picks the transform up automatically. Don't
+  add it to `v1/migration.ts` as well.
+- **Breaking** (only valid once the consumer is on `v1`): add it to
+  `react/v1/migration.ts` only, after the `preV1Migration` call.
+
+The transform file itself stays in `react/v1/` either way, so its name
+(`react/v1/<name>`) never changes.
 
 ```ts
 import type { API, FileInfo } from 'jscodeshift';
-import yourTransform from './your-transform';
+import yourTransform from '../v1/your-transform'; // from pre-v1/migration.ts
 
 function transformer(file: FileInfo, api: API): string {
   file.source = yourTransform(file, api);
@@ -155,8 +166,7 @@ function transformer(file: FileInfo, api: API): string {
 export default transformer;
 ```
 
-Chain it after any transforms it depends on (e.g. a rename that must happen
-before a later restructuring reads the renamed prop).
+Chain it after any transforms it depends on.
 
 ## Documenting it
 
@@ -166,6 +176,9 @@ under "Individual codemods": the codemod's invocation, and a before/after
 
 Also add an entry to `packages/codemod/README.md`'s "Available codemods"
 table.
+
+State in the README row and the docs entry whether the codemod is non-breaking
+(included in `react/pre-v1/migration`) or breaking (`react/v1/migration` only).
 
 ## Verifying end-to-end
 
