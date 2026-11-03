@@ -52,7 +52,7 @@ describe('checkGitStatus', () => {
 
   it("checks the target's repository rather than the working directory", () => {
     mockGit(' M file.ts\n', '/dirty-app');
-    expect(() => checkGitStatus(['/dirty-app/src'], false)).toThrow('process.exit');
+    expect(() => checkGitStatus(targets, false)).toThrow('process.exit');
     expect(execFileSyncMock).toHaveBeenCalledWith(
       'git',
       ['status', '--porcelain'],
