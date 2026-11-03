@@ -31,6 +31,7 @@ for the full list of available codemods and worked before/after examples.
 | Codemod | Description |
 | --- | --- |
 | `react/v1/migrate-menu` | Renames `MenuItem`'s deprecated `onSelect` and `textValue` props to `onClick` and `label`, and `MenuContent`'s `forceMount` to `keepMounted` |
+| `react/v1/remove-accordion-content-force-mount` | Renames `AccordionContent`'s deprecated `forceMount` prop to `keepMounted` |
 | `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |
 | `react/v1/remove-modal-loading-text` | Removes `Modal`'s deprecated `loadingText` prop |
 | `react/v1/remove-text-wrap-prop` | Removes the deprecated `wrap` prop from `BodyText`, `Heading`, `Strong`, `Em` and `DetailText`, in favour of `textWrap` |
