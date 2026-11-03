@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react': major
 ---
 
-💥 [BREAKING]: remove deprecated `wrap` prop from `BodyText`, `Heading`, `Strong`, `Em` and `DetailText`
+💔 [BREAKING CHANGE]: remove deprecated `wrap` prop from `BodyText`, `Heading`, `Strong`, `Em` and `DetailText`
 
 The deprecated `wrap` prop has been removed. Use `textWrap` instead.
 
