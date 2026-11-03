@@ -10,8 +10,9 @@ hand.
 npx @utilitywarehouse/hearth-codemod <codemod> <path...>
 ```
 
-- `<codemod>` — the name of the transform, e.g. `react/v1/remove-modal-loading-text`
-  or `react/v1/migration` to run every `v1` transform in one pass.
+- `<codemod>` — the name of the transform, e.g. `react/v1/remove-modal-loading-text`,
+  `react/pre-v1/migration` to run only the non-breaking transforms, or
+  `react/v1/migration` to run every `v1` transform in one pass.
 - `<path...>` — one or more files/directories to transform.
 
 Flags:
@@ -34,4 +35,5 @@ for the full list of available codemods and worked before/after examples.
 | `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |
 | `react/v1/remove-modal-loading-text` | Removes `Modal`'s deprecated `loadingText` prop |
 | `react/v1/remove-text-wrap-prop` | Removes the deprecated `wrap` prop from `BodyText`, `Heading`, `Strong`, `Em` and `DetailText`, in favour of `textWrap` |
-| `react/v1/migration` | Runs every `react/v1/*` codemod in one pass |
+| `react/pre-v1/migration` | Runs only the non-breaking codemods above in one pass. Safe to run on the current release, before upgrading |
+| `react/v1/migration` | Runs `react/pre-v1/migration` plus the breaking-change codemods in one pass |
