@@ -13,6 +13,7 @@ so you can apply it deterministically instead of updating usages by hand.
 - [Using the codemod CLI](#using-the-codemod-cli)
 - [Individual codemods](#individual-codemods)
   - [`react/v1/migrate-accordion`](#reactv1migrate-accordion)
+  - [`react/v1/migrate-card-accordion`](#reactv1migrate-card-accordion)
   - [`react/v1/migrate-menu`](#reactv1migrate-menu)
   - [`react/v1/remove-modal-fullscreen`](#reactv1remove-modal-fullscreen)
   - [`react/v1/remove-modal-loading-text`](#reactv1remove-modal-loading-text)
@@ -76,6 +77,31 @@ with the file and line, for manual review:
   still intended
 - a non-literal `type`, `value` or `defaultValue`
 - every `onValueChange`, which now receives a `string[]` as its first argument
+
+### `react/v1/migrate-card-accordion`
+
+`CardAccordion` has migrated from Radix UI to Base UI. Its `value` is now a
+`string[]` and `onValueChange` receives a `string[]`. The codemod wraps a string
+literal `value` in an array (`""` becomes `[]`):
+
+```diff
+- <CardAccordion value="step-1">
++ <CardAccordion value={['step-1']}>
+```
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/migrate-card-accordion src
+```
+
+Anything it can't safely rewrite is left unchanged and reported as a warning
+with the file and line, for manual review:
+
+- a non-literal `value`
+- every `onValueChange`, which now receives a `string[]` as its first argument
+- a prop spread, which may carry `value` or `onValueChange`
+
+This is a breaking change, so it is only included in `react/v1/migration`, not
+`react/pre-v1/migration`.
 
 ### `react/v1/migrate-menu`
 
