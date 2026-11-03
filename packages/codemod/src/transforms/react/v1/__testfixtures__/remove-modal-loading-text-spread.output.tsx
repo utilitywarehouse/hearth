@@ -1,7 +1,7 @@
 import { Modal } from '@utilitywarehouse/hearth-react';
 
 const Component = ({ props }) => (
-  <Modal open loadingHeading="Fetching..." {...props}>
+  <Modal open loadingText="Fetching..." {...props}>
     Content
   </Modal>
 );
