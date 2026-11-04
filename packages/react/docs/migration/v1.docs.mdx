@@ -13,6 +13,7 @@ so you can apply it deterministically instead of updating usages by hand.
 - [Using the codemod CLI](#using-the-codemod-cli)
 - [Individual codemods](#individual-codemods)
   - [`react/v1/migrate-menu`](#reactv1migrate-menu)
+  - [`react/v1/remove-accordion-content-force-mount`](#reactv1remove-accordion-content-force-mount)
   - [`react/v1/remove-modal-fullscreen`](#reactv1remove-modal-fullscreen)
   - [`react/v1/remove-modal-loading-text`](#reactv1remove-modal-loading-text)
   - [`react/v1/remove-text-wrap-prop`](#reactv1remove-text-wrap-prop)
@@ -73,6 +74,29 @@ with the file and line, for manual review:
 - `textValue` alongside a non-literal `label`, or `forceMount` alongside a
   non-literal `keepMounted`
 - a prop spread (e.g. `<MenuItem {...props} />`) that may carry a deprecated prop
+
+### `react/v1/remove-accordion-content-force-mount`
+
+`AccordionContent`'s deprecated `forceMount` prop is replaced by `keepMounted`.
+It will be removed in `v1`.
+
+```diff
+- <AccordionContent forceMount>
++ <AccordionContent keepMounted>
+```
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/remove-accordion-content-force-mount src
+```
+
+Where `keepMounted` is already set to a literal (`keepMounted={false}`),
+`forceMount` was unused and is removed.
+
+Anything it can't safely rewrite is left unchanged and reported as a warning
+with the file and line, for manual review:
+
+- `forceMount` alongside a non-literal `keepMounted`, or a non-literal `forceMount`
+- a prop spread (e.g. `<AccordionContent {...props} />`) that may carry either prop
 
 ### `react/v1/remove-modal-fullscreen`
 

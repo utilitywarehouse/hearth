@@ -49,7 +49,6 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts.
 
 Skills live in `.claude/skills/` (`.agents/skills` links to it); each description says when to use it. Invoke with `/skill-name`.
 
-- Edit skills in their own branch, outside PR stacks: rebasing a commit that touches `.claude/skills/` fails in the agent sandbox.
 
 ---
 
@@ -64,6 +63,7 @@ For both React and React Native components, the source of truth is the co-locate
 **Rules that apply everywhere:**
 - A story name may not match the prop name — check the source files, not just the story title.
 - Only touch the files the task requires — don't improve adjacent components, stories, or utilities unless explicitly asked.
+- When removing a prop, check whether the underlying primitive still exposes it (e.g. native `onSelect`). If so, add it to the `Omit` in the props type, or `<Component prop>` still type-checks.
 
 ---
 
