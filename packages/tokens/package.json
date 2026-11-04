@@ -41,7 +41,7 @@
     "build:browser": "tsc --project ./tsconfig.browser.json",
     "typecheck": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.browser.json",
     "build:tokens": "turbo run build:css build:js build:browser && pnpm format",
-    "generate:tokens": "node ./scripts/generate-tokens.js",
+    "generate:tokens": "pnpm --filter @utilitywarehouse/hearth-manifest build && node ./scripts/generate-tokens.js",
     "clean": "rm -rf node_modules .turbo",
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",
@@ -69,6 +69,7 @@
     "js/**",
     "css/**",
     "browser/**",
-    "index.css"
+    "index.css",
+    "hearth-manifest.json"
   ]
 }

@@ -19,11 +19,13 @@ export const toAccessor = (root, segments) =>
  * the generators for each token they write, so the manifest names exactly what is emitted.
  */
 export function collectColorToken(token, surface, fields) {
-  if (token.type !== 'color') return;
-  const isPrimitive = token.filePath.includes('primitive');
+  // component colours are not part of the manifest yet
+  const layer = ['primitive', 'semantic'].find(name => token.filePath.includes(name));
+  if (token.type !== 'color' || !layer) return;
+  const isPrimitive = layer === 'primitive';
   records.push({
     surface,
-    layer: isPrimitive ? 'primitive' : 'semantic',
+    layer,
     // semantic tokens are nested under their mode in the raw files (`light.background.brand`)
     path: isPrimitive ? token.path : token.path.slice(1),
     mode: isPrimitive ? 'light' : token.path[0],
