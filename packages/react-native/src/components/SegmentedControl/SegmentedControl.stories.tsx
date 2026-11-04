@@ -48,6 +48,9 @@ export const Playground = {
 };
 
 export const FullWidth = {
+  parameters: {
+    layout: 'padded',
+  },
   render: () => (
     <View>
       <Flex spacing="sm">
