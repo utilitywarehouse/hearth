@@ -46,7 +46,8 @@
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,js,css}\" \"!./index.css\"",
-    "lint:fix": "pnpm run lint:css"
+    "lint:fix": "pnpm run lint:css",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "Design Systems <design-systems@uw.co.uk>",
@@ -54,13 +55,15 @@
   "prettier": "@utilitywarehouse/prettier-config",
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
+    "@utilitywarehouse/hearth-manifest": "workspace:*",
     "cssnano": "^5.1.15",
     "lodash.merge": "^4.6.2",
     "postcss": "^8.4.49",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
     "style-dictionary": "^4.2.0",
-    "stylelint": "^16.10.0"
+    "stylelint": "^16.10.0",
+    "vitest": "^4.1.7"
   },
   "files": [
     "js/**",
