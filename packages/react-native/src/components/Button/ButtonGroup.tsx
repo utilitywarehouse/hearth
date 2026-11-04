@@ -1,21 +1,18 @@
-import { ComponentProps, useMemo } from 'react';
-import { ButtonGroupComponent } from './Button';
+import { Children, ComponentProps, useMemo } from 'react';
+import ButtonGroupRoot from './ButtonGroupRoot';
 import { ButtonGroupContext } from './ButtonGroup.context';
 
-interface ButtonGroupProps
-  extends Omit<
-    ComponentProps<typeof ButtonGroupComponent>,
-    'isDisabled' | 'isAttached' | 'isReversed' | 'ref'
-  > {
+interface ButtonGroupProps extends ComponentProps<typeof ButtonGroupRoot> {
   disabled?: boolean;
   loading?: boolean;
 }
 
-const ButtonGroup = ({ children, disabled, loading, ...props }: ButtonGroupProps) => {
+const ButtonGroup = ({ children, disabled, loading, reversed, ...props }: ButtonGroupProps) => {
   const value = useMemo(() => ({ disabled, loading }), [disabled, loading]);
+  const orderedChildren = reversed ? [...Children.toArray(children)].reverse() : children;
   return (
     <ButtonGroupContext.Provider value={value}>
-      <ButtonGroupComponent {...props}>{children}</ButtonGroupComponent>
+      <ButtonGroupRoot {...props}>{orderedChildren}</ButtonGroupRoot>
     </ButtonGroupContext.Provider>
   );
 };

@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createSpinner } from '@gluestack-ui/spinner';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import Animated, {
@@ -124,6 +123,8 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   );
 };
 
+SpinnerRoot.displayName = 'Spinner';
+
 const styles = StyleSheet.create(theme => ({
   container: {
     display: 'flex',
@@ -153,10 +154,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-/**
- * Indicates that an asynchronous process is ongoing. Use it on its own or inside
- * another component, such as a `Button` or `Dialog`, while content is loading.
- */
-const Spinner = createSpinner({ Root: SpinnerRoot });
-
-export default Spinner;
+export default SpinnerRoot;

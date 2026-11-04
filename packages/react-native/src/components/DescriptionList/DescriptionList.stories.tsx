@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { DescriptionList, DescriptionListItem } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
@@ -57,6 +58,20 @@ export const Playground: Story = {
       ))}
     </DescriptionList>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Every direct child of the list must be a listitem (axe `aria-required-children`),
+    // so the SectionHeader heading sits outside the list.
+    const list = canvas.getByRole('list');
+    const items = within(list).getAllByRole('listitem');
+    await expect(items).toHaveLength(sampleData.length);
+    await expect(Array.from(list.children)).toEqual(items);
+    await expect(within(list).queryByRole('heading')).toBeNull();
+
+    // Plain-text pairs keep their combined label.
+    await expect(items[0]).toHaveAccessibleName('Account Number: 123456789');
+  },
 };
 
 export const Row: Story = {

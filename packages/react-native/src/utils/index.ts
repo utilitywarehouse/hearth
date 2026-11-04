@@ -13,5 +13,6 @@ export { default as getStyleValue } from './getStyleValue';
 export { default as hexWithOpacity } from './hexWithOpacity';
 export { default as isEqual } from './isEqual';
 export { default as isThemedImageProps } from './isThemedImageProps';
+export * from './resolveStyleProps';
 export * from './styleUtils';
 export * from './themeValueHelpers';

@@ -1,5 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react-native';
+import { View } from 'react-native';
+import { expect, within } from 'storybook/test';
 import { Textarea } from '.';
+import { FormField } from '../FormField';
 
 const meta = {
   title: 'Stories / Textarea',
@@ -59,7 +62,7 @@ const meta = {
     required: {
       control: 'boolean',
       description: 'Whether the Textarea component is required',
-      defaultValue: true,
+      defaultValue: false,
     },
     resizable: {
       control: 'boolean',
@@ -84,7 +87,69 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textarea = (await canvas.findByPlaceholderText(
+      'Textarea placeholder'
+    )) as HTMLTextAreaElement;
+
+    expect(textarea.tagName.toLowerCase()).toBe('textarea');
+    expect(textarea).not.toHaveAttribute('aria-disabled');
+    expect(textarea).toHaveAttribute('aria-invalid', 'false');
+    expect(textarea).not.toHaveAttribute('readonly');
+    expect(textarea.getAttribute('aria-required')).not.toBe('true');
+  },
+};
+
+export const RequiredFromFormField: Story = {
+  render: () => (
+    <View style={{ gap: 16 }}>
+      <FormField label="Required notes" required>
+        <Textarea placeholder="Inherits required" />
+      </FormField>
+      <FormField label="Overridden notes" required>
+        <Textarea placeholder="Overrides required" required={false} />
+      </FormField>
+    </View>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inherited = await canvas.findByPlaceholderText('Inherits required');
+    const overridden = await canvas.findByPlaceholderText('Overrides required');
+
+    expect(inherited).toHaveAttribute('aria-required', 'true');
+    expect(overridden.getAttribute('aria-required')).not.toBe('true');
+  },
+};
+
+export const States: Story = {
+  render: () => (
+    <View style={{ gap: 16 }}>
+      <Textarea placeholder="Textarea placeholder" validationStatus="invalid" />
+      <Textarea placeholder="Textarea placeholder" disabled />
+      <Textarea placeholder="Textarea placeholder" readonly />
+    </View>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const textareas = (await canvas.findAllByPlaceholderText(
+      'Textarea placeholder'
+    )) as HTMLTextAreaElement[];
+
+    const invalidTextarea = textareas.find(el => el.getAttribute('aria-invalid') === 'true');
+    expect(invalidTextarea).toBeDefined();
+
+    const disabledTextarea = textareas.find(el => el.getAttribute('aria-disabled') === 'true');
+    expect(disabledTextarea).toBeDefined();
+    expect(disabledTextarea).toHaveAttribute('readonly');
+
+    const readonlyOnlyTextarea = textareas.find(
+      el => el.readOnly && el.getAttribute('aria-disabled') !== 'true'
+    );
+    expect(readonlyOnlyTextarea).toBeDefined();
+  },
+};
 
 export const Resizable: Story = {
   args: {

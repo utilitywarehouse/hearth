@@ -1,5 +1,5 @@
 // url=https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=8154%3A4346
-// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Card/CardAction/CardActionRoot.tsx
+// source=https://github.com/utilitywarehouse/hearth/blob/main/packages/react-native/src/components/Card/CardAction/CardAction.tsx
 // component=CardAction
 
 import figma from 'figma';
@@ -54,9 +54,9 @@ const leadingIconEnabled = figma.selectedInstance.getBoolean('Leading Icon?');
 const leadingIconName = iconContainer
   ? iconContainerIconName
   : leadingIconEnabled
-    ? (figma.selectedInstance.getInstanceSwap('Leading icon-24')?.executeTemplate().metadata?.props
-        ?.componentName as string | undefined)
-    : undefined;
+  ? (figma.selectedInstance.getInstanceSwap('Leading icon-24')?.executeTemplate().metadata?.props
+      ?.componentName as string | undefined)
+  : undefined;
 const leadingIcon = leadingIconName
   ? figma.helpers.react.reactComponent(leadingIconName)
   : undefined;
@@ -72,10 +72,10 @@ const badgeMiddleEnabled = figma.selectedInstance.getBoolean('Badge middle?');
 const badgePosition = badgeRightEnabled
   ? 'right'
   : badgeMiddleEnabled
-    ? 'middle'
-    : badgeBottomEnabled
-      ? 'bottom'
-      : undefined;
+  ? 'middle'
+  : badgeBottomEnabled
+  ? 'bottom'
+  : undefined;
 
 export default {
   id: 'CardAction',

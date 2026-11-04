@@ -38,6 +38,10 @@ import {
   Box,
   Button,
   Card,
+  CardAccordion,
+  CardAccordionButton,
+  CardAccordionFooter,
+  CardAccordionItem,
   Carousel,
   CarouselItem,
   Center,
@@ -117,8 +121,10 @@ import {
   TimePicker,
   TimePickerInput,
   ToastItem,
+  ToggleButton,
   ToggleButtonCard,
   ToggleButtonCardGroup,
+  ToggleGroup,
   UL,
   useColorMode,
   VerificationInput,
@@ -294,6 +300,18 @@ const AllComponents: React.FC = () => {
                   <Heading>I am a card</Heading>
                   <BodyText>And do card stuff.</BodyText>
                 </Card>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Card Accordion" link="components-card-accordion">
+              <Center flex={1}>
+                <CardAccordion defaultValue="2" style={{ width: '100%' }}>
+                  <CardAccordionItem value="1" title="Your home" />
+                  <CardAccordionItem value="2" title="Your property">
+                    <CardAccordionFooter>
+                      <CardAccordionButton action="next" />
+                    </CardAccordionFooter>
+                  </CardAccordionItem>
+                </CardAccordion>
               </Center>
             </ComponentWrapper>
             <ComponentWrapper name="Carousel" link="components-carousel">
@@ -947,6 +965,14 @@ const AllComponents: React.FC = () => {
                     <BodyText size="md">I'm a toggle button card</BodyText>
                   </ToggleButtonCard>
                 </ToggleButtonCardGroup>
+              </Center>
+            </ComponentWrapper>
+            <ComponentWrapper name="Toggle Group" link="components-togglegroup">
+              <Center flex={1}>
+                <ToggleGroup type="single" defaultValue="1" gap="200">
+                  <ToggleButton value="1" text="Monthly" />
+                  <ToggleButton value="2" text="Annually" />
+                </ToggleGroup>
               </Center>
             </ComponentWrapper>
 

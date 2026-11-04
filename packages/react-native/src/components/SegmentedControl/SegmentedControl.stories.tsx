@@ -4,6 +4,7 @@ import {
   MobileSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText, Flex, SegmentedControl, SegmentedControlOption } from '../';
 
 const meta = {
@@ -68,6 +69,19 @@ export const Controlled = {
         <BodyText size="sm">Selected: {value}</BodyText>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => expect(canvas.getByText('Selected: annual')).toBeInTheDocument());
+
+    const monthlyOption = await canvas.findByRole('radio', { name: 'Monthly' });
+    await userEvent.click(monthlyOption);
+
+    await waitFor(() => {
+      expect(canvas.getByText('Selected: monthly')).toBeInTheDocument();
+      expect(canvas.queryByText('Selected: annual')).not.toBeInTheDocument();
+    });
   },
 };
 

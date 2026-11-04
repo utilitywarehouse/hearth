@@ -5,7 +5,7 @@ import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { DateType, TimePicker } from '.';
 import { ViewWrap } from '../../../docs/components';
 import { BodyText } from '../BodyText';
-import { BottomSheetModal } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 
 const meta = {
@@ -30,6 +30,13 @@ const meta = {
     use12Hours: false,
     minuteInterval: 1,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof TimePicker>;
 
 export default meta;

@@ -3,6 +3,7 @@
 The `ToggleButtonCard` component is a UI element that allows users to select one option from a set of predefined choices.
 It is commonly used in forms or surveys where only one selection is allowed. The `ToggleButtonCard` can be grouped together
 with other `ToggleButtonCard`s to create a `ToggleButtonCardGroup`, providing a cohesive and organised way to present multiple options.
+`ToggleButtonCard`s can also be wrapped in a `ToggleGroup`, which matches the React package and supports multiple selection.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -12,7 +13,7 @@ with other `ToggleButtonCard`s to create a `ToggleButtonCardGroup`, providing a 
 
 ```tsx
 // Example usage
-<ToggleButtonCardGroup {...args}>
+<ToggleButtonCardGroup {...args} onValueChange={playgroundOnValueChange}>
   <ToggleButtonCard
     aria-label="Label 1"
     label="Option 1"
@@ -92,16 +93,16 @@ const MyComponent = () => {
 
 The `ToggleButtonCard` component accepts the following props:
 
-| Property         | Type                                                                                                    | Default | Description                                                                                                  |
-| ---------------- | ------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| `value`          | string                                                                                                  | -       | The value to be used in the toggle button input. This is the value that will be returned on form submission. |
-| `onChange`       | `(isSelected: boolean) => void`                                                                         | -       | Function called when the state of the toggle button changes.                                                 |
-| `children`       | `React.ReactNode`                                                                                       | -       | The content to be displayed inside the toggle button.                                                        |
-| `label`          | `string`                                                                                                | -       | The label to be displayed next to the toggle button.                                                         |
-| `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                | -       | Sets the direction of the flex items.                                                                        |
-| `flexWrap`       | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                  | -       | Sets whether flex items are forced onto one line or can wrap.                                                |
-| `alignItems`     | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'stretch' \| 'baseline'`                             | -       | Sets the alignment of flex items on the cross axis.                                                          |
-| `justifyContent` | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'space-between' \| 'space-around' \| 'space-evenly'` | -       | Sets the alignment of flex items on the main axis.                                                           |
+| Property         | Type                                                                                                    | Default | Description                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------- |
+| `value`          | string                                                                                                  | -       | Identifies the card inside a `ToggleGroup` or `ToggleButtonCardGroup`. Must be unique within the group. |
+| `onChange`       | `(isSelected: boolean) => void`                                                                         | -       | Called with the card's new selected state when its toggle button is pressed.                            |
+| `children`       | `React.ReactNode`                                                                                       | -       | The content to be displayed inside the toggle button.                                                   |
+| `label`          | `string`                                                                                                | -       | The label to be displayed next to the toggle button.                                                    |
+| `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                | -       | Sets the direction of the flex items.                                                                   |
+| `flexWrap`       | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                  | -       | Sets whether flex items are forced onto one line or can wrap.                                           |
+| `alignItems`     | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'stretch' \| 'baseline'`                             | -       | Sets the alignment of flex items on the cross axis.                                                     |
+| `justifyContent` | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'space-between' \| 'space-around' \| 'space-evenly'` | -       | Sets the alignment of flex items on the main axis.                                                      |
 
 ### `ToggleButtonCard`
 

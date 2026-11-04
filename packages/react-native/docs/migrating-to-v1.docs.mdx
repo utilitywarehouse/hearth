@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton } from './components';
+
+<Meta title="Guides / Migrating to v1" />
+<BackToTopButton />
+
+# Migrating to v1
+
+Hearth React Native v1 removes gluestack and the legacy colour palette. Most apps only need the
+first two steps. The rest of this page lists behaviour changes that do not stop your app from
+building, but can change what your tests or screens see.
+
+- [1. Replace the legacy `theme.colors` palette](#1-replace-the-legacy-themecolors-palette)
+- [2. Rename the `AccordionTrigger` render-prop argument](#2-rename-the-accordiontrigger-render-prop-argument)
+- [3. Stop relying on gluestack](#3-stop-relying-on-gluestack)
+- [4. Check behaviour changes](#4-check-behaviour-changes)
+- [Checklist](#checklist)
+
+## 1. Replace the legacy `theme.colors` palette
+
+**This is the only change that breaks the build.**
+
+The `light` and `dark` themes no longer include `theme.colors`, the old palette (for example
+`theme.colors.grey1000` or `theme.colors.purple800`). No Hearth component uses it.
+
+To find the places to change, search your app for `theme.colors.`. Palette steps do not map one to
+one to the semantic tokens, so choose the `theme.color` token that matches what the style is for:
+
+```diff
+ const styles = StyleSheet.create(theme => ({
+   text: {
+-    color: theme.colors.grey1000,
++    color: theme.color.text.primary,
+   },
+ }));
+```
+
+See [Theme Tokens](?path=/docs/theme-tokens--docs) for the full list.
+
+### If your app still uses `@utilitywarehouse/native-ui`
+
+`native-ui` components read `theme.colors` internally. Add the palette back in your app from
+`@utilitywarehouse/colour-system` (`^0.5.0`, which has the same values). Do this after Hearth has
+configured its themes:
+
+```ts
+import '@utilitywarehouse/hearth-react-native';
+import { colors, colorsCommon, colorsDark } from '@utilitywarehouse/colour-system';
+import { UnistylesRuntime } from 'react-native-unistyles';
+
+const extras = { white: '#ffffff', black: '#000000' };
+
+UnistylesRuntime.updateTheme('light', theme => ({
+  ...theme,
+  colors: { ...colors, ...colorsCommon, ...extras },
+}));
+UnistylesRuntime.updateTheme('dark', theme => ({
+  ...theme,
+  colors: { ...colorsDark, ...colorsCommon, ...extras },
+}));
+```
+
+Use `updateTheme`, not a second `StyleSheet.configure`. On native, `configure` does not replace a
+theme that is already registered.
+
+## 2. Rename the `AccordionTrigger` render-prop argument
+
+If you pass a function as the children of `AccordionTrigger`, rename its arguments:
+
+| Before       | After      |
+| ------------ | ---------- |
+| `isExpanded` | `expanded` |
+| `isDisabled` | `disabled` |
+
+```diff
+ <AccordionTrigger>
+-  {({ isExpanded }) => (
+-    <AccordionIcon as={isExpanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
++  {({ expanded }) => (
++    <AccordionIcon as={expanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
+   )}
+ </AccordionTrigger>
+```
+
+The function no longer receives the pressed, hovered or focused state, and there is no replacement.
+
+If you only use the `title` prop on `AccordionItem`, you do not need to change anything.
+
+## 3. Stop relying on gluestack
+
+Hearth no longer depends on any `@gluestack-ui/*` package.
+
+- If your app imports `@gluestack-ui/*` itself, add those packages to your app's own
+  `dependencies`. You can no longer get them through Hearth.
+- Sub-parts such as `InputField`, `ButtonText`, `CheckboxIndicator` or `RadioIcon` no longer accept
+  gluestack's `is*` props (`isDisabled`, `isInvalid`, `isChecked`, `isFocused` and similar). Set
+  `disabled`, `invalid` or `checked` on the parent component instead.
+
+## 4. Check behaviour changes
+
+These changes do not stop your app from building. They can change screenshots, snapshot tests,
+or queries in your tests.
+
+### Accessibility and structure
+
+- **`List` and `DescriptionList`**: the `list` role, and any `accessibilityRole` or label you pass,
+  now sits on an inner element that wraps the items. `style` and `testID` stay on the outer
+  element. The `heading` now renders above the list, not inside it. On web, each item is
+  wrapped in a `listitem` element. Update tests that look for the `list` role on the outer element.
+- **`Expandable`, `AccordionContent` and `ExpandableCard`**: the content no longer sets
+  `accessibilityState={{ expanded }}`. The expanded state stays on the trigger. When collapsed, the
+  content is hidden from screen readers and, on web, from the keyboard. An `accessibilityLabel` on
+  `Expandable` is no longer announced on iOS and Android.
+- **`Accordion`**: `aria-controls` and `role="region"` are removed. An item with `disabled={false}`
+  inside a disabled `Accordion` is now disabled.
+- **`Input` and `Textarea`**: disabled fields are no longer hidden from assistive tech. They are
+  announced as disabled. `Textarea` now always sets `aria-invalid` to `true` or `false`.
+- **`Radio`, `RadioCard` and `Checkbox`**: on web, they now set `aria-checked`.
+
+### What you see
+
+- **`FormFieldLabel`** used to render nothing, whatever its children. It now renders them.
+  Content that was hidden by mistake will appear.
+- **`Radio` and `RadioCard`** only show the selected dot when checked. Expect snapshot changes.
+- **A `style` function** (`style={({ pressed }) => ...}`) on `Button`, `IconButton`,
+  `UnstyledIconButton`, `ToggleButton`, `ToggleButtonCard`, `Radio`, `RadioCard`, `Checkbox`,
+  `Link` or `Alert` used to be ignored. It is now applied.
+- **A disabled `ToggleButtonCard`** now also disables its inner button.
+- **Reduced motion**: when the user turns on reduced motion, `Expandable`, `Accordion`,
+  `ExpandableCard` and `CardAccordion` open and close without animation.
+
+## Checklist
+
+1. Search for `theme.colors.` and replace each one, or add the `native-ui` palette from step 1.
+2. Search for `isExpanded` and `isDisabled` in `AccordionTrigger` children.
+3. Search for `@gluestack-ui/` imports in your app.
+4. Run your tests and update any queries or snapshots affected by step 4.
+5. Check screens that use `FormFieldLabel`, `List` headings and radios.
+
+<BackToTopButton />

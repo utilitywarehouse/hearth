@@ -1,0 +1,201 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './CardAccordion.stories';
+
+<Meta title="Components / Card Accordion" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=11913-3539" />
+
+# Card Accordion
+
+Use `CardAccordion` to split a long form into ordered steps, each in its own card. Completed steps collapse to a summary with an Edit button, the current step is expanded, and upcoming steps show only their heading.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+  - [CardAccordionItem](#cardaccordionitem)
+  - [CardAccordionFooter](#cardaccordionfooter)
+  - [CardAccordionButton](#cardaccordionbutton)
+- [Summary Content](#summary-content)
+- [Controlled](#controlled)
+- [Validation](#validation)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Each step is a `CardAccordionItem` with a unique `value`. The order of the items sets the order of
+the steps. A step is in one of three states:
+
+- **Completed** — any step before the current one. The card collapses to `summaryTitle` (or
+  `title`) and `summaryDescription`, with an Edit button that reopens the step.
+- **Current** — the card is emphasised and shows its children, usually form fields and a
+  `CardAccordionFooter`.
+- **Upcoming** — any step after the current one. Only the heading and `description` show.
+
+<Canvas of={Stories.DefaultValue} />
+
+```tsx
+import {
+  CardAccordion,
+  CardAccordionButton,
+  CardAccordionFooter,
+  CardAccordionItem,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <CardAccordion>
+    <CardAccordionItem value="step-1" title="Step 1: Personal details">
+      {/* form fields */}
+      <CardAccordionFooter>
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-2" title="Step 2: Address details">
+      {/* form fields */}
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-3" title="Step 3: Payment details">
+      {/* form fields */}
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+        <CardAccordionButton action="next">Finish</CardAccordionButton>
+      </CardAccordionFooter>
+    </CardAccordionItem>
+  </CardAccordion>
+);
+```
+
+## Props
+
+| Property        | Type                      | Description                                                                 | Default              |
+| --------------- | ------------------------- | --------------------------------------------------------------------------- | -------------------- |
+| `value`         | `string`                  | The `value` of the current step. Use with `onValueChange` to control it.    | -                    |
+| `defaultValue`  | `string`                  | The `value` of the step that is current on first render, when uncontrolled. | first item's `value` |
+| `onValueChange` | `(value: string) => void` | Called with the new current step's `value` whenever it changes.             | -                    |
+
+`CardAccordion` also accepts all `View` props.
+
+### CardAccordionItem
+
+A single step. Render each one as a direct child of `CardAccordion`.
+
+#### Props
+
+| Property             | Type                                     | Description                                                               | Default  |
+| -------------------- | ---------------------------------------- | ------------------------------------------------------------------------- | -------- |
+| `value`              | `string`                                 | Required. A unique value identifying this step.                           | -        |
+| `title`              | `string`                                 | Required. The step's heading.                                             | -        |
+| `description`        | `string`                                 | Helper text shown under the heading.                                      | -        |
+| `summaryTitle`       | `string`                                 | Replaces `title` once the step is completed.                              | -        |
+| `summaryDescription` | `ReactNode`                              | Content shown once the step is completed, summarising the user's answers. | -        |
+| `editButtonText`     | `string`                                 | Label for the button that reopens a completed step.                       | `'Edit'` |
+| `onEditPress`        | `(event: GestureResponderEvent) => void` | Called when the edit button of a completed step is pressed.               | -        |
+| `children`           | `ReactNode`                              | Content shown while this is the current step.                             | -        |
+
+`CardAccordionItem` also accepts all `View` props except `hitSlop`.
+
+### CardAccordionFooter
+
+Holds a step's `CardAccordionButton`s. The previous button always comes first in reading order,
+whatever order you write the buttons in. Buttons stack full width with Next on top on small
+screens, and sit in a row from the `md` breakpoint.
+
+#### Props
+
+`CardAccordionFooter` accepts all `View` props.
+
+### CardAccordionButton
+
+Moves to the next or previous step. Render it inside a `CardAccordionFooter`.
+
+#### Props
+
+| Property       | Type                                     | Description                                                                                | Default                 |
+| -------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------- |
+| `action`       | `'next' \| 'previous'`                   | Required. Whether the button moves to the next or previous step. Sets its style and label. | -                       |
+| `children`     | `string`                                 | Label for the button.                                                                      | `'Next'` / `'Previous'` |
+| `onPress`      | `(event: GestureResponderEvent) => void` | Called before the step changes. Call `event.preventDefault()` to stay on the current step. | -                       |
+| `size`         | `'sm' \| 'md'`                           | The size of the button.                                                                    | `'md'`                  |
+| `disabled`     | `boolean`                                | Disables the button.                                                                       | `false`                 |
+| `loading`      | `boolean`                                | Shows a spinner.                                                                           | `false`                 |
+| `icon`         | `ComponentType`                          | The icon to display on the button.                                                         | -                       |
+| `iconPosition` | `'left' \| 'right'`                      | The position of the icon.                                                                  | `'left'`                |
+
+`CardAccordionButton` also accepts the other `Button` props, except `variant`, `colorScheme` and
+`inverted`.
+
+## Summary Content
+
+Once a step is completed, use `summaryTitle` and `summaryDescription` to show the user what they
+entered. A `DescriptionList` works well for this.
+
+```tsx
+<CardAccordionItem
+  value="1a"
+  title="1a. Your new cover"
+  summaryTitle="1a. Your home"
+  summaryDescription={
+    <DescriptionList>
+      <DescriptionListItem heading="Cover type" description="Buildings and contents" />
+      <DescriptionListItem heading="Start date" description="31/08/2025" />
+    </DescriptionList>
+  }
+>
+  {/* form fields */}
+</CardAccordionItem>
+```
+
+## Controlled
+
+Pass `value` and `onValueChange` to control the current step yourself, for example to restore
+progress or move steps from outside the accordion.
+
+<Canvas of={Stories.Controlled} />
+
+```tsx
+const [step, setStep] = useState('1b');
+
+<CardAccordion value={step} onValueChange={setStep}>
+  {/* items */}
+</CardAccordion>;
+```
+
+## Validation
+
+Validate the current step before the user moves on. Call `event.preventDefault()` in a
+`CardAccordionButton`'s `onPress` to stay on the current step.
+
+<Canvas of={Stories.Validation} />
+
+```tsx
+<CardAccordionButton
+  action="next"
+  onPress={event => {
+    if (!isValid) {
+      event.preventDefault();
+      showErrors();
+    }
+  }}
+/>
+```
+
+## Accessibility
+
+- Each step's title renders as a `Heading`, so it is announced as a header.
+- On iOS and Android, when a step becomes current, screen reader focus moves to its heading.
+- The Edit button's accessible name includes the step's heading, for example "Edit 1a. Your
+  home", so each Edit button is unique.
+- Cards animate their height when moving between steps. The animation is skipped when the device's
+  reduce motion setting is on.
+- Upcoming steps have no controls. Users reach them only by completing earlier steps.

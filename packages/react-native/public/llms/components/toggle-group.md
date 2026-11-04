@@ -1,0 +1,178 @@
+# ToggleGroup
+
+`ToggleGroup` wraps a set of `ToggleButton` or `ToggleButtonCard` components and manages which are selected. Set `type="single"` when only one option can be selected at a time, or `type="multiple"` (the default) to allow any number. Give each child a unique `value`.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+- [Accessibility](#accessibility)
+- [ToggleGroup or ToggleButtonCardGroup](#togglegroup-or-togglebuttoncardgroup)
+
+## Playground
+
+```tsx
+// Example usage
+<ToggleGroup key={args.type} {...args} onValueChange={playgroundOnValueChange}>
+  <ToggleButton value="one" text="Label" />
+  <ToggleButton value="two" text="Label" />
+  <ToggleButton value="three" text="Label" />
+</ToggleGroup>
+```
+
+## Usage
+
+```tsx
+// Example usage
+<Flex spacing="md" align="center">
+  <ToggleGroup value={value} onValueChange={setValue} gap="200">
+    <ToggleButton value="energy" text="Energy" />
+    <ToggleButton value="broadband" text="Broadband" />
+    <ToggleButton value="mobile" text="Mobile" />
+  </ToggleGroup>
+  <BodyText>Selected: {value.join(', ') || 'none'}</BodyText>
+</Flex>
+```
+
+```tsx
+// Example usage
+import { useState } from 'react';
+import { ToggleButton, ToggleGroup } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState<string[]>(['energy']);
+
+  return (
+    <ToggleGroup value={value} onValueChange={setValue} gap="200">
+      <ToggleButton value="energy" text="Energy" />
+      <ToggleButton value="broadband" text="Broadband" />
+      <ToggleButton value="mobile" text="Mobile" />
+    </ToggleGroup>
+  );
+};
+```
+
+Inside a group, each button's toggled state comes from the group's value, so don't pass `toggled` to it. `onToggle` on a child still fires when it is pressed.
+
+## Props
+
+`ToggleGroup` lays out its children with `Flex` and accepts all `Flex` props except `display`, including margin, padding and `gap`.
+
+| Property        | Type                                                     | Description                                                                                                                                | Default      |
+| --------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+| `type`          | `'single' \| 'multiple'`                                 | Whether only one item or any number of items can be selected. In `single` mode, pressing the selected item again clears the value to `''`. | `'multiple'` |
+| `value`         | `string` (single) \| `string[]` (multiple)               | The controlled value of the selected item, or items.                                                                                       |              |
+| `defaultValue`  | `string` (single) \| `string[]` (multiple)               | The value selected on first render, when uncontrolled.                                                                                     |              |
+| `onValueChange` | `(value: string) => void` \| `(value: string[]) => void` | Called with the new value when the selection changes. Receives a `string` in `single` mode and a `string[]` in `multiple` mode.            |              |
+| `direction`     | `ViewStyle['flexDirection']`                             | The direction of the items.                                                                                                                | `'row'`      |
+
+The children take a `value` prop that identifies them in the group:
+
+| Component          | Property | Type     | Description                                                                      |
+| ------------------ | -------- | -------- | -------------------------------------------------------------------------------- |
+| `ToggleButton`     | `value`  | `string` | Identifies the button inside a `ToggleGroup`. Optional outside a group.          |
+| `ToggleButtonCard` | `value`  | `string` | Identifies the card inside a `ToggleGroup` or `ToggleButtonCardGroup`. Required. |
+
+### Single Selection
+
+```tsx
+// Example usage
+<ToggleGroup type="single" defaultValue="monthly" onValueChange={singleOnValueChange} gap="200">
+  <ToggleButton value="monthly" text="Monthly" />
+  <ToggleButton value="annually" text="Annually" />
+</ToggleGroup>
+```
+
+```tsx
+// Example usage
+<ToggleGroup type="single" defaultValue="monthly" gap="200">
+  <ToggleButton value="monthly" text="Monthly" />
+  <ToggleButton value="annually" text="Annually" />
+</ToggleGroup>
+```
+
+### With ToggleButtonCards
+
+```tsx
+// Example usage
+<ToggleGroup
+  type="single"
+  defaultValue="standard"
+  onValueChange={cardsOnValueChange}
+  direction="column"
+  gap="200"
+  width={320}
+>
+  <ToggleButtonCard value="standard" label="Choose Standard">
+    <BodyText weight="semibold">Standard tariff</BodyText>
+    <BodyText>Prices can change.</BodyText>
+  </ToggleButtonCard>
+  <ToggleButtonCard value="fixed" label="Choose Fixed">
+    <BodyText weight="semibold">Fixed tariff</BodyText>
+    <BodyText>Prices stay the same for 12 months.</BodyText>
+  </ToggleButtonCard>
+</ToggleGroup>
+```
+
+```tsx
+// Example usage
+<ToggleGroup type="single" defaultValue="standard" direction="column" gap="200">
+  <ToggleButtonCard value="standard" label="Choose Standard">
+    <BodyText weight="semibold">Standard tariff</BodyText>
+    <BodyText>Prices can change.</BodyText>
+  </ToggleButtonCard>
+  <ToggleButtonCard value="fixed" label="Choose Fixed">
+    <BodyText weight="semibold">Fixed tariff</BodyText>
+    <BodyText>Prices stay the same for 12 months.</BodyText>
+  </ToggleButtonCard>
+</ToggleGroup>
+```
+
+### Disabled Item
+
+A disabled child can't be pressed and keeps its current state.
+
+```tsx
+// Example usage
+<ToggleGroup onValueChange={disabledOnValueChange} gap="200">
+  <ToggleButton value="one" text="Available" />
+  <ToggleButton value="two" text="Unavailable" disabled />
+</ToggleGroup>
+```
+
+```tsx
+// Example usage
+<ToggleGroup gap="200">
+  <ToggleButton value="one" text="Available" />
+  <ToggleButton value="two" text="Unavailable" disabled />
+</ToggleGroup>
+```
+
+## Accessibility
+
+The semantics match `ToggleGroup` in `@utilitywarehouse/hearth-react`:
+
+- `type="single"`: the group has the `radiogroup` role and each button has the `radio` role with a checked state.
+- `type="multiple"`: the group has the `group` role and each button is a toggle button with a pressed (selected) state.
+
+On web, the state is set as `aria-checked` or `aria-pressed`. On iOS and Android, it is set through `accessibilityState`, so screen readers announce it.
+
+On web, keyboard behaviour also matches the React package:
+
+- The group is a single Tab stop. Tabbing in focuses the selected item, or the first enabled item, and then the last focused item.
+- Arrow keys move focus to the next or previous enabled item, wrapping at the ends. Home and End move to the first and last enabled item.
+- Arrow keys don't change the selection. Space or Enter toggles the focused item.
+
+```tsx
+// Example usage
+<ToggleGroup type="single" defaultValue="week" gap="200">
+  <ToggleButton value="day" text="Day" />
+  <ToggleButton value="week" text="Week" />
+  <ToggleButton value="month" text="Month" disabled />
+  <ToggleButton value="year" text="Year" />
+</ToggleGroup>
+```
+
+## ToggleGroup or ToggleButtonCardGroup
+
+`ToggleButtonCardGroup` still works and is not deprecated. Use `ToggleGroup` for new code, as it matches the React package and supports both single and multiple selection. Keep `ToggleButtonCardGroup` when you need its `columns` grid layout, or when a selected card must stay selected: in a `ToggleButtonCardGroup`, pressing the selected card again does not clear the value.

@@ -9,6 +9,7 @@ export * from './BottomSheet';
 export * from './Box';
 export * from './Button';
 export * from './Card';
+export * from './CardAccordion';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
@@ -66,7 +67,9 @@ export * from './Timeline';
 export * from './TimePicker';
 export * from './TimePickerInput';
 export * from './Toast';
+export * from './ToggleButton';
 export * from './ToggleButtonCard';
+export * from './ToggleGroup';
 export * from './UnstyledIconButton';
 export * from './VerificationInput';
 
@@ -75,5 +78,3 @@ export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } 
 export { Pressable } from 'react-native';
 
 export { SafeAreaView } from 'react-native-safe-area-context';
-
-export { createIcon } from '@gluestack-ui/icon';

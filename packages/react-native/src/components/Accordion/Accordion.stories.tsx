@@ -3,6 +3,7 @@ import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import {
   Accordion,
   AccordionContent,
@@ -13,7 +14,8 @@ import {
   AccordionTitleText,
   AccordionTrigger,
 } from '.';
-import { BodyText } from '../../components';
+import { AccordionProps } from './Accordion.props';
+import { BodyText, Button } from '../../components';
 
 const meta = {
   title: 'Stories / Accordion',
@@ -56,63 +58,186 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  render: args => {
-    return (
-      <Accordion {...args}>
-        <AccordionItem title="How do I place an order?">
-          <AccordionHeader>
-            <AccordionTrigger>
-              {({ isExpanded }: { isExpanded: boolean }) => {
-                return (
-                  <>
-                    <AccordionTitleText>How do I place an order?</AccordionTitleText>
-                    {isExpanded ? (
-                      <AccordionIcon as={ChevronUpSmallIcon} />
-                    ) : (
-                      <AccordionIcon as={ChevronDownSmallIcon} />
-                    )}
-                  </>
-                );
-              }}
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionContent>
-            <AccordionContentText>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            </AccordionContentText>
-          </AccordionContent>
-        </AccordionItem>
+const renderAccordion = (args: AccordionProps) => (
+  <Accordion {...args}>
+    <AccordionItem title="How do I place an order?">
+      <AccordionHeader>
+        <AccordionTrigger>
+          {({ expanded }: { expanded: boolean }) => {
+            return (
+              <>
+                <AccordionTitleText>How do I place an order?</AccordionTitleText>
+                {expanded ? (
+                  <AccordionIcon as={ChevronUpSmallIcon} />
+                ) : (
+                  <AccordionIcon as={ChevronDownSmallIcon} />
+                )}
+              </>
+            );
+          }}
+        </AccordionTrigger>
+      </AccordionHeader>
+      <AccordionContent>
+        <AccordionContentText>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        </AccordionContentText>
+      </AccordionContent>
+    </AccordionItem>
 
-        <AccordionItem>
-          <AccordionHeader>
-            <AccordionTrigger>
-              {({ isExpanded }: { isExpanded: boolean }) => {
-                return (
-                  <>
-                    <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
-                    {isExpanded ? (
-                      <AccordionIcon as={ChevronUpSmallIcon} />
-                    ) : (
-                      <AccordionIcon as={ChevronDownSmallIcon} />
-                    )}
-                  </>
-                );
-              }}
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionContent>
-            <AccordionContentText>
-              We accept all major credit cards, PayPal, and bank transfers.
-            </AccordionContentText>
-          </AccordionContent>
-        </AccordionItem>
-        <AccordionItem title="What is your return policy?">
-          <BodyText>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, voluptatibus.
-          </BodyText>
-        </AccordionItem>
-      </Accordion>
+    <AccordionItem>
+      <AccordionHeader>
+        <AccordionTrigger>
+          {({ expanded }: { expanded: boolean }) => {
+            return (
+              <>
+                <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
+                {expanded ? (
+                  <AccordionIcon as={ChevronUpSmallIcon} />
+                ) : (
+                  <AccordionIcon as={ChevronDownSmallIcon} />
+                )}
+              </>
+            );
+          }}
+        </AccordionTrigger>
+      </AccordionHeader>
+      <AccordionContent>
+        <AccordionContentText>
+          We accept all major credit cards, PayPal, and bank transfers.
+        </AccordionContentText>
+      </AccordionContent>
+    </AccordionItem>
+    <AccordionItem title="What is your return policy?">
+      <BodyText>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, voluptatibus.
+      </BodyText>
+    </AccordionItem>
+  </Accordion>
+);
+
+export const Playground: Story = {
+  render: args => renderAccordion(args),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const orderTrigger = await canvas.findByRole('button', { name: /how do i place an order/i });
+    const paymentTrigger = await canvas.findByRole('button', {
+      name: /what payment methods do you accept/i,
+    });
+
+    // Initially collapsed.
+    expect(orderTrigger).toHaveAttribute('aria-expanded', 'false');
+    expect(paymentTrigger).toHaveAttribute('aria-expanded', 'false');
+
+    // Pressing a trigger expands its content.
+    await userEvent.click(orderTrigger);
+    await waitFor(() => expect(orderTrigger).toHaveAttribute('aria-expanded', 'true'));
+    expect(
+      canvas.getByText('Lorem ipsum dolor sit amet consectetur, adipisicing elit.')
+    ).toBeInTheDocument();
+
+    // type="multiple" (the default): expanding a second item does not collapse the first.
+    await userEvent.click(paymentTrigger);
+    await waitFor(() => expect(paymentTrigger).toHaveAttribute('aria-expanded', 'true'));
+    expect(orderTrigger).toHaveAttribute('aria-expanded', 'true');
+
+    // collapsible (default true): clicking an expanded trigger collapses it again,
+    // independently of any other currently-expanded item.
+    await userEvent.click(orderTrigger);
+    await waitFor(() => expect(orderTrigger).toHaveAttribute('aria-expanded', 'false'));
+    expect(paymentTrigger).toHaveAttribute('aria-expanded', 'true');
+  },
+};
+
+export const SingleSelect: Story = {
+  args: {
+    type: 'single',
+    collapsible: true,
+  },
+  render: args => renderAccordion(args),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const orderTrigger = await canvas.findByRole('button', { name: /how do i place an order/i });
+    const paymentTrigger = await canvas.findByRole('button', {
+      name: /what payment methods do you accept/i,
+    });
+
+    await userEvent.click(orderTrigger);
+    await waitFor(() => expect(orderTrigger).toHaveAttribute('aria-expanded', 'true'));
+
+    // type="single": expanding a different item automatically collapses the
+    // previously-expanded one.
+    await userEvent.click(paymentTrigger);
+    await waitFor(() => expect(paymentTrigger).toHaveAttribute('aria-expanded', 'true'));
+    expect(orderTrigger).toHaveAttribute('aria-expanded', 'false');
+
+    // collapsible (true): clicking the currently-expanded item again collapses it.
+    await userEvent.click(paymentTrigger);
+    await waitFor(() => expect(paymentTrigger).toHaveAttribute('aria-expanded', 'false'));
+  },
+};
+
+export const WithInteractiveContent: Story = {
+  render: args => (
+    <Accordion {...args}>
+      <AccordionItem>
+        <AccordionHeader>
+          <AccordionTrigger>
+            {({ expanded }: { expanded: boolean }) => (
+              <>
+                <AccordionTitleText>Need more help?</AccordionTitleText>
+                <AccordionIcon as={expanded ? ChevronUpSmallIcon : ChevronDownSmallIcon} />
+              </>
+            )}
+          </AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <AccordionContentText>Our team is available 7 days a week.</AccordionContentText>
+          <Button onPress={() => {}}>Contact us</Button>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const trigger = await canvas.findByRole('button', { name: /need more help/i });
+
+    // Collapsed content is hidden from assistive tech.
+    expect(canvas.queryByRole('button', { name: /contact us/i })).not.toBeInTheDocument();
+
+    await userEvent.click(trigger);
+    await waitFor(() => expect(trigger).toHaveAttribute('aria-expanded', 'true'));
+
+    // Expanded content is not grouped into one element: the button inside is reachable on its own.
+    const contactButton = await canvas.findByRole('button', { name: /contact us/i });
+    // Expandable fades in over 200 ms, so wait for it rather than sampling a frame at opacity 0.
+    await waitFor(() => expect(contactButton).toBeVisible());
+
+    await userEvent.click(trigger);
+    await waitFor(() =>
+      expect(canvas.queryByRole('button', { name: /contact us/i })).not.toBeInTheDocument()
     );
+  },
+};
+
+export const SingleNotCollapsible: Story = {
+  args: {
+    type: 'single',
+    collapsible: false,
+  },
+  render: args => renderAccordion(args),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const orderTrigger = await canvas.findByRole('button', { name: /how do i place an order/i });
+
+    await userEvent.click(orderTrigger);
+    await waitFor(() => expect(orderTrigger).toHaveAttribute('aria-expanded', 'true'));
+
+    // collapsible={false}: clicking the already-expanded trigger again does not
+    // collapse it back.
+    await userEvent.click(orderTrigger);
+    await waitFor(() => expect(orderTrigger).toHaveAttribute('aria-expanded', 'true'));
   },
 };

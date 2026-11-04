@@ -1,9 +1,7 @@
-import { useMemo } from 'react';
 import { View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { TextareaContext } from './Textarea.context';
-import InputProps from './Textarea.props';
+import TextareaProps from './Textarea.props';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
 
@@ -13,21 +11,14 @@ const TextareaRoot = ({
   states,
   validationStatus,
   ...props
-}: InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }) => {
+}: TextareaProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }) => {
   const { focus = false, disabled = false, readonly = false } = states || {};
   styles.useVariants({ validationStatus, focus, disabled, readonly });
 
-  const value = useMemo(
-    () => ({ focused: focus, disabled, readonly, validationStatus }),
-    [focus, disabled, readonly, validationStatus]
-  );
-
   return (
-    <TextareaContext.Provider value={value}>
-      <AnimatedView {...props} style={[styles.container, style]}>
-        {children}
-      </AnimatedView>
-    </TextareaContext.Provider>
+    <AnimatedView {...props} style={[styles.container, style]}>
+      {children}
+    </AnimatedView>
   );
 };
 

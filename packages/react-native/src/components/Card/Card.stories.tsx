@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-native';
 import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentProps } from 'react';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { Card, CardAction, CardActions, CardPressHandler } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -296,6 +297,9 @@ export const WithShadow: Story = {
   },
 };
 
+const interactiveCardOnPress = fn();
+const interactivePressHandlerButtonOnPress = fn();
+
 export const Interactive: Story = {
   parameters: {
     controls: { exclude: ['variant', 'colorScheme'] },
@@ -306,7 +310,8 @@ export const Interactive: Story = {
         <VariantTitle title="Pressable - Subtle - White">
           <Card
             {...props}
-            onPress={() => console.log('pressed')}
+            testID="interactive-card"
+            onPress={interactiveCardOnPress}
             variant="subtle"
             colorScheme="neutralStrong"
             spacing="md"
@@ -351,6 +356,7 @@ export const Interactive: Story = {
         <VariantTitle title="Pressable - Emphasis - Warm White">
           <Card
             {...props}
+            testID="interactive-card-press-handler"
             variant="emphasis"
             colorScheme="neutralSubtle"
             spacing="md"
@@ -360,11 +366,28 @@ export const Interactive: Story = {
             <Heading size="md">Heading</Heading>
             <BodyText>{children as string}</BodyText>
             <CardPressHandler>
-              <Button onPress={() => console.log('pressed')}>Press me</Button>
+              <Button onPress={interactivePressHandlerButtonOnPress}>Press me</Button>
             </CardPressHandler>
           </Card>
         </VariantTitle>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Pressing anywhere on a plain pressable Card fires the `onPress` handler
+    // passed to Card itself.
+    const card = canvas.getByTestId('interactive-card');
+    await userEvent.click(card);
+    expect(interactiveCardOnPress).toHaveBeenCalledOnce();
+
+    // The 4th Card wraps its Button in a CardPressHandler and does not set its own
+    // `onPress`. Card's helpers (collectChildActionHandlers/handlePress) inherit the
+    // wrapped Button's onPress, so pressing the Card container itself - not the
+    // Button - still fires the Button's handler.
+    const cardWithPressHandler = canvas.getByTestId('interactive-card-press-handler');
+    await userEvent.click(cardWithPressHandler);
+    expect(interactivePressHandlerButtonOnPress).toHaveBeenCalledOnce();
   },
 };
