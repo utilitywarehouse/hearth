@@ -6,11 +6,19 @@ import { kebabCase } from './helpers/kebab-case.js';
 import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { unwrapAlias } from './helpers/unwrap-alias.js';
+import { collectColorToken } from './helpers/manifest-collector.js';
 
 // Path where CSS files will be generated
 const BUILD_PATH = './css/';
 // Prefix used for all CSS custom properties
 const PREFIX = 'h';
+
+// Wraps a file filter so the colour tokens it keeps are also recorded for the tokens manifest
+const withManifest = filter => token => {
+  const keep = filter(token);
+  if (keep) collectColorToken(token, 'css', { variable: `--${token.name}` });
+  return keep;
+};
 
 /**
  * Creates an index.css file that imports all generated CSS files.
@@ -209,7 +217,7 @@ export function generateCssTokens() {
             {
               destination: 'color.css',
               format: 'css/variables',
-              filter: filters.isPrimitiveLightColor,
+              filter: withManifest(filters.isPrimitiveLightColor),
             },
             {
               destination: 'space.css',
@@ -239,7 +247,7 @@ export function generateCssTokens() {
             {
               destination: 'semantic.css',
               format: 'css/variables',
-              filter: filters.isSemantic,
+              filter: withManifest(filters.isSemantic),
             },
             {
               destination: 'components.css',
