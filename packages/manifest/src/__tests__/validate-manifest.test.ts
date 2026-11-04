@@ -16,7 +16,7 @@ const validTokensManifest = {
         css: { variable: '--h-background-brand' },
         browser: {
           import: '@utilitywarehouse/hearth-tokens/browser',
-          export: 'backgroundBrand',
+          path: 'semantic.background.brand',
         },
         js: {
           import: '@utilitywarehouse/hearth-tokens',

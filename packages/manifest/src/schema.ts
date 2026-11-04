@@ -14,7 +14,7 @@ const tokenEntry = z
     alias: z.object({ default: z.string(), dark: z.string().optional() }).optional(),
     surfaces: z.object({
       css: z.object({ variable: z.string() }).optional(),
-      browser: z.object({ import: z.string(), export: z.string() }).optional(),
+      browser: z.object({ import: z.string(), path: z.string() }).optional(),
       js: z.object({ import: z.string(), path: z.string(), darkPath: z.string().optional() }),
     }),
   })
