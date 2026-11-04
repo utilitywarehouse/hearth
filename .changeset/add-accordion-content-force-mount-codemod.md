@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-codemod': minor
+'@utilitywarehouse/hearth-codemod': patch
 ---
 
 🌟 [FEATURE]: `AccordionContent`'s deprecated `forceMount` prop can be replaced with `keepMounted` by codemod
