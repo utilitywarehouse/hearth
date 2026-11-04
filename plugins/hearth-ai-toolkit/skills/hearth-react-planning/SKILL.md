@@ -1,6 +1,7 @@
 ---
 name: hearth-react-planning
 description: "Use when scoping feature work on `@utilitywarehouse/hearth-react` before any code: maps a Linear ticket, description or Figma link onto real Hearth components and writes sub-issues to Linear. Web only; run before `hearth-react`."
+disable-model-invocation: true
 argument-hint: "Linear ticket, feature description, or Figma link"
 ---
 

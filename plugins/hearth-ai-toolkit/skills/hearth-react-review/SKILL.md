@@ -1,6 +1,7 @@
 ---
 name: hearth-react-review
 description: "Use when reviewing or auditing UI code that uses `@utilitywarehouse/hearth-react` (PR, screen, component): hallucinated props, token misuse, accessibility gaps, layout anti-patterns. Consumer apps only; web only."
+disable-model-invocation: true
 argument-hint: "File(s) or PR to review"
 ---
 
