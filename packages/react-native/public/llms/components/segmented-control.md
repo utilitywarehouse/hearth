@@ -129,9 +129,19 @@ Use `fullWidth` to make the control fill the width of its container. Options sha
 
 ```tsx
 // Example usage
-<View style={{ width: 320 }}>
+<View>
   <Flex spacing="sm">
+    <SegmentedControl defaultValue="one" size="sm">
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
     <SegmentedControl defaultValue="one" size="sm" fullWidth>
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
+    <SegmentedControl defaultValue="one" size="md">
       <SegmentedControlOption value="one">Label</SegmentedControlOption>
       <SegmentedControlOption value="two">Label</SegmentedControlOption>
       <SegmentedControlOption value="three">Label</SegmentedControlOption>
