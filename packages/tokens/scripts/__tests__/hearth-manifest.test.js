@@ -24,9 +24,15 @@ const resolve = (tokens, accessor) =>
     .filter(Boolean)
     .reduce((node, key) => node?.[key], tokens);
 
+const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
+
 describe('hearth-manifest.json', () => {
   it('is a valid manifest', () => {
     expect(validateManifest(manifest)).toEqual({ success: true, manifest });
+  });
+
+  it('names this package and its current version', () => {
+    expect(manifest.package).toEqual({ name: packageJson.name, version: packageJson.version });
   });
 
   it('only names CSS variables that the generated CSS declares', () => {

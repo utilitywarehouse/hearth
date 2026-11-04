@@ -35,7 +35,14 @@ async function generateTokens() {
   try {
     // Style Dictionary v4 is async => buildAllPlatforms returns a Promise
     // We can do Promise.allSettled to run them in parallel:
-    await Promise.allSettled(dictionaries.map(d => d.buildAllPlatforms()));
+    const results = await Promise.allSettled(dictionaries.map(d => d.buildAllPlatforms()));
+    // a failed build would otherwise leave the manifest without that surface's data
+    const failures = results.filter(result => result.status === 'rejected');
+    if (failures.length > 0) {
+      throw new Error(
+        `${failures.length} token build(s) failed:\n${failures.map(f => f.reason?.stack ?? f.reason).join('\n')}`
+      );
+    }
     console.log('Tokens built successfully!');
     // The generators record the tokens they write as they go, so this runs once they are done
     writeManifest();
