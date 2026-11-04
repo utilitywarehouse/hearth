@@ -26,6 +26,7 @@ const SegmentedControl = ({
   onValueChange,
   size = 'sm',
   disabled = false,
+  fullWidth = false,
   children,
   style,
   ...props
@@ -131,7 +132,14 @@ const SegmentedControl = ({
         return;
       }
 
-      if (prevValueRef.current === activeValue) return;
+      if (prevValueRef.current === activeValue) {
+        // Same selection re-laid out (e.g. container resized): snap the indicator to the new bounds.
+        indicatorX.value = Math.max(0, layout.x - indicatorPositionOffset);
+        indicatorWidth.value = layout.width;
+        indicatorY.value = Math.max(0, layout.y - indicatorPositionOffset);
+        indicatorHeight.value = layout.height;
+        return;
+      }
 
       const config = {
         delay: 200,
@@ -189,7 +197,7 @@ const SegmentedControl = ({
     height: indicatorHeight.value,
   }));
 
-  styles.useVariants({ disabled, size });
+  styles.useVariants({ disabled, size, fullWidth });
 
   const contextValue = useMemo(
     () => ({
@@ -197,9 +205,10 @@ const SegmentedControl = ({
       select,
       disabled,
       size,
+      fullWidth,
       registerOptionLayout,
     }),
-    [currentValue, select, disabled, size, registerOptionLayout]
+    [currentValue, select, disabled, size, fullWidth, registerOptionLayout]
   );
 
   return (
@@ -246,6 +255,11 @@ const styles = StyleSheet.create(theme => ({
       disabled: {
         true: {
           opacity: theme.opacity.disabled,
+        },
+      },
+      fullWidth: {
+        true: {
+          alignSelf: 'stretch',
         },
       },
     },
