@@ -10,11 +10,12 @@
     "directory": "packages/codemod"
   },
   "bin": {
-    "hearth-codemod": "./dist/cli.js"
+    "hearth-codemod": "dist/cli.js"
   },
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf dist",
     "build": "tsup",
+    "prepublishOnly": "pnpm build",
     "typecheck": "tsc --noEmit",
     "lint:fix": "TIMING=1 eslint --fix --ext ts,tsx src && pnpm format",
     "lint": "TIMING=1 eslint --ext ts,tsx src",
