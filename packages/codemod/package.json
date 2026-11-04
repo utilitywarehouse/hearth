@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-codemod",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Codemods for migrating consumers between major versions of Hearth packages",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
