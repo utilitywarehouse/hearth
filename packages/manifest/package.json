@@ -1,0 +1,40 @@
+{
+  "name": "@utilitywarehouse/hearth-manifest",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Schema and validation for the hearth-manifest.json files shipped by Hearth packages",
+  "author": "Design Systems <design-systems@uw.co.uk>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/manifest"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf node_modules && rm -rf dist",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "tsup": "^8.5.1",
+    "vitest": "^4.1.7"
+  },
+  "files": [
+    "dist"
+  ]
+}
