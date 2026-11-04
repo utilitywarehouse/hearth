@@ -41,6 +41,7 @@
     "test:react-native": "turbo run test --filter=@utilitywarehouse/hearth-react-native && pnpm test:react-native:storybook",
     "test:react-native:storybook": "pnpm --dir packages/react-native run test:storybook",
     "test:react": "pnpm --dir packages/react run test:storybook",
+    "test:manifest": "turbo run test --filter=@utilitywarehouse/hearth-manifest",
     "a11y:report": "node scripts/a11y-report/index.mjs",
     "test:a11y-report": "node --test scripts/a11y-report/*.test.mjs",
     "format": "prettier --write README.md CLAUDE.md && turbo run format",
