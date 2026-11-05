@@ -28,7 +28,7 @@
     {
       "name": "BeamingFaceGrey",
       "path": "beaming-face-grey.svg",
-      "hash": "87b1e033603d786be350f08a7a0e7fa8cddf7ca1261b1ab4b5b13df39d4e9911"
+      "hash": "7584461a81238118976888adc97fcfb363aef718bcf165afca78567492584fdd"
     },
     {
       "name": "DissapointedFace",
@@ -48,7 +48,7 @@
     {
       "name": "NeutralFaceGrey",
       "path": "neutral-face-grey.svg",
-      "hash": "03eb9c2b510cc7066a780547fed8d8826554485c383f538d88b2592ca024882f"
+      "hash": "6f414fcf4f9ad88fe51f36c19eb861aa416b2e0f01a51234a4005de266255420"
     },
     {
       "name": "SlightlySmilingFace",
@@ -58,17 +58,17 @@
     {
       "name": "SlightlySmilingFaceGrey",
       "path": "slightly-smiling-face-grey.svg",
-      "hash": "5105016309f7a57a98c91105ccf95e5491cc344191e42759cc1d2d3a62555136"
+      "hash": "893ebbef13bf2e23537faca411e2c85e21f13c9d736448febb157cafed2ff9ef"
     },
     {
       "name": "DissapointedFaceGrey",
       "path": "dissapointed-face-grey.svg",
-      "hash": "795802093b434bc14684a908ab202fd3634f6862a03628cb61777dc7644f1bcb"
+      "hash": "2426753f21273e16425b81a42560c4316f99a0788d2c912848043ae5e0155819"
     },
     {
       "name": "FrowningFaceGrey",
       "path": "frowning-face-grey.svg",
-      "hash": "cbf063e6fb28f8b5f37c584e7c031d62d223741ba02e8a84157efd0d94926b52"
+      "hash": "5870b2e494775336a8f1556e68702be4f122bfe5b2fae78fb3052964026ba4f7"
     },
     {
       "name": "SpotNeighboursLight",
@@ -113,12 +113,12 @@
     {
       "name": "SpotHelpLight",
       "path": "spot-help-light.svg",
-      "hash": "913ba8ed76a1d5043780c1f7051b2a6dcf325365b611ed23547c17cbd347b3e2"
+      "hash": "7ed094eb57b582188d0dd217d32aa11ae3a563ecfdcf078186cf0947fa57542a"
     },
     {
       "name": "SpotHelpDark",
       "path": "spot-help-dark.svg",
-      "hash": "56203f92993a3764354c1ed240ea3e9745a28996b25392bdbdd0b16a98c7cb20"
+      "hash": "c50d6758c9acf6826ff1e02b932a27bc437ee67fcc45d9e4eaacbc9d63b11f74"
     },
     {
       "name": "SpotOnlineAccountLight",
@@ -163,12 +163,12 @@
     {
       "name": "SpotErrorLight",
       "path": "spot-error-light.svg",
-      "hash": "0b7887ee9d294c9378976b628830ab776aae42de4df211827647c09d7806d07c"
+      "hash": "4f3c0acb3ea651fc58b3a6bed593659be5743ba960366f46f181fc2059fe1615"
     },
     {
       "name": "SpotErrorDark",
       "path": "spot-error-dark.svg",
-      "hash": "b8beeea90828c2d2182f8831393595b5bdb881c10fa7a9ef2b73ce8d3b20ac83"
+      "hash": "60a1503f6d2f3cdf6e2c8e25761fc3e74bd79cf2d89dde43a6c40819f68c5ada"
     },
     {
       "name": "SpotPiggyBankLight",
@@ -193,12 +193,12 @@
     {
       "name": "SpotCelebratoryLight",
       "path": "spot-celebratory-light.svg",
-      "hash": "3cbcf0eff5954cde2b973c9c9434d09a9c0d36192687ee41071dfb115fe816fd"
+      "hash": "6e9de14fea87551653f3b1abbd49cc3f766a0a17fa0465981136f41c6410e077"
     },
     {
       "name": "SpotCelebratoryDark",
       "path": "spot-celebratory-dark.svg",
-      "hash": "541213e861be2ae6fe25c3becd5e4c2dde83bbe48654d8dc6ebf1b9393acf4c8"
+      "hash": "262ed4fd64da54c90209661fc8b81c93de3b987b06e9216da95da1217ac87ff0"
     },
     {
       "name": "SpotRecognitionLight",
@@ -213,12 +213,12 @@
     {
       "name": "SpotEvLight",
       "path": "spot-ev-light.svg",
-      "hash": "afe8dc5609f63253e72be280b7c13488e41e32bdf80e41afd4ccbc47eae323b7"
+      "hash": "304dc764aa26071fb6e92056f99ceb7afbc62b634cb7e8e94b099d2f302f807d"
     },
     {
       "name": "SpotEvDark",
       "path": "spot-ev-dark.svg",
-      "hash": "43b7feb0a4eb138b4c081d0bec206aab73852edb16c4da94d9dcc92d6a706d62"
+      "hash": "31083a686733b23da4afa33d3ea040c31d8a522d7245aba1c1fcc2f22456da8e"
     },
     {
       "name": "SpotTickLight",
@@ -243,12 +243,12 @@
     {
       "name": "SpotNoBroadbandLight",
       "path": "spot-no-broadband-light.svg",
-      "hash": "848bd183445babcd6e158c76ad743e174336c580ed6229497b6b7be7cd379d6b"
+      "hash": "1a39b88387dd6693dd5f025374f51fd1e819450db0de7ba1090704a1e31e2d80"
     },
     {
       "name": "SpotNoBroadbandDark",
       "path": "spot-no-broadband-dark.svg",
-      "hash": "1936e055bfedd43af49548e2d453c90e066d13ea630e7f2d2d5f763bb3561acf"
+      "hash": "87c5fb796743aa18696fcc7f93cac4a43eb36fa2dcb560baa4aae13965bd5fb4"
     },
     {
       "name": "SpotHeartLight",
@@ -273,52 +273,52 @@
     {
       "name": "SpotConfettiLight",
       "path": "spot-confetti-light.svg",
-      "hash": "70d64399886b4cf1bcbaf99cb8d439b98f5045a7b47488400b822342693af1e5"
+      "hash": "887da5b9156623f2dadb378c5b8d42587f3a07d576c968d6eaa502b133b56b06"
     },
     {
       "name": "SpotConfettiDark",
       "path": "spot-confetti-dark.svg",
-      "hash": "b889a99e3b4456fd4ea2f02636c04c1e126da5c504f34eb30ea3e614d8449fed"
+      "hash": "de09d3ca4f0bfa8efd750c9b0b6b359c11b0a35267fbc755e16be93817a39765"
     },
     {
       "name": "SpotBundleCompleteLight",
       "path": "spot-bundle-complete-light.svg",
-      "hash": "94bfd4c2c5ec08b9e497729a0e4b42598ec632364b39fb1b4924401a1f317ab5"
+      "hash": "5328a311979ead93b3e077e81eb02e16d9a4e0acfab5122e15fcb22cdf5789ad"
     },
     {
       "name": "SpotBundleCompleteDark",
       "path": "spot-bundle-complete-dark.svg",
-      "hash": "89e1185ef8cbf9bd67abcac4cfaebc13ad5e8df54626005cc93de2eee3f5323f"
+      "hash": "61a6f01b09a00919e308be5fa1005daa9fd89ad8557a0d1ec011d9ae0039ad96"
     },
     {
       "name": "SpotBundleIncompleteLight",
       "path": "spot-bundle-incomplete-light.svg",
-      "hash": "b2056472df3cf45b9f603a84314aea7a674590806db33c806d754707c2681185"
+      "hash": "f2f7da2fe089821ba93ee541fdb5090cba1bd624ada8736525a7f0d7c2d53aaa"
     },
     {
       "name": "SpotBundleIncompleteDark",
       "path": "spot-bundle-incomplete-dark.svg",
-      "hash": "3160de82f70ead288c3cf2faccf3f517ccf2edfdbf1aa837f511f9013451bb4c"
+      "hash": "0276c094048538d09ca5e7df60b5171d34c94ad1fde2fd4f9e7da3b298182860"
     },
     {
       "name": "SpotBoilerLight",
       "path": "spot-boiler-light.svg",
-      "hash": "6d8effed69641759d2b4eacea48cdf8cdd2a24b9e73f109c6332f2d3a6186688"
+      "hash": "40ca7d24ebedb95e728c3fecdf0819dee6cac36529252fae8c4c57228a141ad1"
     },
     {
       "name": "SpotBoilerDark",
       "path": "spot-boiler-dark.svg",
-      "hash": "56266f4b3778436ccb10f59a90fab025e568e1e7a7d8e582a0b535790169c2f8"
+      "hash": "a4d17e351aedf10a56deabf2fff420280f2e9a645183518f36cc9b5fa161bd72"
     },
     {
       "name": "SpotSwitchLight",
       "path": "spot-switch-light.svg",
-      "hash": "0f45feb204130c6338f6eefddefd3c65a12f9a6bcff289e40c69fb443675156c"
+      "hash": "1d5654f9d6c945697749759d0e755bfdcf7225ae7d8d9667de617e5d68e86987"
     },
     {
       "name": "SpotSwitchDark",
       "path": "spot-switch-dark.svg",
-      "hash": "e331017393a4ad61246fc5e7df51cf85178f1aa423ab40aebbf534becfdaebf2"
+      "hash": "57745397d9bbe2dddf6e7161f3754948609c2149b5f05762687153aa81849936"
     },
     {
       "name": "SpotSavingsLight",
@@ -343,12 +343,12 @@
     {
       "name": "SpotUnavailableLight",
       "path": "spot-unavailable-light.svg",
-      "hash": "06bcb5711ef9bd0cbc8acd850be0c568104725aa72e341b46457eec7f3c31c16"
+      "hash": "65e14b36ea083b5f6e8bd20691492ee87195938ea0a075ae0bce05785e7e6b1d"
     },
     {
       "name": "SpotUnavailableDark",
       "path": "spot-unavailable-dark.svg",
-      "hash": "993c53e54cc8736c0f7b9d9958fae93e64ed1345c284e4745ddabda04d32357b"
+      "hash": "88b985b3dbb24e8b2eeb11ce5d0c6a9fde7a43c51cbf2aacbe21bb432ecc4dfa"
     },
     {
       "name": "SpotDarkModeLight",
@@ -363,12 +363,12 @@
     {
       "name": "SpotBroadbandLight",
       "path": "spot-broadband-light.svg",
-      "hash": "1ef8b7ff1c4d537d5f220b150c10eaa3f4c1016bfc60e494927ab81cf1f4d4d7"
+      "hash": "066ec0111d47e12bdfdaf8c9ba495ddd56cc1ce9098292ab48c4230ef9541f5c"
     },
     {
       "name": "SpotBroadbandDark",
       "path": "spot-broadband-dark.svg",
-      "hash": "808038c85a7302f016cee74ed8de63c395b72ce5ca6b887ec48033560bd3b4ee"
+      "hash": "89c9c7ba320f3c9081c571f8156ccdbb5a0535e1a9372f7f68321120df009eef"
     },
     {
       "name": "SpotWelcomeLight",
@@ -423,42 +423,42 @@
     {
       "name": "SpotEarningsLight",
       "path": "spot-earnings-light.svg",
-      "hash": "38601c78f953e6872a4422df4f684c2e580974a7fe536003bd8276849dd04d77"
+      "hash": "f7303b8fbc671a5c770fc5fb0ab14433d286d95a85fc9481c7144afb6ee6b41d"
     },
     {
       "name": "SpotEarningsDark",
       "path": "spot-earnings-dark.svg",
-      "hash": "87b8c0628a6fe7796a64dc7374aff149b8ede39148ded93631fb54ca52a571c8"
+      "hash": "ff7a12809c5512c8c8a7015aacd2f083fa6b1a47c1c4396d5d5a0e7e8614951b"
     },
     {
       "name": "SpotCalendarLight",
       "path": "spot-calendar-light.svg",
-      "hash": "37678c259682d8f67962b0d9567045bee5ccbc542c9df2df953499fe3e40711e"
+      "hash": "b84a856691e3c1ae9720a5b368112f09c71caa053379d1c8f0d117f77744b82d"
     },
     {
       "name": "SpotCalendarDark",
       "path": "spot-calendar-dark.svg",
-      "hash": "f844ab4688ab68511e9f502bb81c4760306ab9d8736aa29c913332097c7844ca"
+      "hash": "daba6eed8151d427177a9f335da1d5e4c37b7db84ec57f6e01decbf5ab7df5c6"
     },
     {
       "name": "SpotBookAppointmentLight",
       "path": "spot-book-appointment-light.svg",
-      "hash": "c2527829180c1f8a69046b2b733673db64c7bb1590fe2e330daf78b53beb484d"
+      "hash": "00c3f8d6e41e9b1b7fac6b363e9e623ec6f6c2dcc6b32bdccd0f9d9efd6ef543"
     },
     {
       "name": "SpotBookAppointmentDark",
       "path": "spot-book-appointment-dark.svg",
-      "hash": "8f1cf1904ac72c278ac72c7fa3493ff62c0e03eb357d4d66ea38a02e5f792286"
+      "hash": "df1c308cca62a079fccaca2c9cc614c90572e98b8a39f603b914e2d3df1336ce"
     },
     {
       "name": "SpotMotorInsuranceLight",
       "path": "spot-motor-insurance-light.svg",
-      "hash": "3f960fe3673e0a6ac42919fa9d5af0f912d70b19409b882108c6c373df0b9ed4"
+      "hash": "4490ff35518fd0966e97a3103782fc2c01a4e0fa925901294b5eb0da60caeef3"
     },
     {
       "name": "SpotMotorInsuranceDark",
       "path": "spot-motor-insurance-dark.svg",
-      "hash": "fe77106f903afb3b8938ed24342d5a376702be73077a334ca68517fa4d8f544a"
+      "hash": "96e1b969396a76a54fde4a8247b5e69cbe418fe006d7986f9327ded9778d0968"
     },
     {
       "name": "SceneEnergyLight",
@@ -533,12 +533,12 @@
     {
       "name": "MascotBroadbandLight",
       "path": "mascot-broadband-light.svg",
-      "hash": "f56e9878cd8cbb757ce0943d28f6efda0be7626bdb92b46ee07892fee5c4488e"
+      "hash": "b91ca3e2f165331cf4bfd391eaa65fd92c01232314cf213dacbfb79942702c45"
     },
     {
       "name": "MascotBroadbandDark",
       "path": "mascot-broadband-dark.svg",
-      "hash": "70fe7aafe9d8e41607f86d169717ccfc2588f4714516d8efaad09d23f2a64e73"
+      "hash": "743a552c0d20bf4ea499fd80b09fc4fc0a1b30db8dcfdf64ec63720327f7dec7"
     },
     {
       "name": "MascotMobileLight",
@@ -923,12 +923,12 @@
     {
       "name": "TechnicalContentsLight",
       "path": "technical-contents-light.svg",
-      "hash": "4682912a724b410276f489c9353114554e51b0749de6fe77d57f92d36469db96"
+      "hash": "9f9e0ae79310d48f075ac3ac81c832fa23c23ab7bfd5a4d88e05a92ed1adf76d"
     },
     {
       "name": "TechnicalContentsDark",
       "path": "technical-contents-dark.svg",
-      "hash": "5ab7069327b87aa477005327c07c3b08b0bca8f55288363a81eb37fd15ac6814"
+      "hash": "274264742d4d6afa70367ebedb4ca3b3c2f7005779449ae7c9a75c18ff738788"
     },
     {
       "name": "TechnicalDslCableLight",
