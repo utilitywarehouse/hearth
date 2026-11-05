@@ -35,9 +35,15 @@ describe('hearth-manifest.json', () => {
     expect(manifest.package).toEqual({ name: packageJson.name, version: packageJson.version });
   });
 
+  it('gives every colour a CSS and a browser surface', () => {
+    const missing = manifest.entries.filter(({ surfaces }) => !surfaces.css || !surfaces.browser);
+
+    expect(missing.map(entry => entry.path)).toEqual([]);
+  });
+
   it('only names CSS variables that the generated CSS declares', () => {
     const missing = manifest.entries
-      .map(entry => entry.surfaces.css.variable)
+      .map(entry => entry.surfaces.css?.variable)
       .filter(variable => !declaredVariables.has(variable));
 
     expect(missing).toEqual([]);
@@ -46,7 +52,7 @@ describe('hearth-manifest.json', () => {
   it('points each browser accessor at that entry’s CSS variable', () => {
     const wrong = manifest.entries.filter(
       ({ surfaces }) =>
-        resolve(browserTokens, surfaces.browser.path) !== `var(${surfaces.css.variable})`
+        resolve(browserTokens, surfaces.browser?.path) !== `var(${surfaces.css?.variable})`
     );
 
     expect(wrong.map(entry => entry.path)).toEqual([]);
@@ -56,14 +62,14 @@ describe('hearth-manifest.json', () => {
     const wrong = manifest.entries.filter(({ values, surfaces }) => {
       const light = resolve(jsTokens, surfaces.js.path);
       const dark = surfaces.js.darkPath && resolve(jsTokens, surfaces.js.darkPath);
-      return light !== values.default || (values.dark !== undefined && dark !== values.dark);
+      return light !== values.default || dark !== values.dark;
     });
 
     expect(wrong.map(entry => entry.path)).toEqual([]);
   });
 
   it('covers every generated colour variable', () => {
-    const covered = new Set(manifest.entries.map(entry => entry.surfaces.css.variable));
+    const covered = new Set(manifest.entries.map(entry => entry.surfaces.css?.variable));
     // non-colour semantic tokens (opacity) are not in the manifest yet
     const uncovered = [...declaredVariables].filter(
       variable => !variable.startsWith('--h-opacity') && !covered.has(variable)

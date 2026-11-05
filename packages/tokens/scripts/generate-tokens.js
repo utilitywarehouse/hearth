@@ -4,7 +4,7 @@ import { generateJsTokens } from './generate-js-tokens.js';
 import { generateCssTokens } from './generate-css-tokens.js';
 import { generateBrowserTokens } from './generate-browser-tokens.js';
 import { buildTokensManifest } from './helpers/build-tokens-manifest.js';
-import { getManifestRecords } from './helpers/manifest-collector.js';
+import { clearManifestRecords, getManifestRecords } from './helpers/manifest-collector.js';
 import { loadJSON } from './helpers/load-json.js';
 
 const MANIFEST_PATH = './hearth-manifest.json';
@@ -21,6 +21,7 @@ function writeManifest() {
 }
 
 async function generateTokens() {
+  clearManifestRecords();
   const dictionaries = [
     // Generate JS objects, optimised for use in React Native applications
     ...generateJsTokens(),

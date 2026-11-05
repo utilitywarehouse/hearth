@@ -120,4 +120,18 @@ describe('buildTokensManifest', () => {
       ],
     });
   });
+
+  it('refuses a colour with no light JS record rather than using another record as its default', () => {
+    const darkOnly = semanticBrandRecords.filter(r => !(r.surface === 'js' && r.mode === 'light'));
+
+    expect(() => buildTokensManifest(darkOnly, meta)).toThrow(/semantic\.background\.brand/);
+  });
+
+  it('refuses a colour whose only alias is in dark mode, which the schema cannot express', () => {
+    const darkAliasOnly = semanticBrandRecords.map(({ alias, ...record }) =>
+      record.mode === 'dark' ? { ...record, alias } : record
+    );
+
+    expect(() => buildTokensManifest(darkAliasOnly, meta)).toThrow(/alias/);
+  });
 });

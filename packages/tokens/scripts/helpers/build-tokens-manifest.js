@@ -24,11 +24,17 @@ export function buildTokensManifest(records, meta) {
   const entries = [...groups.values()].map(group => {
     const find = (surface, mode) =>
       group.find(record => record.surface === surface && record.mode === mode);
-    const light = find('js', 'light') ?? group[0];
+    const light = find('js', 'light');
     const dark = find('js', 'dark');
     const css = find('css', 'light');
     const browser = find('browser', 'light');
-    const js = find('js', 'light');
+    if (!light) {
+      const { layer, path } = group[0];
+      throw new Error(`No light JS record for ${entryPath({ layer, path })}`);
+    }
+    if (dark?.alias && !light.alias) {
+      throw new Error(`${entryPath(light)} has a dark alias but no light alias`);
+    }
 
     const entry = {
       path: entryPath(light),
@@ -44,10 +50,8 @@ export function buildTokensManifest(records, meta) {
     }
     if (css) entry.surfaces.css = { variable: css.variable };
     if (browser) entry.surfaces.browser = { import: BROWSER_IMPORT, path: browser.accessor };
-    if (js) {
-      entry.surfaces.js = { import: JS_IMPORT, path: js.accessor };
-      if (dark) entry.surfaces.js.darkPath = dark.accessor;
-    }
+    entry.surfaces.js = { import: JS_IMPORT, path: light.accessor };
+    if (dark) entry.surfaces.js.darkPath = dark.accessor;
     return entry;
   });
   entries.sort((a, b) => (a.path < b.path ? -1 : a.path > b.path ? 1 : 0));

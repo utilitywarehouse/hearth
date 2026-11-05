@@ -1,6 +1,9 @@
 const records = [];
 
 export const getManifestRecords = () => records;
+export const clearManifestRecords = () => {
+  records.length = 0;
+};
 
 const IDENTIFIER = /^[A-Za-z_$][\w$]*$/;
 
