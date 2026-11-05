@@ -23,7 +23,8 @@ const tokenEntry = z
       ctx.addIssue({
         code: 'custom',
         path: ['surfaces', 'js', 'darkPath'],
-        message: 'darkPath is required when a dark value is present (dark exists on the JS surface only)',
+        message:
+          'darkPath is required when a dark value is present (dark exists on the JS surface only)',
       });
     }
     if (entry.values.dark === undefined && entry.surfaces.js.darkPath !== undefined) {

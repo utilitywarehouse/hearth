@@ -37,7 +37,8 @@ describe('validateManifest', () => {
 
   // Characterisation of the structural schema: these hold by construction rather than driving new code.
   it('rejects a manifest with no schemaVersion', () => {
-    const { schemaVersion: _omitted, ...withoutVersion } = validTokensManifest;
+    const withoutVersion: Partial<typeof validTokensManifest> = { ...validTokensManifest };
+    delete withoutVersion.schemaVersion;
     const result = validateManifest(withoutVersion);
 
     expect(result.success).toBe(false);
@@ -46,7 +47,10 @@ describe('validateManifest', () => {
 
   it('rejects an unknown layer', () => {
     const [entry] = validTokensManifest.entries;
-    const result = validateManifest({ ...validTokensManifest, entries: [{ ...entry, layer: 'global' }] });
+    const result = validateManifest({
+      ...validTokensManifest,
+      entries: [{ ...entry, layer: 'global' }],
+    });
 
     expect(result.success).toBe(false);
     if (!result.success) expect(result.errors.join('\n')).toMatch(/layer/);
@@ -56,7 +60,12 @@ describe('validateManifest', () => {
     const [entry] = validTokensManifest.entries;
     const result = validateManifest({
       ...validTokensManifest,
-      entries: [{ ...entry, surfaces: { ...entry.surfaces, js: { ...entry.surfaces.js, darkPath: undefined } } }],
+      entries: [
+        {
+          ...entry,
+          surfaces: { ...entry.surfaces, js: { ...entry.surfaces.js, darkPath: undefined } },
+        },
+      ],
     });
 
     expect(result.success).toBe(false);

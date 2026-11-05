@@ -2,7 +2,7 @@ import { manifestSchema, type Manifest } from './schema.js';
 
 export type ValidationResult =
   | { success: true; manifest: Manifest }
-  | { success: false; errors: string[] };
+  | { success: false; errors: Array<string> };
 
 export function validateManifest(input: unknown): ValidationResult {
   const result = manifestSchema.safeParse(input);
