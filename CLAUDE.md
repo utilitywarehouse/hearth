@@ -80,3 +80,15 @@ For usage guidance:
 ## Releases
 
 Hearth uses [Changesets](https://github.com/changesets/changesets). Run `pnpm changeset`, commit the generated file with your changes, and a release PR is created automatically on merge to `main`. Use the `add-changeset` skill for guidance.
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in Linear, team `UWDS` (via the Linear MCP tools). See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Multi-context: `GLOSSARY-MAP.md` points to per-context glossaries for `packages/react` and `packages/react-native`. See `docs/agents/domain.md`.
