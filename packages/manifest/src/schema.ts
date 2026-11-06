@@ -9,11 +9,14 @@ const tokenEntry = z
     path: z.string().min(1),
     layer: z.enum(['primitive', 'semantic', 'component']),
     type: z.string().min(1),
+    // device-dependent tokens have one entry per device, each with its own value and surfaces
+    device: z.enum(['mobile', 'tablet', 'desktop']).optional(),
     description: z.string().optional(),
     values: z.object({ default: tokenValue, dark: tokenValue.optional() }),
     alias: z.object({ default: z.string(), dark: z.string().optional() }).optional(),
     surfaces: z.object({
-      css: z.object({ variable: z.string() }).optional(),
+      // `value` is what the stylesheet declares (`8px`), which can differ from the JS value
+      css: z.object({ variable: z.string(), value: z.string().optional() }).optional(),
       browser: z.object({ import: z.string(), path: z.string() }).optional(),
       js: z.object({ import: z.string(), path: z.string(), darkPath: z.string().optional() }),
     }),
@@ -46,14 +49,15 @@ export const manifestSchema = z
   .superRefine((manifest, ctx) => {
     const seen = new Set<string>();
     manifest.entries.forEach((entry, index) => {
-      if (seen.has(entry.path)) {
+      const key = entry.device ? `${entry.path} (${entry.device})` : entry.path;
+      if (seen.has(key)) {
         ctx.addIssue({
           code: 'custom',
           path: ['entries', index, 'path'],
-          message: `duplicate entry path "${entry.path}"`,
+          message: `duplicate entry path "${key}"`,
         });
       }
-      seen.add(entry.path);
+      seen.add(key);
     });
   });
 

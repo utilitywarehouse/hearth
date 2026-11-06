@@ -8,7 +8,7 @@ import { logWarningLevels } from 'style-dictionary/enums';
 import fs from 'fs';
 import path from 'path';
 
-import { collectColorToken, toAccessor } from './helpers/manifest-collector.js';
+import { collectToken, toAccessor } from './helpers/manifest-collector.js';
 
 const BUILD_PATH = './src/browser/';
 const PREFIX = 'h';
@@ -63,6 +63,7 @@ StyleDictionary.registerFormat({
   name: 'browser/variables',
   format: ({ dictionary, file, platform }) => {
     const tokens = {};
+    const reported = [];
     // get the group name of the current set of tokens
     let tokensName = file.destination.split('.')[0];
 
@@ -84,11 +85,17 @@ StyleDictionary.registerFormat({
         }
         return (acc[segment] = {});
       }, tokenObject);
-      collectColorToken(token, 'browser', {
-        accessor: toAccessor(camelCase(tokensName), segments),
-      });
+      reported.push({ token, segments });
       // deep merge the token into the tokens object
       merge(tokens, tokenObject);
+    });
+
+    // A token that shares its path with a group of tokens (a menu's `item.padding` and its
+    // per-device `item.padding.mobile`) is overwritten by the group in the merge above, so it
+    // has no browser export to report.
+    reported.forEach(({ token, segments }) => {
+      if (typeof segments.reduce((node, segment) => node?.[segment], tokens) !== 'string') return;
+      collectToken(token, 'browser', { accessor: toAccessor(camelCase(tokensName), segments) });
     });
 
     // the switch token name is a reserved word in JS

@@ -6,19 +6,38 @@ import { kebabCase } from './helpers/kebab-case.js';
 import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { unwrapAlias } from './helpers/unwrap-alias.js';
-import { collectColorToken } from './helpers/manifest-collector.js';
+import { collectToken } from './helpers/manifest-collector.js';
 
 // Path where CSS files will be generated
 const BUILD_PATH = './css/';
 // Prefix used for all CSS custom properties
 const PREFIX = 'h';
 
-// Wraps a file filter so the colour tokens it keeps are also recorded for the tokens manifest
-const withManifest = filter => token => {
-  const keep = filter(token);
-  if (keep) collectColorToken(token, 'css', { variable: `--${token.name}` });
-  return keep;
-};
+// `lint:css` (stylelint --fix) drops trailing zeros from the written files: -0.60px => -0.6px
+const declaredValue = value =>
+  String(value).replace(
+    /^(-?\d+\.\d+)(px|rem)$/,
+    (_, number, unit) => `${parseFloat(number)}${unit}`
+  );
+
+/**
+ * The `css/variables` format, also recording each token it writes for the tokens manifest.
+ * `cssValue` is the value as declared, which can reference another variable: the manifest
+ * builder resolves those.
+ */
+StyleDictionary.registerFormat({
+  name: 'css/variables-manifest',
+  format: args => {
+    args.dictionary.allTokens.forEach(token =>
+      collectToken(token, 'css', {
+        variable: `--${token.name}`,
+        // colours are declared as references to other colour variables, there is no unit to report
+        ...(token.type !== 'color' && { cssValue: declaredValue(token.value) }),
+      })
+    );
+    return StyleDictionary.hooks.formats['css/variables'](args);
+  },
+});
 
 /**
  * Creates an index.css file that imports all generated CSS files.
@@ -216,42 +235,42 @@ export function generateCssTokens() {
           files: [
             {
               destination: 'color.css',
-              format: 'css/variables',
-              filter: withManifest(filters.isPrimitiveLightColor),
+              format: 'css/variables-manifest',
+              filter: filters.isPrimitiveLightColor,
             },
             {
               destination: 'space.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isPrimitiveSpace,
             },
             {
               destination: 'layout.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isLayoutSpacing,
             },
             {
               destination: 'shadow.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isShadow,
             },
             {
               destination: 'font.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isFont,
             },
             {
               destination: 'border.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isPrimitiveBorder,
             },
             {
               destination: 'semantic.css',
-              format: 'css/variables',
-              filter: withManifest(filters.isSemantic),
+              format: 'css/variables-manifest',
+              filter: filters.isSemantic,
             },
             {
               destination: 'components.css',
-              format: 'css/variables',
+              format: 'css/variables-manifest',
               filter: filters.isComponentToken,
             },
           ],

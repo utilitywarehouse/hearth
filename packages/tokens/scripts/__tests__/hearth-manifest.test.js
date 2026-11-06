@@ -12,16 +12,22 @@ const manifest = JSON.parse(fs.readFileSync(path.join(root, 'hearth-manifest.jso
 const browserTokens = await import('../../browser/index.js');
 const jsTokens = await import('../../js/index.js');
 
-const colorCss = ['css/color.css', 'css/semantic.css']
-  .map(file => fs.readFileSync(path.join(root, file), 'utf8'))
+const allCss = fs
+  .readdirSync(path.join(root, 'css'))
+  .filter(file => file.endsWith('.css') && file !== 'index.css')
+  .map(file => fs.readFileSync(path.join(root, 'css', file), 'utf8'))
   .join('\n');
-const declaredVariables = new Set([...colorCss.matchAll(/^\s*(--h-[\w-]+):/gm)].map(m => m[1]));
+const declarations = new Map(
+  [...allCss.matchAll(/^\s*(--h-[\w-]+):\s*(.+);$/gm)].map(m => [m[1], m[2]])
+);
+const declaredVariables = new Set(declarations.keys());
 
-// 'color.blue[200]' => ['color', 'blue', '200']
+// 'color.blue[200]' => ['color', 'blue', '200'], 'layout.spacing["2xl"]' => [..., '2xl']
 const resolve = (tokens, accessor) =>
   accessor
     .split(/[.[\]]+/)
     .filter(Boolean)
+    .map(key => key.replace(/^"|"$/g, ''))
     .reduce((node, key) => node?.[key], tokens);
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'));
@@ -35,16 +41,75 @@ describe('hearth-manifest.json', () => {
     expect(manifest.package).toEqual({ name: packageJson.name, version: packageJson.version });
   });
 
-  it('gives every colour a CSS and a browser surface', () => {
-    const missing = manifest.entries.filter(({ surfaces }) => !surfaces.css || !surfaces.browser);
+  it('gives every primitive and semantic colour a CSS and a browser surface', () => {
+    const missing = manifest.entries.filter(
+      ({ type, layer, surfaces }) =>
+        type === 'color' && layer !== 'component' && (!surfaces.css || !surfaces.browser)
+    );
 
     expect(missing.map(entry => entry.path)).toEqual([]);
+  });
+
+  it('covers every token group', () => {
+    const groups = new Set(manifest.entries.map(({ path }) => path.split('.')[0]));
+
+    expect([...groups]).toEqual(
+      expect.arrayContaining([
+        'color',
+        'space',
+        'border-radius',
+        'border-width',
+        'font',
+        'letter-spacing',
+        'line-height',
+        'semantic',
+        'component',
+      ])
+    );
+    const semantic = new Set(
+      manifest.entries
+        .filter(entry => entry.layer === 'semantic')
+        .map(({ path }) => path.split('.')[1])
+    );
+    expect([...semantic]).toEqual(
+      expect.arrayContaining(['layout', 'shadow', 'typography', 'opacity'])
+    );
+  });
+
+  it('gives each device variant of a path its own CSS variable and JS path', () => {
+    const variants = Map.groupBy(
+      manifest.entries.filter(entry => entry.device),
+      entry => entry.path
+    );
+    const clashes = [...variants]
+      .filter(([, entries]) => {
+        const variables = entries.map(entry => entry.surfaces.css?.variable).filter(Boolean);
+        const jsPaths = entries.map(entry => entry.surfaces.js.path);
+        return new Set(variables).size < variables.length || new Set(jsPaths).size < jsPaths.length;
+      })
+      .map(([entryPath]) => entryPath);
+
+    expect(clashes).toEqual([]);
+  });
+
+  it('reports the value the CSS declares, following references to the variable that holds it', () => {
+    const literal = variable => {
+      let value = declarations.get(variable);
+      while (/^var\(/.test(value)) value = declarations.get(value.slice(4, -1));
+      return value;
+    };
+    const wrong = manifest.entries.filter(
+      ({ type, surfaces }) =>
+        surfaces.css && type !== 'color' && surfaces.css.value !== literal(surfaces.css.variable)
+    );
+
+    expect(wrong.map(entry => entry.path)).toEqual([]);
   });
 
   it('only names CSS variables that the generated CSS declares', () => {
     const missing = manifest.entries
       .map(entry => entry.surfaces.css?.variable)
-      .filter(variable => !declaredVariables.has(variable));
+      .filter(variable => variable && !declaredVariables.has(variable));
 
     expect(missing).toEqual([]);
   });
@@ -52,7 +117,9 @@ describe('hearth-manifest.json', () => {
   it('points each browser accessor at that entry’s CSS variable', () => {
     const wrong = manifest.entries.filter(
       ({ surfaces }) =>
-        resolve(browserTokens, surfaces.browser?.path) !== `var(${surfaces.css?.variable})`
+        surfaces.css &&
+        surfaces.browser &&
+        resolve(browserTokens, surfaces.browser.path) !== `var(${surfaces.css.variable})`
     );
 
     expect(wrong.map(entry => entry.path)).toEqual([]);
@@ -68,12 +135,9 @@ describe('hearth-manifest.json', () => {
     expect(wrong.map(entry => entry.path)).toEqual([]);
   });
 
-  it('covers every generated colour variable', () => {
+  it('covers every generated CSS variable', () => {
     const covered = new Set(manifest.entries.map(entry => entry.surfaces.css?.variable));
-    // non-colour semantic tokens (opacity) are not in the manifest yet
-    const uncovered = [...declaredVariables].filter(
-      variable => !variable.startsWith('--h-opacity') && !covered.has(variable)
-    );
+    const uncovered = [...declaredVariables].filter(variable => !covered.has(variable));
 
     expect(uncovered).toEqual([]);
   });

@@ -55,16 +55,29 @@ Every manifest has a header and a list of entries:
 | ------------- | ---------------------------------------------------------------------------------------------------- |
 | `path`        | Unique name of the token within the manifest. Semantic tokens are prefixed `semantic.`.              |
 | `layer`       | `primitive` (raw palette), `semantic` (purpose-based, the one to prefer) or `component`.             |
-| `type`        | The kind of value, for example `color`.                                                              |
+| `type`        | The kind of value, for example `color` or `number`.                                                  |
+| `device`      | `mobile`, `tablet` or `desktop`, for a token whose value depends on the device. See below.           |
 | `values`      | The resolved `default` value, plus `dark` where the token has one.                                   |
 | `alias`       | The token this one points at, where it points at another.                                            |
 | `surfaces`    | How to use the token from each place it is available. See below.                                     |
 
 Tokens are available through up to three surfaces, and the import paths differ between them:
 
-- `css`: the CSS custom property, for example `--h-background-brand`.
+- `css`: the CSS custom property, for example `--h-background-brand`, and `value`, what the stylesheet declares for it (`8px`, `0.5`). `values` holds the JS value (`8`, `50`), so use `css.value` when reporting a web value. Colours have no `value`: they are declared as references to other colour variables.
 - `browser`: a JavaScript accessor that returns `var(--h-…)`, so it needs the CSS to be loaded.
 - `js`: the raw values, used by React Native. This is the only surface with dark mode, which is why `darkPath` lives here.
+
+### Device-dependent tokens
+
+A token whose value differs by device has one entry per device, all with the same `path` and each with its own `device`, value, alias and surfaces (`--h-md-x-mobile`, `shadow.mobile.md.x`). Tokens that do not change by device (font weights, body and detail text) have a single entry with no `device`.
+
+### Composite tokens
+
+Shadows and typography styles are not single entries. Each part is its own entry (`semantic.shadow.md.x`, `semantic.typography.heading.lg.font-size`), so `values` is always a string or a number. Group the entries by path prefix to rebuild the style.
+
+### Tokens without a CSS or browser surface
+
+Some tokens exist only on the JS surface (React Native only components, layout grids, font families). Their entries have no `css` or `browser`. A token that shares its path with a group of tokens (a menu's `item.padding` and its per-device `item.padding.mobile`) is overwritten by the group in the browser export, so it has a `css` surface and no `browser` one.
 
 ## Usage
 
@@ -90,7 +103,7 @@ The package also exports:
 
 `validateManifest` also enforces:
 
-- Entry `path`s are unique within a manifest.
+- An entry is unique by `path` and `device`: the same path can appear once per device.
 - A `values.dark` requires `surfaces.js.darkPath`, and `darkPath` requires a dark value, since dark mode exists on the JS surface only.
 
 ## Changing the schema
