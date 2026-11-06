@@ -41,6 +41,8 @@ npm run setup    # corepack enable + pnpm install
 
 Run `pnpm checks`. Other commands are in the `package.json` scripts.
 
+- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node, where `tsc` crashes. Check `node -v` before reporting a typecheck or test result.
+
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
 
 ---
