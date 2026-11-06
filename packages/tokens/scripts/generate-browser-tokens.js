@@ -8,8 +8,26 @@ import { logWarningLevels } from 'style-dictionary/enums';
 import fs from 'fs';
 import path from 'path';
 
+import { collectColorToken, toAccessor } from './helpers/manifest-collector.js';
+
 const BUILD_PATH = './src/browser/';
 const PREFIX = 'h';
+
+/**
+ * Turns a normalized token path into the keys of its object in the generated browser file.
+ */
+function browserTokenSegments(normalizedPath, tokensName) {
+  return normalizedPath.flatMap((curr, i) => {
+    // ignore the first element of the path if it is the same as the group name
+    // we want to avoid stuttered objects
+    // ie. space.space.100
+    if (i === 0 && curr === tokensName) return [];
+    // the last element of the path points to the CSS variable
+    if (i === normalizedPath.length - 1) return [camelCase(curr)];
+    // again to avoid stuttering (specifically for border properties, ie. border.borderRadius)
+    return [camelCase(curr.replace(`${tokensName}-`, ''))];
+  });
+}
 
 /**
  * Creates an index.js file that imports all generated JS files for browser tokens.
@@ -58,21 +76,17 @@ StyleDictionary.registerFormat({
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token
       // ie. color.blue.200
-      normalizedPath.reduce((acc, curr, i) => {
-        // ignore the first element of the path if it is the same as the group name
-        // we want to avoid stuttered objects
-        // ie. space.space.100
-        if (i === 0 && curr === tokensName) {
-          return acc;
-        }
+      const segments = browserTokenSegments(normalizedPath, tokensName);
+      segments.reduce((acc, segment, i) => {
         // the last element of the path should point to the CSS variable
-        if (i === normalizedPath.length - 1) {
-          return (acc[camelCase(curr)] = cssCustomProperty);
+        if (i === segments.length - 1) {
+          return (acc[segment] = cssCustomProperty);
         }
-        // again to avoid stuttering (specifically for border properties, ie. border.borderRadius)
-        const el = camelCase(curr.replace(`${tokensName}-`, ''));
-        return (acc[el] = {});
+        return (acc[segment] = {});
       }, tokenObject);
+      collectColorToken(token, 'browser', {
+        accessor: toAccessor(camelCase(tokensName), segments),
+      });
       // deep merge the token into the tokens object
       merge(tokens, tokenObject);
     });

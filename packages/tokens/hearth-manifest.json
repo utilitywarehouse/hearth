@@ -1,0 +1,5134 @@
+{
+  "schemaVersion": 1,
+  "package": {
+    "name": "@utilitywarehouse/hearth-tokens",
+    "version": "0.4.8"
+  },
+  "type": "tokens",
+  "entries": [
+    {
+      "path": "color.blue.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#bcddff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-blue-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.blue[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.blue[200]"
+        }
+      }
+    },
+    {
+      "path": "color.blue.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#6bb0ff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-blue-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.blue[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.blue[400]"
+        }
+      }
+    },
+    {
+      "path": "color.blue.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#2786f1"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-blue-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.blue[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.blue[600]"
+        }
+      }
+    },
+    {
+      "path": "color.blue.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#1c6cd4"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-blue-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.blue[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.blue[700]"
+        }
+      }
+    },
+    {
+      "path": "color.blue.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#0b3375"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-blue-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.blue[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.blue[900]"
+        }
+      }
+    },
+    {
+      "path": "color.broadband-green.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#d2e6b0"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-broadband-green-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.broadbandGreen[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.broadbandGreen[200]"
+        }
+      }
+    },
+    {
+      "path": "color.broadband-green.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#8cba3b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-broadband-green-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.broadbandGreen[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.broadbandGreen[300]"
+        }
+      }
+    },
+    {
+      "path": "color.broadband-green.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#506c21"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-broadband-green-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.broadbandGreen[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.broadbandGreen[800]"
+        }
+      }
+    },
+    {
+      "path": "color.broadband-green.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#4f6b20"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-broadband-green-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.broadbandGreen[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.broadbandGreen[900]"
+        }
+      }
+    },
+    {
+      "path": "color.cashback-lilac.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#dfbdf5"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-cashback-lilac-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.cashbackLilac[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.cashbackLilac[300]"
+        }
+      }
+    },
+    {
+      "path": "color.cashback-lilac.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ce9cf0"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-cashback-lilac-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.cashbackLilac[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.cashbackLilac[400]"
+        }
+      }
+    },
+    {
+      "path": "color.cashback-lilac.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#be7aeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-cashback-lilac-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.cashbackLilac[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.cashbackLilac[500]"
+        }
+      }
+    },
+    {
+      "path": "color.cashback-lilac.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#8b2bc9"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-cashback-lilac-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.cashbackLilac[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.cashbackLilac[700]"
+        }
+      }
+    },
+    {
+      "path": "color.cashback-lilac.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#7429b5"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-cashback-lilac-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.cashbackLilac[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.cashbackLilac[900]"
+        }
+      }
+    },
+    {
+      "path": "color.energy-blue.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#bddee4"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-energy-blue-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.energyBlue[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.energyBlue[200]"
+        }
+      }
+    },
+    {
+      "path": "color.energy-blue.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#6db5c3"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-energy-blue-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.energyBlue[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.energyBlue[300]"
+        }
+      }
+    },
+    {
+      "path": "color.energy-blue.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#326e7a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-energy-blue-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.energyBlue[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.energyBlue[700]"
+        }
+      }
+    },
+    {
+      "path": "color.energy-blue.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#2c6370"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-energy-blue-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.energyBlue[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.energyBlue[900]"
+        }
+      }
+    },
+    {
+      "path": "color.green.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#c5edda"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[100]"
+        }
+      }
+    },
+    {
+      "path": "color.green.1000",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#002e18"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-1000"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[1000]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[1000]"
+        }
+      }
+    },
+    {
+      "path": "color.green.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#a2e2c3"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[200]"
+        }
+      }
+    },
+    {
+      "path": "color.green.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[400]"
+        }
+      }
+    },
+    {
+      "path": "color.green.50",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#e7f9f0"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-50"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[50]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[50]"
+        }
+      }
+    },
+    {
+      "path": "color.green.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#36bf7d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[500]"
+        }
+      }
+    },
+    {
+      "path": "color.green.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#19a660"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[600]"
+        }
+      }
+    },
+    {
+      "path": "color.green.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#0f834a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[700]"
+        }
+      }
+    },
+    {
+      "path": "color.green.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#04663a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[800]"
+        }
+      }
+    },
+    {
+      "path": "color.green.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#074b2a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[900]"
+        }
+      }
+    },
+    {
+      "path": "color.green.950",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#033d21"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-green-950"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.green[950]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.green[950]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.0",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffffff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-0"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[0]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[0]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[100]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.1000",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-1000"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[1000]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[1000]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#d3d3d3"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[200]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#b2afae"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[300]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#919191"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[400]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.50",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f7f7f7"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-50"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[50]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[50]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#888888"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[500]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#5b5b5b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[600]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#4c4c4c"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[700]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#3f3f3f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[800]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#3a3837"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[900]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.925",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#2f2d2d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-925"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[925]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[925]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.950",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#232323"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-950"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[950]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[950]"
+        }
+      }
+    },
+    {
+      "path": "color.grey.975",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#191919"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-grey-975"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.grey[975]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.grey[975]"
+        }
+      }
+    },
+    {
+      "path": "color.insurance-orange.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffb46d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-insurance-orange-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.insuranceOrange[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.insuranceOrange[300]"
+        }
+      }
+    },
+    {
+      "path": "color.insurance-orange.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ff7b00"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-insurance-orange-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.insuranceOrange[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.insuranceOrange[400]"
+        }
+      }
+    },
+    {
+      "path": "color.insurance-orange.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#9b4c0e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-insurance-orange-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.insuranceOrange[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.insuranceOrange[800]"
+        }
+      }
+    },
+    {
+      "path": "color.insurance-orange.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#7f4518"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-insurance-orange-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.insuranceOrange[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.insuranceOrange[900]"
+        }
+      }
+    },
+    {
+      "path": "color.mobile-rose.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#fad0e9"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-mobile-rose-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.mobileRose[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.mobileRose[200]"
+        }
+      }
+    },
+    {
+      "path": "color.mobile-rose.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f49fd2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-mobile-rose-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.mobileRose[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.mobileRose[300]"
+        }
+      }
+    },
+    {
+      "path": "color.mobile-rose.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ee6dbb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-mobile-rose-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.mobileRose[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.mobileRose[400]"
+        }
+      }
+    },
+    {
+      "path": "color.mobile-rose.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#a7266d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-mobile-rose-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.mobileRose[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.mobileRose[800]"
+        }
+      }
+    },
+    {
+      "path": "color.mobile-rose.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#8a3260"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-mobile-rose-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.mobileRose[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.mobileRose[900]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffcca8"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[200]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ff9639"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[400]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ff8010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[500]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f56e00"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[600]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#cf5d00"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[700]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.750",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#be5400"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-750"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[750]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[750]"
+        }
+      }
+    },
+    {
+      "path": "color.orange.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#893900"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-orange-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.orange[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.orange[900]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.0",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#faf5fa"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-0"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[0]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[0]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f9eafa"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[100]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f9ceff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[200]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f295ff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[300]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ed66ff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[400]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#8f358f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[800]"
+        }
+      }
+    },
+    {
+      "path": "color.piggy-pink.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#7a1f7e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-piggy-pink-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.piggyPink[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.piggyPink[900]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ddd5eb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[100]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.1000",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#26164f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-1000"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[1000]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[1000]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#c6b5e2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[200]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#af90de"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[300]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#996cda"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[400]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[700]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#5c2ca9"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[800]"
+        }
+      }
+    },
+    {
+      "path": "color.purple.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#442484"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-purple-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.purple[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.purple[900]"
+        }
+      }
+    },
+    {
+      "path": "color.red.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffe3df"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[100]"
+        }
+      }
+    },
+    {
+      "path": "color.red.1000",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#3b1512"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-1000"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[1000]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[1000]"
+        }
+      }
+    },
+    {
+      "path": "color.red.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffa89d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[300]"
+        }
+      }
+    },
+    {
+      "path": "color.red.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ff7964"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[400]"
+        }
+      }
+    },
+    {
+      "path": "color.red.50",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#fff3f1"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-50"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[50]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[50]"
+        }
+      }
+    },
+    {
+      "path": "color.red.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ff634a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[500]"
+        }
+      }
+    },
+    {
+      "path": "color.red.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f4412a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[600]"
+        }
+      }
+    },
+    {
+      "path": "color.red.700",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#de2612"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-700"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[700]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[700]"
+        }
+      }
+    },
+    {
+      "path": "color.red.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#a4281e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[800]"
+        }
+      }
+    },
+    {
+      "path": "color.red.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#6b1f1a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[900]"
+        }
+      }
+    },
+    {
+      "path": "color.red.950",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#521a16"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-red-950"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.red[950]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.red[950]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.100",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f7f6eb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-100"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[100]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[100]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.1000",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-1000"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[1000]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[1000]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#f1efe4"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[200]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#d4d2c0"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[300]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.50",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-50"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[50]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[50]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.800",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#4c473d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-800"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[800]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[800]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#30302c"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[900]"
+        }
+      }
+    },
+    {
+      "path": "color.warm-white.950",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#282825"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-warm-white-950"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.warmWhite[950]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.warmWhite[950]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.200",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffd885"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-200"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[200]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[200]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.300",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffc852"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-300"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[300]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[300]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.400",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#ffb921"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-400"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[400]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[400]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.500",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#eba400"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-500"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[500]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[500]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.600",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#d1950b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-600"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[600]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[600]"
+        }
+      }
+    },
+    {
+      "path": "color.yellow.900",
+      "layer": "primitive",
+      "type": "color",
+      "values": {
+        "default": "#82692b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-color-yellow-900"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "color.yellow[900]"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "color.yellow[900]"
+        }
+      }
+    },
+    {
+      "path": "semantic.background.brand",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8",
+        "dark": "#442484"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-background-brand"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.background.brand"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.background.brand",
+          "darkPath": "semanticDark.background.brand"
+        }
+      },
+      "alias": {
+        "default": "color.purple.700",
+        "dark": "color.purple.900"
+      }
+    },
+    {
+      "path": "semantic.background.loading",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f1efe4",
+        "dark": "#30302c"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-background-loading"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.background.loading"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.background.loading",
+          "darkPath": "semanticDark.background.loading"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.200",
+        "dark": "color.warm-white.900"
+      }
+    },
+    {
+      "path": "semantic.background.primary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-background-primary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.background.primary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.background.primary",
+          "darkPath": "semanticDark.background.primary"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.1000"
+      }
+    },
+    {
+      "path": "semantic.background.secondary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffffff",
+        "dark": "#2f2d2d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-background-secondary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.background.secondary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.background.secondary",
+          "darkPath": "semanticDark.background.secondary"
+        }
+      },
+      "alias": {
+        "default": "color.grey.0",
+        "dark": "color.grey.925"
+      }
+    },
+    {
+      "path": "semantic.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#888888"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.border.strong",
+          "darkPath": "semanticDark.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.500"
+      }
+    },
+    {
+      "path": "semantic.border.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#d4d2c0",
+        "dark": "#5b5b5b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-border-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.border.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.border.subtle",
+          "darkPath": "semanticDark.border.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.300",
+        "dark": "color.grey.600"
+      }
+    },
+    {
+      "path": "semantic.feedback.danger.border",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#de2612",
+        "dark": "#f4412a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-danger-border"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.danger.border"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.danger.border",
+          "darkPath": "semanticDark.feedback.danger.border"
+        }
+      },
+      "alias": {
+        "default": "color.red.700",
+        "dark": "color.red.600"
+      }
+    },
+    {
+      "path": "semantic.feedback.danger.foreground.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ffffff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-danger-foreground-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.danger.foreground.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.danger.foreground.default",
+          "darkPath": "semanticDark.feedback.danger.foreground.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.0"
+      }
+    },
+    {
+      "path": "semantic.feedback.danger.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#de2612",
+        "dark": "#ff7964"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-danger-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.danger.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.danger.foreground.subtle",
+          "darkPath": "semanticDark.feedback.danger.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.red.700",
+        "dark": "color.red.400"
+      }
+    },
+    {
+      "path": "semantic.feedback.danger.surface.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ff634a",
+        "dark": "#de2612"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-danger-surface-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.danger.surface.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.danger.surface.default",
+          "darkPath": "semanticDark.feedback.danger.surface.default"
+        }
+      },
+      "alias": {
+        "default": "color.red.500",
+        "dark": "color.red.700"
+      }
+    },
+    {
+      "path": "semantic.feedback.danger.surface.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffa89d",
+        "dark": "#6b1f1a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-danger-surface-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.danger.surface.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.danger.surface.subtle",
+          "darkPath": "semanticDark.feedback.danger.surface.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.red.300",
+        "dark": "color.red.900"
+      }
+    },
+    {
+      "path": "semantic.feedback.functional.border",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#5b5b5b",
+        "dark": "#b2afae"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-functional-border"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.functional.border"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.functional.border",
+          "darkPath": "semanticDark.feedback.functional.border"
+        }
+      },
+      "alias": {
+        "default": "color.grey.600",
+        "dark": "color.grey.300"
+      }
+    },
+    {
+      "path": "semantic.feedback.functional.foreground.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-functional-foreground-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.functional.foreground.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.functional.foreground.default",
+          "darkPath": "semanticDark.feedback.functional.foreground.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.1000"
+      }
+    },
+    {
+      "path": "semantic.feedback.functional.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#5b5b5b",
+        "dark": "#b2afae"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-functional-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.functional.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.functional.foreground.subtle",
+          "darkPath": "semanticDark.feedback.functional.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.600",
+        "dark": "color.grey.300"
+      }
+    },
+    {
+      "path": "semantic.feedback.functional.surface.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#919191",
+        "dark": "#919191"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-functional-surface-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.functional.surface.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.functional.surface.default",
+          "darkPath": "semanticDark.feedback.functional.surface.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.400",
+        "dark": "color.grey.400"
+      }
+    },
+    {
+      "path": "semantic.feedback.functional.surface.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#d3d3d3",
+        "dark": "#d3d3d3"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-functional-surface-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.functional.surface.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.functional.surface.subtle",
+          "darkPath": "semanticDark.feedback.functional.surface.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.200",
+        "dark": "color.grey.200"
+      }
+    },
+    {
+      "path": "semantic.feedback.info.border",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#1c6cd4",
+        "dark": "#2786f1"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-info-border"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.info.border"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.info.border",
+          "darkPath": "semanticDark.feedback.info.border"
+        }
+      },
+      "alias": {
+        "default": "color.blue.700",
+        "dark": "color.blue.600"
+      }
+    },
+    {
+      "path": "semantic.feedback.info.foreground.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ffffff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-info-foreground-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.info.foreground.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.info.foreground.default",
+          "darkPath": "semanticDark.feedback.info.foreground.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.0"
+      }
+    },
+    {
+      "path": "semantic.feedback.info.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#1c6cd4",
+        "dark": "#6bb0ff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-info-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.info.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.info.foreground.subtle",
+          "darkPath": "semanticDark.feedback.info.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.blue.700",
+        "dark": "color.blue.400"
+      }
+    },
+    {
+      "path": "semantic.feedback.info.surface.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#6bb0ff",
+        "dark": "#1c6cd4"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-info-surface-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.info.surface.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.info.surface.default",
+          "darkPath": "semanticDark.feedback.info.surface.default"
+        }
+      },
+      "alias": {
+        "default": "color.blue.400",
+        "dark": "color.blue.700"
+      }
+    },
+    {
+      "path": "semantic.feedback.info.surface.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#bcddff",
+        "dark": "#0b3375"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-info-surface-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.info.surface.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.info.surface.subtle",
+          "darkPath": "semanticDark.feedback.info.surface.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.blue.200",
+        "dark": "color.blue.900"
+      }
+    },
+    {
+      "path": "semantic.feedback.positive.border",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#0f834a",
+        "dark": "#19a660"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-positive-border"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.positive.border"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.positive.border",
+          "darkPath": "semanticDark.feedback.positive.border"
+        }
+      },
+      "alias": {
+        "default": "color.green.700",
+        "dark": "color.green.600"
+      }
+    },
+    {
+      "path": "semantic.feedback.positive.foreground.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ffffff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-positive-foreground-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.positive.foreground.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.positive.foreground.default",
+          "darkPath": "semanticDark.feedback.positive.foreground.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.0"
+      }
+    },
+    {
+      "path": "semantic.feedback.positive.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#0f834a",
+        "dark": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-positive-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.positive.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.positive.foreground.subtle",
+          "darkPath": "semanticDark.feedback.positive.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.green.700",
+        "dark": "color.green.400"
+      }
+    },
+    {
+      "path": "semantic.feedback.positive.surface.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#36bf7d",
+        "dark": "#0f834a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-positive-surface-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.positive.surface.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.positive.surface.default",
+          "darkPath": "semanticDark.feedback.positive.surface.default"
+        }
+      },
+      "alias": {
+        "default": "color.green.500",
+        "dark": "color.green.700"
+      }
+    },
+    {
+      "path": "semantic.feedback.positive.surface.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#a2e2c3",
+        "dark": "#074b2a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-positive-surface-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.positive.surface.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.positive.surface.subtle",
+          "darkPath": "semanticDark.feedback.positive.surface.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.green.200",
+        "dark": "color.green.900"
+      }
+    },
+    {
+      "path": "semantic.feedback.warning.border",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#be5400",
+        "dark": "#f56e00"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-warning-border"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.warning.border"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.warning.border",
+          "darkPath": "semanticDark.feedback.warning.border"
+        }
+      },
+      "alias": {
+        "default": "color.orange.750",
+        "dark": "color.orange.600"
+      }
+    },
+    {
+      "path": "semantic.feedback.warning.foreground.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ffffff"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-warning-foreground-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.warning.foreground.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.warning.foreground.default",
+          "darkPath": "semanticDark.feedback.warning.foreground.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.0"
+      }
+    },
+    {
+      "path": "semantic.feedback.warning.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#be5400",
+        "dark": "#ff9639"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-warning-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.warning.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.warning.foreground.subtle",
+          "darkPath": "semanticDark.feedback.warning.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.orange.750",
+        "dark": "color.orange.400"
+      }
+    },
+    {
+      "path": "semantic.feedback.warning.surface.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ff8010",
+        "dark": "#cf5d00"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-warning-surface-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.warning.surface.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.warning.surface.default",
+          "darkPath": "semanticDark.feedback.warning.surface.default"
+        }
+      },
+      "alias": {
+        "default": "color.orange.500",
+        "dark": "color.orange.700"
+      }
+    },
+    {
+      "path": "semantic.feedback.warning.surface.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffcca8",
+        "dark": "#893900"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-feedback-warning-surface-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.feedback.warning.surface.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.feedback.warning.surface.subtle",
+          "darkPath": "semanticDark.feedback.warning.surface.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.orange.200",
+        "dark": "color.orange.900"
+      }
+    },
+    {
+      "path": "semantic.focus.inverted",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#fcfbf2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-focus-inverted"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.focus.inverted"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.focus.inverted",
+          "darkPath": "semanticDark.focus.inverted"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.50"
+      }
+    },
+    {
+      "path": "semantic.focus.primary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-focus-primary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.focus.primary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.focus.primary",
+          "darkPath": "semanticDark.focus.primary"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.icon.inverted",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#fcfbf2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-icon-inverted"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.icon.inverted"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.icon.inverted",
+          "darkPath": "semanticDark.icon.inverted"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.50"
+      }
+    },
+    {
+      "path": "semantic.icon.primary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-icon-primary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.icon.primary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.icon.primary",
+          "darkPath": "semanticDark.icon.primary"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.border.strong",
+          "darkPath": "semanticDark.interactive.affirmative.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.border.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#04663a",
+        "dark": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-border-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.border.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.border.subtle",
+          "darkPath": "semanticDark.interactive.affirmative.border.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.green.800",
+        "dark": "color.green.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.foreground.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-foreground-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.foreground.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.foreground.strong",
+          "darkPath": "semanticDark.interactive.affirmative.foreground.strong"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#04663a",
+        "dark": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.foreground.subtle",
+          "darkPath": "semanticDark.interactive.affirmative.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.green.800",
+        "dark": "color.green.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.surface.strong.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#074b2a",
+        "dark": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-surface-strong-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.surface.strong.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.surface.strong.active",
+          "darkPath": "semanticDark.interactive.affirmative.surface.strong.active"
+        }
+      },
+      "alias": {
+        "default": "color.green.900",
+        "dark": "color.green.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.surface.strong.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#0f834a",
+        "dark": "#19a660"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-surface-strong-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.surface.strong.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.surface.strong.default",
+          "darkPath": "semanticDark.interactive.affirmative.surface.strong.default"
+        }
+      },
+      "alias": {
+        "default": "color.green.700",
+        "dark": "color.green.600"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.surface.strong.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#04663a",
+        "dark": "#36bf7d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-surface-strong-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.surface.strong.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.surface.strong.hover",
+          "darkPath": "semanticDark.interactive.affirmative.surface.strong.hover"
+        }
+      },
+      "alias": {
+        "default": "color.green.800",
+        "dark": "color.green.500"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.surface.subtle.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#c5edda",
+        "dark": "#033d21"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-surface-subtle-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.surface.subtle.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.surface.subtle.active",
+          "darkPath": "semanticDark.interactive.affirmative.surface.subtle.active"
+        }
+      },
+      "alias": {
+        "default": "color.green.100",
+        "dark": "color.green.950"
+      }
+    },
+    {
+      "path": "semantic.interactive.affirmative.surface.subtle.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#e7f9f0",
+        "dark": "#002e18"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-affirmative-surface-subtle-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.affirmative.surface.subtle.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.affirmative.surface.subtle.hover",
+          "darkPath": "semanticDark.interactive.affirmative.surface.subtle.hover"
+        }
+      },
+      "alias": {
+        "default": "color.green.50",
+        "dark": "color.green.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.brand.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-brand-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.brand.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.brand.border.strong",
+          "darkPath": "semanticDark.interactive.brand.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.brand.foreground.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-brand-foreground-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.brand.foreground.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.brand.foreground.strong",
+          "darkPath": "semanticDark.interactive.brand.foreground.strong"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.brand.surface.strong.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#442484",
+        "dark": "#ddd5eb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-brand-surface-strong-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.brand.surface.strong.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.brand.surface.strong.active",
+          "darkPath": "semanticDark.interactive.brand.surface.strong.active"
+        }
+      },
+      "alias": {
+        "default": "color.purple.900",
+        "dark": "color.purple.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.brand.surface.strong.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8",
+        "dark": "#af90de"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-brand-surface-strong-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.brand.surface.strong.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.brand.surface.strong.default",
+          "darkPath": "semanticDark.interactive.brand.surface.strong.default"
+        }
+      },
+      "alias": {
+        "default": "color.purple.700",
+        "dark": "color.purple.300"
+      }
+    },
+    {
+      "path": "semantic.interactive.brand.surface.strong.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#5c2ca9",
+        "dark": "#c6b5e2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-brand-surface-strong-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.brand.surface.strong.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.brand.surface.strong.hover",
+          "darkPath": "semanticDark.interactive.brand.surface.strong.hover"
+        }
+      },
+      "alias": {
+        "default": "color.purple.800",
+        "dark": "color.purple.200"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.border.strong",
+          "darkPath": "semanticDark.interactive.destructive.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.border.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#a4281e",
+        "dark": "#ff7964"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-border-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.border.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.border.subtle",
+          "darkPath": "semanticDark.interactive.destructive.border.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.red.800",
+        "dark": "color.red.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.foreground.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-foreground-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.foreground.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.foreground.strong",
+          "darkPath": "semanticDark.interactive.destructive.foreground.strong"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#a4281e",
+        "dark": "#ff7964"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.foreground.subtle",
+          "darkPath": "semanticDark.interactive.destructive.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.red.800",
+        "dark": "color.red.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.surface.strong.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#6b1f1a",
+        "dark": "#ff7964"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-surface-strong-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.surface.strong.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.surface.strong.active",
+          "darkPath": "semanticDark.interactive.destructive.surface.strong.active"
+        }
+      },
+      "alias": {
+        "default": "color.red.900",
+        "dark": "color.red.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.surface.strong.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#de2612",
+        "dark": "#f4412a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-surface-strong-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.surface.strong.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.surface.strong.default",
+          "darkPath": "semanticDark.interactive.destructive.surface.strong.default"
+        }
+      },
+      "alias": {
+        "default": "color.red.700",
+        "dark": "color.red.600"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.surface.strong.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#a4281e",
+        "dark": "#ff634a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-surface-strong-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.surface.strong.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.surface.strong.hover",
+          "darkPath": "semanticDark.interactive.destructive.surface.strong.hover"
+        }
+      },
+      "alias": {
+        "default": "color.red.800",
+        "dark": "color.red.500"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.surface.subtle.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffe3df",
+        "dark": "#521a16"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-surface-subtle-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.surface.subtle.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.surface.subtle.active",
+          "darkPath": "semanticDark.interactive.destructive.surface.subtle.active"
+        }
+      },
+      "alias": {
+        "default": "color.red.100",
+        "dark": "color.red.950"
+      }
+    },
+    {
+      "path": "semantic.interactive.destructive.surface.subtle.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fff3f1",
+        "dark": "#3b1512"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-destructive-surface-subtle-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.destructive.surface.subtle.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.destructive.surface.subtle.hover",
+          "darkPath": "semanticDark.interactive.destructive.surface.subtle.hover"
+        }
+      },
+      "alias": {
+        "default": "color.red.50",
+        "dark": "color.red.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.border.inverted",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f7f7f7",
+        "dark": "#f7f7f7"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-border-inverted"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.border.inverted"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.border.inverted",
+          "darkPath": "semanticDark.interactive.functional.border.inverted"
+        }
+      },
+      "alias": {
+        "default": "color.grey.50",
+        "dark": "color.grey.50"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.border.strong",
+          "darkPath": "semanticDark.interactive.functional.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.border.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-border-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.border.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.border.subtle",
+          "darkPath": "semanticDark.interactive.functional.border.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.foreground.inverted",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f7f7f7",
+        "dark": "#f7f7f7"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-foreground-inverted"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.foreground.inverted"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.foreground.inverted",
+          "darkPath": "semanticDark.interactive.functional.foreground.inverted"
+        }
+      },
+      "alias": {
+        "default": "color.grey.50",
+        "dark": "color.grey.50"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.foreground.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#fcfbf2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-foreground-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.foreground.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.foreground.strong",
+          "darkPath": "semanticDark.interactive.functional.foreground.strong"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.50"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.foreground.subtle",
+          "darkPath": "semanticDark.interactive.functional.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.strong.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#4c4c4c",
+        "dark": "#d3d3d3"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-strong-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.strong.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.strong.active",
+          "darkPath": "semanticDark.interactive.functional.surface.strong.active"
+        }
+      },
+      "alias": {
+        "default": "color.grey.700",
+        "dark": "color.grey.200"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.strong.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#888888",
+        "dark": "#919191"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-strong-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.strong.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.strong.default",
+          "darkPath": "semanticDark.interactive.functional.surface.strong.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.500",
+        "dark": "color.grey.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.strong.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#5b5b5b",
+        "dark": "#b2afae"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-strong-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.strong.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.strong.hover",
+          "darkPath": "semanticDark.interactive.functional.surface.strong.hover"
+        }
+      },
+      "alias": {
+        "default": "color.grey.600",
+        "dark": "color.grey.300"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.subtle.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#d3d3d3",
+        "dark": "#4c4c4c"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-subtle-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.subtle.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.subtle.active",
+          "darkPath": "semanticDark.interactive.functional.surface.subtle.active"
+        }
+      },
+      "alias": {
+        "default": "color.grey.200",
+        "dark": "color.grey.700"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.subtle.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ebebeb",
+        "dark": "#3a3837"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-subtle-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.subtle.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.subtle.hover",
+          "darkPath": "semanticDark.interactive.functional.surface.subtle.hover"
+        }
+      },
+      "alias": {
+        "default": "color.grey.100",
+        "dark": "color.grey.900"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.subtle.inverted.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#3a3837",
+        "dark": "#3a3837"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-subtle-inverted-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.subtle.inverted.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.subtle.inverted.active",
+          "darkPath": "semanticDark.interactive.functional.surface.subtle.inverted.active"
+        }
+      },
+      "alias": {
+        "default": "color.grey.900",
+        "dark": "color.grey.900"
+      }
+    },
+    {
+      "path": "semantic.interactive.functional.surface.subtle.inverted.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#3f3f3f",
+        "dark": "#3f3f3f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-functional-surface-subtle-inverted-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.functional.surface.subtle.inverted.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.functional.surface.subtle.inverted.hover",
+          "darkPath": "semanticDark.interactive.functional.surface.subtle.inverted.hover"
+        }
+      },
+      "alias": {
+        "default": "color.grey.800",
+        "dark": "color.grey.800"
+      }
+    },
+    {
+      "path": "semantic.interactive.highlight.border.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-highlight-border-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.highlight.border.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.highlight.border.strong",
+          "darkPath": "semanticDark.interactive.highlight.border.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.highlight.foreground.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#101010"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-highlight-foreground-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.highlight.foreground.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.highlight.foreground.strong",
+          "darkPath": "semanticDark.interactive.highlight.foreground.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.1000"
+      }
+    },
+    {
+      "path": "semantic.interactive.highlight.surface.strong.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#d1950b",
+        "dark": "#ffd885"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-highlight-surface-strong-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.highlight.surface.strong.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.highlight.surface.strong.active",
+          "darkPath": "semanticDark.interactive.highlight.surface.strong.active"
+        }
+      },
+      "alias": {
+        "default": "color.yellow.600",
+        "dark": "color.yellow.200"
+      }
+    },
+    {
+      "path": "semantic.interactive.highlight.surface.strong.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffb921",
+        "dark": "#ffb921"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-highlight-surface-strong-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.highlight.surface.strong.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.highlight.surface.strong.default",
+          "darkPath": "semanticDark.interactive.highlight.surface.strong.default"
+        }
+      },
+      "alias": {
+        "default": "color.yellow.400",
+        "dark": "color.yellow.400"
+      }
+    },
+    {
+      "path": "semantic.interactive.highlight.surface.strong.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#eba400",
+        "dark": "#ffc852"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-highlight-surface-strong-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.highlight.surface.strong.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.highlight.surface.strong.hover",
+          "darkPath": "semanticDark.interactive.highlight.surface.strong.hover"
+        }
+      },
+      "alias": {
+        "default": "color.yellow.500",
+        "dark": "color.yellow.300"
+      }
+    },
+    {
+      "path": "semantic.interactive.neutral.border.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-neutral-border-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.neutral.border.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.neutral.border.subtle",
+          "darkPath": "semanticDark.interactive.neutral.border.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.neutral.foreground.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-neutral-foreground-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.neutral.foreground.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.neutral.foreground.subtle",
+          "darkPath": "semanticDark.interactive.neutral.foreground.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.interactive.neutral.surface.subtle.active",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f1efe4",
+        "dark": "#30302c"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-neutral-surface-subtle-active"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.neutral.surface.subtle.active"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.neutral.surface.subtle.active",
+          "darkPath": "semanticDark.interactive.neutral.surface.subtle.active"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.200",
+        "dark": "color.warm-white.900"
+      }
+    },
+    {
+      "path": "semantic.interactive.neutral.surface.subtle.hover",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f7f6eb",
+        "dark": "#282825"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-interactive-neutral-surface-subtle-hover"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.interactive.neutral.surface.subtle.hover"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.interactive.neutral.surface.subtle.hover",
+          "darkPath": "semanticDark.interactive.neutral.surface.subtle.hover"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.100",
+        "dark": "color.warm-white.950"
+      }
+    },
+    {
+      "path": "semantic.shadow.brand",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8",
+        "dark": "#442484"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-brand"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.brand"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.brand",
+          "darkPath": "semanticDark.shadow.brand"
+        }
+      },
+      "alias": {
+        "default": "color.purple.700",
+        "dark": "color.purple.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.broadband",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#8cba3b",
+        "dark": "#4f6b20"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-broadband"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.broadband"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.broadband",
+          "darkPath": "semanticDark.shadow.broadband"
+        }
+      },
+      "alias": {
+        "default": "color.broadband-green.300",
+        "dark": "color.broadband-green.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.cashback",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#be7aeb",
+        "dark": "#7429b5"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-cashback"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.cashback"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.cashback",
+          "darkPath": "semanticDark.shadow.cashback"
+        }
+      },
+      "alias": {
+        "default": "color.cashback-lilac.500",
+        "dark": "color.cashback-lilac.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#3f3f3f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.default",
+          "darkPath": "semanticDark.shadow.default"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.800"
+      }
+    },
+    {
+      "path": "semantic.shadow.energy",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#6db5c3",
+        "dark": "#2c6370"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-energy"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.energy"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.energy",
+          "darkPath": "semanticDark.shadow.energy"
+        }
+      },
+      "alias": {
+        "default": "color.energy-blue.300",
+        "dark": "color.energy-blue.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.insurance",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ff7b00",
+        "dark": "#7f4518"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-insurance"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.insurance"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.insurance",
+          "darkPath": "semanticDark.shadow.insurance"
+        }
+      },
+      "alias": {
+        "default": "color.insurance-orange.400",
+        "dark": "color.insurance-orange.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.mobile",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ee6dbb",
+        "dark": "#8a3260"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-mobile"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.mobile"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.mobile",
+          "darkPath": "semanticDark.shadow.mobile"
+        }
+      },
+      "alias": {
+        "default": "color.mobile-rose.400",
+        "dark": "color.mobile-rose.900"
+      }
+    },
+    {
+      "path": "semantic.shadow.pig",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f295ff",
+        "dark": "#7a1f7e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-shadow-pig"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "shadow.pig"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.shadow.pig",
+          "darkPath": "semanticDark.shadow.pig"
+        }
+      },
+      "alias": {
+        "default": "color.piggy-pink.300",
+        "dark": "color.piggy-pink.900"
+      }
+    },
+    {
+      "path": "semantic.surface.brand.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8",
+        "dark": "#af90de"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-brand-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.brand.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.brand.default",
+          "darkPath": "semanticDark.surface.brand.default"
+        }
+      },
+      "alias": {
+        "default": "color.purple.700",
+        "dark": "color.purple.300"
+      }
+    },
+    {
+      "path": "semantic.surface.brand.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#26164f",
+        "dark": "#26164f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-brand-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.brand.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.brand.strong",
+          "darkPath": "semanticDark.surface.brand.strong"
+        }
+      },
+      "alias": {
+        "default": "color.purple.1000",
+        "dark": "color.purple.1000"
+      }
+    },
+    {
+      "path": "semantic.surface.brand.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#af90de",
+        "dark": "#442484"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-brand-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.brand.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.brand.subtle",
+          "darkPath": "semanticDark.surface.brand.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.purple.300",
+        "dark": "color.purple.900"
+      }
+    },
+    {
+      "path": "semantic.surface.broadband.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#8cba3b",
+        "dark": "#506c21"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-broadband-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.broadband.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.broadband.default",
+          "darkPath": "semanticDark.surface.broadband.default"
+        }
+      },
+      "alias": {
+        "default": "color.broadband-green.300",
+        "dark": "color.broadband-green.800"
+      }
+    },
+    {
+      "path": "semantic.surface.broadband.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#d2e6b0",
+        "dark": "#4f6b20"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-broadband-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.broadband.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.broadband.subtle",
+          "darkPath": "semanticDark.surface.broadband.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.broadband-green.200",
+        "dark": "color.broadband-green.900"
+      }
+    },
+    {
+      "path": "semantic.surface.cashback.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#be7aeb",
+        "dark": "#8b2bc9"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-cashback-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.cashback.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.cashback.default",
+          "darkPath": "semanticDark.surface.cashback.default"
+        }
+      },
+      "alias": {
+        "default": "color.cashback-lilac.500",
+        "dark": "color.cashback-lilac.700"
+      }
+    },
+    {
+      "path": "semantic.surface.cashback.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#dfbdf5",
+        "dark": "#7429b5"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-cashback-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.cashback.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.cashback.subtle",
+          "darkPath": "semanticDark.surface.cashback.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.cashback-lilac.300",
+        "dark": "color.cashback-lilac.900"
+      }
+    },
+    {
+      "path": "semantic.surface.energy.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#6db5c3",
+        "dark": "#326e7a"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-energy-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.energy.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.energy.default",
+          "darkPath": "semanticDark.surface.energy.default"
+        }
+      },
+      "alias": {
+        "default": "color.energy-blue.300",
+        "dark": "color.energy-blue.700"
+      }
+    },
+    {
+      "path": "semantic.surface.energy.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#bddee4",
+        "dark": "#2c6370"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-energy-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.energy.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.energy.subtle",
+          "darkPath": "semanticDark.surface.energy.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.energy-blue.200",
+        "dark": "color.energy-blue.900"
+      }
+    },
+    {
+      "path": "semantic.surface.highlight.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffb921",
+        "dark": "#ffb921"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-highlight-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.highlight.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.highlight.default",
+          "darkPath": "semanticDark.surface.highlight.default"
+        }
+      },
+      "alias": {
+        "default": "color.yellow.400",
+        "dark": "color.yellow.400"
+      }
+    },
+    {
+      "path": "semantic.surface.highlight.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffd885",
+        "dark": "#82692b"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-highlight-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.highlight.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.highlight.subtle",
+          "darkPath": "semanticDark.surface.highlight.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.yellow.200",
+        "dark": "color.yellow.900"
+      }
+    },
+    {
+      "path": "semantic.surface.insurance.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ff7b00",
+        "dark": "#9b4c0e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-insurance-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.insurance.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.insurance.default",
+          "darkPath": "semanticDark.surface.insurance.default"
+        }
+      },
+      "alias": {
+        "default": "color.insurance-orange.400",
+        "dark": "color.insurance-orange.800"
+      }
+    },
+    {
+      "path": "semantic.surface.insurance.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffb46d",
+        "dark": "#7f4518"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-insurance-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.insurance.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.insurance.subtle",
+          "darkPath": "semanticDark.surface.insurance.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.insurance-orange.300",
+        "dark": "color.insurance-orange.900"
+      }
+    },
+    {
+      "path": "semantic.surface.mobile.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ee6dbb",
+        "dark": "#a7266d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-mobile-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.mobile.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.mobile.default",
+          "darkPath": "semanticDark.surface.mobile.default"
+        }
+      },
+      "alias": {
+        "default": "color.mobile-rose.400",
+        "dark": "color.mobile-rose.800"
+      }
+    },
+    {
+      "path": "semantic.surface.mobile.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fad0e9",
+        "dark": "#8a3260"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-mobile-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.mobile.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.mobile.subtle",
+          "darkPath": "semanticDark.surface.mobile.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.mobile-rose.200",
+        "dark": "color.mobile-rose.900"
+      }
+    },
+    {
+      "path": "semantic.surface.neutral.strong",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#ffffff",
+        "dark": "#2f2d2d"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-neutral-strong"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.neutral.strong"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.neutral.strong",
+          "darkPath": "semanticDark.surface.neutral.strong"
+        }
+      },
+      "alias": {
+        "default": "color.grey.0",
+        "dark": "color.grey.925"
+      }
+    },
+    {
+      "path": "semantic.surface.neutral.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#191917"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-neutral-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.neutral.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.neutral.subtle",
+          "darkPath": "semanticDark.surface.neutral.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.1000"
+      }
+    },
+    {
+      "path": "semantic.surface.pig.default",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f295ff",
+        "dark": "#8f358f"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-pig-default"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.pig.default"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.pig.default",
+          "darkPath": "semanticDark.surface.pig.default"
+        }
+      },
+      "alias": {
+        "default": "color.piggy-pink.300",
+        "dark": "color.piggy-pink.800"
+      }
+    },
+    {
+      "path": "semantic.surface.pig.subtle",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#f9ceff",
+        "dark": "#7a1f7e"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-surface-pig-subtle"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.surface.pig.subtle"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.surface.pig.subtle",
+          "darkPath": "semanticDark.surface.pig.subtle"
+        }
+      },
+      "alias": {
+        "default": "color.piggy-pink.200",
+        "dark": "color.piggy-pink.900"
+      }
+    },
+    {
+      "path": "semantic.text.affirmative",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#0f834a",
+        "dark": "#58ca93"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-text-affirmative"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.text.affirmative"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.text.affirmative",
+          "darkPath": "semanticDark.text.affirmative"
+        }
+      },
+      "alias": {
+        "default": "color.green.700",
+        "dark": "color.green.400"
+      }
+    },
+    {
+      "path": "semantic.text.brand",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#7a42c8",
+        "dark": "#af90de"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-text-brand"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.text.brand"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.text.brand",
+          "darkPath": "semanticDark.text.brand"
+        }
+      },
+      "alias": {
+        "default": "color.purple.700",
+        "dark": "color.purple.300"
+      }
+    },
+    {
+      "path": "semantic.text.inverted",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#fcfbf2",
+        "dark": "#fcfbf2"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-text-inverted"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.text.inverted"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.text.inverted",
+          "darkPath": "semanticDark.text.inverted"
+        }
+      },
+      "alias": {
+        "default": "color.warm-white.50",
+        "dark": "color.warm-white.50"
+      }
+    },
+    {
+      "path": "semantic.text.primary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#101010",
+        "dark": "#ebebeb"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-text-primary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.text.primary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.text.primary",
+          "darkPath": "semanticDark.text.primary"
+        }
+      },
+      "alias": {
+        "default": "color.grey.1000",
+        "dark": "color.grey.100"
+      }
+    },
+    {
+      "path": "semantic.text.secondary",
+      "layer": "semantic",
+      "type": "color",
+      "values": {
+        "default": "#5b5b5b",
+        "dark": "#b2afae"
+      },
+      "surfaces": {
+        "css": {
+          "variable": "--h-text-secondary"
+        },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.text.secondary"
+        },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.text.secondary",
+          "darkPath": "semanticDark.text.secondary"
+        }
+      },
+      "alias": {
+        "default": "color.grey.600",
+        "dark": "color.grey.300"
+      }
+    }
+  ]
+}
