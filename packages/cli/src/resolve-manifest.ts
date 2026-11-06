@@ -20,7 +20,16 @@ export const resolveManifest = (packageName: string, fromDir: string): ResolveRe
     }
     throw error;
   }
-  const raw: unknown = JSON.parse(readFileSync(path, 'utf8'));
+  let raw: unknown;
+  try {
+    raw = JSON.parse(readFileSync(path, 'utf8'));
+  } catch (error) {
+    return {
+      status: 'invalid',
+      packageName,
+      errors: [`could not read hearth-manifest.json as JSON: ${(error as Error).message}`],
+    };
+  }
   const found = (raw as { schemaVersion?: unknown } | null)?.schemaVersion;
   if (typeof found === 'number' && found > SCHEMA_VERSION) {
     return { status: 'unsupported-schema', packageName, found, supported: SCHEMA_VERSION };

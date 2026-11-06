@@ -108,7 +108,14 @@ export const run = (argv: Array<string>, io: Io): number => {
         limit: { type: 'string' },
       },
     });
-    const [command, subcommand, query] = positionals;
+    const [command, subcommand, query, extra] = positionals;
+    if (
+      command === 'tokens' &&
+      (subcommand === 'search' || subcommand === 'get') &&
+      extra !== undefined
+    ) {
+      throw new UsageError(`Unexpected argument "${extra}"`);
+    }
     if (command === 'tokens' && subcommand === 'search' && query !== undefined) {
       return searchCommand(query, values, io);
     }
