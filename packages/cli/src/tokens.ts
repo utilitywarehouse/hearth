@@ -73,12 +73,12 @@ const editDistance = (a: string, b: string): number => {
   for (let i = 1; i <= a.length; i++) {
     const current = [i];
     for (let j = 1; j <= b.length; j++) {
-      const substitution = previous[j - 1]! + (a[i - 1] === b[j - 1] ? 0 : 1);
-      current[j] = Math.min(previous[j]! + 1, current[j - 1]! + 1, substitution);
+      const substitution = previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1);
+      current[j] = Math.min(previous[j] + 1, current[j - 1] + 1, substitution);
     }
     previous = current;
   }
-  return previous[b.length]!;
+  return previous[b.length];
 };
 
 /** The token at an exact path, in the given platform view (web by default). */
