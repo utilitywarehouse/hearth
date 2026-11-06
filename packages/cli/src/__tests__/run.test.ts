@@ -212,4 +212,27 @@ describe('run', () => {
     expect(code).toBe(2);
     expect(err).toContain('--limit must be a non-negative whole number');
   });
+
+  it('exits 3, not with a stack trace, when the installed manifest is not valid JSON', () => {
+    const consumer = createConsumer();
+    installPackage(consumer, TOKENS_PACKAGE, '{"schemaVersion": 1,');
+
+    const { code, err } = cli(['tokens', 'search', 'brand'], consumer);
+
+    expect(code).toBe(3);
+    expect(err).toContain('hearth-manifest.json in @utilitywarehouse/hearth-tokens is invalid');
+  });
+
+  it('exits 2 for arguments beyond the ones a command takes', () => {
+    const consumer = consumerWithTokens();
+
+    const get = cli(['tokens', 'get', 'semantic.background.brand', 'extra'], consumer);
+    const search = cli(['tokens', 'search', 'background', 'brand'], consumer);
+
+    expect(get.code).toBe(2);
+    expect(get.out).toBe('');
+    expect(get.err).toContain('Unexpected argument "extra"');
+    expect(search.code).toBe(2);
+    expect(search.err).toContain('Unexpected argument "brand"');
+  });
 });

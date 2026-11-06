@@ -87,5 +87,9 @@ export const installPackage = (
     join(packageDir, 'package.json'),
     JSON.stringify({ name: packageName, version, exports: { './*': './*' } })
   );
-  writeFileSync(join(packageDir, 'hearth-manifest.json'), JSON.stringify(manifest));
+  // a string is written as is, so tests can install a file that is not valid JSON
+  writeFileSync(
+    join(packageDir, 'hearth-manifest.json'),
+    typeof manifest === 'string' ? manifest : JSON.stringify(manifest)
+  );
 };

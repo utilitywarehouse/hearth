@@ -54,4 +54,17 @@ describe('resolveManifest', () => {
       supported: 1,
     });
   });
+
+  it('reports a manifest that is not valid JSON as invalid, instead of throwing', () => {
+    const consumer = createConsumer();
+    installPackage(consumer, TOKENS_PACKAGE, '{"schemaVersion": 1,');
+
+    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+
+    expect(result).toMatchObject({
+      status: 'invalid',
+      packageName: TOKENS_PACKAGE,
+      errors: [expect.stringContaining('JSON')],
+    });
+  });
 });
