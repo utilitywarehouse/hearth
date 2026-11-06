@@ -1,6 +1,7 @@
 ---
 name: hearth-react-review
-description: "Use when: reviewing or auditing UI code that already uses `@utilitywarehouse/hearth-react` — e.g. reviewing a pull request, checking a screen or component against Hearth's API and design-token rules before merge, or auditing existing code for hallucinated props, accessibility gaps, or token misuse. Scoped to `packages/react` consumers only — there is no react-native equivalent yet. Covers consumer usage only — for auditing the Hearth libraries themselves, see `react-audit` (library completeness) or `oversight-lint` (library docgen completeness)."
+description: "Use when reviewing or auditing UI code that uses `@utilitywarehouse/hearth-react` (PR, screen, component): hallucinated props, token misuse, accessibility gaps, layout anti-patterns. Consumer apps only; web only."
+disable-model-invocation: true
 argument-hint: "File(s) or PR to review"
 ---
 
@@ -17,10 +18,7 @@ and layout anti-patterns.
 This reviews **consumer usage** of Hearth React — a PR, a screen, a
 component, or a diff in an app that imports `@utilitywarehouse/hearth-react`.
 There is no react-native equivalent yet. It does not audit the Hearth
-libraries themselves:
-
-- Library completeness (missing stories/docs/Figma Code Connect files) → `react-audit`
-- Library docgen completeness, so the MCP server has good data to serve → `oversight-lint`/`storybook-addon-oversight`
+libraries themselves (story/docs/Code Connect completeness).
 
 ## Step 1: Load `hearth-react`
 
