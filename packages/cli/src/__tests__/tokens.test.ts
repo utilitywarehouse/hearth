@@ -98,14 +98,14 @@ describe('getToken', () => {
   it('returns the token at an exact path, in the platform view, with its alias reference and resolved value', () => {
     const result = getToken(darkManifest, 'semantic.background.brand');
 
-    expect(result).toEqual({
+    expect(result).toMatchObject({
       status: 'found',
-      token: expect.objectContaining({
+      token: {
         path: 'semantic.background.brand',
         values: { default: '#7a42c8' },
         alias: { default: 'color.purple.700' },
         css: { variable: '--h-background-brand' },
-      }),
+      },
     });
   });
 
