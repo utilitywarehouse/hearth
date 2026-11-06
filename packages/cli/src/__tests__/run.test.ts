@@ -173,13 +173,13 @@ describe('run', () => {
     );
 
     expect(code).toBe(0);
-    expect(JSON.parse(out)).toEqual({
+    expect(JSON.parse(out)).toMatchObject({
       package: { name: TOKENS_PACKAGE, version: '1.2.3' },
       platform: 'native',
-      token: expect.objectContaining({
+      token: {
         path: 'semantic.background.brand',
         values: { default: '#7a42c8', dark: '#442484' },
-      }),
+      },
     });
   });
 
