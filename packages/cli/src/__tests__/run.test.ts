@@ -4,12 +4,48 @@ import {
   TOKENS_PACKAGE,
   createConsumer,
   installPackage,
+  tokenEntry,
   tokensManifest,
 } from './consumer-fixture.js';
 
 const consumerWithTokens = () => {
   const consumer = createConsumer();
   installPackage(consumer, TOKENS_PACKAGE, tokensManifest());
+  return consumer;
+};
+
+const spacingAt = (device: 'mobile' | 'tablet' | 'desktop', value: number) =>
+  tokenEntry({
+    layer: 'semantic',
+    path: 'semantic.layout.spacing.md',
+    type: 'number',
+    device,
+    values: { default: value },
+    cssValue: `${value}px`,
+    alias: { default: 'space.100' },
+  });
+
+const consumerWithMixedTokens = () => {
+  const consumer = createConsumer();
+  installPackage(
+    consumer,
+    TOKENS_PACKAGE,
+    tokensManifest({
+      entries: [
+        tokenEntry({ layer: 'semantic', path: 'semantic.background.brand' }),
+        tokenEntry({
+          layer: 'semantic',
+          path: 'semantic.opacity.disabled',
+          type: 'number',
+          values: { default: 50 },
+          cssValue: '0.5',
+        }),
+        spacingAt('mobile', 8),
+        spacingAt('tablet', 12),
+        spacingAt('desktop', 16),
+      ],
+    })
+  );
   return consumer;
 };
 
@@ -144,7 +180,7 @@ describe('run', () => {
     expect(err).not.toContain('is not installed');
   });
 
-  it.each(['--layer primitive', '--limit 5'])(
+  it.each(['--layer primitive', '--limit 5', '--type number'])(
     'exits 2 when tokens get is given the search-only option %s',
     options => {
       const { code, out, err } = cli(
@@ -202,12 +238,10 @@ describe('run', () => {
     expect(JSON.parse(out)).toMatchObject({
       package: { name: TOKENS_PACKAGE, version: '1.2.3' },
       platform: 'native',
-      tokens: [
-        {
-          path: 'semantic.background.brand',
-          values: { default: '#7a42c8', dark: '#442484' },
-        },
-      ],
+      token: {
+        path: 'semantic.background.brand',
+        values: { default: '#7a42c8', dark: '#442484' },
+      },
     });
   });
 
@@ -262,5 +296,119 @@ describe('run', () => {
     expect(get.err).toContain('Unexpected argument "extra"');
     expect(search.code).toBe(2);
     expect(search.err).toContain('Unexpected argument "brand"');
+  });
+
+  describe('tokens list', () => {
+    it('lists the semantic tokens with the version of the installed tokens package', () => {
+      const { code, out } = cli(['tokens', 'list'], consumerWithMixedTokens());
+
+      expect(code).toBe(0);
+      expect(out).toContain('@utilitywarehouse/hearth-tokens 1.2.3');
+      expect(out).toContain('semantic.background.brand');
+      expect(out).toContain('semantic.opacity.disabled');
+    });
+
+    it('keeps only the tokens of the type given by --type', () => {
+      const { code, out } = cli(['tokens', 'list', '--type', 'number'], consumerWithMixedTokens());
+
+      expect(code).toBe(0);
+      expect(out).toContain('semantic.opacity.disabled');
+      expect(out).not.toContain('semantic.background.brand');
+    });
+
+    it('shows the CSS value on web and the JS value on native', () => {
+      const consumer = consumerWithMixedTokens();
+
+      const web = cli(['tokens', 'list', '--type', 'number'], consumer);
+      const native = cli(['tokens', 'list', '--type', 'number', '--platform', 'native'], consumer);
+
+      expect(web.out).toContain('0.5');
+      expect(web.out).not.toMatch(/\b50\b/);
+      expect(native.out).toMatch(/\b50\b/);
+    });
+
+    it('puts a path’s device values and alias on one block, in device order', () => {
+      const { out } = cli(['tokens', 'list', '--type', 'number'], consumerWithMixedTokens());
+
+      expect(out).toContain('mobile 8px, tablet 12px, desktop 16px');
+      expect(out).toContain('space.100');
+      expect(out.match(/^semantic\.layout\.spacing\.md /gm)).toHaveLength(1);
+    });
+
+    it('prints a JSON document naming the package version, filters and results for --json', () => {
+      const { code, out } = cli(
+        ['tokens', 'list', '--type', 'number', '--json'],
+        consumerWithMixedTokens()
+      );
+
+      expect(code).toBe(0);
+      expect(JSON.parse(out)).toEqual({
+        package: { name: TOKENS_PACKAGE, version: '1.2.3' },
+        platform: 'web',
+        layer: 'semantic',
+        type: 'number',
+        total: 2,
+        tokens: [
+          expect.objectContaining({
+            path: 'semantic.opacity.disabled',
+            values: { default: '0.5' },
+          }),
+          expect.objectContaining({ path: 'semantic.layout.spacing.md', device: 'mobile' }),
+          expect.objectContaining({ path: 'semantic.layout.spacing.md', device: 'tablet' }),
+          expect.objectContaining({ path: 'semantic.layout.spacing.md', device: 'desktop' }),
+        ],
+      });
+    });
+
+    it('exits 1 when nothing matches', () => {
+      const { code } = cli(['tokens', 'list', '--type', 'shadow'], consumerWithMixedTokens());
+
+      expect(code).toBe(1);
+    });
+
+    it('exits 2 for an argument it does not take, or a --limit that is not a whole number', () => {
+      const consumer = consumerWithMixedTokens();
+
+      const extra = cli(['tokens', 'list', 'brand'], consumer);
+      const limit = cli(['tokens', 'list', '--limit', 'many'], consumer);
+
+      expect(extra.code).toBe(2);
+      expect(extra.err).toContain('Unexpected argument "brand"');
+      expect(limit.code).toBe(2);
+    });
+
+    it('is described in the usage', () => {
+      const { out } = cli(['--help']);
+
+      expect(out).toContain('hearth tokens list');
+      expect(out).toContain('--type');
+    });
+  });
+
+  describe('tokens get for a group of tokens', () => {
+    it('shows every device of a path in one block', () => {
+      const { code, out } = cli(
+        ['tokens', 'get', 'semantic.layout.spacing.md'],
+        consumerWithMixedTokens()
+      );
+
+      expect(code).toBe(0);
+      expect(out).toContain('mobile 8px, tablet 12px, desktop 16px');
+    });
+
+    it('prints the package, platform, path and tokens as JSON', () => {
+      const { code, out } = cli(
+        ['tokens', 'get', 'semantic.layout', '--json'],
+        consumerWithMixedTokens()
+      );
+
+      expect(code).toBe(0);
+      expect(JSON.parse(out)).toMatchObject({
+        package: { name: TOKENS_PACKAGE, version: '1.2.3' },
+        platform: 'web',
+        path: 'semantic.layout',
+        tokens: [{ device: 'mobile' }, { device: 'tablet' }, { device: 'desktop' }],
+      });
+    });
   });
 });
