@@ -17381,6 +17381,188 @@
       }
     },
     {
+      "path": "motion.duration.100",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 130
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[100]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.1000",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 500
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[1000]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.200",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 160
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[200]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.300",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 190
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[300]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.400",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 220
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[400]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.500",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 250
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[500]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.600",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 300
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[600]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.700",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 350
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[700]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.800",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 400
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[800]"
+        }
+      }
+    },
+    {
+      "path": "motion.duration.900",
+      "layer": "primitive",
+      "type": "number",
+      "values": {
+        "default": 450
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.duration[900]"
+        }
+      }
+    },
+    {
+      "path": "motion.ease.in",
+      "layer": "primitive",
+      "type": "string",
+      "values": {
+        "default": "cubic-bezier(0.42, 0, 1, 1)"
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.ease.in"
+        }
+      }
+    },
+    {
+      "path": "motion.ease.in-out",
+      "layer": "primitive",
+      "type": "string",
+      "values": {
+        "default": "cubic-bezier(0, 0, 1, 1)"
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.ease.inOut"
+        }
+      }
+    },
+    {
+      "path": "motion.ease.out",
+      "layer": "primitive",
+      "type": "string",
+      "values": {
+        "default": "cubic-bezier(0.19, 0.91, 0.38, 1)"
+      },
+      "surfaces": {
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "motion.ease.out"
+        }
+      }
+    },
+    {
       "path": "semantic.background.brand",
       "layer": "semantic",
       "type": "color",

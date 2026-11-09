@@ -126,6 +126,24 @@ describe('getToken', () => {
     });
   });
 
+  it('reports the CSS value on web and the JS value on native', () => {
+    const opacity = manifestOf([
+      tokenEntry({
+        layer: 'semantic',
+        path: 'semantic.opacity.disabled',
+        values: { default: 50 as unknown as string },
+        cssValue: '0.5',
+      }),
+    ]);
+
+    expect(getToken(opacity, 'semantic.opacity.disabled')).toMatchObject({
+      tokens: [{ values: { default: '0.5' } }],
+    });
+    expect(getToken(opacity, 'semantic.opacity.disabled', { platform: 'native' })).toMatchObject({
+      tokens: [{ values: { default: 50 } }],
+    });
+  });
+
   it('reports an unknown path with the closest existing paths as suggestions', () => {
     const result = getToken(manifest, 'semantic.background.brnad');
 

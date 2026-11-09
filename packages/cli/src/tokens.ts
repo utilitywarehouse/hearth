@@ -37,7 +37,7 @@ const toView = (
         js: surfaces.js,
       }
     : {
-        values: { default: values.default },
+        values: { default: surfaces.css?.value ?? values.default },
         ...(alias ? { alias: { default: alias.default } } : {}),
         ...(surfaces.css ? { css: surfaces.css } : {}),
         ...(surfaces.browser ? { browser: surfaces.browser } : {}),

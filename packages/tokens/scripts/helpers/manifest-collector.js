@@ -19,7 +19,7 @@ export const toAccessor = (root, segments) =>
     return `${accessor}[${/^\d+$/.test(segment) ? segment : JSON.stringify(segment)}]`;
   }, root);
 
-// Primitive groups that are part of the manifest. Motion tokens are not emitted as CSS.
+// Primitive groups that are part of the manifest. Motion tokens are JS-only (no CSS or browser surface).
 const PRIMITIVE_GROUPS = [
   'color',
   'space',
@@ -28,6 +28,7 @@ const PRIMITIVE_GROUPS = [
   'font',
   'letter-spacing',
   'line-height',
+  'motion',
 ];
 // Device-dependent groups that are semantic tokens (the device file also holds component tokens).
 const DEVICE_SEMANTIC_GROUPS = ['layout', 'shadow', 'typography'];

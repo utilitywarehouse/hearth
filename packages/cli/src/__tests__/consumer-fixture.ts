@@ -39,10 +39,19 @@ type EntryOptions = {
   alias?: { default: string; dark?: string };
   description?: string;
   device?: 'mobile' | 'tablet' | 'desktop';
+  cssValue?: string;
 };
 
 /** A manifest entry whose surfaces are derived from its path, the way the tokens generator derives them. */
-export const tokenEntry = ({ layer, path, values, alias, description, device }: EntryOptions) => {
+export const tokenEntry = ({
+  layer,
+  path,
+  values,
+  alias,
+  description,
+  device,
+  cssValue,
+}: EntryOptions) => {
   const resolved = values ?? { default: '#000000' };
   const cssName = path.replace(/^semantic\./, '').replaceAll('.', '-');
   const jsPath = layer === 'semantic' ? path.replace(/^semantic\./, 'semanticLight.') : path;
@@ -55,7 +64,7 @@ export const tokenEntry = ({ layer, path, values, alias, description, device }: 
     values: resolved,
     ...(alias ? { alias } : {}),
     surfaces: {
-      css: { variable: `--h-${cssName}` },
+      css: { variable: `--h-${cssName}`, ...(cssValue ? { value: cssValue } : {}) },
       browser: { import: `${TOKENS_PACKAGE}/browser`, path },
       js: {
         import: TOKENS_PACKAGE,
