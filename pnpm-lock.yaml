@@ -564,6 +564,24 @@ importers:
         specifier: ^7.2.7
         version: 7.3.6(@types/node@22.19.21)(lightningcss@1.33.0)(terser@5.48.0)(tsx@4.22.4)(yaml@2.9.0)
 
+  packages/cli:
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.20.1
+      '@utilitywarehouse/hearth-manifest':
+        specifier: workspace:*
+        version: link:../manifest
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(postcss@8.5.25)(tsx@4.22.4)(typescript@7.0.2)(yaml@2.9.0)
+      vitest:
+        specifier: ^4.1.7
+        version: 4.1.8(@types/node@22.20.1)(@vitest/browser-playwright@4.1.8)(@vitest/coverage-v8@3.2.7)(jsdom@24.1.3)(vite@7.3.6(@types/node@22.20.1)(lightningcss@1.33.0)(terser@5.48.0)(tsx@4.22.4)(yaml@2.9.0))
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+
   packages/codemod:
     dependencies:
       jscodeshift:
@@ -627,6 +645,22 @@ importers:
       node-fetch:
         specifier: ^2.7.0
         version: 2.7.0
+
+  packages/manifest:
+    dependencies:
+      zod:
+        specifier: ^4.4.3
+        version: 4.4.3
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.20.1
+      tsup:
+        specifier: ^8.5.1
+        version: 8.5.1(postcss@8.5.25)(tsx@4.22.4)(typescript@7.0.2)(yaml@2.9.0)
+      vitest:
+        specifier: ^4.1.7
+        version: 4.1.8(@types/node@22.20.1)(@vitest/browser-playwright@4.1.8)(@vitest/coverage-v8@3.2.7)(jsdom@24.1.3)(vite@7.3.6(@types/node@22.20.1)(lightningcss@1.33.0)(terser@5.48.0)(tsx@4.22.4)(yaml@2.9.0))
 
   packages/react:
     dependencies:
@@ -1103,6 +1137,9 @@ importers:
       '@types/lodash.merge':
         specifier: ^4.6.9
         version: 4.6.9
+      '@utilitywarehouse/hearth-manifest':
+        specifier: workspace:*
+        version: link:../manifest
       cssnano:
         specifier: ^5.1.15
         version: 5.1.15(postcss@8.5.15)
@@ -1124,6 +1161,9 @@ importers:
       stylelint:
         specifier: ^16.10.0
         version: 16.26.1(typescript@7.0.2)
+      vitest:
+        specifier: ^4.1.7
+        version: 4.1.8(@types/node@22.20.1)(@vitest/browser-playwright@4.1.8)(@vitest/coverage-v8@3.2.7)(jsdom@24.1.3)(vite@7.3.6(@types/node@22.20.1)(lightningcss@1.33.0)(terser@5.48.0)(tsx@4.22.4)(yaml@2.9.0))
 
 packages:
 
@@ -8615,6 +8655,7 @@ packages:
   http-call@5.3.0:
     resolution: {integrity: sha512-ahwimsC23ICE4kPl9xTBjKB4inbRaeLyZeRunC/1Jy/Z6X8tv22MEAjK+KBOMSVLaqXPTTmd8638waVIKLGx2w==}
     engines: {node: '>=8.0.0'}
+    deprecated: Renamed to @heroku/http-call — please install @heroku/http-call instead.
 
   http-errors@2.0.1:
     resolution: {integrity: sha512-4FbRdAX+bSdmo4AUFuS0WNiPz8NgFt+r8ThgNWmlrjQjt1Q7ZR9+zTlce2859x4KSXrwIsaeTqDoKQmtP8pLmQ==}

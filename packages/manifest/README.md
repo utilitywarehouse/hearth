@@ -1,0 +1,110 @@
+# @utilitywarehouse/hearth-manifest
+
+The shared schema and validator for `hearth-manifest.json`, the file that Hearth packages ship so that tools can look up what they contain without parsing their source.
+
+This package is private and is not published to npm. It is used while generating and testing the manifests inside this monorepo.
+
+## Why it exists
+
+Agents and tools need to answer questions like "which colour token should I use for a brand background?" or "does an icon called `bill` exist?". Rather than scraping built files or keeping a separate hand-written reference, each indexed package describes itself in a `hearth-manifest.json` that ships in its npm tarball. The planned Hearth CLI (`@utilitywarehouse/hearth-cli`) will read those files from the consumer's installed `node_modules`, so it always reports what is actually installed.
+
+See [ADR 0001](../../docs/adr/0001-cli-first-agent-docs-for-non-component-packages.md) for the reasoning.
+
+This package owns the one definition of what a manifest looks like. Packages generate their manifest against it, and the CLI reads it back against it.
+
+## What a manifest looks like
+
+Every manifest has a header and a list of entries:
+
+```json
+{
+  "schemaVersion": 1,
+  "package": { "name": "@utilitywarehouse/hearth-tokens", "version": "1.2.3" },
+  "type": "tokens",
+  "entries": [
+    {
+      "path": "semantic.background.brand",
+      "layer": "semantic",
+      "type": "color",
+      "values": { "default": "#7a42c8", "dark": "#442484" },
+      "alias": { "default": "color.purple.700", "dark": "color.purple.900" },
+      "surfaces": {
+        "css": { "variable": "--h-background-brand" },
+        "browser": { "import": "@utilitywarehouse/hearth-tokens/browser", "path": "semantic.background.brand" },
+        "js": {
+          "import": "@utilitywarehouse/hearth-tokens",
+          "path": "semanticLight.background.brand",
+          "darkPath": "semanticDark.background.brand"
+        }
+      }
+    }
+  ]
+}
+```
+
+| Field           | Meaning                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------- |
+| `schemaVersion` | Version of this schema. Currently `1`. Readers can use it to reject manifests they can't read. |
+| `package`       | Name and version of the package that produced the manifest.                                   |
+| `type`          | What kind of manifest this is. Only `tokens` exists so far.                                   |
+| `entries`       | One entry per thing the package offers.                                                       |
+
+### Token entries
+
+| Field         | Meaning                                                                                              |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| `path`        | Unique name of the token within the manifest. Semantic tokens are prefixed `semantic.`.              |
+| `layer`       | `primitive` (raw palette), `semantic` (purpose-based, the one to prefer) or `component`.             |
+| `type`        | The kind of value, for example `color`.                                                              |
+| `values`      | The resolved `default` value, plus `dark` where the token has one.                                   |
+| `alias`       | The token this one points at, where it points at another.                                            |
+| `surfaces`    | How to use the token from each place it is available. See below.                                     |
+
+Tokens are available through up to three surfaces, and the import paths differ between them:
+
+- `css`: the CSS custom property, for example `--h-background-brand`.
+- `browser`: a JavaScript accessor that returns `var(--h-…)`, so it needs the CSS to be loaded.
+- `js`: the raw values, used by React Native. This is the only surface with dark mode, which is why `darkPath` lives here.
+
+## Usage
+
+```ts
+import { validateManifest } from '@utilitywarehouse/hearth-manifest';
+
+const result = validateManifest(JSON.parse(json));
+
+if (result.success) {
+  result.manifest.entries; // typed as Manifest['entries']
+} else {
+  result.errors; // ['entries.3.surfaces.js: Required', …]
+}
+```
+
+The package also exports:
+
+- `manifestSchema`: the [zod](https://zod.dev) schema, if you want to compose with it.
+- `manifestJsonSchema`: the same schema as JSON Schema, for tools that can't run zod. It can't express the cross-field rules below, so use `validateManifest` for the full check.
+- `SCHEMA_VERSION`, and the `Manifest`, `TokenEntry` and `ValidationResult` types.
+
+## Rules beyond the field types
+
+`validateManifest` also enforces:
+
+- Entry `path`s are unique within a manifest.
+- A `values.dark` requires `surfaces.js.darkPath`, and `darkPath` requires a dark value, since dark mode exists on the JS surface only.
+
+## Changing the schema
+
+Adding an optional field is safe. Anything that changes the meaning of an existing field, or makes a field required, needs a new `schemaVersion` so that older CLIs refuse it rather than misreading it.
+
+Adding a new manifest `type` (icons and assets are planned) means extending `manifestSchema` here, then generating the manifest in the owning package.
+
+## Development
+
+```sh
+pnpm --filter @utilitywarehouse/hearth-manifest build
+pnpm --filter @utilitywarehouse/hearth-manifest test
+pnpm --filter @utilitywarehouse/hearth-manifest typecheck
+```
+
+`@utilitywarehouse/hearth-tokens` depends on the built output, so `generate:tokens` builds this package first.
