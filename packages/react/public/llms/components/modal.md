@@ -291,7 +291,15 @@ The image is centre aligned. If a banner image needs a border or radius, wrap it
 in your own container, as shown below.
 
 ```tsx
-<Modal imageSize="lg" image={<img src={banner} alt="" />} heading="Hearth modal" />
+<Modal
+  heading="Hearth modal"
+  imageSize="lg"
+  image={
+    <Flex borderWidth="1" borderColor="strong" borderRadius="md" overflow="hidden" flexShrink="0">
+      <img src={piggies} alt="" />
+    </Flex>
+  }
+/>
 ```
 
 ```tsx
@@ -302,9 +310,9 @@ in your own container, as shown below.
   <Modal
     {...args}
     image={
-      <Flex borderWidth="1" borderColor="strong" borderRadius="md" overflow="hidden" flexShrink="0">
+      <BannerImage>
         <img src={piggies} alt="" />
-      </Flex>
+      </BannerImage>
     }
   >
     <ModalFooter>

@@ -18,7 +18,7 @@ import { ModalFooter } from './ModalFooter';
 import { ModalRoot } from './ModalRoot';
 import { ModalTrigger } from './ModalTrigger';
 import piggies from '../../../docs/assets/piggies.png';
-import { Flex } from '../Flex/Flex';
+import { BannerImage } from '../BannerImage/BannerImage';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components / Modal',
@@ -301,15 +301,9 @@ export const WithBannerImage: Story = {
         <Modal
           {...args}
           image={
-            <Flex
-              borderWidth="1"
-              borderColor="strong"
-              borderRadius="md"
-              overflow="hidden"
-              flexShrink="0"
-            >
+            <BannerImage>
               <img src={piggies} alt="" />
-            </Flex>
+            </BannerImage>
           }
         >
           <ModalFooter>
@@ -351,15 +345,9 @@ export const WithBannerImageOnMobile: Story = {
         <Modal
           {...args}
           image={
-            <Flex
-              borderWidth="1"
-              borderColor="strong"
-              borderRadius="md"
-              overflow="hidden"
-              flexShrink="0"
-            >
+            <BannerImage>
               <img src={piggies} alt="" />
-            </Flex>
+            </BannerImage>
           }
         >
           <ModalFooter>

@@ -18,7 +18,7 @@ import { Link } from '../Link/Link';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { Card } from './Card';
 import { CardBannerContent } from './CardBannerContent';
-import { CardBannerImage } from './CardBannerImage';
+import { BannerImage } from '../BannerImage/BannerImage';
 import { CardContent } from './CardContent';
 import { CardInteraction } from './CardInteraction';
 import piggies from '../../../docs/assets/piggies.png';
@@ -1053,7 +1053,7 @@ export const BannerWithIconContainer: Story = {
   ),
 };
 
-/** Pair CardBannerContent with a CardBannerImage to lead with a photographic image. */
+/** Pair CardBannerContent with a BannerImage to lead with a photographic image. */
 export const BannerWithImage: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -1063,18 +1063,18 @@ export const BannerWithImage: Story = {
   render: () => (
     <Flex gap="400">
       <Card spacing="md" maxWidth="420px">
-        <CardBannerImage width="160px" height="174px">
+        <BannerImage width="160px" height="174px">
           <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
-        </CardBannerImage>
+        </BannerImage>
         <CardBannerContent
           heading="Save a bundle"
           description="Homeowners who bundle two or more services with UW and activate the Cashback Card trial will receive up to £150 in credit."
         />
       </Card>
       <Card spacing="lg" direction="column" alignItems="start" maxWidth="300px">
-        <CardBannerImage height="160px">
+        <BannerImage height="160px">
           <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
-        </CardBannerImage>
+        </BannerImage>
         <CardBannerContent
           heading="Save a bundle"
           description="Our network of friendly, local Partners can help you find ways to save."

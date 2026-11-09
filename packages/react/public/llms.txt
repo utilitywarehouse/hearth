@@ -41,6 +41,7 @@
 - [Alert](llms/components/alert.md): Use Alert to display a short, important message that attracts the user's
 - [Avatar](llms/components/avatar.md): Use Avatar to help humanise the product experience by connecting users with
 - [Badge](llms/components/badge.md): Use Badge to convey status or highlight content with a small, read-only
+- [BannerImage](llms/components/banner-image.md): Wraps a photographic or banner image with a border, rounded corners and
 - [BodyText](llms/components/body-text.md): Use BodyText for the main paragraph or body copy of a page. It renders a
 - [Box](llms/components/box.md): Use Box as the generic, all-purpose layout primitive when no other layout
 - [Breadcrumbs](llms/components/breadcrumbs.md): Use Breadcrumbs to help users understand where they are within a site's

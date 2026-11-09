@@ -22,7 +22,7 @@ highlighting key marketing messaging, use HighlightBanner instead.
 - `CardContent` - Layout for card content.
 - `CardInteraction` - A wrapper for additional card interactions.
 - `CardBannerContent` - Layout for banner text content.
-- `CardBannerImage` - A wrapper for a banner image.
+- `BannerImage` - A wrapper for a banner image. `CardBannerImage` is deprecated in its favour.
 
 ## Alternatives
 
@@ -567,7 +567,7 @@ additional content in a `CardContent` component. If necessary, you can set the
 
 ## Banners
 
-Banners can be created using a `Card` along with the `CardBannerContent` & `CardBannerImage` helper components.
+Banners can be created using a `Card` along with the `CardBannerContent` & `BannerImage` helper components.
 
 ### Text only
 
@@ -676,18 +676,18 @@ Banners can be created using a `Card` along with the `CardBannerContent` & `Card
 ```tsx
 <Flex gap="400">
   <Card spacing="md" maxWidth="420px">
-    <CardBannerImage width="160px" height="174px">
+    <BannerImage width="160px" height="174px">
       <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
-    </CardBannerImage>
+    </BannerImage>
     <CardBannerContent
       heading="Save a bundle"
       description="Homeowners who bundle two or more services with UW and activate the Cashback Card trial will receive up to £150 in credit."
     />
   </Card>
   <Card spacing="lg" direction="column" alignItems="start" maxWidth="300px">
-    <CardBannerImage height="160px">
+    <BannerImage height="160px">
       <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
-    </CardBannerImage>
+    </BannerImage>
     <CardBannerContent
       heading="Save a bundle"
       description="Our network of friendly, local Partners can help you find ways to save."
