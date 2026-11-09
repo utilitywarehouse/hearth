@@ -46,11 +46,7 @@ export const Modal = forwardRef<ModalElement, ModalProps>((props, ref) => {
     loadingHeading,
     loadingDescription,
     children,
-    // Deprecated and ignored; destructured so it isn't forwarded to the DOM.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    fullScreen: _fullScreen,
     forceMount,
-    loadingText,
     ...modalProps
   } = extractProps(props, modalPropDefs);
   warn(forceMount !== undefined, 'Modal `forceMount` is deprecated. Use `keepMounted` instead.');

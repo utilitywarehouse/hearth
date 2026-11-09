@@ -20,12 +20,7 @@ function transformer(file: FileInfo, api: API): string {
   const j = api.jscodeshift;
   const root = j(file.source);
 
-  const localNames = getImportLocalNames(
-    j,
-    root,
-    CARD_ACCORDION_IMPORT_SOURCES,
-    'CardAccordion'
-  );
+  const localNames = getImportLocalNames(j, root, CARD_ACCORDION_IMPORT_SOURCES, 'CardAccordion');
 
   // `import * as H from '...'` — usages are written `<H.CardAccordion>`
   const namespaceNames = new Set(

@@ -48,10 +48,6 @@ export interface BaseModalProps
    */
   imageSize?: (typeof imageSizes)[number];
   /**
-   * @deprecated Please use loadingHeading and loadingDescription instead
-   */
-  loadingText?: string;
-  /**
    * The heading shown while `loading` is `true`.
    */
   loadingHeading?: string;
