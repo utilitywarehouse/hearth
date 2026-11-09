@@ -1,5 +1,44 @@
 # @utilitywarehouse/hearth-react
 
+## 0.36.2
+
+### Patch Changes
+
+- [#1818](https://github.com/utilitywarehouse/hearth/pull/1818) [`14b11a5`](https://github.com/utilitywarehouse/hearth/commit/14b11a57ca820ceac3914cc860271a81ced7446f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `BannerImage` component and deprecate `CardBannerImage`
+  
+  `BannerImage` wraps a banner image with a border and rounded corners. Use it in the `image` prop of `Modal` (with `imageSize="lg"`) or alongside `CardBannerContent` in a `Card`. `CardBannerImage` is deprecated and will be removed in v1.
+  
+  ```tsx
+  <BannerImage width="160px" height="174px">
+    <img src={banner} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
+  </BannerImage>
+  ```
+  
+  **Components affected**:
+  
+  - `BannerImage` (new)
+  - `CardBannerImage` (deprecated)
+  
+  **Developer changes**:
+  
+  Replace `CardBannerImage` with `BannerImage`. A codemod will follow before `CardBannerImage` is removed in v1.
+
+- [#1818](https://github.com/utilitywarehouse/hearth/pull/1818) [`14b11a5`](https://github.com/utilitywarehouse/hearth/commit/14b11a57ca820ceac3914cc860271a81ced7446f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `Modal` supports an `imageSize` prop
+  
+  Use `imageSize` to set the maximum size of the `image`. `md` (default) is for standard illustrations, `lg` is for larger banner images. The image is now also centre aligned.
+  
+  ```tsx
+  <Modal imageSize="lg" image={<img src={banner} alt="" />} heading="Want predictable monthly bills?" />
+  ```
+  
+  **Components affected**:
+  
+  - `Modal`
+  
+  **Developer changes**:
+  
+  No action required. `imageSize` defaults to `md`.
+
 ## 0.36.1
 
 ### Patch Changes

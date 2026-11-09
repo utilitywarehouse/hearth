@@ -1,5 +1,61 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.7
+
+### Patch Changes
+
+- [#1820](https://github.com/utilitywarehouse/hearth/pull/1820) [`39e8b1c`](https://github.com/utilitywarehouse/hearth/commit/39e8b1c63312ae4ac6217f0cdf31f21f2e59c495) Thanks [@robphoenix](https://github.com/robphoenix)! - ## NEW ASSETS
+  
+  - Placeholder
+  
+  ## CHANGED ASSETS
+  
+  - BeamingFaceGrey
+  - NeutralFaceGrey
+  - SlightlySmilingFaceGrey
+  - DissapointedFaceGrey
+  - FrowningFaceGrey
+  - SpotHelpLight
+  - SpotHelpDark
+  - SpotErrorLight
+  - SpotErrorDark
+  - SpotCelebratoryLight
+  - SpotCelebratoryDark
+  - SpotEvLight
+  - SpotEvDark
+  - SpotNoBroadbandLight
+  - SpotNoBroadbandDark
+  - SpotConfettiLight
+  - SpotConfettiDark
+  - SpotBundleCompleteLight
+  - SpotBundleCompleteDark
+  - SpotBundleIncompleteLight
+  - SpotBundleIncompleteDark
+  - SpotBoilerLight
+  - SpotBoilerDark
+  - SpotSwitchLight
+  - SpotSwitchDark
+  - SpotUnavailableLight
+  - SpotUnavailableDark
+  - SpotBroadbandLight
+  - SpotBroadbandDark
+  - SpotEarningsLight
+  - SpotEarningsDark
+  - SpotCalendarLight
+  - SpotCalendarDark
+  - SpotBookAppointmentLight
+  - SpotBookAppointmentDark
+  - SpotMotorInsuranceLight
+  - SpotMotorInsuranceDark
+  - MascotBroadbandLight
+  - MascotBroadbandDark
+  - TechnicalContentsLight
+  - TechnicalContentsDark
+  
+  ## REMOVED ASSETS
+  
+  No removed assets.
+
 ## 0.6.6
 
 ### Patch Changes
