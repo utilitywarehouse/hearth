@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.36.3
+
+### Patch Changes
+
+- [#1822](https://github.com/utilitywarehouse/hearth/pull/1822) [`d841ccb`](https://github.com/utilitywarehouse/hearth/commit/d841ccbc22ac04753bef8b74064485a9ae89d13a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `wrap` prop to `Badge`
+  
+  Set `wrap` to let long badge content wrap onto multiple lines, left-aligned. By default the content stays on a single line.
+  
+  **Developer changes**:
+  
+  No action is required. Add `wrap` to a `Badge` to opt in.
+
 ## 0.36.2
 
 ### Patch Changes

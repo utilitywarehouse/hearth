@@ -120,6 +120,37 @@ The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-l
 </Box>
 ```
 
+## Wrap
+
+By default badge content stays on a single line. Set `wrap` to let long content wrap onto multiple lines, left-aligned.
+
+```tsx
+<Box width="200px">
+  <Badge colorScheme="positive" variant="emphasis" wrap>
+    Get a free Multi SIM when you join with a broadband bundle
+  </Badge>
+</Box>
+```
+
+With an icon, the icon stays aligned with the first line of text.
+
+```tsx
+<Flex direction="column" gap="200" alignItems="start">
+  <Box width="120px">
+    <Badge colorScheme="positive" wrap>
+      <TickSmallIcon />
+      Earned this month
+    </Badge>
+  </Box>
+  <Box width="140px">
+    <Badge colorScheme="positive" size="sm" wrap>
+      <TickSmallIcon />
+      Earned this month
+    </Badge>
+  </Box>
+</Flex>
+```
+
 ## Icons
 
 You can enhance your badge's meaning by adding a small icon to the
@@ -152,3 +183,4 @@ This component is based on the `span` element and supports the following common 
 | `size`        | `Responsive<"sm" \| "md">`                                                                                                                                  | `md`     | Sets the badge size.                                                                |
 | `colorScheme` | `"mobile" \| "info" \| "positive" \| "danger" \| "warning" \| "functional" \| "energy" \| "broadband" \| "insurance" \| "cashback" \| "pig" \| "highlight"` | `info`   | Sets the colour scheme.                                                             |
 | `flatBase`    | `boolean`                                                                                                                                                   | `false`  | Removes the bottom radius, set when the Badge sits directly above another container |
+| `wrap`        | `boolean`                                                                                                                                                   | `false`  | Allows the content to wrap onto multiple lines, left-aligned                        |
