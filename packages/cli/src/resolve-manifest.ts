@@ -6,6 +6,7 @@ import { SCHEMA_VERSION, validateManifest, type Manifest } from '@utilitywarehou
 export type ResolveResult =
   | { status: 'ok'; manifest: Manifest; path: string }
   | { status: 'not-installed'; packageName: string }
+  | { status: 'no-manifest'; packageName: string }
   | { status: 'invalid'; packageName: string; errors: Array<string> }
   | { status: 'unsupported-schema'; packageName: string; found: number; supported: number };
 
@@ -16,7 +17,13 @@ export const resolveManifest = (packageName: string, fromDir: string): ResolveRe
     path = createRequire(join(fromDir, 'noop.js')).resolve(`${packageName}/hearth-manifest.json`);
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === 'MODULE_NOT_FOUND') {
-      return { status: 'not-installed', packageName };
+      // the package may be installed at a version that predates the manifest
+      try {
+        createRequire(join(fromDir, 'noop.js')).resolve(`${packageName}/package.json`);
+        return { status: 'no-manifest', packageName };
+      } catch {
+        return { status: 'not-installed', packageName };
+      }
     }
     throw error;
   }

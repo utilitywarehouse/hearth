@@ -28,6 +28,15 @@ describe('resolveManifest', () => {
     expect(result).toMatchObject({ status: 'not-installed', packageName: TOKENS_PACKAGE });
   });
 
+  it('distinguishes an installed package that has no manifest from one that is not installed', () => {
+    const consumer = createConsumer();
+    installPackage(consumer, TOKENS_PACKAGE, undefined);
+
+    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+
+    expect(result).toMatchObject({ status: 'no-manifest', packageName: TOKENS_PACKAGE });
+  });
+
   it('reports the validation errors of a manifest that does not match the schema', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ entries: 'not-a-list' }));

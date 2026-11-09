@@ -50,6 +50,8 @@ export const formatUnavailable = (result: Exclude<ResolveResult, { status: 'ok' 
   switch (result.status) {
     case 'not-installed':
       return `${result.packageName} is not installed in this project. Install it (npm install ${result.packageName}) and run the command again.\n`;
+    case 'no-manifest':
+      return `${result.packageName} is installed but ships no hearth-manifest.json. Update it to a version that includes a manifest (npm install ${result.packageName}@latest) and run the command again.\n`;
     case 'invalid':
       return `The hearth-manifest.json in ${result.packageName} is invalid:\n${result.errors.map(error => `  ${error}`).join('\n')}\n`;
     case 'unsupported-schema':

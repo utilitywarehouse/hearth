@@ -132,6 +132,32 @@ describe('run', () => {
     expect(err).toContain('npm install @utilitywarehouse/hearth-tokens');
   });
 
+  it('exits 3 and asks for a newer version when the installed package has no manifest', () => {
+    const consumer = createConsumer();
+    installPackage(consumer, TOKENS_PACKAGE, undefined);
+
+    const { code, out, err } = cli(['tokens', 'search', 'brand'], consumer);
+
+    expect(code).toBe(3);
+    expect(out).toBe('');
+    expect(err).toContain('is installed but ships no hearth-manifest.json');
+    expect(err).not.toContain('is not installed');
+  });
+
+  it.each(['--layer primitive', '--limit 5'])(
+    'exits 2 when tokens get is given the search-only option %s',
+    options => {
+      const { code, out, err } = cli(
+        ['tokens', 'get', 'semantic.background.brand', ...options.split(' ')],
+        consumerWithTokens()
+      );
+
+      expect(code).toBe(2);
+      expect(out).toBe('');
+      expect(err).toContain('is only valid for "tokens search"');
+    }
+  );
+
   it('exits 3 and lists the problems when the installed manifest is invalid', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ entries: 'not-a-list' }));

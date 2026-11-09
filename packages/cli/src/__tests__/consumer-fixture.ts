@@ -87,6 +87,8 @@ export const installPackage = (
     join(packageDir, 'package.json'),
     JSON.stringify({ name: packageName, version, exports: { './*': './*' } })
   );
+  // undefined installs the package without a manifest, like a version that predates manifest support
+  if (manifest === undefined) return;
   // a string is written as is, so tests can install a file that is not valid JSON
   writeFileSync(
     join(packageDir, 'hearth-manifest.json'),
