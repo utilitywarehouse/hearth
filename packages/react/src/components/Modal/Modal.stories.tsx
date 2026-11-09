@@ -17,6 +17,8 @@ import { ModalContent } from './ModalContent';
 import { ModalFooter } from './ModalFooter';
 import { ModalRoot } from './ModalRoot';
 import { ModalTrigger } from './ModalTrigger';
+import piggies from '../../../docs/assets/piggies.png';
+import { Flex } from '../Flex/Flex';
 
 const meta: Meta<typeof Modal> = {
   title: 'Components / Modal',
@@ -229,7 +231,7 @@ export const WithImage: Story = {
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
-      <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+      <Modal {...args} image={<img src={SpotSavings} alt="" />}>
         <ModalFooter>
           <ModalClose>
             <Button variant="outline" colorScheme="functional">
@@ -245,6 +247,137 @@ export const WithImage: Story = {
       </Modal>
     </ModalRoot>
   ),
+};
+
+/** Pass an image to render illustrative artwork above the modal content. */
+export const WithImageOnMobile: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    // controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  globals: { viewport: { value: 'mobile' } },
+  render: (args, { viewMode }: { viewMode?: string }) => (
+    <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args} image={<img src={SpotSavings} alt="" />}>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="outline" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithBannerImage: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    // controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    imageSize: 'lg',
+    heading: 'Want predictable monthly bills?',
+  },
+  render: (args, { viewMode }: { viewMode?: string }) => {
+    return (
+      <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+        <ModalTrigger>
+          <Button>Open modal</Button>
+        </ModalTrigger>
+        <Modal
+          {...args}
+          image={
+            <Flex
+              borderWidth="1"
+              borderColor="strong"
+              borderRadius="md"
+              overflow="hidden"
+              flexShrink="0"
+            >
+              <img src={piggies} alt="" />
+            </Flex>
+          }
+        >
+          <ModalFooter>
+            <ModalClose>
+              <Button variant="outline" colorScheme="functional">
+                Not Interested
+              </Button>
+            </ModalClose>
+            <ModalClose>
+              <Button variant="solid" colorScheme="highlight">
+                I&apos;m Interested
+              </Button>
+            </ModalClose>
+          </ModalFooter>
+        </Modal>
+      </ModalRoot>
+    );
+  },
+};
+
+export const WithBannerImageOnMobile: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    // controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  args: {
+    imageSize: 'lg',
+    heading: 'Want predictable monthly bills?',
+  },
+  globals: { viewport: { value: 'mobile' } },
+  render: (args, { viewMode }: { viewMode?: string }) => {
+    return (
+      <ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+        <ModalTrigger>
+          <Button>Open modal</Button>
+        </ModalTrigger>
+        <Modal
+          {...args}
+          image={
+            <Flex
+              borderWidth="1"
+              borderColor="strong"
+              borderRadius="md"
+              overflow="hidden"
+              flexShrink="0"
+            >
+              <img src={piggies} alt="" />
+            </Flex>
+          }
+        >
+          <ModalFooter>
+            <ModalClose>
+              <Button variant="outline" colorScheme="functional">
+                Not Interested
+              </Button>
+            </ModalClose>
+            <ModalClose>
+              <Button variant="solid" colorScheme="highlight">
+                I&apos;m Interested
+              </Button>
+            </ModalClose>
+          </ModalFooter>
+        </Modal>
+      </ModalRoot>
+    );
+  },
 };
 
 /** Set the viewport to mobile to check the modal's responsive layout. */

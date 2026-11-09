@@ -263,7 +263,7 @@ more of the viewport height, and centre aligning the text and actions.
   <ModalTrigger>
     <Button>Open modal</Button>
   </ModalTrigger>
-  <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+  <Modal {...args} image={<img src={SpotSavings} alt="" />}>
     <ModalFooter>
       <ModalClose>
         <Button variant="outline" colorScheme="functional">
@@ -273,6 +273,49 @@ more of the viewport height, and centre aligning the text and actions.
       <ModalClose>
         <Button variant="solid" colorScheme="highlight">
           Primary
+        </Button>
+      </ModalClose>
+    </ModalFooter>
+  </Modal>
+</ModalRoot>
+```
+
+## Image size
+
+Use the `imageSize` prop to control the maximum size of the `image`.
+
+- `md` (default) is for standard illustrations, such as SVG spot illustrations.
+- `lg` is for larger banner images.
+
+The image is centre aligned. If a banner image needs a border or radius, wrap it
+in your own container, as shown below.
+
+```tsx
+<Modal imageSize="lg" image={<img src={banner} alt="" />} heading="Hearth modal" />
+```
+
+```tsx
+<ModalRoot defaultOpen={viewMode === 'docs' ? undefined : true}>
+  <ModalTrigger>
+    <Button>Open modal</Button>
+  </ModalTrigger>
+  <Modal
+    {...args}
+    image={
+      <Flex borderWidth="1" borderColor="strong" borderRadius="md" overflow="hidden" flexShrink="0">
+        <img src={piggies} alt="" />
+      </Flex>
+    }
+  >
+    <ModalFooter>
+      <ModalClose>
+        <Button variant="outline" colorScheme="functional">
+          Not Interested
+        </Button>
+      </ModalClose>
+      <ModalClose>
+        <Button variant="solid" colorScheme="highlight">
+          I&apos;m Interested
         </Button>
       </ModalClose>
     </ModalFooter>
@@ -381,6 +424,7 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `description`          | `string`                                                          | —       | Additional descriptive text shown below the heading.                                                                                                                                      |
 | `hideCloseButton`      | `boolean`                                                         | `false` | Hides the visible close icon button. Only use this when providing a visible alternative way to close the modal, such as a Cancel button.                                                  |
 | `fullScreen`           | `boolean`                                                         | —       | @deprecated this prop has no effect and will be removed in a future major version.                                                                                                        |
+| `imageSize`            | `"md" \| "lg"`                                                    | —       | The image max size; `md` for standard illustrations, `lg` for larger banner images.                                                                                                       |
 | `loadingText`          | `string`                                                          | —       | @deprecated Please use loadingHeading and loadingDescription instead                                                                                                                      |
 | `loadingHeading`       | `string`                                                          | —       | The heading shown while `loading` is `true`.                                                                                                                                              |
 | `loadingDescription`   | `string`                                                          | —       | The description shown while `loading` is `true`.                                                                                                                                          |

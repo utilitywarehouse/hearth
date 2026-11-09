@@ -18,6 +18,7 @@ import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDo
 - [Uncontrolled usage](#uncontrolled-usage)
 - [Controlled usage](#controlled-usage)
 - [With Image](#with-image)
+- [Image size](#image-size)
 - [Loading](#loading)
 - [Preventing dismissal](#preventing-dismissal)
 - [Keeping content mounted](#keeping-content-mounted)
@@ -116,6 +117,36 @@ You can pass an image, such as an SVG illustration, to the `image` prop. The
 more of the viewport height, and centre aligning the text and actions.
 
 <Canvas of={Stories.WithImage} />
+
+## Image size
+
+Use the `imageSize` prop to control the maximum size of the `image`.
+
+- `md` (default) is for standard illustrations, such as SVG spot illustrations.
+- `lg` is for larger banner images.
+
+The image is centre aligned. If a banner image needs a border or radius, wrap it
+in your own container, as shown below.
+
+```tsx
+<Modal
+  heading="Hearth modal"
+  imageSize="lg"
+  image={
+    <Flex
+      borderWidth="1"
+      borderColor="strong"
+      borderRadius="md"
+      overflow="hidden"
+      flexShrink="0"
+    >
+      <img src={piggies} alt="" />
+    </Flex>
+  }
+/>
+```
+
+<Canvas of={Stories.WithBannerImage} />
 
 ## Loading
 
