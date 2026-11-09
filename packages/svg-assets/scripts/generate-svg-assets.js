@@ -1,7 +1,6 @@
 const path = require('path');
 const crypto = require('crypto');
 const fs = require('fs-extra');
-// eslint-disable-next-line @typescript-eslint/naming-convention
 const _ = require('lodash');
 const { optimize, loadConfig } = require('svgo');
 const fetch = require('node-fetch');
@@ -15,6 +14,7 @@ const APPROVED_CANVASES = [
   'Mascots - Theme',
   'Technical - Theme',
   'Emojis',
+  'Placeholder',
 ];
 
 if (!process.env.FIGMA_ACCESS_TOKEN) {
