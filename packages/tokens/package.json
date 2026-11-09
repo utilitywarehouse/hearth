@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-tokens",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "description": "",
   "repository": {
     "type": "git",
@@ -41,12 +41,14 @@
     "build:browser": "tsc --project ./tsconfig.browser.json",
     "typecheck": "tsc --noEmit --project ./tsconfig.json && tsc --noEmit --project ./tsconfig.browser.json",
     "build:tokens": "turbo run build:css build:js build:browser && pnpm format",
-    "generate:tokens": "node ./scripts/generate-tokens.js",
+    "generate:tokens": "pnpm --filter @utilitywarehouse/hearth-manifest build && node ./scripts/generate-tokens.js",
+    "sync:manifest-version": "node ./scripts/sync-manifest-version.js",
     "clean": "rm -rf node_modules .turbo",
     "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./css/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,js,css}\" \"!./index.css\"",
-    "lint:fix": "pnpm run lint:css"
+    "lint:fix": "pnpm run lint:css",
+    "test": "vitest run"
   },
   "keywords": [],
   "author": "Design Systems <design-systems@uw.co.uk>",
@@ -54,18 +56,21 @@
   "prettier": "@utilitywarehouse/prettier-config",
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
+    "@utilitywarehouse/hearth-manifest": "workspace:*",
     "cssnano": "^5.1.15",
     "lodash.merge": "^4.6.2",
     "postcss": "^8.4.49",
     "postcss-cli": "^10.1.0",
     "postcss-import": "^15.1.0",
     "style-dictionary": "^4.2.0",
-    "stylelint": "^16.10.0"
+    "stylelint": "^16.10.0",
+    "vitest": "^4.1.7"
   },
   "files": [
     "js/**",
     "css/**",
     "browser/**",
-    "index.css"
+    "index.css",
+    "hearth-manifest.json"
   ]
 }

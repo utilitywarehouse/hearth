@@ -39,7 +39,11 @@ npm run setup    # corepack enable + pnpm install
 
 ## After making changes
 
-Run `pnpm checks`. Other commands are in the `package.json` scripts.
+Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
+
+- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node, where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+
+- Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
 
@@ -73,3 +77,15 @@ For usage guidance:
 ## Releases
 
 Hearth uses [Changesets](https://github.com/changesets/changesets). Run `pnpm changeset`, commit the generated file with your changes, and a release PR is created automatically on merge to `main`. Use the `add-changeset` skill for guidance.
+
+---
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in Linear, team `UWDS` (via the Linear MCP tools). See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Multi-context: `GLOSSARY-MAP.md` points to per-context glossaries for `packages/react` and `packages/react-native`. See `docs/agents/domain.md`.
