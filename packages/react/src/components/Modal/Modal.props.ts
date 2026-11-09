@@ -1,5 +1,14 @@
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 'react';
+import { PropDef } from '../../props/prop-def';
+
+const imageSizes = ['md', 'lg'] as const;
+
+export const modalPropDefs = {
+  imageSize: { className: 'image-size', tokens: imageSizes, responsive: false, default: 'md' },
+} satisfies {
+  imageSize: PropDef<(typeof imageSizes)[number]>;
+};
 
 export interface BaseModalProps
   extends
@@ -34,6 +43,14 @@ export interface BaseModalProps
    * The layout automatically adjusts to accommodate it.
    */
   image?: ReactNode;
+  /**
+   * The image max size; `md` for standard illustrations, `lg` for larger banner images.
+   */
+  imageSize?: (typeof imageSizes)[number];
+  /**
+   * @deprecated Please use loadingHeading and loadingDescription instead
+   */
+  loadingText?: string;
   /**
    * The heading shown while `loading` is `true`.
    */

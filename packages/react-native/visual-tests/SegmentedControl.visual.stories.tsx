@@ -61,6 +61,13 @@ export const SegmentedControls: Story = {
           </SegmentedControlOption>
         </SegmentedControl>
       </VTRow>
+      <VTRow label="Full width">
+        <SegmentedControl fullWidth value="week">
+          <SegmentedControlOption value="day">Day</SegmentedControlOption>
+          <SegmentedControlOption value="week">Week</SegmentedControlOption>
+          <SegmentedControlOption value="month">Month</SegmentedControlOption>
+        </SegmentedControl>
+      </VTRow>
       <VTRow label="Disabled">
         <SegmentedControl disabled value="week">
           <SegmentedControlOption value="day">Day</SegmentedControlOption>

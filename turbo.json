@@ -29,7 +29,7 @@
       "outputs": ["dist/**"]
     },
     "build:tokens": {
-      "outputs": ["src/**", "js/**", "css/**", "browser/**", "index.css"]
+      "outputs": ["src/**", "js/**", "css/**", "browser/**", "index.css", "hearth-manifest.json"]
     },
     "build:css": {
       "outputs": ["css"],

@@ -1,5 +1,31 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.38.6
+
+### Patch Changes
+
+- [#1802](https://github.com/utilitywarehouse/hearth/pull/1802) [`0a27228`](https://github.com/utilitywarehouse/hearth/commit/0a27228cc6f5caf0767266be79b5aff0b1575687) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🌟 [FEATURE]: `SegmentedControl` supports a `fullWidth` prop
+  
+  Set `fullWidth` to make the control fill the width of its container. Options share the width equally.
+  
+  ```tsx
+  <SegmentedControl fullWidth>
+    <SegmentedControlOption value="day">Day</SegmentedControlOption>
+    <SegmentedControlOption value="week">Week</SegmentedControlOption>
+  </SegmentedControl>
+  ```
+  
+  The selected indicator now also stays aligned when the control is resized.
+  
+  **Components affected**:
+  
+  - `SegmentedControl`
+  - `SegmentedControlOption`
+  
+  **Developer changes**:
+  
+  No action required. `fullWidth` defaults to `false`.
+
 ## 0.38.5
 
 ### Patch Changes

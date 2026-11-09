@@ -91,6 +91,8 @@ Every changeset must start with a type indicator, followed by a colon (`:`). The
 | 📦 | [DEPS] | Dependency updates |
 | 🧹 | [HOUSEKEEPING] | Internal changes that don't affect consumers |
 
+Use the prefix exactly as shown, e.g. `💔 [BREAKING CHANGE]:`, not variants like `💥 [BREAKING]:`.
+
 If unsure which type applies, see [references/change-type-guide.md](references/change-type-guide.md) for full definitions and examples.
 
 ## Content Structure
