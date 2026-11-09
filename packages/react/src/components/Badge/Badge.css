@@ -22,6 +22,12 @@
     border-bottom-right-radius: var(--h-badge-flat-base-border-bottom-right-radius);
   }
 
+  &:where([data-wrap]) {
+    white-space: normal;
+    text-align: left;
+    align-items: flex-start;
+  }
+
   &:where(.h-variant-emphasis) {
     color: var(--h-badge-emphasis-color);
     background-color: var(--h-badge-emphasis-background-color);

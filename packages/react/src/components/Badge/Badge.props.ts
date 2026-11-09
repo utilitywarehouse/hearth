@@ -48,4 +48,9 @@ export interface BadgeProps extends ComponentPropsWithRef<'span'>, MarginProps, 
    * @default false
    */
   flatBase?: boolean;
+  /**
+   * Allows the content to wrap onto multiple lines, left-aligned
+   * @default false
+   */
+  wrap?: boolean;
 }
