@@ -18,6 +18,7 @@
 @import url('./InlineLink/InlineLink.css');
 @import url('./Label/Label.css'); /* keep label CSS high, so we can more easily override the cursor styles */
 @import url('./SectionHeader/SectionHeader.css');
+@import url('./BannerImage/BannerImage.css');
 @import url('./Card/Card.css');
 @import url('./CardActions/CardActions.css');
 @import url('./CardActions/CardActionLink.css');

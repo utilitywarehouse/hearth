@@ -1,0 +1,33 @@
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/addon-docs/blocks';
+import * as Stories from './BannerImage.stories';
+import { BannerImage } from './BannerImage';
+import { StorybookLink } from '@utilitywarehouse/hearth-storybook-utils';
+
+import { MarkdownDocHeader } from '../../../docs/storybook-components/MarkdownDocHeader';
+
+<Meta title="Components / BannerImage" />
+
+<MarkdownDocHeader title="BannerImage" to="components/banner-image" />
+
+<Description of={BannerImage} />
+
+<Canvas of={Stories.Playground} sourceState="hide" />
+
+## Usage
+
+Pass a `BannerImage` to the `image` prop of `Modal` (with `imageSize="lg"`), or
+place it before `CardBannerContent` in a `Card`.
+
+```tsx
+<BannerImage width="160px" height="174px">
+  <img src={banner} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
+</BannerImage>
+```
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- <StorybookLink to="common-props-margin">Margin</StorybookLink>
+
+<ArgTypes of={BannerImage} exclude={'aria-*'} />
