@@ -1,14 +1,20 @@
 import { camelCase } from './camel-case.js';
-import { collectColorToken, toAccessor } from './manifest-collector.js';
+import { collectToken, toAccessor } from './manifest-collector.js';
 import { loadJSON } from './load-json.js';
 import { recursiveCamelCase } from './recursive-camel-case.js';
 
 // Helper to build device-specific output
-function buildDeviceOutput(dictionary, options) {
+function buildDeviceOutput(dictionary, options, rootName) {
   const output = { mobile: {}, tablet: {}, desktop: {} };
   dictionary.allTokens.forEach(token => {
     const [device, ...rest] = token.path;
     if (!output[device]) return;
+    collectToken(token, 'js', {
+      accessor: toAccessor(rootName, [
+        device,
+        ...rest.filter(part => !options.skipPaths?.includes(part)).map(camelCase),
+      ]),
+    });
     let current = output[device];
     rest.forEach((part, i) => {
       const camelPart = camelCase(part);
@@ -24,7 +30,8 @@ function buildDeviceOutput(dictionary, options) {
 }
 
 const primitiveJson = loadJSON('./raw/hearth-components--tokens---primitive.json');
-const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
+const DEVICE_FILE = 'hearth-components--tokens---device.json';
+const deviceJson = loadJSON(`./raw/${DEVICE_FILE}`);
 const semanticJson = loadJSON('./raw/hearth-components--tokens---semantic.json');
 
 // Register transforms, formats, and groups
@@ -44,7 +51,7 @@ export function registerDictionaryExtensions(StyleDictionary) {
     name: 'js/device-module',
     format: ({ dictionary, options, file }) => {
       const fileName = file?.destination?.replace('.ts', '');
-      const output = buildDeviceOutput(dictionary, options);
+      const output = buildDeviceOutput(dictionary, options, fileName);
       return `/**
  * Do not edit directly, this file was auto-generated.
  */
@@ -68,7 +75,7 @@ export function registerDictionaryExtensions(StyleDictionary) {
         }
         const camelShade = camelCase(shade);
         colorScales[colorScale][camelShade] = token.value;
-        collectColorToken(token, 'js', {
+        collectToken(token, 'js', {
           accessor: toAccessor('color', [camelCase(colorScale), camelShade]),
         });
       });
@@ -142,9 +149,21 @@ ${defaultExport}
       // Extract the component name from the first token's path
       const componentName =
         dictionary.allTokens.length > 0 ? dictionary.allTokens[0].path[1] : null;
+      // device tokens are the same in both modes, so they are recorded once, from the light file
+      const isLight = dictionary.allTokens[0]?.path[0] === 'light';
 
       dictionary.allTokens.forEach(token => {
         const subKeys = token.path.slice(2);
+        const [mode] = token.path;
+        collectToken(token, 'js', {
+          accessor: toAccessor('components', [
+            mode,
+            // a component's file can also receive tokens of another component whose path
+            // mentions its name, so the accessor follows the token and not the file
+            camelCase(token.path[1]),
+            ...subKeys.map(camelCase),
+          ]),
+        });
         let current = output;
         subKeys.forEach((part, i) => {
           const camelPart = camelCase(part);
@@ -165,16 +184,36 @@ ${defaultExport}
             output[deviceSize] = {};
 
             // Process the device component structure recursively
-            const processDeviceTokens = (obj, current) => {
+            const processDeviceTokens = (obj, current, keyPath = []) => {
               for (const [key, value] of Object.entries(obj)) {
                 const camelKey = camelCase(key);
                 if (value && typeof value === 'object' && !value.type) {
                   // It's a nested object, recurse
                   current[camelKey] = current[camelKey] || {};
-                  processDeviceTokens(value, current[camelKey]);
+                  processDeviceTokens(value, current[camelKey], [...keyPath, key]);
                 } else if (value && typeof value === 'object' && value.value !== undefined) {
                   // It's a token object with a value
                   current[camelKey] = value.value;
+                  if (isLight) {
+                    collectToken(
+                      {
+                        filePath: DEVICE_FILE,
+                        path: [deviceSize, 'components', componentName, ...keyPath, key],
+                        type: value.type,
+                        original: value,
+                      },
+                      'js',
+                      {
+                        accessor: toAccessor('components', [
+                          'light',
+                          camelCase(componentName),
+                          deviceSize,
+                          ...keyPath.map(camelCase),
+                          camelKey,
+                        ]),
+                      }
+                    );
+                  }
                 } else {
                   // Direct value or other case
                   current[camelKey] = value;
@@ -249,6 +288,16 @@ export * as components from './components';`;
       const skip = options?.skip || options?.skipPaths || [];
       const output = {};
       dictionary.allTokens.forEach(token => {
+        // the per-group files (`space.ts`) are what the package index exports, the
+        // aggregate `primitive.ts` repeats them
+        if (options?.manifestRoot) {
+          collectToken(token, 'js', {
+            accessor: toAccessor(
+              options.manifestRoot,
+              token.path.filter(part => !skip.includes(part)).map(camelCase)
+            ),
+          });
+        }
         // Create effectivePath by filtering out keys in the skip list
         const effectivePath = token.path.filter(part => !skip.includes(part));
         let current = output;
@@ -278,7 +327,7 @@ export * as components from './components';`;
       dictionary.allTokens.forEach(token => {
         // Skip the mode level in the path (e.g., skip 'light' or 'dark')
         const pathWithoutMode = token.path.slice(1);
-        collectColorToken(token, 'js', {
+        collectToken(token, 'js', {
           accessor: toAccessor(
             mode === 'light' ? 'semanticLight' : 'semanticDark',
             pathWithoutMode.map(camelCase)
@@ -311,6 +360,9 @@ export * as components from './components';`;
       dictionary.allTokens.forEach(token => {
         // Skip the mode level in the path (e.g., skip 'light' or 'dark')
         const pathWithoutMode = token.path.slice(1);
+        collectToken(token, 'js', {
+          accessor: toAccessor('semantic', pathWithoutMode.map(camelCase)),
+        });
         let current = output;
         pathWithoutMode.forEach((part, i) => {
           const camelPart = camelCase(part);

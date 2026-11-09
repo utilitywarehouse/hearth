@@ -28,7 +28,7 @@ describe('the built hearth binary', () => {
     expect(JSON.parse(out)).toMatchObject({
       package: { name: TOKENS_PACKAGE },
       platform: 'web',
-      token: { path: 'semantic.background.brand', css: { variable: '--h-background-brand' } },
+      tokens: [{ path: 'semantic.background.brand', css: { variable: '--h-background-brand' } }],
     });
   });
 });

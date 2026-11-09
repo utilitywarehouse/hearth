@@ -29,7 +29,10 @@ const surfaceLines = (token: TokenView): Array<[string, string]> => {
 
 export const formatToken = (token: TokenView): string => {
   const rows = surfaceLines(token).map(([label, text]) => `  ${label.padEnd(8)}${text}`);
-  return [`${token.path}  (${token.type})`, ...rows].join('\n');
+  return [
+    `${token.path}${token.device ? ` [${token.device}]` : ''}  (${token.type})`,
+    ...rows,
+  ].join('\n');
 };
 
 const header = ({ name, version }: PackageInfo) => `${name} ${version}`;

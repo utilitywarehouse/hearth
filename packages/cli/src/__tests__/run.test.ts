@@ -172,13 +172,13 @@ describe('run', () => {
 
   it('exits 3 and says to update the CLI when the manifest schema is newer than it supports', () => {
     const consumer = createConsumer();
-    installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ schemaVersion: 2 }));
+    installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ schemaVersion: 3 }));
 
     const { code, out, err } = cli(['tokens', 'search', 'brand'], consumer);
 
     expect(code).toBe(3);
     expect(out).toBe('');
-    expect(err).toContain('schema version 2');
+    expect(err).toContain('schema version 3');
     expect(err).toContain('Update @utilitywarehouse/hearth-cli');
   });
 
@@ -202,10 +202,12 @@ describe('run', () => {
     expect(JSON.parse(out)).toMatchObject({
       package: { name: TOKENS_PACKAGE, version: '1.2.3' },
       platform: 'native',
-      token: {
-        path: 'semantic.background.brand',
-        values: { default: '#7a42c8', dark: '#442484' },
-      },
+      tokens: [
+        {
+          path: 'semantic.background.brand',
+          values: { default: '#7a42c8', dark: '#442484' },
+        },
+      ],
     });
   });
 

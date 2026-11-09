@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { manifestJsonSchema, validateManifest } from '../index.js';
 
 const validTokensManifest = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   package: { name: '@utilitywarehouse/hearth-tokens', version: '0.4.8' },
   type: 'tokens',
   entries: [
@@ -89,6 +89,49 @@ describe('validateManifest', () => {
 
     expect(result.success).toBe(false);
     if (!result.success) expect(result.errors.join('\n')).toMatch(/semantic\.background\.brand/);
+  });
+});
+
+describe('device variants and CSS values', () => {
+  const spacing = (device: string) => ({
+    path: 'layout.spacing.md',
+    layer: 'semantic',
+    type: 'number',
+    device,
+    values: { default: 12 },
+    surfaces: {
+      css: { variable: `--h-spacing-md-${device}`, value: 'var(--h-space-150)' },
+      js: { import: '@utilitywarehouse/hearth-tokens', path: `layout.${device}.spacing.md` },
+    },
+  });
+  const withEntries = (entries: Array<unknown>) => ({ ...validTokensManifest, entries });
+
+  it('accepts one entry per device for the same path', () => {
+    const result = validateManifest(withEntries([spacing('mobile'), spacing('desktop')]));
+
+    expect(result.success).toBe(true);
+  });
+
+  it('rejects two entries with the same path and device', () => {
+    const result = validateManifest(withEntries([spacing('mobile'), spacing('mobile')]));
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/layout\.spacing\.md.*mobile/);
+  });
+
+  it('rejects an unknown device', () => {
+    const result = validateManifest(withEntries([spacing('watch')]));
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/device/);
+  });
+
+  it('keeps the CSS value the stylesheet declares', () => {
+    const result = validateManifest(withEntries([spacing('mobile')]));
+
+    expect(result.success && result.manifest.entries[0].surfaces.css?.value).toBe(
+      'var(--h-space-150)'
+    );
   });
 });
 
