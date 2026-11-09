@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/test-unit.yml'
       - 'pnpm-lock.yaml'
+      - 'packages/cli/**'
       - 'packages/codemod/**'
       - 'packages/manifest/**'
       - 'packages/tokens/**'
