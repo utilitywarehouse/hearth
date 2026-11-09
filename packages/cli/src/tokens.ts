@@ -93,8 +93,8 @@ export const getToken = (
   if (entries.length > 0) {
     return { status: 'found', tokens: entries.map(entry => toView(entry, platform)) };
   }
-  const suggestions = manifest.entries
-    .map(candidate => ({ path: candidate.path, distance: editDistance(path, candidate.path) }))
+  const suggestions = [...new Set(manifest.entries.map(candidate => candidate.path))]
+    .map(candidate => ({ path: candidate, distance: editDistance(path, candidate) }))
     .filter(candidate => candidate.distance <= MAX_SUGGESTION_DISTANCE)
     .sort((a, b) => a.distance - b.distance)
     .slice(0, MAX_SUGGESTIONS)

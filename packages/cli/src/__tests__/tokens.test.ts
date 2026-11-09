@@ -144,6 +144,23 @@ describe('getToken', () => {
     });
   });
 
+  it('suggests each close path once, however many device variants it has', () => {
+    const result = getToken(
+      manifestOf([
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'desktop' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'mobile' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'tablet' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.y', device: 'desktop' }),
+      ]),
+      'semantic.shadow.md.z'
+    );
+
+    expect(result).toMatchObject({
+      status: 'not-found',
+      suggestions: ['semantic.shadow.md.x', 'semantic.shadow.md.y'],
+    });
+  });
+
   it('reports an unknown path with the closest existing paths as suggestions', () => {
     const result = getToken(manifest, 'semantic.background.brnad');
 
