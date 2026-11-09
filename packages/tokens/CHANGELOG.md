@@ -1,5 +1,33 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.5.1
+
+### Patch Changes
+
+- [#1814](https://github.com/utilitywarehouse/hearth/pull/1814) [`2de5b92`](https://github.com/utilitywarehouse/hearth/commit/2de5b920f7a9cf033f4ece92c8cb93ea3f562471) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [ENHANCEMENT]: `hearth-manifest.json` covers every token group, with per-device entries and CSS values
+  
+  The manifest now lists the space, border, font, letter-spacing, line-height, layout,
+  shadow, typography, opacity and component tokens as well as colours. Each entry has
+  the same CSS, browser and JS paths as before, and:
+  
+  - **`device`**: tokens whose value depends on the device (layout, shadow, typography
+    and some component tokens) have one entry per `mobile`, `tablet` and `desktop`.
+  - **`surfaces.css.value`**: the value the stylesheet declares (`8px`, `1rem`, `0.5`),
+    which differs from the JS value (`8`, `16`, `50`).
+  - **Component dark values**: component tokens carry their dark value and JS `darkPath`.
+  
+  Shadows and typography styles are listed one entry per part (`semantic.shadow.md.x`),
+  so every value is a string or a number.
+  
+  **Developer changes**:
+  
+  No action is required to use the tokens. The existing CSS, browser and JS exports are unchanged.
+  
+  `hearth-manifest.json` is now `schemaVersion` `2`. A device-dependent token repeats its `path` once
+  per device, which `schemaVersion` `1` readers reject, so tooling that reads the manifest (the Hearth
+  CLI) needs updating to a version that supports schema 2. The optional `device` and `css.value`
+  fields are additive.
+
 ## 0.5.0
 
 ### Minor Changes

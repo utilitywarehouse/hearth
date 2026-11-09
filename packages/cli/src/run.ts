@@ -82,8 +82,8 @@ const getCommand = (path: string, values: { platform?: string; json?: boolean },
   const { package: info } = resolved.manifest;
   io.stdout(
     values.json
-      ? `${JSON.stringify({ package: info, platform, token: result.token }, null, 2)}\n`
-      : `${info.name} ${info.version}\n\n${formatToken(result.token)}\n`
+      ? `${JSON.stringify({ package: info, platform, tokens: result.tokens }, null, 2)}\n`
+      : `${info.name} ${info.version}\n\n${result.tokens.map(formatToken).join('\n\n')}\n`
   );
   return EXIT.ok;
 };
