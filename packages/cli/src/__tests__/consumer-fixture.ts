@@ -35,41 +35,60 @@ export const tokensManifest = (overrides: Record<string, unknown> = {}) => ({
 type EntryOptions = {
   layer: 'primitive' | 'semantic' | 'component';
   path: string;
-  values?: { default: string; dark?: string };
-  alias?: { default: string; dark?: string };
-  description?: string;
+  type?: string;
   device?: 'mobile' | 'tablet' | 'desktop';
+  values?: { default: string | number; dark?: string | number };
+  alias?: { default: string; dark?: string };
+  /** What the stylesheet declares, where it differs from the JS value (`8px` for 8). */
   cssValue?: string;
+  description?: string;
+  /** A token that exists on the JS surface only (no CSS variable or browser export). */
+  jsOnly?: boolean;
 };
 
 /** A manifest entry whose surfaces are derived from its path, the way the tokens generator derives them. */
 export const tokenEntry = ({
   layer,
   path,
+  type = 'color',
+  device,
   values,
   alias,
-  description,
-  device,
   cssValue,
+  description,
+  jsOnly,
 }: EntryOptions) => {
   const resolved = values ?? { default: '#000000' };
-  const cssName = path.replace(/^semantic\./, '').replaceAll('.', '-');
-  const jsPath = layer === 'semantic' ? path.replace(/^semantic\./, 'semanticLight.') : path;
+  const cssName = [path.replace(/^semantic\./, '').replaceAll('.', '-'), device]
+    .filter(Boolean)
+    .join('-');
+  const basePath = layer === 'semantic' ? path.replace(/^semantic\./, 'semanticLight.') : path;
+  const jsPath = device ? `${basePath}.${device}` : basePath;
   return {
     path,
     ...(device ? { device } : {}),
     layer,
-    type: 'color',
+    type,
+    ...(device ? { device } : {}),
     ...(description ? { description } : {}),
     values: resolved,
     ...(alias ? { alias } : {}),
     surfaces: {
-      css: { variable: `--h-${cssName}`, ...(cssValue ? { value: cssValue } : {}) },
-      browser: { import: `${TOKENS_PACKAGE}/browser`, path },
+      ...(jsOnly
+        ? {}
+        : {
+            css: { variable: `--h-${cssName}`, ...(cssValue ? { value: cssValue } : {}) },
+            browser: {
+              import: `${TOKENS_PACKAGE}/browser`,
+              path: device ? `${path}.${device}` : path,
+            },
+          }),
       js: {
         import: TOKENS_PACKAGE,
         path: jsPath,
-        ...(resolved.dark ? { darkPath: jsPath.replace('semanticLight.', 'semanticDark.') } : {}),
+        ...(resolved.dark !== undefined
+          ? { darkPath: jsPath.replace('semanticLight.', 'semanticDark.') }
+          : {}),
       },
     },
   };
