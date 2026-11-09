@@ -150,9 +150,9 @@ export const run = (argv: Array<string>, io: Io): number => {
       return searchCommand(query, values, io);
     }
     if (command === 'tokens' && subcommand === 'get' && query !== undefined) {
-      for (const flag of ['layer', 'limit'] as const) {
+      for (const flag of ['layer', 'limit', 'type'] as const) {
         if (values[flag] !== undefined) {
-          throw new UsageError(`--${flag} is only valid for "tokens search"`);
+          throw new UsageError(`--${flag} is only valid for "tokens search" and "tokens list"`);
         }
       }
       return getCommand(query, values, io);

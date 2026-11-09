@@ -180,7 +180,7 @@ describe('run', () => {
     expect(err).not.toContain('is not installed');
   });
 
-  it.each(['--layer primitive', '--limit 5'])(
+  it.each(['--layer primitive', '--limit 5', '--type number'])(
     'exits 2 when tokens get is given the search-only option %s',
     options => {
       const { code, out, err } = cli(
