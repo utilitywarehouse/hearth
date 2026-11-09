@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-tokens': minor
+'@utilitywarehouse/hearth-tokens': patch
 ---
 
 🌟 [ENHANCEMENT]: `hearth-manifest.json` covers every token group, with per-device entries and CSS values
