@@ -4,6 +4,7 @@ import {
   MobileSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
+import { View } from 'react-native';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText, Flex, SegmentedControl, SegmentedControlOption } from '../';
 
@@ -16,6 +17,7 @@ const meta = {
   args: {
     size: 'sm',
     disabled: false,
+    fullWidth: false,
   },
   argTypes: {
     size: {
@@ -25,18 +27,56 @@ const meta = {
     disabled: {
       control: 'boolean',
     },
+    fullWidth: {
+      control: 'boolean',
+    },
   },
 };
 
 export default meta;
 
 export const Playground = {
-  render: (args: { size?: 'sm' | 'md'; disabled?: boolean }) => (
-    <SegmentedControl defaultValue="day" {...args}>
-      <SegmentedControlOption value="day">Day</SegmentedControlOption>
-      <SegmentedControlOption value="week">Week</SegmentedControlOption>
-      <SegmentedControlOption value="month">Month</SegmentedControlOption>
-    </SegmentedControl>
+  render: (args: { size?: 'sm' | 'md'; disabled?: boolean; fullWidth?: boolean }) => (
+    // Fixed-width wrapper so `fullWidth` has a container to fill in the centered layout.
+    <View style={{ width: 320 }}>
+      <SegmentedControl defaultValue="day" {...args}>
+        <SegmentedControlOption value="day">Day</SegmentedControlOption>
+        <SegmentedControlOption value="week">Week</SegmentedControlOption>
+        <SegmentedControlOption value="month">Month</SegmentedControlOption>
+      </SegmentedControl>
+    </View>
+  ),
+};
+
+export const FullWidth = {
+  parameters: {
+    layout: 'padded',
+  },
+  render: () => (
+    <View>
+      <Flex spacing="sm">
+        <SegmentedControl defaultValue="one" size="sm">
+          <SegmentedControlOption value="one">Label</SegmentedControlOption>
+          <SegmentedControlOption value="two">Label</SegmentedControlOption>
+          <SegmentedControlOption value="three">Label</SegmentedControlOption>
+        </SegmentedControl>
+        <SegmentedControl defaultValue="one" size="sm" fullWidth>
+          <SegmentedControlOption value="one">Label</SegmentedControlOption>
+          <SegmentedControlOption value="two">Label</SegmentedControlOption>
+          <SegmentedControlOption value="three">Label</SegmentedControlOption>
+        </SegmentedControl>
+        <SegmentedControl defaultValue="one" size="md">
+          <SegmentedControlOption value="one">Label</SegmentedControlOption>
+          <SegmentedControlOption value="two">Label</SegmentedControlOption>
+          <SegmentedControlOption value="three">Label</SegmentedControlOption>
+        </SegmentedControl>
+        <SegmentedControl defaultValue="one" size="md" fullWidth>
+          <SegmentedControlOption value="one">Label</SegmentedControlOption>
+          <SegmentedControlOption value="two">Label</SegmentedControlOption>
+          <SegmentedControlOption value="three">Label</SegmentedControlOption>
+        </SegmentedControl>
+      </Flex>
+    </View>
   ),
 };
 

@@ -9,17 +9,20 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 - [Examples](#examples)
   - [Sizes](#sizes)
   - [Icons](#icons)
+  - [Full width](#full-width)
 - [Accessibility](#accessibility)
 
 ## Playground
 
 ```tsx
 // Example usage
-<SegmentedControl defaultValue="day" {...args}>
-  <SegmentedControlOption value="day">Day</SegmentedControlOption>
-  <SegmentedControlOption value="week">Week</SegmentedControlOption>
-  <SegmentedControlOption value="month">Month</SegmentedControlOption>
-</SegmentedControl>
+<View style={{ width: 320 }}>
+  <SegmentedControl defaultValue="day" {...args}>
+    <SegmentedControlOption value="day">Day</SegmentedControlOption>
+    <SegmentedControlOption value="week">Week</SegmentedControlOption>
+    <SegmentedControlOption value="month">Month</SegmentedControlOption>
+  </SegmentedControl>
+</View>
 ```
 
 ## Usage
@@ -41,14 +44,15 @@ const Example = () => {
 
 ### SegmentedControl
 
-| Property        | Type                      | Description                            | Default      |
-| --------------- | ------------------------- | -------------------------------------- | ------------ |
-| `value`         | `string`                  | Controlled selected option value.      | -            |
-| `defaultValue`  | `string`                  | Initial selected value (uncontrolled). | first option |
-| `onValueChange` | `(value: string) => void` | Called when selected option changes.   | -            |
-| `size`          | `'sm' \| 'md'`            | Size variant (`SM-32` / `MD-48`).      | `'sm'`       |
-| `disabled`      | `boolean`                 | Disables all options in the group.     | `false`      |
-| `children`      | `ReactNode`               | `SegmentedControlOption` children.     | required     |
+| Property        | Type                      | Description                                          | Default      |
+| --------------- | ------------------------- | ---------------------------------------------------- | ------------ |
+| `value`         | `string`                  | Controlled selected option value.                    | -            |
+| `defaultValue`  | `string`                  | Initial selected value (uncontrolled).               | first option |
+| `onValueChange` | `(value: string) => void` | Called when selected option changes.                 | -            |
+| `size`          | `'sm' \| 'md'`            | Size variant (`SM-32` / `MD-48`).                    | `'sm'`       |
+| `disabled`      | `boolean`                 | Disables all options in the group.                   | `false`      |
+| `fullWidth`     | `boolean`                 | Fills the container width; options share it equally. | `false`      |
+| `children`      | `ReactNode`               | `SegmentedControlOption` children.                   | required     |
 
 ### SegmentedControlOption
 
@@ -117,6 +121,43 @@ import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
   </SegmentedControlOption>
   ...
 </SegmentedControl>;
+```
+
+### Full width
+
+Use `fullWidth` to make the control fill the width of its container. Options share the width equally.
+
+```tsx
+// Example usage
+<View>
+  <Flex spacing="sm">
+    <SegmentedControl defaultValue="one" size="sm">
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
+    <SegmentedControl defaultValue="one" size="sm" fullWidth>
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
+    <SegmentedControl defaultValue="one" size="md">
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
+    <SegmentedControl defaultValue="one" size="md" fullWidth>
+      <SegmentedControlOption value="one">Label</SegmentedControlOption>
+      <SegmentedControlOption value="two">Label</SegmentedControlOption>
+      <SegmentedControlOption value="three">Label</SegmentedControlOption>
+    </SegmentedControl>
+  </Flex>
+</View>
+```
+
+```tsx
+// Example usage
+<SegmentedControl fullWidth>...</SegmentedControl>
 ```
 
 ## Accessibility

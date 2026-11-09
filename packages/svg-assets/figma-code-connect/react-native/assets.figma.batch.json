@@ -123,6 +123,17 @@
       "dark": null
     },
     {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3330:25&m=dev",
+      "id": "placeholder",
+      "name": "Placeholder",
+      "component": "Placeholder",
+      "path": "placeholder.svg",
+      "source": "../../lib/placeholder.svg",
+      "themed": false,
+      "light": null,
+      "dark": null
+    },
+    {
       "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2119:910&m=dev",
       "id": "spot-neighbours-light",
       "name": "SpotNeighboursLight",

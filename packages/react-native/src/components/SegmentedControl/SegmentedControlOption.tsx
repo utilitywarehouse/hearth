@@ -29,6 +29,7 @@ const SegmentedControlOption = ({
     select,
     disabled: allDisabled,
     size,
+    fullWidth,
     registerOptionLayout,
   } = useSegmentedControlContext();
   const reducedMotion = useReducedMotionEnabled();
@@ -53,7 +54,7 @@ const SegmentedControlOption = ({
     opacity: selectedProgress.value,
   }));
 
-  styles.useVariants({ selected, disabled: isDisabled, size });
+  styles.useVariants({ selected, disabled: isDisabled, size, fullWidth });
 
   const onPress = () => {
     if (isDisabled) return;
@@ -172,6 +173,11 @@ const styles = StyleSheet.create(theme => ({
               backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
             },
           },
+        },
+      },
+      fullWidth: {
+        true: {
+          flex: 1,
         },
       },
     },

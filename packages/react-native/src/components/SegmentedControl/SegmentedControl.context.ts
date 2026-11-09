@@ -5,6 +5,7 @@ export type SegmentedControlContextValue = {
   select: (value: string) => void;
   disabled?: boolean;
   size: 'sm' | 'md';
+  fullWidth?: boolean;
   registerOptionLayout: (
     value: string,
     layout: { x: number; y: number; width: number; height: number }

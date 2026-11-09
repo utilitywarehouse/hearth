@@ -41,12 +41,12 @@ export default {
   id: 'card-banner-content',
   imports: [
     'import { CardBannerContent } from "@utilitywarehouse/hearth-react"',
-    image ? 'import { CardBannerImage } from "@utilitywarehouse/hearth-react"' : '',
+    image ? 'import { BannerImage } from "@utilitywarehouse/hearth-react"' : '',
     showChevron ? 'import { CardInteraction } from "@utilitywarehouse/hearth-react"' : '',
     showClose ? 'import { UnstyledIconButton } from "@utilitywarehouse/hearth-react"' : '',
     showClose ? 'import { CloseSmallIcon } from "@utilitywarehouse/hearth-react-icons"' : '',
   ].filter(Boolean),
-  example: figma.code`${image ? figma.code`<CardBannerImage>${image}</CardBannerImage>` : ''}
+  example: figma.code`${image ? figma.code`<BannerImage>${image}</BannerImage>` : ''}
       <CardBannerContent${figma.helpers.react.renderProp('heading', heading)}${figma.helpers.react.renderProp('description', description)}>
         ${wrappedAction ?? ''}
       </CardBannerContent>

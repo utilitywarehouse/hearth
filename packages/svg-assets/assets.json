@@ -70,6 +70,11 @@
     "componentSetId": "2787:5732"
   },
   {
+    "id": "3330:25",
+    "name": "Placeholder",
+    "componentSetId": "3330:25"
+  },
+  {
     "id": "2119:909",
     "name": "SpotNeighboursLight",
     "componentSetId": "2119:910"
