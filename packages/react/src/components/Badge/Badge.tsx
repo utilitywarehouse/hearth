@@ -28,6 +28,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
     className,
     colorScheme = 'info',
     flatBase,
+    wrap,
     ...badgeProps
   } = extractProps(props, badgePropDefs, marginPropDefs, textTransformPropDefs);
   return (
@@ -37,6 +38,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
       data-colorscheme={colorScheme}
       data-testid={componentClassName}
       data-bottom-radius-zero={flatBase ? '' : undefined}
+      data-wrap={wrap ? '' : undefined}
       {...badgeProps}
     />
   );
