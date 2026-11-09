@@ -20,6 +20,7 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 - [Examples](#examples)
   - [Sizes](#sizes)
   - [Icons](#icons)
+  - [Full width](#full-width)
 - [Accessibility](#accessibility)
 
 ## Playground
@@ -63,6 +64,7 @@ const Example = () => {
 | `onValueChange` | `(value: string) => void` | Called when selected option changes.   | -            |
 | `size`          | `'sm' \| 'md'`            | Size variant (`SM-32` / `MD-48`).      | `'sm'`       |
 | `disabled`      | `boolean`                 | Disables all options in the group.     | `false`      |
+| `fullWidth`     | `boolean`                 | Fills the container width; options share it equally. | `false` |
 | `children`      | `ReactNode`               | `SegmentedControlOption` children.     | required     |
 
 ### SegmentedControlOption
@@ -105,6 +107,16 @@ import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
   </SegmentedControlOption>
   ...
 </SegmentedControl>;
+```
+
+### Full width
+
+Use `fullWidth` to make the control fill the width of its container. Options share the width equally.
+
+<Canvas of={Stories.FullWidth} />
+
+```tsx
+<SegmentedControl fullWidth>...</SegmentedControl>
 ```
 
 ## Accessibility

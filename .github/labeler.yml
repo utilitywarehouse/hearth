@@ -22,3 +22,9 @@ hearth-json-assets:
 hearth-css-reset:
   - changed-files:
       - any-glob-to-any-file: packages/css-reset/**
+hearth-manifest:
+  - changed-files:
+      - any-glob-to-any-file: packages/manifest/**
+hearth-cli:
+  - changed-files:
+      - any-glob-to-any-file: packages/cli/**

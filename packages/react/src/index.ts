@@ -336,3 +336,6 @@ export { Timeline } from './components/Timeline/Timeline';
 export type { TimelineProps } from './components/Timeline/Timeline.props';
 export { TimelineItem } from './components/Timeline/TimelineItem';
 export type { TimelineItemProps } from './components/Timeline/TimelineItem.props';
+
+export { BannerImage } from './components/BannerImage/BannerImage';
+export type { BannerImageProps } from './components/BannerImage/BannerImage.props';

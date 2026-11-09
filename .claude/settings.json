@@ -5,8 +5,6 @@
     }
   },
   "enabledPlugins": {
-    "hearth-ai-toolkit@hearth-plugins": false,
-    "chrome-devtools-mcp@claude-plugins-official": false,
-    "mattpocock-skills@claude-plugins-official": false
+    "hearth-ai-toolkit@hearth-plugins": false
   }
 }

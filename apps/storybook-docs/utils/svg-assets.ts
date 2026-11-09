@@ -14,6 +14,7 @@ import SlightlySmilingFace from '@utilitywarehouse/hearth-svg-assets/lib/slightl
 import SlightlySmilingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face-grey.svg'
 import DissapointedFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face-grey.svg'
 import FrowningFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/frowning-face-grey.svg'
+import Placeholder from '@utilitywarehouse/hearth-svg-assets/lib/placeholder.svg'
 import SpotNeighboursLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-light.svg'
 import SpotNeighboursDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-dark.svg'
 import SpotNotificationLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-notification-light.svg'
@@ -222,6 +223,7 @@ export const svgAssets = [
   { name: 'SlightlySmilingFaceGrey', src: SlightlySmilingFaceGrey, path: 'slightly-smiling-face-grey.svg' },
   { name: 'DissapointedFaceGrey', src: DissapointedFaceGrey, path: 'dissapointed-face-grey.svg' },
   { name: 'FrowningFaceGrey', src: FrowningFaceGrey, path: 'frowning-face-grey.svg' },
+  { name: 'Placeholder', src: Placeholder, path: 'placeholder.svg' },
   { name: 'SpotNeighboursLight', src: SpotNeighboursLight, path: 'spot-neighbours-light.svg' },
   { name: 'SpotNeighboursDark', src: SpotNeighboursDark, path: 'spot-neighbours-dark.svg' },
   { name: 'SpotNotificationLight', src: SpotNotificationLight, path: 'spot-notification-light.svg' },

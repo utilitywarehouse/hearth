@@ -89,18 +89,37 @@
 
   & :where(.h-ModalImage) {
     --h-icon-button-size: 1.5rem;
-    --h-modal-image-max-size: 120px;
+
+    &:where(.h-image-size-md &) {
+      --h-modal-image-max-height: 120px;
+      --h-modal-image-max-width: 120px;
+    }
+
+    &:where(.h-image-size-lg &) {
+      --h-modal-image-max-height: 200px;
+      --h-modal-image-max-width: 300px;
+    }
 
     margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
-    max-height: var(--h-modal-image-max-size);
-    max-width: var(--h-modal-image-max-size);
+    margin-left: auto;
+    margin-right: auto;
+    max-height: var(--h-modal-image-max-height);
+    max-width: var(--h-modal-image-max-width);
+
+    & :where(img) {
+      max-height: var(--h-modal-image-max-height);
+      max-width: var(--h-modal-image-max-width);
+    }
 
     @media (--h-tablet) {
       margin-top: var(--h-space-0);
     }
 
     @media (--h-desktop) {
-      --h-modal-image-max-size: 160px;
+      &:where(.h-image-size-md &) {
+        --h-modal-image-max-height: 160px;
+        --h-modal-image-max-width: 160px;
+      }
     }
   }
 

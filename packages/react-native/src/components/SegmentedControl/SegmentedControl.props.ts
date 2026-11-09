@@ -13,6 +13,11 @@ export interface SegmentedControlProps extends ViewProps, FlexLayoutProps {
   size?: 'sm' | 'md';
   /** Disables all options in the control. */
   disabled?: boolean;
+  /**
+   * Stretches the control to fill the width of its container. Options share the width equally.
+   * @default false
+   */
+  fullWidth?: boolean;
   /** SegmentedControlOption children. */
   children: ReactNode;
 }

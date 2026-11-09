@@ -1,4 +1,5 @@
 import { camelCase } from './camel-case.js';
+import { collectColorToken, toAccessor } from './manifest-collector.js';
 import { loadJSON } from './load-json.js';
 import { recursiveCamelCase } from './recursive-camel-case.js';
 
@@ -67,6 +68,9 @@ export function registerDictionaryExtensions(StyleDictionary) {
         }
         const camelShade = camelCase(shade);
         colorScales[colorScale][camelShade] = token.value;
+        collectColorToken(token, 'js', {
+          accessor: toAccessor('color', [camelCase(colorScale), camelShade]),
+        });
       });
 
       // Add semantic tokens under light and dark keys
@@ -274,6 +278,12 @@ export * as components from './components';`;
       dictionary.allTokens.forEach(token => {
         // Skip the mode level in the path (e.g., skip 'light' or 'dark')
         const pathWithoutMode = token.path.slice(1);
+        collectColorToken(token, 'js', {
+          accessor: toAccessor(
+            mode === 'light' ? 'semanticLight' : 'semanticDark',
+            pathWithoutMode.map(camelCase)
+          ),
+        });
         let current = output;
         pathWithoutMode.forEach((part, i) => {
           const camelPart = camelCase(part);

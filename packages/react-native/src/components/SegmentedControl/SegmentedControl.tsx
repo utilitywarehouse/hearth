@@ -33,6 +33,7 @@ const SegmentedControl = ({
   onValueChange,
   size = 'sm',
   disabled = false,
+  fullWidth = false,
   children,
   style,
   ...props
@@ -108,7 +109,14 @@ const SegmentedControl = ({
         return;
       }
 
-      if (prevValueRef.current === activeValue) return;
+      if (prevValueRef.current === activeValue) {
+        // Same selection re-laid out (e.g. container resized): snap the indicator to the new bounds.
+        indicatorX.value = Math.max(0, layout.x - indicatorPositionOffset);
+        indicatorWidth.value = layout.width;
+        indicatorY.value = Math.max(0, layout.y - indicatorPositionOffset);
+        indicatorHeight.value = layout.height;
+        return;
+      }
 
       const config = {
         delay: 200,
@@ -175,9 +183,10 @@ const SegmentedControl = ({
       select,
       disabled,
       size,
+      fullWidth,
       registerOptionLayout,
     }),
-    [currentValue, select, disabled, size, registerOptionLayout]
+    [currentValue, select, disabled, size, fullWidth, registerOptionLayout]
   );
 
   return (
@@ -185,7 +194,7 @@ const SegmentedControl = ({
       <View
         accessibilityRole="radiogroup"
         accessibilityState={{ disabled }}
-        style={[styles.container, computedStyles, style]}
+        style={[styles.container, fullWidth && styles.containerFullWidth, computedStyles, style]}
         {...remainingProps}
       >
         {hasIndicator ? (
@@ -227,6 +236,12 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
+  },
+  // `alignSelf: 'stretch'` alone only fills the width inside a column parent; in a
+  // row parent it stretches the height instead and the options collapse.
+  containerFullWidth: {
+    alignSelf: 'stretch',
+    width: '100%',
   },
   indicator: {
     position: 'absolute',

@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-codemod
 
+## 0.1.2
+
+### Patch Changes
+
+- [#1800](https://github.com/utilitywarehouse/hearth/pull/1800) [`08b0895`](https://github.com/utilitywarehouse/hearth/commit/08b0895b5d030a5628ad5adb5628189a1e644976) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: The `hearth-codemod` CLI is now included in the published package
+  
+  `0.1.1` was published without its built `dist/` folder, so `npx @utilitywarehouse/hearth-codemod` failed with `hearth-codemod: command not found`. The package now builds before publishing.
+
+## 0.1.1
+
+### Patch Changes
+
+- [#1794](https://github.com/utilitywarehouse/hearth/pull/1794) [`37ea798`](https://github.com/utilitywarehouse/hearth/commit/37ea798152d66a484f32ebd5f737d3a584f2b5cd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `AccordionContent`'s deprecated `forceMount` prop can be replaced with `keepMounted` by codemod
+  
+  `react/v1/remove-accordion-content-force-mount` renames `forceMount` to
+  `keepMounted`. It is included in `react/pre-v1/migration`, so it can be run on
+  the current release before upgrading to `v1`.
+  
+  ```sh
+  npx @utilitywarehouse/hearth-codemod react/v1/remove-accordion-content-force-mount <path...>
+  ```
+
 ## 0.1.0
 
 ### Minor Changes
