@@ -98,9 +98,13 @@ describe('hearth-manifest.json', () => {
       while (/^var\(/.test(value)) value = declarations.get(value.slice(4, -1));
       return value;
     };
+    // the committed CSS is lint-formatted, which lowercases font family names (`DM Sans` -> `dm sans`);
+    // names are case-insensitive in CSS, so compare without case
     const wrong = manifest.entries.filter(
       ({ type, surfaces }) =>
-        surfaces.css && type !== 'color' && surfaces.css.value !== literal(surfaces.css.variable)
+        surfaces.css &&
+        type !== 'color' &&
+        surfaces.css.value.toLowerCase() !== literal(surfaces.css.variable).toLowerCase()
     );
 
     expect(wrong.map(entry => entry.path)).toEqual([]);
