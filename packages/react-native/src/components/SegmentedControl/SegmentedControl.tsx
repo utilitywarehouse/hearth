@@ -175,7 +175,7 @@ const SegmentedControl = ({
     height: indicatorHeight.value,
   }));
 
-  styles.useVariants({ disabled, size, fullWidth });
+  styles.useVariants({ disabled, size });
 
   const contextValue = useMemo(
     () => ({
@@ -194,7 +194,7 @@ const SegmentedControl = ({
       <View
         accessibilityRole="radiogroup"
         accessibilityState={{ disabled }}
-        style={[styles.container, computedStyles, style]}
+        style={[styles.container, fullWidth && styles.containerFullWidth, computedStyles, style]}
         {...remainingProps}
       >
         {hasIndicator ? (
@@ -235,12 +235,13 @@ const styles = StyleSheet.create(theme => ({
           opacity: theme.opacity.disabled,
         },
       },
-      fullWidth: {
-        true: {
-          alignSelf: 'stretch',
-        },
-      },
     },
+  },
+  // `alignSelf: 'stretch'` alone only fills the width inside a column parent; in a
+  // row parent it stretches the height instead and the options collapse.
+  containerFullWidth: {
+    alignSelf: 'stretch',
+    width: '100%',
   },
   indicator: {
     position: 'absolute',
