@@ -292,10 +292,10 @@ for SEO (for example, primary navigation links), use the `keepMounted` prop on
 
 ### Migrating from `v0.30.x`
 
-**`MenuItem` deprecations:**
+**`MenuItem` breaking changes:**
 
-- `onSelect` is deprecated. Use `onClick` instead: it fires for both mouse and keyboard activation.
-- `textValue` is deprecated. Use `label` instead: it is used for accessibility and keyboard navigation.
+- `onSelect` has been removed. Use `onClick` instead: it fires for both mouse and keyboard activation.
+- `textValue` has been removed. Use `label` instead: it is used for accessibility and keyboard navigation.
 
 **`MenuContent` breaking change:**
 
@@ -319,7 +319,7 @@ Paste the following into an agent to update all Menu usages in your codebase:
 I'm upgrading @utilitywarehouse/hearth-react. The Menu component has migrated
 from Radix UI to Base UI internally. The following prop changes affect consumers:
 
-RENAMED (deprecated — old name still works but logs a dev-mode warning):
+REMOVED (use the replacement):
   - `MenuItem: onSelect` → `onClick`: Base UI uses standard React onClick for
     both mouse and keyboard activation.
   - `MenuItem: textValue` → `label`: used for keyboard text navigation and
@@ -380,10 +380,8 @@ This component is based on the `div` element.
 | -------------- | ------------------------------------------------------------------------ | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`        | `string`                                                                 | —            | Overrides the text label to use when the item is matched during keyboard text navigation.                                                      |
 | `className`    | `string`                                                                 | —            | CSS class applied to the element                                                                                                               |
-| `id`           | `string`                                                                 | —            | @ignore                                                                                                                                        |
 | `onClick`      | `((event: BaseUIEvent<MouseEvent<HTMLDivElement, MouseEvent>>) => void)` | —            | The click handler for the menu item.                                                                                                           |
 | `disabled`     | `boolean`                                                                | `false`      | Whether the component should ignore user interaction.                                                                                          |
 | `closeOnClick` | `boolean`                                                                | `true`       | Whether to close the menu when the item is clicked.                                                                                            |
 | `colorScheme`  | `"functional" \| "destructive"`                                          | `functional` | Sets the visual colour scheme of the item. Use `destructive` for actions like delete.                                                          |
 | `asChild`      | `boolean`                                                                | —            | Change the default rendered element for the one passed as a child, merging their props and behaviour. Useful for rendering MenuItem as a link. |
-| `textValue`    | `string`                                                                 | —            | Deprecated override of the text label to use when the item is matched during keyboard text navigation. @deprecated Use `label` instead.        |
