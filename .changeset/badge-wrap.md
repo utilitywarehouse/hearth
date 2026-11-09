@@ -1,8 +1,8 @@
 ---
-'@utilitywarehouse/hearth-react': minor
+'@utilitywarehouse/hearth-react': patch
 ---
 
-🌟 [ENHANCEMENT]: Add `wrap` prop to `Badge`
+🌟 [FEATURE]: Add `wrap` prop to `Badge`
 
 Set `wrap` to let long badge content wrap onto multiple lines, left-aligned. By default the content stays on a single line.
 

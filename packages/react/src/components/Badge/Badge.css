@@ -26,6 +26,7 @@
     white-space: normal;
     text-align: left;
     align-items: flex-start;
+    flex-shrink: 1;
   }
 
   &:where(.h-variant-emphasis) {
