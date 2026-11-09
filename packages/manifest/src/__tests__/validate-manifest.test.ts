@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { manifestJsonSchema, validateManifest } from '../index.js';
 
 const validTokensManifest = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   package: { name: '@utilitywarehouse/hearth-tokens', version: '0.4.8' },
   type: 'tokens',
   entries: [

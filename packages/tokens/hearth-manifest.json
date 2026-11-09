@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "package": {
     "name": "@utilitywarehouse/hearth-tokens",
     "version": "0.5.0"

@@ -6,7 +6,7 @@ import { validateManifest } from '@utilitywarehouse/hearth-manifest';
 export const TOKENS_PACKAGE = '@utilitywarehouse/hearth-tokens';
 
 export const tokensManifest = (overrides: Record<string, unknown> = {}) => ({
-  schemaVersion: 1,
+  schemaVersion: 2,
   package: { name: TOKENS_PACKAGE, version: '1.2.3' },
   type: 'tokens',
   entries: [
@@ -38,15 +38,17 @@ type EntryOptions = {
   values?: { default: string; dark?: string };
   alias?: { default: string; dark?: string };
   description?: string;
+  device?: 'mobile' | 'tablet' | 'desktop';
 };
 
 /** A manifest entry whose surfaces are derived from its path, the way the tokens generator derives them. */
-export const tokenEntry = ({ layer, path, values, alias, description }: EntryOptions) => {
+export const tokenEntry = ({ layer, path, values, alias, description, device }: EntryOptions) => {
   const resolved = values ?? { default: '#000000' };
   const cssName = path.replace(/^semantic\./, '').replaceAll('.', '-');
   const jsPath = layer === 'semantic' ? path.replace(/^semantic\./, 'semanticLight.') : path;
   return {
     path,
+    ...(device ? { device } : {}),
     layer,
     type: 'color',
     ...(description ? { description } : {}),

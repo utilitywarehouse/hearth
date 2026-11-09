@@ -94,7 +94,7 @@ describe('buildTokensManifest', () => {
     const manifest = buildTokensManifest(semanticBrandRecords, meta);
 
     expect(manifest).toEqual({
-      schemaVersion: 1,
+      schemaVersion: 2,
       package: meta,
       type: 'tokens',
       entries: [

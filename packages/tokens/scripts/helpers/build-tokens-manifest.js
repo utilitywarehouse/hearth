@@ -1,6 +1,6 @@
 import { unwrapAlias } from './unwrap-alias.js';
 
-const SCHEMA_VERSION = 1;
+const SCHEMA_VERSION = 2;
 const JS_IMPORT = '@utilitywarehouse/hearth-tokens';
 const BROWSER_IMPORT = '@utilitywarehouse/hearth-tokens/browser';
 

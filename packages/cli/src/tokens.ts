@@ -10,6 +10,7 @@ export type SearchOptions = { query: string; layer?: Layer; platform?: Platform;
 /** What the CLI reports for a token: only the surfaces and values that exist for the platform asked for. */
 export type TokenView = {
   path: string;
+  device?: TokenEntry['device'];
   layer: Layer;
   type: string;
   description?: string;
@@ -21,10 +22,11 @@ export type TokenView = {
 };
 
 const toView = (
-  { path, layer, type, description, values, alias, surfaces }: TokenEntry,
+  { path, device, layer, type, description, values, alias, surfaces }: TokenEntry,
   platform: Platform
 ): TokenView => ({
   path,
+  ...(device ? { device } : {}),
   layer,
   type,
   ...(description ? { description } : {}),
@@ -62,7 +64,7 @@ export const searchTokens = (
 };
 
 export type GetResult =
-  | { status: 'found'; token: TokenView }
+  | { status: 'found'; tokens: Array<TokenView> }
   | { status: 'not-found'; path: string; suggestions: Array<string> };
 
 const MAX_SUGGESTION_DISTANCE = 3;
@@ -81,14 +83,16 @@ const editDistance = (a: string, b: string): number => {
   return previous[b.length];
 };
 
-/** The token at an exact path, in the given platform view (web by default). */
+/** Every token at an exact path (one per device for device-dependent tokens), in the given platform view (web by default). */
 export const getToken = (
   manifest: Manifest,
   path: string,
   { platform = 'web' }: { platform?: Platform } = {}
 ): GetResult => {
-  const entry = manifest.entries.find(candidate => candidate.path === path);
-  if (entry) return { status: 'found', token: toView(entry, platform) };
+  const entries = manifest.entries.filter(candidate => candidate.path === path);
+  if (entries.length > 0) {
+    return { status: 'found', tokens: entries.map(entry => toView(entry, platform)) };
+  }
   const suggestions = manifest.entries
     .map(candidate => ({ path: candidate.path, distance: editDistance(path, candidate.path) }))
     .filter(candidate => candidate.distance <= MAX_SUGGESTION_DISTANCE)

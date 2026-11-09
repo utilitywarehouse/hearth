@@ -52,15 +52,15 @@ describe('resolveManifest', () => {
 
   it('reports a manifest from a newer schema than the CLI supports, rather than a validation failure', () => {
     const consumer = createConsumer();
-    installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ schemaVersion: 2 }));
+    installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ schemaVersion: 3 }));
 
     const result = resolveManifest(TOKENS_PACKAGE, consumer);
 
     expect(result).toMatchObject({
       status: 'unsupported-schema',
       packageName: TOKENS_PACKAGE,
-      found: 2,
-      supported: 1,
+      found: 3,
+      supported: 2,
     });
   });
 

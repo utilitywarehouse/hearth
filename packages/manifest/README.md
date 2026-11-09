@@ -18,7 +18,7 @@ Every manifest has a header and a list of entries:
 
 ```json
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "package": { "name": "@utilitywarehouse/hearth-tokens", "version": "1.2.3" },
   "type": "tokens",
   "entries": [
@@ -44,7 +44,7 @@ Every manifest has a header and a list of entries:
 
 | Field           | Meaning                                                                                       |
 | --------------- | --------------------------------------------------------------------------------------------- |
-| `schemaVersion` | Version of this schema. Currently `1`. Readers can use it to reject manifests they can't read. |
+| `schemaVersion` | Version of this schema. Currently `2`. Readers can use it to reject manifests they can't read. |
 | `package`       | Name and version of the package that produced the manifest.                                   |
 | `type`          | What kind of manifest this is. Only `tokens` exists so far.                                   |
 | `entries`       | One entry per thing the package offers.                                                       |
@@ -103,7 +103,7 @@ The package also exports:
 
 `validateManifest` also enforces:
 
-- An entry is unique by `path` and `device`: the same path can appear once per device.
+- An entry is unique by `path` and `device`: the same path can appear once per device. Version 1 required every `path` to be unique, so a v1 reader rejects a v2 manifest (and the CLI reports it as needing an update).
 - A `values.dark` requires `surfaces.js.darkPath`, and `darkPath` requires a dark value, since dark mode exists on the JS surface only.
 
 ## Changing the schema

@@ -19,7 +19,9 @@ so every value is a string or a number.
 
 **Developer changes**:
 
-No action is required. The manifest is read by tooling, and the existing CSS, browser
-and JS exports are unchanged. The optional `device` and `css.value` fields are additive,
-so `schemaVersion` stays `1`; a CLI built before this release reads the manifest but
-lists each device variant separately.
+No action is required to use the tokens. The existing CSS, browser and JS exports are unchanged.
+
+`hearth-manifest.json` is now `schemaVersion` `2`. A device-dependent token repeats its `path` once
+per device, which `schemaVersion` `1` readers reject, so tooling that reads the manifest (the Hearth
+CLI) needs updating to a version that supports schema 2. The optional `device` and `css.value`
+fields are additive.
