@@ -4,6 +4,7 @@ import {
   logVerbosityLevels,
   logWarningLevels,
 } from 'style-dictionary/enums';
+import { camelCase } from './helpers/camel-case.js';
 import { loadJSON } from './helpers/load-json.js';
 import { registerDictionaryExtensions } from './helpers/register-dictionary-extensions.js';
 
@@ -177,7 +178,11 @@ export function generateJsTokens() {
                     token.attributes.category === primitive
                   );
                 },
-                options: { minify: true, skipPaths: [primitive] },
+                options: {
+                  minify: true,
+                  skipPaths: [primitive],
+                  manifestRoot: camelCase(primitive),
+                },
               })),
           ],
         },

@@ -100,12 +100,64 @@ describe('getToken', () => {
 
     expect(result).toMatchObject({
       status: 'found',
-      token: {
-        path: 'semantic.background.brand',
-        values: { default: '#7a42c8' },
-        alias: { default: 'color.purple.700' },
-        css: { variable: '--h-background-brand' },
-      },
+      tokens: [
+        {
+          path: 'semantic.background.brand',
+          values: { default: '#7a42c8' },
+          alias: { default: 'color.purple.700' },
+          css: { variable: '--h-background-brand' },
+        },
+      ],
+    });
+  });
+
+  it('returns every device variant at a path, each labelled with its device', () => {
+    const result = getToken(
+      manifestOf([
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'desktop' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'mobile' }),
+      ]),
+      'semantic.shadow.md.x'
+    );
+
+    expect(result).toMatchObject({
+      status: 'found',
+      tokens: [{ device: 'desktop' }, { device: 'mobile' }],
+    });
+  });
+
+  it('reports the CSS value on web and the JS value on native', () => {
+    const opacity = manifestOf([
+      tokenEntry({
+        layer: 'semantic',
+        path: 'semantic.opacity.disabled',
+        values: { default: 50 as unknown as string },
+        cssValue: '0.5',
+      }),
+    ]);
+
+    expect(getToken(opacity, 'semantic.opacity.disabled')).toMatchObject({
+      tokens: [{ values: { default: '0.5' } }],
+    });
+    expect(getToken(opacity, 'semantic.opacity.disabled', { platform: 'native' })).toMatchObject({
+      tokens: [{ values: { default: 50 } }],
+    });
+  });
+
+  it('suggests each close path once, however many device variants it has', () => {
+    const result = getToken(
+      manifestOf([
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'desktop' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'mobile' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.x', device: 'tablet' }),
+        tokenEntry({ layer: 'semantic', path: 'semantic.shadow.md.y', device: 'desktop' }),
+      ]),
+      'semantic.shadow.md.z'
+    );
+
+    expect(result).toMatchObject({
+      status: 'not-found',
+      suggestions: ['semantic.shadow.md.x', 'semantic.shadow.md.y'],
     });
   });
 
