@@ -32,6 +32,7 @@ const meta: Meta<typeof Badge> = {
     size: { control: { type: 'radio' }, options: sizes },
     colorScheme: { options: colorSchemes, control: { type: 'select' } },
     flatBase: { control: { type: 'boolean' } },
+    wrap: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Badge',
@@ -39,6 +40,7 @@ const meta: Meta<typeof Badge> = {
     size: 'md',
     colorScheme: 'info',
     flatBase: false,
+    wrap: false,
   },
 };
 
@@ -166,6 +168,47 @@ export const FlatBase: Story = {
       </Flex>
       <Card width="400px" height="200px" colorScheme="neutralSubtle" />
     </Box>
+  ),
+};
+
+/** Set wrap to let long content wrap onto multiple lines, left-aligned. */
+export const Wrap: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  render: () => (
+    <Box width="200px">
+      <Badge colorScheme="positive" variant="emphasis" wrap>
+        Get a free Multi SIM when you join with a broadband bundle
+      </Badge>
+    </Box>
+  ),
+};
+
+/** When wrapped, an icon stays aligned with the first line of left-aligned text. */
+export const WrapWithIcon: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    actions: { disable: true },
+    controls: { disable: true },
+  },
+  render: () => (
+    <Flex direction="column" gap="200" alignItems="start">
+      <Box width="120px">
+        <Badge colorScheme="positive" wrap>
+          <TickSmallIcon />
+          Earned this month
+        </Badge>
+      </Box>
+      <Box width="140px">
+        <Badge colorScheme="positive" size="sm" wrap>
+          <TickSmallIcon />
+          Earned this month
+        </Badge>
+      </Box>
+    </Flex>
   ),
 };
 
