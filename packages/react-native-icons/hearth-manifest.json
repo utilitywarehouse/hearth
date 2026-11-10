@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "package": {
     "name": "@utilitywarehouse/hearth-react-native-icons",
-    "version": "0.10.0"
+    "version": "0.10.1"
   },
   "type": "icons",
   "usage": {
