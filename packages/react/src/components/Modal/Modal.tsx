@@ -10,7 +10,6 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { ModalClose } from './ModalClose';
-import { ModalContent } from './ModalContent';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Spinner } from '../Spinner/Spinner';
