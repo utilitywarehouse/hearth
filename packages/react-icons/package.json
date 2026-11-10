@@ -26,6 +26,8 @@
     "typecheck": "tsc --noEmit",
     "lint:fix": "TIMING=1 eslint --fix --ext ts,tsx lib && pnpm format",
     "lint": "TIMING=1 eslint --ext ts,tsx lib",
+    "lint:ci": "TIMING=1 eslint --ext ts,tsx lib",
+    "format:ci": "prettier --list-different --parser=typescript \"lib/*.ts*\"",
     "figma:publish": "figma connect publish"
   },
   "publishConfig": {
