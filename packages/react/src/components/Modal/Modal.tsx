@@ -10,7 +10,6 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { ModalClose } from './ModalClose';
-import { ModalContent } from './ModalContent';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Spinner } from '../Spinner/Spinner';
@@ -83,9 +82,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>((props, ref) => {
                 {!loading ? (
                   <div className={`${componentClassName}InnerContainer`}>
                     {containsImage ? (
-                      <ModalContent>
+                      <div className={`${componentClassName}ImageContainer`}>
                         <div className={`${componentClassName}Image`}>{image}</div>
-                      </ModalContent>
+                      </div>
                     ) : null}
                     <div className={`${componentClassName}Header`}>
                       <Box asChild>
