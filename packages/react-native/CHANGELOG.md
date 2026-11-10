@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.38.7
+
+### Patch Changes
+
+- [#1824](https://github.com/utilitywarehouse/hearth/pull/1824) [`b60ba3a`](https://github.com/utilitywarehouse/hearth/commit/b60ba3a8b4d8af2e54bb04a73ef966d001e73992) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `wrap` prop to `Badge`
+  
+  Set `wrap` to let long badge content wrap onto multiple lines, left-aligned. By default the content stays on a single line.
+  
+  **Developer changes**:
+  
+  No action is required. Add `wrap` to a `Badge` to opt in.
+
 ## 0.38.6
 
 ### Patch Changes

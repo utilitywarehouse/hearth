@@ -4,6 +4,29 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.37.0
+
+### Minor Changes
+
+- [#1769](https://github.com/utilitywarehouse/hearth/pull/1769) [`81eb95a`](https://github.com/utilitywarehouse/hearth/commit/81eb95a5b4d334341beef65629b417e44ec14a2f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `VisuallyHidden` component and `Slot` export
+
+  `VisuallyHidden` hides content visually while keeping it available to screen readers. `Slot` is re-exported from `radix-ui`, so consumers use the same version as Hearth React.
+
+  ```tsx
+  import { Slot, VisuallyHidden } from '@utilitywarehouse/hearth-react';
+
+  <VisuallyHidden>Opens in a new tab</VisuallyHidden>;
+  ```
+
+  **Components affected**:
+
+  - `VisuallyHidden`
+  - `Slot`
+
+### Patch Changes
+
+- [#1827](https://github.com/utilitywarehouse/hearth/pull/1827) [`ed3d8ce`](https://github.com/utilitywarehouse/hearth/commit/ed3d8ce086b25b8ce64411eb62d2d50e462d05bb) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal scrollbars showing with BannerImage
+
 ## 0.36.3
 
 ### Patch Changes
