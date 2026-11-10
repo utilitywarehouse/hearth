@@ -12,7 +12,7 @@
     "clean:lib": "rm -rf lib",
     "gen:script": "node ./scripts/generate-json-assets.js",
     "generate": "pnpm clean:lib && pnpm gen:script && pnpm generate:manifest",
-    "generate:manifest": "node ./scripts/generate-hearth-manifest.mjs",
+    "generate:manifest": "pnpm --filter @utilitywarehouse/hearth-manifest build && node ./scripts/generate-hearth-manifest.mjs",
     "sync:manifest-version": "pnpm generate:manifest",
     "test": "vitest run"
   },
