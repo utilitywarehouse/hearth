@@ -65,7 +65,7 @@
     },
     "lint:ci": {
       "outputs": [],
-      "dependsOn": ["lint:fix"]
+      "dependsOn": ["^build"]
     },
     "lint:css": {
       "outputs": []

@@ -22,6 +22,8 @@
     "generate": "pnpm clean:lib && pnpm transform && pnpm copy-types && node ./scripts/generate-figma-code-connect.cjs",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0",
     "lint": "TIMING=1 eslint --max-warnings 0",
+    "lint:ci": "TIMING=1 eslint --max-warnings 0",
+    "format:ci": "prettier --list-different --parser=typescript \"lib/*.ts*\"",
     "build": "pnpm clean:dist && tsc --build ./tsconfig.build.json",
     "typecheck": "tsc --noEmit -p tsconfig.build.json",
     "figma:publish": "figma connect publish"
