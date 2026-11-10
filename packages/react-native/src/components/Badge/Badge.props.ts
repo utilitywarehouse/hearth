@@ -36,6 +36,11 @@ interface BadgeProps extends ViewProps {
    * @default false
    */
   flatBase?: boolean;
+  /**
+   * Allows the content to wrap onto multiple lines, left-aligned.
+   * @default false
+   */
+  wrap?: boolean;
   /** Text to display in the badge, taking precedence over `children`. */
   text?: string | number;
   /** Maximum number of lines to render for the badge text. */
