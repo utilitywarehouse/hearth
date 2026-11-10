@@ -100,3 +100,4 @@
 - [UnstyledIconButton](llms/components/unstyled-icon-button.md): Use UnstyledIconButton for an icon-only button with no visual styling of
 - [ValidationText](llms/components/validation-text.md): Use ValidationText alongside a form field to display a validation message,
 - [VerificationInput](llms/components/verification-input.md): Use VerificationInput to let users enter a one-time password (OTP) sent via
+- [VisuallyHidden](llms/components/visually-hidden.md): Use VisuallyHidden to hide content visually while keeping it available to
