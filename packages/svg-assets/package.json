@@ -16,7 +16,7 @@
     "generate:figma-code-connect:react-native": "node ./scripts/generate-figma-code-connect.cjs --config figma.config.react-native.json",
     "figma:publish:react": "figma connect publish --config figma.config.react.json",
     "figma:publish:react-native": "figma connect publish --config figma.config.react-native.json",
-    "generate:manifest": "node ./scripts/generate-hearth-manifest.mjs",
+    "generate:manifest": "pnpm --filter @utilitywarehouse/hearth-manifest build && node ./scripts/generate-hearth-manifest.mjs",
     "sync:manifest-version": "pnpm generate:manifest",
     "test": "vitest run"
   },
