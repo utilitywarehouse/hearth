@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react': minor
 ---
 
-✨ [FEAT]: Add `VisuallyHidden` component and export `Slot`
+🌟 [FEATURE]: `VisuallyHidden` component and `Slot` export
 
 `VisuallyHidden` hides content visually while keeping it available to screen readers. `Slot` is re-exported from `radix-ui`, so consumers use the same version as Hearth React.
 
