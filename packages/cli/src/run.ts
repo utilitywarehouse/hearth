@@ -71,7 +71,7 @@ const searchCommand = (query: string | undefined, values: ListValues, io: Io) =>
   if (!Number.isInteger(limit) || limit < 0) {
     throw new UsageError('--limit must be a non-negative whole number');
   }
-  const resolved = resolveManifest(TOKENS_PACKAGE, io.cwd);
+  const resolved = resolveManifest(TOKENS_PACKAGE, io.cwd, 'tokens');
   if (resolved.status !== 'ok') {
     io.stderr(formatUnavailable(resolved));
     return EXIT.unavailable;
@@ -93,7 +93,7 @@ const searchCommand = (query: string | undefined, values: ListValues, io: Io) =>
 
 const getCommand = (path: string, values: { platform?: string; json?: boolean }, io: Io) => {
   const platform = oneOf('--platform', values.platform, PLATFORMS, 'web');
-  const resolved = resolveManifest(TOKENS_PACKAGE, io.cwd);
+  const resolved = resolveManifest(TOKENS_PACKAGE, io.cwd, 'tokens');
   if (resolved.status !== 'ok') {
     io.stderr(formatUnavailable(resolved));
     return EXIT.unavailable;

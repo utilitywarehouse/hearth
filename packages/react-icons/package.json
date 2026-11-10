@@ -28,7 +28,8 @@
     "lint": "TIMING=1 eslint --ext ts,tsx lib",
     "lint:ci": "TIMING=1 eslint --ext ts,tsx lib",
     "format:ci": "prettier --list-different --parser=typescript \"lib/*.ts*\"",
-    "figma:publish": "figma connect publish"
+    "figma:publish": "figma connect publish",
+    "test": "vitest run"
   },
   "publishConfig": {
     "access": "public"
@@ -42,11 +43,14 @@
     "@svgr/plugin-jsx": "^7.0.0",
     "@svgr/plugin-svgo": "^7.0.0",
     "@types/react": "^19.2.18",
+    "@utilitywarehouse/hearth-manifest": "workspace:*",
     "fs-extra": "^11.1.1",
     "lodash.template": "^4.18.1",
-    "tsup": "^8.5.1"
+    "tsup": "^8.5.1",
+    "vitest": "^4.1.7"
   },
   "files": [
-    "dist"
+    "dist",
+    "hearth-manifest.json"
   ]
 }

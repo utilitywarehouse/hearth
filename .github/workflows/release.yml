@@ -172,6 +172,7 @@ jobs:
             pnpm changeset version
           fi
           pnpm --filter @utilitywarehouse/hearth-tokens sync:manifest-version
+          pnpm --filter @utilitywarehouse/hearth-svg-icons sync:manifest-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

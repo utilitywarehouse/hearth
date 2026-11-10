@@ -76,6 +76,8 @@ export const formatUnavailable = (result: Exclude<ResolveResult, { status: 'ok' 
       return `The hearth-manifest.json in ${result.packageName} is invalid:\n${result.errors.map(error => `  ${error}`).join('\n')}\n`;
     case 'unsupported-schema':
       return `${result.packageName} ships manifest schema version ${result.found}, which is newer than this CLI supports (${result.supported}). Update @utilitywarehouse/hearth-cli and run the command again.\n`;
+    case 'unsupported-type':
+      return `${result.packageName} ships manifest type "${result.found}", which this CLI does not know. Update @utilitywarehouse/hearth-cli and run the command again.\n`;
   }
 };
 

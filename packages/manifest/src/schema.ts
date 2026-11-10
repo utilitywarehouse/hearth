@@ -39,31 +39,72 @@ const tokenEntry = z
     }
   });
 
-export const manifestSchema = z
-  .object({
-    schemaVersion: z.literal(SCHEMA_VERSION),
-    package: z.object({ name: z.string().min(1), version: z.string().min(1) }),
-    type: z.literal('tokens'),
-    entries: z.array(tokenEntry),
-  })
-  .superRefine((manifest, ctx) => {
+const header = {
+  schemaVersion: z.literal(SCHEMA_VERSION),
+  package: z.object({ name: z.string().min(1), version: z.string().min(1) }),
+};
+
+/** Flags a second entry with the same key; `describe` turns an entry into its unique key. */
+const rejectDuplicates =
+  <E>(describe: (entry: E) => string, field: string) =>
+  (manifest: { entries: Array<E> }, ctx: z.RefinementCtx) => {
     const seen = new Set<string>();
     manifest.entries.forEach((entry, index) => {
-      const key = entry.device ? `${entry.path} (${entry.device})` : entry.path;
+      const key = describe(entry);
       if (seen.has(key)) {
         ctx.addIssue({
           code: 'custom',
-          path: ['entries', index, 'path'],
-          message: `duplicate entry path "${key}"`,
+          path: ['entries', index, field],
+          message: `duplicate entry ${field} "${key}"`,
         });
       }
       seen.add(key);
     });
-  });
+  };
+
+const tokensManifest = z
+  .object({ ...header, type: z.literal('tokens'), entries: z.array(tokenEntry) })
+  .superRefine(
+    rejectDuplicates<TokenEntry>(
+      entry => (entry.device ? `${entry.path} (${entry.device})` : entry.path),
+      'path'
+    )
+  );
+
+const iconEntry = z.object({
+  name: z.string().min(1),
+  size: z.enum(['small', 'medium', 'large']),
+  /** the SVG file in `@utilitywarehouse/hearth-svg-icons`, for example `add-small-icon.svg` */
+  svg: z.string().min(1),
+  /** the component exported by the React and React Native icon packages */
+  component: z.string().min(1),
+});
+
+const iconsManifest = z
+  .object({
+    ...header,
+    type: z.literal('icons'),
+    // the same icon list ships in three packages; `usage` is how to use them from this one
+    usage: z.object({
+      platform: z.enum(['svg', 'react', 'react-native']),
+      import: z.string().min(1),
+      example: z.string().min(1),
+    }),
+    entries: z.array(iconEntry),
+  })
+  .superRefine(rejectDuplicates<IconEntry>(entry => entry.name, 'name'));
+
+/** Every manifest type this version can read. Add a type by adding a member here. */
+export const manifestSchema = z.discriminatedUnion('type', [tokensManifest, iconsManifest]);
+
+export const MANIFEST_TYPES = manifestSchema.options.map(option => option.shape.type.value);
 
 // Cross-field rules (dark values, unique paths) are enforced by `validateManifest`
 // and cannot be expressed in JSON Schema.
 export const manifestJsonSchema = z.toJSONSchema(manifestSchema);
 
 export type TokenEntry = z.infer<typeof tokenEntry>;
+export type IconEntry = z.infer<typeof iconEntry>;
+export type TokensManifest = z.infer<typeof tokensManifest>;
+export type IconsManifest = z.infer<typeof iconsManifest>;
 export type Manifest = z.infer<typeof manifestSchema>;

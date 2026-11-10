@@ -8,6 +8,9 @@ on:
       - 'packages/cli/**'
       - 'packages/codemod/**'
       - 'packages/manifest/**'
+      - 'packages/react-icons/**'
+      - 'packages/react-native-icons/**'
+      - 'packages/svg-icons/**'
       - 'packages/tokens/**'
 
 permissions:
