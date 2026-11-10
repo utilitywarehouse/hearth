@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.10.1
+
+### Patch Changes
+
+- [#1830](https://github.com/utilitywarehouse/hearth/pull/1830) [`acc0f19`](https://github.com/utilitywarehouse/hearth/commit/acc0f19013f90784f7cf214250d6bf9b7b5a3178) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Ships a `hearth-manifest.json` listing every icon with how to use it from React
+  
+  The package now includes `hearth-manifest.json`, which lists each icon's name, size, SVG
+  file and component name, with a `usage` block for React. Tools can read it from
+  `node_modules` to look up which icons exist in the installed version. The same list is
+  shipped in the SVG, React and React Native icon packages.
+
 ## 0.10.0
 
 ### Minor Changes

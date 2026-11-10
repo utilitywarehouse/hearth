@@ -41,7 +41,9 @@ npm run setup    # corepack enable + pnpm install
 
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
-- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node, where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node (the agent sandbox defaults to Node 18), where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+
+- `npx` fails in the sandbox with an npm cache `EPERM`. Call the local binary directly instead, for example `node_modules/.bin/eslint`.
 
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 
@@ -65,6 +67,8 @@ For both React and React Native components, the source of truth is the co-locate
 ---
 
 ## Design tokens
+
+The token pipeline, commands and gotchas are in [packages/tokens/README.md](packages/tokens/README.md).
 
 `hearth-tokens` is **not** a runtime dependency of `hearth-react` or `hearth-react-native` — tokens are vendored into each package via scripts (`pnpm generate:tokens:react` for React, `pnpm --dir packages/react-native run copyTokens` for React Native). If you change tokens, run the relevant script before building.
 
