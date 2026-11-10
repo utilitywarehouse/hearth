@@ -30,6 +30,7 @@ for the full list of available codemods and worked before/after examples.
 
 | Codemod | Description |
 | --- | --- |
+| `react/v1/migrate-card-banner-image` | Renames the deprecated `CardBannerImage` to `BannerImage`, including aliased and namespace imports. Non-breaking: included in `react/pre-v1/migration` |
 | `react/v1/migrate-menu` | Renames `MenuItem`'s deprecated `onSelect` and `textValue` props to `onClick` and `label`, and `MenuContent`'s `forceMount` to `keepMounted` |
 | `react/v1/remove-accordion-content-force-mount` | Renames `AccordionContent`'s deprecated `forceMount` prop to `keepMounted` |
 | `react/v1/remove-modal-fullscreen` | Removes `Modal`'s deprecated `fullScreen` prop |

@@ -12,6 +12,7 @@ so you can apply it deterministically instead of updating usages by hand.
 
 - [Using the codemod CLI](#using-the-codemod-cli)
 - [Individual codemods](#individual-codemods)
+  - [`react/v1/migrate-card-banner-image`](#reactv1migrate-card-banner-image)
   - [`react/v1/migrate-menu`](#reactv1migrate-menu)
   - [`react/v1/remove-accordion-content-force-mount`](#reactv1remove-accordion-content-force-mount)
   - [`react/v1/remove-modal-fullscreen`](#reactv1remove-modal-fullscreen)
@@ -46,6 +47,30 @@ The CLI refuses to run against a dirty git working tree (unless `--dry` or
 
 Run these as each breaking change lands, rather than waiting for a full `v1`
 release.
+
+### `react/v1/migrate-card-banner-image`
+
+`CardBannerImage` is deprecated in favour of `BannerImage`, which has the same props. It will
+be removed in `v1`.
+
+```diff
+- import { CardBannerImage } from '@utilitywarehouse/hearth-react';
++ import { BannerImage } from '@utilitywarehouse/hearth-react';
+
+- <CardBannerImage src="banner.png" alt="" />
++ <BannerImage src="banner.png" alt="" />
+```
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/migrate-card-banner-image src
+```
+
+The codemod renames the import, including aliased (`CardBannerImage as Banner`) and namespace
+(`<H.CardBannerImage>`) imports, and every usage. If `BannerImage` is already imported, the
+duplicate import is dropped.
+
+This is a non-breaking codemod, so it is included in `react/pre-v1/migration` (and therefore in
+`react/v1/migration`).
 
 ### `react/v1/migrate-menu`
 

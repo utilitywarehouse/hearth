@@ -1,4 +1,5 @@
 import type { API, FileInfo } from 'jscodeshift';
+import migrateCardBannerImage from '../v1/migrate-card-banner-image';
 import migrateMenu from '../v1/migrate-menu';
 import removeAccordionContentForceMount from '../v1/remove-accordion-content-force-mount';
 import removeModalFullscreen from '../v1/remove-modal-fullscreen';
@@ -12,6 +13,7 @@ import removeTextWrapProp from '../v1/remove-text-wrap-prop';
  * `react/v1/migration` includes them.
  */
 function transformer(file: FileInfo, api: API): string {
+  file.source = migrateCardBannerImage(file, api);
   file.source = migrateMenu(file, api);
   file.source = removeAccordionContentForceMount(file, api);
   file.source = removeModalFullscreen(file, api);
