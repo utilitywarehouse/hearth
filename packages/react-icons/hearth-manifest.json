@@ -1,0 +1,1305 @@
+{
+  "schemaVersion": 2,
+  "package": {
+    "name": "@utilitywarehouse/hearth-react-icons",
+    "version": "0.10.1"
+  },
+  "type": "icons",
+  "usage": {
+    "platform": "react",
+    "import": "@utilitywarehouse/hearth-react-icons",
+    "example": "import { <component> } from '@utilitywarehouse/hearth-react-icons';"
+  },
+  "entries": [
+    {
+      "name": "AddMediumIcon",
+      "size": "medium",
+      "svg": "add-medium-icon.svg",
+      "component": "AddMediumIcon"
+    },
+    {
+      "name": "AddSmallIcon",
+      "size": "small",
+      "svg": "add-small-icon.svg",
+      "component": "AddSmallIcon"
+    },
+    {
+      "name": "AiGeneratedMediumIcon",
+      "size": "medium",
+      "svg": "ai-generated-medium-icon.svg",
+      "component": "AiGeneratedMediumIcon"
+    },
+    {
+      "name": "AiGeneratedSmallIcon",
+      "size": "small",
+      "svg": "ai-generated-small-icon.svg",
+      "component": "AiGeneratedSmallIcon"
+    },
+    {
+      "name": "AttachMediumIcon",
+      "size": "medium",
+      "svg": "attach-medium-icon.svg",
+      "component": "AttachMediumIcon"
+    },
+    {
+      "name": "AttachSmallIcon",
+      "size": "small",
+      "svg": "attach-small-icon.svg",
+      "component": "AttachSmallIcon"
+    },
+    {
+      "name": "BankMediumIcon",
+      "size": "medium",
+      "svg": "bank-medium-icon.svg",
+      "component": "BankMediumIcon"
+    },
+    {
+      "name": "BasketMediumIcon",
+      "size": "medium",
+      "svg": "basket-medium-icon.svg",
+      "component": "BasketMediumIcon"
+    },
+    {
+      "name": "BasketSmallIcon",
+      "size": "small",
+      "svg": "basket-small-icon.svg",
+      "component": "BasketSmallIcon"
+    },
+    {
+      "name": "BellMediumIcon",
+      "size": "medium",
+      "svg": "bell-medium-icon.svg",
+      "component": "BellMediumIcon"
+    },
+    {
+      "name": "BellSmallIcon",
+      "size": "small",
+      "svg": "bell-small-icon.svg",
+      "component": "BellSmallIcon"
+    },
+    {
+      "name": "BillMediumIcon",
+      "size": "medium",
+      "svg": "bill-medium-icon.svg",
+      "component": "BillMediumIcon"
+    },
+    {
+      "name": "BillSmallIcon",
+      "size": "small",
+      "svg": "bill-small-icon.svg",
+      "component": "BillSmallIcon"
+    },
+    {
+      "name": "BoilerMediumIcon",
+      "size": "medium",
+      "svg": "boiler-medium-icon.svg",
+      "component": "BoilerMediumIcon"
+    },
+    {
+      "name": "BookOpenLargeIcon",
+      "size": "large",
+      "svg": "book-open-large-icon.svg",
+      "component": "BookOpenLargeIcon"
+    },
+    {
+      "name": "BookOpenMediumIcon",
+      "size": "medium",
+      "svg": "book-open-medium-icon.svg",
+      "component": "BookOpenMediumIcon"
+    },
+    {
+      "name": "BookmarkMediumIcon",
+      "size": "medium",
+      "svg": "bookmark-medium-icon.svg",
+      "component": "BookmarkMediumIcon"
+    },
+    {
+      "name": "BroadbandMediumIcon",
+      "size": "medium",
+      "svg": "broadband-medium-icon.svg",
+      "component": "BroadbandMediumIcon"
+    },
+    {
+      "name": "BroadbandSmallIcon",
+      "size": "small",
+      "svg": "broadband-small-icon.svg",
+      "component": "BroadbandSmallIcon"
+    },
+    {
+      "name": "BudgetPlanMediumIcon",
+      "size": "medium",
+      "svg": "budget-plan-medium-icon.svg",
+      "component": "BudgetPlanMediumIcon"
+    },
+    {
+      "name": "BulbMediumIcon",
+      "size": "medium",
+      "svg": "bulb-medium-icon.svg",
+      "component": "BulbMediumIcon"
+    },
+    {
+      "name": "CalendarAddMediumIcon",
+      "size": "medium",
+      "svg": "calendar-add-medium-icon.svg",
+      "component": "CalendarAddMediumIcon"
+    },
+    {
+      "name": "CalendarAddSmallIcon",
+      "size": "small",
+      "svg": "calendar-add-small-icon.svg",
+      "component": "CalendarAddSmallIcon"
+    },
+    {
+      "name": "CalendarMediumIcon",
+      "size": "medium",
+      "svg": "calendar-medium-icon.svg",
+      "component": "CalendarMediumIcon"
+    },
+    {
+      "name": "CalendarSmallIcon",
+      "size": "small",
+      "svg": "calendar-small-icon.svg",
+      "component": "CalendarSmallIcon"
+    },
+    {
+      "name": "CameraMediumIcon",
+      "size": "medium",
+      "svg": "camera-medium-icon.svg",
+      "component": "CameraMediumIcon"
+    },
+    {
+      "name": "CashbackCardMediumIcon",
+      "size": "medium",
+      "svg": "cashback-card-medium-icon.svg",
+      "component": "CashbackCardMediumIcon"
+    },
+    {
+      "name": "CashbackCardSmallIcon",
+      "size": "small",
+      "svg": "cashback-card-small-icon.svg",
+      "component": "CashbackCardSmallIcon"
+    },
+    {
+      "name": "CelebrationMediumIcon",
+      "size": "medium",
+      "svg": "celebration-medium-icon.svg",
+      "component": "CelebrationMediumIcon"
+    },
+    {
+      "name": "CelebrationSmallIcon",
+      "size": "small",
+      "svg": "celebration-small-icon.svg",
+      "component": "CelebrationSmallIcon"
+    },
+    {
+      "name": "ChatMediumIcon",
+      "size": "medium",
+      "svg": "chat-medium-icon.svg",
+      "component": "ChatMediumIcon"
+    },
+    {
+      "name": "ChevronDownMediumIcon",
+      "size": "medium",
+      "svg": "chevron-down-medium-icon.svg",
+      "component": "ChevronDownMediumIcon"
+    },
+    {
+      "name": "ChevronDownSmallIcon",
+      "size": "small",
+      "svg": "chevron-down-small-icon.svg",
+      "component": "ChevronDownSmallIcon"
+    },
+    {
+      "name": "ChevronLeftMediumIcon",
+      "size": "medium",
+      "svg": "chevron-left-medium-icon.svg",
+      "component": "ChevronLeftMediumIcon"
+    },
+    {
+      "name": "ChevronLeftSmallIcon",
+      "size": "small",
+      "svg": "chevron-left-small-icon.svg",
+      "component": "ChevronLeftSmallIcon"
+    },
+    {
+      "name": "ChevronRightMediumIcon",
+      "size": "medium",
+      "svg": "chevron-right-medium-icon.svg",
+      "component": "ChevronRightMediumIcon"
+    },
+    {
+      "name": "ChevronRightSmallIcon",
+      "size": "small",
+      "svg": "chevron-right-small-icon.svg",
+      "component": "ChevronRightSmallIcon"
+    },
+    {
+      "name": "ChevronUpMediumIcon",
+      "size": "medium",
+      "svg": "chevron-up-medium-icon.svg",
+      "component": "ChevronUpMediumIcon"
+    },
+    {
+      "name": "ChevronUpSmallIcon",
+      "size": "small",
+      "svg": "chevron-up-small-icon.svg",
+      "component": "ChevronUpSmallIcon"
+    },
+    {
+      "name": "CloseMediumIcon",
+      "size": "medium",
+      "svg": "close-medium-icon.svg",
+      "component": "CloseMediumIcon"
+    },
+    {
+      "name": "CloseSmallIcon",
+      "size": "small",
+      "svg": "close-small-icon.svg",
+      "component": "CloseSmallIcon"
+    },
+    {
+      "name": "ContactlessMediumIcon",
+      "size": "medium",
+      "svg": "contactless-medium-icon.svg",
+      "component": "ContactlessMediumIcon"
+    },
+    {
+      "name": "CopyMediumIcon",
+      "size": "medium",
+      "svg": "copy-medium-icon.svg",
+      "component": "CopyMediumIcon"
+    },
+    {
+      "name": "CopySmallIcon",
+      "size": "small",
+      "svg": "copy-small-icon.svg",
+      "component": "CopySmallIcon"
+    },
+    {
+      "name": "CreditMediumIcon",
+      "size": "medium",
+      "svg": "credit-medium-icon.svg",
+      "component": "CreditMediumIcon"
+    },
+    {
+      "name": "CreditReversalMediumIcon",
+      "size": "medium",
+      "svg": "credit-reversal-medium-icon.svg",
+      "component": "CreditReversalMediumIcon"
+    },
+    {
+      "name": "CreditReversalSmallIcon",
+      "size": "small",
+      "svg": "credit-reversal-small-icon.svg",
+      "component": "CreditReversalSmallIcon"
+    },
+    {
+      "name": "CreditSmallIcon",
+      "size": "small",
+      "svg": "credit-small-icon.svg",
+      "component": "CreditSmallIcon"
+    },
+    {
+      "name": "CreditsAndDebitsMediumIcon",
+      "size": "medium",
+      "svg": "credits-and-debits-medium-icon.svg",
+      "component": "CreditsAndDebitsMediumIcon"
+    },
+    {
+      "name": "DecreaseMediumIcon",
+      "size": "medium",
+      "svg": "decrease-medium-icon.svg",
+      "component": "DecreaseMediumIcon"
+    },
+    {
+      "name": "DecreaseSmallIcon",
+      "size": "small",
+      "svg": "decrease-small-icon.svg",
+      "component": "DecreaseSmallIcon"
+    },
+    {
+      "name": "DevicesMediumIcon",
+      "size": "medium",
+      "svg": "devices-medium-icon.svg",
+      "component": "DevicesMediumIcon"
+    },
+    {
+      "name": "DevicesSmallIcon",
+      "size": "small",
+      "svg": "devices-small-icon.svg",
+      "component": "DevicesSmallIcon"
+    },
+    {
+      "name": "DocumentMediumIcon",
+      "size": "medium",
+      "svg": "document-medium-icon.svg",
+      "component": "DocumentMediumIcon"
+    },
+    {
+      "name": "DownloadMediumIcon",
+      "size": "medium",
+      "svg": "download-medium-icon.svg",
+      "component": "DownloadMediumIcon"
+    },
+    {
+      "name": "DownloadSmallIcon",
+      "size": "small",
+      "svg": "download-small-icon.svg",
+      "component": "DownloadSmallIcon"
+    },
+    {
+      "name": "EditMediumIcon",
+      "size": "medium",
+      "svg": "edit-medium-icon.svg",
+      "component": "EditMediumIcon"
+    },
+    {
+      "name": "EditSmallIcon",
+      "size": "small",
+      "svg": "edit-small-icon.svg",
+      "component": "EditSmallIcon"
+    },
+    {
+      "name": "ElectricityMediumIcon",
+      "size": "medium",
+      "svg": "electricity-medium-icon.svg",
+      "component": "ElectricityMediumIcon"
+    },
+    {
+      "name": "ElectricitySmallIcon",
+      "size": "small",
+      "svg": "electricity-small-icon.svg",
+      "component": "ElectricitySmallIcon"
+    },
+    {
+      "name": "EmailMediumIcon",
+      "size": "medium",
+      "svg": "email-medium-icon.svg",
+      "component": "EmailMediumIcon"
+    },
+    {
+      "name": "EmailSmallIcon",
+      "size": "small",
+      "svg": "email-small-icon.svg",
+      "component": "EmailSmallIcon"
+    },
+    {
+      "name": "EnvironmentMediumIcon",
+      "size": "medium",
+      "svg": "environment-medium-icon.svg",
+      "component": "EnvironmentMediumIcon"
+    },
+    {
+      "name": "ErrorCircleSmallIcon",
+      "size": "small",
+      "svg": "error-circle-small-icon.svg",
+      "component": "ErrorCircleSmallIcon"
+    },
+    {
+      "name": "ExpandMediumIcon",
+      "size": "medium",
+      "svg": "expand-medium-icon.svg",
+      "component": "ExpandMediumIcon"
+    },
+    {
+      "name": "ExpandSmallIcon",
+      "size": "small",
+      "svg": "expand-small-icon.svg",
+      "component": "ExpandSmallIcon"
+    },
+    {
+      "name": "ExtraHelpMediumIcon",
+      "size": "medium",
+      "svg": "extra-help-medium-icon.svg",
+      "component": "ExtraHelpMediumIcon"
+    },
+    {
+      "name": "EyeMediumIcon",
+      "size": "medium",
+      "svg": "eye-medium-icon.svg",
+      "component": "EyeMediumIcon"
+    },
+    {
+      "name": "EyeOffMediumIcon",
+      "size": "medium",
+      "svg": "eye-off-medium-icon.svg",
+      "component": "EyeOffMediumIcon"
+    },
+    {
+      "name": "EyeOffSmallIcon",
+      "size": "small",
+      "svg": "eye-off-small-icon.svg",
+      "component": "EyeOffSmallIcon"
+    },
+    {
+      "name": "EyeSmallIcon",
+      "size": "small",
+      "svg": "eye-small-icon.svg",
+      "component": "EyeSmallIcon"
+    },
+    {
+      "name": "FacebookMediumIcon",
+      "size": "medium",
+      "svg": "facebook-medium-icon.svg",
+      "component": "FacebookMediumIcon"
+    },
+    {
+      "name": "FilterMediumIcon",
+      "size": "medium",
+      "svg": "filter-medium-icon.svg",
+      "component": "FilterMediumIcon"
+    },
+    {
+      "name": "FilterSmallIcon",
+      "size": "small",
+      "svg": "filter-small-icon.svg",
+      "component": "FilterSmallIcon"
+    },
+    {
+      "name": "FingerprintMediumIcon",
+      "size": "medium",
+      "svg": "fingerprint-medium-icon.svg",
+      "component": "FingerprintMediumIcon"
+    },
+    {
+      "name": "FitEnergyMediumIcon",
+      "size": "medium",
+      "svg": "fit-energy-medium-icon.svg",
+      "component": "FitEnergyMediumIcon"
+    },
+    {
+      "name": "FlameMediumIcon",
+      "size": "medium",
+      "svg": "flame-medium-icon.svg",
+      "component": "FlameMediumIcon"
+    },
+    {
+      "name": "FlameSmallIcon",
+      "size": "small",
+      "svg": "flame-small-icon.svg",
+      "component": "FlameSmallIcon"
+    },
+    {
+      "name": "FullscreenMediumIcon",
+      "size": "medium",
+      "svg": "fullscreen-medium-icon.svg",
+      "component": "FullscreenMediumIcon"
+    },
+    {
+      "name": "FullscreenSmallIcon",
+      "size": "small",
+      "svg": "fullscreen-small-icon.svg",
+      "component": "FullscreenSmallIcon"
+    },
+    {
+      "name": "GasMediumIcon",
+      "size": "medium",
+      "svg": "gas-medium-icon.svg",
+      "component": "GasMediumIcon"
+    },
+    {
+      "name": "GasSmallIcon",
+      "size": "small",
+      "svg": "gas-small-icon.svg",
+      "component": "GasSmallIcon"
+    },
+    {
+      "name": "GoalMediumIcon",
+      "size": "medium",
+      "svg": "goal-medium-icon.svg",
+      "component": "GoalMediumIcon"
+    },
+    {
+      "name": "GreenDealElectricityMediumIcon",
+      "size": "medium",
+      "svg": "green-deal-electricity-medium-icon.svg",
+      "component": "GreenDealElectricityMediumIcon"
+    },
+    {
+      "name": "HeadsetOffMediumIcon",
+      "size": "medium",
+      "svg": "headset-off-medium-icon.svg",
+      "component": "HeadsetOffMediumIcon"
+    },
+    {
+      "name": "HeadsetOffSmallIcon",
+      "size": "small",
+      "svg": "headset-off-small-icon.svg",
+      "component": "HeadsetOffSmallIcon"
+    },
+    {
+      "name": "HeartMediumIcon",
+      "size": "medium",
+      "svg": "heart-medium-icon.svg",
+      "component": "HeartMediumIcon"
+    },
+    {
+      "name": "HeartOutlineMediumIcon",
+      "size": "medium",
+      "svg": "heart-outline-medium-icon.svg",
+      "component": "HeartOutlineMediumIcon"
+    },
+    {
+      "name": "HeartSmallIcon",
+      "size": "small",
+      "svg": "heart-small-icon.svg",
+      "component": "HeartSmallIcon"
+    },
+    {
+      "name": "HistoryMediumIcon",
+      "size": "medium",
+      "svg": "history-medium-icon.svg",
+      "component": "HistoryMediumIcon"
+    },
+    {
+      "name": "HomeAndBoilerMediumIcon",
+      "size": "medium",
+      "svg": "home-and-boiler-medium-icon.svg",
+      "component": "HomeAndBoilerMediumIcon"
+    },
+    {
+      "name": "HomeAndBoilerSmallIcon",
+      "size": "small",
+      "svg": "home-and-boiler-small-icon.svg",
+      "component": "HomeAndBoilerSmallIcon"
+    },
+    {
+      "name": "HomeInsuranceMediumIcon",
+      "size": "medium",
+      "svg": "home-insurance-medium-icon.svg",
+      "component": "HomeInsuranceMediumIcon"
+    },
+    {
+      "name": "HomeInsuranceSmallIcon",
+      "size": "small",
+      "svg": "home-insurance-small-icon.svg",
+      "component": "HomeInsuranceSmallIcon"
+    },
+    {
+      "name": "HomeMediumIcon",
+      "size": "medium",
+      "svg": "home-medium-icon.svg",
+      "component": "HomeMediumIcon"
+    },
+    {
+      "name": "IncomeProtectMediumIcon",
+      "size": "medium",
+      "svg": "income-protect-medium-icon.svg",
+      "component": "IncomeProtectMediumIcon"
+    },
+    {
+      "name": "IncomeProtectSmallIcon",
+      "size": "small",
+      "svg": "income-protect-small-icon.svg",
+      "component": "IncomeProtectSmallIcon"
+    },
+    {
+      "name": "IncreaseMediumIcon",
+      "size": "medium",
+      "svg": "increase-medium-icon.svg",
+      "component": "IncreaseMediumIcon"
+    },
+    {
+      "name": "IncreaseSmallIcon",
+      "size": "small",
+      "svg": "increase-small-icon.svg",
+      "component": "IncreaseSmallIcon"
+    },
+    {
+      "name": "InfoMediumIcon",
+      "size": "medium",
+      "svg": "info-medium-icon.svg",
+      "component": "InfoMediumIcon"
+    },
+    {
+      "name": "InfoSmallIcon",
+      "size": "small",
+      "svg": "info-small-icon.svg",
+      "component": "InfoSmallIcon"
+    },
+    {
+      "name": "InsightsMediumIcon",
+      "size": "medium",
+      "svg": "insights-medium-icon.svg",
+      "component": "InsightsMediumIcon"
+    },
+    {
+      "name": "InsightsSmallIcon",
+      "size": "small",
+      "svg": "insights-small-icon.svg",
+      "component": "InsightsSmallIcon"
+    },
+    {
+      "name": "InstagramMediumIcon",
+      "size": "medium",
+      "svg": "instagram-medium-icon.svg",
+      "component": "InstagramMediumIcon"
+    },
+    {
+      "name": "InsuranceMediumIcon",
+      "size": "medium",
+      "svg": "insurance-medium-icon.svg",
+      "component": "InsuranceMediumIcon"
+    },
+    {
+      "name": "InsuranceSmallIcon",
+      "size": "small",
+      "svg": "insurance-small-icon.svg",
+      "component": "InsuranceSmallIcon"
+    },
+    {
+      "name": "LandlineMediumIcon",
+      "size": "medium",
+      "svg": "landline-medium-icon.svg",
+      "component": "LandlineMediumIcon"
+    },
+    {
+      "name": "LandlineSmallIcon",
+      "size": "small",
+      "svg": "landline-small-icon.svg",
+      "component": "LandlineSmallIcon"
+    },
+    {
+      "name": "LaunchMediumIcon",
+      "size": "medium",
+      "svg": "launch-medium-icon.svg",
+      "component": "LaunchMediumIcon"
+    },
+    {
+      "name": "LaunchSmallIcon",
+      "size": "small",
+      "svg": "launch-small-icon.svg",
+      "component": "LaunchSmallIcon"
+    },
+    {
+      "name": "LinkMediumIcon",
+      "size": "medium",
+      "svg": "link-medium-icon.svg",
+      "component": "LinkMediumIcon"
+    },
+    {
+      "name": "LinkSmallIcon",
+      "size": "small",
+      "svg": "link-small-icon.svg",
+      "component": "LinkSmallIcon"
+    },
+    {
+      "name": "LinkedInMediumIcon",
+      "size": "medium",
+      "svg": "linked-in-medium-icon.svg",
+      "component": "LinkedInMediumIcon"
+    },
+    {
+      "name": "ListSmallIcon",
+      "size": "small",
+      "svg": "list-small-icon.svg",
+      "component": "ListSmallIcon"
+    },
+    {
+      "name": "LocateSmallIcon",
+      "size": "small",
+      "svg": "locate-small-icon.svg",
+      "component": "LocateSmallIcon"
+    },
+    {
+      "name": "LocationMediumIcon",
+      "size": "medium",
+      "svg": "location-medium-icon.svg",
+      "component": "LocationMediumIcon"
+    },
+    {
+      "name": "LocationSmallIcon",
+      "size": "small",
+      "svg": "location-small-icon.svg",
+      "component": "LocationSmallIcon"
+    },
+    {
+      "name": "LockMediumIcon",
+      "size": "medium",
+      "svg": "lock-medium-icon.svg",
+      "component": "LockMediumIcon"
+    },
+    {
+      "name": "LockSmallIcon",
+      "size": "small",
+      "svg": "lock-small-icon.svg",
+      "component": "LockSmallIcon"
+    },
+    {
+      "name": "LoginMediumIcon",
+      "size": "medium",
+      "svg": "login-medium-icon.svg",
+      "component": "LoginMediumIcon"
+    },
+    {
+      "name": "LoginSmallIcon",
+      "size": "small",
+      "svg": "login-small-icon.svg",
+      "component": "LoginSmallIcon"
+    },
+    {
+      "name": "LogoutMediumIcon",
+      "size": "medium",
+      "svg": "logout-medium-icon.svg",
+      "component": "LogoutMediumIcon"
+    },
+    {
+      "name": "LogoutSmallIcon",
+      "size": "small",
+      "svg": "logout-small-icon.svg",
+      "component": "LogoutSmallIcon"
+    },
+    {
+      "name": "MaintenanceMediumIcon",
+      "size": "medium",
+      "svg": "maintenance-medium-icon.svg",
+      "component": "MaintenanceMediumIcon"
+    },
+    {
+      "name": "MenuMediumIcon",
+      "size": "medium",
+      "svg": "menu-medium-icon.svg",
+      "component": "MenuMediumIcon"
+    },
+    {
+      "name": "MeterMediumIcon",
+      "size": "medium",
+      "svg": "meter-medium-icon.svg",
+      "component": "MeterMediumIcon"
+    },
+    {
+      "name": "MeterSmallIcon",
+      "size": "small",
+      "svg": "meter-small-icon.svg",
+      "component": "MeterSmallIcon"
+    },
+    {
+      "name": "MicrophoneOffMediumIcon",
+      "size": "medium",
+      "svg": "microphone-off-medium-icon.svg",
+      "component": "MicrophoneOffMediumIcon"
+    },
+    {
+      "name": "MicrophoneOffSmallIcon",
+      "size": "small",
+      "svg": "microphone-off-small-icon.svg",
+      "component": "MicrophoneOffSmallIcon"
+    },
+    {
+      "name": "MicrophoneOnMediumIcon",
+      "size": "medium",
+      "svg": "microphone-on-medium-icon.svg",
+      "component": "MicrophoneOnMediumIcon"
+    },
+    {
+      "name": "MicrophoneOnSmallIcon",
+      "size": "small",
+      "svg": "microphone-on-small-icon.svg",
+      "component": "MicrophoneOnSmallIcon"
+    },
+    {
+      "name": "MinusMediumIcon",
+      "size": "medium",
+      "svg": "minus-medium-icon.svg",
+      "component": "MinusMediumIcon"
+    },
+    {
+      "name": "MinusSmallIcon",
+      "size": "small",
+      "svg": "minus-small-icon.svg",
+      "component": "MinusSmallIcon"
+    },
+    {
+      "name": "MobileMediumIcon",
+      "size": "medium",
+      "svg": "mobile-medium-icon.svg",
+      "component": "MobileMediumIcon"
+    },
+    {
+      "name": "MobileSmallIcon",
+      "size": "small",
+      "svg": "mobile-small-icon.svg",
+      "component": "MobileSmallIcon"
+    },
+    {
+      "name": "MoneyMediumIcon",
+      "size": "medium",
+      "svg": "money-medium-icon.svg",
+      "component": "MoneyMediumIcon"
+    },
+    {
+      "name": "MoonLargeIcon",
+      "size": "large",
+      "svg": "moon-large-icon.svg",
+      "component": "MoonLargeIcon"
+    },
+    {
+      "name": "MoonMediumIcon",
+      "size": "medium",
+      "svg": "moon-medium-icon.svg",
+      "component": "MoonMediumIcon"
+    },
+    {
+      "name": "MoreMediumIcon",
+      "size": "medium",
+      "svg": "more-medium-icon.svg",
+      "component": "MoreMediumIcon"
+    },
+    {
+      "name": "MoreSmallIcon",
+      "size": "small",
+      "svg": "more-small-icon.svg",
+      "component": "MoreSmallIcon"
+    },
+    {
+      "name": "MotorInsuranceMediumIcon",
+      "size": "medium",
+      "svg": "motor-insurance-medium-icon.svg",
+      "component": "MotorInsuranceMediumIcon"
+    },
+    {
+      "name": "MotorInsuranceSmallIcon",
+      "size": "small",
+      "svg": "motor-insurance-small-icon.svg",
+      "component": "MotorInsuranceSmallIcon"
+    },
+    {
+      "name": "OpenMediumIcon",
+      "size": "medium",
+      "svg": "open-medium-icon.svg",
+      "component": "OpenMediumIcon"
+    },
+    {
+      "name": "OpenSmallIcon",
+      "size": "small",
+      "svg": "open-small-icon.svg",
+      "component": "OpenSmallIcon"
+    },
+    {
+      "name": "PanelBottomMediumIcon",
+      "size": "medium",
+      "svg": "panel-bottom-medium-icon.svg",
+      "component": "PanelBottomMediumIcon"
+    },
+    {
+      "name": "PanelLeftMediumIcon",
+      "size": "medium",
+      "svg": "panel-left-medium-icon.svg",
+      "component": "PanelLeftMediumIcon"
+    },
+    {
+      "name": "PaymentMediumIcon",
+      "size": "medium",
+      "svg": "payment-medium-icon.svg",
+      "component": "PaymentMediumIcon"
+    },
+    {
+      "name": "PhoneMediumIcon",
+      "size": "medium",
+      "svg": "phone-medium-icon.svg",
+      "component": "PhoneMediumIcon"
+    },
+    {
+      "name": "PhoneSmallIcon",
+      "size": "small",
+      "svg": "phone-small-icon.svg",
+      "component": "PhoneSmallIcon"
+    },
+    {
+      "name": "PlaceholderLargeIcon",
+      "size": "large",
+      "svg": "placeholder-large-icon.svg",
+      "component": "PlaceholderLargeIcon"
+    },
+    {
+      "name": "PlaceholderMediumIcon",
+      "size": "medium",
+      "svg": "placeholder-medium-icon.svg",
+      "component": "PlaceholderMediumIcon"
+    },
+    {
+      "name": "PlaceholderSmallIcon",
+      "size": "small",
+      "svg": "placeholder-small-icon.svg",
+      "component": "PlaceholderSmallIcon"
+    },
+    {
+      "name": "PlayMediumIcon",
+      "size": "medium",
+      "svg": "play-medium-icon.svg",
+      "component": "PlayMediumIcon"
+    },
+    {
+      "name": "PlaySmallIcon",
+      "size": "small",
+      "svg": "play-small-icon.svg",
+      "component": "PlaySmallIcon"
+    },
+    {
+      "name": "QrCodeSmallIcon",
+      "size": "small",
+      "svg": "qr-code-small-icon.svg",
+      "component": "QrCodeSmallIcon"
+    },
+    {
+      "name": "QuestionMarkMediumIcon",
+      "size": "medium",
+      "svg": "question-mark-medium-icon.svg",
+      "component": "QuestionMarkMediumIcon"
+    },
+    {
+      "name": "QuestionMarkSmallIcon",
+      "size": "small",
+      "svg": "question-mark-small-icon.svg",
+      "component": "QuestionMarkSmallIcon"
+    },
+    {
+      "name": "ReduceNoiseMediumIcon",
+      "size": "medium",
+      "svg": "reduce-noise-medium-icon.svg",
+      "component": "ReduceNoiseMediumIcon"
+    },
+    {
+      "name": "ReduceNoiseSmallIcon",
+      "size": "small",
+      "svg": "reduce-noise-small-icon.svg",
+      "component": "ReduceNoiseSmallIcon"
+    },
+    {
+      "name": "RefundMediumIcon",
+      "size": "medium",
+      "svg": "refund-medium-icon.svg",
+      "component": "RefundMediumIcon"
+    },
+    {
+      "name": "RefundSmallIcon",
+      "size": "small",
+      "svg": "refund-small-icon.svg",
+      "component": "RefundSmallIcon"
+    },
+    {
+      "name": "RestartMediumIcon",
+      "size": "medium",
+      "svg": "restart-medium-icon.svg",
+      "component": "RestartMediumIcon"
+    },
+    {
+      "name": "RobotMediumIcon",
+      "size": "medium",
+      "svg": "robot-medium-icon.svg",
+      "component": "RobotMediumIcon"
+    },
+    {
+      "name": "RobotSmallIcon",
+      "size": "small",
+      "svg": "robot-small-icon.svg",
+      "component": "RobotSmallIcon"
+    },
+    {
+      "name": "SearchMediumIcon",
+      "size": "medium",
+      "svg": "search-medium-icon.svg",
+      "component": "SearchMediumIcon"
+    },
+    {
+      "name": "SearchSmallIcon",
+      "size": "small",
+      "svg": "search-small-icon.svg",
+      "component": "SearchSmallIcon"
+    },
+    {
+      "name": "SendMediumIcon",
+      "size": "medium",
+      "svg": "send-medium-icon.svg",
+      "component": "SendMediumIcon"
+    },
+    {
+      "name": "SendSmallIcon",
+      "size": "small",
+      "svg": "send-small-icon.svg",
+      "component": "SendSmallIcon"
+    },
+    {
+      "name": "SettingsMediumIcon",
+      "size": "medium",
+      "svg": "settings-medium-icon.svg",
+      "component": "SettingsMediumIcon"
+    },
+    {
+      "name": "SettingsSmallIcon",
+      "size": "small",
+      "svg": "settings-small-icon.svg",
+      "component": "SettingsSmallIcon"
+    },
+    {
+      "name": "ShareMediumIcon",
+      "size": "medium",
+      "svg": "share-medium-icon.svg",
+      "component": "ShareMediumIcon"
+    },
+    {
+      "name": "ShareSmallIcon",
+      "size": "small",
+      "svg": "share-small-icon.svg",
+      "component": "ShareSmallIcon"
+    },
+    {
+      "name": "ShoppingMediumIcon",
+      "size": "medium",
+      "svg": "shopping-medium-icon.svg",
+      "component": "ShoppingMediumIcon"
+    },
+    {
+      "name": "ShoppingSmallIcon",
+      "size": "small",
+      "svg": "shopping-small-icon.svg",
+      "component": "ShoppingSmallIcon"
+    },
+    {
+      "name": "SimMediumIcon",
+      "size": "medium",
+      "svg": "sim-medium-icon.svg",
+      "component": "SimMediumIcon"
+    },
+    {
+      "name": "SimSmallIcon",
+      "size": "small",
+      "svg": "sim-small-icon.svg",
+      "component": "SimSmallIcon"
+    },
+    {
+      "name": "SkipFirstSmallIcon",
+      "size": "small",
+      "svg": "skip-first-small-icon.svg",
+      "component": "SkipFirstSmallIcon"
+    },
+    {
+      "name": "SkipLastSmallIcon",
+      "size": "small",
+      "svg": "skip-last-small-icon.svg",
+      "component": "SkipLastSmallIcon"
+    },
+    {
+      "name": "SnowflakeMediumIcon",
+      "size": "medium",
+      "svg": "snowflake-medium-icon.svg",
+      "component": "SnowflakeMediumIcon"
+    },
+    {
+      "name": "SnowflakeSmallIcon",
+      "size": "small",
+      "svg": "snowflake-small-icon.svg",
+      "component": "SnowflakeSmallIcon"
+    },
+    {
+      "name": "SpeakerMediumIcon",
+      "size": "medium",
+      "svg": "speaker-medium-icon.svg",
+      "component": "SpeakerMediumIcon"
+    },
+    {
+      "name": "SpeakerSmallIcon",
+      "size": "small",
+      "svg": "speaker-small-icon.svg",
+      "component": "SpeakerSmallIcon"
+    },
+    {
+      "name": "SunLargeIcon",
+      "size": "large",
+      "svg": "sun-large-icon.svg",
+      "component": "SunLargeIcon"
+    },
+    {
+      "name": "SunMediumIcon",
+      "size": "medium",
+      "svg": "sun-medium-icon.svg",
+      "component": "SunMediumIcon"
+    },
+    {
+      "name": "TeamMediumIcon",
+      "size": "medium",
+      "svg": "team-medium-icon.svg",
+      "component": "TeamMediumIcon"
+    },
+    {
+      "name": "ThumbsDownSmallIcon",
+      "size": "small",
+      "svg": "thumbs-down-small-icon.svg",
+      "component": "ThumbsDownSmallIcon"
+    },
+    {
+      "name": "ThumbsUpSmallIcon",
+      "size": "small",
+      "svg": "thumbs-up-small-icon.svg",
+      "component": "ThumbsUpSmallIcon"
+    },
+    {
+      "name": "TickCircleMediumIcon",
+      "size": "medium",
+      "svg": "tick-circle-medium-icon.svg",
+      "component": "TickCircleMediumIcon"
+    },
+    {
+      "name": "TickCircleSmallIcon",
+      "size": "small",
+      "svg": "tick-circle-small-icon.svg",
+      "component": "TickCircleSmallIcon"
+    },
+    {
+      "name": "TickMediumIcon",
+      "size": "medium",
+      "svg": "tick-medium-icon.svg",
+      "component": "TickMediumIcon"
+    },
+    {
+      "name": "TickSmallIcon",
+      "size": "small",
+      "svg": "tick-small-icon.svg",
+      "component": "TickSmallIcon"
+    },
+    {
+      "name": "TikTokMediumIcon",
+      "size": "medium",
+      "svg": "tik-tok-medium-icon.svg",
+      "component": "TikTokMediumIcon"
+    },
+    {
+      "name": "TimeMediumIcon",
+      "size": "medium",
+      "svg": "time-medium-icon.svg",
+      "component": "TimeMediumIcon"
+    },
+    {
+      "name": "TimeSmallIcon",
+      "size": "small",
+      "svg": "time-small-icon.svg",
+      "component": "TimeSmallIcon"
+    },
+    {
+      "name": "TopUpMediumIcon",
+      "size": "medium",
+      "svg": "top-up-medium-icon.svg",
+      "component": "TopUpMediumIcon"
+    },
+    {
+      "name": "TopUpSmallIcon",
+      "size": "small",
+      "svg": "top-up-small-icon.svg",
+      "component": "TopUpSmallIcon"
+    },
+    {
+      "name": "TorchOffMediumIcon",
+      "size": "medium",
+      "svg": "torch-off-medium-icon.svg",
+      "component": "TorchOffMediumIcon"
+    },
+    {
+      "name": "TorchOnMediumIcon",
+      "size": "medium",
+      "svg": "torch-on-medium-icon.svg",
+      "component": "TorchOnMediumIcon"
+    },
+    {
+      "name": "TransferMediumIcon",
+      "size": "medium",
+      "svg": "transfer-medium-icon.svg",
+      "component": "TransferMediumIcon"
+    },
+    {
+      "name": "TrashMediumIcon",
+      "size": "medium",
+      "svg": "trash-medium-icon.svg",
+      "component": "TrashMediumIcon"
+    },
+    {
+      "name": "TrashSmallIcon",
+      "size": "small",
+      "svg": "trash-small-icon.svg",
+      "component": "TrashSmallIcon"
+    },
+    {
+      "name": "TwitterMediumIcon",
+      "size": "medium",
+      "svg": "twitter-medium-icon.svg",
+      "component": "TwitterMediumIcon"
+    },
+    {
+      "name": "UnlockMediumIcon",
+      "size": "medium",
+      "svg": "unlock-medium-icon.svg",
+      "component": "UnlockMediumIcon"
+    },
+    {
+      "name": "UnlockSmallIcon",
+      "size": "small",
+      "svg": "unlock-small-icon.svg",
+      "component": "UnlockSmallIcon"
+    },
+    {
+      "name": "UploadMediumIcon",
+      "size": "medium",
+      "svg": "upload-medium-icon.svg",
+      "component": "UploadMediumIcon"
+    },
+    {
+      "name": "UploadSmallIcon",
+      "size": "small",
+      "svg": "upload-small-icon.svg",
+      "component": "UploadSmallIcon"
+    },
+    {
+      "name": "UserMediumIcon",
+      "size": "medium",
+      "svg": "user-medium-icon.svg",
+      "component": "UserMediumIcon"
+    },
+    {
+      "name": "UserSmallIcon",
+      "size": "small",
+      "svg": "user-small-icon.svg",
+      "component": "UserSmallIcon"
+    },
+    {
+      "name": "WarningMediumIcon",
+      "size": "medium",
+      "svg": "warning-medium-icon.svg",
+      "component": "WarningMediumIcon"
+    },
+    {
+      "name": "WarningSmallIcon",
+      "size": "small",
+      "svg": "warning-small-icon.svg",
+      "component": "WarningSmallIcon"
+    },
+    {
+      "name": "WhatsAppMediumIcon",
+      "size": "medium",
+      "svg": "whats-app-medium-icon.svg",
+      "component": "WhatsAppMediumIcon"
+    },
+    {
+      "name": "WhatsAppSmallIcon",
+      "size": "small",
+      "svg": "whats-app-small-icon.svg",
+      "component": "WhatsAppSmallIcon"
+    },
+    {
+      "name": "WithdrawMediumIcon",
+      "size": "medium",
+      "svg": "withdraw-medium-icon.svg",
+      "component": "WithdrawMediumIcon"
+    },
+    {
+      "name": "WithdrawSmallIcon",
+      "size": "small",
+      "svg": "withdraw-small-icon.svg",
+      "component": "WithdrawSmallIcon"
+    },
+    {
+      "name": "YoutubeMediumIcon",
+      "size": "medium",
+      "svg": "youtube-medium-icon.svg",
+      "component": "YoutubeMediumIcon"
+    }
+  ]
+}
