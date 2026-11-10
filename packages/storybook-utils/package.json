@@ -12,6 +12,8 @@
     "clean": "rm -rf node_modules .turbo",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "eslint .",
+    "lint:ci": "eslint .",
+    "format:ci": "prettier --list-different \"src/**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

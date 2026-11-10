@@ -12,6 +12,7 @@
   "scripts": {
     "clean:lib": "rm -rf lib",
     "format": "prettier --log-level=silent --write --parser=html \"lib/*.svg\"",
+    "format:ci": "prettier --list-different --parser=html \"lib/*.svg\"",
     "generate": "pnpm clean:lib && node ./scripts/generate-svg-icons.js"
   },
   "devDependencies": {
