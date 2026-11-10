@@ -12,7 +12,7 @@ describe('resolveManifest', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, tokensManifest());
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({
       status: 'ok',
@@ -23,7 +23,7 @@ describe('resolveManifest', () => {
   it('reports a package that is not installed, naming it, instead of falling back to bundled data', () => {
     const consumer = createConsumer();
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({ status: 'not-installed', packageName: TOKENS_PACKAGE });
   });
@@ -32,7 +32,7 @@ describe('resolveManifest', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, undefined);
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({ status: 'no-manifest', packageName: TOKENS_PACKAGE });
   });
@@ -41,7 +41,7 @@ describe('resolveManifest', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ entries: 'not-a-list' }));
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({
       status: 'invalid',
@@ -54,7 +54,7 @@ describe('resolveManifest', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ schemaVersion: 3 }));
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({
       status: 'unsupported-schema',
@@ -68,7 +68,7 @@ describe('resolveManifest', () => {
     const consumer = createConsumer();
     installPackage(consumer, TOKENS_PACKAGE, '{"schemaVersion": 1,');
 
-    const result = resolveManifest(TOKENS_PACKAGE, consumer);
+    const result = resolveManifest(TOKENS_PACKAGE, consumer, 'tokens');
 
     expect(result).toMatchObject({
       status: 'invalid',

@@ -1,4 +1,4 @@
-import type { Manifest, TokenEntry } from '@utilitywarehouse/hearth-manifest';
+import type { TokenEntry, TokensManifest as Manifest } from '@utilitywarehouse/hearth-manifest';
 
 export type Layer = TokenEntry['layer'];
 
