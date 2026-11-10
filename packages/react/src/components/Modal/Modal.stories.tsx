@@ -291,6 +291,8 @@ export const WithBannerImage: Story = {
   args: {
     imageSize: 'lg',
     heading: 'Want predictable monthly bills?',
+    description:
+      "Hey, switching to a Budget Plan is easy. It spreads your year's energy costs into 12 equal payments, building up a handy buffer in the summer to protect you from the winter bill spikes.",
   },
   render: (args, { viewMode }: { viewMode?: string }) => {
     return (
@@ -334,6 +336,8 @@ export const WithBannerImageOnMobile: Story = {
   args: {
     imageSize: 'lg',
     heading: 'Want predictable monthly bills?',
+    description:
+      "Hey, switching to a Budget Plan is easy. It spreads your year's energy costs into 12 equal payments, building up a handy buffer in the summer to protect you from the winter bill spikes.",
   },
   globals: { viewport: { value: 'mobile' } },
   render: (args, { viewMode }: { viewMode?: string }) => {
