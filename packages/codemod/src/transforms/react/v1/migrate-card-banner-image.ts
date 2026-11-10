@@ -38,6 +38,9 @@ function isReference(path: ASTPath<Identifier>): boolean {
     case 'MemberExpression':
     case 'OptionalMemberExpression':
       return !!parent.computed || parent.property !== node;
+    case 'TSEnumMember':
+      // `enum Kind { CardBannerImage }` declares a member; its initializer may still reference us
+      return (parent as { id?: unknown }).id !== node;
     case 'TSQualifiedName':
       return parent.left === node;
     default:
@@ -178,6 +181,27 @@ function transformer(file: FileInfo, api: API): string {
         path.node.property = j.jsxIdentifier(NEW_NAME);
       }
     });
+    // `const { CardBannerImage } = H` -> `const { BannerImage: CardBannerImage } = H`
+    root
+      .find(j.VariableDeclarator)
+      .filter(({ node }) => node.init?.type === 'Identifier' && namespaceNames.has(node.init.name))
+      .filter(path => !isShadowed(path, (path.node.init as Identifier).name))
+      .forEach(path => {
+        const { id } = path.node;
+        if (id.type !== 'ObjectPattern') return;
+        for (const property of id.properties) {
+          if (
+            (property.type === 'ObjectProperty' || property.type === 'Property') &&
+            !property.computed &&
+            property.key.type === 'Identifier' &&
+            property.key.name === OLD_NAME
+          ) {
+            // the local binding keeps its name (and any default); only the looked-up key changes
+            property.shorthand = false;
+            property.key = j.identifier(NEW_NAME);
+          }
+        }
+      });
     root.find(j.TSQualifiedName, { right: { name: OLD_NAME } }).forEach(path => {
       const { left } = path.node;
       if (

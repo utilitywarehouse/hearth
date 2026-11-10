@@ -20,6 +20,8 @@ const fixtures = [
   ['keeps exported names when renaming local exports', '-exports'],
   ['does not reuse a lowercase alias as a JSX tag', '-lowercase-alias'],
   ['renames static computed namespace accesses only', '-namespace-computed'],
+  ['does not rename enum member declarations', '-enum'],
+  ['rewrites namespace destructuring keys and keeps local bindings', '-namespace-destructuring'],
 ] as const;
 
 describe('migrate-card-banner-image', () => {
