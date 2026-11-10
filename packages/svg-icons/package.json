@@ -15,7 +15,7 @@
     "format:ci": "prettier --list-different --parser=html \"lib/*.svg\"",
     "generate": "pnpm clean:lib && node ./scripts/generate-svg-icons.js && pnpm generate:manifest",
     "test": "vitest run",
-    "generate:manifest": "node ./scripts/generate-icons-manifest.mjs",
+    "generate:manifest": "pnpm --filter @utilitywarehouse/hearth-manifest build && node ./scripts/generate-icons-manifest.mjs",
     "sync:manifest-version": "pnpm generate:manifest"
   },
   "devDependencies": {
