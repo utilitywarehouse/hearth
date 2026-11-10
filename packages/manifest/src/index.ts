@@ -2,6 +2,8 @@ export { MANIFEST_TYPES, SCHEMA_VERSION, manifestJsonSchema, manifestSchema } fr
 export type {
   IconEntry,
   IconsManifest,
+  JsonAssetEntry,
+  JsonAssetsManifest,
   Manifest,
   SvgAssetEntry,
   SvgAssetsManifest,

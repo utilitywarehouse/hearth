@@ -11,14 +11,20 @@
   "scripts": {
     "clean:lib": "rm -rf lib",
     "gen:script": "node ./scripts/generate-json-assets.js",
-    "generate": "pnpm clean:lib && pnpm gen:script"
+    "generate": "pnpm clean:lib && pnpm gen:script && pnpm generate:manifest",
+    "generate:manifest": "node ./scripts/generate-hearth-manifest.mjs",
+    "sync:manifest-version": "pnpm generate:manifest",
+    "test": "vitest run"
   },
   "devDependencies": {
+    "@utilitywarehouse/hearth-manifest": "workspace:*",
     "dotenv": "^16.3.1",
     "fs-extra": "^11.1.1",
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0",
+    "vitest": "^4.1.7"
   },
   "files": [
-    "lib"
+    "lib",
+    "hearth-manifest.json"
   ]
 }

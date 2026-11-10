@@ -49,18 +49,19 @@ Every manifest has a header and a list of entries:
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | `schemaVersion` | Version of this schema. Currently `2`. Readers can use it to reject manifests they can't read. |
 | `package`       | Name and version of the package that produced the manifest.                                    |
-| `type`          | What kind of manifest this is: `tokens`, `icons` or `svg-assets`. See below.                   |
+| `type`          | What kind of manifest this is: `tokens`, `icons`, `svg-assets` or `json-assets`. See below.    |
 | `entries`       | One entry per thing the package offers.                                                        |
 
 ### Manifest types
 
 `validateManifest` is the single entry point for every type. The schema is a union discriminated on `type`, so each type has its own fields beyond the header:
 
-| `type`       | Shipped by                                                            | Beyond the header                                 |
-| ------------ | --------------------------------------------------------------------- | ------------------------------------------------- |
-| `tokens`     | `hearth-tokens`                                                       | `entries` of token entries (below)                |
-| `svg-assets` | `hearth-svg-assets`                                                   | `entries` of SVG asset entries                    |
-| `icons`      | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
+| `type`        | Shipped by                                                            | Beyond the header                                 |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------------- |
+| `tokens`      | `hearth-tokens`                                                       | `entries` of token entries (below)                |
+| `json-assets` | `hearth-json-assets`                                                  | `entries` of JSON asset entries                   |
+| `svg-assets`  | `hearth-svg-assets`                                                   | `entries` of SVG asset entries                    |
+| `icons`       | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
 
 An unknown `type` fails validation with a message naming it, so a reader never misreads a manifest it does not understand.
 
@@ -87,6 +88,18 @@ The manifest-level `usage` (`platform`: `svg`, `react` or `react-native`, `impor
 | `import`   | What to import to use it, for example `@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg`. |
 
 Entries have no width or height. Both are in the SVG file, so recording them would duplicate it and need a check to keep it honest. If a consumer needs them, add them as optional fields; that does not change `schemaVersion`.
+
+### JSON asset entries
+
+| Field      | Meaning                                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| `name`     | Unique asset name, for example `AnimatedSpotAccountDark`.                                                         |
+| `category` | `spot`, `logo` (the `uw` logos and monos) or `other`.                                                             |
+| `type`     | What the asset is. Only `animated` exists so far.                                                                 |
+| `file`     | The file path within the package, for example `lib/animated-spot-account-dark.json`.                              |
+| `import`   | What to import to use it, for example `@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json`. |
+
+Entries have no file size. It is a property of the file that any tool can read, and it changes whenever the asset is re-exported, so recording it would churn the manifest and need a check to keep it honest. If a consumer needs it, add it as an optional field; that does not change `schemaVersion`.
 
 ### Token entries
 
