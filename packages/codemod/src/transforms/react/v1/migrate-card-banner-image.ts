@@ -1,4 +1,4 @@
-import type { API, FileInfo, Identifier } from 'jscodeshift';
+import type { API, ASTPath, FileInfo, Identifier } from 'jscodeshift';
 import { getImportLocalNames } from '../../../utils/get-import-local-names';
 import { isShadowed } from '../../../utils/is-shadowed';
 import { isTypeOnly } from '../../../utils/is-type-only';
@@ -9,6 +9,38 @@ const NEW_NAME = 'BannerImage';
 
 interface NodeWithComments {
   comments?: unknown;
+}
+
+// NodePath#parent isn't generic, so `.node` resolves to `any`
+// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+const parentNode = (path: ASTPath): unknown => path.parent.node;
+
+/** Whether an identifier named after the component refers to the binding, not a property name. */
+function isReference(path: ASTPath<Identifier>): boolean {
+  const node = path.node;
+  const parent = parentNode(path) as {
+    type: string;
+    computed?: boolean;
+    property?: unknown;
+    key?: unknown;
+    left?: unknown;
+  };
+  switch (parent.type) {
+    case 'ImportSpecifier':
+    case 'ImportDefaultSpecifier':
+    case 'ExportSpecifier':
+      return false;
+    case 'MemberExpression':
+    case 'OptionalMemberExpression':
+      return !!parent.computed || parent.property !== node;
+    case 'TSQualifiedName':
+      return parent.left === node;
+    default:
+      // object/class/interface member names, unless computed (`{ [CardBannerImage]: 1 }`)
+      return (
+        !!parent.computed || parent.key !== node || (parent as { value?: unknown }).value === node
+      );
+  }
 }
 
 /**
@@ -51,58 +83,65 @@ function transformer(file: FileInfo, api: API): string {
 
   const existingBannerImageNames = [...getImportLocalNames(j, root, IMPORT_SOURCES, NEW_NAME)];
 
-  // Local names that are written `CardBannerImage` at usage sites and need renaming
-  const renames = new Map<string, string>();
+  // Usages of the unaliased `CardBannerImage` binding, collected before any rename
+  const jsxUsages = root.find(j.JSXElement).filter(path => {
+    const { name } = path.node.openingElement;
+    return name.type === 'JSXIdentifier' && name.name === OLD_NAME && !isShadowed(path, OLD_NAME);
+  });
+  const identifierUsages = root
+    .find(j.Identifier, { name: OLD_NAME })
+    .filter(path => isReference(path) && !isShadowed(path, OLD_NAME));
+
+  // The name usages would take: `BannerImage`, or the local name it is already imported under.
+  // Renaming is only safe when no usage sits in a scope that declares that name, and (for a fresh
+  // name) nothing else in the file already uses it.
+  const target = existingBannerImageNames[0] ?? NEW_NAME;
+  const canRename =
+    !jsxUsages.paths().some(path => isShadowed(path, target)) &&
+    !identifierUsages.paths().some(path => isShadowed(path, target)) &&
+    (existingBannerImageNames.length > 0 ||
+      (root.find(j.Identifier, { name: NEW_NAME }).size() === 0 &&
+        root.find(j.JSXIdentifier, { name: NEW_NAME }).size() === 0));
+
+  let renamedTo: string | undefined;
 
   oldSpecifiers.forEach(path => {
     const specifier = path.node;
     const local = ((specifier.local ?? specifier.imported) as Identifier).name;
 
-    if (local !== OLD_NAME) {
-      // `CardBannerImage as Card` — usages keep the alias, only the imported name changes
-      specifier.imported = j.identifier(NEW_NAME);
+    if (local !== OLD_NAME || !canRename) {
+      // `CardBannerImage as Card`, or a rename that could collide: usages keep the local name and
+      // only the imported name changes
+      path.replace(j.importSpecifier(j.identifier(NEW_NAME), j.identifier(local)));
     } else if (existingBannerImageNames.length > 0) {
       // `BannerImage` is already imported, so drop the duplicate binding
-      renames.set(OLD_NAME, existingBannerImageNames[0]);
       j(path).remove();
+      renamedTo = target;
     } else {
       specifier.imported = j.identifier(NEW_NAME);
       specifier.local = j.identifier(NEW_NAME);
-      renames.set(OLD_NAME, NEW_NAME);
+      renamedTo = NEW_NAME;
     }
   });
 
-  const renamedTo = renames.get(OLD_NAME);
   if (renamedTo) {
-    root.find(j.JSXElement).forEach(path => {
+    const newName = renamedTo;
+    jsxUsages.forEach(path => {
       const { openingElement, closingElement } = path.node;
-      if (
-        openingElement.name.type !== 'JSXIdentifier' ||
-        openingElement.name.name !== OLD_NAME ||
-        isShadowed(path, OLD_NAME)
-      ) {
-        return;
-      }
-      openingElement.name = j.jsxIdentifier(renamedTo);
-      if (closingElement) closingElement.name = j.jsxIdentifier(renamedTo);
+      openingElement.name = j.jsxIdentifier(newName);
+      if (closingElement) closingElement.name = j.jsxIdentifier(newName);
     });
 
     // Non-JSX references, e.g. `typeof CardBannerImage` or passing it as a value
-    root
-      .find(j.Identifier, { name: OLD_NAME })
-      .filter(path => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-        const parent = path.parent.node as { type: string; property?: unknown; key?: unknown };
-        return (
-          parent.type !== 'ImportSpecifier' &&
-          !(parent.type === 'MemberExpression' && parent.property === path.node) &&
-          !(parent.type === 'Property' && parent.key === path.node) &&
-          !isShadowed(path, OLD_NAME)
-        );
-      })
-      .forEach(path => {
-        path.node.name = renamedTo;
-      });
+    identifierUsages.forEach(path => {
+      const parent = parentNode(path) as { shorthand?: boolean; key?: unknown };
+      if (parent.shorthand && parent.key !== path.node) {
+        // `{ CardBannerImage }` must keep its key
+        parent.shorthand = false;
+        parent.key = j.identifier(OLD_NAME);
+      }
+      path.node.name = newName;
+    });
   }
 
   if (namespaceNames.size > 0) {
@@ -114,6 +153,16 @@ function transformer(file: FileInfo, api: API): string {
         !isShadowed(path, object.name)
       ) {
         path.node.property = j.jsxIdentifier(NEW_NAME);
+      }
+    });
+    root.find(j.TSQualifiedName, { right: { name: OLD_NAME } }).forEach(path => {
+      const { left } = path.node;
+      if (
+        left.type === 'Identifier' &&
+        namespaceNames.has(left.name) &&
+        !isShadowed(path, left.name)
+      ) {
+        path.node.right = j.identifier(NEW_NAME);
       }
     });
     root.find(j.MemberExpression, { property: { name: OLD_NAME } }).forEach(path => {

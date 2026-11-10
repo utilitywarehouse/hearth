@@ -13,6 +13,10 @@ const fixtures = [
   ['leaves a comment-only file untouched', '-comment-only'],
   ['leaves an empty file untouched', '-empty'],
   ['keeps a leading file comment', '-leading-comment'],
+  ['keeps the old local name when BannerImage is already declared', '-collision'],
+  ['keeps the old local name when an existing import is shadowed', '-existing-shadowed'],
+  ['renames computed and shorthand references but not property names', '-references'],
+  ['renames namespace type queries', '-namespace-type-query'],
 ] as const;
 
 describe('migrate-card-banner-image', () => {
