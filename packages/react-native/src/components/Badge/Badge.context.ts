@@ -6,6 +6,7 @@ export const BadgeContext = React.createContext<{
   variant?: BadgeProps['variant'];
   flatBase?: BadgeProps['flatBase'];
   size?: BadgeProps['size'];
+  wrap?: BadgeProps['wrap'];
 }>({});
 
 export const useBadgeContext = () => useContext(BadgeContext);

@@ -3,13 +3,13 @@ import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { useBadgeContext } from './Badge.context';
 
-const BadgeText = ({ children, style, numberOfLines = 1, ...props }: TextProps) => {
-  const { variant, colorScheme, size } = useBadgeContext();
-  styles.useVariants({ variant, colorScheme });
+const BadgeText = ({ children, style, numberOfLines, ...props }: TextProps) => {
+  const { variant, colorScheme, size, wrap = false } = useBadgeContext();
+  styles.useVariants({ variant, colorScheme, wrap });
   return (
     <BodyText
       {...props}
-      numberOfLines={numberOfLines}
+      numberOfLines={numberOfLines ?? (wrap ? undefined : 1)}
       size={size}
       weight="semibold"
       style={[styles.text, style]}
@@ -46,6 +46,13 @@ const styles = StyleSheet.create(theme => ({
           color: theme.color.text.primary,
         },
         outline: {},
+      },
+      wrap: {
+        true: {
+          flexShrink: 1,
+          textAlign: 'left',
+        },
+        false: {},
       },
     },
     compoundVariants: [
