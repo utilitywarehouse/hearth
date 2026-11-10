@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-svg-icons': patch
 ---
 
-🌟 [ENHANCEMENT]: Ships a `hearth-manifest.json` listing every icon with how to use it from SVG
+💅 [ENHANCEMENT]: Ships a `hearth-manifest.json` listing every icon with how to use it from SVG
 
 The package now includes `hearth-manifest.json`, which lists each icon's name, size, SVG
 file and component name, with a `usage` block for SVG. Tools can read it from
