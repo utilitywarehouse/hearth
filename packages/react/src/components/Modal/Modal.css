@@ -263,14 +263,6 @@
 
     &:where([data-contains-image] &) {
       justify-content: center;
-
-      &:not(.h-ModalOuterContainer:has(.h-ModalContent) &) {
-        padding: var(--h-bottom-sheet-padding);
-
-        @media (--h-tablet) {
-          padding: var(--h-space-0);
-        }
-      }
     }
   }
 }
