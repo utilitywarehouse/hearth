@@ -28,8 +28,13 @@ function isReference(path: ASTPath<Identifier>): boolean {
   switch (parent.type) {
     case 'ImportSpecifier':
     case 'ImportDefaultSpecifier':
-    case 'ExportSpecifier':
       return false;
+    case 'ExportSpecifier':
+      // the local side of `export { X }` refers to the binding; re-exports (`from '...'`) don't
+      return (
+        (parent as { local?: unknown }).local === node &&
+        !(parentNode(path.parent as ASTPath) as { source?: unknown }).source
+      );
     case 'MemberExpression':
     case 'OptionalMemberExpression':
       return !!parent.computed || parent.property !== node;
@@ -97,6 +102,8 @@ function transformer(file: FileInfo, api: API): string {
   // name) nothing else in the file already uses it.
   const target = existingBannerImageNames[0] ?? NEW_NAME;
   const canRename =
+    // a lowercase JSX tag is an intrinsic element, not the imported component
+    !(jsxUsages.size() > 0 && target[0] === target[0].toLowerCase()) &&
     !jsxUsages.paths().some(path => isShadowed(path, target)) &&
     !identifierUsages.paths().some(path => isShadowed(path, target)) &&
     (existingBannerImageNames.length > 0 ||
@@ -134,7 +141,23 @@ function transformer(file: FileInfo, api: API): string {
 
     // Non-JSX references, e.g. `typeof CardBannerImage` or passing it as a value
     identifierUsages.forEach(path => {
-      const parent = parentNode(path) as { shorthand?: boolean; key?: unknown };
+      const parent = parentNode(path) as {
+        type: string;
+        shorthand?: boolean;
+        key?: unknown;
+        exported?: Identifier;
+      };
+      if (parent.type === 'ExportSpecifier') {
+        // keep the exported name: `export { CardBannerImage }` -> `export { BannerImage as CardBannerImage }`
+        const exportedName = (parent.exported ?? path.node).name;
+        j(path.parent as ASTPath).replaceWith(
+          j.exportSpecifier.from({
+            local: j.identifier(newName),
+            exported: j.identifier(exportedName),
+          })
+        );
+        return;
+      }
       if (parent.shorthand && parent.key !== path.node) {
         // `{ CardBannerImage }` must keep its key
         parent.shorthand = false;
@@ -165,6 +188,26 @@ function transformer(file: FileInfo, api: API): string {
         path.node.right = j.identifier(NEW_NAME);
       }
     });
+    root
+      .find(j.MemberExpression)
+      .filter(path => {
+        const { property, computed } = path.node;
+        return (
+          !!computed &&
+          (property.type === 'StringLiteral' || property.type === 'Literal') &&
+          property.value === OLD_NAME
+        );
+      })
+      .forEach(path => {
+        const { object } = path.node;
+        if (
+          object.type === 'Identifier' &&
+          namespaceNames.has(object.name) &&
+          !isShadowed(path, object.name)
+        ) {
+          path.node.property = j.stringLiteral(NEW_NAME);
+        }
+      });
     root.find(j.MemberExpression, { property: { name: OLD_NAME } }).forEach(path => {
       const { object } = path.node;
       if (

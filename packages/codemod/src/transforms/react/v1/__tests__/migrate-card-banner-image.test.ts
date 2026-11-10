@@ -17,6 +17,9 @@ const fixtures = [
   ['keeps the old local name when an existing import is shadowed', '-existing-shadowed'],
   ['renames computed and shorthand references but not property names', '-references'],
   ['renames namespace type queries', '-namespace-type-query'],
+  ['keeps exported names when renaming local exports', '-exports'],
+  ['does not reuse a lowercase alias as a JSX tag', '-lowercase-alias'],
+  ['renames static computed namespace accesses only', '-namespace-computed'],
 ] as const;
 
 describe('migrate-card-banner-image', () => {
