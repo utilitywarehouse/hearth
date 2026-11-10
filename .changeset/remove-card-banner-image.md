@@ -10,8 +10,11 @@
 - import { CardBannerImage } from '@utilitywarehouse/hearth-react';
 + import { BannerImage } from '@utilitywarehouse/hearth-react';
 
-- <CardBannerImage src="banner.png" alt="" />
-+ <BannerImage src="banner.png" alt="" />
+- <CardBannerImage width="160px" height="174px">
++ <BannerImage width="160px" height="174px">
+    <img src={banner} alt="" />
+- </CardBannerImage>
++ </BannerImage>
 ```
 
 Run the codemod to rename usages:
