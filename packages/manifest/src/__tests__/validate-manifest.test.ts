@@ -129,17 +129,104 @@ describe('device variants and CSS values', () => {
   it('keeps the CSS value the stylesheet declares', () => {
     const result = validateManifest(withEntries([spacing('mobile')]));
 
-    expect(result.success && result.manifest.entries[0].surfaces.css?.value).toBe(
-      'var(--h-space-150)'
-    );
+    expect(result.success).toBe(true);
+    if (result.success && result.manifest.type === 'tokens') {
+      expect(result.manifest.entries[0].surfaces.css?.value).toBe('var(--h-space-150)');
+    }
+  });
+});
+
+const validIconsManifest = {
+  schemaVersion: 2,
+  package: { name: '@utilitywarehouse/hearth-react-icons', version: '0.10.0' },
+  type: 'icons',
+  usage: {
+    platform: 'react',
+    import: '@utilitywarehouse/hearth-react-icons',
+    example: "import { {component} } from '@utilitywarehouse/hearth-react-icons';",
+  },
+  entries: [
+    { name: 'AddSmallIcon', size: 'small', svg: 'add-small-icon.svg', component: 'AddSmallIcon' },
+    {
+      name: 'AddMediumIcon',
+      size: 'medium',
+      svg: 'add-medium-icon.svg',
+      component: 'AddMediumIcon',
+    },
+  ],
+};
+
+describe('icons manifest', () => {
+  it('accepts a valid icons manifest', () => {
+    const result = validateManifest(validIconsManifest);
+
+    expect(result.success).toBe(true);
+  });
+
+  it('still accepts a tokens manifest', () => {
+    expect(validateManifest(validTokensManifest).success).toBe(true);
+  });
+
+  it('rejects a manifest with no usage block', () => {
+    const withoutUsage: Partial<typeof validIconsManifest> = { ...validIconsManifest };
+    delete withoutUsage.usage;
+    const result = validateManifest(withoutUsage);
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/usage/);
+  });
+
+  it('rejects an unknown platform', () => {
+    const result = validateManifest({
+      ...validIconsManifest,
+      usage: { ...validIconsManifest.usage, platform: 'flutter' },
+    });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/platform/);
+  });
+
+  it('rejects two icons with the same name', () => {
+    const [entry] = validIconsManifest.entries;
+    const result = validateManifest({ ...validIconsManifest, entries: [entry, entry] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/AddSmallIcon/);
+  });
+
+  it('rejects an unknown icon size', () => {
+    const [entry] = validIconsManifest.entries;
+    const result = validateManifest({
+      ...validIconsManifest,
+      entries: [{ ...entry, size: 'huge' }],
+    });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/size/);
+  });
+});
+
+describe('unknown manifest types', () => {
+  it('rejects a type this version does not know, naming it', () => {
+    const result = validateManifest({ ...validIconsManifest, type: 'sounds' });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/sounds/);
   });
 });
 
 describe('manifestJsonSchema', () => {
-  it('describes the manifest shape for package authors', () => {
-    expect(manifestJsonSchema.type).toBe('object');
-    expect(manifestJsonSchema.required).toEqual(
-      expect.arrayContaining(['schemaVersion', 'package', 'type', 'entries'])
-    );
+  it('describes one shape per manifest type for package authors', () => {
+    const variants = (manifestJsonSchema.oneOf ?? manifestJsonSchema.anyOf) as Array<{
+      required: Array<string>;
+      properties: { type: { const: string } };
+    }>;
+
+    expect(variants.map(variant => variant.properties.type.const)).toEqual(['tokens', 'icons']);
+    for (const variant of variants) {
+      expect(variant.required).toEqual(
+        expect.arrayContaining(['schemaVersion', 'package', 'type', 'entries'])
+      );
+    }
   });
 });

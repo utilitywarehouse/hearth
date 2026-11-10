@@ -30,7 +30,10 @@ Every manifest has a header and a list of entries:
       "alias": { "default": "color.purple.700", "dark": "color.purple.900" },
       "surfaces": {
         "css": { "variable": "--h-background-brand" },
-        "browser": { "import": "@utilitywarehouse/hearth-tokens/browser", "path": "semantic.background.brand" },
+        "browser": {
+          "import": "@utilitywarehouse/hearth-tokens/browser",
+          "path": "semantic.background.brand"
+        },
         "js": {
           "import": "@utilitywarehouse/hearth-tokens",
           "path": "semanticLight.background.brand",
@@ -42,24 +45,48 @@ Every manifest has a header and a list of entries:
 }
 ```
 
-| Field           | Meaning                                                                                       |
-| --------------- | --------------------------------------------------------------------------------------------- |
+| Field           | Meaning                                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------------- |
 | `schemaVersion` | Version of this schema. Currently `2`. Readers can use it to reject manifests they can't read. |
-| `package`       | Name and version of the package that produced the manifest.                                   |
-| `type`          | What kind of manifest this is. Only `tokens` exists so far.                                   |
-| `entries`       | One entry per thing the package offers.                                                       |
+| `package`       | Name and version of the package that produced the manifest.                                    |
+| `type`          | What kind of manifest this is: `tokens` or `icons`. See below.                                 |
+| `entries`       | One entry per thing the package offers.                                                        |
+
+### Manifest types
+
+`validateManifest` is the single entry point for every type. The schema is a union discriminated on `type`, so each type has its own fields beyond the header:
+
+| `type`   | Shipped by                                                            | Beyond the header                                 |
+| -------- | --------------------------------------------------------------------- | ------------------------------------------------- |
+| `tokens` | `hearth-tokens`                                                       | `entries` of token entries (below)                |
+| `icons`  | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
+
+An unknown `type` fails validation with a message naming it, so a reader never misreads a manifest it does not understand.
+
+### Icon entries
+
+The same entries ship in all three icon packages. Only `package` and `usage` differ, so a project with just one icon package installed can still look icons up.
+
+| Field       | Meaning                                                                             |
+| ----------- | ----------------------------------------------------------------------------------- |
+| `name`      | Unique icon name, for example `AddSmallIcon`.                                       |
+| `size`      | `small`, `medium` or `large`.                                                       |
+| `svg`       | The file in `@utilitywarehouse/hearth-svg-icons`, for example `add-small-icon.svg`. |
+| `component` | The component exported by the React and React Native icon packages.                 |
+
+The manifest-level `usage` (`platform`: `svg`, `react` or `react-native`, `import`, and an `example` with `<svg>`/`<component>` placeholders) says how to use an icon from the package that shipped the manifest. It lives on the manifest, not on each entry, because it is the same for every icon in a package.
 
 ### Token entries
 
-| Field         | Meaning                                                                                              |
-| ------------- | ---------------------------------------------------------------------------------------------------- |
-| `path`        | Unique name of the token within the manifest. Semantic tokens are prefixed `semantic.`.              |
-| `layer`       | `primitive` (raw palette), `semantic` (purpose-based, the one to prefer) or `component`.             |
-| `type`        | The kind of value, for example `color` or `number`.                                                  |
-| `device`      | `mobile`, `tablet` or `desktop`, for a token whose value depends on the device. See below.           |
-| `values`      | The resolved `default` value, plus `dark` where the token has one.                                   |
-| `alias`       | The token this one points at, where it points at another.                                            |
-| `surfaces`    | How to use the token from each place it is available. See below.                                     |
+| Field      | Meaning                                                                                    |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| `path`     | Unique name of the token within the manifest. Semantic tokens are prefixed `semantic.`.    |
+| `layer`    | `primitive` (raw palette), `semantic` (purpose-based, the one to prefer) or `component`.   |
+| `type`     | The kind of value, for example `color` or `number`.                                        |
+| `device`   | `mobile`, `tablet` or `desktop`, for a token whose value depends on the device. See below. |
+| `values`   | The resolved `default` value, plus `dark` where the token has one.                         |
+| `alias`    | The token this one points at, where it points at another.                                  |
+| `surfaces` | How to use the token from each place it is available. See below.                           |
 
 Tokens are available through up to three surfaces, and the import paths differ between them:
 
@@ -97,20 +124,21 @@ The package also exports:
 
 - `manifestSchema`: the [zod](https://zod.dev) schema, if you want to compose with it.
 - `manifestJsonSchema`: the same schema as JSON Schema, for tools that can't run zod. It can't express the cross-field rules below, so use `validateManifest` for the full check.
-- `SCHEMA_VERSION`, and the `Manifest`, `TokenEntry` and `ValidationResult` types.
+- `SCHEMA_VERSION`, `MANIFEST_TYPES`, and the `Manifest`, `TokensManifest`, `IconsManifest`, `TokenEntry`, `IconEntry` and `ValidationResult` types.
 
 ## Rules beyond the field types
 
 `validateManifest` also enforces:
 
-- An entry is unique by `path` and `device`: the same path can appear once per device. Version 1 required every `path` to be unique, so a v1 reader rejects a v2 manifest (and the CLI reports it as needing an update).
+- Icon entries are unique by `name`.
+- A token entry is unique by `path` and `device`: the same path can appear once per device. Version 1 required every `path` to be unique, so a v1 reader rejects a v2 manifest (and the CLI reports it as needing an update).
 - A `values.dark` requires `surfaces.js.darkPath`, and `darkPath` requires a dark value, since dark mode exists on the JS surface only.
 
 ## Changing the schema
 
 Adding an optional field is safe. Anything that changes the meaning of an existing field, or makes a field required, needs a new `schemaVersion` so that older CLIs refuse it rather than misreading it.
 
-Adding a new manifest `type` (icons and assets are planned) means extending `manifestSchema` here, then generating the manifest in the owning package.
+Adding a new manifest `type` is additive and keeps `schemaVersion`: add a member to the union in `manifestSchema`, then generate the manifest in the owning package. A CLI built before the type existed fails validation on the unknown `type`, so it refuses the manifest instead of misreading it. The current CLI reports that as needing an update.
 
 ## Development
 
