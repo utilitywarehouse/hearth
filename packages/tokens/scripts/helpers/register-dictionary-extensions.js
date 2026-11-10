@@ -69,7 +69,7 @@ export function registerDictionaryExtensions(StyleDictionary) {
       const colorScales = {};
 
       dictionary.allTokens.forEach(token => {
-        const [_, colorScale, shade] = token.path;
+        const [, colorScale, shade] = token.path;
         if (!colorScales[colorScale]) {
           colorScales[colorScale] = {};
         }
@@ -353,8 +353,7 @@ export * as components from './components';`;
 
   StyleDictionary.registerFormat({
     name: 'js/semantic-non-color',
-    format: ({ dictionary, options }) => {
-      const { mode } = options;
+    format: ({ dictionary }) => {
       const output = {};
 
       dictionary.allTokens.forEach(token => {
