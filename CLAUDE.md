@@ -41,7 +41,7 @@ npm run setup    # corepack enable + pnpm install
 
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
-- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node, where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+- `.nvmrc` pins Node 24; a non-interactive shell can default to an older Node, where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
 
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 
