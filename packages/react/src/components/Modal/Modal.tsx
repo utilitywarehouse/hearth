@@ -89,9 +89,9 @@ export const Modal = forwardRef<ModalElement, ModalProps>((props, ref) => {
                 {!loading ? (
                   <div className={`${componentClassName}InnerContainer`}>
                     {containsImage ? (
-                      <ModalContent>
+                      <div className={`${componentClassName}ImageContainer`}>
                         <div className={`${componentClassName}Image`}>{image}</div>
-                      </ModalContent>
+                      </div>
                     ) : null}
                     <div className={`${componentClassName}Header`}>
                       <Box asChild>

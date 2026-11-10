@@ -87,38 +87,45 @@
     }
   }
 
-  & :where(.h-ModalImage) {
-    --h-icon-button-size: 1.5rem;
+  & :where(.h-ModalImageContainer) {
+    display: flex;
+    flex: 1 1 0%;
+    min-height: 0;
+    width: 100%;
 
-    &:where(.h-image-size-md &) {
-      --h-modal-image-max-height: 120px;
-      --h-modal-image-max-width: 120px;
-    }
+    & :where(.h-ModalImage) {
+      --h-icon-button-size: 1.5rem;
 
-    &:where(.h-image-size-lg &) {
-      --h-modal-image-max-height: 200px;
-      --h-modal-image-max-width: 300px;
-    }
+      &:where(.h-image-size-md &) {
+        --h-modal-image-max-height: 120px;
+        --h-modal-image-max-width: 120px;
+      }
 
-    margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
-    margin-left: auto;
-    margin-right: auto;
-    max-height: var(--h-modal-image-max-height);
-    max-width: var(--h-modal-image-max-width);
+      &:where(.h-image-size-lg &) {
+        --h-modal-image-max-height: 200px;
+        --h-modal-image-max-width: 300px;
+      }
 
-    & :where(img) {
+      margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
+      margin-left: auto;
+      margin-right: auto;
       max-height: var(--h-modal-image-max-height);
       max-width: var(--h-modal-image-max-width);
-    }
 
-    @media (--h-tablet) {
-      margin-top: var(--h-space-0);
-    }
+      & :where(img) {
+        max-height: var(--h-modal-image-max-height);
+        max-width: var(--h-modal-image-max-width);
+      }
 
-    @media (--h-desktop) {
-      &:where(.h-image-size-md &) {
-        --h-modal-image-max-height: 160px;
-        --h-modal-image-max-width: 160px;
+      @media (--h-tablet) {
+        margin-top: var(--h-space-0);
+      }
+
+      @media (--h-desktop) {
+        &:where(.h-image-size-md &) {
+          --h-modal-image-max-height: 160px;
+          --h-modal-image-max-width: 160px;
+        }
       }
     }
   }
@@ -259,11 +266,8 @@
 
       &:not(.h-ModalOuterContainer:has(.h-ModalContent) &) {
         padding: var(--h-bottom-sheet-padding);
-        position: absolute;
-        bottom: 0;
 
         @media (--h-tablet) {
-          position: static;
           padding: var(--h-space-0);
         }
       }
