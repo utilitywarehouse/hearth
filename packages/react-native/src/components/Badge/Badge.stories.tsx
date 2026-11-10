@@ -46,6 +46,11 @@ const meta = {
       control: 'boolean',
       description: 'Whether the badge has a flat base.',
     },
+    wrap: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'Allows the content to wrap onto multiple lines, left-aligned.',
+    },
     icon: {
       options: ['none', ...Object.keys(Icons).filter(icon => icon.includes('Small'))],
       control: 'select',
@@ -58,6 +63,7 @@ const meta = {
     variant: 'subtle',
     colorScheme: 'info',
     flatBase: false,
+    wrap: false,
     size: 'sm',
   },
 } satisfies Meta<typeof Badge>;
@@ -71,6 +77,34 @@ export const Playground: Story = {
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return <Badge {...args} icon={icon} />;
   },
+};
+
+/** Set `wrap` to let long content wrap onto multiple lines, left-aligned. */
+export const Wrap: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => (
+    <Box style={{ width: 200 }}>
+      <Badge colorScheme="positive" variant="emphasis" wrap>
+        Get a free Multi SIM when you join with a broadband bundle
+      </Badge>
+    </Box>
+  ),
+};
+
+/** When wrapped, an icon stays aligned with the first line of text. */
+export const WrapWithIcon: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => (
+    <Box style={{ width: 140 }}>
+      <Badge colorScheme="positive" icon={TickSmallIcon} wrap>
+        Earned this month
+      </Badge>
+    </Box>
+  ),
 };
 
 export const Subtle: Story = {

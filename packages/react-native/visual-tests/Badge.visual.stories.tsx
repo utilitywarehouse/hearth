@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { View } from 'react-native';
 import { Badge, BadgeIcon, BadgeText } from '../src/components/Badge';
 import type BadgeProps from '../src/components/Badge/Badge.props';
 import { VTGrid, VTRow } from './_support';
@@ -74,6 +75,19 @@ export const SizesAndOptions: Story = {
         <Badge flatBase text="Subtle" />
         <Badge flatBase variant="emphasis" text="Emphasis" />
         <Badge flatBase variant="outline" text="Outline" />
+      </VTRow>
+      <VTRow label="Wrap">
+        <View style={{ width: 160 }}>
+          <Badge
+            wrap
+            variant="emphasis"
+            colorScheme="positive"
+            text="Get a free Multi SIM when you join"
+          />
+        </View>
+        <View style={{ width: 120 }}>
+          <Badge wrap icon={TickSmallIcon} colorScheme="positive" text="Earned this month" />
+        </View>
       </VTRow>
       <VTRow label="Icon">
         <Badge icon={TickSmallIcon} colorScheme="positive" text="Small" />

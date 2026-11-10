@@ -17,6 +17,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     colorScheme = 'info',
     flatBase = false,
     size = 'sm',
+    wrap = false,
     style,
     text,
     numberOfLines,
@@ -24,13 +25,13 @@ const Badge = ({ children, ...props }: BadgeProps) => {
   } = props;
 
   const value = useMemo(
-    () => ({ colorScheme, flatBase, variant, size }),
-    [colorScheme, flatBase, variant, size]
+    () => ({ colorScheme, flatBase, variant, size, wrap }),
+    [colorScheme, flatBase, variant, size, wrap]
   );
 
   const childIsText = typeof children === 'string' || typeof children === 'number' || !!text;
 
-  styles.useVariants({ colorScheme, flatBase, variant, size });
+  styles.useVariants({ colorScheme, flatBase, variant, size, wrap });
 
   return (
     <BadgeContext.Provider value={value}>
@@ -93,6 +94,13 @@ const styles = StyleSheet.create(theme => ({
         true: {
           borderBottomLeftRadius: theme.components.badge.flatBase.borderBottomLeftRadius,
           borderBottomRightRadius: theme.components.badge.flatBase.borderBottomRightRadius,
+        },
+        false: {},
+      },
+      wrap: {
+        true: {
+          alignItems: 'flex-start',
+          flexShrink: 1,
         },
         false: {},
       },
