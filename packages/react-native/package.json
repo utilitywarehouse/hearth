@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.38.6",
+  "version": "0.38.7",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
   "repository": {
@@ -33,6 +33,7 @@
     "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
     "lint:fix": "TIMING=1 eslint --fix .",
     "lint": "TIMING=1 eslint .",
+    "lint:ci": "TIMING=1 eslint .",
     "build": "tsc",
     "watch": "tsc --watch",
     "typecheck": "tsc --noEmit",

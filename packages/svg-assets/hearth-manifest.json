@@ -1,0 +1,1252 @@
+{
+  "schemaVersion": 2,
+  "package": {
+    "name": "@utilitywarehouse/hearth-svg-assets",
+    "version": "0.6.7"
+  },
+  "type": "svg-assets",
+  "entries": [
+    {
+      "name": "BeamingFace",
+      "category": "other",
+      "file": "lib/beaming-face.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/beaming-face.svg"
+    },
+    {
+      "name": "BeamingFaceGrey",
+      "category": "other",
+      "file": "lib/beaming-face-grey.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/beaming-face-grey.svg"
+    },
+    {
+      "name": "DissapointedFace",
+      "category": "other",
+      "file": "lib/dissapointed-face.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face.svg"
+    },
+    {
+      "name": "DissapointedFaceGrey",
+      "category": "other",
+      "file": "lib/dissapointed-face-grey.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face-grey.svg"
+    },
+    {
+      "name": "FrowningFace",
+      "category": "other",
+      "file": "lib/frowning-face.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/frowning-face.svg"
+    },
+    {
+      "name": "FrowningFaceGrey",
+      "category": "other",
+      "file": "lib/frowning-face-grey.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/frowning-face-grey.svg"
+    },
+    {
+      "name": "LogoCondensedPurple",
+      "category": "logo",
+      "file": "lib/logo-condensed-purple.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-purple.svg"
+    },
+    {
+      "name": "LogoCondensedWarmWhite",
+      "category": "logo",
+      "file": "lib/logo-condensed-warm-white.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-warm-white.svg"
+    },
+    {
+      "name": "LogoFullPurple",
+      "category": "logo",
+      "file": "lib/logo-full-purple.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg"
+    },
+    {
+      "name": "LogoFullWarmWhite",
+      "category": "logo",
+      "file": "lib/logo-full-warm-white.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/logo-full-warm-white.svg"
+    },
+    {
+      "name": "MascotBroadbandDark",
+      "category": "mascot",
+      "file": "lib/mascot-broadband-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-broadband-dark.svg"
+    },
+    {
+      "name": "MascotBroadbandLight",
+      "category": "mascot",
+      "file": "lib/mascot-broadband-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-broadband-light.svg"
+    },
+    {
+      "name": "MascotCashbackDark",
+      "category": "mascot",
+      "file": "lib/mascot-cashback-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-dark.svg"
+    },
+    {
+      "name": "MascotCashbackLight",
+      "category": "mascot",
+      "file": "lib/mascot-cashback-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-light.svg"
+    },
+    {
+      "name": "MascotEnergyDark",
+      "category": "mascot",
+      "file": "lib/mascot-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-energy-dark.svg"
+    },
+    {
+      "name": "MascotEnergyLight",
+      "category": "mascot",
+      "file": "lib/mascot-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-energy-light.svg"
+    },
+    {
+      "name": "MascotInsuranceDark",
+      "category": "mascot",
+      "file": "lib/mascot-insurance-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-dark.svg"
+    },
+    {
+      "name": "MascotInsuranceLight",
+      "category": "mascot",
+      "file": "lib/mascot-insurance-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-light.svg"
+    },
+    {
+      "name": "MascotMobileDark",
+      "category": "mascot",
+      "file": "lib/mascot-mobile-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-mobile-dark.svg"
+    },
+    {
+      "name": "MascotMobileLight",
+      "category": "mascot",
+      "file": "lib/mascot-mobile-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/mascot-mobile-light.svg"
+    },
+    {
+      "name": "NeutralFace",
+      "category": "other",
+      "file": "lib/neutral-face.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/neutral-face.svg"
+    },
+    {
+      "name": "NeutralFaceGrey",
+      "category": "other",
+      "file": "lib/neutral-face-grey.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/neutral-face-grey.svg"
+    },
+    {
+      "name": "Placeholder",
+      "category": "other",
+      "file": "lib/placeholder.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/placeholder.svg"
+    },
+    {
+      "name": "SceneBroadbandDark",
+      "category": "scene",
+      "file": "lib/scene-broadband-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-dark.svg"
+    },
+    {
+      "name": "SceneBroadbandLight",
+      "category": "scene",
+      "file": "lib/scene-broadband-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg"
+    },
+    {
+      "name": "SceneBundleDark",
+      "category": "scene",
+      "file": "lib/scene-bundle-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-bundle-dark.svg"
+    },
+    {
+      "name": "SceneBundleLight",
+      "category": "scene",
+      "file": "lib/scene-bundle-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-bundle-light.svg"
+    },
+    {
+      "name": "SceneCashbackDark",
+      "category": "scene",
+      "file": "lib/scene-cashback-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-cashback-dark.svg"
+    },
+    {
+      "name": "SceneCashbackLight",
+      "category": "scene",
+      "file": "lib/scene-cashback-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-cashback-light.svg"
+    },
+    {
+      "name": "SceneEnergyDark",
+      "category": "scene",
+      "file": "lib/scene-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg"
+    },
+    {
+      "name": "SceneEnergyLight",
+      "category": "scene",
+      "file": "lib/scene-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg"
+    },
+    {
+      "name": "SceneInsuranceDark",
+      "category": "scene",
+      "file": "lib/scene-insurance-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-insurance-dark.svg"
+    },
+    {
+      "name": "SceneInsuranceLight",
+      "category": "scene",
+      "file": "lib/scene-insurance-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-insurance-light.svg"
+    },
+    {
+      "name": "SceneMobileDark",
+      "category": "scene",
+      "file": "lib/scene-mobile-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-dark.svg"
+    },
+    {
+      "name": "SceneMobileLight",
+      "category": "scene",
+      "file": "lib/scene-mobile-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg"
+    },
+    {
+      "name": "SlightlySmilingFace",
+      "category": "other",
+      "file": "lib/slightly-smiling-face.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face.svg"
+    },
+    {
+      "name": "SlightlySmilingFaceGrey",
+      "category": "other",
+      "file": "lib/slightly-smiling-face-grey.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/slightly-smiling-face-grey.svg"
+    },
+    {
+      "name": "SpotBillingDark",
+      "category": "spot",
+      "file": "lib/spot-billing-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg"
+    },
+    {
+      "name": "SpotBillingLight",
+      "category": "spot",
+      "file": "lib/spot-billing-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg"
+    },
+    {
+      "name": "SpotBoilerDark",
+      "category": "spot",
+      "file": "lib/spot-boiler-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-boiler-dark.svg"
+    },
+    {
+      "name": "SpotBoilerLight",
+      "category": "spot",
+      "file": "lib/spot-boiler-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-boiler-light.svg"
+    },
+    {
+      "name": "SpotBookAppointmentDark",
+      "category": "spot",
+      "file": "lib/spot-book-appointment-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-dark.svg"
+    },
+    {
+      "name": "SpotBookAppointmentLight",
+      "category": "spot",
+      "file": "lib/spot-book-appointment-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-light.svg"
+    },
+    {
+      "name": "SpotBroadbandDark",
+      "category": "spot",
+      "file": "lib/spot-broadband-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-dark.svg"
+    },
+    {
+      "name": "SpotBroadbandLight",
+      "category": "spot",
+      "file": "lib/spot-broadband-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-light.svg"
+    },
+    {
+      "name": "SpotBundleCompleteDark",
+      "category": "spot",
+      "file": "lib/spot-bundle-complete-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-complete-dark.svg"
+    },
+    {
+      "name": "SpotBundleCompleteLight",
+      "category": "spot",
+      "file": "lib/spot-bundle-complete-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-complete-light.svg"
+    },
+    {
+      "name": "SpotBundleIncompleteDark",
+      "category": "spot",
+      "file": "lib/spot-bundle-incomplete-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-incomplete-dark.svg"
+    },
+    {
+      "name": "SpotBundleIncompleteLight",
+      "category": "spot",
+      "file": "lib/spot-bundle-incomplete-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-incomplete-light.svg"
+    },
+    {
+      "name": "SpotCalendarDark",
+      "category": "spot",
+      "file": "lib/spot-calendar-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-calendar-dark.svg"
+    },
+    {
+      "name": "SpotCalendarLight",
+      "category": "spot",
+      "file": "lib/spot-calendar-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-calendar-light.svg"
+    },
+    {
+      "name": "SpotCelebratoryDark",
+      "category": "spot",
+      "file": "lib/spot-celebratory-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory-dark.svg"
+    },
+    {
+      "name": "SpotCelebratoryLight",
+      "category": "spot",
+      "file": "lib/spot-celebratory-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory-light.svg"
+    },
+    {
+      "name": "SpotConfettiDark",
+      "category": "spot",
+      "file": "lib/spot-confetti-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-confetti-dark.svg"
+    },
+    {
+      "name": "SpotConfettiLight",
+      "category": "spot",
+      "file": "lib/spot-confetti-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-confetti-light.svg"
+    },
+    {
+      "name": "SpotDarkModeDark",
+      "category": "spot",
+      "file": "lib/spot-dark-mode-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-dark-mode-dark.svg"
+    },
+    {
+      "name": "SpotDarkModeLight",
+      "category": "spot",
+      "file": "lib/spot-dark-mode-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-dark-mode-light.svg"
+    },
+    {
+      "name": "SpotEarningsDark",
+      "category": "spot",
+      "file": "lib/spot-earnings-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-earnings-dark.svg"
+    },
+    {
+      "name": "SpotEarningsLight",
+      "category": "spot",
+      "file": "lib/spot-earnings-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-earnings-light.svg"
+    },
+    {
+      "name": "SpotEmptyDark",
+      "category": "spot",
+      "file": "lib/spot-empty-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-empty-dark.svg"
+    },
+    {
+      "name": "SpotEmptyLight",
+      "category": "spot",
+      "file": "lib/spot-empty-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-empty-light.svg"
+    },
+    {
+      "name": "SpotErrorDark",
+      "category": "spot",
+      "file": "lib/spot-error-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-error-dark.svg"
+    },
+    {
+      "name": "SpotErrorLight",
+      "category": "spot",
+      "file": "lib/spot-error-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-error-light.svg"
+    },
+    {
+      "name": "SpotEvDark",
+      "category": "spot",
+      "file": "lib/spot-ev-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-ev-dark.svg"
+    },
+    {
+      "name": "SpotEvLight",
+      "category": "spot",
+      "file": "lib/spot-ev-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-ev-light.svg"
+    },
+    {
+      "name": "SpotHeartDark",
+      "category": "spot",
+      "file": "lib/spot-heart-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-heart-dark.svg"
+    },
+    {
+      "name": "SpotHeartLight",
+      "category": "spot",
+      "file": "lib/spot-heart-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-heart-light.svg"
+    },
+    {
+      "name": "SpotHelpDark",
+      "category": "spot",
+      "file": "lib/spot-help-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-help-dark.svg"
+    },
+    {
+      "name": "SpotHelpLight",
+      "category": "spot",
+      "file": "lib/spot-help-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg"
+    },
+    {
+      "name": "SpotHowToVideoDark",
+      "category": "spot",
+      "file": "lib/spot-how-to-video-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-how-to-video-dark.svg"
+    },
+    {
+      "name": "SpotHowToVideoLight",
+      "category": "spot",
+      "file": "lib/spot-how-to-video-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-how-to-video-light.svg"
+    },
+    {
+      "name": "SpotInnovationDark",
+      "category": "spot",
+      "file": "lib/spot-innovation-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-innovation-dark.svg"
+    },
+    {
+      "name": "SpotInnovationLight",
+      "category": "spot",
+      "file": "lib/spot-innovation-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-innovation-light.svg"
+    },
+    {
+      "name": "SpotKeepTrackDark",
+      "category": "spot",
+      "file": "lib/spot-keep-track-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-keep-track-dark.svg"
+    },
+    {
+      "name": "SpotKeepTrackLight",
+      "category": "spot",
+      "file": "lib/spot-keep-track-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-keep-track-light.svg"
+    },
+    {
+      "name": "SpotLeadsDark",
+      "category": "spot",
+      "file": "lib/spot-leads-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-leads-dark.svg"
+    },
+    {
+      "name": "SpotLeadsLight",
+      "category": "spot",
+      "file": "lib/spot-leads-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-leads-light.svg"
+    },
+    {
+      "name": "SpotMotorInsuranceDark",
+      "category": "spot",
+      "file": "lib/spot-motor-insurance-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-dark.svg"
+    },
+    {
+      "name": "SpotMotorInsuranceLight",
+      "category": "spot",
+      "file": "lib/spot-motor-insurance-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-light.svg"
+    },
+    {
+      "name": "SpotMovingHouseDark",
+      "category": "spot",
+      "file": "lib/spot-moving-house-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-moving-house-dark.svg"
+    },
+    {
+      "name": "SpotMovingHouseLight",
+      "category": "spot",
+      "file": "lib/spot-moving-house-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-moving-house-light.svg"
+    },
+    {
+      "name": "SpotNeighboursDark",
+      "category": "spot",
+      "file": "lib/spot-neighbours-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-dark.svg"
+    },
+    {
+      "name": "SpotNeighboursLight",
+      "category": "spot",
+      "file": "lib/spot-neighbours-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-light.svg"
+    },
+    {
+      "name": "SpotNewLookDark",
+      "category": "spot",
+      "file": "lib/spot-new-look-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-dark.svg"
+    },
+    {
+      "name": "SpotNewLookLight",
+      "category": "spot",
+      "file": "lib/spot-new-look-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-light.svg"
+    },
+    {
+      "name": "SpotNoBroadbandDark",
+      "category": "spot",
+      "file": "lib/spot-no-broadband-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-no-broadband-dark.svg"
+    },
+    {
+      "name": "SpotNoBroadbandLight",
+      "category": "spot",
+      "file": "lib/spot-no-broadband-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-no-broadband-light.svg"
+    },
+    {
+      "name": "SpotNotificationDark",
+      "category": "spot",
+      "file": "lib/spot-notification-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-notification-dark.svg"
+    },
+    {
+      "name": "SpotNotificationLight",
+      "category": "spot",
+      "file": "lib/spot-notification-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-notification-light.svg"
+    },
+    {
+      "name": "SpotOnlineAccountDark",
+      "category": "spot",
+      "file": "lib/spot-online-account-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-online-account-dark.svg"
+    },
+    {
+      "name": "SpotOnlineAccountLight",
+      "category": "spot",
+      "file": "lib/spot-online-account-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-online-account-light.svg"
+    },
+    {
+      "name": "SpotPiggyBankDark",
+      "category": "spot",
+      "file": "lib/spot-piggy-bank-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-dark.svg"
+    },
+    {
+      "name": "SpotPiggyBankLight",
+      "category": "spot",
+      "file": "lib/spot-piggy-bank-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-light.svg"
+    },
+    {
+      "name": "SpotQuoteDark",
+      "category": "spot",
+      "file": "lib/spot-quote-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-quote-dark.svg"
+    },
+    {
+      "name": "SpotQuoteLight",
+      "category": "spot",
+      "file": "lib/spot-quote-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-quote-light.svg"
+    },
+    {
+      "name": "SpotRecognitionDark",
+      "category": "spot",
+      "file": "lib/spot-recognition-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-recognition-dark.svg"
+    },
+    {
+      "name": "SpotRecognitionLight",
+      "category": "spot",
+      "file": "lib/spot-recognition-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-recognition-light.svg"
+    },
+    {
+      "name": "SpotSavingsDark",
+      "category": "spot",
+      "file": "lib/spot-savings-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-savings-dark.svg"
+    },
+    {
+      "name": "SpotSavingsLight",
+      "category": "spot",
+      "file": "lib/spot-savings-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg"
+    },
+    {
+      "name": "SpotSecurityCodeDark",
+      "category": "spot",
+      "file": "lib/spot-security-code-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-security-code-dark.svg"
+    },
+    {
+      "name": "SpotSecurityCodeLight",
+      "category": "spot",
+      "file": "lib/spot-security-code-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-security-code-light.svg"
+    },
+    {
+      "name": "SpotSecurityDark",
+      "category": "spot",
+      "file": "lib/spot-security-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-security-dark.svg"
+    },
+    {
+      "name": "SpotSecurityLight",
+      "category": "spot",
+      "file": "lib/spot-security-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-security-light.svg"
+    },
+    {
+      "name": "SpotSmartMeterDark",
+      "category": "spot",
+      "file": "lib/spot-smart-meter-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-dark.svg"
+    },
+    {
+      "name": "SpotSmartMeterLight",
+      "category": "spot",
+      "file": "lib/spot-smart-meter-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg"
+    },
+    {
+      "name": "SpotSuccessDark",
+      "category": "spot",
+      "file": "lib/spot-success-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-success-dark.svg"
+    },
+    {
+      "name": "SpotSuccessLight",
+      "category": "spot",
+      "file": "lib/spot-success-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-success-light.svg"
+    },
+    {
+      "name": "SpotSwitchDark",
+      "category": "spot",
+      "file": "lib/spot-switch-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-switch-dark.svg"
+    },
+    {
+      "name": "SpotSwitchLight",
+      "category": "spot",
+      "file": "lib/spot-switch-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg"
+    },
+    {
+      "name": "SpotTickDark",
+      "category": "spot",
+      "file": "lib/spot-tick-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-tick-dark.svg"
+    },
+    {
+      "name": "SpotTickLight",
+      "category": "spot",
+      "file": "lib/spot-tick-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-tick-light.svg"
+    },
+    {
+      "name": "SpotUnavailableDark",
+      "category": "spot",
+      "file": "lib/spot-unavailable-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-unavailable-dark.svg"
+    },
+    {
+      "name": "SpotUnavailableLight",
+      "category": "spot",
+      "file": "lib/spot-unavailable-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-unavailable-light.svg"
+    },
+    {
+      "name": "SpotWelcomeDark",
+      "category": "spot",
+      "file": "lib/spot-welcome-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-welcome-dark.svg"
+    },
+    {
+      "name": "SpotWelcomeLight",
+      "category": "spot",
+      "file": "lib/spot-welcome-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-welcome-light.svg"
+    },
+    {
+      "name": "TechnicalBuildingsAndContentsDark",
+      "category": "technical",
+      "file": "lib/technical-buildings-and-contents-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-and-contents-dark.svg"
+    },
+    {
+      "name": "TechnicalBuildingsAndContentsLight",
+      "category": "technical",
+      "file": "lib/technical-buildings-and-contents-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-and-contents-light.svg"
+    },
+    {
+      "name": "TechnicalBuildingsDark",
+      "category": "technical",
+      "file": "lib/technical-buildings-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-dark.svg"
+    },
+    {
+      "name": "TechnicalBuildingsLight",
+      "category": "technical",
+      "file": "lib/technical-buildings-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-light.svg"
+    },
+    {
+      "name": "TechnicalBungalowDark",
+      "category": "technical",
+      "file": "lib/technical-bungalow-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-bungalow-dark.svg"
+    },
+    {
+      "name": "TechnicalBungalowLight",
+      "category": "technical",
+      "file": "lib/technical-bungalow-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-bungalow-light.svg"
+    },
+    {
+      "name": "TechnicalCentralRailKeyOperatedLock1Dark",
+      "category": "technical",
+      "file": "lib/technical-central-rail-key-operated-lock-1-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-central-rail-key-operated-lock-1-dark.svg"
+    },
+    {
+      "name": "TechnicalCentralRailKeyOperatedLock1Light",
+      "category": "technical",
+      "file": "lib/technical-central-rail-key-operated-lock-1-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-central-rail-key-operated-lock-1-light.svg"
+    },
+    {
+      "name": "TechnicalContentsDark",
+      "category": "technical",
+      "file": "lib/technical-contents-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-contents-dark.svg"
+    },
+    {
+      "name": "TechnicalContentsLight",
+      "category": "technical",
+      "file": "lib/technical-contents-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-contents-light.svg"
+    },
+    {
+      "name": "TechnicalDslCableDark",
+      "category": "technical",
+      "file": "lib/technical-dsl-cable-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-cable-dark.svg"
+    },
+    {
+      "name": "TechnicalDslCableLight",
+      "category": "technical",
+      "file": "lib/technical-dsl-cable-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-cable-light.svg"
+    },
+    {
+      "name": "TechnicalDslPowerMicrofilterDark",
+      "category": "technical",
+      "file": "lib/technical-dsl-power-microfilter-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-dark.svg"
+    },
+    {
+      "name": "TechnicalDslPowerMicrofilterLight",
+      "category": "technical",
+      "file": "lib/technical-dsl-power-microfilter-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-light.svg"
+    },
+    {
+      "name": "TechnicalEeroDark",
+      "category": "technical",
+      "file": "lib/technical-eero-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-eero-dark.svg"
+    },
+    {
+      "name": "TechnicalEeroLight",
+      "category": "technical",
+      "file": "lib/technical-eero-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-eero-light.svg"
+    },
+    {
+      "name": "TechnicalEthernetCableDark",
+      "category": "technical",
+      "file": "lib/technical-ethernet-cable-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ethernet-cable-dark.svg"
+    },
+    {
+      "name": "TechnicalEthernetCableLight",
+      "category": "technical",
+      "file": "lib/technical-ethernet-cable-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ethernet-cable-light.svg"
+    },
+    {
+      "name": "TechnicalFlatDark",
+      "category": "technical",
+      "file": "lib/technical-flat-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-flat-dark.svg"
+    },
+    {
+      "name": "TechnicalFlatLight",
+      "category": "technical",
+      "file": "lib/technical-flat-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-flat-light.svg"
+    },
+    {
+      "name": "TechnicalFullFibreSocketDark",
+      "category": "technical",
+      "file": "lib/technical-full-fibre-socket-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-full-fibre-socket-dark.svg"
+    },
+    {
+      "name": "TechnicalFullFibreSocketLight",
+      "category": "technical",
+      "file": "lib/technical-full-fibre-socket-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-full-fibre-socket-light.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916DesktopDark",
+      "category": "technical",
+      "file": "lib/technical-fullfibre-9-16-desktop-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-desktop-dark.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916DesktopLight",
+      "category": "technical",
+      "file": "lib/technical-fullfibre-9-16-desktop-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-desktop-light.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916MobileDark",
+      "category": "technical",
+      "file": "lib/technical-fullfibre-9-16-mobile-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-mobile-dark.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916MobileLight",
+      "category": "technical",
+      "file": "lib/technical-fullfibre-9-16-mobile-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-mobile-light.svg"
+    },
+    {
+      "name": "TechnicalHouseDark",
+      "category": "technical",
+      "file": "lib/technical-house-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-house-dark.svg"
+    },
+    {
+      "name": "TechnicalHouseLight",
+      "category": "technical",
+      "file": "lib/technical-house-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-house-light.svg"
+    },
+    {
+      "name": "TechnicalMainTelephoneSocketDark",
+      "category": "technical",
+      "file": "lib/technical-main-telephone-socket-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-main-telephone-socket-dark.svg"
+    },
+    {
+      "name": "TechnicalMainTelephoneSocketLight",
+      "category": "technical",
+      "file": "lib/technical-main-telephone-socket-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-main-telephone-socket-light.svg"
+    },
+    {
+      "name": "TechnicalMeter01LabelledDark",
+      "category": "technical",
+      "file": "lib/technical-meter-01-labelled-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-01-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter01LabelledLight",
+      "category": "technical",
+      "file": "lib/technical-meter-01-labelled-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-01-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalMeter02Dark",
+      "category": "technical",
+      "file": "lib/technical-meter-02-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter02LabelledDark",
+      "category": "technical",
+      "file": "lib/technical-meter-02-labelled-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter02LabelledLight",
+      "category": "technical",
+      "file": "lib/technical-meter-02-labelled-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalMeter02Light",
+      "category": "technical",
+      "file": "lib/technical-meter-02-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-light.svg"
+    },
+    {
+      "name": "TechnicalMeterDark",
+      "category": "technical",
+      "file": "lib/technical-meter-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-dark.svg"
+    },
+    {
+      "name": "TechnicalMeterLight",
+      "category": "technical",
+      "file": "lib/technical-meter-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-meter-light.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter01Dark",
+      "category": "technical",
+      "file": "lib/technical-microfilter-01-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-01-dark.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter01Light",
+      "category": "technical",
+      "file": "lib/technical-microfilter-01-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-01-light.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter02Dark",
+      "category": "technical",
+      "file": "lib/technical-microfilter-02-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-02-dark.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter02Light",
+      "category": "technical",
+      "file": "lib/technical-microfilter-02-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-02-light.svg"
+    },
+    {
+      "name": "TechnicalMorticeDeadlock5LeversDark",
+      "category": "technical",
+      "file": "lib/technical-mortice-deadlock-5-levers-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-mortice-deadlock-5-levers-dark.svg"
+    },
+    {
+      "name": "TechnicalMorticeDeadlock5LeversLight",
+      "category": "technical",
+      "file": "lib/technical-mortice-deadlock-5-levers-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-mortice-deadlock-5-levers-light.svg"
+    },
+    {
+      "name": "TechnicalMultipointSystem3BoltsDark",
+      "category": "technical",
+      "file": "lib/technical-multipoint-system-3-bolts-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-multipoint-system-3-bolts-dark.svg"
+    },
+    {
+      "name": "TechnicalMultipointSystem3BoltsLight",
+      "category": "technical",
+      "file": "lib/technical-multipoint-system-3-bolts-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-multipoint-system-3-bolts-light.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxDark",
+      "category": "technical",
+      "file": "lib/technical-ont-router-connx-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-dark.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLabelledDark",
+      "category": "technical",
+      "file": "lib/technical-ont-router-connx-labelled-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLabelledLight",
+      "category": "technical",
+      "file": "lib/technical-ont-router-connx-labelled-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLight",
+      "category": "technical",
+      "file": "lib/technical-ont-router-connx-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-light.svg"
+    },
+    {
+      "name": "TechnicalOpticalNetworkTerminalDark",
+      "category": "technical",
+      "file": "lib/technical-optical-network-terminal-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-dark.svg"
+    },
+    {
+      "name": "TechnicalOpticalNetworkTerminalLight",
+      "category": "technical",
+      "file": "lib/technical-optical-network-terminal-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-light.svg"
+    },
+    {
+      "name": "TechnicalOtherBuildingDark",
+      "category": "technical",
+      "file": "lib/technical-other-building-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-other-building-dark.svg"
+    },
+    {
+      "name": "TechnicalOtherBuildingLight",
+      "category": "technical",
+      "file": "lib/technical-other-building-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-other-building-light.svg"
+    },
+    {
+      "name": "TechnicalOtherLockDark",
+      "category": "technical",
+      "file": "lib/technical-other-lock-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-other-lock-dark.svg"
+    },
+    {
+      "name": "TechnicalOtherLockLight",
+      "category": "technical",
+      "file": "lib/technical-other-lock-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-other-lock-light.svg"
+    },
+    {
+      "name": "TechnicalPowerSupply01BRgbDark",
+      "category": "technical",
+      "file": "lib/technical-power-supply-01-b-rgb-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-power-supply-01-b-rgb-dark.svg"
+    },
+    {
+      "name": "TechnicalPowerSupply01BRgbLight",
+      "category": "technical",
+      "file": "lib/technical-power-supply-01-b-rgb-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-power-supply-01-b-rgb-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullDark",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-full-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLabelledDark",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-full-labelled-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLabelledLight",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-full-labelled-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLight",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-full-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxPartDark",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-part-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-part-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxPartLight",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-connx-part-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-part-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredMasterSocketsDark",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-master-sockets-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-master-sockets-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredMasterSocketsLight",
+      "category": "technical",
+      "file": "lib/technical-prefiltered-master-sockets-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-master-sockets-light.svg"
+    },
+    {
+      "name": "TechnicalRimAutomaticDeadlockDark",
+      "category": "technical",
+      "file": "lib/technical-rim-automatic-deadlock-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-dark.svg"
+    },
+    {
+      "name": "TechnicalRimAutomaticDeadlockLight",
+      "category": "technical",
+      "file": "lib/technical-rim-automatic-deadlock-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-light.svg"
+    },
+    {
+      "name": "TechnicalRouter01Dark",
+      "category": "technical",
+      "file": "lib/technical-router-01-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter01Light",
+      "category": "technical",
+      "file": "lib/technical-router-01-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-light.svg"
+    },
+    {
+      "name": "TechnicalRouter02FrontDark",
+      "category": "technical",
+      "file": "lib/technical-router-02-front-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter02FrontLight",
+      "category": "technical",
+      "file": "lib/technical-router-02-front-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-light.svg"
+    },
+    {
+      "name": "TechnicalRouter03RearDark",
+      "category": "technical",
+      "file": "lib/technical-router-03-rear-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter03RearLight",
+      "category": "technical",
+      "file": "lib/technical-router-03-rear-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-light.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusGreenDark",
+      "category": "technical",
+      "file": "lib/technical-router-status-green-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusGreenLight",
+      "category": "technical",
+      "file": "lib/technical-router-status-green-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-green-light.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusOffDark",
+      "category": "technical",
+      "file": "lib/technical-router-status-off-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-off-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusOffLight",
+      "category": "technical",
+      "file": "lib/technical-router-status-off-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-off-light.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusOrangeDark",
+      "category": "technical",
+      "file": "lib/technical-router-status-orange-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusOrangeLight",
+      "category": "technical",
+      "file": "lib/technical-router-status-orange-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-orange-light.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusRedDark",
+      "category": "technical",
+      "file": "lib/technical-router-status-red-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-red-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterStatusRedLight",
+      "category": "technical",
+      "file": "lib/technical-router-status-red-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-status-red-light.svg"
+    },
+    {
+      "name": "TechnicalRouterWithPowerDark",
+      "category": "technical",
+      "file": "lib/technical-router-with-power-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterWithPowerLight",
+      "category": "technical",
+      "file": "lib/technical-router-with-power-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullDark",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-full-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLabelledDark",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-full-labelled-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLabelledLight",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-full-labelled-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLight",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-full-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxPartDark",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-part-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-part-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxPartLight",
+      "category": "technical",
+      "file": "lib/technical-standard-dsl-connx-part-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-part-light.svg"
+    },
+    {
+      "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
+      "category": "technical",
+      "file": "lib/technical-top-and-bottom-key-operated-lock-1-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-dark.svg"
+    },
+    {
+      "name": "TechnicalTopAndBottomKeyOperatedLock1Light",
+      "category": "technical",
+      "file": "lib/technical-top-and-bottom-key-operated-lock-1-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-light.svg"
+    }
+  ]
+}

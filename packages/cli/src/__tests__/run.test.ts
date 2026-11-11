@@ -218,6 +218,37 @@ describe('run', () => {
     expect(err).toContain('Update @utilitywarehouse/hearth-cli');
   });
 
+  it('exits 3 and says to update the CLI when the manifest has a type it does not know', () => {
+    const consumer = createConsumer();
+    installPackage(consumer, TOKENS_PACKAGE, tokensManifest({ type: 'sounds' }));
+
+    const { code, out, err } = cli(['tokens', 'search', 'brand'], consumer);
+
+    expect(code).toBe(3);
+    expect(out).toBe('');
+    expect(err).toContain('manifest type "sounds"');
+    expect(err).toContain('Update @utilitywarehouse/hearth-cli');
+  });
+
+  it('exits 3 when the package ships a manifest of a different known type', () => {
+    const consumer = createConsumer();
+    installPackage(
+      consumer,
+      TOKENS_PACKAGE,
+      tokensManifest({
+        type: 'icons',
+        usage: { platform: 'svg', import: 'x', example: 'x' },
+        entries: [],
+      })
+    );
+
+    const { code, out, err } = cli(['tokens', 'search', 'brand'], consumer);
+
+    expect(code).toBe(3);
+    expect(out).toBe('');
+    expect(err).toContain('expected a tokens manifest, found icons');
+  });
+
   it('shows one token with the package version for tokens get', () => {
     const { code, out } = cli(['tokens', 'get', 'semantic.background.brand'], consumerWithTokens());
 

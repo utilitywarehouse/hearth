@@ -98,6 +98,7 @@ export const tokenEntry = ({
 export const manifestOf = (entries: Array<ReturnType<typeof tokenEntry>>) => {
   const result = validateManifest(tokensManifest({ entries }));
   if (!result.success) throw new Error(result.errors.join('\n'));
+  if (result.manifest.type !== 'tokens') throw new Error('expected a tokens manifest');
   return result.manifest;
 };
 
