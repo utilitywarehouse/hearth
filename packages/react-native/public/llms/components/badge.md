@@ -40,13 +40,38 @@ const MyComponent = () => (
 
 ## Props
 
-| Property      | Type                                                                                                                                                                      | Description                            | Default  |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------- |
-| `variant`     | `'subtle' \| 'emphasis' \| 'outline'`                                                                                                                                     | The variant of the badge.              | `subtle` |
-| `colorScheme` | `'info' \| 'positive' \| 'danger' \| 'warning' \| 'functional' \|`<br />`'energy' \| 'broadband' \| 'mobile' \| 'insurance' \|`<br />`'cashback' \| 'pig' \| 'highlight'` | The color scheme to use for the badge. | `info`   |
-| `size`        | `'sm' \| 'md'`                                                                                                                                                            | The size of the badge.                 | `sm`     |
-| `flatBase`    | `boolean`                                                                                                                                                                 | Whether the badge has a flat base.     | `false`  |
-| `icon`        | `ReactNode`                                                                                                                                                               | The icon to display in the badge.      |          |
+| Property      | Type                                                                                                                                                                      | Description                                                   | Default  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------- |
+| `variant`     | `'subtle' \| 'emphasis' \| 'outline'`                                                                                                                                     | The variant of the badge.                                     | `subtle` |
+| `colorScheme` | `'info' \| 'positive' \| 'danger' \| 'warning' \| 'functional' \|`<br />`'energy' \| 'broadband' \| 'mobile' \| 'insurance' \|`<br />`'cashback' \| 'pig' \| 'highlight'` | The color scheme to use for the badge.                        | `info`   |
+| `size`        | `'sm' \| 'md'`                                                                                                                                                            | The size of the badge.                                        | `sm`     |
+| `flatBase`    | `boolean`                                                                                                                                                                 | Whether the badge has a flat base.                            | `false`  |
+| `wrap`        | `boolean`                                                                                                                                                                 | Allows the content to wrap onto multiple lines, left-aligned. | `false`  |
+| `icon`        | `ReactNode`                                                                                                                                                               | The icon to display in the badge.                             |          |
+
+## Wrap
+
+By default badge content stays on a single line. Set `wrap` to let long content wrap onto multiple lines, left-aligned.
+
+```tsx
+// Example usage
+<Box style={{ width: 200 }}>
+  <Badge colorScheme="positive" variant="emphasis" wrap>
+    Get a free Multi SIM when you join with a broadband bundle
+  </Badge>
+</Box>
+```
+
+With an icon, the icon stays aligned with the first line of text.
+
+```tsx
+// Example usage
+<Box style={{ width: 140 }}>
+  <Badge colorScheme="positive" icon={TickSmallIcon} wrap>
+    Earned this month
+  </Badge>
+</Box>
+```
 
 ## Color Schemes
 

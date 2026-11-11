@@ -98,6 +98,7 @@ export const tokenEntry = ({
 export const manifestOf = (entries: Array<ReturnType<typeof tokenEntry>>) => {
   const result = validateManifest(tokensManifest({ entries }));
   if (!result.success) throw new Error(result.errors.join('\n'));
+  if (result.manifest.type !== 'tokens') throw new Error('expected a tokens manifest');
   return result.manifest;
 };
 
@@ -124,4 +125,65 @@ export const installPackage = (
     join(packageDir, 'hearth-manifest.json'),
     typeof manifest === 'string' ? manifest : JSON.stringify(manifest)
   );
+};
+
+export const ICON_PACKAGES = {
+  react: '@utilitywarehouse/hearth-react-icons',
+  'react-native': '@utilitywarehouse/hearth-react-native-icons',
+  svg: '@utilitywarehouse/hearth-svg-icons',
+} as const;
+
+export type IconPlatform = keyof typeof ICON_PACKAGES;
+
+type IconSize = 'small' | 'medium' | 'large';
+
+/** An icon entry whose svg file is derived from its name (`AddSmallIcon` -> `add-small-icon.svg`). */
+export const iconEntry = (name: string, size: IconSize = 'medium') => ({
+  name,
+  size,
+  svg: `${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.svg`,
+  component: name,
+});
+
+const ICON_USAGE: Record<IconPlatform, { import: string; example: string }> = {
+  react: {
+    import: ICON_PACKAGES.react,
+    example: `import { <component> } from '${ICON_PACKAGES.react}';`,
+  },
+  'react-native': {
+    import: ICON_PACKAGES['react-native'],
+    example: `import { <component> } from '${ICON_PACKAGES['react-native']}';`,
+  },
+  svg: { import: ICON_PACKAGES.svg, example: `${ICON_PACKAGES.svg}/<svg>` },
+};
+
+export const DEFAULT_ICONS = [
+  iconEntry('AddSmallIcon', 'small'),
+  iconEntry('AddMediumIcon', 'medium'),
+  iconEntry('ArrowRightMediumIcon', 'medium'),
+  iconEntry('ArrowLeftLargeIcon', 'large'),
+];
+
+/** The same icon list ships in all three icon packages; only `package` and `usage` differ. */
+export const iconsManifest = (
+  platform: IconPlatform = 'react',
+  entries: Array<ReturnType<typeof iconEntry>> = DEFAULT_ICONS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: ICON_PACKAGES[platform], version },
+  type: 'icons',
+  usage: { platform, ...ICON_USAGE[platform] },
+  entries,
+});
+
+/** A validated icons manifest. */
+export const iconsManifestOf = (
+  entries: Array<ReturnType<typeof iconEntry>> = DEFAULT_ICONS,
+  platform: IconPlatform = 'react'
+) => {
+  const result = validateManifest(iconsManifest(platform, entries));
+  if (!result.success) throw new Error(result.errors.join('\n'));
+  if (result.manifest.type !== 'icons') throw new Error('expected an icons manifest');
+  return result.manifest;
 };

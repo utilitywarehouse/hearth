@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-codemod
 
+## 0.1.3
+
+### Patch Changes
+
+- [#1834](https://github.com/utilitywarehouse/hearth/pull/1834) [`0b7c921`](https://github.com/utilitywarehouse/hearth/commit/0b7c921f1844485a4ef05cb4190a373f72ae7e1b) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: `react/v1/migrate-card-banner-image` codemod available
+  
+  Renames `CardBannerImage` to `BannerImage`, including aliased and namespace imports. If `BannerImage` is already imported, the duplicate import is dropped.
+  
+  ```sh
+  npx @utilitywarehouse/hearth-codemod react/v1/migrate-card-banner-image <path>
+  ```
+  
+  It is also included in `react/pre-v1/migration` and `react/v1/migration`. See the
+  [`v1` migration guide](../packages/react/docs/migration/v1.docs.mdx) for details.
+
 ## 0.1.2
 
 ### Patch Changes

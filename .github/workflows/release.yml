@@ -171,7 +171,12 @@ jobs:
           else
             pnpm changeset version
           fi
-          pnpm --filter @utilitywarehouse/hearth-tokens sync:manifest-version
+          # an older release ref may predate a package's manifest, so only sync where the script exists
+          for pkg in tokens svg-icons svg-assets json-assets; do
+            if node -e "process.exit(require('./packages/$pkg/package.json').scripts['sync:manifest-version'] ? 0 : 1)"; then
+              pnpm --filter "@utilitywarehouse/hearth-$pkg" sync:manifest-version
+            fi
+          done
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
