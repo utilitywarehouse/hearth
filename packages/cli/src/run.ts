@@ -1,5 +1,6 @@
 import { parseArgs } from 'node:util';
 import pkg from '../package.json' with { type: 'json' };
+import { assetsCommand } from './assets-command.js';
 import { EXIT, UsageError, type CommandGroup, type Io } from './command-group.js';
 import { iconsCommand } from './icons-command.js';
 import { tokensCommand } from './tokens-command.js';
@@ -7,7 +8,7 @@ import { tokensCommand } from './tokens-command.js';
 export { EXIT, type Io };
 
 /** Every top-level command. A new command group is a module plus an entry here. */
-const GROUPS: ReadonlyArray<CommandGroup> = [tokensCommand, iconsCommand];
+const GROUPS: ReadonlyArray<CommandGroup> = [tokensCommand, iconsCommand, assetsCommand];
 
 const USAGE = `Usage:
 ${GROUPS.map(group => group.usage).join('')}
