@@ -107,11 +107,27 @@ const svgAssetsManifest = z
   .object({ ...header, type: z.literal('svg-assets'), entries: z.array(svgAssetEntry) })
   .superRefine(rejectDuplicates<SvgAssetEntry>(entry => entry.name, 'name'));
 
+const jsonAssetEntry = z.object({
+  name: z.string().min(1),
+  category: z.enum(['spot', 'logo', 'other']),
+  /** what the animation is; every JSON asset is `animated` today */
+  type: z.enum(['animated']),
+  /** the file path within the package, for example `lib/animated-spot-account-dark.json` */
+  file: z.string().min(1),
+  /** what to import to use the asset, for example `@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json` */
+  import: z.string().min(1),
+});
+
+const jsonAssetsManifest = z
+  .object({ ...header, type: z.literal('json-assets'), entries: z.array(jsonAssetEntry) })
+  .superRefine(rejectDuplicates<JsonAssetEntry>(entry => entry.name, 'name'));
+
 /** Every manifest type this version can read. Add a type by adding a member here. */
 export const manifestSchema = z.discriminatedUnion('type', [
   tokensManifest,
   iconsManifest,
   svgAssetsManifest,
+  jsonAssetsManifest,
 ]);
 
 export const MANIFEST_TYPES = manifestSchema.options.map(option => option.shape.type.value);
@@ -124,6 +140,8 @@ export type TokenEntry = z.infer<typeof tokenEntry>;
 export type IconEntry = z.infer<typeof iconEntry>;
 export type SvgAssetEntry = z.infer<typeof svgAssetEntry>;
 export type SvgAssetsManifest = z.infer<typeof svgAssetsManifest>;
+export type JsonAssetEntry = z.infer<typeof jsonAssetEntry>;
+export type JsonAssetsManifest = z.infer<typeof jsonAssetsManifest>;
 export type TokensManifest = z.infer<typeof tokensManifest>;
 export type IconsManifest = z.infer<typeof iconsManifest>;
 export type Manifest = z.infer<typeof manifestSchema>;

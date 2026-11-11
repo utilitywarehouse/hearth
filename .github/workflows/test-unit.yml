@@ -12,6 +12,7 @@ on:
       - 'packages/react-native-icons/**'
       - 'packages/svg-icons/**'
       - 'packages/svg-assets/**'
+      - 'packages/json-assets/**'
       - 'packages/tokens/**'
 
 permissions:

@@ -261,6 +261,63 @@ describe('svg assets manifest', () => {
   });
 });
 
+const validJsonAssetsManifest = {
+  schemaVersion: 2,
+  package: { name: '@utilitywarehouse/hearth-json-assets', version: '0.6.0' },
+  type: 'json-assets',
+  entries: [
+    {
+      name: 'AnimatedSpotAccountDark',
+      category: 'spot',
+      type: 'animated',
+      file: 'lib/animated-spot-account-dark.json',
+      import: '@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json',
+    },
+    {
+      name: 'AnimatedUwMonoPurpleLight',
+      category: 'logo',
+      type: 'animated',
+      file: 'lib/animated-uw-mono-purple-light.json',
+      import: '@utilitywarehouse/hearth-json-assets/lib/animated-uw-mono-purple-light.json',
+    },
+  ],
+};
+
+describe('json assets manifest', () => {
+  it('accepts a valid json assets manifest', () => {
+    expect(validateManifest(validJsonAssetsManifest).success).toBe(true);
+  });
+
+  it('rejects two assets with the same name', () => {
+    const [entry] = validJsonAssetsManifest.entries;
+    const result = validateManifest({ ...validJsonAssetsManifest, entries: [entry, entry] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/AnimatedSpotAccountDark/);
+  });
+
+  it.each(['category', 'type'])('rejects an unknown %s', field => {
+    const [entry] = validJsonAssetsManifest.entries;
+    const result = validateManifest({
+      ...validJsonAssetsManifest,
+      entries: [{ ...entry, [field]: 'nope' }],
+    });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(new RegExp(field));
+  });
+
+  it('rejects an entry with no file path', () => {
+    const [entry] = validJsonAssetsManifest.entries;
+    const withoutFile: Partial<typeof entry> = { ...entry };
+    delete withoutFile.file;
+    const result = validateManifest({ ...validJsonAssetsManifest, entries: [withoutFile] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/file/);
+  });
+});
+
 describe('unknown manifest types', () => {
   it('rejects a type this version does not know, naming it', () => {
     const result = validateManifest({ ...validIconsManifest, type: 'sounds' });
@@ -281,6 +338,7 @@ describe('manifestJsonSchema', () => {
       'tokens',
       'icons',
       'svg-assets',
+      'json-assets',
     ]);
     for (const variant of variants) {
       expect(variant.required).toEqual(

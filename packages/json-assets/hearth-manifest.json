@@ -1,0 +1,598 @@
+{
+  "schemaVersion": 2,
+  "package": {
+    "name": "@utilitywarehouse/hearth-json-assets",
+    "version": "0.6.0"
+  },
+  "type": "json-assets",
+  "entries": [
+    {
+      "name": "AnimatedSpotAccountDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-account-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json"
+    },
+    {
+      "name": "AnimatedSpotAccountLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-account-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-light.json"
+    },
+    {
+      "name": "AnimatedSpotBillingDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-billing-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBillingLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-billing-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-billing-light.json"
+    },
+    {
+      "name": "AnimatedSpotBoilerDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-boiler-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBoilerLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-boiler-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-boiler-light.json"
+    },
+    {
+      "name": "AnimatedSpotBookAppointmentsDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-book-appointments-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBookAppointmentsLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-book-appointments-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-book-appointments-light.json"
+    },
+    {
+      "name": "AnimatedSpotBroadbandSymbolDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-broadband-symbol-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBroadbandSymbolLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-broadband-symbol-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-broadband-symbol-light.json"
+    },
+    {
+      "name": "AnimatedSpotBundle1Dark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-bundle-1-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBundle1Light",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-bundle-1-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-1-light.json"
+    },
+    {
+      "name": "AnimatedSpotBundle2Dark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-bundle-2-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-dark.json"
+    },
+    {
+      "name": "AnimatedSpotBundle2Light",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-bundle-2-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-bundle-2-light.json"
+    },
+    {
+      "name": "AnimatedSpotCalendarDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-calendar-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-dark.json"
+    },
+    {
+      "name": "AnimatedSpotCalendarLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-calendar-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-calendar-light.json"
+    },
+    {
+      "name": "AnimatedSpotCarKeysDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-car-keys-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-dark.json"
+    },
+    {
+      "name": "AnimatedSpotCarKeysLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-car-keys-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-car-keys-light.json"
+    },
+    {
+      "name": "AnimatedSpotCelebratoryDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-celebratory-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-dark.json"
+    },
+    {
+      "name": "AnimatedSpotCelebratoryLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-celebratory-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-celebratory-light.json"
+    },
+    {
+      "name": "AnimatedSpotDarkModeDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-dark-mode-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-dark.json"
+    },
+    {
+      "name": "AnimatedSpotDarkModeLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-dark-mode-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-dark-mode-light.json"
+    },
+    {
+      "name": "AnimatedSpotEVDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-ev-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-dark.json"
+    },
+    {
+      "name": "AnimatedSpotEVLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-ev-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-ev-light.json"
+    },
+    {
+      "name": "AnimatedSpotEarningsDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-earnings-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-dark.json"
+    },
+    {
+      "name": "AnimatedSpotEarningsLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-earnings-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-earnings-light.json"
+    },
+    {
+      "name": "AnimatedSpotEmptyState1Dark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-empty-state-1-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-dark.json"
+    },
+    {
+      "name": "AnimatedSpotEmptyState1Light",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-empty-state-1-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-1-light.json"
+    },
+    {
+      "name": "AnimatedSpotEmptyState2Dark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-empty-state-2-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-dark.json"
+    },
+    {
+      "name": "AnimatedSpotEmptyState2Light",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-empty-state-2-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-empty-state-2-light.json"
+    },
+    {
+      "name": "AnimatedSpotErrorDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-error-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-dark.json"
+    },
+    {
+      "name": "AnimatedSpotErrorLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-error-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-error-light.json"
+    },
+    {
+      "name": "AnimatedSpotHeartDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-heart-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-dark.json"
+    },
+    {
+      "name": "AnimatedSpotHeartLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-heart-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-heart-light.json"
+    },
+    {
+      "name": "AnimatedSpotHelpDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-help-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-dark.json"
+    },
+    {
+      "name": "AnimatedSpotHelpLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-help-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-help-light.json"
+    },
+    {
+      "name": "AnimatedSpotHowToVideosDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-how-to-videos-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-dark.json"
+    },
+    {
+      "name": "AnimatedSpotHowToVideosLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-how-to-videos-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-how-to-videos-light.json"
+    },
+    {
+      "name": "AnimatedSpotInnovationDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-innovation-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-dark.json"
+    },
+    {
+      "name": "AnimatedSpotInnovationLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-innovation-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-innovation-light.json"
+    },
+    {
+      "name": "AnimatedSpotKeepTrackDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-keep-track-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-dark.json"
+    },
+    {
+      "name": "AnimatedSpotKeepTrackLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-keep-track-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-keep-track-light.json"
+    },
+    {
+      "name": "AnimatedSpotLeadsDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-leads-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-dark.json"
+    },
+    {
+      "name": "AnimatedSpotLeadsLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-leads-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-leads-light.json"
+    },
+    {
+      "name": "AnimatedSpotMovingHouseDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-moving-house-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-dark.json"
+    },
+    {
+      "name": "AnimatedSpotMovingHouseLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-moving-house-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-moving-house-light.json"
+    },
+    {
+      "name": "AnimatedSpotNeighboursDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-neighbours-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-dark.json"
+    },
+    {
+      "name": "AnimatedSpotNeighboursLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-neighbours-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-neighbours-light.json"
+    },
+    {
+      "name": "AnimatedSpotNewLookDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-new-look-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-dark.json"
+    },
+    {
+      "name": "AnimatedSpotNewLookLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-new-look-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-new-look-light.json"
+    },
+    {
+      "name": "AnimatedSpotNoBroadbandDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-no-broadband-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-dark.json"
+    },
+    {
+      "name": "AnimatedSpotNoBroadbandLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-no-broadband-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-no-broadband-light.json"
+    },
+    {
+      "name": "AnimatedSpotNotificationDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-notification-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-dark.json"
+    },
+    {
+      "name": "AnimatedSpotNotificationLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-notification-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-notification-light.json"
+    },
+    {
+      "name": "AnimatedSpotPestsDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-pests-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-dark.json"
+    },
+    {
+      "name": "AnimatedSpotPestsLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-pests-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-pests-light.json"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteCelebratoryDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-process-complete-celebratory-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-dark.json"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteCelebratoryLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-process-complete-celebratory-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-celebratory-light.json"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteFunctionalDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-process-complete-functional-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-dark.json"
+    },
+    {
+      "name": "AnimatedSpotProcessCompleteFunctionalLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-process-complete-functional-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-process-complete-functional-light.json"
+    },
+    {
+      "name": "AnimatedSpotQuoteSalesDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-quote-sales-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-dark.json"
+    },
+    {
+      "name": "AnimatedSpotQuoteSalesLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-quote-sales-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-quote-sales-light.json"
+    },
+    {
+      "name": "AnimatedSpotRecognitionDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-recognition-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-dark.json"
+    },
+    {
+      "name": "AnimatedSpotRecognitionLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-recognition-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-recognition-light.json"
+    },
+    {
+      "name": "AnimatedSpotSavings2Dark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-savings-2-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSavings2Light",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-savings-2-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-savings-2-light.json"
+    },
+    {
+      "name": "AnimatedSpotSecurityCodeDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-security-code-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSecurityCodeLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-security-code-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-code-light.json"
+    },
+    {
+      "name": "AnimatedSpotSecurityDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-security-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSecurityLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-security-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-security-light.json"
+    },
+    {
+      "name": "AnimatedSpotSmartMeterDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-smart-meter-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSmartMeterLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-smart-meter-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-smart-meter-light.json"
+    },
+    {
+      "name": "AnimatedSpotSuccessDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-success-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSuccessLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-success-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-light.json"
+    },
+    {
+      "name": "AnimatedSpotSwitchDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-switch-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-dark.json"
+    },
+    {
+      "name": "AnimatedSpotSwitchLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-switch-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-switch-light.json"
+    },
+    {
+      "name": "AnimatedSpotWelcomeDark",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-welcome-dark.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-dark.json"
+    },
+    {
+      "name": "AnimatedSpotWelcomeLight",
+      "category": "spot",
+      "type": "animated",
+      "file": "lib/animated-spot-welcome-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-spot-welcome-light.json"
+    },
+    {
+      "name": "AnimatedUWLogoExtendedOffWhiteLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-logo-extended-off-white-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-extended-off-white-light.json"
+    },
+    {
+      "name": "AnimatedUWLogoExtendedPurpleLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-logo-extended-purple-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-extended-purple-light.json"
+    },
+    {
+      "name": "AnimatedUWLogoStandardOffWhiteLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-logo-standard-off-white-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-standard-off-white-light.json"
+    },
+    {
+      "name": "AnimatedUWLogoStandardPurpleLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-logo-standard-purple-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-logo-standard-purple-light.json"
+    },
+    {
+      "name": "AnimatedUWMonoOffWhiteLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-mono-off-white-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-mono-off-white-light.json"
+    },
+    {
+      "name": "AnimatedUWMonoPurpleLight",
+      "category": "logo",
+      "type": "animated",
+      "file": "lib/animated-uw-mono-purple-light.json",
+      "import": "@utilitywarehouse/hearth-json-assets/lib/animated-uw-mono-purple-light.json"
+    }
+  ]
+}
