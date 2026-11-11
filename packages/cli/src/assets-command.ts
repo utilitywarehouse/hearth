@@ -74,6 +74,9 @@ const printCommand = (asset: AssetEntry, packageDir: string, io: Io) => {
     case 'outside-package':
       io.stderr(`${asset.name} lists "${result.file}", which is outside the package.\n`);
       return EXIT.unavailable;
+    case 'not-a-file':
+      io.stderr(`${asset.name} lists ${asset.file}, which is not a file (${result.path}).\n`);
+      return EXIT.unavailable;
     case 'missing':
       io.stderr(
         `${asset.name} lists ${asset.file}, which is missing from the installed package (${result.path}).\n`

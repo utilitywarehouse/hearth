@@ -199,6 +199,19 @@ describe('hearth assets svg', () => {
       expect(err).toContain('is missing');
     });
 
+    it('exits 3 rather than crashing when the manifest lists a directory', () => {
+      const consumer = createConsumer();
+      const directory = { ...svgAssetEntry('Folder'), file: 'lib' };
+      installPackage(consumer, SVG_ASSETS_PACKAGE, svgAssetsManifest([directory]));
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, 'lib/other.svg', SVG);
+
+      const { code, out, err } = cli(['assets', 'svg', 'get', 'Folder', '--print'], consumer);
+
+      expect(code).toBe(3);
+      expect(out).toBe('');
+      expect(err).toContain('is not a file');
+    });
+
     it('refuses a manifest file path that leaves the package directory', () => {
       const consumer = createConsumer();
       const escaping = { ...svgAssetEntry('Sneaky'), file: '../../../secret.txt' };
