@@ -35,11 +35,12 @@ describe('hearth-manifest.json', () => {
     }
   });
 
-  it('names each asset as the existing name-only manifest.json does', () => {
+  it('pairs each asset name with the file the existing name-only manifest.json gives it', () => {
     const known = JSON.parse(fs.readFileSync(path.join(root, 'manifest.json'), 'utf8')).jsonAssets;
+    const pairs = list => list.sort((a, b) => a[0].localeCompare(b[0]));
 
-    expect(manifest.entries.map(entry => entry.name).sort()).toEqual(
-      known.map(asset => asset.name).sort()
+    expect(pairs(manifest.entries.map(entry => [entry.name, entry.file]))).toEqual(
+      pairs(known.map(asset => [asset.name, `lib/${asset.filename}`]))
     );
   });
 });
