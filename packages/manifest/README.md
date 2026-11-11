@@ -174,7 +174,7 @@ This package is private, so a changeset cannot target it, and the CLI is what re
 `INDEXED_PACKAGES` (`src/check/indexed-packages.ts`) lists the packages that ship a manifest and the `type` each ships. `pnpm check:manifests` from the repo root checks that every one of them:
 
 - has a `hearth-manifest.json` that passes `validateManifest`, is the expected `type`, and names the package and its current `package.json` version
-- lists the manifest in `files`, and exposes it through `exports` when it has them
+- lists the manifest in `files`, and when it has `exports`, resolves `./hearth-manifest.json` to the root manifest the way the CLI's `require.resolve` does (patterns, `null` exclusions and `require`/`node`/`default` conditions included)
 - would publish the manifest in its tarball (`npm pack --dry-run`)
 
 It also fails for a package that ships a manifest but is not in the list. A new indexed package needs an entry there. The release workflow runs it before publishing, after `changeset version` has bumped versions. The source-level checks also run with this package's tests. Whether a manifest's entries match the package's files stays with each package's own `hearth-manifest` test.
