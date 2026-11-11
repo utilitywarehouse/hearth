@@ -199,6 +199,17 @@ describe('hearth assets svg', () => {
       expect(err).toContain('is missing');
     });
 
+    it('exits 3 as missing, not a crash, when a parent of the file is itself a file', () => {
+      const consumer = consumerWithSvgAssets();
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, 'lib', 'not a directory');
+
+      const { code, out, err } = cli(['assets', 'svg', 'get', 'MascotWave', '--print'], consumer);
+
+      expect(code).toBe(3);
+      expect(out).toBe('');
+      expect(err).toContain('is missing');
+    });
+
     it('exits 3 rather than crashing when the manifest lists a directory', () => {
       const consumer = createConsumer();
       const directory = { ...svgAssetEntry('Folder'), file: 'lib' };

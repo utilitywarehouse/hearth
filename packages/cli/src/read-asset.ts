@@ -32,7 +32,9 @@ export const readAsset = (
     }
     stats = statSync(path);
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return { status: 'missing', path };
+    // ENOTDIR: a parent in the path is a file, so there is nothing at `path` either
+    const code = (error as NodeJS.ErrnoException).code;
+    if (code === 'ENOENT' || code === 'ENOTDIR') return { status: 'missing', path };
     throw error;
   }
   if (!stats.isFile()) return { status: 'not-a-file', path };
