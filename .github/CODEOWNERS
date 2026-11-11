@@ -1,1 +1,15 @@
-* @utilitywarehouse/design-systems
+# Fallback: shared tooling, tokens, icons source, docs site
+*                              @utilitywarehouse/design-systems
+
+# React
+/packages/react/               @utilitywarehouse/hearth-react
+/packages/react-icons/         @utilitywarehouse/hearth-react
+
+# React Native
+/packages/react-native/        @utilitywarehouse/hearth-react-native
+/packages/react-native-icons/  @utilitywarehouse/hearth-react-native
+/apps/storybook-rn-expo/       @utilitywarehouse/hearth-react-native
+/apps/playground-expo/         @utilitywarehouse/hearth-react-native
+
+# Every PR adds a changeset. Clearing ownership stops it from pulling in the whole team.
+/.changeset/
