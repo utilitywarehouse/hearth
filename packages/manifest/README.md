@@ -165,12 +165,27 @@ Adding an optional field is safe. Anything that changes the meaning of an existi
 
 Adding a new manifest `type` is additive and keeps `schemaVersion`: add a member to the union in `manifestSchema`, then generate the manifest in the owning package. A CLI built before the type existed fails validation on the unknown `type`, so it refuses the manifest instead of misreading it. The current CLI reports that as needing an update.
 
+### Releasing a schema change
+
+This package is private, so a changeset cannot target it, and the CLI is what reads manifests back. A schema change is therefore worth treating as CLI-affecting: consider a CLI release alongside the change, so consumers on an older CLI are not left reading manifests they cannot parse. A changeset for the CLI, or for the package that starts shipping the new shape, is a good place to say so.
+
+## Checking indexed packages
+
+`INDEXED_PACKAGES` (`src/check/indexed-packages.ts`) lists the packages that ship a manifest and the `type` each ships. `pnpm check:manifests` from the repo root checks that every one of them:
+
+- has a `hearth-manifest.json` that passes `validateManifest`, is the expected `type`, and names the package and its current `package.json` version
+- lists the manifest in `files`, and exposes it through `exports` when it has them
+- would publish the manifest in its tarball (`npm pack --dry-run`)
+
+It also fails for a package that ships a manifest but is not in the list. A new indexed package needs an entry there. The release workflow runs it before publishing, after `changeset version` has bumped versions. The source-level checks also run with this package's tests. Whether a manifest's entries match the package's files stays with each package's own `hearth-manifest` test.
+
 ## Development
 
 ```sh
 pnpm --filter @utilitywarehouse/hearth-manifest build
 pnpm --filter @utilitywarehouse/hearth-manifest test
 pnpm --filter @utilitywarehouse/hearth-manifest typecheck
+pnpm check:manifests
 ```
 
 `@utilitywarehouse/hearth-tokens` depends on the built output, so `generate:tokens` builds this package first.
