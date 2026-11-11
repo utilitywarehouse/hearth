@@ -231,6 +231,18 @@ describe('hearth assets svg', () => {
       expect(err).toContain('outside the package');
     });
 
+    it('refuses a file whose parent directory is a symlink to somewhere outside the package', () => {
+      const consumer = consumerWithSvgAssets();
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, '../../../outside/mascot-wave.svg', SVG);
+      linkAsset(consumer, 'lib', join(consumer, 'outside'));
+
+      const { code, out, err } = cli(['assets', 'svg', 'get', 'MascotWave', '--print'], consumer);
+
+      expect(code).toBe(3);
+      expect(out).toBe('');
+      expect(err).toContain('outside the package');
+    });
+
     it('prints a file that is a symlink to another file inside the package', () => {
       const consumer = consumerWithSvgAssets();
       installAssetFile(consumer, SVG_ASSETS_PACKAGE, 'lib/shared.svg', SVG);
