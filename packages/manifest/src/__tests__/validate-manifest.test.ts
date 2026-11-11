@@ -206,6 +206,61 @@ describe('icons manifest', () => {
   });
 });
 
+const validSvgAssetsManifest = {
+  schemaVersion: 2,
+  package: { name: '@utilitywarehouse/hearth-svg-assets', version: '0.6.7' },
+  type: 'svg-assets',
+  entries: [
+    {
+      name: 'LogoFullPurple',
+      category: 'logo',
+      file: 'lib/logo-full-purple.svg',
+      import: '@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg',
+    },
+    {
+      name: 'SpotBill',
+      category: 'spot',
+      file: 'lib/spot-bill.svg',
+      import: '@utilitywarehouse/hearth-svg-assets/lib/spot-bill.svg',
+    },
+  ],
+};
+
+describe('svg assets manifest', () => {
+  it('accepts a valid svg assets manifest', () => {
+    expect(validateManifest(validSvgAssetsManifest).success).toBe(true);
+  });
+
+  it('rejects two assets with the same name', () => {
+    const [entry] = validSvgAssetsManifest.entries;
+    const result = validateManifest({ ...validSvgAssetsManifest, entries: [entry, entry] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/LogoFullPurple/);
+  });
+
+  it('rejects an unknown category', () => {
+    const [entry] = validSvgAssetsManifest.entries;
+    const result = validateManifest({
+      ...validSvgAssetsManifest,
+      entries: [{ ...entry, category: 'banner' }],
+    });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/category/);
+  });
+
+  it('rejects an entry with no import path', () => {
+    const [entry] = validSvgAssetsManifest.entries;
+    const withoutImport: Partial<typeof entry> = { ...entry };
+    delete withoutImport.import;
+    const result = validateManifest({ ...validSvgAssetsManifest, entries: [withoutImport] });
+
+    expect(result.success).toBe(false);
+    if (!result.success) expect(result.errors.join('\n')).toMatch(/import/);
+  });
+});
+
 describe('unknown manifest types', () => {
   it('rejects a type this version does not know, naming it', () => {
     const result = validateManifest({ ...validIconsManifest, type: 'sounds' });
@@ -222,7 +277,11 @@ describe('manifestJsonSchema', () => {
       properties: { type: { const: string } };
     }>;
 
-    expect(variants.map(variant => variant.properties.type.const)).toEqual(['tokens', 'icons']);
+    expect(variants.map(variant => variant.properties.type.const)).toEqual([
+      'tokens',
+      'icons',
+      'svg-assets',
+    ]);
     for (const variant of variants) {
       expect(variant.required).toEqual(
         expect.arrayContaining(['schemaVersion', 'package', 'type', 'entries'])

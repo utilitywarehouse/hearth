@@ -49,17 +49,18 @@ Every manifest has a header and a list of entries:
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | `schemaVersion` | Version of this schema. Currently `2`. Readers can use it to reject manifests they can't read. |
 | `package`       | Name and version of the package that produced the manifest.                                    |
-| `type`          | What kind of manifest this is: `tokens` or `icons`. See below.                                 |
+| `type`          | What kind of manifest this is: `tokens`, `icons` or `svg-assets`. See below.                   |
 | `entries`       | One entry per thing the package offers.                                                        |
 
 ### Manifest types
 
 `validateManifest` is the single entry point for every type. The schema is a union discriminated on `type`, so each type has its own fields beyond the header:
 
-| `type`   | Shipped by                                                            | Beyond the header                                 |
-| -------- | --------------------------------------------------------------------- | ------------------------------------------------- |
-| `tokens` | `hearth-tokens`                                                       | `entries` of token entries (below)                |
-| `icons`  | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
+| `type`       | Shipped by                                                            | Beyond the header                                 |
+| ------------ | --------------------------------------------------------------------- | ------------------------------------------------- |
+| `tokens`     | `hearth-tokens`                                                       | `entries` of token entries (below)                |
+| `svg-assets` | `hearth-svg-assets`                                                   | `entries` of SVG asset entries                    |
+| `icons`      | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
 
 An unknown `type` fails validation with a message naming it, so a reader never misreads a manifest it does not understand.
 
@@ -75,6 +76,17 @@ The same entries ship in all three icon packages. Only `package` and `usage` dif
 | `component` | The component exported by the React and React Native icon packages.                 |
 
 The manifest-level `usage` (`platform`: `svg`, `react` or `react-native`, `import`, and an `example` with `<svg>`/`<component>` placeholders) says how to use an icon from the package that shipped the manifest. It lives on the manifest, not on each entry, because it is the same for every icon in a package.
+
+### SVG asset entries
+
+| Field      | Meaning                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| `name`     | Unique asset name, for example `LogoFullPurple`.                                                      |
+| `category` | `logo`, `mascot`, `spot`, `scene`, `technical`, or `other` for assets that fit none of those.         |
+| `file`     | The file path within the package, for example `lib/logo-full-purple.svg`.                             |
+| `import`   | What to import to use it, for example `@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg`. |
+
+Entries have no width or height. Both are in the SVG file, so recording them would duplicate it and need a check to keep it honest. If a consumer needs them, add them as optional fields; that does not change `schemaVersion`.
 
 ### Token entries
 
