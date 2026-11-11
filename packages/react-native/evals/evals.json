@@ -116,6 +116,32 @@
           "value": "<BodyText size=\"md\" weight=\"semibold\""
         }
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build a \"What's included\" list for a mobile screen in our Expo app: each row is a check icon followed by a long, multi-line sentence of copy.",
+      "expected_output": "Rows built with a row Flex, icon plus BodyText with flex: 1 so the copy wraps, align flex-start, gap on the parent.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "text-can-wrap",
+          "description": "Gives the text flex: 1 or flexShrink: 1 so it wraps",
+          "type": "code_contains_any",
+          "value": ["flex: 1", "flexShrink: 1"]
+        },
+        {
+          "id": "align-flex-start",
+          "description": "Aligns the row to flex-start",
+          "type": "code_contains",
+          "value": "align=\"flex-start\""
+        },
+        {
+          "id": "gap-not-margin-wrapping-row",
+          "description": "Space between icon and text uses gap or spacing on the parent",
+          "type": "code_contains_any",
+          "value": ["gap=", "spacing="]
+        }
+      ]
     }
   ],
   "trigger_evals": {

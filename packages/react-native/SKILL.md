@@ -46,7 +46,8 @@ to get around to eventually.
 The library is broad: check whether an existing component covers the need
 before building anything custom, and before bare React Native primitives.
 
-**Default to the `hearth-react-native` MCP server** (its own instructions
+**Default to the `hearth-react-native` MCP server** (bundled with the plugin;
+otherwise `https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`; its own instructions
 explain `docs-list`, `docs-show`, `docs-show-story`). For a component, fetch
 both its `stories-<component>` entry (props + story code) and its
 `components-<component>--docs` entry (narrative usage, accessibility).
@@ -96,10 +97,11 @@ options. Small self-contained tasks can proceed directly.
 
 ## Critical rules
 
-Worked examples live in [`references/`](references/): read
-`layout-and-typography.md` for layout, spacing and the Figma text-style
-mapping, `styling-and-platform.md` for Unistyles, breakpoints, providers and
-safe area, and `patterns.md` for gotchas and common patterns.
+Worked examples and exact values live in [`references/`](references/). Read
+the relevant file **before** writing code, not only when stuck:
+`layout-and-typography.md` for any layout, spacing or Figma text-style work;
+`styling-and-platform.md` for Unistyles, breakpoints, providers and safe area;
+`patterns.md` before building rows, lists, buttons or images.
 
 ### Figma-to-code fidelity (mechanical checks, not judgment calls)
 
@@ -112,7 +114,9 @@ safe area, and `patterns.md` for gotchas and common patterns.
   the screenshot (variant props like `Flex`/`DescriptionList` `direction` are
   not exposed by `get_metadata`; the screenshot is the only ground truth).
 - **Typography = Figma text style name**, mapped to component + `size`
-  (+ `weight`), never sized by eye. Mapping table in
+  (+ `weight`), never sized by eye. `Body/Body Text MD SemiBold` becomes
+  `<BodyText size="md" weight="semibold">`; the prefix picks the component
+  (`Heading`/`DetailText`/`BodyText`). Full table in
   `references/layout-and-typography.md`.
 
 ### Layout and spacing
@@ -126,6 +130,16 @@ safe area, and `patterns.md` for gotchas and common patterns.
 - `gap` (raw space token `'0'..'900'`, not responsive) and `spacing` (semantic
   `'2xs'..'2xl'`, responsive; `space` is a deprecated alias) are not
   interchangeable. See `figma-implementation` for the mapping check.
+
+### Gotchas (details and code in `references/patterns.md`)
+
+- Text beside an icon in a `direction="row"` `Flex` overflows instead of
+  wrapping: give the text `flex: 1` and use `align="flex-start"`.
+- `ListItem` (with `onPress`) and `CardAction` render their own trailing
+  chevron: don't pass one via `trailingContent`.
+- Full-width on mobile, auto-width on larger screens is set on the parent
+  layout (`align={{ base: 'stretch', md: 'flex-start' }}`), not on `Button`.
+- Light/dark images use `ThemedImage`, not conditional `require`s.
 
 ### Styling
 
