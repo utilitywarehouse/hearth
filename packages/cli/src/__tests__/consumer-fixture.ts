@@ -1,6 +1,6 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { validateManifest } from '@utilitywarehouse/hearth-manifest';
 
 export const TOKENS_PACKAGE = '@utilitywarehouse/hearth-tokens';
@@ -126,3 +126,129 @@ export const installPackage = (
     typeof manifest === 'string' ? manifest : JSON.stringify(manifest)
   );
 };
+
+export const ICON_PACKAGES = {
+  react: '@utilitywarehouse/hearth-react-icons',
+  'react-native': '@utilitywarehouse/hearth-react-native-icons',
+  svg: '@utilitywarehouse/hearth-svg-icons',
+} as const;
+
+export type IconPlatform = keyof typeof ICON_PACKAGES;
+
+type IconSize = 'small' | 'medium' | 'large';
+
+/** An icon entry whose svg file is derived from its name (`AddSmallIcon` -> `add-small-icon.svg`). */
+export const iconEntry = (name: string, size: IconSize = 'medium') => ({
+  name,
+  size,
+  svg: `${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.svg`,
+  component: name,
+});
+
+const ICON_USAGE: Record<IconPlatform, { import: string; example: string }> = {
+  react: {
+    import: ICON_PACKAGES.react,
+    example: `import { <component> } from '${ICON_PACKAGES.react}';`,
+  },
+  'react-native': {
+    import: ICON_PACKAGES['react-native'],
+    example: `import { <component> } from '${ICON_PACKAGES['react-native']}';`,
+  },
+  svg: { import: ICON_PACKAGES.svg, example: `${ICON_PACKAGES.svg}/<svg>` },
+};
+
+export const DEFAULT_ICONS = [
+  iconEntry('AddSmallIcon', 'small'),
+  iconEntry('AddMediumIcon', 'medium'),
+  iconEntry('ArrowRightMediumIcon', 'medium'),
+  iconEntry('ArrowLeftLargeIcon', 'large'),
+];
+
+/** The same icon list ships in all three icon packages; only `package` and `usage` differ. */
+export const iconsManifest = (
+  platform: IconPlatform = 'react',
+  entries: Array<ReturnType<typeof iconEntry>> = DEFAULT_ICONS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: ICON_PACKAGES[platform], version },
+  type: 'icons',
+  usage: { platform, ...ICON_USAGE[platform] },
+  entries,
+});
+
+/** A validated icons manifest. */
+export const iconsManifestOf = (
+  entries: Array<ReturnType<typeof iconEntry>> = DEFAULT_ICONS,
+  platform: IconPlatform = 'react'
+) => {
+  const result = validateManifest(iconsManifest(platform, entries));
+  if (!result.success) throw new Error(result.errors.join('\n'));
+  if (result.manifest.type !== 'icons') throw new Error('expected an icons manifest');
+  return result.manifest;
+};
+
+export const SVG_ASSETS_PACKAGE = '@utilitywarehouse/hearth-svg-assets';
+
+type SvgAssetCategory = 'logo' | 'mascot' | 'spot' | 'scene' | 'technical' | 'other';
+
+/** An SVG asset entry whose file and import are derived from its name (`LogoFullPurple` -> `lib/logo-full-purple.svg`). */
+export const svgAssetEntry = (name: string, category: SvgAssetCategory = 'other') => {
+  const file = `lib/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.svg`;
+  return { name, category, file, import: `${SVG_ASSETS_PACKAGE}/${file}` };
+};
+
+export const DEFAULT_SVG_ASSETS = [
+  svgAssetEntry('LogoFullPurple', 'logo'),
+  svgAssetEntry('LogoIconWhite', 'logo'),
+  svgAssetEntry('MascotWave', 'mascot'),
+  svgAssetEntry('SpotAccount', 'spot'),
+];
+
+export const svgAssetsManifest = (
+  entries: Array<ReturnType<typeof svgAssetEntry>> = DEFAULT_SVG_ASSETS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: SVG_ASSETS_PACKAGE, version },
+  type: 'svg-assets',
+  entries,
+});
+
+/** Writes an asset file into an installed package, where `--print` reads it from. */
+export const installAssetFile = (
+  consumerDir: string,
+  packageName: string,
+  file: string,
+  content: string
+) => {
+  const path = join(consumerDir, 'node_modules', ...packageName.split('/'), file);
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, content);
+};
+
+export const JSON_ASSETS_PACKAGE = '@utilitywarehouse/hearth-json-assets';
+
+type JsonAssetCategory = 'spot' | 'logo' | 'other';
+
+/** A JSON asset entry whose file and import are derived from its name (`AnimatedSpotAccountDark` -> `lib/animated-spot-account-dark.json`). */
+export const jsonAssetEntry = (name: string, category: JsonAssetCategory = 'other') => {
+  const file = `lib/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.json`;
+  return { name, category, type: 'animated', file, import: `${JSON_ASSETS_PACKAGE}/${file}` };
+};
+
+export const DEFAULT_JSON_ASSETS = [
+  jsonAssetEntry('AnimatedSpotAccountDark', 'spot'),
+  jsonAssetEntry('AnimatedSpotAccountLight', 'spot'),
+  jsonAssetEntry('AnimatedLogoLoader', 'logo'),
+];
+
+export const jsonAssetsManifest = (
+  entries: Array<ReturnType<typeof jsonAssetEntry>> = DEFAULT_JSON_ASSETS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: JSON_ASSETS_PACKAGE, version },
+  type: 'json-assets',
+  entries,
+});
