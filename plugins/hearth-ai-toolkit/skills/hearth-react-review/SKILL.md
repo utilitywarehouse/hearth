@@ -43,8 +43,9 @@ diff is exactly the scenario that rule is for.
 
 Fetch each component's `<component-id>--docs` entry as well as its plain
 entry, if one exists (sub-components such as `CardActions` often don't have
-one). Built-in behaviour (e.g. `Link` adding an open-in-new-tab icon for
-`target="_blank"`), documented patterns (e.g. Button's "Full width button")
+one). Built-in behaviour (e.g. `Link` adding a visually hidden "(opens in
+new tab)" label and icon for `target="_blank"`, which it skips when
+`asChild` is used), documented patterns (e.g. Button's "Full width button")
 and "Alternatives" (e.g. `InlineLink` for links in body text) are only
 described there. Check them before suggesting custom code too: a review
 comment that asks for something Hearth already does creates the problem
@@ -74,7 +75,8 @@ Work through each category, checking against the specific section of
   doing what a component already does, or working around a pattern or
   alternative its `--docs` entry describes (see the examples in Step 2);
   `asChild` used to render the element the component already renders
-  (`<Link asChild><a>`).
+  (`<Link asChild><a>`). `asChild` also drops built-in behaviour, so
+  recommend removing it before removing the custom code it made necessary.
 - **Accessibility gaps** — missing `as` on `Heading`; a standalone icon with
   no `title`/`titleId`; a wrapper element added instead of using `asChild` to
   change the underlying HTML element; a non-decorative image with no
