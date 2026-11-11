@@ -8,7 +8,7 @@ const pkg = z.strictObject({ name: z.string(), version: z.string() });
 const value = z.union([z.string(), z.number()]);
 const device = z.enum(['mobile', 'tablet', 'desktop']);
 
-const token = z.strictObject({
+const tokenShape = z.strictObject({
   path: z.string(),
   device: device.optional(),
   layer: z.enum(['primitive', 'semantic', 'component']),
@@ -23,7 +23,33 @@ const token = z.strictObject({
     .optional(),
 });
 
-const platform = z.enum(['web', 'native']);
+/** `web` reports the CSS and browser surfaces and never the JS one; `native` is the reverse. */
+const webToken = tokenShape.omit({ js: true });
+const nativeToken = tokenShape.omit({ css: true, browser: true }).required({ js: true });
+
+const layer = z.enum(['primitive', 'semantic', 'component']);
+
+const tokensContract = (platform: 'web' | 'native', token: typeof webToken | typeof nativeToken) =>
+  ({
+    search: z.strictObject({
+      package: pkg,
+      platform: z.literal(platform),
+      layer,
+      type: z.string().optional(),
+      total: z.number().int(),
+      tokens: z.array(token),
+    }),
+    one: z.strictObject({ package: pkg, platform: z.literal(platform), token }),
+    group: z.strictObject({
+      package: pkg,
+      platform: z.literal(platform),
+      path: z.string(),
+      tokens: z.array(token),
+    }),
+  }) as const;
+
+const web = tokensContract('web', webToken);
+const native = tokensContract('native', nativeToken);
 
 const icon = z.strictObject({
   name: z.string(),
@@ -49,21 +75,12 @@ const jsonAsset = z.strictObject({
 });
 
 export const JSON_CONTRACT = {
-  'tokens search/list': z.strictObject({
-    package: pkg,
-    platform,
-    layer: z.enum(['primitive', 'semantic', 'component']),
-    type: z.string().optional(),
-    total: z.number().int(),
-    tokens: z.array(token),
-  }),
-  'tokens get (one token)': z.strictObject({ package: pkg, platform, token }),
-  'tokens get (a group)': z.strictObject({
-    package: pkg,
-    platform,
-    path: z.string(),
-    tokens: z.array(token),
-  }),
+  'tokens search/list (web)': web.search,
+  'tokens get (one token, web)': web.one,
+  'tokens get (a group, web)': web.group,
+  'tokens search/list (native)': native.search,
+  'tokens get (one token, native)': native.one,
+  'tokens get (a group, native)': native.group,
   'icons search/list': z.strictObject({
     package: pkg,
     platform: iconPlatform,

@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, readdirSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { beforeAll, describe, expect, it } from 'vitest';
@@ -50,8 +50,9 @@ describe.skipIf(!process.env.HEARTH_CLI_TARBALLS)(
     }, 120_000);
 
     it.each<[ContractName, Array<string>]>([
-      ['tokens search/list', ['tokens', 'search', 'brand']],
-      ['tokens get (one token)', ['tokens', 'get', 'semantic.background.brand']],
+      ['tokens search/list (web)', ['tokens', 'search', 'brand']],
+      ['tokens get (one token, web)', ['tokens', 'get', 'semantic.background.brand']],
+      ['tokens search/list (native)', ['tokens', 'search', 'brand', '--platform', 'native']],
       ['icons search/list', ['icons', 'list']],
       ['assets svg search/list', ['assets', 'svg', 'list']],
       ['assets json search/list', ['assets', 'json', 'list']],
@@ -77,6 +78,19 @@ describe.skipIf(!process.env.HEARTH_CLI_TARBALLS)(
         expect(code).toBe(0);
         expect(JSON_CONTRACT[name].safeParse(JSON.parse(out)).error?.issues).toBeUndefined();
       }
+    });
+
+    it.each([
+      ['svg', 'svg', '@utilitywarehouse/hearth-svg-assets'],
+      ['json', 'json', '@utilitywarehouse/hearth-json-assets'],
+    ])('ships the file that the first %s asset lists', (_, kind, packageName) => {
+      const name = firstName(consumer, ['assets', kind, 'list'], 'assets');
+      const { out } = hearth(consumer, ['assets', kind, 'get', name, '--json']);
+      const { file } = (JSON.parse(out) as { asset: { file: string } }).asset;
+
+      expect(existsSync(join(consumer, 'node_modules', ...packageName.split('/'), file))).toBe(
+        true
+      );
     });
 
     it('prints an asset file that the packed svg-assets package ships', () => {

@@ -54,14 +54,15 @@ const svgAsset = DEFAULT_SVG_ASSETS[0].name;
 const jsonAsset = DEFAULT_JSON_ASSETS[0].name;
 
 const CASES: Array<[ContractName, Array<string>]> = [
-  ['tokens search/list', ['tokens', 'search', 'brand']],
-  ['tokens search/list', ['tokens', 'list', '--layer', 'semantic', '--platform', 'native']],
-  ['tokens get (one token)', ['tokens', 'get', 'semantic.background.brand']],
+  ['tokens search/list (web)', ['tokens', 'search', 'brand']],
+  ['tokens search/list (native)', ['tokens', 'list', '--platform', 'native']],
+  ['tokens get (one token, web)', ['tokens', 'get', 'semantic.background.brand']],
   [
-    'tokens get (one token)',
+    'tokens get (one token, native)',
     ['tokens', 'get', 'semantic.background.brand', '--platform', 'native'],
   ],
-  ['tokens get (a group)', ['tokens', 'get', 'semantic.shadow.md']],
+  ['tokens get (a group, web)', ['tokens', 'get', 'semantic.shadow.md']],
+  ['tokens get (a group, native)', ['tokens', 'get', 'semantic.shadow.md', '--platform', 'native']],
   ['icons search/list', ['icons', 'search', 'add']],
   ['icons search/list', ['icons', 'list', '--size', 'small']],
   ['icons get', ['icons', 'get', DEFAULT_ICONS[0].name]],
