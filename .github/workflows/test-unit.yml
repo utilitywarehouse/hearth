@@ -46,3 +46,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - name: Run unit tests ✅
         run: pnpm run test:unit
+      - name: Run the CLI against npm pack tarballs 📦
+        run: pnpm --filter @utilitywarehouse/hearth-cli exec vitest run src/__tests__/tarball.test.ts
+        env:
+          HEARTH_CLI_TARBALLS: '1'
