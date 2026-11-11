@@ -1,3 +1,5 @@
+import { mkdirSync, symlinkSync } from 'node:fs';
+import { dirname, join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { run } from '../run.js';
 import {
@@ -199,15 +201,54 @@ describe('hearth assets svg', () => {
 
     it('refuses a manifest file path that leaves the package directory', () => {
       const consumer = createConsumer();
-      const escaping = { ...svgAssetEntry('Sneaky'), file: '../../../../secret.txt' };
+      const escaping = { ...svgAssetEntry('Sneaky'), file: '../../../secret.txt' };
       installPackage(consumer, SVG_ASSETS_PACKAGE, svgAssetsManifest([escaping]));
-      installAssetFile(consumer, SVG_ASSETS_PACKAGE, '../../../../secret.txt', 'top secret');
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, '../../../secret.txt', 'top secret');
 
       const { code, out, err } = cli(['assets', 'svg', 'get', 'Sneaky', '--print'], consumer);
 
       expect(code).toBe(3);
       expect(out).toBe('');
       expect(err).toContain('outside the package');
+    });
+
+    const linkAsset = (consumer: string, file: string, target: string) => {
+      const link = join(consumer, 'node_modules', ...SVG_ASSETS_PACKAGE.split('/'), file);
+      mkdirSync(dirname(link), { recursive: true });
+      symlinkSync(target, link);
+    };
+
+    it('refuses a file that is a symlink to somewhere outside the package', () => {
+      const consumer = consumerWithSvgAssets();
+      const outside = join(consumer, 'secret.txt');
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, '../../../secret.txt', 'top secret');
+      linkAsset(consumer, 'lib/mascot-wave.svg', outside);
+
+      const { code, out, err } = cli(['assets', 'svg', 'get', 'MascotWave', '--print'], consumer);
+
+      expect(code).toBe(3);
+      expect(out).toBe('');
+      expect(err).toContain('outside the package');
+    });
+
+    it('prints a file that is a symlink to another file inside the package', () => {
+      const consumer = consumerWithSvgAssets();
+      installAssetFile(consumer, SVG_ASSETS_PACKAGE, 'lib/shared.svg', SVG);
+      linkAsset(
+        consumer,
+        'lib/mascot-wave.svg',
+        join(
+          dirname(
+            join(consumer, 'node_modules', ...SVG_ASSETS_PACKAGE.split('/'), 'lib/shared.svg')
+          ),
+          'shared.svg'
+        )
+      );
+
+      const { code, out } = cli(['assets', 'svg', 'get', 'MascotWave', '--print'], consumer);
+
+      expect(code).toBe(0);
+      expect(out).toBe(SVG);
     });
 
     it.each([
