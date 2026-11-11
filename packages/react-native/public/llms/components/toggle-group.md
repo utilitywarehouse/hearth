@@ -1,4 +1,4 @@
-# ToggleGroup
+# Toggle Group
 
 `ToggleGroup` wraps a set of `ToggleButton` or `ToggleButtonCard` components and manages which are selected. Set `type="single"` when only one option can be selected at a time, or `type="multiple"` (the default) to allow any number. Give each child a unique `value`.
 

@@ -1,4 +1,4 @@
-# ToggleButton
+# Toggle Button
 
 A pressable button that switches between an on and off state, such as for a single standalone setting. To manage a set of toggle buttons together, wrap them in a `ToggleGroup`.
 

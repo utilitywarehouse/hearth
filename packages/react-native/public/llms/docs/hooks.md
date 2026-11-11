@@ -116,10 +116,11 @@ import { useToken } from '@utilitywarehouse/hearth-react-native';
 ```tsx
 // Example usage
 import { View, Text } from 'react-native';
-import { useToken } from '@utilitywarehouse/hearth-react-native';
+import { useTheme, useToken } from '@utilitywarehouse/hearth-react-native';
 
 function TokenExample() {
-  const primaryColor = useToken('colors', 'purple500');
+  const theme = useTheme();
+  const primaryColor = theme.color.background.brand;
   const mediumSpacing = useToken('space', '200');
   const headingFont = useToken('fonts', 'heading');
 
