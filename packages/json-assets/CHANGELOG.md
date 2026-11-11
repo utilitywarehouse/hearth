@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-json-assets
 
+## 0.6.1
+
+### Patch Changes
+
+- [#1832](https://github.com/utilitywarehouse/hearth/pull/1832) [`7ee8742`](https://github.com/utilitywarehouse/hearth/commit/7ee87422e1caf82874f1a148c25f6d6009e5ee16) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Ships a `hearth-manifest.json` listing every JSON asset with its category, type and import path
+  
+  The package now includes `hearth-manifest.json`, which lists each asset's name, category
+  (`spot`, `logo` or `other`), type, file path and import path. Tools can read it from
+  `node_modules` to look up which assets exist in the installed version.
+
 ## 0.6.0
 
 ### Minor Changes
