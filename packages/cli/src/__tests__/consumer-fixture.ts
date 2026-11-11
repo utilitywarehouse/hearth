@@ -226,3 +226,29 @@ export const installAssetFile = (
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, content);
 };
+
+export const JSON_ASSETS_PACKAGE = '@utilitywarehouse/hearth-json-assets';
+
+type JsonAssetCategory = 'spot' | 'logo' | 'other';
+
+/** A JSON asset entry whose file and import are derived from its name (`AnimatedSpotAccountDark` -> `lib/animated-spot-account-dark.json`). */
+export const jsonAssetEntry = (name: string, category: JsonAssetCategory = 'other') => {
+  const file = `lib/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.json`;
+  return { name, category, type: 'animated', file, import: `${JSON_ASSETS_PACKAGE}/${file}` };
+};
+
+export const DEFAULT_JSON_ASSETS = [
+  jsonAssetEntry('AnimatedSpotAccountDark', 'spot'),
+  jsonAssetEntry('AnimatedSpotAccountLight', 'spot'),
+  jsonAssetEntry('AnimatedLogoLoader', 'logo'),
+];
+
+export const jsonAssetsManifest = (
+  entries: Array<ReturnType<typeof jsonAssetEntry>> = DEFAULT_JSON_ASSETS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: JSON_ASSETS_PACKAGE, version },
+  type: 'json-assets',
+  entries,
+});
