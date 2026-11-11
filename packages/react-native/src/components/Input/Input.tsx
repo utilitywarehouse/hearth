@@ -110,7 +110,7 @@ const Input = forwardRef<TextInput, InputProps>(
       onClear,
       loading,
       clearable = false,
-      required = true,
+      required,
       inBottomSheet = false,
       style,
       label,

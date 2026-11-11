@@ -68,13 +68,15 @@ export interface ResolveValidValueOptions {
 /**
  * Keeps the uncontrolled value valid when the set of rendered options
  * changes: falls back to the first option value when there is no previous
- * value, or when the previous value no longer matches any rendered option.
+ * value, or when the previous value no longer matches any rendered option. An
+ * empty string is an explicit "no option selected" and is kept as-is.
  */
 export const resolveValidValue = ({
   prev,
   optionValues,
 }: ResolveValidValueOptions): string | undefined => {
-  if (!prev) return optionValues[0];
+  if (prev === undefined) return optionValues[0];
+  if (prev === '') return prev;
   if (!optionValues.includes(prev)) return optionValues[0];
   return prev;
 };

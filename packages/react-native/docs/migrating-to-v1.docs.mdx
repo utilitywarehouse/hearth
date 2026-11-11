@@ -116,12 +116,14 @@ or queries in your tests.
 - **`Input` and `Textarea`**: disabled fields are no longer hidden from assistive tech. They are
   announced as disabled. `Textarea` now always sets `aria-invalid` to `true` or `false`.
 - **`Radio`, `RadioCard` and `Checkbox`**: on web, they now set `aria-checked`.
+- **`Input`**: `required` no longer defaults to `true`. An `Input` is optional unless you set `required` or wrap it in a `FormField` with `required`, and `FormField`'s `required` now applies to it. This matches `Textarea`.
 
 ### What you see
 
 - **`FormFieldLabel`** used to render nothing, whatever its children. It now renders them.
   Content that was hidden by mistake will appear.
 - **`Radio` and `RadioCard`** only show the selected dot when checked. Expect snapshot changes.
+- **`Checkbox`** only shows the tick when checked, including when you render `CheckboxIcon` yourself.
 - **A `style` function** (`style={({ pressed }) => ...}`) on `Button`, `IconButton`,
   `UnstyledIconButton`, `ToggleButton`, `ToggleButtonCard`, `Radio`, `RadioCard`, `Checkbox`,
   `Link` or `Alert` used to be ignored. It is now applied.
