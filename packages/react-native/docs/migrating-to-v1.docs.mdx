@@ -116,6 +116,13 @@ or queries in your tests.
 - **`Input` and `Textarea`**: disabled fields are no longer hidden from assistive tech. They are
   announced as disabled. `Textarea` now always sets `aria-invalid` to `true` or `false`.
 - **`Radio`, `RadioCard` and `Checkbox`**: on web, they now set `aria-checked`.
+- **`Card` and `Alert` with `onPress`, and the `Carousel` page controls**: they now have the
+  `button` role. The page controls also expose `selected` and `disabled`, and `aria-current` on web.
+  Queries by role now find them.
+- **`ToggleButtonCard`**: the outer card is no longer focusable or announced. The inner toggle
+  button is the only control. Update tests that expect two buttons, or that query the card as a button.
+- **`Toast` with `onPress`**: the outer `button` role is gone. With `actionText`, the action link is
+  the control. Without it, the message is the button. The dismiss button is always separate.
 
 ### What you see
 

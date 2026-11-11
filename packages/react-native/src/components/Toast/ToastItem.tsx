@@ -120,9 +120,17 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
     }
   };
 
+  // Without an action link, the message is the one control that runs `onPress`. With one, the
+  // link is the control and the toast-wide press below is a pointer shortcut only.
+  const messageIsButton = !!toast.onPress && !toast.actionText;
+  const MessageWrapper = messageIsButton ? Pressable : View;
+
   const toastContent = (
     <View style={styles.inner}>
-      <View style={styles.content}>
+      <MessageWrapper
+        style={styles.content}
+        {...(messageIsButton && { accessibilityRole: 'button' as const, onPress: handlePress })}
+      >
         {IconComp ? (
           <View style={styles.iconWrap}>
             <Icon as={IconComp} style={styles.icon} />
@@ -131,7 +139,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         <BodyText inverted style={styles.text}>
           {toast.text}
         </BodyText>
-      </View>
+      </MessageWrapper>
       {toast.actionText ? (
         <Link onPress={handlePress} showIcon={false} inverted>
           {toast.actionText}
@@ -162,8 +170,15 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         })}
         importantForAccessibility={Platform.OS === 'android' ? 'no-hide-descendants' : undefined}
       >
-        {toast.onPress ? (
-          <Pressable accessibilityRole="button" onPress={handlePress} style={styles.pressable}>
+        {toast.onPress && toast.actionText ? (
+          // Not focusable or announced: the `Link` and dismiss button inside stay the only
+          // controls, so no interactive element sits inside another.
+          <Pressable
+            accessible={false}
+            focusable={false}
+            onPress={handlePress}
+            style={styles.pressable}
+          >
             {toastContent}
           </Pressable>
         ) : (

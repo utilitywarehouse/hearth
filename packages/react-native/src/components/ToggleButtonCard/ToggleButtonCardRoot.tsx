@@ -60,6 +60,10 @@ const ToggleButtonCardRoot = ({
         {...props}
         disabled={isDisabled}
         onPress={onPress}
+        // The inner `ToggleButton` is the one control (it carries the role and state), so the
+        // card is not announced or focusable itself. A tap on the card body still fires `onPress`.
+        accessible={false}
+        focusable={false}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={state => [

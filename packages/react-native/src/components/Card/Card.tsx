@@ -120,6 +120,7 @@ const Card = ({
   return (
     <CardContext.Provider value={context}>
       <Pressable
+        accessibilityRole={showPressed ? 'button' : undefined}
         {...remainingProps}
         disabled={disabled}
         style={state => [

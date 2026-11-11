@@ -48,6 +48,11 @@ export const Playground: Story = {
 
     const toggle = await canvas.findByRole('button', { name: 'Label' });
 
+    // The inner button is the only control: the card itself is not a button and is not in
+    // the tab order, so no interactive element is nested in another.
+    expect(canvas.getAllByRole('button')).toHaveLength(1);
+    expect(toggle.closest('[tabindex="0"]')).toBe(toggle);
+
     // Selection state moved off gluestack's createRadio(), which rendered a
     // hidden native <input type="radio"> as its source of truth. The
     // migrated ToggleButtonCard shares selection via plain React state (see
