@@ -41,6 +41,14 @@ already exists instead of code about to be written: the component already
 being in the codebase is not evidence it's correct. Reviewing someone else's
 diff is exactly the scenario that rule is for.
 
+Fetch each component's `<component-id>--docs` entry as well as its plain
+entry. Built-in behaviour (e.g. `Link` adding an open-in-new-tab icon for
+`target="_blank"`), documented patterns (e.g. Button's "Full width button")
+and "Alternatives" (e.g. `InlineLink` for links in body text) are only
+described there. Check them before suggesting custom code too: a review
+comment that asks for something Hearth already does creates the problem
+this skill exists to catch.
+
 ## Checklist
 
 Work through each category, checking against the specific section of
@@ -56,8 +64,19 @@ Work through each category, checking against the specific section of
   props".
 - **Token misuse** — raw hex/px values where a token exists; a spacing token
   used for a non-spacing dimension; a CSS variable string used in
-  JS/TS/JSX/TSX instead of a browser token. See "Use style props first" and
-  "Browser tokens in JS, CSS variables in CSS".
+  JS/TS/JSX/TSX instead of a browser token; an inline `style` for something
+  a style prop covers (e.g. `style={{ flex: 1 }}` on a `Box` instead of
+  `flex="1"`). See "Use style props first" and "Browser tokens in JS, CSS
+  variables in CSS".
+- **Reimplemented built-in behaviour or documented patterns** — custom code
+  doing what the component already does (e.g. visually hidden "(opens in
+  new tab)" text on a `Link` with `target="_blank"`); `asChild` used to
+  render the element the component already renders (`<Link asChild><a>`); a
+  component used where its docs name an alternative for that context
+  (`Link` inside body text instead of `InlineLink`); a documented pattern
+  replaced with a workaround (`style={{ width: '100%' }}` on a `Button`
+  instead of a column `Flex` parent). Check each component's `--docs`
+  entry, per Step 2.
 - **Accessibility gaps** — missing `as` on `Heading`; a standalone icon with
   no `title`/`titleId`; a wrapper element added instead of using `asChild` to
   change the underlying HTML element; a non-decorative image with no
@@ -74,7 +93,7 @@ Group findings into tiers — don't report a flat list:
 | Tier | What | Why |
 |------|------|-----|
 | 1 — Blocking | Hallucinated/deprecated prop that will error or silently no-op; missing accessibility attribute Hearth doesn't wire automatically | Breaks at runtime or fails a real accessibility requirement |
-| 2 — Should fix | Token misuse; a layout anti-pattern that still renders correctly today | Works now but fights the design system, or breaks on the next token/breakpoint change |
+| 2 — Should fix | Token misuse; a layout anti-pattern that still renders correctly today; reimplemented built-in behaviour or documented pattern | Works now but fights the design system, or breaks on the next token/breakpoint change |
 | 3 — Nice to have | A more idiomatic prop/variant exists but the current code isn't wrong | Cosmetic/maintainability only |
 
 ## Report and fix workflow
