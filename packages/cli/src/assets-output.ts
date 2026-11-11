@@ -26,6 +26,7 @@ export const formatAssets = (
 
 export const formatAsset = (pkg: PackageInfo, asset: AssetEntry): string => {
   const rows: Array<[string, string]> = [
+    ...('type' in asset ? [['type', asset.type] as [string, string]] : []),
     ['file', asset.file],
     ['import', asset.import],
   ];
