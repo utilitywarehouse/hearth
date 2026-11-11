@@ -5,11 +5,30 @@ on:
     paths:
       - '.github/workflows/test-react-native.yml'
       - 'packages/react-native/**'
+      - 'packages/tokens/src/ts/**'
 
 permissions:
   contents: read
 
 jobs:
+  tokens-drift:
+    name: Vendored tokens in sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code 📥
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Setup Node.js environment 🌐
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22.x'
+      - name: Re-vendor tokens and fail on drift 🔍
+        run: |
+          node packages/react-native/scripts/copyTokens.js > /dev/null
+          git diff --exit-code -- packages/react-native/src/tokens || {
+            echo "::error::packages/react-native/src/tokens is out of date. Run 'pnpm --dir packages/react-native run copyTokens' and commit the result."
+            exit 1
+          }
+
   checks:
     name: Build and Test
     runs-on: ubuntu-latest
