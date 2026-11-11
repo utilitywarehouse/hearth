@@ -1,4 +1,5 @@
 import type { TokenEntry, TokensManifest as Manifest } from '@utilitywarehouse/hearth-manifest';
+import { suggestSimilar } from './suggest.js';
 
 export type Layer = TokenEntry['layer'];
 
@@ -102,22 +103,6 @@ export type GetResult =
   | { status: 'group'; path: string; tokens: Array<TokenView> }
   | { status: 'not-found'; path: string; suggestions: Array<string> };
 
-const MAX_SUGGESTION_DISTANCE = 3;
-const MAX_SUGGESTIONS = 3;
-
-const editDistance = (a: string, b: string): number => {
-  let previous = Array.from({ length: b.length + 1 }, (_, index) => index);
-  for (let i = 1; i <= a.length; i++) {
-    const current = [i];
-    for (let j = 1; j <= b.length; j++) {
-      const substitution = previous[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1);
-      current[j] = Math.min(previous[j] + 1, current[j - 1] + 1, substitution);
-    }
-    previous = current;
-  }
-  return previous[b.length];
-};
-
 /**
  * The token at an exact path, in the given platform view (web by default). A path with a token
  * per device, or the prefix of a group of tokens (`semantic.shadow.md`), comes back as a group.
@@ -141,11 +126,9 @@ export const getToken = (
       tokens: groupByPath(members).flatMap(group => group.map(entry => toView(entry, platform))),
     };
   }
-  const suggestions = [...new Set(visible.map(candidate => candidate.path))]
-    .map(candidate => ({ path: candidate, distance: editDistance(path, candidate) }))
-    .filter(candidate => candidate.distance <= MAX_SUGGESTION_DISTANCE)
-    .sort((a, b) => a.distance - b.distance)
-    .slice(0, MAX_SUGGESTIONS)
-    .map(candidate => candidate.path);
+  const suggestions = suggestSimilar(
+    path,
+    visible.map(candidate => candidate.path)
+  );
   return { status: 'not-found', path, suggestions };
 };
