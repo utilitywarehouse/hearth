@@ -49,17 +49,19 @@ Every manifest has a header and a list of entries:
 | --------------- | ---------------------------------------------------------------------------------------------- |
 | `schemaVersion` | Version of this schema. Currently `2`. Readers can use it to reject manifests they can't read. |
 | `package`       | Name and version of the package that produced the manifest.                                    |
-| `type`          | What kind of manifest this is: `tokens` or `icons`. See below.                                 |
+| `type`          | What kind of manifest this is: `tokens`, `icons`, `svg-assets` or `json-assets`. See below.    |
 | `entries`       | One entry per thing the package offers.                                                        |
 
 ### Manifest types
 
 `validateManifest` is the single entry point for every type. The schema is a union discriminated on `type`, so each type has its own fields beyond the header:
 
-| `type`   | Shipped by                                                            | Beyond the header                                 |
-| -------- | --------------------------------------------------------------------- | ------------------------------------------------- |
-| `tokens` | `hearth-tokens`                                                       | `entries` of token entries (below)                |
-| `icons`  | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
+| `type`        | Shipped by                                                            | Beyond the header                                 |
+| ------------- | --------------------------------------------------------------------- | ------------------------------------------------- |
+| `tokens`      | `hearth-tokens`                                                       | `entries` of token entries (below)                |
+| `json-assets` | `hearth-json-assets`                                                  | `entries` of JSON asset entries                   |
+| `svg-assets`  | `hearth-svg-assets`                                                   | `entries` of SVG asset entries                    |
+| `icons`       | `hearth-svg-icons`, `hearth-react-icons`, `hearth-react-native-icons` | `usage` for the package's platform, and `entries` |
 
 An unknown `type` fails validation with a message naming it, so a reader never misreads a manifest it does not understand.
 
@@ -75,6 +77,29 @@ The same entries ship in all three icon packages. Only `package` and `usage` dif
 | `component` | The component exported by the React and React Native icon packages.                 |
 
 The manifest-level `usage` (`platform`: `svg`, `react` or `react-native`, `import`, and an `example` with `<svg>`/`<component>` placeholders) says how to use an icon from the package that shipped the manifest. It lives on the manifest, not on each entry, because it is the same for every icon in a package.
+
+### SVG asset entries
+
+| Field      | Meaning                                                                                               |
+| ---------- | ----------------------------------------------------------------------------------------------------- |
+| `name`     | Unique asset name, for example `LogoFullPurple`.                                                      |
+| `category` | `logo`, `mascot`, `spot`, `scene`, `technical`, or `other` for assets that fit none of those.         |
+| `file`     | The file path within the package, for example `lib/logo-full-purple.svg`.                             |
+| `import`   | What to import to use it, for example `@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg`. |
+
+Entries have no width or height. Both are in the SVG file, so recording them would duplicate it and need a check to keep it honest. If a consumer needs them, add them as optional fields; that does not change `schemaVersion`.
+
+### JSON asset entries
+
+| Field      | Meaning                                                                                                           |
+| ---------- | ----------------------------------------------------------------------------------------------------------------- |
+| `name`     | Unique asset name, for example `AnimatedSpotAccountDark`.                                                         |
+| `category` | `spot`, `logo` (the `uw` logos and monos) or `other`.                                                             |
+| `type`     | What the asset is. Only `animated` exists so far.                                                                 |
+| `file`     | The file path within the package, for example `lib/animated-spot-account-dark.json`.                              |
+| `import`   | What to import to use it, for example `@utilitywarehouse/hearth-json-assets/lib/animated-spot-account-dark.json`. |
+
+Entries have no file size. It is a property of the file that any tool can read, and it changes whenever the asset is re-exported, so recording it would churn the manifest and need a check to keep it honest. If a consumer needs it, add it as an optional field; that does not change `schemaVersion`.
 
 ### Token entries
 
@@ -140,12 +165,27 @@ Adding an optional field is safe. Anything that changes the meaning of an existi
 
 Adding a new manifest `type` is additive and keeps `schemaVersion`: add a member to the union in `manifestSchema`, then generate the manifest in the owning package. A CLI built before the type existed fails validation on the unknown `type`, so it refuses the manifest instead of misreading it. The current CLI reports that as needing an update.
 
+### Releasing a schema change
+
+This package is private, so a changeset cannot target it, and the CLI is what reads manifests back. A schema change is therefore worth treating as CLI-affecting: consider a CLI release alongside the change, so consumers on an older CLI are not left reading manifests they cannot parse. A changeset for the CLI, or for the package that starts shipping the new shape, is a good place to say so.
+
+## Checking indexed packages
+
+`INDEXED_PACKAGES` (`src/check/indexed-packages.ts`) lists the packages that ship a manifest and the `type` each ships. `pnpm check:manifests` from the repo root checks that every one of them:
+
+- has a `hearth-manifest.json` that passes `validateManifest`, is the expected `type`, and names the package and its current `package.json` version
+- lists the manifest in `files`, and when it has `exports`, resolves `./hearth-manifest.json` to the root manifest the way the CLI's `require.resolve` does (patterns, `null` exclusions and `require`/`node`/`default` conditions included)
+- would publish the manifest in its tarball (`npm pack --dry-run`)
+
+It also fails for a package that ships a manifest but is not in the list. A new indexed package needs an entry there. The release workflow runs it before publishing, after `changeset version` has bumped versions. The source-level checks also run with this package's tests. Whether a manifest's entries match the package's files stays with each package's own `hearth-manifest` test.
+
 ## Development
 
 ```sh
 pnpm --filter @utilitywarehouse/hearth-manifest build
 pnpm --filter @utilitywarehouse/hearth-manifest test
 pnpm --filter @utilitywarehouse/hearth-manifest typecheck
+pnpm check:manifests
 ```
 
 `@utilitywarehouse/hearth-tokens` depends on the built output, so `generate:tokens` builds this package first.

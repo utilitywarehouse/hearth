@@ -45,6 +45,12 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 
 - `npx` fails in the sandbox with an npm cache `EPERM`. Call the local binary directly instead, for example `node_modules/.bin/eslint`.
 
+- `npm pack` fails in the sandbox with the same cache `EPERM`, so `pnpm check:manifests` (its `--tarball` step) can't run there. Ask the user to run it.
+
+- A workspace package such as `packages/manifest` can have no `node_modules/.bin`. Run the root binaries from the package directory, for example `../../node_modules/.bin/vitest`.
+
+- A fresh worktree has no `node_modules` or build output. Ask the user to run `nvm use && pnpm install`, then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests.
+
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
