@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.6.8
+
+### Patch Changes
+
+- [#1831](https://github.com/utilitywarehouse/hearth/pull/1831) [`6663182`](https://github.com/utilitywarehouse/hearth/commit/66631829a66bd70a99d10a27c794d139f4264f41) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Ships a `hearth-manifest.json` listing every SVG asset with its category and import path
+  
+  The package now includes `hearth-manifest.json`, which lists each asset's name, category
+  (`logo`, `mascot`, `spot`, `scene`, `technical` or `other`), file path and import path.
+  Tools can read it from `node_modules` to look up which assets exist in the installed version.
+
 ## 0.6.7
 
 ### Patch Changes

@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "package": {
     "name": "@utilitywarehouse/hearth-json-assets",
-    "version": "0.6.0"
+    "version": "0.6.1"
   },
   "type": "json-assets",
   "entries": [

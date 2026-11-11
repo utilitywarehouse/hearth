@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "package": {
     "name": "@utilitywarehouse/hearth-svg-assets",
-    "version": "0.6.7"
+    "version": "0.6.8"
   },
   "type": "svg-assets",
   "entries": [
