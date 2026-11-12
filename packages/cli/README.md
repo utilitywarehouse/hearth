@@ -24,7 +24,7 @@ scripts:
 npm install --save-dev @utilitywarehouse/hearth-cli
 ```
 
-The bundle targets Node 18. The rest of this page writes `hearth`; use whichever form you installed.
+Requires Node 20 or later. The rest of this page writes `hearth`; use whichever form you installed.
 
 The CLI answers from the Hearth packages **installed in the directory you run it in** (or a parent, as Node resolves
 packages), so install the ones you want to look up:
