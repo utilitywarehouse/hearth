@@ -39,6 +39,16 @@ already exists instead of code about to be written: the component already
 being in the codebase is not evidence it's correct. Reviewing someone else's
 diff is exactly the scenario that rule is for.
 
+Fetch each component's `<component-id>--docs` entry as well as its plain
+entry, if one exists (sub-components such as `CardActions` often don't have
+one). Built-in behaviour (e.g. `Link` adding a visually hidden "(opens in
+new tab)" label and icon for `target="_blank"`, which it skips when
+`asChild` is used), documented patterns (e.g. Button's "Full width button")
+and "Alternatives" (e.g. `InlineLink` for links in body text) are only
+described there. Check them before suggesting custom code too: a review
+comment that asks for something Hearth already does creates the problem
+this skill exists to catch.
+
 ## Checklist
 
 Work through each category, checking against the specific section of
@@ -56,6 +66,15 @@ Work through each category, checking against the specific section of
   used for a non-spacing dimension; a CSS variable string used in
   JS/TS/JSX/TSX instead of a browser token. See "Use style props first" and
   "Browser tokens in JS, CSS variables in CSS".
+- **Inline styles** — an inline `style` for something a style prop covers
+  (e.g. `style={{ flex: 1 }}` on a `Box` instead of `flex="1"`). See "Use
+  style props first".
+- **Reimplemented built-in behaviour or documented patterns** — custom code
+  doing what a component already does, or working around a pattern or
+  alternative its `--docs` entry describes (see the examples in Step 2);
+  `asChild` used to render the element the component already renders
+  (`<Link asChild><a>`). `asChild` also drops built-in behaviour, so
+  recommend removing it before removing the custom code it made necessary.
 - **Accessibility gaps** — missing `as` on `Heading`; a standalone icon with
   no `title`/`titleId`; a wrapper element added instead of using `asChild` to
   change the underlying HTML element; a non-decorative image with no
@@ -72,7 +91,7 @@ Group findings into tiers — don't report a flat list:
 | Tier | What | Why |
 |------|------|-----|
 | 1 — Blocking | Hallucinated/deprecated prop that will error or silently no-op; missing accessibility attribute Hearth doesn't wire automatically | Breaks at runtime or fails a real accessibility requirement |
-| 2 — Should fix | Token misuse; a layout anti-pattern that still renders correctly today | Works now but fights the design system, or breaks on the next token/breakpoint change |
+| 2 — Should fix | Token misuse; an inline style a style prop covers; a layout anti-pattern that still renders correctly today; reimplemented built-in behaviour or documented pattern | Works now but fights the design system, or breaks on the next token/breakpoint change |
 | 3 — Nice to have | A more idiomatic prop/variant exists but the current code isn't wrong | Cosmetic/maintainability only |
 
 ## Report and fix workflow
