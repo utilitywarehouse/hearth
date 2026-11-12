@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { readdirSync, readFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { checkCliChangeset } from './check-cli-changeset.js';
 
@@ -11,10 +11,12 @@ const changed = git(['-C', root, 'diff', '--name-only', `${base}...HEAD`])
   .split('\n')
   .filter(Boolean);
 
-const dir = join(root, '.changeset');
-const changesets = readdirSync(dir)
-  .filter(file => file.endsWith('.md') && file !== 'README.md')
-  .map(file => readFileSync(join(dir, file), 'utf8'));
+// Only changesets this PR adds or edits count: one inherited from the base branch may be consumed
+// by a release before this PR merges, leaving a schema change with no CLI bump.
+const added = git(['-C', root, 'diff', '--name-only', '--diff-filter=AM', `${base}...HEAD`])
+  .split('\n')
+  .filter(file => /^\.changeset\/.+\.md$/.test(file) && file !== '.changeset/README.md');
+const changesets = added.map(file => readFileSync(join(root, file), 'utf8'));
 
 const errors = checkCliChangeset(changed, changesets);
 for (const message of errors) console.error(message);
