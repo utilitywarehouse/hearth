@@ -364,4 +364,4 @@ That package is private to the Hearth monorepo.
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to add a command or a package.
+See [CONTRIBUTING.md](https://github.com/utilitywarehouse/hearth/blob/main/packages/cli/CONTRIBUTING.md) for how to add a command or a package.
