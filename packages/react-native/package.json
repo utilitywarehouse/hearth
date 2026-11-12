@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.38.7",
+  "version": "0.38.8",
   "description": "Utility Warehouse React Native UI library",
   "license": "Apache-2.0",
   "repository": {
@@ -22,6 +22,7 @@
     "build/**",
     "scripts/init-ai.js",
     "SKILL.md",
+    "references/**",
     "public/llms/**",
     "public/llms.txt"
   ],

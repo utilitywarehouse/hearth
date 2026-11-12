@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.37.1
+
+### Patch Changes
+
+- [#1787](https://github.com/utilitywarehouse/hearth/pull/1787) [`43735bb`](https://github.com/utilitywarehouse/hearth/commit/43735bb31997e421bc65f2027e594960556bfde7) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Shorter `SKILL.md` consumer skill, with worked examples in `references/` read on demand
+
 ## 0.37.0
 
 ### Minor Changes

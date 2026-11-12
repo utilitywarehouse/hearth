@@ -1,6 +1,6 @@
 ---
 name: design-systems-feedback
-description: Turns a user's experience report about generating UI with Claude and the Hearth skills (`hearth-react`, `hearth-react-native`, `figma-implementation`, `hearth-react-review`) into a real Linear issue in the Design Systems team's (UWDS) triage queue, instead of just telling them to report it themselves. Use this whenever the user wants to give feedback, flag a problem, or pass something along to the design systems team — confusing or missing docs, a hallucinated or wrong component prop, outdated guidance, a slow or broken MCP tool, a Code Connect gap, or even positive feedback about a workflow that went well. Trigger on phrases like "let design systems know", "report this to DS/UWDS", "file feedback about the hearth skill", "can you flag this to the design systems team" — even without the word "Linear" or "ticket". Also use this whenever a Code Connect gap, a documentation gap, or any other rough edge surfaces while using another Hearth skill — file it through here rather than leaving it as a verbal aside to the user.
+description: Files the user's Hearth feedback (wrong or missing docs, hallucinated prop, slow MCP tool, Code Connect gap, praise) as a Linear issue in UWDS triage. Use for "let design systems know" or when you hit a rough edge in a Hearth skill.
 ---
 
 # Design Systems feedback → Linear

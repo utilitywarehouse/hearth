@@ -1,6 +1,7 @@
 ---
 name: hearth-react-review
-description: "Use when: reviewing or auditing UI code that already uses `@utilitywarehouse/hearth-react` — e.g. reviewing a pull request, checking a screen or component against Hearth's API and design-token rules before merge, or auditing existing code for hallucinated props, accessibility gaps, or token misuse. Scoped to `packages/react` consumers only — there is no react-native equivalent yet. Covers consumer usage only — for auditing the Hearth libraries themselves, see `react-audit` (library completeness) or `oversight-lint` (library docgen completeness)."
+description: "Use when reviewing or auditing UI code that uses `@utilitywarehouse/hearth-react` (PR, screen, component): hallucinated props, token misuse, accessibility gaps, layout anti-patterns. Consumer apps only; web only."
+disable-model-invocation: true
 argument-hint: "File(s) or PR to review"
 ---
 
@@ -17,18 +18,17 @@ and layout anti-patterns.
 This reviews **consumer usage** of Hearth React — a PR, a screen, a
 component, or a diff in an app that imports `@utilitywarehouse/hearth-react`.
 There is no react-native equivalent yet. It does not audit the Hearth
-libraries themselves:
-
-- Library completeness (missing stories/docs/Figma Code Connect files) → `react-audit`
-- Library docgen completeness, so the MCP server has good data to serve → `oversight-lint`/`storybook-addon-oversight`
+libraries themselves (story/docs/Code Connect completeness).
 
 ## Step 1: Load `hearth-react`
 
-Load the `hearth-react` skill alongside this one. Its "Critical Rules" and
-"Accessibility" sections **are** the checklist below; this skill doesn't
-restate them, so if they've changed since this was written, the package
-skill wins. Re-read them now rather than relying on memory from an earlier
-session.
+Load the `hearth-react` skill alongside this one. Its "Critical rules" list
+**is** the checklist below; this skill doesn't restate it, so if it has
+changed since this was written, the package skill wins. Re-read it now
+rather than relying on memory from an earlier session. Then read the
+skill's `references/layout-and-style-props.md` and
+`references/tokens-and-patterns.md`: the wrong/right examples the checklist
+relies on live there, not in `SKILL.md`.
 
 ## Step 2: Re-verify every component/prop actually used
 
@@ -53,24 +53,27 @@ this skill exists to catch.
 
 ## Checklist
 
-Work through each category, checking against the specific section of
-`packages/react/SKILL.md` named alongside it:
+Work through each category, checking against the `hearth-react` skill's
+"Critical rules" and the reference file named alongside it:
 
 - **Hallucinated or deprecated props/components** — every prop/component
   used exists per `docs-show`, and isn't a prop the docs no longer list (a
-  sign it was removed in a version bump the code wasn't updated for).
+  sign it was removed in a version bump the code wasn't updated for). An
+  illustration imported from `hearth-react-icons` instead of
+  `hearth-svg-assets` belongs here too.
 - **Layout anti-patterns** — margin on siblings instead of `gap`/
   `justifyContent`/`alignItems` on the parent; a hardcoded `maxWidth` that's
   actually a grid-derived span; a responsive prop object missing the
-  required `mobile` breakpoint. See "Use layout components" and "Responsive
-  props".
+  required `mobile` breakpoint; full-width-on-mobile set on `Button` instead
+  of the parent layout. See `layout-and-style-props.md` and
+  `tokens-and-patterns.md` ("Common patterns").
 - **Token misuse** — raw hex/px values where a token exists; a spacing token
   used for a non-spacing dimension; a CSS variable string used in
-  JS/TS/JSX/TSX instead of a browser token. See "Use style props first" and
-  "Browser tokens in JS, CSS variables in CSS".
+  JS/TS/JSX/TSX instead of a browser token. See `layout-and-style-props.md`
+  ("Style props") and `tokens-and-patterns.md` ("Browser tokens in JS").
 - **Inline styles** — an inline `style` for something a style prop covers
-  (e.g. `style={{ flex: 1 }}` on a `Box` instead of `flex="1"`). See "Use
-  style props first".
+  (e.g. `style={{ flex: 1 }}` on a `Box` instead of `flex="1"`). See
+  `layout-and-style-props.md` ("Style props").
 - **Reimplemented built-in behaviour or documented patterns** — custom code
   doing what a component already does, or working around a pattern or
   alternative its `--docs` entry describes (see the examples in Step 2);
@@ -80,11 +83,12 @@ Work through each category, checking against the specific section of
 - **Accessibility gaps** — missing `as` on `Heading`; a standalone icon with
   no `title`/`titleId`; a wrapper element added instead of using `asChild` to
   change the underlying HTML element; a non-decorative image with no
-  meaningful `alt`. See "Accessibility".
+  meaningful `alt`. See the "Accessibility" rule in "Critical rules".
 - **Compound-component misuse** — a component's documented sub-components
   skipped or replaced with ad-hoc markup (e.g. custom markup instead of
   `CardActions`/`ModalContent`, or state duplicated instead of read from the
-  component's own context). See "Compound components".
+  component's own context). See the "Compound components" rule in "Critical
+  rules".
 
 ## Findings and prioritisation
 
