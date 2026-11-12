@@ -48,7 +48,9 @@ without a new CLI release.
 
 If a package is not installed, is too old to ship a manifest, or ships one from
 a newer schema than your CLI supports, the CLI exits with code `3` and says what
-to install or update.
+to install or update. The one exception is a package whose `exports` hides its
+manifest, which no Hearth release does; the [README](https://github.com/utilitywarehouse/hearth/blob/main/packages/cli/README.md#how-the-data-stays-current)
+has the detail.
 
 ## How it complements the Storybook MCP servers
 

@@ -47,6 +47,7 @@ A new top-level command is a module and one line.
    adding or dropping a key fails a test: that is the point.
 5. Document it in the README: the synopsis, options, exit codes and the `--json` shape. Run each example against the
    built binary and paste what it prints.
+6. Add a changeset for `@utilitywarehouse/hearth-cli`: a new command or option is a CLI release.
 
 ### Add an asset kind
 
@@ -74,7 +75,12 @@ When changing the schema, the manifest README's
 [Changing the schema](../manifest/README.md#changing-the-schema) section is the rule: an optional field or a new
 `type` keeps `schemaVersion`; anything that changes the meaning of an existing field, or makes a field required,
 needs a new `schemaVersion` so an older CLI refuses the manifest instead of misreading it. The CLI compares against
-`SCHEMA_VERSION` from that package. A schema change is worth a CLI release alongside it.
+`SCHEMA_VERSION` from that package.
+
+A change to `packages/manifest/src/schema.ts` must carry a changeset that bumps `@utilitywarehouse/hearth-cli`, because
+the CLI bundles the schema. The `Check CLI changeset` workflow fails the PR without one. Use `minor` when the change
+adds a schema version the CLI must learn to read, and `patch` for a compatible change. Adding a schema version also
+means releasing the indexed packages that emit it. See "CLI releases" in [RELEASING.md](../../docs/RELEASING.md).
 
 ## Tests
 

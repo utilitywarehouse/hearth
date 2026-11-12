@@ -351,6 +351,11 @@ For icons, the first of `hearth-react-icons`, `hearth-react-native-icons` and `h
 used. If that one is installed but unusable (no manifest, invalid, too new) the CLI reports it rather than moving on to
 the next, so a broken install is not hidden.
 
+One case is not handled this way yet. If a package's `exports` map does not expose `./hearth-manifest.json`, Node
+refuses the lookup and the CLI exits `1` with an `ERR_PACKAGE_PATH_NOT_EXPORTED` stack trace instead of exit `3` and
+advice. Every Hearth package exposes its manifest (the release checks enforce it), so you would only meet this with a
+package that has been altered or is not a Hearth release.
+
 ### For package authors
 
 The manifest format, its types and the rules for changing it are in the
