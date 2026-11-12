@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-cli",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Look up Hearth tokens from the versions installed in your project",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
