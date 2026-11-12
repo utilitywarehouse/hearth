@@ -121,7 +121,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
   };
 
   // Without an action link, the message is the one control that runs `onPress`. With one, the
-  // link is the control and the toast-wide press below is a pointer shortcut only.
+  // link is the control. The toast-wide press below is a pointer shortcut in both cases.
   const messageIsButton = !!toast.onPress && !toast.actionText;
   const MessageWrapper = messageIsButton ? Pressable : View;
 
@@ -170,9 +170,10 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
         })}
         importantForAccessibility={Platform.OS === 'android' ? 'no-hide-descendants' : undefined}
       >
-        {toast.onPress && toast.actionText ? (
-          // Not focusable or announced: the `Link` and dismiss button inside stay the only
-          // controls, so no interactive element sits inside another.
+        {toast.onPress ? (
+          // Not focusable or announced: the message (or `Link`) and dismiss button inside stay the
+          // only controls, so no interactive element sits inside another. It keeps a tap anywhere
+          // on the toast running `onPress`.
           <Pressable
             accessible={false}
             focusable={false}

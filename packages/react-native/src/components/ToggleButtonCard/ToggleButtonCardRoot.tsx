@@ -16,6 +16,10 @@ const ToggleButtonCardRoot = ({
   onToggle,
   onPressIn,
   onPressOut,
+  accessibilityLabel,
+  accessibilityHint,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: Omit<ToggleButtonCardProps, 'value'> & {
   checked?: boolean;
@@ -79,6 +83,11 @@ const ToggleButtonCardRoot = ({
             toggled={checked}
             disabled={isDisabled}
             onPress={handleTogglePress}
+            // The card is not announced, so its naming props belong on the toggle.
+            accessibilityLabel={accessibilityLabel}
+            accessibilityHint={accessibilityHint}
+            aria-label={ariaLabel}
+            aria-labelledby={ariaLabelledBy}
             style={styles.button}
           />
         </View>

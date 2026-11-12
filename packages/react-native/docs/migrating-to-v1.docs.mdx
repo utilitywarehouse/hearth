@@ -120,7 +120,8 @@ or queries in your tests.
   `button` role. The page controls also expose `selected` and `disabled`, and `aria-current` on web.
   Queries by role now find them.
 - **`ToggleButtonCard`**: the outer card is no longer focusable or announced. The inner toggle
-  button is the only control. Update tests that expect two buttons, or that query the card as a button.
+  button is the only control and takes the card's `accessibilityLabel`, `accessibilityHint` and `aria-*`
+  naming props, so its accessible name can change. Update tests that expect two buttons, or that query by the old name.
 - **`Toast` with `onPress`**: the outer `button` role is gone. With `actionText`, the action link is
   the control. Without it, the message is the button. The dismiss button is always separate.
 
