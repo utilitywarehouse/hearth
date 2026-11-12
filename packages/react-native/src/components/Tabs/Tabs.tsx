@@ -1,9 +1,15 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { Easing, useSharedValue, withTiming } from 'react-native-reanimated';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { TabsContext } from './Tabs.context';
 import type TabsProps from './Tabs.props';
-import { collectTabValues, resolveActiveValue, resolveInitialValue, resolveValidValue } from './Tabs.utils';
+import {
+  collectTabValues,
+  resolveActiveValue,
+  resolveInitialValue,
+  resolveValidValue,
+} from './Tabs.utils';
 
 /**
  * Groups Tab components into a single tab bar, managing selection state and the animated
@@ -19,6 +25,7 @@ const Tabs = ({
   children,
   ...props
 }: TabsProps) => {
+  const isReducedMotion = useReducedMotionEnabled();
   // Collect child tab values
   const tabValues = useMemo(() => collectTabValues(children), [children]);
 
@@ -103,11 +110,16 @@ const Tabs = ({
     if (prevValueRef.current === undefined || prevValueRef.current === currentValue) return;
     const layout = getTabLayout(currentValue);
     if (!layout) return;
-    const cfg = { duration: 250, easing: Easing.out(Easing.ease) } as const;
-    indicatorX.value = withTiming(layout.x, cfg);
-    indicatorSize.value = withTiming(layout.width, cfg);
+    if (isReducedMotion) {
+      indicatorX.value = layout.x;
+      indicatorSize.value = layout.width;
+    } else {
+      const cfg = { duration: 250, easing: Easing.out(Easing.ease) } as const;
+      indicatorX.value = withTiming(layout.x, cfg);
+      indicatorSize.value = withTiming(layout.width, cfg);
+    }
     prevValueRef.current = currentValue;
-  }, [currentValue, getTabLayout, indicatorX, indicatorSize, tabValues.join('|')]);
+  }, [currentValue, getTabLayout, indicatorX, indicatorSize, isReducedMotion, tabValues.join('|')]);
 
   return (
     <TabsContext.Provider value={contextValue}>
