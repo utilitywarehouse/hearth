@@ -19,7 +19,7 @@ This gives you:
   component discovery (`docs-list`, `docs-show`,
   `docs-show-story`) beyond the raw markdown docs shipped in each
   package's `public/llms/` folder.
-- The `hearth-react-planning` skill, for scoping feature work against
+- The `/hearth-ai-toolkit:hearth-react-planning` command, for scoping feature work against
   `hearth-react` before any code is written — maps a Linear ticket, a
   freeform description, or a Figma link onto the real component inventory
   and writes the resulting task breakdown back to Linear as sub-issues.
@@ -27,7 +27,7 @@ This gives you:
   plugin installed too; reading a Figma link additionally needs a separate
   Figma MCP integration of your own — this plugin doesn't bundle one — and
   falls back to asking for a text description when that isn't configured.
-- The `hearth-react-review` skill, for reviewing or auditing UI code that
+- The `/hearth-ai-toolkit:hearth-react-review` command, for reviewing or auditing UI code that
   already uses `hearth-react` — hallucinated or deprecated props,
   design-token misuse, accessibility gaps, and layout anti-patterns. React
   Native isn't covered yet.
@@ -38,8 +38,9 @@ This gives you:
 
 ## Monorepo checkout note
 
-This plugin's skills are symlinks into `packages/react/SKILL.md` and
-`packages/react-native/SKILL.md` elsewhere in this repo. If you add this
+The `hearth-react` and `hearth-react-native` skills are symlinks into
+`packages/react/SKILL.md` and `packages/react-native/SKILL.md` (plus their
+`references/` folders) elsewhere in this repo. If you add this
 marketplace with `--sparse`, include those paths too:
 
 ```sh

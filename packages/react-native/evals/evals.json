@@ -1,0 +1,157 @@
+{
+  "skill_name": "hearth-react-native",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Build an account settings screen in our Expo app: a page heading, a list of three tappable rows (Profile, Notifications, Security) that each navigate somewhere, and a Save button at the bottom that is full width on phones and only as wide as its label on tablets.",
+      "expected_output": "A screen using hearth-react-native Container/Flex/ListItem (or CardAction) with gap or spacing on the parent, no margin on siblings, no manual trailing chevron, responsive align using the base key.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-rn",
+          "description": "Imports components from @utilitywarehouse/hearth-react-native",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react-native"
+        },
+        {
+          "id": "uses-container",
+          "description": "Uses Container as the screen's top-level content wrapper",
+          "type": "code_contains",
+          "value": "<Container"
+        },
+        {
+          "id": "no-manual-chevron",
+          "description": "Does not pass ChevronRightSmallIcon as trailingContent on interactive rows",
+          "type": "code_not_contains",
+          "value": "ListItemTrailingIcon as={ChevronRightSmallIcon}"
+        },
+        {
+          "id": "base-breakpoint-key",
+          "description": "Responsive object includes the base key, not mobile",
+          "type": "code_contains",
+          "value": "base:"
+        },
+        {
+          "id": "no-react-native-stylesheet",
+          "description": "Does not import StyleSheet from react-native",
+          "type": "code_not_contains",
+          "value": "StyleSheet } from 'react-native'"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Add a row to our profile screen with a check icon followed by a long paragraph of terms copy that can wrap over several lines, and a primary 'Accept' button beneath it with some space between them. Use the Hearth components.",
+      "expected_output": "A Flex row with the text given flex: 1 so it wraps, align flex-start, gap rather than margin between the row and the button.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-rn",
+          "description": "Imports components from @utilitywarehouse/hearth-react-native",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react-native"
+        },
+        {
+          "id": "text-can-wrap",
+          "description": "Wrapping text is given flex: 1 or flexShrink: 1",
+          "type": "code_contains_any",
+          "value": ["flex: 1", "flexShrink: 1"]
+        },
+        {
+          "id": "gap-not-margin",
+          "description": "Space between siblings uses gap or spacing on the parent, not margin props",
+          "type": "code_contains_any",
+          "value": ["gap=", "spacing="]
+        },
+        {
+          "id": "no-margin-props",
+          "description": "No margin shorthand on sibling elements",
+          "type": "code_not_contains",
+          "value": "mb="
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Add a bottom-sheet confirmation modal to our app that opens from a 'Delete account' button. Show me what, if anything, needs to wrap the app root for it to work.",
+      "expected_output": "Uses Hearth's Modal, and states or shows that GestureHandlerRootView and BottomSheetModalProvider must wrap the app root; does not add a custom SafeAreaView.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "imports-hearth-rn",
+          "description": "Imports components from @utilitywarehouse/hearth-react-native",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-react-native"
+        },
+        {
+          "id": "bottom-sheet-provider",
+          "description": "Mentions or renders BottomSheetModalProvider",
+          "type": "code_contains",
+          "value": "BottomSheetModalProvider"
+        },
+        {
+          "id": "gesture-handler-root",
+          "description": "Mentions or renders GestureHandlerRootView",
+          "type": "code_contains",
+          "value": "GestureHandlerRootView"
+        },
+        {
+          "id": "no-custom-safe-area-view",
+          "description": "Does not wrap the modal in a custom SafeAreaView",
+          "type": "code_not_contains",
+          "value": "<SafeAreaView"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Implement this Figma text node as code: styles contained in the design: `Body/Body Text MD SemiBold`. The text reads 'Your next bill'.",
+      "expected_output": "<BodyText size=\"md\" weight=\"semibold\">Your next bill</BodyText>",
+      "files": [],
+      "assertions": [
+        {
+          "id": "body-text-semibold",
+          "description": "Maps the style name to BodyText with size md and weight semibold",
+          "type": "code_contains",
+          "value": "<BodyText size=\"md\" weight=\"semibold\""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Build a \"What's included\" list for a mobile screen in our Expo app: each row is a check icon followed by a long, multi-line sentence of copy.",
+      "expected_output": "Rows built with a row Flex, icon plus BodyText with flex: 1 so the copy wraps, align flex-start, gap on the parent.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "text-can-wrap",
+          "description": "Gives the text flex: 1 or flexShrink: 1 so it wraps",
+          "type": "code_contains_any",
+          "value": ["flex: 1", "flexShrink: 1"]
+        },
+        {
+          "id": "align-flex-start",
+          "description": "Aligns the row to flex-start",
+          "type": "code_contains",
+          "value": "align=\"flex-start\""
+        },
+        {
+          "id": "gap-not-margin-wrapping-row",
+          "description": "Space between icon and text uses gap or spacing on the parent",
+          "type": "code_contains_any",
+          "value": ["gap=", "spacing="]
+        }
+      ]
+    }
+  ],
+  "trigger_evals": {
+    "should_trigger": [
+      "Add a new Card with a title and a call to action button to the HomeScreen in our Expo app (it uses @utilitywarehouse/hearth-react-native).",
+      "Update src/screens/Billing.tsx, which imports from @utilitywarehouse/hearth-react-native, to show a Switch for paperless billing."
+    ],
+    "should_not_trigger": [
+      "Write a Jest test for our date formatting helper in utils/date.ts.",
+      "Add a new Button component to the Hearth monorepo in packages/react-native."
+    ]
+  }
+}

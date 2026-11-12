@@ -57,13 +57,6 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 
 ---
 
-## Skills
-
-Skills live in `.claude/skills/` (`.agents/skills` links to it); each description says when to use it. Invoke with `/skill-name`.
-
-
----
-
 ## Working with components
 
 **Always verify the component API before touching component code — never assume a prop exists.**
