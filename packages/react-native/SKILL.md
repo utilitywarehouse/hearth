@@ -46,9 +46,22 @@ to get around to eventually.
 The library is broad: check whether an existing component covers the need
 before building anything custom, and before bare React Native primitives.
 
+### Check MCP access first
+
+1. Look for the `hearth-react-native` tools (`docs-list`, `docs-show`,
+   `docs-show-story`). If they aren't callable, search for them (e.g.
+   ToolSearch for `hearth-react-native`): a deferred or still-connecting
+   server only appears after a search, so an absent tool is not proof the
+   server is missing.
+2. Confirm with a live `docs-list` call. A returned catalogue means the
+   server works.
+3. If it is unavailable, tell the user the MCP server isn't connected and
+   name the markdown fallback you are using. Don't switch silently, and don't
+   substitute `node_modules` types.
+
 **Default to the `hearth-react-native` MCP server** (bundled with the plugin;
-otherwise `https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`; its own instructions
-explain `docs-list`, `docs-show`, `docs-show-story`). For a component, fetch
+otherwise `https://main--68e3ad5c6e80b57678cad6c6.chromatic.com/mcp`; its own
+instructions explain `docs-list`, `docs-show`, `docs-show-story`). For a component, fetch
 both its `stories-<component>` entry (props + story code) and its
 `components-<component>--docs` entry (narrative usage, accessibility).
 Subcomponents (e.g. `ModalImage`, `CardAction`) have their own

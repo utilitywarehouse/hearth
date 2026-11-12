@@ -46,10 +46,23 @@ to get around to eventually.
 The library is broad: check whether an existing component covers the need
 before building anything custom.
 
+### Check MCP access first
+
+1. Look for the `hearth-react` tools (`docs-list`, `docs-show`,
+   `docs-show-story`). If they aren't callable, search for them (e.g.
+   ToolSearch for `hearth-react`): a deferred or still-connecting server only
+   appears after a search, so an absent tool is not proof the server is
+   missing.
+2. Confirm with a live `docs-list` call. A returned catalogue means the
+   server works.
+3. If it is unavailable, tell the user the MCP server isn't connected and
+   name the markdown fallback you are using. Don't switch silently, and don't
+   substitute `node_modules` types.
+
 **Default to the `hearth-react` MCP server** (bundled with the plugin;
 otherwise `https://main--68dbda8270df9c2a6568ece8.chromatic.com/mcp`; its own
-instructions explain `docs-list`, `docs-show`, `docs-show-story`). For a component, fetch both its
-plain entry (props + story code) and its `<id>--docs` entry (narrative usage,
+instructions explain `docs-list`, `docs-show`, `docs-show-story`). For a
+component, fetch both its plain entry (props + story code) and its `<id>--docs` entry (narrative usage,
 accessibility). Subcomponents (e.g. `CardActionLink`) have their own entries:
 fetch them by their own id, not via the parent's `--docs` page.
 
