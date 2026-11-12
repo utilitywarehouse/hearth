@@ -2,7 +2,7 @@
 '@utilitywarehouse/hearth-react-native': major
 ---
 
-💥 [BREAKING]: Tighten peer dependency ranges
+💔 [BREAKING CHANGE]: Tighten peer dependency ranges
 
 The peer dependency ranges now match the versions Hearth is built and tested against.
 
