@@ -59,6 +59,8 @@ const preview: Preview = {
       storySort: {
         order: [
           'Welcome',
+          'AI Toolkit',
+          'CLI',
           'CSS Reset',
           'Fonts',
           ['Introduction', 'Getting Started', 'CDN Usage', 'Comic Hams', 'DM Sans', 'DM Mono'],
