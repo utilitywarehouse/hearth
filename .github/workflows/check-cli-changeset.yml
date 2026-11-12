@@ -1,3 +1,7 @@
+# hearth-cli bundles @utilitywarehouse/hearth-manifest, which is private and so never gets its own
+# release. A change to the manifest schema only reaches consumers if the CLI is released, so this
+# fails a PR that edits packages/manifest/src/schema.ts without a changeset that bumps hearth-cli.
+# See "CLI releases" in docs/RELEASING.md.
 name: '🧾 Check CLI changeset'
 on:
   pull_request:
