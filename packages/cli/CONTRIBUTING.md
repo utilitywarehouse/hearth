@@ -61,7 +61,9 @@ The CLI reads manifests; the packages write them. A package becomes lookup-able 
 
 1. **The package ships `hearth-manifest.json`.** Generate it in the package's build against the schema in
    `@utilitywarehouse/hearth-manifest` (see `packages/svg-assets` and `packages/json-assets`, which each have a
-   `generate:manifest` script), and list `hearth-manifest.json` in the package's `files`.
+   `generate:manifest` script), and list `hearth-manifest.json` in the package's `files`. If the package has an
+   `exports` map, expose `./hearth-manifest.json` so that `require.resolve` resolves it to the root manifest (for
+   example, `"./hearth-manifest.json": "./hearth-manifest.json"`).
 2. **The manifest package knows it.** A new kind of manifest is a new member of the `type` union in
    `packages/manifest/src/schema.ts`, and the package is added to `INDEXED_PACKAGES` in
    `packages/manifest/src/check/indexed-packages.ts`. `pnpm check:manifests` from the repo root then checks that the
