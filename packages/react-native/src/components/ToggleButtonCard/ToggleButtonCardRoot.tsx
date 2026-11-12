@@ -16,6 +16,10 @@ const ToggleButtonCardRoot = ({
   onToggle,
   onPressIn,
   onPressOut,
+  accessibilityLabel,
+  accessibilityHint,
+  'aria-label': ariaLabel,
+  'aria-labelledby': ariaLabelledBy,
   ...props
 }: Omit<ToggleButtonCardProps, 'value'> & {
   checked?: boolean;
@@ -60,6 +64,12 @@ const ToggleButtonCardRoot = ({
         {...props}
         disabled={isDisabled}
         onPress={onPress}
+        // The inner `ToggleButton` is the one control (it carries the role and state), so the
+        // card is not announced or focusable itself. A tap on the card body still fires `onPress`.
+        accessible={false}
+        focusable={false}
+        // react-native-web ignores `focusable` and tabs to a Pressable unless `tabIndex` says not.
+        tabIndex={-1}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={state => [
@@ -75,6 +85,11 @@ const ToggleButtonCardRoot = ({
             toggled={checked}
             disabled={isDisabled}
             onPress={handleTogglePress}
+            // The card is not announced, so its naming props belong on the toggle.
+            accessibilityLabel={accessibilityLabel}
+            accessibilityHint={accessibilityHint}
+            aria-label={ariaLabel}
+            aria-labelledby={ariaLabelledBy}
             style={styles.button}
           />
         </View>

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Pressable, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CarouselContext from './Carousel.context';
 import { CarouselControlsItemProps } from './Carousel.props';
@@ -21,6 +21,13 @@ const CarouselControlItem = ({
       onPress={onPress}
       disabled={disabled}
       accessibilityLabel={`Page ${index + 1} of ${numItems}`}
+      accessibilityRole="button"
+      accessibilityState={{ selected: !!active, disabled: !!disabled }}
+      // react-native-web ignores `accessibilityState`, and `aria-selected` is not valid on a
+      // button, so mark the current page with `aria-current` on web.
+      {...(Platform.OS === 'web'
+        ? ({ 'aria-current': active ? 'true' : undefined } as object)
+        : null)}
       {...props}
     >
       <View style={[styles.circle, style]} />

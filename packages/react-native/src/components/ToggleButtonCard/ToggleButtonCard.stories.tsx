@@ -46,7 +46,14 @@ export const Playground: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const toggle = await canvas.findByRole('button', { name: 'Label' });
+    const toggle = await canvas.findByRole('button', { name: 'Label 1' });
+
+    // The inner button is the only control: the card itself is not a button and is not in
+    // the tab order, so no interactive element is nested in another.
+    expect(canvas.getAllByRole('button')).toHaveLength(1);
+    // Only the toggle is in the tab order; the card around it is not.
+    expect(toggle).toHaveAttribute('tabindex', '0');
+    expect(canvasElement.querySelectorAll('[tabindex="0"]')).toHaveLength(1);
 
     // Selection state moved off gluestack's createRadio(), which rendered a
     // hidden native <input type="radio"> as its source of truth. The
