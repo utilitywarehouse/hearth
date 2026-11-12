@@ -104,11 +104,11 @@ const CustomSwitch = ({
   };
 
   const onPressIn = () => {
-    scale.value = withSpring(0.95);
+    scale.value = isReducedMotion ? 0.95 : withSpring(0.95);
   };
 
   const onPressOut = () => {
-    scale.value = withSpring(1);
+    scale.value = isReducedMotion ? 1 : withSpring(1);
   };
 
   return (
