@@ -29,6 +29,19 @@
         "Flags the `Button` wrapped in a raw `<a>` without `asChild` as invalid HTML nesting",
         "Findings are grouped into tiers rather than presented as a flat list"
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "Can you review src/components/SavingsDisclaimer.tsx? It uses hearth-react and I want to check it follows the design system before I open the PR.",
+      "expected_output": "Tiered findings covering: `<Link asChild><a target=\"_blank\">` inside body text, to be replaced with `InlineLink target=\"_blank\"` (the docs' alternative for links in text, which renders the `a` itself and adds the visually hidden label and icon), and only then the hand-rolled \"(opens in new tab)\" span removed, since `asChild` skips the built-in label; `style={{ width: '100%' }}` on `Button` instead of the documented column `Flex` full-width pattern; `style={{ flex: 1 }}` on `Box` instead of the `flex` style prop.",
+      "files": ["evals/files/SavingsDisclaimer.tsx"],
+      "expectations": [
+        "Recommends replacing `<Link asChild><a>` with `InlineLink target=\"_blank\"` for the link inside the `BodyText` paragraph, citing the Link docs' alternatives",
+        "Recommends removing the hand-written \"(opens in new tab)\" span only after `asChild` is removed, because `asChild` skips the built-in label",
+        "Flags `style={{ width: '100%' }}` on `Button` and recommends the documented column `Flex` full-width pattern",
+        "Flags `style={{ flex: 1 }}` on `Box` as an inline style where the `flex` style prop exists",
+        "Findings are grouped into tiers rather than presented as a flat list"
+      ]
     }
   ]
 }

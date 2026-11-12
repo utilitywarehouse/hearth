@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.37.0",
+  "version": "0.37.1",
   "description": "React components",
   "license": "Apache-2.0",
   "repository": {
@@ -71,6 +71,7 @@
     "dist/**",
     "*.css",
     "SKILL.md",
+    "references/**",
     "public/llms/**",
     "public/llms.txt"
   ],
@@ -96,7 +97,7 @@
     "@storybook/addon-vitest": "^10.6.0",
     "@storybook/react-vite": "^10.6.0",
     "@tanstack/react-virtual": "^3.13.13",
-    "@types/node": "^22.9.0",
+    "@types/node": "^24.0.0",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",
     "@types/seedrandom": "^3.0.8",

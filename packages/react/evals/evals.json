@@ -114,6 +114,38 @@
           "value": "variant=\"ghost\""
         }
       ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build a broadband promo section for our Next.js app: a heading, a short paragraph, the broadband scene illustration beside the copy, and a 'Check availability' button that fills the width on mobile but is only as wide as its label on desktop.",
+      "expected_output": "Illustration imported as an .svg from hearth-svg-assets and rendered with <img>, not from hearth-react-icons; button width controlled by the parent Flex via responsive alignItems with a mobile key.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "illustration-from-svg-assets",
+          "description": "Imports the illustration from @utilitywarehouse/hearth-svg-assets",
+          "type": "code_contains",
+          "value": "@utilitywarehouse/hearth-svg-assets"
+        },
+        {
+          "id": "illustration-as-img",
+          "description": "Renders the illustration as an <img> source, not a component",
+          "type": "code_contains",
+          "value": "<img"
+        },
+        {
+          "id": "button-width-on-parent",
+          "description": "Full-width mobile button handled by alignItems on the parent layout",
+          "type": "code_contains",
+          "value": "alignItems"
+        },
+        {
+          "id": "responsive-has-mobile-key",
+          "description": "Responsive object includes the mobile breakpoint",
+          "type": "code_contains",
+          "value": "mobile:"
+        }
+      ]
     }
   ]
 }

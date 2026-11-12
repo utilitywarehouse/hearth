@@ -41,7 +41,7 @@ npm run setup    # corepack enable + pnpm install
 
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
-- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node (the agent sandbox defaults to Node 18), where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+- `.nvmrc` pins Node 24; a non-interactive shell can default to an older Node (the agent sandbox defaults to Node 18), where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
 
 - `npx` fails in the sandbox with an npm cache `EPERM`. Call the local binary directly instead, for example `node_modules/.bin/eslint`.
 
@@ -54,13 +54,6 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
-
----
-
-## Skills
-
-Skills live in `.claude/skills/` (`.agents/skills` links to it); each description says when to use it. Invoke with `/skill-name`.
-
 
 ---
 
