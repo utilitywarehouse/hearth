@@ -67,7 +67,7 @@ const MyComponent = () => {
         <Heading size="md">Fixed</Heading>
         <Box flexDirection="row" alignItems="center" gap="100">
           <DetailText size="3xl">£163.00</DetailText>
-          <BodyText color="grey500"> monthly estimate</BodyText>
+          <BodyText color="secondary"> monthly estimate</BodyText>
         </Box>
         <BodyText>Your energy rates will stay the same until December 2025</BodyText>
       </ToggleButtonCard>
@@ -80,7 +80,7 @@ const MyComponent = () => {
         <Heading size="md">Variable</Heading>
         <Box flexDirection="row" alignItems="center" gap="100">
           <DetailText size="3xl">£153.00</DetailText>
-          <BodyText color="grey500"> monthly estimate</BodyText>
+          <BodyText color="secondary"> monthly estimate</BodyText>
         </Box>
         <BodyText>Your energy rates will stay the same until December 2025</BodyText>
       </ToggleButtonCard>
