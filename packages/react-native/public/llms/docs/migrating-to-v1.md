@@ -31,7 +31,7 @@ one to the semantic tokens, so choose the `theme.color` token that matches what 
 
 See [Theme Tokens](?path=/docs/theme-tokens--docs) for the full list.
 
-### If your app still uses `@utilitywarehouse/hearth-react-native`
+### If your app still uses `@utilitywarehouse/native-ui`
 
 `native-ui` components read `theme.colors` internally. Add the palette back in your app from
 `@utilitywarehouse/colour-system` (`^0.5.0`, which has the same values). Do this after Hearth has
