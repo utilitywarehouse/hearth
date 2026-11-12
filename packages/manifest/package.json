@@ -29,6 +29,7 @@
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
     "check:indexed": "node dist/check.js",
+    "check:cli-changeset": "node dist/check-cli-changeset.js",
     "test": "vitest run",
     "test:watch": "vitest"
   },

@@ -113,6 +113,16 @@ npm install @utilitywarehouse/hearth-react-native@legacy
 
 If the fix also belongs on `main`, it needs its own separate changeset there. Do not merge a hotfix branch into `main` to get it: the branch's changeset would bump `main` a second time for the same fix.
 
+## CLI releases
+
+`@utilitywarehouse/hearth-cli` (`packages/cli`) releases through the same changesets flow, but its version is decoupled from the packages it reads.
+
+- **It holds no data.** It reads `hearth-manifest.json` from the indexed packages in the consumer's `node_modules` (tokens, the three icon packages, `svg-assets`, `json-assets`). Releasing one of those packages updates the CLI's answers with no CLI release.
+- **It declares those packages as optional peer dependencies** with the range `*`. A narrower range would go out of range on every 0.x minor, and changesets would then force a major bump of the CLI. The real compatibility gate is the manifest `schemaVersion`: the CLI supports the versions in `@utilitywarehouse/hearth-manifest` (bundled into the CLI) and exits with code 3 on a newer one.
+- **Release the CLI only for** a new command or option, a fix, or a change to the bundled manifest schema. Add a changeset for `@utilitywarehouse/hearth-cli` in the same PR.
+- **A change to `packages/manifest/src/schema.ts` must carry a CLI changeset.** The `Check CLI changeset` workflow fails the PR otherwise. Use `minor` when it adds a schema version the CLI must learn to read, `patch` for a compatible change. Adding a schema version also means releasing the indexed packages that emit it.
+- **Manual publish** works for the CLI: pick `cli` as the `package` input.
+
 ## Troubleshooting
 
 **`422 ... Error verifying sigstore provenance bundle: package.json: "repository.url" is ""`**
