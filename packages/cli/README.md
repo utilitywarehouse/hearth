@@ -183,9 +183,9 @@ The same for every command.
 | `2`  | Usage error: unknown command or option, a missing argument, an invalid option value, or an option the command does not take. The usage is printed to stderr |
 | `3`  | The package is not installed, or its manifest is missing, invalid, from a newer schema or of a type this CLI does not know                       |
 
-Results go to stdout and messages to stderr. With `--json`, stdout is a JSON document for every exit `0`, and for a
-`search` or `list` that exits `1`. A `get` that exits `1`, and every `2` and `3`, print plain text to stderr and nothing
-to stdout, so check the exit code before parsing.
+Results go to stdout and messages to stderr. For lookups with `--json` (without `--help` or `--version`), stdout is a
+JSON document for every exit `0`, and for a `search` or `list` that exits `1`. A `get` that exits `1`, and every `2` and
+`3`, print plain text to stderr and nothing to stdout, so check the exit code before parsing.
 
 ## `--json`
 
