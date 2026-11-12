@@ -105,6 +105,10 @@ describe('resolveValidValue', () => {
   it('keeps the previous value when it is still a valid option', () => {
     expect(resolveValidValue({ prev: 'b', optionValues: ['a', 'b'] })).toBe('b');
   });
+
+  it('keeps an explicit empty-string value rather than falling back to the first option', () => {
+    expect(resolveValidValue({ prev: '', optionValues: ['a', 'b'] })).toBe('');
+  });
 });
 
 describe('computeIndicatorLayout', () => {

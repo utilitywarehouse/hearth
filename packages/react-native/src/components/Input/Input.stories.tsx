@@ -10,6 +10,7 @@ import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
+import { FormField } from '../FormField';
 
 const meta = {
   title: 'Stories / Input',
@@ -96,11 +97,11 @@ export const Playground: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    // The field is required by default, so it should be exposed as such to assistive tech,
-    // and remain editable (not disabled/read-only) with no validation state set. `aria-disabled`
-    // is only rendered when true (react-native-web's convention), so it's absent here.
+    // The field is not required by default, and remains editable (not disabled/read-only) with
+    // no validation state set. `aria-disabled` is only rendered when true (react-native-web's
+    // convention), so it's absent here.
     const input = await canvas.findByPlaceholderText('Input placeholder');
-    expect(input).toHaveAttribute('aria-required', 'true');
+    expect(input.getAttribute('aria-required')).not.toBe('true');
     expect(input).not.toHaveAttribute('aria-disabled');
     expect(input).toHaveAttribute('aria-invalid', 'false');
   },
@@ -199,6 +200,32 @@ export const Variants: Story = {
     // Readonly inputs remain focusable/selectable but not editable.
     const readonlyInput = placeholderInputs.find(el => el.readOnly);
     expect(readonlyInput).toBeDefined();
+  },
+};
+
+export const RequiredFromFormField: Story = {
+  render: () => (
+    <View style={{ gap: 16 }}>
+      <FormField label="Required name" required>
+        <Input placeholder="Inherits required" />
+      </FormField>
+      <FormField label="Overridden name" required>
+        <Input placeholder="Overrides required" required={false} />
+      </FormField>
+      <FormField label="Optional name" required={false}>
+        <Input placeholder="Optional in FormField" />
+      </FormField>
+    </View>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const inherited = await canvas.findByPlaceholderText('Inherits required');
+    const overridden = await canvas.findByPlaceholderText('Overrides required');
+    const optional = await canvas.findByPlaceholderText('Optional in FormField');
+
+    expect(inherited).toHaveAttribute('aria-required', 'true');
+    expect(overridden.getAttribute('aria-required')).not.toBe('true');
+    expect(optional.getAttribute('aria-required')).not.toBe('true');
   },
 };
 
