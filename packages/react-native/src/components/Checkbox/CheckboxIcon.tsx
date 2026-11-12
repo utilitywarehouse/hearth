@@ -1,5 +1,5 @@
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Platform, StyleProp, ViewStyle } from 'react-native';
+import { Platform, StyleProp, StyleSheet as RNStyleSheet, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
@@ -17,7 +17,7 @@ const CheckboxIcon = ({ style, ...props }: IconProps) => {
         Platform.OS === 'web'
           ? {
               ...(styles.icon as StyleProp<ViewStyle>),
-              ...(style as StyleProp<ViewStyle>),
+              ...RNStyleSheet.flatten(style as StyleProp<ViewStyle>),
             }
           : ([styles.icon as ViewStyle, style] as any)
       }
