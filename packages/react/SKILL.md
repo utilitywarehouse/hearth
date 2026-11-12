@@ -46,8 +46,9 @@ to get around to eventually.
 The library is broad: check whether an existing component covers the need
 before building anything custom.
 
-**Default to the `hearth-react` MCP server** (its own instructions explain
-`docs-list`, `docs-show`, `docs-show-story`). For a component, fetch both its
+**Default to the `hearth-react` MCP server** (bundled with the plugin;
+otherwise `https://main--68dbda8270df9c2a6568ece8.chromatic.com/mcp`; its own
+instructions explain `docs-list`, `docs-show`, `docs-show-story`). For a component, fetch both its
 plain entry (props + story code) and its `<id>--docs` entry (narrative usage,
 accessibility). Subcomponents (e.g. `CardActionLink`) have their own entries:
 fetch them by their own id, not via the parent's `--docs` page.
@@ -94,10 +95,20 @@ options. Small self-contained tasks can proceed directly.
 
 ## Critical rules
 
-Worked wrong/right examples live in [`references/`](references/): read
-`layout-and-style-props.md` for layout, spacing, style props and responsive
-props, and `tokens-and-patterns.md` for tokens, `asChild`, icons/illustrations
+Worked wrong/right examples live in [`references/`](references/). Read the
+relevant file **before** writing code, not only when stuck:
+`layout-and-style-props.md` for any layout, spacing, style props or responsive
+props; `tokens-and-patterns.md` for tokens, `asChild`, icon and illustration
 imports and common patterns.
+
+Gotchas (code in `references/tokens-and-patterns.md`):
+
+- Illustrations (spot, scene, mascot) come from
+  `@utilitywarehouse/hearth-svg-assets` as a `.svg` import used as an `<img>`
+  source, not from `hearth-react-icons`, which exports icon components only.
+- Full-width on mobile, auto-width on larger screens is set on the parent
+  layout (`alignItems={{ mobile: 'stretch', desktop: 'start' }}`), not on
+  `Button`.
 
 - **Layout components, not margins.** Structure with `Box`, `Flex`, `Grid`,
   `Container`. Space children with `gap` on the parent; align with
