@@ -6,19 +6,22 @@ import { BackToTopButton } from './components';
 
 # Migrating to v1
 
-Hearth React Native v1 removes gluestack and the legacy colour palette. Most apps only need the
-first two steps. The rest of this page lists behaviour changes that do not stop your app from
-building, but can change what your tests or screens see.
+Hearth React Native v1 removes gluestack and the legacy colour palette. It also stops
+re-exporting most Unistyles APIs. Most apps need steps 1 and 2. Step 4 applies if your app imports
+Unistyles names from Hearth. The rest of this page lists behaviour changes that do not stop your
+app from building, but can change what your tests or screens see.
 
 - [1. Replace the legacy `theme.colors` palette](#1-replace-the-legacy-themecolors-palette)
 - [2. Rename the `AccordionTrigger` render-prop argument](#2-rename-the-accordiontrigger-render-prop-argument)
 - [3. Stop relying on gluestack](#3-stop-relying-on-gluestack)
-- [4. Check behaviour changes](#4-check-behaviour-changes)
+- [4. Import Unistyles APIs from `react-native-unistyles`](#4-import-unistyles-apis-from-react-native-unistyles)
+- [5. Check behaviour changes](#5-check-behaviour-changes)
 - [Checklist](#checklist)
 
 ## 1. Replace the legacy `theme.colors` palette
 
-**This is the only change that breaks the build.**
+**This change breaks the build.** Step 4 can break it too, if your app imports Unistyles names from
+Hearth.
 
 The `light` and `dark` themes no longer include `theme.colors`, the old palette (for example
 `theme.colors.grey1000` or `theme.colors.purple800`). No Hearth component uses it.
@@ -96,7 +99,41 @@ Hearth no longer depends on any `@gluestack-ui/*` package.
   gluestack's `is*` props (`isDisabled`, `isInvalid`, `isChecked`, `isFocused` and similar). Set
   `disabled`, `invalid` or `checked` on the parent component instead.
 
-## 4. Check behaviour changes
+## 4. Import Unistyles APIs from `react-native-unistyles`
+
+Hearth no longer re-exports most APIs from `react-native-unistyles`. It exports only `StyleSheet`.
+If your app imports any other Unistyles name from Hearth, TypeScript reports an error. At runtime,
+the value is `undefined`. Import that name from `react-native-unistyles` instead. Hearth already
+lists `react-native-unistyles` as a peer dependency, so your app has it installed.
+
+```diff
+-import { StyleSheet, UnistylesRuntime } from '@utilitywarehouse/hearth-react-native';
++import { StyleSheet } from '@utilitywarehouse/hearth-react-native';
++import { UnistylesRuntime } from 'react-native-unistyles';
+```
+
+Hearth also no longer exports two hooks that were only meant for internal use.
+
+**Removed from `@utilitywarehouse/hearth-react-native`:**
+
+- Values and helpers: `UnistylesRuntime`, `useUnistyles`, `withUnistyles`, `createUnistylesElement`,
+  `ScopedTheme`, `Display`, `Hide`, `mq`, `getServerUnistyles`, `hydrateServerUnistyles`,
+  `resetServerUnistyles`, `useServerUnistyles`
+- Types: `UnistylesThemes`, `UnistylesBreakpoints`, `UnistylesVariants`
+- Hooks: `usePrevious`, `useFormFieldAccessibility`
+
+**Still exported:**
+
+- `StyleSheet`
+- `themes`, `lightTheme`, `darkTheme` and `breakpoints`
+- The types `AppThemes` and `AppBreakpoints`, and the theme and breakpoint type augmentation
+- The hooks `useTheme`, `useColorMode`, `useBreakpointValue`, `useMedia`, `useToken` and
+  `useStyleProps`
+
+To find the places to change, search your app for the removed names in imports from
+`@utilitywarehouse/hearth-react-native`.
+
+## 5. Check behaviour changes
 
 These changes do not stop your app from building. They can change screenshots, snapshot tests,
 or queries in your tests.
@@ -124,25 +161,31 @@ or queries in your tests.
   naming props, so its accessible name can change. Update tests that expect two buttons, or that query by the old name.
 - **`Toast` with `onPress`**: the outer `button` role is gone. With `actionText`, the action link is
   the control. Without it, the message is the button. The dismiss button is always separate.
+- **`Input`**: `required` no longer defaults to `true`. An `Input` is optional unless you set `required` or wrap it in a `FormField` with `required`, and `FormField`'s `required` now applies to it. This matches `Textarea`.
 
 ### What you see
 
 - **`FormFieldLabel`** used to render nothing, whatever its children. It now renders them.
   Content that was hidden by mistake will appear.
 - **`Radio` and `RadioCard`** only show the selected dot when checked. Expect snapshot changes.
+- **`Checkbox`** only shows the tick when checked, including when you render `CheckboxIcon` yourself.
 - **A `style` function** (`style={({ pressed }) => ...}`) on `Button`, `IconButton`,
   `UnstyledIconButton`, `ToggleButton`, `ToggleButtonCard`, `Radio`, `RadioCard`, `Checkbox`,
   `Link` or `Alert` used to be ignored. It is now applied.
 - **A disabled `ToggleButtonCard`** now also disables its inner button.
-- **Reduced motion**: when the user turns on reduced motion, `Expandable`, `Accordion`,
-  `ExpandableCard` and `CardAccordion` open and close without animation.
+- **Reduced motion**: when the user turns on reduced motion, these components skip their
+  animations: `Accordion`, `BottomSheet`, `BottomSheetModal`, `CardAccordion`, `Carousel`,
+  `Expandable`, `ExpandableCard`, `Modal`, `NavModal` (Android), `ProgressBar`,
+  `SegmentedControl`, `Skeleton`, `Spinner`, `Switch`, `Tabs`, `Toast` and `VerificationInput`.
 
 ## Checklist
 
 1. Search for `theme.colors.` and replace each one, or add the `native-ui` palette from step 1.
 2. Search for `isExpanded` and `isDisabled` in `AccordionTrigger` children.
 3. Search for `@gluestack-ui/` imports in your app.
-4. Run your tests and update any queries or snapshots affected by step 4.
-5. Check screens that use `FormFieldLabel`, `List` headings and radios.
+4. Search for imports of `UnistylesRuntime`, `useUnistyles` and the other removed names from
+   `@utilitywarehouse/hearth-react-native`. Import them from `react-native-unistyles`.
+5. Run your tests and update any queries or snapshots affected by step 5.
+6. Check screens that use `FormFieldLabel`, `List` headings and radios.
 
 <BackToTopButton />

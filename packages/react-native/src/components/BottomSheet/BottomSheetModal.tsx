@@ -5,6 +5,7 @@ import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetContext } from './BottomSheet.context';
 import type BottomSheetProps from './BottomSheet.props';
 import useBottomSheetLogic from './useBottomSheetLogic';
+import { useSheetReduceMotion } from './useSheetReduceMotion';
 
 const StyledBottomSheetModalCore = withUnistyles(BottomSheetModalCore);
 
@@ -21,6 +22,7 @@ const BottomSheetModal = ({
 }: BottomSheetProps) => {
   const bottomSheetRef = React.useRef<BottomSheetModalMethods<any>>(null);
   const parentContext = React.useContext(BottomSheetContext);
+  const overrideReduceMotion = useSheetReduceMotion();
 
   const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheetModal>({
     // @ts-expect-error - ref
@@ -42,6 +44,7 @@ const BottomSheetModal = ({
   return (
     <StyledBottomSheetModalCore
       ref={bottomSheetRef}
+      overrideReduceMotion={overrideReduceMotion}
       backdropComponent={renderBackdrop}
       handleComponent={renderHandle}
       style={[styles.container, containerStyle]}

@@ -143,11 +143,25 @@ const SegmentedControl = ({
   );
 
   useEffect(() => {
-    if (!currentValue || !initialisedRef.current) return;
-    if (prevValueRef.current === undefined || prevValueRef.current === currentValue) return;
+    if (!currentValue) return;
     const layout = layoutsRef.current.get(currentValue);
     if (!layout) return;
     const targetLayout = computeIndicatorLayout(layout, indicatorPositionOffset);
+
+    if (!initialisedRef.current) {
+      // The control started with no matching option (e.g. `defaultValue=""`), so no layout
+      // callback initialised the indicator. Place it from the cached layout on first selection.
+      indicatorX.value = targetLayout.x;
+      indicatorWidth.value = targetLayout.width;
+      indicatorY.value = targetLayout.y;
+      indicatorHeight.value = targetLayout.height;
+      prevValueRef.current = currentValue;
+      initialisedRef.current = true;
+      setHasIndicator(true);
+      return;
+    }
+
+    if (prevValueRef.current === undefined || prevValueRef.current === currentValue) return;
     const config = {
       duration: isReducedMotion ? 0 : 220,
       easing: Easing.out(Easing.cubic),
@@ -198,7 +212,10 @@ const SegmentedControl = ({
         {...remainingProps}
       >
         {hasIndicator ? (
-          <Indicator style={[styles.indicator, styles.pointerEventsNone, indicatorStyle]} />
+          <Indicator
+            testID="segmented-control-indicator"
+            style={[styles.indicator, styles.pointerEventsNone, indicatorStyle]}
+          />
         ) : null}
         {children}
       </View>

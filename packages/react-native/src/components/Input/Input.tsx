@@ -110,7 +110,7 @@ const Input = forwardRef<TextInput, InputProps>(
       onClear,
       loading,
       clearable = false,
-      required = true,
+      required,
       inBottomSheet = false,
       style,
       label,
@@ -189,7 +189,7 @@ const Input = forwardRef<TextInput, InputProps>(
         helperIcon={helperIcon}
         validText={validText}
         invalidText={invalidText}
-        required={required}
+        required={inputRequired ?? false}
         validationStatus={validationStatus}
         disabled={disabled}
         readonly={readonly}

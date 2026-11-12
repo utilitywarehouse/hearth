@@ -125,6 +125,28 @@ export const Controlled = {
   },
 };
 
+export const EmptyDefaultValue = {
+  render: () => (
+    <SegmentedControl defaultValue="">
+      <SegmentedControlOption value="monthly">Monthly</SegmentedControlOption>
+      <SegmentedControlOption value="annual">Annual</SegmentedControlOption>
+    </SegmentedControl>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // `defaultValue=""` selects no option, so there is no indicator yet.
+    const annualOption = await canvas.findByRole('radio', { name: 'Annual' });
+    expect(canvas.queryByTestId('segmented-control-indicator')).not.toBeInTheDocument();
+
+    // Selecting an option after layout must place the indicator from the cached layout.
+    await userEvent.click(annualOption);
+    await waitFor(() => {
+      expect(canvas.getByTestId('segmented-control-indicator')).toBeInTheDocument();
+    });
+  },
+};
+
 export const Disabled = {
   render: () => (
     <SegmentedControl defaultValue="left" disabled>

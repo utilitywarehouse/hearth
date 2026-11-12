@@ -1,5 +1,12 @@
 'use client';
 import './core/configure';
 export * from './core';
-export * from './hooks';
+export {
+  useBreakpointValue,
+  useColorMode,
+  useMedia,
+  useStyleProps,
+  useTheme,
+  useToken,
+} from './hooks';
 export * from './components';

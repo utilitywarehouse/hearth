@@ -95,7 +95,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | helperIcon       | `React.ComponentType`              | `-`         | Icon to display alongside the helper text. **(Only to be used if the input has no children)**                                                                           |
 | validText        | `string`                           | `-`         | Text to display when validation status is 'valid'. **(Only to be used if the input has no children)**                                                                   |
 | invalidText      | `string`                           | `-`         | Text to display when validation status is 'invalid'. **(Only to be used if the input has no children)**                                                                 |
-| required         | `boolean`                          | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
+| required         | `boolean`                          | `false`     | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
 | leadingIcon      | `React.ComponentType`              | `-`         | The leading icon of the input. **(Only to be used if the input has no children)**                                                                                       |
 | trailingIcon     | `React.ComponentType`              | `-`         | The trailing icon of the input. **(Only to be used if the input has no children)**                                                                                      |
 | prefix           | `string \| React.ReactNode`        | `-`         | Content to display before the input field. **(Only to be used if the input has no children)**                                                                           |
@@ -105,7 +105,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | onBlur           | `function`                         | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
 | onFocus          | `function`                         | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
 | placeholder      | `string`                           | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
-| required         | `boolean`                          | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
+| required         | `boolean`                          | `false`     | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
 | inBottomSheet    | `boolean`                          | `false`     | Indicates if the input is within a bottom sheet.                                                                                                                        |
 
 If the `leadingIcon` or `trailingIcon` props are used, the `Input` component should not have any children.
@@ -122,7 +122,7 @@ The `InputField` inherits all of the React Native [`TextInput` props](https://re
 | onBlur        | `function`             | `-`      | Callback function that is triggered when the input loses focus.   |
 | onFocus       | `function`             | `-`      | Callback function that is triggered when the input gains focus.   |
 | placeholder   | `string`               | `-`      | The placeholder text for the input.                               |
-| required      | `boolean`              | `true`   | Indicates that the input is required.                             |
+| required      | `boolean`              | `false`  | Indicates that the input is required.                             |
 | inBottomSheet | `boolean`              | `false`  | Indicates if the input is within a bottom sheet.                  |
 
 ### `InputIcon`
