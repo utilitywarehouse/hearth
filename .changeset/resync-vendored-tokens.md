@@ -2,6 +2,6 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-🐛 [BUG]: Resync vendored typography tokens with `@utilitywarehouse/hearth-tokens`
+🐛 [FIX]: DM Mono text rendered at font weight 600 instead of 500
 
-The vendored copy of the tokens had drifted: the DM Mono typography styles used `fontWeight: 600` instead of the source value `500`. Mono text now renders at weight 500, as designed. A CI check now fails when `src/tokens` differs from the token source.
+The vendored typography tokens had drifted from `@utilitywarehouse/hearth-tokens`, so DM Mono text on tablet and desktop breakpoints was heavier than designed. It now renders at weight 500. A CI check now fails when `src/tokens` differs from the token source.
