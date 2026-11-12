@@ -22,7 +22,7 @@ highlighting key marketing messaging, use HighlightBanner instead.
 - `CardContent` - Layout for card content.
 - `CardInteraction` - A wrapper for additional card interactions.
 - `CardBannerContent` - Layout for banner text content.
-- `BannerImage` - A wrapper for a banner image. `CardBannerImage` is deprecated in its favour.
+- `BannerImage` - A wrapper for a banner image.
 
 ## Alternatives
 

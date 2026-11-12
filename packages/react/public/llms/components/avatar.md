@@ -67,8 +67,14 @@ the `name` prop so it can be used as an accessible description for the image.
 By default the image will only render when it has loaded. While the image is
 loading, or if there has been an error, the user's initials will be rendered.
 If you notice a flash during loading, you can provide a
-`delayMs` prop to delay its rendering so it only renders for those with slower
+`delay` prop to delay its rendering so it only renders for those with slower
 connections.
+
+## Migration
+
+The `delayMs` prop is deprecated and will be removed in the next major version.
+Rename it to `delay`. Both props take milliseconds and behave the same, so no
+other changes are needed.
 
 ## Name
 
@@ -103,7 +109,10 @@ This component is based on the `img` & `span` elements and supports the followin
 
 | Prop                    | Type                                     | Default | Description                                                                                         |
 | ----------------------- | ---------------------------------------- | ------- | --------------------------------------------------------------------------------------------------- |
-| `onLoadingStatusChange` | `((status: ImageLoadingStatus) => void)` | —       |                                                                                                     |
-| `delayMs`               | `number`                                 | —       |                                                                                                     |
+| `className`             | `string`                                 | —       |                                                                                                     |
+| `style`                 | `CSSProperties`                          | —       |                                                                                                     |
 | `name`                  | `string`                                 | —       | Set the name associated with the avatar, used for creating initials, and an accessible description. |
+| `delay`                 | `number`                                 | —       | How long to wait, in milliseconds, before showing the fallback.                                     |
+| `delayMs`               | `number`                                 | —       | @deprecated Use `delay` instead. Will be removed in the next major version.                         |
 | `size`                  | `Responsive<"sm" \| "md">`               | `md`    | Sets the avatar size.                                                                               |
+| `onLoadingStatusChange` | `((status: ImageLoadingStatus) => void)` | —       | Callback fired when the loading status changes.                                                     |

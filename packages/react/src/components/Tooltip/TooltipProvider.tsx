@@ -1,18 +1,14 @@
-import { Tooltip as TooltipPrimitive } from 'radix-ui';
+import { Tooltip as TooltipPrimitive } from '@base-ui/react';
 import type { TooltipProviderProps } from './TooltipProvider.props';
 
 const COMPONENT_NAME = 'TooltipProvider';
 
-const DELAY_DURATION = 500;
-const SKIP_DELAY_DURATION = 300;
+const DELAY = 500;
+const TIMEOUT = 300;
 
 export const TooltipProvider = ({ children }: TooltipProviderProps) => {
   return (
-    <TooltipPrimitive.Provider
-      delayDuration={DELAY_DURATION}
-      skipDelayDuration={SKIP_DELAY_DURATION}
-      disableHoverableContent={false}
-    >
+    <TooltipPrimitive.Provider delay={DELAY} timeout={TIMEOUT}>
       {children}
     </TooltipPrimitive.Provider>
   );

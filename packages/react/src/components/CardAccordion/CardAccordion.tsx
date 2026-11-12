@@ -5,7 +5,7 @@ import { cn } from '../../helpers/cn';
 import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { CardAccordionProps } from './CardAccordion.props';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { CardAccordionProvider } from './CardAccordion.context';
@@ -32,30 +32,6 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
     marginPropDefs
   );
 
-  const [currentValue, setCurrentValue] = useState(value);
-
-  useEffect(() => {
-    // Keep internal state in sync when the controlled `value` prop changes.
-    if (value !== undefined) {
-      setCurrentValue(value);
-    }
-  }, [value]);
-
-  const handleValueChange = (newValue: string) => {
-    setCurrentValue(newValue);
-    if (onValueChange) {
-      onValueChange(newValue);
-    }
-  };
-
-  const accordionProps = {
-    ...restProps,
-    type: 'single',
-    collapsible: false,
-    value: currentValue,
-    onValueChange: handleValueChange,
-  } as ComponentPropsWithRef<typeof AccordionPrimitive.Root>;
-
   const steps: Array<string> = (
     Children.map(children, child => {
       if (isValidElement(child) && child.type === CardAccordionItem) {
@@ -64,6 +40,40 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
       return null;
     }) ?? []
   ).filter(Boolean);
+
+  // Base UI doesn't support switching an Accordion between uncontrolled and
+  // controlled after the first render, so `value` must never start out
+  // `undefined` — fall back to the first step so the accordion is always
+  // controlled, even before CardAccordionProvider's own effect runs.
+  const [firstStep] = steps;
+  const [currentValue, setCurrentValue] = useState<Array<string> | undefined>(
+    value ?? (firstStep !== undefined ? [firstStep] : undefined)
+  );
+
+  useEffect(() => {
+    // Keep internal state in sync when the controlled `value` prop changes.
+    if (value !== undefined) {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
+  const handleValueChange = (newValue: Array<string>) => {
+    // Base UI's single-select mode has no `collapsible={false}` equivalent — the
+    // open item can always be collapsed. Ignore an empty value to keep a step
+    // always open, matching the previous Radix behaviour.
+    if (newValue.length === 0) return;
+
+    setCurrentValue(newValue);
+    if (onValueChange) {
+      onValueChange(newValue);
+    }
+  };
+
+  const accordionProps = {
+    ...restProps,
+    value: currentValue,
+    onValueChange: handleValueChange,
+  } as ComponentPropsWithRef<typeof AccordionPrimitive.Root<string>>;
 
   if (steps.length === 0) {
     if (process.env.NODE_ENV !== 'production') {

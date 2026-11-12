@@ -37,7 +37,7 @@
       cursor: default;
     }
 
-    &:where(:focus-visible, [data-state='open']) {
+    &:where(:focus-visible, [data-popup-open]) {
       outline: var(--h-select-border-width-focused) solid var(--h-select-border-color-focus);
       outline-offset: -1px;
     }
@@ -68,15 +68,15 @@
   align-items: flex-start;
   padding: var(--h-select-dropdown-padding);
   background-color: var(--h-surface-neutral-strong);
-  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-  width: var(--radix-select-trigger-width);
-  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-  max-height: var(--radix-select-content-available-height);
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+  width: var(--anchor-width);
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+  max-height: var(--available-height);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
 
-  & :where(.h-SelectViewport) {
+  & :where(.h-SelectList) {
     width: 100%;
   }
 

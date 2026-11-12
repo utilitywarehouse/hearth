@@ -1,21 +1,16 @@
-import type { ComponentPropsWithRef } from 'react';
-import { Accordion as AccordionPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, CSSProperties, ReactNode } from 'react';
+import { Accordion as AccordionPrimitive } from '@base-ui/react/accordion';
 
-export interface AccordionContentProps extends Omit<
-  ComponentPropsWithRef<typeof AccordionPrimitive.Content>,
-  'asChild' | 'forceMount'
-> {
+export type AccordionContentProps = Omit<
+  ComponentPropsWithRef<typeof AccordionPrimitive.Panel>,
+  'render' | 'className' | 'children' | 'style'
+> & {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
   /**
-   * Keeps the accordion item's content mounted in the DOM when collapsed.
-   *
+   * Whether to keep the content mounted in the DOM when the item is closed.
    * @default false
    */
-  keepMounted?: boolean;
-  /**
-   * Keeps the accordion item's content mounted in the DOM when collapsed.
-   * Prefer `keepMounted`.
-   *
-   * @deprecated Use `keepMounted` instead. Will be removed when Accordion migrates to Base UI.
-   */
-  forceMount?: boolean;
-}
+  keepMounted?: ComponentPropsWithRef<typeof AccordionPrimitive.Panel>['keepMounted'];
+};

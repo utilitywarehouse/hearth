@@ -4,14 +4,14 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { switchPropDefs } from './Switch.props';
 import type { SwitchProps } from './Switch.props';
 import { cn } from '../../helpers/cn';
-import { Switch as SwitchPrimitive } from 'radix-ui';
+import { Switch as SwitchPrimitive } from '@base-ui/react/switch';
 import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { forwardRef } from 'react';
-import type { ComponentRef, MouseEvent } from 'react';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Switch';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -42,14 +42,25 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
   const showLabel = !!label;
 
   // We're using aria-disabled rather than disabled, so that the element can
-  // still be focused with a keyboard. Radix skips toggling when the click is
-  // default-prevented, which keeps a disabled Switch from changing state.
-  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+  // still be focused with a keyboard. Cancelling the change event keeps a
+  // disabled Switch from changing state.
+  const handleClick: SwitchPrimitive.Root.Props['onClick'] = event => {
     if (disabled) {
       event.preventDefault();
       return;
     }
     onClick?.(event);
+  };
+
+  const handleCheckedChange: SwitchPrimitive.Root.Props['onCheckedChange'] = (
+    checked,
+    eventDetails
+  ) => {
+    if (disabled) {
+      eventDetails.cancel();
+      return;
+    }
+    onCheckedChange?.(checked, eventDetails);
   };
 
   return (
@@ -71,7 +82,9 @@ export const Switch = forwardRef<SwitchElement, SwitchProps>((props, ref) => {
         aria-disabled={disabled || undefined}
         data-disabled={disabled || undefined}
         onClick={handleClick}
-        onCheckedChange={disabled ? undefined : onCheckedChange}
+        onCheckedChange={handleCheckedChange}
+        render={<button type="button" />}
+        nativeButton
         {...switchProps}
       >
         <SwitchPrimitive.Thumb className={`${componentClassName}Thumb`}>

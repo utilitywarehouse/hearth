@@ -45,20 +45,14 @@ export const Modal = forwardRef<ModalElement, ModalProps>((props, ref) => {
     loadingHeading,
     loadingDescription,
     children,
-    // Deprecated and ignored; destructured so it isn't forwarded to the DOM.
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    fullScreen: _fullScreen,
     forceMount,
-    loadingText,
     ...modalProps
   } = extractProps(props, modalPropDefs);
   warn(forceMount !== undefined, 'Modal `forceMount` is deprecated. Use `keepMounted` instead.');
   const resolvedKeepMounted = keepMounted ?? forceMount;
   const portalProps = { forceMount: resolvedKeepMounted || undefined, container };
   const containsImage = Boolean(image);
-  const hasDescription = Boolean(
-    loading ? (loadingText || loadingHeading) && loadingDescription : description
-  );
+  const hasDescription = Boolean(loading ? loadingHeading && loadingDescription : description);
 
   return (
     <DialogPrimitive.Portal {...portalProps}>
@@ -124,11 +118,11 @@ export const Modal = forwardRef<ModalElement, ModalProps>((props, ref) => {
                       <Box asChild>
                         <DialogPrimitive.Title asChild>
                           <Heading size="lg" textAlign="center" textWrap="wrap">
-                            {loadingHeading || loadingText || 'Loading'}
+                            {loadingHeading || 'Loading'}
                           </Heading>
                         </DialogPrimitive.Title>
                       </Box>
-                      {(loadingText || loadingHeading) && loadingDescription ? (
+                      {loadingHeading && loadingDescription ? (
                         <DialogPrimitive.Description asChild>
                           <BodyText size="md" as="span" textAlign="center">
                             {loadingDescription}

@@ -8,7 +8,7 @@ import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'RadioCard';
@@ -36,17 +36,19 @@ export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, re
   } = extractProps(props, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
   return (
-    <RadioGroupPrimitive.Item
+    <RadioPrimitive.Root
       ref={ref}
       className={cn(componentClassName, className)}
       data-testid={componentClassName}
       {...radioCardProps}
       id={id}
       aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
+      nativeButton
+      render={<button type="button" />}
     >
       <div className={withGlobalPrefix('RadioContainer')}>
         <div className={withGlobalPrefix('RadioItem')}>
-          <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
+          <RadioPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
         </div>
         <Label as="span" id={labelId} disableUserSelect fontWeight="semibold">
           {image}
@@ -54,7 +56,7 @@ export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, re
         </Label>
       </div>
       {children}
-    </RadioGroupPrimitive.Item>
+    </RadioPrimitive.Root>
   );
 });
 

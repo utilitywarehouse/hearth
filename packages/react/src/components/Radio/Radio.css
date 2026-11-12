@@ -60,7 +60,7 @@
     outline-offset: 1px;
   }
 
-  &:where([data-state='checked'], [data-state='checked'] &) {
+  &:where([data-checked], [data-checked] &) {
     border-color: var(--h-radio-checked-color);
   }
 
@@ -70,7 +70,7 @@
     }
   }
 
-  &:where(:active):not([data-state='unchecked'], [data-disabled] &) {
+  &:where(:active):not([data-unchecked], [data-disabled] &) {
     box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-active);
   }
 }
