@@ -1,6 +1,7 @@
 ---
 name: hearth-react-planning
-description: "Use when a product team is scoping or breaking down feature work that will use `@utilitywarehouse/hearth-react` — before any code is written. Takes a Linear ticket, a freeform feature description, or a Figma link, maps the ask onto the real Hearth React component inventory, and writes the resulting task breakdown back to Linear as sub-issues naming the specific components/variants to use. Flags anything Hearth doesn't yet support and offers to file it via `design-systems-feedback`. Scoped to `packages/react` consumers only — there is no react-native equivalent yet. Sits before `hearth-react` (implementation-time component guidance) and `hearth-react-review` (post-implementation audit) in the workflow — use this one first, at the scoping stage."
+description: "Use when scoping feature work on `@utilitywarehouse/hearth-react` before any code: maps a Linear ticket, description or Figma link onto real Hearth components and writes sub-issues to Linear. Web only; run before `hearth-react`."
+disable-model-invocation: true
 argument-hint: "Linear ticket, feature description, or Figma link"
 ---
 

@@ -71,6 +71,7 @@
     "dist/**",
     "*.css",
     "SKILL.md",
+    "references/**",
     "public/llms/**",
     "public/llms.txt"
   ],
