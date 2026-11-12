@@ -1,7 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-cli",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "Look up Hearth tokens from the versions installed in your project",
   "author": "Design Systems <design-systems@uw.co.uk>",
   "license": "Apache-2.0",
@@ -13,6 +12,43 @@
   "type": "module",
   "bin": {
     "hearth": "./dist/cli.js"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@utilitywarehouse/hearth-json-assets": "*",
+    "@utilitywarehouse/hearth-react-icons": "*",
+    "@utilitywarehouse/hearth-react-native-icons": "*",
+    "@utilitywarehouse/hearth-svg-assets": "*",
+    "@utilitywarehouse/hearth-svg-icons": "*",
+    "@utilitywarehouse/hearth-tokens": "*"
+  },
+  "peerDependenciesMeta": {
+    "@utilitywarehouse/hearth-json-assets": {
+      "optional": true
+    },
+    "@utilitywarehouse/hearth-react-icons": {
+      "optional": true
+    },
+    "@utilitywarehouse/hearth-react-native-icons": {
+      "optional": true
+    },
+    "@utilitywarehouse/hearth-svg-assets": {
+      "optional": true
+    },
+    "@utilitywarehouse/hearth-svg-icons": {
+      "optional": true
+    },
+    "@utilitywarehouse/hearth-tokens": {
+      "optional": true
+    }
   },
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf dist",

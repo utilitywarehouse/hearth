@@ -42,6 +42,7 @@ on:
           - 'svg-icons'
           - 'tokens'
           - 'codemod'
+          - 'cli'
         default: 'react-native'
       snapshot:
         description: 'Publish a snapshot 0.0.0-<channel>-<timestamp>'
