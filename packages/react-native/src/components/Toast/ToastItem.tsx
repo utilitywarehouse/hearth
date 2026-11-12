@@ -177,6 +177,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
           <Pressable
             accessible={false}
             focusable={false}
+            tabIndex={-1}
             onPress={handlePress}
             style={styles.pressable}
           >

@@ -68,6 +68,8 @@ const ToggleButtonCardRoot = ({
         // card is not announced or focusable itself. A tap on the card body still fires `onPress`.
         accessible={false}
         focusable={false}
+        // react-native-web ignores `focusable` and tabs to a Pressable unless `tabIndex` says not.
+        tabIndex={-1}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={state => [
