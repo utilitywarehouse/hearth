@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.37.2
+
+### Patch Changes
+
+- [#1860](https://github.com/utilitywarehouse/hearth/pull/1860) [`2c5a018`](https://github.com/utilitywarehouse/hearth/commit/2c5a0180fd4d03baaba2f38d1b5e7dc256dff8f7) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `SKILL.md` points agents at the `hearth` CLI to look up tokens instead of checking by hand
+
 ## 0.37.1
 
 ### Patch Changes
