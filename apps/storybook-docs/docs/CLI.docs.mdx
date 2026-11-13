@@ -104,7 +104,8 @@ run from the app's directory:
   illustration, logo or animation.
 
 Add `--json` and check the exit code before reading the output. Pass
-`--platform native` in a React Native project (the default is web). Exit `1` is
+`--platform native` to `hearth tokens` in a React Native project (the default is
+web; icons and assets reject the flag). Exit `1` is
 no match: do not invent a name. Exit `2` is a wrong command. Exit `3` means a
 package is missing or out of date: tell the user what the message says. Exit `1`
 with an `ERR_PACKAGE_PATH_NOT_EXPORTED` stack trace is a broken install, not a

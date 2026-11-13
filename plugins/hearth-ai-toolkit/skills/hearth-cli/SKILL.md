@@ -27,8 +27,11 @@ Components (props, usage, stories) are not in the CLI: use the `hearth-react` or
   (`pnpm exec hearth`, `npx hearth`), otherwise `npx @utilitywarehouse/hearth-cli`.
   Run it from the app's directory: it reads the packages installed there.
 - Add `--json`, check the exit code first, then parse stdout.
-- Web is the default. In a React Native project pass `--platform native`
-  explicitly. Dark values exist only on native: never copy one into web code.
+- `hearth tokens` defaults to web. In a React Native project pass
+  `--platform native` to `hearth tokens` commands explicitly (icons and assets
+  reject the flag with exit 2). Dark values exist only on native: never copy
+  one into web code. On native the light value is `js.path` and the dark value
+  is the separate `js.darkPath`; use both, or the theme that selects between them.
 - Prefer semantic tokens (the default layer). Use a primitive or component token
   only when no semantic token fits, and say so. Never hardcode a colour, spacing
   or font value when a token exists.
@@ -40,7 +43,7 @@ Components (props, usage, stories) are not in the CLI: use the `hearth-react` or
 | Exit | What you see | Do this |
 | ---- | ------------ | ------- |
 | 0 | JSON on stdout | Use it. |
-| 1 on `search`/`list` | JSON with `total: 0` | No match. Try one or two broader or synonym queries, then tell the user nothing fits. Do not invent a name. |
+| 1 on `search`/`list` | JSON with `total: 0` | No match. Try one or two broader or synonym queries. For tokens the search covers only the semantic layer, so before giving up also try `--layer primitive`, or `--layer component` for a component-specific value. Then tell the user nothing fits. Do not invent a name. |
 | 1 on `get` | Plain text on stderr, nothing on stdout | Pick from the suggested names, or `search`. If none fits, say so. |
 | 1 on `--print` | Stderr says the file is too large | Read the named file from the package instead. |
 | 2 | Usage on stderr | The command was wrong. Fix it once from the usage text; do not try variations. |
