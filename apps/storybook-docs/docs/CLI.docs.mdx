@@ -13,6 +13,7 @@ CSS variable, component name or import, instead of guessing a name.
 - [What it covers](#what-it-covers)
 - [Answers match your installed versions](#answers-match-your-installed-versions)
 - [How it complements the Storybook MCP servers](#how-it-complements-the-storybook-mcp-servers)
+- [For AI agents](#for-ai-agents)
 - [Full reference](#full-reference)
 
 ## Try it
@@ -80,6 +81,37 @@ A few things differ in practice:
   reads files, so any tool that can run a shell command can use it.
 - **Context cost.** There are no tool definitions to load into an agent's
   context. It runs the command it needs and reads the output.
+
+## For AI agents
+
+The [Hearth AI Toolkit](?path=/docs/ai-toolkit--docs) plugin includes a
+`hearth-cli` skill that tells Claude when and how to call `hearth`. If you don't
+use the plugin, paste this into your project's `CLAUDE.md` or `AGENTS.md`:
+
+````md
+## Hearth lookups
+
+Never guess a Hearth token, icon or asset name. Look it up with the `hearth` CLI
+(`npx @utilitywarehouse/hearth-cli`, or `pnpm exec hearth` if it is installed),
+run from the app's directory:
+
+- `hearth tokens search <word>`, then `hearth tokens get <path>`: before using a
+  colour, spacing or other value. Prefer semantic tokens. Never hardcode a
+  colour, spacing or font value when a token exists.
+- `hearth icons search <word>`, then `hearth icons get <name>`: before importing
+  an icon.
+- `hearth assets svg|json search <word>`, then `get`: before using an
+  illustration, logo or animation.
+
+Add `--json` and check the exit code before reading the output. Pass
+`--platform native` in a React Native project (the default is web). Exit `1` is
+no match: do not invent a name. Exit `2` is a wrong command. Exit `3` means a
+package is missing or out of date: tell the user what the message says. Exit `1`
+with an `ERR_PACKAGE_PATH_NOT_EXPORTED` stack trace is a broken install, not a
+no-match.
+
+Component props and usage come from the Hearth Storybook MCP servers, not the CLI.
+````
 
 ## Full reference
 
