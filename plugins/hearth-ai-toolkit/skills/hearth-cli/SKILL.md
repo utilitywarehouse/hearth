@@ -1,6 +1,6 @@
 ---
 name: hearth-cli
-description: Use before writing a Hearth design token, icon, SVG asset or JSON (animated) asset reference, or any hardcoded colour, spacing or font value in a project that has the Hearth packages installed. Looks the name up with the `hearth` CLI instead of guessing it. Not for component props: those come from the Hearth MCP servers.
+description: "Use before writing a Hearth design token, icon, SVG asset or JSON (animated) asset reference, or any hardcoded colour, spacing or font value in a project that has the Hearth packages installed. Looks the name up with the `hearth` CLI instead of guessing it. Not for component props, which come from the Hearth MCP servers."
 ---
 
 # Looking up Hearth tokens, icons and assets
@@ -32,6 +32,8 @@ Components (props, usage, stories) are not in the CLI: use the `hearth-react` or
   reject the flag with exit 2). Dark values exist only on native: never copy
   one into web code. On native the light value is `js.path` and the dark value
   is the separate `js.darkPath`; use both, or the theme that selects between them.
+  `hearth tokens` reads the installed `@utilitywarehouse/hearth-tokens`, which a
+  React Native app may not have (exit 3): then check the app's theme instead.
 - Prefer semantic tokens (the default layer). Use a primitive or component token
   only when no semantic token fits, and say so. Never hardcode a colour, spacing
   or font value when a token exists.
