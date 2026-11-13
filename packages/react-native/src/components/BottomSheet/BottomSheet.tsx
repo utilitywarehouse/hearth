@@ -5,6 +5,7 @@ import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetContext } from './BottomSheet.context';
 import type BottomSheetProps from './BottomSheet.props';
 import useBottomSheetLogic from './useBottomSheetLogic';
+import { useSheetReduceMotion } from './useSheetReduceMotion';
 
 const StyledBottomSheetCore = withUnistyles(BottomSheetCore) as React.ForwardRefExoticComponent<
   RootBottomSheetProps & React.RefAttributes<BottomSheetMethods>
@@ -29,6 +30,7 @@ const BottomSheet = ({
 }: BottomSheetProps) => {
   const bottomSheetRef = React.useRef<BottomSheet>(null);
   const parentContext = React.useContext(BottomSheetContext);
+  const overrideReduceMotion = useSheetReduceMotion();
 
   const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheet>({
     ref,
@@ -50,6 +52,7 @@ const BottomSheet = ({
     <StyledBottomSheetCore
       ref={bottomSheetRef}
       index={-1}
+      overrideReduceMotion={overrideReduceMotion}
       backdropComponent={renderBackdrop}
       handleComponent={renderHandle}
       style={[styles.container, containerStyle]}

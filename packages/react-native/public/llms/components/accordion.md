@@ -15,60 +15,7 @@ It is commonly used to condense large amounts of information into a more managea
 
 ```tsx
 // Example usage
-<Accordion {...args}>
-  <AccordionItem title="How do I place an order?">
-    <AccordionHeader>
-      <AccordionTrigger>
-        {({ isExpanded }: { isExpanded: boolean }) => {
-          return (
-            <>
-              <AccordionTitleText>How do I place an order?</AccordionTitleText>
-              {isExpanded ? (
-                <AccordionIcon as={ChevronUpSmallIcon} />
-              ) : (
-                <AccordionIcon as={ChevronDownSmallIcon} />
-              )}
-            </>
-          );
-        }}
-      </AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      <AccordionContentText>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      </AccordionContentText>
-    </AccordionContent>
-  </AccordionItem>
-
-  <AccordionItem>
-    <AccordionHeader>
-      <AccordionTrigger>
-        {({ isExpanded }: { isExpanded: boolean }) => {
-          return (
-            <>
-              <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
-              {isExpanded ? (
-                <AccordionIcon as={ChevronUpSmallIcon} />
-              ) : (
-                <AccordionIcon as={ChevronDownSmallIcon} />
-              )}
-            </>
-          );
-        }}
-      </AccordionTrigger>
-    </AccordionHeader>
-    <AccordionContent>
-      <AccordionContentText>
-        We accept all major credit cards, PayPal, and bank transfers.
-      </AccordionContentText>
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem title="What is your return policy?">
-    <BodyText>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, voluptatibus.
-    </BodyText>
-  </AccordionItem>
-</Accordion>
+<Accordion collapsible type="multiple" />
 ```
 
 # Usage
@@ -96,18 +43,18 @@ const MyComponent = () => {
 
 ## Props
 
-| Property           | Type                        | Description                                                                                                                                                | Default    |
-| ------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `defaultValue`     | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`        |
-| `value`            | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`        |
-| `onValueChange`    | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
-| `type`             | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
-| `collapsible`      | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
-| `disabled`         | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`    |
-| `noPadding`        | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
-| `contentNoPadding` | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
-| `heading`          | `string`                    | The text to display in the heading of the list.                                                                                                            | `-`        |
-| `helperText`       | `string`                    | The helper text to display in the heading of the list.                                                                                                     | `-`        |
+| Property           | Type                        | Description                                                                                                                                                | Default      |
+| ------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `defaultValue`     | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`          |
+| `value`            | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`          |
+| `onValueChange`    | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`          |
+| `type`             | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'multiple'` |
+| `collapsible`      | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `true`       |
+| `disabled`         | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`      |
+| `noPadding`        | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`      |
+| `contentNoPadding` | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`      |
+| `heading`          | `string`                    | The text to display in the heading of the list.                                                                                                            | `-`          |
+| `helperText`       | `string`                    | The helper text to display in the heading of the list.                                                                                                     | `-`          |
 
 ### `AccordionItem`
 
@@ -150,11 +97,11 @@ const MyComponent = () => {
       <AccordionItem value="a">
         <AccordionHeader>
           <AccordionTrigger>
-            {({ isExpanded }: { isExpanded: boolean }) => {
+            {({ expanded }: { expanded: boolean }) => {
               return (
                 <>
                   <AccordionTitleText>How do I place an order?</AccordionTitleText>
-                  {isExpanded ? (
+                  {expanded ? (
                     <AccordionIcon as={ChevronUpSmallIcon} />
                   ) : (
                     <AccordionIcon as={ChevronDowSmallIcon} />
@@ -174,11 +121,11 @@ const MyComponent = () => {
       <AccordionItem value="b">
         <AccordionHeader>
           <AccordionTrigger>
-            {({ isExpanded }: { isExpanded: boolean }) => {
+            {({ expanded }: { expanded: boolean }) => {
               return (
                 <>
                   <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
-                  {isExpanded ? (
+                  {expanded ? (
                     <AccordionIcon as={ChevronUpMediumIcon} />
                   ) : (
                     <AccordionIcon as={ChevronDownMediumIcon} />

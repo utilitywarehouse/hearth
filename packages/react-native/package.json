@@ -28,7 +28,6 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules build .turbo",
-    "generateColours": "node ./scripts/generateColours.js",
     "copyTokens": "node ./scripts/copyTokens.js",
     "copy:changelog": "node ./scripts/copyChangelog.js",
     "generate:llm-docs": "rm -rf public && node scripts/generate-llm-docs.js && prettier --write \"public/**/*.md\"",
@@ -49,19 +48,6 @@
     "lint:oversight": "oversight"
   },
   "dependencies": {
-    "@gluestack-ui/accordion": "1.0.14",
-    "@gluestack-ui/alert": "0.1.15",
-    "@gluestack-ui/button": "1.0.7",
-    "@gluestack-ui/checkbox": "0.1.32",
-    "@gluestack-ui/form-control": "0.1.19",
-    "@gluestack-ui/icon": "0.1.22",
-    "@gluestack-ui/input": "0.1.31",
-    "@gluestack-ui/link": "0.1.22",
-    "@gluestack-ui/pressable": "0.1.16",
-    "@gluestack-ui/radio": "0.1.33",
-    "@gluestack-ui/spinner": "0.1.14",
-    "@gluestack-ui/switch": "0.1.22",
-    "@gluestack-ui/textarea": "0.1.23",
     "@quidone/react-native-wheel-picker": "^1.6.1",
     "@react-stately/utils": "^3.12.1",
     "dayjs": "^1.11.13",
@@ -116,12 +102,18 @@
     "@gorhom/bottom-sheet": ">=5.0.0",
     "@utilitywarehouse/hearth-react-native-icons": ">=0.8.0",
     "react": ">=17 || ^18.x || ^19.x",
-    "react-native": ">=0.77",
+    "react-native": ">=0.78",
     "react-native-gesture-handler": ">=2",
-    "react-native-reanimated": "3.x || ^4.x",
+    "react-native-reanimated": "^4.1.0",
     "react-native-safe-area-context": "5.x",
     "react-native-svg": ">=13.4.0",
-    "react-native-unistyles": ">=3.0.0",
-    "react-native-web": ">=0.19"
+    "react-native-unistyles": "^3.2.3",
+    "react-native-web": ">=0.19",
+    "react-native-worklets": ">=0.5.0"
+  },
+  "peerDependenciesMeta": {
+    "react-native-web": {
+      "optional": true
+    }
   }
 }

@@ -5,6 +5,8 @@ export const ListContext = createContext<{
   loading?: ListProps['loading'];
   disabled?: ListProps['disabled'];
   container?: ListProps['container'];
+  /** Whether the items wrapper has the `list` role, so items should be exposed as list items. */
+  isList?: boolean;
   firstItemId?: string;
   registerItem?: (id: string) => () => void;
 }>({});

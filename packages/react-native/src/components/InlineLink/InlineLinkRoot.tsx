@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Platform, Text } from 'react-native';
+import { useCallback, useMemo, useState } from 'react';
+import { GestureResponderEvent, Linking, Platform, Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { InlineLinkContext } from './InlineLink.context';
 import InlineLinkProps from './InlineLink.props';
@@ -7,23 +7,62 @@ import InlineLinkProps from './InlineLink.props';
 const InlineLinkRoot = ({
   children,
   inverted = false,
-  states,
+  disabled = false,
+  href,
   target,
   rel,
+  onPress,
   ...props
-}: InlineLinkProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active, disabled = false } = states || {};
+}: InlineLinkProps) => {
+  const [active, setActive] = useState(false);
   styles.useVariants({ disabled, inverted, active });
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
-  // react-native-web only applies `target`/`rel` to the rendered `<a>` via
-  // `hrefAttrs` - passing them as bare props is a no-op. Not typed on
-  // `TextProps`, hence the spread rather than a named JSX attribute.
-  // Web-only prop, so it's gated to avoid an unknown-prop warning on native.
-  const hrefAttrsProp =
-    Platform.OS === 'web' && (target || rel) ? { hrefAttrs: { target, rel } } : {};
+
+  const handlePress = useCallback(
+    (event: GestureResponderEvent) => {
+      if (disabled) return;
+      // RN has no built-in navigation for `href` - the web `<a>` tag handles
+      // it natively, but native needs it triggered explicitly.
+      if (Platform.OS !== 'web' && href) {
+        Linking.openURL(href).catch(err => console.error('An error occurred', err));
+      }
+      onPress?.(event);
+    },
+    [disabled, href, onPress]
+  );
+  const handlePressIn = useCallback(() => {
+    if (!disabled) setActive(true);
+  }, [disabled]);
+  const handlePressOut = useCallback(() => {
+    if (!disabled) setActive(false);
+  }, [disabled]);
+
+  // `href`/`hrefAttrs`/`tabIndex` aren't typed on `TextProps`, hence the
+  // spread rather than named JSX attributes. Web-only: on native, `<a>`-only
+  // attributes have no effect and navigation is handled by `handlePress`
+  // calling `Linking.openURL` directly instead.
+  const webOnlyProps =
+    Platform.OS === 'web'
+      ? {
+          tabIndex: disabled ? -1 : 0,
+          ...(disabled ? { 'aria-disabled': true } : {}),
+          ...(!disabled && href ? { href } : {}),
+          ...(target || rel ? { hrefAttrs: { target, rel } } : {}),
+        }
+      : {};
+
   return (
     <InlineLinkContext.Provider value={value}>
-      <Text {...props} {...hrefAttrsProp} style={[styles.container, props.style]}>
+      <Text
+        {...props}
+        {...webOnlyProps}
+        role="link"
+        accessible
+        onPress={handlePress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        style={[styles.container, props.style]}
+      >
         {children}
       </Text>
     </InlineLinkContext.Provider>

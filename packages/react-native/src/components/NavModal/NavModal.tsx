@@ -10,6 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { hexWithOpacity } from '../../utils';
 import { BodyText } from '../BodyText';
 import { Button } from '../Button';
@@ -55,6 +56,7 @@ const NavModal = ({
   ...props
 }: NavModalProps) => {
   const theme = useTheme();
+  const isReducedMotion = useReducedMotionEnabled();
   const backgroundOpacity = useSharedValue(0);
   const pretendContentTranslateY = useSharedValue(20);
   const isBrandBackground = background === 'brand';
@@ -64,6 +66,11 @@ const NavModal = ({
 
   const triggerCloseAnimation = useCallback(() => {
     if (Platform.OS === 'android') {
+      if (isReducedMotion) {
+        pretendContentTranslateY.value = 20;
+        backgroundOpacity.value = 0;
+        return;
+      }
       pretendContentTranslateY.value = withTiming(20, {
         duration: 50,
         easing: Easing.in(Easing.quad),
@@ -73,7 +80,7 @@ const NavModal = ({
         easing: Easing.in(Easing.quad),
       });
     }
-  }, [backgroundOpacity, pretendContentTranslateY]);
+  }, [backgroundOpacity, pretendContentTranslateY, isReducedMotion]);
 
   useImperativeHandle(ref, () => ({
     triggerCloseAnimation,
@@ -81,6 +88,11 @@ const NavModal = ({
 
   useEffect(() => {
     if (Platform.OS === 'android') {
+      if (isReducedMotion) {
+        backgroundOpacity.value = 1;
+        pretendContentTranslateY.value = 0;
+        return;
+      }
       backgroundOpacity.value = withDelay(
         300,
         withTiming(1, {
@@ -96,7 +108,7 @@ const NavModal = ({
         })
       );
     }
-  }, [backgroundOpacity, pretendContentTranslateY]);
+  }, [backgroundOpacity, pretendContentTranslateY, isReducedMotion]);
 
   const animatedBackgroundStyle = useAnimatedStyle(() => ({
     backgroundColor: hexWithOpacity(

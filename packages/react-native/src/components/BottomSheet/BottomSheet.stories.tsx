@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useCallback, useRef } from 'react';
 import { Dimensions, Platform, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
-import { BottomSheet, BottomSheetModal, BottomSheetView } from '.';
+import { BottomSheet, BottomSheetModal, BottomSheetModalProvider, BottomSheetView } from '.';
 import { BodyText } from '../BodyText';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -66,6 +66,13 @@ const meta = {
     enableOverDrag: true,
     animateOnMount: true,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof BottomSheet>;
 
 export default meta;

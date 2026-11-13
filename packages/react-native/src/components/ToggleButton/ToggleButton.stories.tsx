@@ -1,7 +1,7 @@
 import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { ToggleButton, ToggleButtonIcon, ToggleButtonText } from '.';
 
 const meta = {
@@ -21,19 +21,85 @@ const meta = {
       control: 'boolean',
       description: 'Whether the button is toggled or not.',
     },
+    disabled: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'If `true`, the button is disabled.',
+    },
   },
   args: {
     text: 'Press me',
     toggled: false,
+    disabled: false,
   },
 } satisfies Meta<typeof ToggleButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnToggle = fn();
+
 export const Playground: Story = {
-  render: ({ ...args }) => {
-    return <ToggleButton {...args} />;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ toggled: toggledArg = false, onToggle, ...args }) => {
+    const [toggled, setToggled] = useState(toggledArg);
+    useEffect(() => {
+      setToggled(toggledArg);
+    }, [toggledArg]);
+    return (
+      <ToggleButton
+        {...args}
+        toggled={toggled}
+        onToggle={value => {
+          setToggled(value);
+          playgroundOnToggle(value);
+        }}
+      />
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.findByRole('button', { name: 'Press me' });
+
+    // ToggleButton has no local toggle state of its own - `toggled` is a plain
+    // controlled prop, and pressing calls `onToggle` with the flipped value.
+    // `react-native-web` ignores `accessibilityState`, so the button sets
+    // `aria-pressed` itself on web.
+    await expect(button).toHaveAttribute('aria-pressed', 'false');
+
+    await userEvent.click(button);
+    expect(playgroundOnToggle).toHaveBeenLastCalledWith(true);
+    await expect(button).toHaveAttribute('aria-pressed', 'true');
+
+    await userEvent.click(button);
+    expect(playgroundOnToggle).toHaveBeenLastCalledWith(false);
+    await expect(button).toHaveAttribute('aria-pressed', 'false');
+  },
+};
+
+const disabledOnToggle = fn();
+
+export const Disabled: Story = {
+  args: {
+    text: 'Press me',
+    toggled: false,
+    disabled: true,
+  },
+  parameters: {
+    controls: { exclude: ['toggled', 'disabled'] },
+  },
+  render: args => <ToggleButton {...args} onToggle={disabledOnToggle} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = await canvas.findByRole('button', { name: 'Press me' });
+
+    // A disabled ToggleButton renders with `pointer-events: none` - a real user
+    // cannot click it at all, so its disabled state is the characterization
+    // itself, not a click attempt (userEvent.click throws on a pointer-events:
+    // none element, which is itself proof it can't respond).
+    expect(button).toBeDisabled();
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+    expect(disabledOnToggle).not.toHaveBeenCalled();
   },
 };
 

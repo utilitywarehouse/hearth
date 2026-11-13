@@ -1,18 +1,26 @@
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { Expandable } from '../Expandable';
 import { useAccordionContext } from './Accordion.context';
 import { useAccordionItemContext } from './AccordionItem.context';
 
 const AccordionContent = ({ children, style, ...props }: ViewProps) => {
   const { noPadding: contextMoPadding, contentNoPadding } = useAccordionContext();
-  const { noPadding } = useAccordionItemContext();
+  const { noPadding, expanded = false, contentId, triggerId } = useAccordionItemContext();
   const noPaddingValue = noPadding ?? contextMoPadding;
   styles.useVariants({ noPadding: noPaddingValue, contentNoPadding });
 
   return (
-    <View style={[styles.content, style]} {...props}>
-      {children}
-    </View>
+    <Expandable expanded={expanded}>
+      <View
+        nativeID={contentId}
+        accessibilityLabelledBy={triggerId}
+        style={[styles.content, style]}
+        {...props}
+      >
+        {children}
+      </View>
+    </Expandable>
   );
 };
 

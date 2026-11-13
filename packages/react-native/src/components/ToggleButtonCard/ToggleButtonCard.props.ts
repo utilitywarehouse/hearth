@@ -2,9 +2,12 @@ import type { PressableProps, ViewProps, ViewStyle } from 'react-native';
 import { SpaceValue } from '../../types';
 
 interface ToggleButtonCardProps extends Omit<PressableProps, 'children'> {
-  /** The value used for the toggle button, returned on form submission. */
+  /**
+   * Identifies the card inside a `ToggleGroup` or `ToggleButtonCardGroup`, which use it to
+   * work out whether the card is selected. Must be unique within the group.
+   */
   value: string;
-  /** Called when the state of the toggle button changes. */
+  /** Called with the card's new selected state when its toggle button is pressed. */
   onChange?: (isSelected: boolean) => void;
   children?: ViewProps['children'];
   /** The label to be displayed next to the toggle button. */

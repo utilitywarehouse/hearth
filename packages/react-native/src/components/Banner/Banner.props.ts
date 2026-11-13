@@ -13,6 +13,7 @@ export interface BannerProps extends Omit<
   | 'rowGap'
   | 'columnGap'
   | 'flexDirection'
+  | 'direction'
   | 'flexWrap'
   | 'alignItems'
   | 'justifyContent'

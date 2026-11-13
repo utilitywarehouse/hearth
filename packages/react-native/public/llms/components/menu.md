@@ -25,7 +25,7 @@ The `Menu` component provides a bottom sheet modal with a list of actions. It's 
       <Button>Open Menu</Button>
     </MenuTrigger>
 
-    <Menu ref={menuRef} {...args}>
+    <Menu ref={menuRef} animationConfigs={{ duration: 0 }} {...args}>
       <MenuItem icon={EditSmallIcon} text="Edit" onPress={() => console.log('Edit pressed')} />
       <MenuItem icon={ShareSmallIcon} text="Share" onPress={() => console.log('Share pressed')} />
       <MenuItem

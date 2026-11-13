@@ -5,6 +5,7 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { View } from 'react-native';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { BodyText, Flex, SegmentedControl, SegmentedControlOption } from '../';
 
 const meta = {
@@ -108,6 +109,41 @@ export const Controlled = {
         <BodyText size="sm">Selected: {value}</BodyText>
       </Flex>
     );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await waitFor(() => expect(canvas.getByText('Selected: annual')).toBeInTheDocument());
+
+    const monthlyOption = await canvas.findByRole('radio', { name: 'Monthly' });
+    await userEvent.click(monthlyOption);
+
+    await waitFor(() => {
+      expect(canvas.getByText('Selected: monthly')).toBeInTheDocument();
+      expect(canvas.queryByText('Selected: annual')).not.toBeInTheDocument();
+    });
+  },
+};
+
+export const EmptyDefaultValue = {
+  render: () => (
+    <SegmentedControl defaultValue="">
+      <SegmentedControlOption value="monthly">Monthly</SegmentedControlOption>
+      <SegmentedControlOption value="annual">Annual</SegmentedControlOption>
+    </SegmentedControl>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // `defaultValue=""` selects no option, so there is no indicator yet.
+    const annualOption = await canvas.findByRole('radio', { name: 'Annual' });
+    expect(canvas.queryByTestId('segmented-control-indicator')).not.toBeInTheDocument();
+
+    // Selecting an option after layout must place the indicator from the cached layout.
+    await userEvent.click(annualOption);
+    await waitFor(() => {
+      expect(canvas.getByTestId('segmented-control-indicator')).toBeInTheDocument();
+    });
   },
 };
 

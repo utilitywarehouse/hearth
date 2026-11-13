@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { BodyText } from '../BodyText';
 
@@ -52,10 +53,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnValueChange = fn();
+
 export const Playground: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, ...args }) => (
-    <ToggleButtonCardGroup {...args}>
+    <ToggleButtonCardGroup {...args} onValueChange={playgroundOnValueChange}>
       <ToggleButtonCard
         aria-label="Label 1"
         label="Option 1"
@@ -82,4 +85,25 @@ export const Playground: Story = {
       </ToggleButtonCard>
     </ToggleButtonCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const toggle1 = await canvas.findByRole('button', { name: 'Option 1' });
+    const toggle2 = canvas.getByRole('button', { name: /Option 2/ });
+
+    // Selection state moved off gluestack's createRadio(), which rendered a
+    // hidden native <input type="radio"> per option as its source of truth.
+    // The migrated ToggleButtonCard/ToggleButtonCardGroup share selection via
+    // plain React state (see useSingleSelection) with no backing <input>, so
+    // this characterizes selection through the onValueChange callback
+    // contract instead of querying for an input element that no longer
+    // exists (mirrors PillGroup's approach - see UWDS-4909 for the broader
+    // gap around asserting selected/checked state via rendered DOM/style on
+    // react-native-web).
+    await userEvent.click(toggle2);
+    expect(playgroundOnValueChange).toHaveBeenLastCalledWith('Option 2');
+
+    await userEvent.click(toggle1);
+    expect(playgroundOnValueChange).toHaveBeenLastCalledWith('Option 1');
+  },
 };

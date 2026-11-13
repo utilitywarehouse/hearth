@@ -5,6 +5,10 @@ interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
   disabled?: boolean;
   variant?: 'subtle' | 'emphasis';
+  /** Vertical alignment of the list item's parts. It sets the default for `leadingContentAlignment`,
+   * `contentAlignment` and `trailingContentAlignment`, which take precedence.
+   * @default 'center' */
+  alignItems?: ViewStyle['alignItems'];
   /** Vertical alignment of the leading content within the list item.
    * @default 'flex-start' */
   leadingContentAlignment?: ViewStyle['alignSelf'];
