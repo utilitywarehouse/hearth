@@ -12,8 +12,8 @@ then `<img src={Scene} alt="..." />`. Spot/scene/mascot illustrations come from
 
 ## Browser tokens in JS/TS, CSS variables in CSS
 
-Check the token exists in `@utilitywarehouse/hearth-tokens/browser` before
-using it.
+Check the token exists with `hearth tokens get <path>` (see the `hearth-cli`
+skill) before using it; the `browser` line is its `@utilitywarehouse/hearth-tokens/browser` export.
 
 ```tsx
 // ✅ CORRECT

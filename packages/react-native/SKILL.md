@@ -105,7 +105,10 @@ options. Small self-contained tasks can proceed directly.
    raw palette values (`theme.color.purple[400]`) unless no semantic token fits.
 6. **Theme tokens in Unistyles `StyleSheet.create`**, not hardcoded hex codes or
    font sizes. A hardcoded pixel dimension is fine when the theme has no
-   matching token: check first.
+   matching token: check the installed theme first. If
+   `@utilitywarehouse/hearth-tokens` is also installed,
+   `hearth tokens search <word> --platform native` lists tokens too (see the
+   `hearth-cli` skill); it needs that package and does not replace the theme check.
 7. **Space tokens are for spacing only**, not one-off dimensions.
 
 ## Critical rules

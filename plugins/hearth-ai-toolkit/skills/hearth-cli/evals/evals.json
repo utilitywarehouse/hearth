@@ -1,0 +1,70 @@
+{
+  "skill_name": "hearth-cli",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In this React app that uses Hearth, add a bill icon next to the 'Your bill' heading.",
+      "expected_output": "Runs `hearth icons search bill --json`, picks an icon from the result, runs `hearth icons get <name> --json` or uses the usage line, and imports it from the package the CLI reports.",
+      "expectations": [
+        "Runs `hearth icons search` before writing the import",
+        "Passes --json and checks the exit code before using the output",
+        "Imports the icon from the package named in the CLI's usage, not from a guessed path",
+        "Does not use an icon name that the CLI did not return"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Make the helper text under this input use the secondary text colour. It's a web app styled with CSS modules.",
+      "expected_output": "Runs `hearth tokens search` for secondary text, prefers a semantic token, and uses its CSS variable in the CSS file with no hardcoded hex.",
+      "expectations": [
+        "Looks the token up with `hearth tokens search` and `get` instead of guessing the variable",
+        "Uses a semantic token, not a primitive colour",
+        "Uses the css.variable value in the CSS file",
+        "Does not write a hex value"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "In our Expo app, style this card background with the brand background colour and make sure it looks right in dark mode.",
+      "expected_output": "Runs `hearth tokens get semantic.background.brand --platform native --json` and uses both js.path (light) and the separate js.darkPath (dark), or the theme that selects between them.",
+      "expectations": [
+        "Passes --platform native explicitly",
+        "Uses the js paths from the output rather than a CSS variable or a hex value",
+        "Uses js.darkPath for dark mode as well as js.path, or relies on the theme to select between them, and does not use js.path alone",
+        "Does not take a dark value from a web (default platform) lookup"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Use the Hearth 'sparkle' icon on the rewards page.",
+      "expected_output": "Searches for the icon, finds no match (exit 1, total 0), tries a broader or synonym query at most once or twice, then tells the user no such icon exists instead of inventing a name.",
+      "expectations": [
+        "Reads exit 1 from a search as no match, not as a failure to retry endlessly",
+        "Tries at most one or two other queries",
+        "Tells the user nothing fits and offers an alternative or a question",
+        "Does not import an icon name the CLI did not return"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Look up the token for the primary body text colour with the hearth CLI. (The CLI prints: Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: Package subpath './hearth-manifest.json' is not defined by \"exports\" and exits 1 with nothing on stdout.)",
+      "expected_output": "Recognises the stack trace as a broken install, not a no-match, stops, tells the user, and does not retry or guess the token.",
+      "expectations": [
+        "Does not treat exit 1 as a no-match",
+        "Does not retry the command or try variations",
+        "Tells the user the installed package hides its manifest and may be altered or not a Hearth release",
+        "Does not guess a token path from node_modules"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Find the Hearth logo to put in the footer. (The CLI exits 3 with: @utilitywarehouse/hearth-svg-assets is not installed in this project. Install it (npm install @utilitywarehouse/hearth-svg-assets) and run the command again.)",
+      "expected_output": "Relays the exit 3 message and the install command to the user and asks before installing.",
+      "expectations": [
+        "Reports that the package is not installed and gives the command from the message",
+        "Does not run the install without asking",
+        "Does not invent a logo import path"
+      ]
+    }
+  ]
+}

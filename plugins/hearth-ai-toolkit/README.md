@@ -31,6 +31,9 @@ This gives you:
   already uses `hearth-react` — hallucinated or deprecated props,
   design-token misuse, accessibility gaps, and layout anti-patterns. React
   Native isn't covered yet.
+- The `hearth-cli` skill, which tells Claude to look up design tokens, icons and
+  assets with the `hearth` CLI instead of guessing names. The CLI runs through
+  `npx`, so it needs Node and nothing else.
 - The `design-systems-feedback` skill, for turning a rough edge or a win you
   hit while using any of the above into a real Linear issue in the Design
   Systems team's triage queue, instead of just telling you to report it
@@ -51,7 +54,8 @@ Omitting `--sparse` (a full clone) works too and is simplest.
 
 ## Scope
 
-Only `hearth-react` and `hearth-react-native` are covered today. The other
-Hearth packages (tokens, fonts, css-reset, icons, svg-assets, json-assets)
-don't yet have a consumer `SKILL.md` or MCP server — that work is tracked
-separately.
+Components are covered by the `hearth-react` and `hearth-react-native` skills
+and MCP servers. Tokens, icons, SVG assets and JSON assets are covered by the
+`hearth-cli` skill, which calls the `hearth` CLI (`@utilitywarehouse/hearth-cli`)
+rather than an MCP server. The other packages (fonts, css-reset) don't have a
+skill or MCP server; the skills only give guidance on fonts.
