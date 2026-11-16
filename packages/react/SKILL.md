@@ -98,8 +98,8 @@ options. Small self-contained tasks can proceed directly.
 5. **Semantic colours** (`semantic.background.primary`), never raw values like
    `color.energyblue[500]`.
 6. **CSS tokens in CSS files, browser tokens in JS/TS/JSX/TSX.** Never use CSS
-   variables in JS; use JS tokens for UI only for calculations. Check a browser
-   token exists in `@utilitywarehouse/hearth-tokens/browser` before using it.
+   variables in JS; use JS tokens for UI only for calculations. Look a token up
+   with `hearth tokens get` (see the `hearth-cli` skill) before using it.
 7. **Space tokens are for spacing only**: never for `width`, `height` or font
    sizes.
 8. **No custom styles on typography components** (`Heading`, `BodyText`,
