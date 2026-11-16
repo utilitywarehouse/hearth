@@ -379,6 +379,8 @@ export const Interactive: Story = {
     // Pressing anywhere on a plain pressable Card fires the `onPress` handler
     // passed to Card itself.
     const card = canvas.getByTestId('interactive-card');
+    // A pressable Card is announced as a button.
+    expect(card).toHaveAttribute('role', 'button');
     await userEvent.click(card);
     expect(interactiveCardOnPress).toHaveBeenCalledOnce();
 

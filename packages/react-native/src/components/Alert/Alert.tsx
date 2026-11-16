@@ -47,6 +47,7 @@ const Alert = ({
   return (
     <AlertContext.Provider value={value}>
       <Pressable
+        accessibilityRole={onPress ? 'button' : undefined}
         {...props}
         style={state => [
           styles.container,

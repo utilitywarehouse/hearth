@@ -321,6 +321,11 @@ export const PressControlItem: Story = {
     const thirdItem = await canvas.findByTestId('carousel-item-3');
     const thirdDot = await canvas.findByLabelText('Page 3 of 5');
 
+    // Each control item is a button; the current page is marked with `aria-current`.
+    expect(thirdDot).toHaveAttribute('role', 'button');
+    expect(await canvas.findByLabelText('Page 1 of 5')).toHaveAttribute('aria-current', 'true');
+    expect(thirdDot).not.toHaveAttribute('aria-current');
+
     // The first item starts active (full opacity); the third is inactive (dimmed).
     await waitFor(() => {
       expect(getComputedStyle(firstItem).opacity).toBe('1');

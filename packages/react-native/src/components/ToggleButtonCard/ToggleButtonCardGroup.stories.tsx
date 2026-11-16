@@ -88,8 +88,8 @@ export const Playground: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
-    const toggle1 = await canvas.findByRole('button', { name: 'Option 1' });
-    const toggle2 = canvas.getByRole('button', { name: /Option 2/ });
+    const toggle1 = await canvas.findByRole('button', { name: 'Label 1' });
+    const toggle2 = canvas.getByRole('button', { name: 'Label 2' });
 
     // Selection state moved off gluestack's createRadio(), which rendered a
     // hidden native <input type="radio"> per option as its source of truth.
