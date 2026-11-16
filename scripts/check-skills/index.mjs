@@ -2,7 +2,8 @@
 // `name` / `description`. An unquoted `: ` in a description is valid prose but
 // invalid YAML, and the skill silently fails to load.
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { parse } from 'yaml';
 
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/;
@@ -38,4 +39,4 @@ function main() {
   console.log(`${files.length} SKILL.md files OK`);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href) main();
