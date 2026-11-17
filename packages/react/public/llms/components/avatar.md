@@ -70,12 +70,6 @@ If you notice a flash during loading, you can provide a
 `delay` prop to delay its rendering so it only renders for those with slower
 connections.
 
-## Migration
-
-The `delayMs` prop is deprecated and will be removed in the next major version.
-Rename it to `delay`. Both props take milliseconds and behave the same, so no
-other changes are needed.
-
 ## Name
 
 The `name` prop will be used to generate initials used in the `Avatar`, it will
@@ -113,6 +107,5 @@ This component is based on the `img` & `span` elements and supports the followin
 | `style`                 | `CSSProperties`                          | —       |                                                                                                     |
 | `name`                  | `string`                                 | —       | Set the name associated with the avatar, used for creating initials, and an accessible description. |
 | `delay`                 | `number`                                 | —       | How long to wait, in milliseconds, before showing the fallback.                                     |
-| `delayMs`               | `number`                                 | —       | @deprecated Use `delay` instead. Will be removed in the next major version.                         |
 | `size`                  | `Responsive<"sm" \| "md">`               | `md`    | Sets the avatar size.                                                                               |
 | `onLoadingStatusChange` | `((status: ImageLoadingStatus) => void)` | —       | Callback fired when the loading status changes.                                                     |

@@ -37,8 +37,6 @@ export interface AvatarProps
    * How long to wait, in milliseconds, before showing the fallback.
    */
   delay?: ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>['delay'];
-  /** @deprecated Use `delay` instead. Will be removed in the next major version. */
-  delayMs?: ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>['delay'];
   /**
    * Sets the avatar size.
    * @default md

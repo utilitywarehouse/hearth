@@ -49,7 +49,7 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 
 - A workspace package such as `packages/manifest` can have no `node_modules/.bin`. Run the root binaries from the package directory, for example `../../node_modules/.bin/vitest`.
 
-- A fresh worktree has no `node_modules` or build output. Ask the user to run `nvm use && pnpm install`, then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests.
+- A fresh worktree has no `node_modules` or build output. Before the first edit, ask the user to run `nvm use && pnpm install`, so lint and typecheck can run on every change. Then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests.
 
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 

@@ -15,7 +15,6 @@ import type { BodyTextProps } from '../BodyText/BodyText.props';
 import { Box } from '../Box/Box';
 import type { BoxProps } from '../Box/Box.props';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
-import { warn } from '../../helpers/logger';
 import type { ComponentRef } from 'react';
 
 type AvatarElement = ComponentRef<'div'>;
@@ -33,14 +32,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
  * @summary A visual representation of a user, shown as an image, initials, or a fallback icon.
  */
 export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const { className, src, name, delay, delayMs, ...avatarProps } = extractProps(
+  const { className, src, name, delay, ...avatarProps } = extractProps(
     props,
     avatarPropDefs,
     marginPropDefs
   );
 
-  warn(delayMs !== undefined, '<Avatar>: the `delayMs` prop is deprecated. Use `delay` instead.');
-  const resolvedDelay = delay ?? delayMs ?? 0;
+  const resolvedDelay = delay ?? 0;
 
   const initials = getInitials(name);
 

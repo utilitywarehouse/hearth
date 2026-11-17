@@ -108,8 +108,7 @@ This is a breaking change, so it is only included in `react/v1/migration`, not
 
 ### `react/v1/migrate-card-banner-image`
 
-`CardBannerImage` is deprecated in favour of `BannerImage`, which has the same props. It will
-be removed in `v1`.
+`CardBannerImage` has been removed in favour of `BannerImage`, which has the same props.
 
 ```diff
 - import { CardBannerImage } from '@utilitywarehouse/hearth-react';
@@ -131,14 +130,14 @@ The codemod renames the import, including aliased (`CardBannerImage as Banner`) 
 duplicate import is dropped. Where renaming could collide with another `BannerImage` binding, the
 import becomes `BannerImage as CardBannerImage` instead.
 
-This is a non-breaking codemod, so it is included in `react/pre-v1/migration` (and therefore in
+This codemod is included in `react/pre-v1/migration` (and therefore in
 `react/v1/migration`).
 
 ### `react/v1/migrate-menu`
 
-`MenuItem`'s deprecated `onSelect` and `textValue` props are replaced by
-`onClick` and `label`, and `MenuContent`'s deprecated `forceMount` by
-`keepMounted`. They will be removed in `v1`.
+`MenuItem`'s `onSelect` and `textValue` props have been removed in favour of
+`onClick` and `label`, and `MenuContent`'s `forceMount` in favour of
+`keepMounted`.
 
 ```diff
 - <MenuContent forceMount>
@@ -164,8 +163,7 @@ with the file and line, for manual review:
 
 ### `react/v1/remove-accordion-content-force-mount`
 
-`AccordionContent`'s deprecated `forceMount` prop is replaced by `keepMounted`.
-It will be removed in `v1`.
+`AccordionContent`'s `forceMount` prop has been removed in favour of `keepMounted`.
 
 ```diff
 - <AccordionContent forceMount>
