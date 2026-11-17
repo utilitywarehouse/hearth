@@ -1,25 +1,17 @@
-import { Tooltip as TooltipPrimitive } from 'radix-ui';
-import type { ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from 'react';
+import { Tooltip as TooltipPrimitive } from '@base-ui/react';
+import type {
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+  ReactElement,
+  ReactNode,
+} from 'react';
 
 export interface TooltipProps
   extends
-    Omit<
-      ComponentPropsWithRef<typeof TooltipPrimitive.Content>,
-      | 'asChild'
-      | 'content'
-      | 'side'
-      | 'sideOffset'
-      | 'align'
-      | 'alignOffset'
-      | 'avoidCollisions'
-      | 'collisionBoundary'
-      | 'collisionPadding'
-      | 'arrowPadding'
-      | 'sticky'
-    >,
+    Omit<ComponentPropsWithRef<typeof TooltipPrimitive.Popup>, 'render' | 'children' | 'className'>,
     Omit<
       ComponentPropsWithoutRef<typeof TooltipPrimitive.Root>,
-      'delayDuration' | 'disableHoverableContent'
+      'disableHoverablePopup' | 'children'
     > {
   /**
    * Sets the position of the tooltip relative to its trigger.
@@ -42,4 +34,10 @@ export interface TooltipProps
    * The content of the tooltip.
    */
   description: ReactNode;
+  /**
+   * A single element that acts as the trigger for the tooltip.
+   */
+  children: ReactElement;
+  /** CSS class applied to the tooltip content */
+  className?: string;
 }

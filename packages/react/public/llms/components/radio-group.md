@@ -7,7 +7,43 @@ follows the WAI-ARIA Radio Group pattern for groups not contained in a
 toolbar. For multi-select options, use CheckboxGroup instead.
 
 ```tsx
-<RadioGroup label="Label" helperText="Helper text" validationText="Validation text" />
+<Flex direction="column" gap="400">
+  <Flex direction="row" gap="200">
+    <RadioGroup {...args}>
+      <RadioTile value="england" label="England" />
+      <RadioTile value="wales" label="Wales" />
+      <RadioTile value="scotland" label="Scotland" />
+      <RadioTile value="northern-ireland" label="Northern Ireland" />
+    </RadioGroup>
+    <RadioGroup {...args} disabled>
+      <RadioTile value="england" label="England" />
+      <RadioTile value="wales" label="Wales" />
+      <RadioTile value="scotland" label="Scotland" />
+      <RadioTile value="northern-ireland" label="Northern Ireland" />
+    </RadioGroup>
+    <RadioGroup {...args}>
+      <Radio value="england" label="England" />
+      <Radio value="wales" label="Wales" />
+      <Radio value="scotland" label="Scotland" />
+      <Radio value="northern-ireland" label="Northern Ireland" />
+    </RadioGroup>
+    <RadioGroup {...args} disabled>
+      <Radio value="england" label="England" />
+      <Radio value="wales" label="Wales" />
+      <Radio value="scotland" label="Scotland" />
+      <Radio value="northern-ireland" label="Northern Ireland" />
+    </RadioGroup>
+  </Flex>
+  <RadioGroup
+    {...args}
+    label="Do you like living here?"
+    name="do-you-like-living-here"
+    direction="row"
+  >
+    <RadioTile value="y" label="Yes" image={<ThumbsUpSmallIcon />} />
+    <RadioTile value="n" label="No" image={<ThumbsDownSmallIcon />} />
+  </RadioGroup>
+</Flex>
 ```
 
 ## Alternatives
@@ -365,21 +401,21 @@ This component is based on the `fieldset` element and supports the following com
 | Prop                  | Type                                                                 | Default  | Description                                                                                                                                                                                                                                                           |
 | --------------------- | -------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `label`               | `ReactNode`                                                          | —        | The label for the formfield group. This should contain the question being answered by the formfield group. If you don't include a label you need to ensure you use the `aria-label` or `aria-labelledby` prop to properly associate a label with the formfield group. |
-| `defaultValue`        | `string`                                                             | —        |                                                                                                                                                                                                                                                                       |
-| `asChild`             | `boolean`                                                            | `false`  | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.                                                                                                                             |
-| `name`                | `string`                                                             | —        |                                                                                                                                                                                                                                                                       |
-| `required`            | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
-| `disabled`            | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
-| `loop`                | `boolean`                                                            | —        |                                                                                                                                                                                                                                                                       |
-| `value`               | `string \| null`                                                     | —        |                                                                                                                                                                                                                                                                       |
-| `onValueChange`       | `((value: string) => void)`                                          | —        |                                                                                                                                                                                                                                                                       |
+| `defaultValue`        | `string`                                                             | —        | The uncontrolled value of the radio item that should be initially selected.                                                                                                                                                                                           |
 | `labelVariant`        | `"body" \| "heading"`                                                | —        | Set the label variant                                                                                                                                                                                                                                                 |
 | `helperText`          | `ReactNode`                                                          | —        | Helper text for the formfield group. Provides a hint such as specific requirements for what to choose. When displayed, child components should not display their own `helperText`.                                                                                    |
 | `validationText`      | `ReactNode`                                                          | —        | Text to display when the `validationStatus` is set.                                                                                                                                                                                                                   |
 | `validationStatus`    | `"valid" \| "invalid"`                                               | —        | Indicates the validation status of the formfield group.                                                                                                                                                                                                               |
 | `validationPlacement` | `"top" \| "bottom"`                                                  | —        | Sets where the validation text is displayed relative to the group's children.                                                                                                                                                                                         |
+| `disabled`            | `boolean`                                                            | —        | Whether the group should ignore user interaction.                                                                                                                                                                                                                     |
+| `name`                | `string`                                                             | —        | Identifies the field when a form is submitted.                                                                                                                                                                                                                        |
+| `asChild`             | `boolean`                                                            | `false`  | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.                                                                                                                             |
 | `direction`           | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` | `column` | The layout direction of the radio items within the group.                                                                                                                                                                                                             |
 | `contentWidth`        | `Responsive<string>`                                                 | —        | Set the container width of the RadioGroup children, independent to the width of the parent RadioGroup.                                                                                                                                                                |
+| `required`            | `boolean`                                                            | —        | Whether the user must choose a value before submitting a form.                                                                                                                                                                                                        |
+| `loop`                | `boolean`                                                            | —        | Whether keyboard navigation wraps around from the last item to the first.                                                                                                                                                                                             |
+| `value`               | `string`                                                             | —        | The controlled value of the radio item that should be currently selected.                                                                                                                                                                                             |
+| `onValueChange`       | `((value: string) => void)`                                          | —        | Callback fired when the selected value changes.                                                                                                                                                                                                                       |
 
 ### Radio API
 
@@ -387,16 +423,20 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop              | Type                      | Default | Description                                                                                                                               |
-| ----------------- | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `label`           | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
-| `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
-| `value`           | `string`                  | —       |                                                                                                                                           |
-| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
-| `checked`         | `boolean`                 | —       |                                                                                                                                           |
-| `required`        | `boolean`                 | —       |                                                                                                                                           |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |
-| `helperText`      | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                      |
+| Prop               | Type                      | Default | Description                                                                                                                               |
+| ------------------ | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `value`            | `string`                  | —       | The unique identifying value of the radio within its group.                                                                               |
+| `disabled`         | `boolean`                 | —       | Whether the radio should ignore user interaction.                                                                                         |
+| `required`         | `boolean`                 | —       | Whether the user must choose a value before submitting a form.                                                                            |
+| `id`               | `string`                  | —       |                                                                                                                                           |
+| `className`        | `string`                  | —       |                                                                                                                                           |
+| `aria-labelledby`  | `string`                  | —       |                                                                                                                                           |
+| `aria-describedby` | `string`                  | —       |                                                                                                                                           |
+| `asChild`          | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
+| `label`            | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
+| `labelFontWeight`  | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |
+| `helperText`       | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                      |
+| `image`            | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
 
 ### RadioTile API
 
@@ -405,17 +445,21 @@ This component is based on the `button` element and supports the following commo
 - Margin
 - Flex item
 
-| Prop              | Type                      | Default | Description                                                                                                                                       |
-| ----------------- | ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `label`           | `ReactNode`               | —       | The label for the RadioTile. If not using please properly associate the RadioTile with a label using the `aria-label` or `aria-labelledby` props. |
-| `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                                     |
-| `value`           | `string`                  | —       |                                                                                                                                                   |
-| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.         |
-| `checked`         | `boolean`                 | —       |                                                                                                                                                   |
-| `required`        | `boolean`                 | —       |                                                                                                                                                   |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                           |
-| `helperText`      | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                              |
-| `badge`           | `ReactNode`               | —       | Optional badge content, displayed below the label and helper text.                                                                                |
+| Prop               | Type                      | Default | Description                                                                                                                                       |
+| ------------------ | ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`            | `ReactNode`               | —       | The label for the RadioTile. If not using please properly associate the RadioTile with a label using the `aria-label` or `aria-labelledby` props. |
+| `badge`            | `ReactNode`               | —       | Optional badge content, displayed below the label and helper text.                                                                                |
+| `image`            | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                                     |
+| `value`            | `string`                  | —       | The unique identifying value of the radio within its group.                                                                                       |
+| `disabled`         | `boolean`                 | —       | Whether the radio should ignore user interaction.                                                                                                 |
+| `required`         | `boolean`                 | —       | Whether the user must choose a value before submitting a form.                                                                                    |
+| `id`               | `string`                  | —       |                                                                                                                                                   |
+| `className`        | `string`                  | —       |                                                                                                                                                   |
+| `aria-labelledby`  | `string`                  | —       |                                                                                                                                                   |
+| `aria-describedby` | `string`                  | —       |                                                                                                                                                   |
+| `asChild`          | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag.         |
+| `labelFontWeight`  | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                           |
+| `helperText`       | `ReactNode`               | —       | Helper text for the Radio. Will not display if the radio group has `helperText` set.                                                              |
 
 ### RadioCard API
 
@@ -423,12 +467,16 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop              | Type                      | Default | Description                                                                                                                               |
-| ----------------- | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `label`           | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
-| `image`           | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
-| `value`           | `string`                  | —       |                                                                                                                                           |
-| `asChild`         | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
-| `checked`         | `boolean`                 | —       |                                                                                                                                           |
-| `required`        | `boolean`                 | —       |                                                                                                                                           |
-| `labelFontWeight` | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |
+| Prop               | Type                      | Default | Description                                                                                                                               |
+| ------------------ | ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| `label`            | `ReactNode`               | —       | The label for the Radio. If not using please properly associate the Radio with a label using the `aria-label` or `aria-labelledby` props. |
+| `image`            | `ReactNode`               | —       | Optional image to show between the radio indicator and label.                                                                             |
+| `value`            | `string`                  | —       | The unique identifying value of the radio within its group.                                                                               |
+| `disabled`         | `boolean`                 | —       | Whether the radio should ignore user interaction.                                                                                         |
+| `required`         | `boolean`                 | —       | Whether the user must choose a value before submitting a form.                                                                            |
+| `id`               | `string`                  | —       |                                                                                                                                           |
+| `className`        | `string`                  | —       |                                                                                                                                           |
+| `aria-labelledby`  | `string`                  | —       |                                                                                                                                           |
+| `aria-describedby` | `string`                  | —       |                                                                                                                                           |
+| `asChild`          | `boolean`                 | `false` | Merges the component's props onto its immediate child instead of rendering its own DOM element, so the child determines the rendered tag. |
+| `labelFontWeight`  | `"regular" \| "semibold"` | —       | Overrides the font weight of the label.                                                                                                   |

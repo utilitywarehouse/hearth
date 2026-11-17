@@ -5,7 +5,6 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Menu as MenuPrimitive, ScrollArea as ScrollAreaPrimitive } from '@base-ui/react';
 import type { MenuContentProps } from './MenuContent.props';
-import { warn } from '../../helpers/logger';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'MenuContent';
@@ -28,15 +27,9 @@ const placementTranslation: Record<string, { side: 'bottom' | 'top'; align: 'sta
  * @summary The popup panel of a Menu, containing its items.
  */
 export const MenuContent = forwardRef<MenuContentElement, MenuContentProps>(
-  ({ className, children, forceMount, keepMounted, placement = 'bottomLeft', ...props }, ref) => {
-    warn(
-      forceMount !== undefined,
-      'MenuContent: `forceMount` is deprecated. Use `keepMounted` instead.'
-    );
-    const resolvedKeepMounted = keepMounted ?? (forceMount ? true : undefined);
-
+  ({ className, children, keepMounted, placement = 'bottomLeft', ...props }, ref) => {
     return (
-      <MenuPrimitive.Portal keepMounted={resolvedKeepMounted}>
+      <MenuPrimitive.Portal keepMounted={keepMounted}>
         <MenuPrimitive.Positioner
           {...placementTranslation[placement]}
           sideOffset={4}

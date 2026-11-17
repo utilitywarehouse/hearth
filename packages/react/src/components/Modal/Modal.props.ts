@@ -39,10 +39,6 @@ export interface BaseModalProps
    */
   hideCloseButton?: boolean;
   /**
-   * @deprecated this prop has no effect and will be removed in a future major version.
-   */
-  fullScreen?: boolean;
-  /**
    * An image, such as an SVG illustration, rendered at the top of the modal.
    * The layout automatically adjusts to accommodate it.
    */
@@ -51,10 +47,6 @@ export interface BaseModalProps
    * The image max size; `md` for standard illustrations, `lg` for larger banner images.
    */
   imageSize?: (typeof imageSizes)[number];
-  /**
-   * @deprecated Please use loadingHeading and loadingDescription instead
-   */
-  loadingText?: string;
   /**
    * The heading shown while `loading` is `true`.
    */

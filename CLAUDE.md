@@ -49,7 +49,7 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 
 - A workspace package such as `packages/manifest` can have no `node_modules/.bin`. Run the root binaries from the package directory, for example `../../node_modules/.bin/vitest`.
 
-- A fresh worktree has no `node_modules` or build output. Ask the user to run `nvm use && pnpm install`, then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests. A `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import means an unbuilt package, not a code bug.
+- A fresh worktree has no `node_modules` or build output. Before the first edit, ask the user to run `nvm use && pnpm install`, so lint and typecheck can run on every change. Then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests. A `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import means an unbuilt package, not a code bug.
 
 - In the sandbox every git command prints `unable to access '~/.gitignore'`, and writes to the shared `.git/config` (`git branch -m`, `--set-upstream-to`) or to `.claude/skills` (branch switches) can fail. The warning is harmless: read git stderr unfiltered. Ask the user to run the blocked write.
 

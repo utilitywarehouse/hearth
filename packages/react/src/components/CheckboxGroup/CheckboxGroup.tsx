@@ -6,7 +6,7 @@ import type { CheckboxGroupProps } from './CheckboxGroup.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { useControlled } from '@base-ui/utils/useControlled';
 import { CheckboxGroupProvider } from './CheckboxGroup.context';
 import type { ComponentRef } from 'react';
 
@@ -67,22 +67,31 @@ export const CheckboxGroup = forwardRef<CheckboxGroupElement, CheckboxGroupProps
     children,
   };
 
-  // useControllableState will handle whether controlled or uncontrolled
-  const [value = [], setValue] = useControllableState({
-    prop: valueProp,
-    defaultProp: defaultValue || ([] as Array<string>),
-    onChange: onValueChange,
+  // useControlled will handle whether controlled or uncontrolled
+  const [value, setValue] = useControlled({
+    controlled: valueProp,
+    default: defaultValue || ([] as Array<string>),
+    name: COMPONENT_NAME,
+    state: 'value',
   });
 
+  // Unlike useControllableState, useControlled does not call a change callback, so notify here
+  const updateValue = useCallback(
+    (nextValue: Array<string>) => {
+      setValue(nextValue);
+      onValueChange?.(nextValue);
+    },
+    [setValue, onValueChange]
+  );
+
   const handleItemCheck = useCallback(
-    (itemValue: string) => setValue((prevValue = []) => [...prevValue, itemValue]),
-    [setValue]
+    (itemValue: string) => updateValue([...value, itemValue]),
+    [updateValue, value]
   );
 
   const handleItemUncheck = useCallback(
-    (itemValue: string) =>
-      setValue((prevValue = []) => prevValue.filter(value => value !== itemValue)),
-    [setValue]
+    (itemValue: string) => updateValue(value.filter(checkedValue => checkedValue !== itemValue)),
+    [updateValue, value]
   );
 
   const providerValue = {

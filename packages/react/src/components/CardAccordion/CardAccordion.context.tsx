@@ -21,15 +21,15 @@ export const CardAccordionProvider = ({
 }: {
   children: ReactNode;
   steps: Array<string>;
-  onValueChange?: (value: string) => void;
-  setCurrentValue?: (value: string) => void;
+  onValueChange?: (value: Array<string>) => void;
+  setCurrentValue?: (value: Array<string>) => void;
 }) => {
   const [currentStep, setCurrentStep] = useState<string | undefined>(steps[0]);
   const [previousSteps, setPreviousSteps] = useState<Array<string>>([]);
 
   useEffect(() => {
     if (currentStep) {
-      setCurrentValue?.(currentStep);
+      setCurrentValue?.([currentStep]);
     }
   }, [currentStep, setCurrentValue]);
 
@@ -41,7 +41,7 @@ export const CardAccordionProvider = ({
 
   const handleValueChange = (value: string) => {
     setCurrentStep(value);
-    onValueChange?.(value);
+    onValueChange?.([value]);
   };
 
   const isFirstStep = currentStep === steps[0];

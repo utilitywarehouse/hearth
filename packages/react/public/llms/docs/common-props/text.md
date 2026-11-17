@@ -17,5 +17,4 @@ reflect their own relevant CSS usage.
 | --------------- | --------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
 | `textAlign`     | `Responsive<"center" \| "left" \| "right">`               | —       | Set the horizontal alignment of text within the component.                                                   |
 | `textTransform` | `"none" \| "uppercase" \| "lowercase" \| "capitalize"`    | —       | Set the text-transform on the component.                                                                     |
-| `wrap`          | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">` | —       | DEPRECATED: use `textWrap` instead of `wrap` @deprecated Use `textWrap` instead of `wrap`                    |
 | `textWrap`      | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">` | —       | Sets the CSS `text-wrap` property, controlling how text wraps within its container. Can be set responsively. |

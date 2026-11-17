@@ -23,7 +23,7 @@
     }
   }
 
-  &:where([data-state='checked']) {
+  &:where([data-checked]) {
     --h-radio-tile-box-shadow-width: var(--h-radio-tile-border-width-selected);
   }
 

@@ -7,7 +7,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { avatarPropDefs } from './Avatar.props';
 import type { AvatarProps } from './Avatar.props';
-import { Avatar as AvatarPrimitive } from 'radix-ui';
+import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar';
 import { UserMediumIcon, UserSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { getInitials } from '../../helpers/get-initials';
@@ -32,13 +32,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
  * @summary A visual representation of a user, shown as an image, initials, or a fallback icon.
  */
 export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const {
-    className,
-    src,
-    name,
-    delayMs = 0,
-    ...avatarProps
-  } = extractProps(props, avatarPropDefs, marginPropDefs);
+  const { className, src, name, delay, ...avatarProps } = extractProps(
+    props,
+    avatarPropDefs,
+    marginPropDefs
+  );
+
+  const resolvedDelay = delay ?? 0;
 
   const initials = getInitials(name);
 
@@ -66,7 +66,7 @@ export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
           {...avatarProps}
         />
       ) : null}
-      <AvatarPrimitive.Fallback className={`${componentClassName}Fallback`} delayMs={delayMs}>
+      <AvatarPrimitive.Fallback className={`${componentClassName}Fallback`} delay={resolvedDelay}>
         {name ? (
           <BodyText
             as="span"

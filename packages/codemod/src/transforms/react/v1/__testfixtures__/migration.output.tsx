@@ -1,8 +1,11 @@
 import * as React from 'react';
-import { BodyText, MenuContent, MenuItem, Modal } from '@utilitywarehouse/hearth-react';
+import { Accordion, AccordionContent, BodyText, MenuContent, MenuItem, Modal } from '@utilitywarehouse/hearth-react';
 
 const Component = () => (
   <>
+  <Accordion>
+    <AccordionContent keepMounted>Content</AccordionContent>
+  </Accordion>
   <MenuContent keepMounted>
     <MenuItem onClick={() => {}} label="Edit">Edit</MenuItem>
   </MenuContent>

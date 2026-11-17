@@ -10,7 +10,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
-import { Checkbox as CheckboxPrimitive } from 'radix-ui';
+import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import { ValidationText } from '../ValidationText/ValidationText';
@@ -81,6 +81,8 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
     >
       <CheckboxPrimitive.Root
         ref={ref}
+        render={<button />}
+        nativeButton
         className={`${componentClassName}Root`}
         name={checkboxContext?.name}
         checked={checked}
@@ -105,9 +107,10 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
           }
         }}
       >
-        <CheckboxPrimitive.Indicator asChild className={`${componentClassName}Indicator`}>
-          <TickSmallIcon />
-        </CheckboxPrimitive.Indicator>
+        <CheckboxPrimitive.Indicator
+          render={<TickSmallIcon />}
+          className={`${componentClassName}Indicator`}
+        />
       </CheckboxPrimitive.Root>
       {showLabel ? (
         <Flex direction="column">
