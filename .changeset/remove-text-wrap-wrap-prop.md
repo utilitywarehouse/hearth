@@ -16,3 +16,5 @@ Migrate automatically with the codemod:
 ```sh
 npx @utilitywarehouse/hearth-codemod react/v1/remove-text-wrap-prop <path>
 ```
+
+See the [`v1` migration guide](../packages/react/docs/migration/v1.docs.mdx) for details.

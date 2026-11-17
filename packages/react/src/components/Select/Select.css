@@ -8,8 +8,6 @@
     appearance: none;
     box-sizing: border-box;
     cursor: pointer;
-    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-    width: var(--radix-select-trigger-width);
     display: inline-flex;
     align-items: center;
     justify-content: space-between;

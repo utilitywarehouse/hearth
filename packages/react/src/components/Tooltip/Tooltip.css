@@ -8,30 +8,27 @@
    * tooltip max-width token or the available width minus a horizontal gutter.
    * This ensures that the tooltip does not exceed a certain width while also
    * accounting for the available space on the screen.  */
-  /* stylelint-disable custom-property-pattern, csstools/value-no-unknown-custom-properties */
-  max-width: min(
-    var(--h-tooltip-max-width),
-    calc(var(--radix-popper-available-width) - var(--h-space-400))
-  );
+  /* stylelint-disable custom-property-pattern, csstools/value-no-unknown-custom-properties -- set by the Base UI positioner */
+  max-width: min(var(--h-tooltip-max-width), calc(var(--available-width) - var(--h-space-400)));
   /* stylelint-enable custom-property-pattern, csstools/value-no-unknown-custom-properties */
   user-select: none;
   animation-duration: 300ms;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, opacity;
 
-  &[data-state='delayed-open'][data-side='top'] {
+  &[data-open]:not([data-instant])[data-side='top'] {
     animation-name: h-tooltip-slide-up-and-fade;
   }
 
-  &[data-state='delayed-open'][data-side='right'] {
+  &[data-open]:not([data-instant])[data-side='right'] {
     animation-name: h-tooltip-slide-left-and-fade;
   }
 
-  &[data-state='delayed-open'][data-side='bottom'] {
+  &[data-open]:not([data-instant])[data-side='bottom'] {
     animation-name: h-tooltip-slide-down-and-fade;
   }
 
-  &[data-state='delayed-open'][data-side='left'] {
+  &[data-open]:not([data-instant])[data-side='left'] {
     animation-name: h-tooltip-slide-right-and-fade;
   }
 

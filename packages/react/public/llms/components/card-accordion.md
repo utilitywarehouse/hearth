@@ -248,8 +248,11 @@ no such prop.
 </CardAccordion>;
 ```
 
-A codemod for this change is tracked separately (UWDS-5255) and isn't
-available yet — update usages by hand in the meantime.
+Migrate automatically with the codemod:
+
+```sh
+npx @utilitywarehouse/hearth-codemod react/v1/migrate-card-accordion <path>
+```
 
 ## API
 
