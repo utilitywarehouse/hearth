@@ -26,8 +26,10 @@
     "lint:ci": "turbo run lint:ci --filter='./packages/*'",
     "typecheck": "turbo run typecheck",
     "typecheck:packages": "turbo run typecheck --filter='./packages/*'",
-    "checks": "pnpm run typecheck:packages && pnpm run lint && pnpm run format",
-    "checks:ci": "pnpm run typecheck:packages && pnpm run lint:ci && pnpm run format:ci",
+    "check:skills": "node scripts/check-skills/index.mjs",
+    "test:skills": "node --test scripts/check-skills/*.test.mjs",
+    "checks": "pnpm run typecheck:packages && pnpm run lint && pnpm run format && pnpm run check:skills && pnpm run test:skills",
+    "checks:ci": "pnpm run typecheck:packages && pnpm run lint:ci && pnpm run format:ci && pnpm run check:skills && pnpm run test:skills",
     "changeset": "changeset",
     "check:manifests": "pnpm --filter @utilitywarehouse/hearth-manifest build && pnpm --filter @utilitywarehouse/hearth-manifest check:indexed --tarball",
     "ci:publish": "pnpm run build:packages && pnpm run check:manifests && changeset publish",
@@ -87,6 +89,7 @@
     "prettier": "^3.8.3",
     "turbo": "^2.9.12",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.61.0"
+    "typescript-eslint": "^8.61.0",
+    "yaml": "^2.9.0"
   }
 }

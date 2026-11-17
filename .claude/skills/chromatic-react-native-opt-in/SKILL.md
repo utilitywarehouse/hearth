@@ -1,6 +1,7 @@
 ---
 name: chromatic-react-native-opt-in
-description: Use when opening or updating a PR that touches packages/react-native, packages/react-native-icons, packages/fonts or apps/storybook-rn-expo, to decide whether to opt it into the native (Expo) Chromatic visual regression build. The build is off by default — this skill covers how to judge whether a change warrants it (user request, visual impact, blast radius, size) and how to opt in with the `chromatic: React Native` label.
+description: >-
+  Use when opening or updating a PR that touches packages/react-native, packages/react-native-icons, packages/fonts or apps/storybook-rn-expo, to decide whether to opt it into the native (Expo) Chromatic visual regression build. The build is off by default — this skill covers how to judge whether a change warrants it (user request, visual impact, blast radius, size) and how to opt in with the `chromatic: React Native` label.
 metadata:
   author: Utility Warehouse
   tags: chromatic, visual regression, react native, expo, ci
