@@ -26,4 +26,4 @@ Run the codemod to migrate usages:
 npx @utilitywarehouse/hearth-codemod react/v1/migrate-menu <path>
 ```
 
-See the [`v1` migration guide](../packages/react/docs/migration/v1.docs.mdx) for details.
+See the [`v1` migration guide](https://github.com/utilitywarehouse/hearth/blob/main/packages/react/docs/migration/v1.docs.mdx) for details.
