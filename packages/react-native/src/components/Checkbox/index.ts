@@ -10,3 +10,4 @@ export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as CheckboxGroupTextContent } from './CheckboxGroupTextContent';
 export { default as CheckboxImage } from './CheckboxImage';
 export { default as CheckboxTextContent } from './CheckboxTextContent';
+export type { default as CheckboxGroupProps } from './CheckboxGroup.props';

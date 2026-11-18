@@ -12,6 +12,24 @@
   "types": "build/index.d.ts",
   "module": "build/index",
   "type": "module",
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build/index.js"
+    },
+    "./core": {
+      "types": "./build/core/index.d.ts",
+      "default": "./build/core/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "core": [
+        "build/core/index.d.ts"
+      ]
+    }
+  },
   "sideEffects": [
     "build/core/configure.js"
   ],
