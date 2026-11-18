@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, within } from 'storybook/test';
 import { Alert } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
@@ -52,7 +53,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  args: { testID: 'alert' },
+  play: async ({ canvasElement }) => {
+    // An Alert with `onPress` is announced as a button.
+    expect(within(canvasElement).getByTestId('alert')).toHaveAttribute('role', 'button');
+  },
+};
 
 export const Variants: Story = {
   render: () => (

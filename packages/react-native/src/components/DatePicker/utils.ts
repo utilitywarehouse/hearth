@@ -2,12 +2,15 @@ import dayjs from 'dayjs';
 import { useRef } from 'react';
 import { isEqual } from '../../utils';
 import type {
+  CalendarAction,
   CalendarDay,
   CalendarMonth,
   CalendarWeek,
   DateType,
+  LocalState,
   Numerals,
 } from './DatePicker.props';
+import { CalendarActionKind } from './enums';
 
 export const CALENDAR_FORMAT = 'YYYY-MM-DD HH:mm';
 export const DATE_FORMAT = 'YYYY-MM-DD';
@@ -546,4 +549,62 @@ function replaceDigits(input: string, numerals: Numerals): string {
 
 export function formatNumber(value: number, numerals: Numerals): string {
   return replaceDigits(value.toString(), numerals);
+}
+
+/**
+ * Calendar state reducer
+ *
+ * Pure `(state, action) => newState` reducer for the DatePicker's local calendar state
+ * (current view, selected date/range/dates, current month/year). Handles no side effects.
+ *
+ * @param prevState - previous calendar state
+ * @param action - action to apply to the state
+ *
+ * @returns next calendar state
+ */
+export function calendarReducer(prevState: LocalState, action: CalendarAction): LocalState {
+  switch (action.type) {
+    case CalendarActionKind.SET_CALENDAR_VIEW:
+      return {
+        ...prevState,
+        calendarView: action.payload,
+      };
+    case CalendarActionKind.CHANGE_CURRENT_DATE:
+      return {
+        ...prevState,
+        currentDate: action.payload,
+      };
+    case CalendarActionKind.CHANGE_CURRENT_YEAR:
+      return {
+        ...prevState,
+        currentYear: action.payload,
+      };
+    case CalendarActionKind.CHANGE_SELECTED_DATE: {
+      const { date: selectedDate } = action.payload;
+      return {
+        ...prevState,
+        date: selectedDate,
+        currentDate: selectedDate,
+      };
+    }
+    case CalendarActionKind.CHANGE_SELECTED_RANGE: {
+      const { startDate: start, endDate: end } = action.payload;
+      return {
+        ...prevState,
+        startDate: start,
+        endDate: end,
+      };
+    }
+    case CalendarActionKind.CHANGE_SELECTED_MULTIPLE: {
+      const { dates: selectedDates } = action.payload;
+      return {
+        ...prevState,
+        dates: selectedDates,
+      };
+    }
+    case CalendarActionKind.RESET_STATE:
+      return action.payload;
+    default:
+      return prevState;
+  }
 }

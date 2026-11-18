@@ -1,7 +1,5 @@
-import { useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { InputContext } from './Input.context';
 import InputProps from './Input.props';
 
 const InputRoot = ({
@@ -15,17 +13,10 @@ const InputRoot = ({
   const { focus = false, disabled = false, readonly = false } = states || {};
   styles.useVariants({ validationStatus, focus, disabled, readonly, type });
 
-  const value = useMemo(
-    () => ({ focused: focus, disabled, readonly, validationStatus, type }),
-    [focus, disabled, readonly, validationStatus, type]
-  );
-
   return (
-    <InputContext.Provider value={value}>
-      <View {...props} style={[styles.container, style]}>
-        {children}
-      </View>
-    </InputContext.Provider>
+    <View {...props} style={[styles.container, style]}>
+      {children}
+    </View>
   );
 };
 

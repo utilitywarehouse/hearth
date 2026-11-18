@@ -1,11 +1,10 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { useContext } from 'react';
-import { Pressable, View } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CarouselContext from './Carousel.context';
 import { CarouselControlsItemProps } from './Carousel.props';
 
-export const CarouselControlItemRoot = ({
+const CarouselControlItem = ({
   active,
   style,
   index,
@@ -13,7 +12,7 @@ export const CarouselControlItemRoot = ({
   onPress,
   disabled,
   ...props
-}: CarouselControlsItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+}: CarouselControlsItemProps) => {
   const { inverted, numItems } = useContext(CarouselContext);
   styles.useVariants({ active, inverted });
   return (
@@ -22,16 +21,19 @@ export const CarouselControlItemRoot = ({
       onPress={onPress}
       disabled={disabled}
       accessibilityLabel={`Page ${index + 1} of ${numItems}`}
+      accessibilityRole="button"
+      accessibilityState={{ selected: !!active, disabled: !!disabled }}
+      // react-native-web ignores `accessibilityState`, and `aria-selected` is not valid on a
+      // button, so mark the current page with `aria-current` on web.
+      {...(Platform.OS === 'web'
+        ? ({ 'aria-current': active ? 'true' : undefined } as object)
+        : null)}
       {...props}
     >
       <View style={[styles.circle, style]} />
     </Pressable>
   );
 };
-
-const CarouselControlItem = createPressable({
-  Root: CarouselControlItemRoot,
-});
 
 CarouselControlItem.displayName = 'CarouselControlItem';
 

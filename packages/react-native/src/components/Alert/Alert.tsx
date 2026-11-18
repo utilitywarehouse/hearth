@@ -47,8 +47,12 @@ const Alert = ({
   return (
     <AlertContext.Provider value={value}>
       <Pressable
+        accessibilityRole={onPress ? 'button' : undefined}
         {...props}
-        style={[styles.container, style as ViewProps['style']]}
+        style={state => [
+          styles.container,
+          (typeof style === 'function' ? style(state) : style) as ViewProps['style'],
+        ]}
         onPress={onPress}
         disabled={!onPress}
       >

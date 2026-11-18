@@ -1,5 +1,6 @@
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../BodyText';
 
 const meta = {
@@ -23,6 +24,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const playgroundOnChange = fn();
+
 export const Playground: Story = {
   args: {
     value: 'Option 1',
@@ -32,9 +35,7 @@ export const Playground: Story = {
     <ToggleButtonCardGroup>
       <ToggleButtonCard
         aria-label="Label 1"
-        onChange={(checked: boolean) => {
-          console.log(checked, '###');
-        }}
+        onChange={playgroundOnChange}
         nativeID="ToggleButtonCard-1"
         {...args}
       >
@@ -42,4 +43,28 @@ export const Playground: Story = {
       </ToggleButtonCard>
     </ToggleButtonCardGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const toggle = await canvas.findByRole('button', { name: 'Label 1' });
+
+    // The inner button is the only control: the card itself is not a button and is not in
+    // the tab order, so no interactive element is nested in another.
+    expect(canvas.getAllByRole('button')).toHaveLength(1);
+    // Only the toggle is in the tab order; the card around it is not.
+    expect(toggle).toHaveAttribute('tabindex', '0');
+    expect(canvasElement.querySelectorAll('[tabindex="0"]')).toHaveLength(1);
+
+    // Selection state moved off gluestack's createRadio(), which rendered a
+    // hidden native <input type="radio"> as its source of truth. The
+    // migrated ToggleButtonCard shares selection via plain React state (see
+    // useSingleSelection) with no backing <input>, so this characterizes the
+    // press through the item's own onChange callback contract instead
+    // (mirrors PillGroup's approach - see UWDS-4909 for the broader gap
+    // around asserting selected/checked state via rendered DOM/style on
+    // react-native-web).
+    await userEvent.click(toggle);
+
+    expect(playgroundOnChange).toHaveBeenLastCalledWith(true);
+  },
 };

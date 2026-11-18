@@ -1,4 +1,3 @@
-import { createIcon } from '@gluestack-ui/icon';
 import type React from 'react';
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
@@ -7,6 +6,7 @@ import { withUnistyles } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import type { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
+import { createIcon } from './createIcon';
 import type IconProps from './Icon.props';
 
 const PrimitiveIcon = withUnistyles(

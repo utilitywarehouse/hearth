@@ -84,7 +84,7 @@ import { StyleSheet } from '@utilitywarehouse/hearth-react-native';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.colors.text.primary, // Use semantic colour token
+    color: theme.color.text.primary, // Use semantic colour token
   },
 }));
 ```
@@ -118,7 +118,7 @@ import { useTheme } from '@utilitywarehouse/hearth-react-native';
 const MyComponent = () => {
   const theme = useTheme();
 
-  return <Text style={{ color: theme.colors.text.primary }}>This text adapts to dark mode!</Text>;
+  return <Text style={{ color: theme.color.text.primary }}>This text adapts to dark mode!</Text>;
 };
 ```
 
@@ -193,7 +193,7 @@ When using these assets, make sure to choose the appropriate version (light or d
 ### Icons
 
 When using icons from the `@utilitywarehouse/hearth-react-native-icons` library, you can automatically handle light and dark mode
-by using the `color` prop and the `Icon` component with a semantic colour token (by default the `Icon` will use the `theme.colors.icon.primary`
+by using the `color` prop and the `Icon` component with a semantic colour token (by default the `Icon` will use the `theme.color.icon.primary`
 colour which adapts to light and dark mode):
 
 <UsageWrap>
@@ -222,7 +222,7 @@ import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 // Or to specify a colour
 const theme = useTheme();
 ...
-<SearchMediumIcon color={theme.colors.icon.primary} />;
+<SearchMediumIcon color={theme.color.icon.primary} />;
 ```
 
 To learn more about the available icons, check out the [icon library documentation](https://hearth.prod.uw.systems/icons/?path=/docs/introduction--docs).

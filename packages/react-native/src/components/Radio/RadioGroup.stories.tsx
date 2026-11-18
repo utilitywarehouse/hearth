@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { Radio, RadioGroup } from '.';
 import { Grid } from '../Grid';
 
@@ -86,6 +87,43 @@ export const Playground: Story = {
       <Radio aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Radio-3" />
     </RadioGroup>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const option1 = await canvas.findByRole('radio', { name: 'Label 1' });
+    const option2 = canvas.getByRole('radio', { name: 'Label 2' });
+
+    // Uncontrolled: no defaultValue is set, so nothing is selected initially.
+    expect(option1).not.toBeChecked();
+    expect(option2).not.toBeChecked();
+
+    await userEvent.click(option2);
+    await waitFor(() => expect(option2).toBeChecked());
+    expect(option1).not.toBeChecked();
+
+    await userEvent.click(option1);
+    await waitFor(() => expect(option1).toBeChecked());
+    expect(option2).not.toBeChecked();
+  },
+};
+
+export const ValidationStatus: Story = {
+  args: {
+    value: 'Option 1',
+    validationStatus: 'invalid',
+  },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ value: _, ...args }) => (
+    <RadioGroup {...args}>
+      <Radio aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Radio-1" />
+    </RadioGroup>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // A RadioGroup with validationStatus="invalid" renders its invalidText via Helper.
+    await waitFor(() => expect(canvas.getByText('Invalid text')).toBeInTheDocument());
+  },
 };
 
 export const WithGrid: Story = {

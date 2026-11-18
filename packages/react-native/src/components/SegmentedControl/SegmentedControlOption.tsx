@@ -1,4 +1,3 @@
-import { createPressable } from '@gluestack-ui/pressable';
 import { useEffect } from 'react';
 import { Platform, Pressable, View } from 'react-native';
 import Animated, {
@@ -16,16 +15,15 @@ import type SegmentedControlOptionProps from './SegmentedControlOption.props';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
 
-const SegmentedControlOptionRoot = ({
+const SegmentedControlOption = ({
   value,
   children,
   icon,
   accessibilityLabel,
   disabled = false,
   style,
-  states = {},
   ...props
-}: SegmentedControlOptionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+}: SegmentedControlOptionProps) => {
   const {
     value: selectedValue,
     select,
@@ -34,7 +32,6 @@ const SegmentedControlOptionRoot = ({
     fullWidth,
     registerOptionLayout,
   } = useSegmentedControlContext();
-  const { active = false } = states;
   const reducedMotion = useReducedMotionEnabled();
 
   const selected = selectedValue === value;
@@ -57,7 +54,7 @@ const SegmentedControlOptionRoot = ({
     opacity: selectedProgress.value,
   }));
 
-  styles.useVariants({ selected, disabled: isDisabled, size, active, fullWidth });
+  styles.useVariants({ selected, disabled: isDisabled, size, fullWidth });
 
   const onPress = () => {
     if (isDisabled) return;
@@ -76,7 +73,7 @@ const SegmentedControlOptionRoot = ({
       onPress={onPress}
       onLayout={e => registerOptionLayout(value, e.nativeEvent.layout)}
       disabled={isDisabled}
-      style={[styles.option, style]}
+      style={({ pressed }) => [styles.option, pressed && styles.optionPressed, style]}
       {...(Platform.OS === 'web'
         ? ({ 'aria-label': accessibilityLabel ?? accessibleLabel } as any)
         : null)}
@@ -129,8 +126,6 @@ const SegmentedControlOptionRoot = ({
   );
 };
 
-const SegmentedControlOption = createPressable({ Root: SegmentedControlOptionRoot });
-
 SegmentedControlOption.displayName = 'SegmentedControlOption';
 
 const styles = StyleSheet.create(theme => ({
@@ -180,17 +175,15 @@ const styles = StyleSheet.create(theme => ({
           },
         },
       },
-      active: {
-        true: {
-          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
-        },
-      },
       fullWidth: {
         true: {
           flex: 1,
         },
       },
     },
+  },
+  optionPressed: {
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
   },
   contentWrap: {
     flexDirection: 'row',

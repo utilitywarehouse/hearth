@@ -57,9 +57,14 @@ const MyComponent = () => (
 | justifyContent | `'flex-start' \| 'flex-end' \| 'center' \| 'space-between' \| `<br />` 'space-around' \| 'space-evenly'`                                                   | The justify content of the flex container. | `flex-start`      |
 | flexWrap       | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                                                                     | The wrap of the flex container.            | `nowrap`          |
 | flexDirection  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                                                                   | The direction of the flex container.       | `column`          |
+| direction      | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                                                                   | Alias for `flexDirection`.                 | `column`          |
 | gap            | `number`                                                                                                                                                   | The gap between the content.               | `0`               |
 | rowGap         | `number`                                                                                                                                                   | The row gap between the content.           | `0`               |
 | columnGap      | `number`                                                                                                                                                   | The column gap between the content.        | `0`               |
+| width          | `SpaceValue`                                                                                                                                               | The width of the card.                     | `-`               |
+| height         | `SpaceValue`                                                                                                                                               | The height of the card.                    | `-`               |
+| padding        | `SpaceValue`                                                                                                                                               | Overrides the card's padding.              | `-`               |
+| borderRadius   | `BorderRadiusValue`                                                                                                                                        | Overrides the card's border radius.        | `-`               |
 
 ### `CardPressHandler` Props
 
@@ -211,7 +216,8 @@ make the card interactive and also show the `active` state of the child componen
   <VariantTitle title="Pressable - Subtle - White">
     <Card
       {...props}
-      onPress={() => console.log('pressed')}
+      testID="interactive-card"
+      onPress={interactiveCardOnPress}
       variant="subtle"
       colorScheme="neutralStrong"
       spacing="md"
@@ -256,6 +262,7 @@ make the card interactive and also show the `active` state of the child componen
   <VariantTitle title="Pressable - Emphasis - Warm White">
     <Card
       {...props}
+      testID="interactive-card-press-handler"
       variant="emphasis"
       colorScheme="neutralSubtle"
       spacing="md"
@@ -265,7 +272,7 @@ make the card interactive and also show the `active` state of the child componen
       <Heading size="md">Heading</Heading>
       <BodyText>{children as string}</BodyText>
       <CardPressHandler>
-        <Button onPress={() => console.log('pressed')}>Press me</Button>
+        <Button onPress={interactivePressHandlerButtonOnPress}>Press me</Button>
       </CardPressHandler>
     </Card>
   </VariantTitle>

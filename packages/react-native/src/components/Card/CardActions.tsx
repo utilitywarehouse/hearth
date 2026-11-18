@@ -2,20 +2,19 @@ import { PropsWithChildren, useCallback, useRef, useState } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { CardActionsContext } from './CardActions.context';
+import { addActionId, getFirstActionId, removeActionId } from './CardActions.utils';
 
 const CardActions = ({ children, style, ...props }: PropsWithChildren<ViewProps>) => {
   const orderRef = useRef<string[]>([]);
   const [firstActionId, setFirstActionId] = useState<string | undefined>(undefined);
 
   const registerAction = useCallback((id: string) => {
-    if (!orderRef.current.includes(id)) {
-      orderRef.current.push(id);
-    }
-    const nextFirst = orderRef.current[0];
+    orderRef.current = addActionId(orderRef.current, id);
+    const nextFirst = getFirstActionId(orderRef.current);
     setFirstActionId(prev => (prev === nextFirst ? prev : nextFirst));
     return () => {
-      orderRef.current = orderRef.current.filter(currentId => currentId !== id);
-      const nextFirst = orderRef.current[0];
+      orderRef.current = removeActionId(orderRef.current, id);
+      const nextFirst = getFirstActionId(orderRef.current);
       setFirstActionId(prev => (prev === nextFirst ? prev : nextFirst));
     };
   }, []);

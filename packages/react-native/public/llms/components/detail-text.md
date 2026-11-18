@@ -33,21 +33,21 @@ const MyComponent = () => (
 
 ## Props
 
-| Property              | Type                                                                  | Description                         | Default      |
-| --------------------- | --------------------------------------------------------------------- | ----------------------------------- | ------------ |
-| `size`                | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl' \| '4xl'`             | The size of the text.               | `'md'`       |
-| `strikeThrough`       | `boolean`                                                             | Strike through the text.            | `false`      |
-| `truncated`           | `boolean`                                                             | Truncate the text with an ellipsis. | `false`      |
-| `underline`           | `boolean`                                                             | Underline the text.                 | `false`      |
-| `italic`              | `boolean`                                                             | Italicise the text.                 | `false`      |
-| `color`               | `string`                                                              | The color of the text.              | `'grey1000'` |
-| `textAlign`           | `'left' \| 'center' \| 'right' \| 'auto' \| 'justify'`                | The alignment of the text.          | `-`          |
-| `textTransform`       | `'none' \| 'capitalize' \| 'uppercase' \| 'lowercase'`                | Transform the text.                 | `-`          |
-| `textDecorationLine`  | `'none' \| 'underline' \| 'line-through' \| 'underline line-through'` | The decoration of the text.         | `-`          |
-| `textDecorationStyle` | `'solid' \| 'double' \| 'dotted' \| 'dashed'`                         | The style of the text decoration.   | `-`          |
-| `textDecorationColor` | `string`                                                              | The color of the text decoration.   | `-`          |
-| `userSelect`          | `'none' \| 'auto' \| 'text' \| 'all' \| 'contain'`                    | The user select behaviour.          | `-`          |
-| `inverted`            | `boolean`                                                             | Invert the text color.              | `false`      |
+| Property              | Type                                                                  | Description                         | Default     |
+| --------------------- | --------------------------------------------------------------------- | ----------------------------------- | ----------- |
+| `size`                | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl' \| '4xl'`             | The size of the text.               | `'md'`      |
+| `strikeThrough`       | `boolean`                                                             | Strike through the text.            | `false`     |
+| `truncated`           | `boolean`                                                             | Truncate the text with an ellipsis. | `false`     |
+| `underline`           | `boolean`                                                             | Underline the text.                 | `false`     |
+| `italic`              | `boolean`                                                             | Italicise the text.                 | `false`     |
+| `color`               | `string`                                                              | The color of the text.              | `'primary'` |
+| `textAlign`           | `'left' \| 'center' \| 'right' \| 'auto' \| 'justify'`                | The alignment of the text.          | `-`         |
+| `textTransform`       | `'none' \| 'capitalize' \| 'uppercase' \| 'lowercase'`                | Transform the text.                 | `-`         |
+| `textDecorationLine`  | `'none' \| 'underline' \| 'line-through' \| 'underline line-through'` | The decoration of the text.         | `-`         |
+| `textDecorationStyle` | `'solid' \| 'double' \| 'dotted' \| 'dashed'`                         | The style of the text decoration.   | `-`         |
+| `textDecorationColor` | `string`                                                              | The color of the text decoration.   | `-`         |
+| `userSelect`          | `'none' \| 'auto' \| 'text' \| 'all' \| 'contain'`                    | The user select behaviour.          | `-`         |
+| `inverted`            | `boolean`                                                             | Invert the text color.              | `false`     |
 
 ## Sizes
 
