@@ -4,3 +4,4 @@ export { default as RadioGroup } from './RadioGroup';
 export { default as RadioGroupTextContent } from './RadioGroupTextContent';
 export { default as RadioImage } from './RadioImage';
 export { default as RadioTextContent } from './RadioTextContent';
+export type { default as RadioGroupProps } from './RadioGroup.props';

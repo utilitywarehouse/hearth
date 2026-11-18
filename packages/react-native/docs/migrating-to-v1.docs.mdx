@@ -7,21 +7,24 @@ import { BackToTopButton } from './components';
 # Migrating to v1
 
 Hearth React Native v1 removes gluestack and the legacy colour palette. It also stops
-re-exporting most Unistyles APIs. Most apps need steps 1 and 2. Step 4 applies if your app imports
-Unistyles names from Hearth. The rest of this page lists behaviour changes that do not stop your
-app from building, but can change what your tests or screens see.
+re-exporting most Unistyles APIs, and blocks imports from inside the package's `build` folder.
+Most apps need steps 1 and 2. Step 4 applies if your app imports Unistyles names from Hearth.
+Step 5 applies if your app imports from `@utilitywarehouse/hearth-react-native/build/...`. The
+rest of this page lists behaviour changes that do not stop your app from building, but can change
+what your tests or screens see.
 
 - [1. Replace the legacy `theme.colors` palette](#1-replace-the-legacy-themecolors-palette)
 - [2. Rename the `AccordionTrigger` render-prop argument](#2-rename-the-accordiontrigger-render-prop-argument)
 - [3. Stop relying on gluestack](#3-stop-relying-on-gluestack)
 - [4. Import Unistyles APIs from `react-native-unistyles`](#4-import-unistyles-apis-from-react-native-unistyles)
-- [5. Check behaviour changes](#5-check-behaviour-changes)
+- [5. Replace imports from `build`](#5-replace-imports-from-build)
+- [6. Check behaviour changes](#6-check-behaviour-changes)
 - [Checklist](#checklist)
 
 ## 1. Replace the legacy `theme.colors` palette
 
-**This change breaks the build.** Step 4 can break it too, if your app imports Unistyles names from
-Hearth.
+**This change breaks the build.** Steps 4 and 5 can break it too, if your app imports Unistyles
+names from Hearth or imports from its `build` folder.
 
 The `light` and `dark` themes no longer include `theme.colors`, the old palette (for example
 `theme.colors.grey1000` or `theme.colors.purple800`). No Hearth component uses it.
@@ -133,7 +136,48 @@ Hearth also no longer exports two hooks that were only meant for internal use.
 To find the places to change, search your app for the removed names in imports from
 `@utilitywarehouse/hearth-react-native`.
 
-## 5. Check behaviour changes
+## 5. Replace imports from `build`
+
+Hearth now lists its public entry points in the `exports` field of its `package.json`. There are
+two:
+
+| Entry point                                  | What it contains                                                         |
+| -------------------------------------------- | ------------------------------------------------------------------------ |
+| `@utilitywarehouse/hearth-react-native`      | Everything: components, hooks, themes and `StyleSheet`                   |
+| `@utilitywarehouse/hearth-react-native/core` | Only `themes`, `lightTheme`, `darkTheme`, `breakpoints` and `StyleSheet` |
+
+Any other path, such as `@utilitywarehouse/hearth-react-native/build/core`, now fails with a
+"module not found" error.
+
+**Props types.** Import them by name from the package root. Hearth now exports the main props type
+of each component, for example `BadgeProps`, `AlertProps`, `CardProps` and `FormFieldProps`.
+
+```diff
+-import BadgeProps from '@utilitywarehouse/hearth-react-native/build/components/Badge/Badge.props';
+-import { AlertProps } from '@utilitywarehouse/hearth-react-native/build/components/Alert/Alert.props';
++import type { AlertProps, BadgeProps } from '@utilitywarehouse/hearth-react-native';
+```
+
+**Themes and `StyleSheet` without the components.** Import from `/core`. The package root loads every
+component and its native dependencies. `/core` loads only the theme objects. Use it where load
+time matters and you render nothing, for example in a Jest setup file:
+
+```diff
+-import { breakpoints, StyleSheet, themes } from '@utilitywarehouse/hearth-react-native/build/core';
++import { breakpoints, StyleSheet, themes } from '@utilitywarehouse/hearth-react-native/core';
+```
+
+`/core` exports the same objects as the package root. Importing `/core` does not configure
+Unistyles. Importing the package root does. If nothing in the file imports the root, call
+`StyleSheet.configure` yourself.
+
+If TypeScript cannot find the types for `/core`, check `moduleResolution` in your `tsconfig.json`.
+`bundler`, `node16` and `nodenext` read the `exports` field. Hearth also includes a fallback for
+`node`.
+
+To find the places to change, search your app for `hearth-react-native/build`.
+
+## 6. Check behaviour changes
 
 These changes do not stop your app from building. They can change screenshots, snapshot tests,
 or queries in your tests.
@@ -185,7 +229,9 @@ or queries in your tests.
 3. Search for `@gluestack-ui/` imports in your app.
 4. Search for imports of `UnistylesRuntime`, `useUnistyles` and the other removed names from
    `@utilitywarehouse/hearth-react-native`. Import them from `react-native-unistyles`.
-5. Run your tests and update any queries or snapshots affected by step 5.
-6. Check screens that use `FormFieldLabel`, `List` headings and radios.
+5. Search for `hearth-react-native/build`. Import props types from the package root, and themes or
+   `StyleSheet` from `/core`.
+6. Run your tests and update any queries or snapshots affected by step 6.
+7. Check screens that use `FormFieldLabel`, `List` headings and radios.
 
 <BackToTopButton />

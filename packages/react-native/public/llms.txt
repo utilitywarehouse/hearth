@@ -41,7 +41,9 @@
   - 1. Replace the legacy `theme.colors` palette
   - 2. Rename the `AccordionTrigger` render-prop argument
   - 3. Stop relying on gluestack
-  - 4. Check behaviour changes
+  - 4. Import Unistyles APIs from `react-native-unistyles`
+  - 5. Replace imports from `build`
+  - 6. Check behaviour changes
   - Checklist
 - [Styling](llms/docs/styling.md)
   - Unistyles Features
