@@ -39,6 +39,8 @@ npm run setup    # corepack enable + pnpm install
 
 ## After making changes
 
+Claude Code hooks (`.claude/settings.json`) run Prettier on each edited file and, when a turn ends, `typecheck` and `lint:ci` for each `packages/*` directory with uncommitted changes. They skip packages whose dependencies aren't installed, so they don't replace `pnpm checks`, which still covers repo-wide lint, format, tests and the skill checks.
+
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
 - Sandbox and fresh-worktree failures (wrong Node or a `tsc` crash, `npx`/`npm pack` `EPERM`, `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import, `pnpm install` aborting, the git `~/.gitignore` warning or blocked git writes): see [docs/agents/sandbox.md](docs/agents/sandbox.md).
