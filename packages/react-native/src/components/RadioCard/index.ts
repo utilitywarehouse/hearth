@@ -6,3 +6,4 @@ export {
 } from './RadioCard';
 export type { default as RadioCardProps } from './RadioCard.props';
 export { default as RadioCardGroup } from './RadioCardGroup';
+export type { default as RadioCardGroupProps } from './RadioCardGroup.props';

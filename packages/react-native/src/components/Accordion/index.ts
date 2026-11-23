@@ -8,3 +8,5 @@ export {
   AccordionTitleText,
   AccordionTrigger,
 } from './Accordion';
+export type { AccordionProps } from './Accordion.props';
+export type { AccordionItemProps } from './AccordionItem.props';
