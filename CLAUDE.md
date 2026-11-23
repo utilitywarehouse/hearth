@@ -54,6 +54,7 @@ Run `pnpm checks`. Other commands are in the `package.json` scripts. From a pack
 - In the sandbox every git command prints `unable to access '~/.gitignore'`, and writes to the shared `.git/config` (`git branch -m`, `--set-upstream-to`) or to `.claude/skills` (branch switches) can fail. The warning is harmless: read git stderr unfiltered. Ask the user to run the blocked write.
 
 - Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
+- Sandbox and fresh-worktree failures (wrong Node or a `tsc` crash, `npx`/`npm pack` `EPERM`, `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import, `pnpm install` aborting, the git `~/.gitignore` warning or blocked git writes): see [docs/agents/sandbox.md](docs/agents/sandbox.md).
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
 

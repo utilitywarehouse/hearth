@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This file covers `packages/react` — `@utilitywarehouse/hearth-react`, the React component library. See the [repo-root CLAUDE.md](../../CLAUDE.md) for monorepo-wide setup and commands.
 
+See [GLOSSARY.md](GLOSSARY.md) for the terms used here (colour scheme, variant, style prop, compound component and others); use them as defined.
+
 ## Commands
 
 Run from this directory (`packages/react`), or via the root scripts shown for Turbo-filtered variants.
@@ -78,7 +80,7 @@ Each user-facing component under `src/components/<Name>/` follows a fixed file s
 
 - There is **no `index.ts` per component folder** — components are exported directly from `src/index.ts`.
 - **Base / internal components** (e.g. `ButtonBase`, `InputBase`) skip `.stories.tsx` and `.docs.mdx` — they are not documented in Storybook.
-- **Compound components** (e.g. `Modal`) add sub-component files in the same directory (e.g. `ModalRoot.tsx`, `ModalContent.tsx`) and share state via a `.context.ts` file — check for one before assuming a component is standalone.
+- **Compound components** (e.g. `Modal`) add part files in the same directory (e.g. `ModalRoot.tsx`, `ModalContent.tsx`) and share state via a `.context.ts` file — check for one before assuming a component is standalone.
 - All public exports go through `src/index.ts` — both the component and its prop type:
   ```ts
   export { Button } from './components/Button/Button';
