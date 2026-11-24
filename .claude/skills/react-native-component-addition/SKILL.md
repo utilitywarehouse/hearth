@@ -60,7 +60,7 @@ guard against it regressing until one exists.
 1. **Props**: Define public props in <Component>.props.ts. Keep types explicit and add JSDoc defaults.
 2. **Component**: Implement <Component>.tsx using tokens from theme (useTheme or StyleSheet variants).
 3. **Animations**: Use react-native-reanimated for animations. Respect reduce motion via useReducedMotion.
-4. **Exports**: Export from index.ts in the component folder, then re-export in packages/react-native/src/components/index.ts.
+4. **Exports**: Export from index.ts in the component folder, then re-export in packages/react-native/src/components/index.ts. Export the props type too (`export type { default as <Component>Props } from './<Component>.props';`): the package's `exports` field blocks paths under `build/`, so a props type left out of index.ts cannot be imported by consumers.
 5. **Stories**: Add <Component>.stories.tsx with a Playground story and key variants. Follow existing Storybook patterns.
 6. **Docs**: Add <Component>.docs.mdx. See the [react-native-component-docs](./../react-native-component-docs/SKILL.md) skill for the required structure, sections, and code snippets.
 7. **Figma**: Add <Component>.figma.tsx. See the [figma-code-connect](./../figma-code-connect/SKILL.md) skill for the connect API, prop mapping patterns, the `pnpm figma:create` scaffold command, and the publish-approval requirement.

@@ -194,10 +194,13 @@ module.exports = {
 };
 ```
 
-You'll also need to add the following to your `jest.setup.js` file:
+You'll also need to add the following to your `jest.setup.js` file. Import from
+`@utilitywarehouse/hearth-react-native/core`, not the package root. The package root loads every
+component, which adds about two seconds to each test file. `/core` loads only the themes and
+`StyleSheet`. It does not configure Unistyles, so the setup file calls `StyleSheet.configure` itself.
 
 ```js
-import { StyleSheet, themes, breakpoints } from '@utilitywarehouse/hearth-react-native';
+import { StyleSheet, themes, breakpoints } from '@utilitywarehouse/hearth-react-native/core';
 
 StyleSheet.configure({
   themes,
