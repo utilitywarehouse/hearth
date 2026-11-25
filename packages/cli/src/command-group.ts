@@ -2,6 +2,8 @@ export type Io = {
   cwd: string;
   stdout: (text: string) => void;
   stderr: (text: string) => void;
+  /** Network access, for `hearth changes`. Defaults to the global `fetch`; tests pass a stub. */
+  fetch?: typeof fetch;
 };
 
 export const EXIT = { ok: 0, notFound: 1, usage: 2, unavailable: 3 } as const;
@@ -46,6 +48,9 @@ export type CommandGroup = {
   usage: string;
   /** The flags the group accepts; a flag given to a group that does not list it is a usage error. */
   options: { [flag: string]: { type: 'string' | 'boolean' } };
-  /** `args` are the positionals after the command name. Returns `undefined` for a subcommand or arguments the group does not know. */
-  run: (args: Array<string>, values: Values, io: Io) => number | undefined;
+  /**
+   * `args` are the positionals after the command name. Returns `undefined` for a subcommand or arguments the group does
+   * not know. A group that needs the network returns a promise, after throwing any `UsageError` synchronously.
+   */
+  run: (args: Array<string>, values: Values, io: Io) => number | Promise<number> | undefined;
 };

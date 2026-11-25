@@ -1,6 +1,7 @@
 import { parseArgs } from 'node:util';
 import pkg from '../package.json' with { type: 'json' };
 import { assetsCommand } from './assets-command.js';
+import { changesCommand } from './changes-command.js';
 import { EXIT, UsageError, type CommandGroup, type Io } from './command-group.js';
 import { iconsCommand } from './icons-command.js';
 import { tokensCommand } from './tokens-command.js';
@@ -8,7 +9,12 @@ import { tokensCommand } from './tokens-command.js';
 export { EXIT, type Io };
 
 /** Every top-level command. A new command group is a module plus an entry here. */
-const GROUPS: ReadonlyArray<CommandGroup> = [tokensCommand, iconsCommand, assetsCommand];
+const GROUPS: ReadonlyArray<CommandGroup> = [
+  tokensCommand,
+  iconsCommand,
+  assetsCommand,
+  changesCommand,
+];
 
 const USAGE = `Usage:
 ${GROUPS.map(group => group.usage).join('')}
@@ -22,7 +28,8 @@ const ALL_OPTIONS = GROUPS.reduce<CommandGroup['options']>(
   {}
 );
 
-export const run = (argv: Array<string>, io: Io): number => {
+/** Returns a promise only for a command that needs the network (`changes`). */
+export const run = (argv: Array<string>, io: Io): number | Promise<number> => {
   if (argv.includes('--version')) {
     io.stdout(`${pkg.version}\n`);
     return EXIT.ok;
