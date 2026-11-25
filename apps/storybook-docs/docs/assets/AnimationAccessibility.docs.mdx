@@ -26,8 +26,6 @@ People turn on "Reduce motion" in their operating system when animation makes
 them unwell or distracts them. Treat motion as an enhancement: write the static
 state first and add animation only when the user hasn't asked for less.
 
-### In CSS
-
 Put keyframes and animations inside a `no-preference` query, so reduced motion
 is the default and nothing needs undoing:
 
@@ -47,112 +45,27 @@ is the default and nothing needs undoing:
 
 Hearth React's own components follow this pattern.
 
-### In JavaScript
-
-Check the media query before starting an animation from script, for example a
-Lottie player or a Web Animations API call:
-
-```ts
-const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-```
-
-To re-render when the setting changes while the page is open, subscribe to the
-query:
-
-```tsx
-import { useSyncExternalStore } from 'react';
-
-const query = '(prefers-reduced-motion: reduce)';
-
-const subscribe = (onChange: () => void) => {
-  const mql = window.matchMedia(query);
-  mql.addEventListener('change', onChange);
-  return () => mql.removeEventListener('change', onChange);
-};
-
-export const usePrefersReducedMotion = () =>
-  useSyncExternalStore(
-    subscribe,
-    () => window.matchMedia(query).matches,
-    () => true // server render: assume reduced motion until the client knows
-  );
-```
-
-### With JSON (Lottie) assets
-
-When reduced motion is on, don't autoplay. Show the matching static SVG asset
-instead, where one exists, or hold the animation on a frame that makes sense on
-its own:
-
-```tsx
-import Lottie from 'lottie-react';
-import SpotSuccess from '@utilitywarehouse/hearth-json-assets/lib/animated-spot-success-light.json';
-import SpotSuccessStatic from '@utilitywarehouse/hearth-svg-assets/lib/spot-success-light.svg';
-
-function Success() {
-  const reduceMotion = usePrefersReducedMotion();
-
-  return reduceMotion ? (
-    <img src={SpotSuccessStatic} alt="" />
-  ) : (
-    <Lottie animationData={SpotSuccess} loop={false} aria-hidden />
-  );
-}
-```
-
 Don't set JSON assets to loop indefinitely. A looping animation runs past five
 seconds, which brings in 2.2.2 and distracts people with attention or cognitive
 disabilities.
 
-## Animating parts of a raw SVG
-
-The SVG assets are static files. When only part of an illustration should move,
-such as a light on a router or a piece that appears and disappears, take the raw
-SVG and build your own component around it:
-
-1. Copy or download the raw SVG from the [Search Assets](?path=/docs/assets-search-assets--docs)
-   page.
-2. Inline it as JSX in a component of your own, so you can target its parts.
-3. Add a `className` to each element you want to animate. Leave the rest of
-   the markup unchanged so the illustration still matches the library.
-4. Mark the SVG as decorative (see below) and animate the parts with CSS inside
-   a `prefers-reduced-motion: no-preference` query.
-
-```tsx
-import './RouterStatus.css';
-
-export const RouterStatusFlashing = () => (
-  <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64" width="64" height="64">
-    {/* …paths copied unchanged from the SVG asset… */}
-    <circle className="router-status__light" cx="48" cy="40" r="3" fill="currentColor" />
-  </svg>
-);
-```
-
-Without motion the component shows the asset's static design, so it must still
-make sense as a still image.
-
-If the same animation turns up in more than one product, raise it with the
-Design Systems team so it can become part of the library.
-
 ## Flashing and blinking content
 
-Push back on flashing where you can. If a design needs a blinking element, for
-example to show an indicator light that flashes in real life:
+The WCAG recommendations [Pause, Stop, Hide](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html) says:
 
-- **Keep it to three flashes per second or fewer.** A flash is a pair of
-  opposing changes in brightness, so a 1 second on/off cycle is one flash per
-  second. Small elements may fall below WCAG's area threshold, but don't rely on
-  that: keep under the rate limit anyway.
-- **Stop within five seconds**, or give people a control to pause it. In CSS,
-  set a finite iteration count, as in `animation: router-light-blink 1s steps(1, end) 5`,
-  rather than `infinite`.
-- **End on a state that still reads correctly.** Once the blinking stops, the
-  final frame still has to show the state, for example a light that is on.
-- **Avoid large areas and saturated red flashes.** They carry the highest risk
-  of triggering seizures.
-- **Honour reduced motion.** With reduced motion on, show the static state and
-  rely on the text label.
+**"For any moving, blinking or scrolling information that (1) starts
+automatically, (2) lasts more than five seconds, and (3) is presented in
+parallel with other content, there is a mechanism for the user to pause, stop,
+or hide it unless the movement, blinking, or scrolling is part of an activity
+where it is essential"**
+
+So, we need to ensure that these animations DO NOT LOOP in order to stay under 5 seconds.
+If there are any animations that are presented in parallel with other content
+and last more that 5 seconds, then we need to give users the option to pause,
+stop or hide the animation.
+
+If a design needs a blinking element, for example to show an indicator light
+that flashes in real life:
 
 ## Conveying state without motion
 
@@ -160,72 +73,3 @@ Animation must never be the only way someone can tell options apart. People
 using screen readers, people with reduced motion turned on, and people who look
 away while the animation runs all miss it.
 
-### Use a label
-
-Give every option a visible text label that describes the state on its own,
-such as "Light is flashing" or "Light is on". The illustration supports the
-label; it doesn't replace it.
-
-### Hide decorative SVGs
-
-When a label already describes the state, the SVG is decorative. Hide it from
-assistive technology:
-
-- Add `aria-hidden="true"` to the `<svg>`, and `focusable="false"` for older
-  browsers that make SVGs focusable.
-- Remove any `<title>` or `<desc>` from the copied SVG. In a component like
-  `RadioCard`, where the image and label share one labelled element, the text
-  in a `<title>` ends up in the accessible name.
-- For an `<img>` that shows an SVG, use `alt=""`.
-
-If the illustration carries information the label doesn't, give it a text
-alternative instead (`role="img"` with `aria-label`, or a meaningful `alt`),
-and don't hide it.
-
-### Check the accessible name
-
-Each option's accessible name, which screen readers announce, should match the
-visible label and name the state. Check it in your browser's accessibility
-inspector. It should read "Light is flashing", not "router illustration Light
-is flashing" or an empty name.
-
-## Example: router status in radio cards
-
-The broadband troubleshooting journey asks customers what their router's light
-is doing. Each answer is a `RadioCard` with a status illustration; one shows a
-flashing light and the rest are static.
-
-```tsx
-import { RadioCard, RadioGroup } from '@utilitywarehouse/hearth-react';
-
-<RadioGroup label="What is the light on your router doing?" name="router-status">
-  <RadioCard value="on" label="Light is on" image={<RouterStatusOn />} />
-  <RadioCard value="flashing" label="Light is flashing" image={<RouterStatusFlashing />} />
-  <RadioCard value="off" label="Light is off" image={<RouterStatusOff />} />
-</RadioGroup>;
-```
-
-This meets the requirements because:
-
-- Each label describes the state in words, so the flashing option makes sense
-  without seeing the flash.
-- Each status SVG has `aria-hidden="true"` and no `<title>`, so each card's
-  accessible name is its label alone.
-- `RouterStatusFlashing` blinks once per second and stops after five cycles,
-  only when reduced motion is off.
-- With the animation stopped, the flashing illustration still differs from the
-  "Light is on" one, for example through a glow or rays around the light, so
-  the static versions stay distinct.
-- Instructions refer to the labels, not to the motion.
-
-## Checklist
-
-- [ ] Nothing flashes more than three times in one second.
-- [ ] Motion that starts on its own stops within five seconds, or has a pause
-      control.
-- [ ] Animation runs only when `prefers-reduced-motion` is `no-preference`.
-- [ ] The static state makes sense on its own.
-- [ ] A text label conveys any state the animation shows.
-- [ ] Decorative SVGs have `aria-hidden="true"` and no `<title>`; decorative
-      images have `alt=""`.
-- [ ] The accessible name matches the visible label.
