@@ -145,6 +145,8 @@ import { OpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenMed
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenSmallIcon';
 import { PanelBottomMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PanelBottomMediumIcon';
 import { PanelLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PanelLeftMediumIcon';
+import { PauseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PauseMediumIcon';
+import { PauseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PauseSmallIcon';
 import { PaymentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PaymentMediumIcon';
 import { PhoneMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneMediumIcon';
 import { PhoneSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneSmallIcon';
@@ -362,6 +364,8 @@ export const reactIcons = [
   OpenSmallIcon,
   PanelBottomMediumIcon,
   PanelLeftMediumIcon,
+  PauseMediumIcon,
+  PauseSmallIcon,
   PaymentMediumIcon,
   PhoneMediumIcon,
   PhoneSmallIcon,

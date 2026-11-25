@@ -144,6 +144,8 @@ export { OpenMediumIcon } from './OpenMediumIcon';
 export { OpenSmallIcon } from './OpenSmallIcon';
 export { PanelBottomMediumIcon } from './PanelBottomMediumIcon';
 export { PanelLeftMediumIcon } from './PanelLeftMediumIcon';
+export { PauseMediumIcon } from './PauseMediumIcon';
+export { PauseSmallIcon } from './PauseSmallIcon';
 export { PaymentMediumIcon } from './PaymentMediumIcon';
 export { PhoneMediumIcon } from './PhoneMediumIcon';
 export { PhoneSmallIcon } from './PhoneSmallIcon';

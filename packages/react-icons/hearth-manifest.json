@@ -888,6 +888,18 @@
       "component": "PanelLeftMediumIcon"
     },
     {
+      "name": "PauseMediumIcon",
+      "size": "medium",
+      "svg": "pause-medium-icon.svg",
+      "component": "PauseMediumIcon"
+    },
+    {
+      "name": "PauseSmallIcon",
+      "size": "small",
+      "svg": "pause-small-icon.svg",
+      "component": "PauseSmallIcon"
+    },
+    {
       "name": "PaymentMediumIcon",
       "size": "medium",
       "svg": "payment-medium-icon.svg",
