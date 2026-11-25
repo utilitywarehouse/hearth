@@ -91,9 +91,11 @@ export const parseChangelog = (markdown: string): Array<Release> => {
 /** The releases after `from`, up to and including `to`, newest first. */
 export const selectReleases = (releases: Array<Release>, from: string, to: string) =>
   releases
-    .filter(({ version }) => isVersion(version))
     .filter(
-      ({ version }) => compareVersions(version, from) > 0 && compareVersions(version, to) <= 0
+      ({ version }) =>
+        isVersion(version) &&
+        compareVersions(version, from) > 0 &&
+        compareVersions(version, to) <= 0
     )
     .sort((a, b) => compareVersions(b.version, a.version));
 

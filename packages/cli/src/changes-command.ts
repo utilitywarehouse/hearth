@@ -16,7 +16,7 @@ import { suggestSimilar } from './suggest.js';
 const SCOPE = '@utilitywarehouse/hearth-';
 
 /** Every published Hearth package, by short name. Each one's changelog is `packages/<short name>/CHANGELOG.md`. */
-const PACKAGES = [
+export const PACKAGES = [
   'cli',
   'codemod',
   'css-reset',
@@ -132,10 +132,11 @@ const changes = async (
     return EXIT.unavailable;
   }
   const releases = selectReleases(parseChangelog(markdown), from, to);
+  const counts = countEntries(releases);
   io.stdout(
     values.json
-      ? `${JSON.stringify({ package: { name, version: from }, from, to, counts: countEntries(releases), versions: releases }, null, 2)}\n`
-      : formatChanges({ name, from, to, releases })
+      ? `${JSON.stringify({ package: { name, version: from }, from, to, counts, versions: releases }, null, 2)}\n`
+      : formatChanges({ name, from, to, counts, releases })
   );
   return EXIT.ok;
 };

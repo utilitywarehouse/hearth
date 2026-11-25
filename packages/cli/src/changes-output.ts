@@ -1,6 +1,12 @@
-import { ENTRY_TYPES, countEntries, type Release } from './changelog.js';
+import { ENTRY_TYPES, type EntryType, type Release } from './changelog.js';
 
-export type Changes = { name: string; from: string; to: string; releases: Array<Release> };
+export type Changes = {
+  name: string;
+  from: string;
+  to: string;
+  counts: Record<EntryType, number>;
+  releases: Array<Release>;
+};
 
 /** Indents an entry's continuation lines so it stays one list item, without leaving whitespace on blank lines. */
 const listItem = (text: string, prefix = '') =>
@@ -10,10 +16,9 @@ const listItem = (text: string, prefix = '') =>
     .join('\n')}`;
 
 /** Markdown: a header with counts by type, breaking changes first, then every entry by version. */
-export const formatChanges = ({ name, from, to, releases }: Changes): string => {
+export const formatChanges = ({ name, from, to, counts, releases }: Changes): string => {
   const title = `# ${name} ${from} → ${to}\n`;
   if (releases.length === 0) return `${title}\nNo changes: ${from} is already ${to} or later.\n`;
-  const counts = countEntries(releases);
   const total = ENTRY_TYPES.reduce((sum, type) => sum + counts[type], 0);
   const summary = `${total} ${total === 1 ? 'entry' : 'entries'} in ${releases.length} ${releases.length === 1 ? 'version' : 'versions'}: ${ENTRY_TYPES.map(type => `${counts[type]} ${type}`).join(', ')}\n`;
   const breaking = releases.flatMap(({ version, entries }) =>

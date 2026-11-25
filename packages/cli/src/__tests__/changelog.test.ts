@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
@@ -8,6 +8,7 @@ import {
   selectReleases,
   type Release,
 } from '../changelog.js';
+import { PACKAGES } from '../changes-command.js';
 import { packageRoot } from './run-binary.js';
 
 /** The real changelogs in this repo, as `hearth changes` fetches them from `main`. */
@@ -107,22 +108,23 @@ No removed icons.
     }
   );
 
-  it('parses the changelog of every other published package', () => {
-    for (const short of [
-      'react-native',
-      'svg-icons',
-      'react-icons',
-      'svg-assets',
-      'fonts',
-      'css-reset',
-    ]) {
-      const releases = changelog(short);
-      expect(releases.length, short).toBeGreaterThan(0);
-      expect(
-        releases.every(({ entries }) => entries.length > 0),
-        short
-      ).toBe(true);
-    }
+  it.each(PACKAGES)('parses the changelog of %s', short => {
+    const releases = changelog(short);
+    expect(releases.length).toBeGreaterThan(0);
+    expect(releases.every(({ entries }) => entries.length > 0)).toBe(true);
+  });
+
+  it('lists exactly the published packages of this repo', () => {
+    const published = readdirSync(join(packageRoot, '..'))
+      .filter(dir => existsSync(join(packageRoot, '..', dir, 'package.json')))
+      .filter(dir => {
+        const manifest = JSON.parse(
+          readFileSync(join(packageRoot, '..', dir, 'package.json'), 'utf8')
+        ) as { name: string; private?: boolean };
+        return !manifest.private && manifest.name === `@utilitywarehouse/hearth-${dir}`;
+      });
+
+    expect([...PACKAGES].sort()).toEqual(published.sort());
   });
 
   it('takes the most severe of several tags, and reads older tag spellings', () => {
