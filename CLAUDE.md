@@ -21,6 +21,10 @@ and supporting tooling.
 | `packages/svg-assets` | `@utilitywarehouse/hearth-svg-assets` — SVG illustration assets |
 | `packages/json-assets` | `@utilitywarehouse/hearth-json-assets` — JSON (animated) assets |
 | `packages/storybook-utils` | Internal Storybook utilities |
+| `packages/codemod` | `@utilitywarehouse/hearth-codemod` — codemods for major-version migrations |
+| `packages/cli` | `@utilitywarehouse/hearth-cli` — look up Hearth tokens from installed versions |
+| `packages/manifest` | `hearth-manifest` — manifest schema (private) |
+| `plugins/hearth-ai-toolkit` | Claude Code plugin for Hearth |
 | `apps/storybook-docs` | Central Storybook documentation site |
 | `apps/storybook-rn-expo` | React Native Storybook (Expo) |
 | `apps/playground-expo` | Expo playground app |

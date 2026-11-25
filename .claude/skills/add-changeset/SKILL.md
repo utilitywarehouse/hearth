@@ -66,6 +66,8 @@ Make sure the package name is correct, it should be one of the following:
 - `@utilitywarehouse/hearth-fonts`
 - `@utilitywarehouse/hearth-tokens`
 - `@utilitywarehouse/hearth-css-reset`
+- `@utilitywarehouse/hearth-codemod`
+- `@utilitywarehouse/hearth-cli`
 
 While the packages are in a pre `v1` state, we are not strictly adhering to
 semver guidelines, but we do want to be mindful of the impact of changes. Use
@@ -103,7 +105,7 @@ For minor bug fixes or simple enhancements, a brief single-line description is s
 ```
 
 ```markdown
-💅 [ENHANCEMENT]: Improve performance of List component with large datasets
+💅 [ENHANCEMENT]: `List` renders large datasets faster
 ```
 
 ```markdown
@@ -224,8 +226,8 @@ Include helpful links or context:
 
 ### Be Clear and Concise
 
-- Write in plain (British) English, this is important. Use customise instead of customize, behaviour instead of behavior.
-- Use present tense ("Add feature" not "Added feature")
+- Write in British English (customise, behaviour), matching the rest of the changelog.
+- Use present tense and state the outcome ("`Button` supports…", not "Added support for…")
 - Focus on what changed from the user's perspective
 - Prefer brevity while still providing necessary context
 

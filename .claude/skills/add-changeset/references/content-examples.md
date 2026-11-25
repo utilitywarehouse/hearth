@@ -7,7 +7,7 @@ This guide provides worked examples of common changeset patterns.
 ### Adding a New Component
 
 ```markdown
-🌟 [FEATURE]: Add `DatePicker` component for date selection
+🌟 [FEATURE]: `DatePicker` component for selecting dates and date ranges
 
 A new `DatePicker` component is now available for selecting dates in forms. It
 supports both single date selection and date range selection, with full keyboard
@@ -68,7 +68,7 @@ import { Avatar, AVATAR_SIZES } from '@utilitywarehouse/hearth-react-native';
 ### Enhancement
 
 ```markdown
-💅 [ENHANCEMENT]: Improve `Button` press animation performance
+💅 [ENHANCEMENT]: `Button` press animation smoother on lower-end devices
 
 Optimised the `Button` component press animation to use native driver, resulting
 in smoother interactions at 60fps, even on lower-end devices.
@@ -112,7 +112,7 @@ No changes required. All existing type definitions remain compatible.
 ✅ **Feature with full context:**
 
 ```markdown
-🌟 [FEATURE]: Add support for controlled `DateInput` components
+🌟 [FEATURE]: `DateInput` supports controlled and uncontrolled modes
 
 `DateInput` now supports both controlled and uncontrolled modes. In controlled
 mode, you can manage the date value externally, allowing for complex validation
