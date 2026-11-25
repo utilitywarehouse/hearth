@@ -29,10 +29,12 @@ This gives you:
   falls back to asking for a text description when that isn't configured.
 - The `/hearth-ai-toolkit:hearth-react-review` command, for reviewing or auditing UI code that
   already uses `hearth-react` — hallucinated or deprecated props,
-  design-token misuse, accessibility gaps, and layout anti-patterns. React
-  Native isn't covered yet.
+  design-token misuse, accessibility gaps, layout anti-patterns, and hand-rolled
+  code that a newer Hearth release replaces (it runs `hearth changes react`).
+  React Native isn't covered yet.
 - The `hearth-cli` skill, which tells Claude to look up design tokens, icons and
-  assets with the `hearth` CLI instead of guessing names. The CLI runs through
+  assets with the `hearth` CLI instead of guessing names, and to run
+  `hearth changes` to see what changed since the installed version. The CLI runs through
   `npx`, so it needs Node and nothing else.
 - The `design-systems-feedback` skill, for turning a rough edge or a win you
   hit while using any of the above into a real Linear issue in the Design

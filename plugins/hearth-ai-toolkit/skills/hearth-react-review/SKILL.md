@@ -1,6 +1,6 @@
 ---
 name: hearth-react-review
-description: "Use when reviewing or auditing UI code that uses `@utilitywarehouse/hearth-react` (PR, screen, component): hallucinated props, token misuse, accessibility gaps, layout anti-patterns. Consumer apps only; web only."
+description: "Use when reviewing or auditing UI code that uses `@utilitywarehouse/hearth-react` (PR, screen, component): hallucinated props, token misuse, accessibility gaps, layout anti-patterns, hand-rolled code a newer Hearth release replaces. Consumer apps only; web only."
 argument-hint: "File(s) or PR to review"
 ---
 
@@ -29,7 +29,28 @@ skill's `references/layout-and-style-props.md` and
 `references/tokens-and-patterns.md`: the wrong/right examples the checklist
 relies on live there, not in `SKILL.md`.
 
-## Step 2: Re-verify every component/prop actually used
+## Step 2: Check what changed since the installed version
+
+Run `hearth changes react` from the app's directory (see the `hearth-cli`
+skill). It lists every changelog entry between the installed
+`@utilitywarehouse/hearth-react` and the latest release, breaking changes
+first. The MCP server describes the latest version, so read the list for:
+
+- **Hand-rolled code a newer release replaces.** For example, a
+  `visuallyHidden` CSS object where `VisuallyHidden` (added in 0.37.0) does
+  the job. Recommend the upgrade and the component together, so the comment
+  doesn't ask for something the installed version lacks.
+- **Components or props newer than the installed version.** One that the
+  diff uses but that arrived after the installed version doesn't exist in
+  this project yet.
+- **Breaking changes** the code will hit on upgrade, worth a note even when
+  the diff doesn't upgrade.
+
+If the command exits `3` (offline, sandboxed, or the package isn't
+installed), say in the report that this check didn't run and why. Don't
+guess what changed.
+
+## Step 3: Re-verify every component/prop actually used
 
 Never trust that a prop already in the code under review is real. For each
 Hearth component and prop referenced, confirm it exists via the `hearth-react`
@@ -57,7 +78,8 @@ Work through each category, checking against the `hearth-react` skill's
 
 - **Hallucinated or deprecated props/components** — every prop/component
   used exists per `docs-show`, and isn't a prop the docs no longer list (a
-  sign it was removed in a version bump the code wasn't updated for). An
+  sign it was removed in a version bump the code wasn't updated for), and
+  isn't newer than the installed version (Step 2). An
   illustration imported from `hearth-react-icons` instead of
   `hearth-svg-assets` belongs here too.
 - **Layout anti-patterns** — margin on siblings instead of `gap`/
@@ -75,7 +97,9 @@ Work through each category, checking against the `hearth-react` skill's
   `layout-and-style-props.md` ("Style props").
 - **Reimplemented built-in behaviour or documented patterns** — custom code
   doing what a component already does, or working around a pattern or
-  alternative its `--docs` entry describes (see the examples in Step 2);
+  alternative its `--docs` entry describes (see the examples in Step 3), or
+  that a component in a newer release replaces (from Step 2, with the
+  upgrade);
   `asChild` used to render the element the component already renders
   (`<Link asChild><a>`). `asChild` also drops built-in behaviour, so
   recommend removing it before removing the custom code it made necessary.
