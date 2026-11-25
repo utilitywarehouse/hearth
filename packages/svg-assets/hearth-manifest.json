@@ -139,6 +139,78 @@
       "import": "@utilitywarehouse/hearth-svg-assets/lib/neutral-face-grey.svg"
     },
     {
+      "name": "Number1Energy",
+      "category": "other",
+      "file": "lib/number-1-energy.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-1-energy.svg"
+    },
+    {
+      "name": "Number1EnergyDark",
+      "category": "other",
+      "file": "lib/number-1-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-1-energy-dark.svg"
+    },
+    {
+      "name": "Number1EnergyLight",
+      "category": "other",
+      "file": "lib/number-1-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-1-energy-light.svg"
+    },
+    {
+      "name": "Number2Energy",
+      "category": "other",
+      "file": "lib/number-2-energy.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-2-energy.svg"
+    },
+    {
+      "name": "Number2EnergyDark",
+      "category": "other",
+      "file": "lib/number-2-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-2-energy-dark.svg"
+    },
+    {
+      "name": "Number2EnergyLight",
+      "category": "other",
+      "file": "lib/number-2-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-2-energy-light.svg"
+    },
+    {
+      "name": "Number3Energy",
+      "category": "other",
+      "file": "lib/number-3-energy.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-3-energy.svg"
+    },
+    {
+      "name": "Number3EnergyDark",
+      "category": "other",
+      "file": "lib/number-3-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-3-energy-dark.svg"
+    },
+    {
+      "name": "Number3EnergyLight",
+      "category": "other",
+      "file": "lib/number-3-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-3-energy-light.svg"
+    },
+    {
+      "name": "Number4Energy",
+      "category": "other",
+      "file": "lib/number-4-energy.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-4-energy.svg"
+    },
+    {
+      "name": "Number4EnergyDark",
+      "category": "other",
+      "file": "lib/number-4-energy-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-4-energy-dark.svg"
+    },
+    {
+      "name": "Number4EnergyLight",
+      "category": "other",
+      "file": "lib/number-4-energy-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-4-energy-light.svg"
+    },
+    {
       "name": "Placeholder",
       "category": "other",
       "file": "lib/placeholder.svg",
@@ -659,6 +731,18 @@
       "category": "spot",
       "file": "lib/spot-switch-light.svg",
       "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg"
+    },
+    {
+      "name": "SpotThermometerDark",
+      "category": "spot",
+      "file": "lib/spot-thermometer-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-dark.svg"
+    },
+    {
+      "name": "SpotThermometerLight",
+      "category": "spot",
+      "file": "lib/spot-thermometer-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-light.svg"
     },
     {
       "name": "SpotTickDark",
