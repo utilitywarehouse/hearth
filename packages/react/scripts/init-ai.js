@@ -2,8 +2,12 @@
 
 /**
  * init-ai.js
- * Adds the @utilitywarehouse/hearth-react AI skill reference to the
- * project's AI assistant config file.
+ * Adds @utilitywarehouse/hearth-react AI guidance to the project's AI assistant
+ * config files.
+ *
+ * For Claude Code (CLAUDE.md) it writes a block telling agents to install the
+ * `hearth-ai-toolkit` plugin and invoke its `hearth-react` skill, and registers
+ * the plugin and its marketplace in `.claude/settings.json`.
  *
  * Usage: npx @utilitywarehouse/hearth-react init-ai
  */
@@ -12,6 +16,30 @@ import fs from 'fs';
 import path from 'path';
 import readline from 'readline';
 const PACKAGE_NAME = '@utilitywarehouse/hearth-react';
+const PLUGIN_KEY = 'hearth-ai-toolkit@hearth-plugins';
+const MARKETPLACE_NAME = 'hearth-plugins';
+const MARKETPLACE_REPO = 'utilitywarehouse/hearth';
+
+const BLOCK_START = `<!-- ${PACKAGE_NAME}:start — added by: npx ${PACKAGE_NAME} init-ai -->`;
+const BLOCK_END = `<!-- ${PACKAGE_NAME}:end -->`;
+const CLAUDE_BLOCK = `${BLOCK_START}
+## Hearth React
+
+The \`hearth-react\` skill and MCP server come from the \`hearth-ai-toolkit\` plugin (marketplace \`${MARKETPLACE_NAME}\`, GitHub \`${MARKETPLACE_REPO}\`). It must be installed; this project's \`.claude/settings.json\` prompts for it.
+
+Before any UI work, invoke the \`hearth-react\` skill with the Skill tool. UI work means new or edited components, pages and styling, and adapting Figma output. Do this even when the file doesn't import Hearth yet.
+${BLOCK_END}`;
+
+const MARKER_BLOCK_RE = new RegExp(
+  `${escapeRegExp(`<!-- ${PACKAGE_NAME}:start`)}[^\\n]*-->[\\s\\S]*?${escapeRegExp(BLOCK_END)}`
+);
+// Block written by earlier versions: two comment lines, then an `@…/SKILL.md` import.
+const OLD_BLOCK_RE =
+  /(?:<!--[^\n]*-->\n<!--[^\n]*init-ai[^\n]*-->\n+)?@\S*hearth-react\/SKILL\.md[ \t]*\n?/;
+
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
 
 function resolveSkillPath(projectRoot) {
   let dir = projectRoot;
@@ -25,15 +53,9 @@ function resolveSkillPath(projectRoot) {
   return `node_modules/${PACKAGE_NAME}/SKILL.md`;
 }
 
-// Config files for each tool, in detection priority order
+// Config files for the other tools, in detection priority order
 function buildAiTools(skillPath) {
   return [
-    {
-      name: 'Claude Code',
-      files: ['CLAUDE.md'],
-      line: `@${skillPath}`,
-      supportsAtImport: true,
-    },
     {
       name: 'Cursor',
       files: ['.cursorrules'],
@@ -104,6 +126,74 @@ function appendToFile(filePath, line) {
   return { existed, alreadyPresent: false };
 }
 
+/**
+ * Writes the Claude Code block into CLAUDE.md: replaces a current block or an
+ * old `@…/SKILL.md` import block in place, otherwise appends.
+ * Returns 'unchanged' | 'updated' | 'added'.
+ */
+function writeClaudeBlock(filePath) {
+  const content = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '';
+  const existing = [MARKER_BLOCK_RE, OLD_BLOCK_RE].find(re => re.test(content));
+
+  let next;
+  if (existing) {
+    next = content.replace(existing, () =>
+      existing === OLD_BLOCK_RE ? `${CLAUDE_BLOCK}\n` : CLAUDE_BLOCK
+    );
+  } else {
+    const separator = content.length === 0 ? '' : content.endsWith('\n') ? '\n' : '\n\n';
+    next = `${content}${separator}${CLAUDE_BLOCK}\n`;
+  }
+  if (next === content) return 'unchanged';
+  fs.writeFileSync(filePath, next);
+  return existing ? 'updated' : 'added';
+}
+
+/** Merges the plugin and marketplace into .claude/settings.json, keeping other keys. */
+function updateClaudeSettings(projectRoot) {
+  const filePath = path.join(projectRoot, '.claude', 'settings.json');
+  let settings = {};
+  if (fs.existsSync(filePath)) {
+    try {
+      settings = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch {
+      return 'invalid';
+    }
+  }
+  const before = JSON.stringify(settings);
+  settings.enabledPlugins = { ...settings.enabledPlugins, [PLUGIN_KEY]: true };
+  settings.extraKnownMarketplaces = {
+    ...settings.extraKnownMarketplaces,
+    [MARKETPLACE_NAME]: { source: { source: 'github', repo: MARKETPLACE_REPO } },
+  };
+  if (JSON.stringify(settings) === before) return 'unchanged';
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(settings, null, 2)}\n`);
+  return 'updated';
+}
+
+function setUpClaudeCode(projectRoot) {
+  const claudeMd = writeClaudeBlock(path.join(projectRoot, 'CLAUDE.md'));
+  const settings = updateClaudeSettings(projectRoot);
+  return { claudeMd, settings };
+}
+
+function reportClaudeCode({ claudeMd, settings }) {
+  const label = { added: 'block added', updated: 'block updated', unchanged: 'already up to date' };
+  console.log(
+    `${claudeMd === 'unchanged' ? '⏭ ' : '✅ '} Claude Code (CLAUDE.md) — ${label[claudeMd]}`
+  );
+  if (settings === 'invalid') {
+    console.log(
+      `⚠️   .claude/settings.json is not valid JSON, left unchanged. Add "${PLUGIN_KEY}" to enabledPlugins and a "${MARKETPLACE_NAME}" entry to extraKnownMarketplaces yourself.`
+    );
+  } else {
+    console.log(
+      `${settings === 'unchanged' ? '⏭ ' : '✅ '} Claude Code (.claude/settings.json) — ${settings === 'unchanged' ? 'plugin already registered' : 'plugin and marketplace registered'}`
+    );
+  }
+}
+
 function detectAndUpdate(projectRoot) {
   const results = [];
   for (const tool of AI_TOOLS) {
@@ -118,15 +208,15 @@ function detectAndUpdate(projectRoot) {
   return results;
 }
 
-function promptCreate(projectRoot, aiTools) {
+function promptCreate(projectRoot) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   rl.question('\nNo AI assistant config file detected. Create CLAUDE.md? (Y/n) ', answer => {
     rl.close();
     if (answer.trim().toLowerCase() !== 'n') {
-      const tool = aiTools.find(t => t.name === 'Claude Code');
-      const filePath = path.join(projectRoot, 'CLAUDE.md');
-      appendToFile(filePath, tool.line);
-      console.log(`\n✅  Created CLAUDE.md with ${PACKAGE_NAME} skill reference.`);
+      reportClaudeCode(setUpClaudeCode(projectRoot));
+      console.log(
+        `\nDone! Install the hearth-ai-toolkit plugin when Claude Code prompts for it.\n`
+      );
     } else {
       console.log('\nSkipped. You can add the skill manually — see the README for instructions.');
     }
@@ -141,11 +231,13 @@ const AI_TOOLS = buildAiTools(skillPath);
 
 console.log(`\n🔍  Scanning for AI assistant config files in ${projectRoot}...\n`);
 
+const hasClaudeMd = fs.existsSync(path.join(projectRoot, 'CLAUDE.md'));
 const results = detectAndUpdate(projectRoot);
 
-if (results.length === 0) {
-  promptCreate(projectRoot, AI_TOOLS);
+if (!hasClaudeMd && results.length === 0) {
+  promptCreate(projectRoot);
 } else {
+  if (hasClaudeMd) reportClaudeCode(setUpClaudeCode(projectRoot));
   for (const r of results) {
     if (r.alreadyPresent) {
       console.log(`⏭   ${r.tool} (${r.file}) — skill already present, skipped`);
