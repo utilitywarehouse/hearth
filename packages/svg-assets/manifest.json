@@ -466,6 +466,16 @@
       "hash": "96e1b969396a76a54fde4a8247b5e69cbe418fe006d7986f9327ded9778d0968"
     },
     {
+      "name": "SpotThermometerLight",
+      "path": "spot-thermometer-light.svg",
+      "hash": "96278c9f693fcce3813ca9889b98656ddeda248db6e6fa6d433648fa2cea5ef1"
+    },
+    {
+      "name": "SpotThermometerDark",
+      "path": "spot-thermometer-dark.svg",
+      "hash": "ab8661c28dbf1cc5cbef34c1580562d6089a2c93b4029aafe2ce760848e28d8b"
+    },
+    {
       "name": "SceneEnergyLight",
       "path": "scene-energy-light.svg",
       "hash": "1018f37bde4040c3dc52e08b647ed76644dd36f4d8b2a940a7927fa6f7ac56cb"

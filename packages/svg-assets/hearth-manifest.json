@@ -661,6 +661,18 @@
       "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg"
     },
     {
+      "name": "SpotThermometerDark",
+      "category": "spot",
+      "file": "lib/spot-thermometer-dark.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-dark.svg"
+    },
+    {
+      "name": "SpotThermometerLight",
+      "category": "spot",
+      "file": "lib/spot-thermometer-light.svg",
+      "import": "@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-light.svg"
+    },
+    {
       "name": "SpotTickDark",
       "category": "spot",
       "file": "lib/spot-tick-dark.svg",

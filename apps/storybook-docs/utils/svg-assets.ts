@@ -93,6 +93,8 @@ import SpotBookAppointmentLight from '@utilitywarehouse/hearth-svg-assets/lib/sp
 import SpotBookAppointmentDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-dark.svg';
 import SpotMotorInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-light.svg';
 import SpotMotorInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-dark.svg';
+import SpotThermometerLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-light.svg';
+import SpotThermometerDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-dark.svg';
 import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg';
 import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg';
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg';
@@ -358,6 +360,8 @@ export const svgAssets = [
     src: SpotMotorInsuranceDark,
     path: 'spot-motor-insurance-dark.svg',
   },
+  { name: 'SpotThermometerLight', src: SpotThermometerLight, path: 'spot-thermometer-light.svg' },
+  { name: 'SpotThermometerDark', src: SpotThermometerDark, path: 'spot-thermometer-dark.svg' },
   { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
   { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
   { name: 'SceneMobileLight', src: SceneMobileLight, path: 'scene-mobile-light.svg' },

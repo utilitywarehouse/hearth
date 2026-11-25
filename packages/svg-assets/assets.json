@@ -465,6 +465,16 @@
     "componentSetId": "3076:37443"
   },
   {
+    "id": "3379:28795",
+    "name": "SpotThermometerLight",
+    "componentSetId": "3379:28794"
+  },
+  {
+    "id": "3379:28934",
+    "name": "SpotThermometerDark",
+    "componentSetId": "3379:28794"
+  },
+  {
     "id": "2125:10125",
     "name": "SceneEnergyLight",
     "componentSetId": "2125:10126"

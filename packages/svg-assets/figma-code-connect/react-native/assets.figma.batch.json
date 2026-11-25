@@ -797,6 +797,23 @@
       }
     },
     {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:28794&m=dev",
+      "id": "spot-thermometer-light",
+      "name": "SpotThermometerLight",
+      "component": "SpotThermometerLight",
+      "path": "spot-thermometer-light.svg",
+      "source": "../../lib/spot-thermometer-light.svg",
+      "themed": true,
+      "light": {
+        "name": "SpotThermometerLight",
+        "path": "spot-thermometer-light.svg"
+      },
+      "dark": {
+        "name": "SpotThermometerDark",
+        "path": "spot-thermometer-dark.svg"
+      }
+    },
+    {
       "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:10126&m=dev",
       "id": "scene-energy-light",
       "name": "SceneEnergyLight",
