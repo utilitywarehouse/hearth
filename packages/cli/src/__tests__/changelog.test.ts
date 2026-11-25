@@ -68,6 +68,45 @@ describe('parseChangelog', () => {
     expect(release(changelog(short), version).entries[0].type).toBe(type);
   });
 
+  it('keeps unindented headings and lists inside the entry they follow', () => {
+    const releases = parseChangelog(`## 0.2.0
+
+### Minor Changes
+
+- abc Thanks! - Icons
+
+## NEW ICONS
+
+- AIcon
+- BIcon
+
+## REMOVED ICONS
+
+No removed icons.
+
+### Patch Changes
+
+- def Thanks! - 🐛 [FIX]: After
+`);
+
+    expect(releases.map(({ version }) => version)).toEqual(['0.2.0']);
+    expect(releases[0].entries).toHaveLength(2);
+    expect(releases[0].entries[0].text).toBe(
+      'abc Thanks! - Icons\n\n## NEW ICONS\n\n- AIcon\n- BIcon\n\n## REMOVED ICONS\n\nNo removed icons.'
+    );
+    expect(releases[0].entries[1].type).toBe('fix');
+  });
+
+  it.each(['react-icons', 'svg-icons', 'react-native-icons'])(
+    'reads %s 0.2.0 as one entry, not one per icon',
+    short => {
+      const { entries } = release(changelog(short), '0.2.0');
+
+      expect(entries).toHaveLength(1);
+      expect(entries[0].text).toContain('## NEW ICONS');
+    }
+  );
+
   it('parses the changelog of every other published package', () => {
     for (const short of [
       'react-native',

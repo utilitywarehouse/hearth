@@ -57,17 +57,24 @@ const classify = (firstLine: string): EntryType => {
 export const parseChangelog = (markdown: string): Array<Release> => {
   const releases: Array<Release> = [];
   let lines: Array<string> | undefined;
+  // after a heading that is not a version or a `###` group, inside an entry: bot-written entries leave such headings
+  // and their lists unindented, and they belong to the entry
+  let inBody = false;
   const flush = () => {
     if (!lines) return;
     const text = lines.join('\n').trimEnd();
     releases.at(-1)?.entries.push({ type: classify(lines[0]), text });
     lines = undefined;
+    inBody = false;
   };
   for (const line of markdown.split(/\r?\n/)) {
     const version = /^## (\S+)\s*$/.exec(line)?.[1];
-    if (version !== undefined) {
+    if (version !== undefined && isVersion(version)) {
       flush();
       releases.push({ version, entries: [] });
+    } else if (lines && (inBody || line.startsWith('## ')) && !line.startsWith('### ')) {
+      inBody = true;
+      lines.push(line);
     } else if (line.startsWith('- ')) {
       flush();
       lines = [line.slice(2)];

@@ -35,7 +35,7 @@ const CHANGELOG = `# ${REACT}
 - [#1](https://example.com/1) Thanks [@a](https://example.com/a)! - 🌟 [FEATURE]: First release
 `;
 
-type Route = string | { status: number } | Error;
+type Route = string | { status: number } | Error | Response;
 
 /** A fetch that answers from `routes` by URL and records every URL asked for. */
 const stubFetch = (routes: Record<string, Route>) => {
@@ -44,6 +44,7 @@ const stubFetch = (routes: Record<string, Route>) => {
     requested.push(input);
     const route = routes[input];
     if (route instanceof Error) return Promise.reject(route);
+    if (route instanceof Response) return Promise.resolve(route);
     if (route === undefined) return Promise.resolve(new Response('', { status: 404 }));
     return Promise.resolve(
       typeof route === 'string' ? new Response(route) : new Response('', route)
@@ -219,5 +220,43 @@ describe('hearth changes', () => {
     expect(err).toMatch(
       /^raw\.githubusercontent\.com refused or rate-limited for the @utilitywarehouse\/hearth-react changelog \(HTTP 429\)\./
     );
+  });
+
+  it('exits 3, not a crash, when npm answers with something that is not JSON', async () => {
+    const { code, err } = await cli(['react'], {
+      routes: { ...DEFAULT_ROUTES, [LATEST_URL]: '<html>Sign in to the network</html>' },
+    });
+
+    expect(code).toBe(3);
+    expect(err).toMatch(/^registry\.npmjs\.org gave no usable latest version/);
+  });
+
+  it('exits 3 when the response body cannot be read', async () => {
+    const broken = new Response(
+      new ReadableStream({
+        pull: controller => controller.error(new TypeError('terminated')),
+      })
+    );
+    const { code, err } = await cli(['react'], {
+      routes: { ...DEFAULT_ROUTES, [CHANGELOG_URL]: broken },
+    });
+
+    expect(code).toBe(3);
+    expect(err).toMatch(/^Could not read the response from raw\.githubusercontent\.com/);
+  });
+
+  it('ignores build metadata on the installed version', async () => {
+    const { code, out } = await cli(['react'], { cwd: consumerOn('0.1.0+abc') });
+
+    expect(code).toBe(0);
+    expect(out).toContain(`# ${REACT} 0.1.0 → 0.3.0`);
+  });
+
+  it('asks for --from when the installed version cannot be read', async () => {
+    const { code, err, requested } = await cli(['react'], { cwd: consumerOn('not-a-version') });
+
+    expect(code).toBe(3);
+    expect(err).toContain('version could not be read');
+    expect(requested).toEqual([]);
   });
 });

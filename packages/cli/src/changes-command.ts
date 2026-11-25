@@ -45,10 +45,23 @@ class FetchError extends Error {}
 const installedVersion = (name: string, cwd: string): string | undefined => {
   for (let dir = cwd; ; dir = dirname(dir)) {
     const path = join(dir, 'node_modules', ...name.split('/'), 'package.json');
-    if (existsSync(path))
-      return (JSON.parse(readFileSync(path, 'utf8')) as { version?: string }).version;
+    if (existsSync(path)) {
+      try {
+        const { version } = JSON.parse(readFileSync(path, 'utf8')) as { version?: unknown };
+        // build metadata (`1.2.3+abc`) does not affect precedence
+        const base = typeof version === 'string' ? version.split('+')[0] : undefined;
+        return base !== undefined && isVersion(base) ? base : undefined;
+      } catch {
+        return undefined;
+      }
+    }
     if (dirname(dir) === dir) return undefined;
   }
+};
+
+const describe = (error: unknown) => {
+  const { name, message, cause } = error as Error & { cause?: { code?: string } };
+  return name === 'TimeoutError' ? `no answer in ${TIMEOUT_MS / 1000}s` : (cause?.code ?? message);
 };
 
 const fetchText = async (io: Io, url: string, what: string): Promise<string> => {
@@ -57,12 +70,17 @@ const fetchText = async (io: Io, url: string, what: string): Promise<string> => 
   try {
     response = await (io.fetch ?? fetch)(url, { signal: AbortSignal.timeout(TIMEOUT_MS) });
   } catch (error) {
-    const { name, message, cause } = error as Error & { cause?: { code?: string } };
-    const reason =
-      name === 'TimeoutError' ? `no answer in ${TIMEOUT_MS / 1000}s` : (cause?.code ?? message);
-    throw new FetchError(`Could not reach ${host} for ${what} (${reason}).`);
+    throw new FetchError(`Could not reach ${host} for ${what} (${describe(error)}).`);
   }
-  if (response.ok) return response.text();
+  if (response.ok) {
+    try {
+      return await response.text();
+    } catch (error) {
+      throw new FetchError(
+        `Could not read the response from ${host} for ${what} (${describe(error)}).`
+      );
+    }
+  }
   const reason =
     response.status === 403 || response.status === 429
       ? 'refused or rate-limited'
@@ -78,7 +96,12 @@ const latestVersion = async (io: Io, name: string) => {
     `${REGISTRY}/${name.replace('/', '%2F')}/latest`,
     `the latest version of ${name}`
   );
-  const { version } = JSON.parse(body) as { version?: unknown };
+  let version: unknown;
+  try {
+    ({ version } = JSON.parse(body) as { version?: unknown });
+  } catch {
+    // an HTML page from a proxy or captive portal
+  }
   if (typeof version !== 'string' || !isVersion(version)) {
     throw new FetchError(`${new URL(REGISTRY).host} gave no usable latest version for ${name}.`);
   }
@@ -151,7 +174,7 @@ export const changesCommand: CommandGroup = {
     const from = fromFlag ?? installedVersion(name, io.cwd);
     if (from === undefined) {
       io.stderr(
-        `${name} is not installed in this project, so there is no version to compare from. Pass the version to start from, for example "hearth changes ${short} --from 0.30.0".\n`
+        `${name} is not installed in this project (or its version could not be read), so there is no version to compare from. Pass the version to start from, for example "hearth changes ${short} --from 0.30.0".\n`
       );
       return EXIT.unavailable;
     }
