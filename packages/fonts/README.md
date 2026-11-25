@@ -27,6 +27,13 @@ This package includes the following font families, styles and weights.
 | DM Mono         | 500              | normal, italic    |
 | Comic Hams      | 600, 700         | normal            |
 
+
+## Font sources
+
+- DM Sans: https://github.com/googlefonts/dm-fonts/tree/main/Sans/fonts/webfonts
+- DM Mono: https://fonts.google.com/specimen/DM+Mono
+- Comic Hams: UW Frontify
+
 ## CSS Files
 
 Each family has its own CSS file, and `index.css` loads all of them.
