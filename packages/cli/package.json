@@ -67,7 +67,7 @@
     "@utilitywarehouse/hearth-manifest": "workspace:*",
     "tsup": "^8.5.1",
     "vitest": "^4.1.7",
-    "zod": "^4.4.3"
+    "zod": "^4.6.6"
   },
   "files": [
     "dist"
