@@ -35,7 +35,7 @@ const MARKER_BLOCK_RE = new RegExp(
 );
 // Block written by earlier versions: two comment lines, then an `@…/SKILL.md` import.
 const OLD_BLOCK_RE =
-  /(?:<!--[^\n]*-->\n<!--[^\n]*init-ai[^\n]*-->\n+)?@\S*hearth-react\/SKILL\.md[ \t]*\n?/;
+  /(?:^<!--[^\n]*-->\r?\n^<!--[^\n]*init-ai[^\n]*-->(?:\r?\n)+)?^@\S*hearth-react\/SKILL\.md[ \t]*(?=\r?$)/m;
 
 function escapeRegExp(s) {
   return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -135,14 +135,15 @@ function writeClaudeBlock(filePath) {
   const content = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '';
   const existing = [MARKER_BLOCK_RE, OLD_BLOCK_RE].find(re => re.test(content));
 
+  const eol = content.includes('\r\n') ? '\r\n' : '\n';
+  const block = CLAUDE_BLOCK.replace(/\n/g, eol);
+
   let next;
   if (existing) {
-    next = content.replace(existing, () =>
-      existing === OLD_BLOCK_RE ? `${CLAUDE_BLOCK}\n` : CLAUDE_BLOCK
-    );
+    next = content.replace(existing, () => block);
   } else {
-    const separator = content.length === 0 ? '' : content.endsWith('\n') ? '\n' : '\n\n';
-    next = `${content}${separator}${CLAUDE_BLOCK}\n`;
+    const separator = content.length === 0 ? '' : content.endsWith('\n') ? eol : `${eol}${eol}`;
+    next = `${content}${separator}${block}${eol}`;
   }
   if (next === content) return 'unchanged';
   fs.writeFileSync(filePath, next);
@@ -160,11 +161,21 @@ function updateClaudeSettings(projectRoot) {
       return 'invalid';
     }
   }
+  const isObject = v => v !== null && typeof v === 'object' && !Array.isArray(v);
+  if (
+    !isObject(settings) ||
+    ![settings.enabledPlugins, settings.extraKnownMarketplaces].every(
+      v => v === undefined || isObject(v)
+    )
+  ) {
+    return 'invalid';
+  }
   const before = JSON.stringify(settings);
-  settings.enabledPlugins = { ...settings.enabledPlugins, [PLUGIN_KEY]: true };
+  // Keep existing values: a project may have disabled the plugin or pinned its own marketplace.
+  settings.enabledPlugins = { [PLUGIN_KEY]: true, ...settings.enabledPlugins };
   settings.extraKnownMarketplaces = {
-    ...settings.extraKnownMarketplaces,
     [MARKETPLACE_NAME]: { source: { source: 'github', repo: MARKETPLACE_REPO } },
+    ...settings.extraKnownMarketplaces,
   };
   if (JSON.stringify(settings) === before) return 'unchanged';
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -185,7 +196,7 @@ function reportClaudeCode({ claudeMd, settings }) {
   );
   if (settings === 'invalid') {
     console.log(
-      `⚠️   .claude/settings.json is not valid JSON, left unchanged. Add "${PLUGIN_KEY}" to enabledPlugins and a "${MARKETPLACE_NAME}" entry to extraKnownMarketplaces yourself.`
+      `⚠️   .claude/settings.json is not a valid JSON object, left unchanged. Add "${PLUGIN_KEY}" to enabledPlugins and a "${MARKETPLACE_NAME}" entry to extraKnownMarketplaces yourself.`
     );
   } else {
     console.log(
@@ -244,6 +255,9 @@ if (!hasClaudeMd && results.length === 0) {
     } else {
       console.log(`✅  ${r.tool} (${r.file}) — skill reference added`);
     }
+  }
+  if (hasClaudeMd) {
+    console.log('\nInstall the hearth-ai-toolkit plugin when Claude Code prompts for it.');
   }
   console.log(`\nDone! Your AI assistant will now use the ${PACKAGE_NAME} skill.\n`);
 }
