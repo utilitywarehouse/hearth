@@ -12,13 +12,20 @@ convey state without relying on the animation.
 
 ## Requirements at a glance
 
-| Requirement                                                                                                            | Level | What it means for an animated asset                                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [2.3.1 Three Flashes or Below Threshold](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold) | A     | Nothing flashes more than three times in any one-second period.                                                                                          |
-| [2.2.2 Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide)                                 | A     | Motion or blinking that starts on its own and runs for more than five seconds needs a way to pause, stop or hide it. Simplest fix: stop by five seconds. |
-| [2.3.3 Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions)           | AAA   | Motion triggered by an interaction can be turned off. Honour `prefers-reduced-motion` to meet this.                                                      |
-| [1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content)                                 | A     | Any information the animation carries also exists as text.                                                                                               |
-| [1.3.3 Sensory Characteristics](https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics)                   | A     | Instructions don't depend on seeing the animation ("pick the one that's blinking").                                                                      |
+- [2.3.1 Three Flashes or Below Threshold](https://www.w3.org/WAI/WCAG22/Understanding/three-flashes-or-below-threshold)
+  (A): nothing flashes more than three times in any one-second period.
+- [2.2.2 Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide)
+  (A): motion or blinking that starts on its own and runs for more than five
+  seconds needs a way to pause, stop or hide it. The simplest fix is to stop by
+  five seconds.
+- [2.3.3 Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions)
+  (AAA): motion triggered by an interaction can be turned off. Honour
+  `prefers-reduced-motion` to meet this.
+- [1.1.1 Non-text Content](https://www.w3.org/WAI/WCAG22/Understanding/non-text-content)
+  (A): any information the animation carries also exists as text.
+- [1.3.3 Sensory Characteristics](https://www.w3.org/WAI/WCAG22/Understanding/sensory-characteristics)
+  (A): instructions don't depend on seeing the animation ("pick the one that's
+  blinking").
 
 ## Respect `prefers-reduced-motion`
 
@@ -43,33 +50,38 @@ is the default and nothing needs undoing:
 }
 ```
 
-Hearth React's own components follow this pattern.
-
-Don't set JSON assets to loop indefinitely. A looping animation runs past five
-seconds, which brings in 2.2.2 and distracts people with attention or cognitive
-disabilities.
+Hearth React's own components, such as Skeleton and Accordion, follow this
+pattern.
 
 ## Flashing and blinking content
 
-The WCAG recommendations [Pause, Stop, Hide](https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html) says:
+The WCAG recommendation
+[Pause, Stop, Hide](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide)
+says:
 
 **"For any moving, blinking or scrolling information that (1) starts
 automatically, (2) lasts more than five seconds, and (3) is presented in
 parallel with other content, there is a mechanism for the user to pause, stop,
 or hide it unless the movement, blinking, or scrolling is part of an activity
-where it is essential"**
+where it is essential."**
 
-So, we need to ensure that these animations DO NOT LOOP in order to stay under 5 seconds.
-If there are any animations that are presented in parallel with other content
-and last more that 5 seconds, then we need to give users the option to pause,
-stop or hide the animation.
+So, we need to ensure that these animations DO NOT LOOP in order to stay under 5
+seconds. If there are any animations that are presented in parallel with other
+content and last more than 5 seconds, then we need to give users the option to
+pause, stop or hide the animation.
 
-If a design needs a blinking element, for example to show an indicator light
-that flashes in real life:
+If a design needs a blinking element, for example an indicator light that
+flashes in real life:
+
+- Keep it to one flash per second, well under the three-per-second limit.
+- Give it a fixed number of iterations that finishes within five seconds, as in
+  the CSS example above, rather than looping.
+- End on a state that is readable without the animation.
 
 ## Conveying state without motion
 
 Animation must never be the only way someone can tell options apart. People
 using screen readers, people with reduced motion turned on, and people who look
-away while the animation runs all miss it.
-
+away while the animation runs all miss it. Put the state in text, such as a
+visible label, and mark the animated graphic `aria-hidden` so it adds nothing
+to the accessible name.
