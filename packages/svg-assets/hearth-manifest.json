@@ -139,12 +139,6 @@
       "import": "@utilitywarehouse/hearth-svg-assets/lib/neutral-face-grey.svg"
     },
     {
-      "name": "Number1Energy",
-      "category": "other",
-      "file": "lib/number-1-energy.svg",
-      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-1-energy.svg"
-    },
-    {
       "name": "Number1EnergyDark",
       "category": "other",
       "file": "lib/number-1-energy-dark.svg",
@@ -155,12 +149,6 @@
       "category": "other",
       "file": "lib/number-1-energy-light.svg",
       "import": "@utilitywarehouse/hearth-svg-assets/lib/number-1-energy-light.svg"
-    },
-    {
-      "name": "Number2Energy",
-      "category": "other",
-      "file": "lib/number-2-energy.svg",
-      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-2-energy.svg"
     },
     {
       "name": "Number2EnergyDark",
@@ -175,12 +163,6 @@
       "import": "@utilitywarehouse/hearth-svg-assets/lib/number-2-energy-light.svg"
     },
     {
-      "name": "Number3Energy",
-      "category": "other",
-      "file": "lib/number-3-energy.svg",
-      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-3-energy.svg"
-    },
-    {
       "name": "Number3EnergyDark",
       "category": "other",
       "file": "lib/number-3-energy-dark.svg",
@@ -191,12 +173,6 @@
       "category": "other",
       "file": "lib/number-3-energy-light.svg",
       "import": "@utilitywarehouse/hearth-svg-assets/lib/number-3-energy-light.svg"
-    },
-    {
-      "name": "Number4Energy",
-      "category": "other",
-      "file": "lib/number-4-energy.svg",
-      "import": "@utilitywarehouse/hearth-svg-assets/lib/number-4-energy.svg"
     },
     {
       "name": "Number4EnergyDark",
