@@ -15,6 +15,10 @@ How the CLI is put together and how to extend it. The reasoning for the design i
 - **A command group** (`tokens`, `icons`, `assets`) is a module that exports a `CommandGroup` (`src/command-group.ts`):
   its name, usage text, accepted flags and a `run` function. `src/run.ts` merges the groups' flags, parses the command
   line and dispatches to the matching group. Exit codes are `EXIT` in `command-group.ts`.
+- **`hearth changes`** is the exception: it reads no manifest. It fetches the package's latest version from npm and its
+  `CHANGELOG.md` from GitHub, so its `run` returns a promise (after throwing any `UsageError` synchronously), and tests
+  pass a stub `fetch` on `Io`. `src/changelog.ts` parses the changesets format; a new published package needs adding to
+  `PACKAGES` in `src/changes-command.ts`.
 - Each group splits **lookup** (`tokens.ts`, `icons.ts`, `assets.ts`: plain functions over a manifest, no I/O),
   **rendering** (`*-output.ts`) and **wiring** (`*-command.ts`: flags, resolving the manifest, exit codes).
 

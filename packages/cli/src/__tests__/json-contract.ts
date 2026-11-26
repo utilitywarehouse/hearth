@@ -74,6 +74,8 @@ const jsonAsset = z.strictObject({
   import: z.string(),
 });
 
+const entryType = z.enum(['breaking', 'feature', 'enhancement', 'fix', 'other']);
+
 export const JSON_CONTRACT = {
   'tokens search/list (web)': web.search,
   'tokens get (one token, web)': web.one,
@@ -111,6 +113,20 @@ export const JSON_CONTRACT = {
     assets: z.array(jsonAsset),
   }),
   'assets json get': z.strictObject({ package: pkg, kind: z.literal('json'), asset: jsonAsset }),
+  changes: z.strictObject({
+    package: pkg,
+    from: z.string(),
+    to: z.string(),
+    counts: z.strictObject(
+      Object.fromEntries(entryType.options.map(type => [type, z.number().int()]))
+    ),
+    versions: z.array(
+      z.strictObject({
+        version: z.string(),
+        entries: z.array(z.strictObject({ type: entryType, text: z.string() })),
+      })
+    ),
+  }),
 } as const;
 
 export type ContractName = keyof typeof JSON_CONTRACT;
