@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.38.10
+
+### Patch Changes
+
+- [#1882](https://github.com/utilitywarehouse/hearth/pull/1882) [`876d5ac`](https://github.com/utilitywarehouse/hearth/commit/876d5acba2a94e616b2753699171770296b85e1b) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `SKILL.md` tells agents to run `hearth changes` before hand-rolling code a newer Hearth release may already provide
+
 ## 0.38.9
 
 ### Patch Changes
