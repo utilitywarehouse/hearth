@@ -8,7 +8,7 @@ argument-hint: "Component name, package (react or react-native), and Figma URL"
 
 Every new component should have a Figma Code Connect file. Code Connect maps the Figma component to a live code snippet shown in the Figma Dev Mode inspector.
 
-Both `packages/react` and `packages/react-native` use the **template format** (`.figma.ts`, built on `figma.selectedInstance`). This replaced the older `figma.connect()`-based `.figma.tsx` connect API. As of this writing, migration is complete — there are no `.figma.tsx` files left in either package — but see [Legacy connect API](#legacy-connect-api-historical-context) at the bottom for historical context, or in the rare case a new one shows up.
+Both `packages/react` and `packages/react-native` use the **template format** (`.figma.ts`, built on `figma.selectedInstance`). This replaced the older `figma.connect()`-based `.figma.tsx` connect API.
 
 Reference docs for everything in this file:
 * Template Files — https://developers.figma.com/docs/code-connect/template-files/ (file structure, the migration script, slots)
@@ -55,7 +55,7 @@ export default {
 };
 ```
 
-The `// url=` / `// source=` / `// component=` header comments are metadata for the CLI, not executed code — always include all three. The default export has three fields:
+The `// url=` / `// source=` / `// component=` header comments are metadata for the CLI, not executed code — always include all three. The default export has three required fields and an optional `metadata`:
 
 | Field | Purpose |
 |---|---|
@@ -228,28 +228,16 @@ Only do this when the embedded instance is genuinely the *same, current* compone
 
 If a single source file has 10+ Code Connect docs following an identical shape (e.g. an icon library), `npx figma connect migrate` may produce a `.figma.batch.ts` (the shared template) + `.figma.batch.json` (per-component data: URL, name, id, import path) pair instead of one file per component. This is expected to be rare in Hearth — most components here have a handful of connections, well under the batch threshold. If you do hit one, don't split it back into individual files; per-component values come from `figma.batch.*` inside the template rather than being hardcoded.
 
-## Migrate → review → refactor → verify workflow
+## Review → verify workflow
 
-This is the workflow for turning an existing `.figma.tsx` (legacy connect API) file into a `.figma.ts` template — not a blind rewrite, and not a bare mechanical script run.
-
-1. **Migrate** — from the package directory, run:
-   ```sh
-   npx figma connect migrate --file src/components/<Name>/<Name>.figma.tsx
-   ```
-   This is a local, offline transform — it does not call the Figma API. Pass multiple `--file` paths together for a parent + its subcomponents.
-2. **Review** — don't trust the migrated output blindly:
+1. **Review** — check the template against its sources:
    - Check every mapped prop against the component's own `<Name>.props.ts` and `<Name>.docs.mdx`.
    - Cross-check against the **live** Figma component's current properties/variants/slots — use the Figma MCP `get_context_for_code_connect` tool (fileKey + nodeId from the file's `// url=` comment) to get the authoritative property list, including each property's `type`. Components drift from their original Code Connect mapping over time, and some now expose `SLOT`-type properties that didn't exist when the file was first authored.
-3. **Refactor** — the migrate script's output already uses typed getters, but still check for and fix:
-   - Any leftover `getPropertyValue()` → replace with the matching typed getter.
-   - Any property the live Figma data reports as `type: "SLOT"` that the migrated file is still treating as `getInstanceSwap()`/`figma.children()`/`findLayers()` → switch to `getSlot()` (see [Slots](#slots)).
-   - Overly verbose conditional branching → collapse using `figma.helpers.react.renderProp`/`renderChildren` where it fits.
-4. **Delete** the old `.figma.tsx` file once you're confident the new file is correct.
-5. **Verify** — preview the rendered output:
+2. **Verify** — preview the rendered output:
    ```sh
    npx figma connect preview --file src/components/<Name>/<Name>.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
    ```
-   Older docs and issue templates refer to this as `figma connect print` — that subcommand does not exist in the installed CLI (`@figma/code-connect` v1.4.8 at time of writing); `preview` is the correct command. `preview` calls the live Figma API to resolve slots/instance-swaps, so it requires a token with **both** the "File Read" and "Code Connect Write" scopes — a token missing "Code Connect Write" will fail every file with `Invalid scope(s)`, not just the one you're checking. The CLI only auto-reads `FIGMA_ACCESS_TOKEN` from the environment (via `dotenv`), but this repo's token is stored as `FIGMA_CODE_CONNECT_TOKEN` — always pass it explicitly with `--token`, as above, for `preview`, `migrate` (only needed if resolving imports against the live file), and `publish`.
+   Older docs and issue templates refer to this as `figma connect print` — that subcommand does not exist in the installed CLI; `preview` is the correct command. `preview` calls the live Figma API to resolve slots/instance-swaps, so it requires a token with **both** the "File Read" and "Code Connect Write" scopes — a token missing "Code Connect Write" will fail every file with `Invalid scope(s)`, not just the one you're checking. The CLI only auto-reads `FIGMA_ACCESS_TOKEN` from the environment (via `dotenv`), but this repo's token is stored as `FIGMA_CODE_CONNECT_TOKEN` — always pass it explicitly with `--token`, as above, for `preview`, `migrate` (only needed if resolving imports against the live file), and `publish`.
 
 ## Publishing
 
@@ -262,31 +250,5 @@ npx figma connect publish --file src/components/MyComponent/MyComponent.figma.ts
 # React Native — from packages/react-native
 pnpm figma:publish -- --token "$FIGMA_CODE_CONNECT_TOKEN"
 ```
-
-## Legacy connect API (historical context)
-
-Fully migrated as of this writing — there are no `.figma.tsx` files left in `packages/react` or `packages/react-native`. Older files used `figma.connect()` from `@figma/code-connect` instead of the template API:
-
-```tsx
-import figma from '@figma/code-connect';
-import { MyComponent } from '../';
-
-figma.connect(MyComponent, 'https://www.figma.com/design/.../?node-id=<nodeId>', {
-  props: {
-    variant: figma.enum('Variant', { 'Subtle - Default': 'subtle', Emphasis: 'emphasis' }),
-    disabled: figma.boolean('Disabled?'),
-    icon: figma.boolean('Icon?', { true: figma.instance('Icon-20'), false: '' }),
-    label: figma.string('Label'),
-    items: figma.children('Accordion Item'),
-  },
-  example: props => (
-    <MyComponent variant={props.variant} disabled={props.disabled} icon={props.icon}>
-      {props.label}
-    </MyComponent>
-  ),
-});
-```
-
-This format is legacy — do not write new `.figma.tsx` connect files. It's included here only so migrated code can be traced back to its source when reviewing a `git diff`, and because `figma.children()`/`figma.instance()` in an old file are exactly the patterns that a live-Figma slot has often since replaced (see [Slots](#slots)).
 
 For the full API reference and advanced patterns beyond this file, invoke `/anthropic-skills:figma-code-connect`.
