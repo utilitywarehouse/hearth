@@ -1,5 +1,128 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1891](https://github.com/utilitywarehouse/hearth/pull/1891) [`caa80d7`](https://github.com/utilitywarehouse/hearth/commit/caa80d7e56b1d01d1a3c5a5f01e824952d1f5b1c) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+  
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark
+  - TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light
+  - TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark
+  - TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light
+  - TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark
+  - TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light
+  - TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark
+  - TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light
+  - TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light
+  - TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark
+  - TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light
+  - TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark
+  - TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light
+  - TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light
+  - TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark
+  - TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light
+  - TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark
+  - TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light
+  - TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light
+  - TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark
+  - TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light
+  - TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark
+  - TechnicalUwWiFi7ProHubSetupMicroFilter1Light
+  - TechnicalUwWiFi7ProHubSetupMicroFilter1Dark
+  - TechnicalUwWiFi7ProHubSetupDhpVoIp1Light
+  - TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark
+  - TechnicalUwWiFiHubProAngled1Light
+  - TechnicalUwWiFiHubProAngled1Dark
+  - TechnicalUwWiFiHubBackFlat1Light
+  - TechnicalUwWiFiHubBackFlat1Dark
+  - TechnicalUwWiFi7ProHubBackLight
+  - TechnicalUwWiFi7ProHubBackDark
+  - TechnicalStandardRouterBackLight
+  - TechnicalStandardRouterBackDark
+  - TechnicalSuperRouterBackLight
+  - TechnicalSuperRouterBackDark
+  - TechnicalUwWiFiHubBackLight
+  - TechnicalUwWiFiHubBackDark
+  - TechnicalUwWiFiHubProSide1Light
+  - TechnicalUwWiFiHubProSide1Dark
+  - TechnicalUwWiFiHubFront1Light
+  - TechnicalUwWiFiHubFront1Dark
+  - TechnicalUwWiFi7ProHubFront1Light
+  - TechnicalUwWiFi7ProHubFront1Dark
+  - TechnicalStandardRouterFrontLight
+  - TechnicalStandardRouterFrontDark
+  - TechnicalSuperRouterFrontLight
+  - TechnicalSuperRouterFrontDark
+  - TechnicalUwWiFiHubTopLight
+  - TechnicalUwWiFiHubTopDark
+  - TechnicalOntCityFibreBlackTypeB1Light
+  - TechnicalOntCityFibreBlackTypeB1Dark
+  - TechnicalOntOpenreachWhiteTypeC1Light
+  - TechnicalOntOpenreachWhiteTypeC1Dark
+  - TechnicalOntOpenreachWhiteTypeB1Light
+  - TechnicalOntOpenreachWhiteTypeB1Dark
+  - TechnicalOntCityFibreBlackTypeA1Light
+  - TechnicalOntCityFibreBlackTypeA1Dark
+  - TechnicalOntCityFibreWhiteTypeA1Light
+  - TechnicalOntCityFibreWhiteTypeA1Dark
+  - TechnicalEeroBack1Light
+  - TechnicalEeroBack1Dark
+  - TechnicalLightStatusOffLight
+  - TechnicalLightStatusOffDark
+  - TechnicalLightStatusRedLight
+  - TechnicalLightStatusRedDark
+  - TechnicalLightStatusGreenLight
+  - TechnicalLightStatusGreenDark
+  - TechnicalLightStatusOrangeLight
+  - TechnicalLightStatusOrangeDark
+  
+  ## CHANGED ASSETS
+  
+  - TechnicalRouter03RearLight
+  - TechnicalRouter03RearDark
+  - TechnicalMeter02LabelledLight
+  - TechnicalMeter02LabelledDark
+  - TechnicalMeter02Light
+  - TechnicalMeter02Dark
+  - TechnicalMicrofilter01Light
+  - TechnicalMicrofilter01Dark
+  - TechnicalMorticeDeadlock5LeversLight
+  - TechnicalMorticeDeadlock5LeversDark
+  - TechnicalOntRouterConnxLight
+  - TechnicalOntRouterConnxDark
+  - TechnicalOtherBuildingLight
+  - TechnicalOtherBuildingDark
+  - TechnicalOtherLockLight
+  - TechnicalOtherLockDark
+  - TechnicalEeroLight
+  - TechnicalEeroDark
+  - TechnicalFlatLight
+  - TechnicalFlatDark
+  - TechnicalFullFibreSocketLight
+  - TechnicalFullFibreSocketDark
+  
+  ## REMOVED ASSETS
+  
+  - TechnicalRouter02FrontLight
+  - TechnicalRouter02FrontDark
+
 ## 0.7.0
 
 ### Minor Changes
