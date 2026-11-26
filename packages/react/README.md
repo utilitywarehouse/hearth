@@ -24,15 +24,16 @@ After installing the package, run the init command to wire it up for your AI too
 npx @utilitywarehouse/hearth-react init-ai
 ```
 
-This detects your AI tool's config file and adds the skill reference automatically.
+This detects your AI tool's config files and wires each one up automatically.
+
+For Claude Code, it adds a block to `CLAUDE.md` telling your agent to invoke the `hearth-react` skill before any UI work. The skill and MCP server come from the `hearth-ai-toolkit` plugin, so the command also adds the plugin and its `hearth-plugins` marketplace to `.claude/settings.json`. Install the plugin when Claude Code prompts for it. Running the command again updates the block in place.
 
 ### Manual setup
 
-If you prefer to add it yourself, append the appropriate line to your project's AI config file:
+For other tools, append the appropriate line to your project's AI config file:
 
 | Tool                  | Config file                       | Line to add                                                                                |
 | --------------------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
-| Claude Code           | `CLAUDE.md`                       | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
 | Cursor                | `.cursorrules`                    | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
 | Windsurf              | `.windsurfrules`                  | `@node_modules/@utilitywarehouse/hearth-react/SKILL.md`                                    |
 | Codex / OpenAI agents | `AGENTS.md`                       | `See node_modules/@utilitywarehouse/hearth-react/SKILL.md for component usage guidelines.` |
