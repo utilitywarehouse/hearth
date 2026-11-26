@@ -65,6 +65,27 @@
         "Does not run the install without asking",
         "Does not invent a logo import path"
       ]
+    },
+    {
+      "id": 7,
+      "prompt": "We're on @utilitywarehouse/hearth-react 0.36.3 and I'm about to write our own visually hidden helper for screen-reader-only text. Is there anything in Hearth I should use instead?",
+      "expected_output": "Runs `hearth changes react`, finds `VisuallyHidden` added in 0.37.0, and suggests upgrading to use it instead of a custom helper, asking before upgrading.",
+      "expectations": [
+        "Runs `hearth changes react` rather than answering from memory or from the latest Storybook docs alone",
+        "Names `VisuallyHidden` and the version that added it (0.37.0)",
+        "Says the installed 0.36.3 does not have it and suggests upgrading",
+        "Does not run the upgrade without asking"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "What changed in hearth-react since our version? (The CLI exits 3 with: Could not reach registry.npmjs.org for the latest version of @utilitywarehouse/hearth-react (ENOTFOUND). hearth changes reads the latest version from registry.npmjs.org (unless --to is given) and the changelog from raw.githubusercontent.com. If you are offline, rate-limited or in a sandbox, allow those hosts or run it again where they can be reached.)",
+      "expected_output": "Tells the user the command could not reach npm, relays what the message says to do, and does not describe changes from memory.",
+      "expectations": [
+        "Reports that `hearth changes` could not reach registry.npmjs.org and why",
+        "Relays the message's advice (allow the hosts or run it where they can be reached)",
+        "Does not list changes from memory or guess them from `node_modules`"
+      ]
     }
   ]
 }

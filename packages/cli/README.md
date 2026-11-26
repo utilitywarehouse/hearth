@@ -2,12 +2,13 @@
 
 Looks up Hearth design tokens, icons and SVG and JSON assets from the versions installed in your project. Use it to
 check that a token, icon or asset exists, and to get the import or CSS variable for it, instead of guessing a name.
+`hearth changes` shows what changed in a Hearth package between the version you have installed and the latest one.
 
 The CLI holds no data. It reads `hearth-manifest.json` from the Hearth packages in your `node_modules`, so upgrading a
 package changes the answers without a CLI release. See [How the data stays current](#how-the-data-stays-current).
 
-Output is plain text, or JSON with `--json` for scripts and agents. The CLI only reads: it never writes files or calls
-the network.
+Output is plain text, or JSON with `--json` for scripts and agents. The CLI only reads: it never writes files, and only
+`hearth changes` calls the network.
 
 ## Install
 
@@ -35,6 +36,7 @@ packages), so install the ones you want to look up:
 | `hearth icons`   | any one of `@utilitywarehouse/hearth-react-icons`, `@utilitywarehouse/hearth-react-native-icons`, `@utilitywarehouse/hearth-svg-icons` (checked in that order) |
 | `hearth assets svg`  | `@utilitywarehouse/hearth-svg-assets`                                                                                                        |
 | `hearth assets json` | `@utilitywarehouse/hearth-json-assets`                                                                                                       |
+| `hearth changes <package>` | that package, or pass `--from`                                                                                                          |
 
 ## Quick start
 
@@ -46,6 +48,7 @@ hearth icons get AddSmallIcon                    # its component and an import l
 hearth assets svg list --category logo           # list SVG logos
 hearth assets svg get LogoFullPurple --print     # print the SVG itself
 hearth tokens get semantic.background.brand --platform native --json
+hearth changes react                             # what changed since your installed version
 ```
 
 A lookup prints the version of the package it read, then the results:
@@ -172,6 +175,50 @@ hearth assets svg get LogoFullPurple --print > logo.svg
 `--print` refuses a file over 100 KiB (exit `1`, naming the file to read instead) and a file that is missing from the
 installed package, is not a regular file or lists a path outside the package (exit `3`).
 
+### `hearth changes`
+
+```text
+hearth changes <package> [--from <version>] [--to <version>] [--json]
+```
+
+Shows every changelog entry for a Hearth package after the installed version, up to and including the latest version
+on npm. Run it before an upgrade, or before writing code a newer Hearth version may already provide.
+
+`<package>` is any published Hearth package, by its short name (`react`, `react-native`, `tokens`, `svg-icons`) or its
+full name (`@utilitywarehouse/hearth-react`). An unknown name exits `1` and suggests close names.
+
+| Option             | Default                       | Effect                                                    |
+| ------------------ | ----------------------------- | --------------------------------------------------------- |
+| `--from <version>` | the installed version         | Show entries after this version. Required if the package is not installed. |
+| `--to <version>`   | the latest version on npm     | Show entries up to and including this version.            |
+| `--json`           | off                           | Machine-readable output.                                  |
+
+The output is markdown. A header counts the entries by type, read from each entry's tag: `breaking`
+(`💔 [BREAKING CHANGE]`), `feature` (`🌟 [FEATURE]`), `enhancement` (`💅 [ENHANCEMENT]`), `fix` (`🐛 [FIX]`) and `other`
+(housekeeping, dependency updates and untagged entries). Breaking changes are listed first, whatever the version bump,
+because a `0.x` minor can break. Then each version follows, newest first, with its entries as the changelog wrote
+them:
+
+```console
+$ hearth changes react --from 0.36.3 --to 0.37.0
+# @utilitywarehouse/hearth-react 0.36.3 → 0.37.0
+
+2 entries in 1 version: 0 breaking, 1 feature, 0 enhancement, 1 fix, 0 other
+
+## 0.37.0
+
+- [#1769](…) Thanks [@robphoenix](…)! - 🌟 [FEATURE]: `VisuallyHidden` component and `Slot` export
+  …
+- [#1827](…) Thanks [@robphoenix](…)! - 🐛 [FIX]: Modal scrollbars showing with BannerImage
+```
+
+There is no filter by type: use the counts for an overview, and filter the `--json` output for detail.
+
+The command reads the latest version from `registry.npmjs.org` (skipped when `--to` is given) and the package's
+`CHANGELOG.md` from the `main` branch of [`utilitywarehouse/hearth`](https://github.com/utilitywarehouse/hearth) on
+`raw.githubusercontent.com`. No authentication is needed. When either cannot be reached, because you are offline,
+rate-limited or in a sandbox, it exits `3` and says which host failed and why. It never guesses.
+
 ## Exit codes
 
 The same for every command.
@@ -179,9 +226,9 @@ The same for every command.
 | Code | Meaning                                                                                                                                         |
 | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | `0`  | Success                                                                                                                                         |
-| `1`  | No match: a `search` or `list` with no results, a `get` for a name that does not exist (the message suggests close names), or a `--print` that is too large |
+| `1`  | No match: a `search` or `list` with no results, a `get` for a name that does not exist (the message suggests close names), a `--print` that is too large, or `changes` for an unknown package |
 | `2`  | Usage error: unknown command or option, a missing argument, an invalid option value, or an option the command does not take. The usage is printed to stderr |
-| `3`  | The package is not installed, or its manifest is missing, invalid, from a newer schema or of a type this CLI does not know                       |
+| `3`  | The package is not installed, or its manifest is missing, invalid, from a newer schema or of a type this CLI does not know. For `changes`: the package is not installed and there is no `--from`, or npm or GitHub could not be reached |
 
 Results go to stdout and messages to stderr. For lookups with `--json` (without `--help` or `--version`), stdout is a
 JSON document for every exit `0`, and for a `search` or `list` that exits `1`. A `get` that exits `1`, and every `2` and
@@ -323,6 +370,27 @@ type JsonAsset = {
 
 ```json
 {"package":{"name":"@utilitywarehouse/hearth-svg-assets","version":"0.6.8"},"kind":"svg","asset":{"name":"LogoFullPurple","category":"logo","file":"lib/logo-full-purple.svg","import":"@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg"}}
+```
+
+### `hearth changes`
+
+`package.version` is the version the changes start from (the installed version, or `--from`). `versions` is empty when
+there are no changes.
+
+```ts
+{
+  package: PackageInfo;
+  from: string;
+  to: string;
+  counts: { breaking: number; feature: number; enhancement: number; fix: number; other: number };
+  versions: Array<{
+    version: string;
+    entries: Array<{
+      type: 'breaking' | 'feature' | 'enhancement' | 'fix' | 'other';
+      text: string; // the entry's markdown as the changelog wrote it, without its leading "- "
+    }>;
+  }>;
+}
 ```
 
 ## How the data stays current

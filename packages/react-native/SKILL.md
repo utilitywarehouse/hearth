@@ -85,6 +85,22 @@ component's own doc page: the library may have added a more direct prop since
 (e.g. `List`'s `heading`/`helperText` vs a sibling `SectionHeader`). Prefer
 the documented, current shorthand over an older local convention.
 
+### Check what's new since the installed version
+
+The MCP server describes the latest Hearth React Native, which may be newer
+than the version in this project. Run `hearth changes react-native` from the
+app's directory (see the `hearth-cli` skill) before writing a custom
+component, helper or workaround, and when a component or prop the docs list is
+missing from the installed package. It lists every changelog entry between the
+installed version and the latest release, breaking changes first.
+
+- If a newer release adds what you were about to hand-roll, tell the user and
+  suggest upgrading. Don't upgrade without asking.
+- A component or prop added after the installed version doesn't exist in this
+  project yet: don't use it until the package is upgraded.
+- If the command exits `3` (offline, sandboxed, or the package isn't
+  installed), say so. Don't guess what changed.
+
 ## Plan before writing
 
 For anything beyond a trivial change (new screen, multi-component feature,

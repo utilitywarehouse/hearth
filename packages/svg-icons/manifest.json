@@ -296,6 +296,11 @@
       "hash": "a9eb4b43dd4ac4c8e25342bcec21b25b207bc49368c675a1c374e8fdb3f7f8a9"
     },
     {
+      "name": "PauseSmallIcon",
+      "path": "pause-small-icon.svg",
+      "hash": "3efdb81b270f493152519984524dcf3b2f15afeb09fed256e3b0011a2fd78e08"
+    },
+    {
       "name": "PhoneSmallIcon",
       "path": "phone-small-icon.svg",
       "hash": "ef575046126138934d10b11a767c62d0eb4203a484b6618eb7601a8b4a9c55d2"
@@ -879,6 +884,11 @@
       "name": "PanelBottomMediumIcon",
       "path": "panel-bottom-medium-icon.svg",
       "hash": "684c6ab392764c6b46c8da34bb85c348699b6af6965df15b17486743dcdb4683"
+    },
+    {
+      "name": "PauseMediumIcon",
+      "path": "pause-medium-icon.svg",
+      "hash": "ec6401526a9cc643d69f2031b0fe0c5cb358f00addaa2e6e9c404534f39818ff"
     },
     {
       "name": "PaymentMediumIcon",

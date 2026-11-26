@@ -1,6 +1,6 @@
 ---
 name: hearth-cli
-description: "Use before writing a Hearth design token, icon, SVG asset or JSON (animated) asset reference, or any hardcoded colour, spacing or font value in a project that has the Hearth packages installed. Looks the name up with the `hearth` CLI instead of guessing it. Not for component props, which come from the Hearth MCP servers."
+description: "Use before writing a Hearth design token, icon, SVG asset or JSON (animated) asset reference, or any hardcoded colour, spacing or font value in a project that has the Hearth packages installed. Looks the name up with the `hearth` CLI instead of guessing it. Also use before hand-rolling code a newer Hearth release may provide, or before an upgrade, to see what changed since the installed version. Not for component props, which come from the Hearth MCP servers."
 ---
 
 # Looking up Hearth tokens, icons and assets
@@ -20,6 +20,15 @@ Components (props, usage, stories) are not in the CLI: use the `hearth-react` or
   `hearth assets svg search <word>` or `hearth assets json search <word>`, then `get`.
 - **Fonts**: not in the CLI. Never hardcode a font family; use the typography
   components and tokens.
+- **Changes**: before hand-rolling a component, helper or workaround, when a
+  documented component or prop is missing from the installed package, before an
+  upgrade, and when reviewing code. `hearth changes <package>` (`react`,
+  `react-native`, `tokens`, `react-icons`...) lists the changelog entries
+  between the installed version and the latest, breaking changes first. With
+  `--json`, filter `versions[].entries[]` by `type`. If a newer release has what
+  you need, suggest the upgrade; don't upgrade without asking. It is the one
+  command that needs the network (npm and GitHub). If the package is not
+  installed, pass `--from <version>`.
 
 ## How to call it
 
@@ -50,6 +59,7 @@ Components (props, usage, stories) are not in the CLI: use the `hearth-react` or
 | 1 on `--print` | Stderr says the file is too large | Read the named file from the package instead. |
 | 2 | Usage on stderr | The command was wrong. Fix it once from the usage text; do not try variations. |
 | 3 | Message on stderr | Package missing, too old, or its manifest is newer than the CLI. Tell the user the message and the command it gives. Do not install without asking, and do not fall back to guessing from `node_modules`. |
+| 3 on `changes` | Message on stderr naming a host, or saying the package is not installed | npm or GitHub could not be reached (offline, rate-limited or sandboxed), or there is no installed version to start from. Tell the user; for a missing package, rerun with `--from`. Do not guess what changed from memory. |
 | 1 with `ERR_PACKAGE_PATH_NOT_EXPORTED` and a stack trace on stderr | Nothing on stdout | Not a no-match. The installed package hides its manifest, so it is altered or not a Hearth release. Stop, tell the user, and do not retry. Offer `design-systems-feedback`. |
 
 Nothing is parseable from a failed `get`, a `2` or a `3`: read stderr.

@@ -4,6 +4,30 @@
       "allowWrite": ["**/node_modules/**"]
     }
   },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/format-edited-file.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/check-changed-packages.sh",
+            "timeout": 300
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "hearth-ai-toolkit@hearth-plugins": false
   }

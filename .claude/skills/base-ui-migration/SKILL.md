@@ -89,7 +89,7 @@ Apply these rules when deciding how to handle each change:
 | Multiple related props removed together | Commit to breaking change — avoids long-term shim churn; document clearly |
 | Sub-component part rename (e.g. `Content` → `Popup`) and Hearth does not re-export that type | Internal change only — no consumer impact, no shim needed |
 | Sub-component part rename and Hearth re-exports the sub-component's props type | Breaking — update the exported type name or add a type alias with `@deprecated` |
-| `asChild` on Hearth's public API | Keep as-is — implement internally with `@radix-ui/react-slot` or base-ui's `render` prop |
+| `asChild` on Hearth's public API | Keep as-is — implement internally with `Slot` from `radix-ui` or base-ui's `render` prop |
 | `asChild` only used internally on a primitive sub-part | Remove, switch to base-ui `render` prop |
 | `forceMount` | Remove, switch to base-ui `keepMounted` prop |
 | Positioning props (`side`, `align`, `sideOffset`, etc.) moved from `Content` to `Positioner` | Internal structural change — absorb in Hearth's opaque component; no consumer impact |
@@ -142,7 +142,7 @@ keepMounted?: ComponentPropsWithoutRef<typeof MenuPrimitive.Portal>['keepMounted
 
 ### `asChild` — public API stays, internals change
 
-If the Hearth component exposes `asChild` to consumers, **keep it**. Implement it internally using `@radix-ui/react-slot` (already a dep) or base-ui's `render` prop — whichever fits the shape of the new primitive.
+If the Hearth component exposes `asChild` to consumers, **keep it**. Implement it internally using `Slot` from `radix-ui` or base-ui's `render` prop — whichever fits the shape of the new primitive.
 
 Where `asChild` was used only **inside** Hearth's JSX on a primitive sub-part and is not consumer-facing, switch to base-ui's `render` prop:
 

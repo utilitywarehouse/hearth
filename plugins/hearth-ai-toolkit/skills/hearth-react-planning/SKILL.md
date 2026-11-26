@@ -66,6 +66,11 @@ component inventory. Never assume a component or prop exists beyond what
 these tools confirm; this is the same rule `hearth-react-review` applies when
 reviewing existing code, applied here before any code exists.
 
+Those tools describe the latest Hearth React, which may be newer than the
+project's. Run `hearth changes react` (see the `hearth-cli` skill) and mark
+any component or prop the breakdown relies on that arrived after the installed
+version as needing an upgrade first.
+
 `docs-list` only confirms that a name exists somewhere in the catalogue — it's
 a table of contents, not proof of a component's actual props or behaviour.
 Naming a component in the breakdown on the strength of `docs-list` alone (or

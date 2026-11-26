@@ -93,6 +93,9 @@ describe('the built hearth binary against installed packages', () => {
       ['an unknown option', ['tokens', 'list', '--bogus'], 2],
       ['an invalid option value', ['tokens', 'list', '--platform', 'tv'], 2],
       ['a missing argument', ['tokens', 'get'], 2],
+      ['an unknown package for changes', ['changes', 'raect'], 1],
+      ['an invalid --from for changes', ['changes', 'react', '--from', 'latest'], 2],
+      ['changes for a package that is not installed, without --from', ['changes', 'react'], 3],
     ])('%s', (_, args, expected) => {
       expect(hearth(consumerWithEverything(), args).code).toBe(expected);
     });

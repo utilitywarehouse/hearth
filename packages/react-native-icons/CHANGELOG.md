@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.10.2
+
+### Patch Changes
+
+- [#1873](https://github.com/utilitywarehouse/hearth/pull/1873) [`a90e701`](https://github.com/utilitywarehouse/hearth/commit/a90e70154f65041ad1bc2c7fc9402bb0e2d1c084) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+  
+  - PauseSmallIcon
+  - PauseMediumIcon
+  
+  ## CHANGED ICONS
+  
+  No changed icons.
+  
+  ## REMOVED ICONS
+  
+  No removed icons.
+
 ## 0.10.1
 
 ### Patch Changes

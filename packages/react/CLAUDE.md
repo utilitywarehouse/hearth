@@ -1,7 +1,5 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 This file covers `packages/react` — `@utilitywarehouse/hearth-react`, the React component library. See the [repo-root CLAUDE.md](../../CLAUDE.md) for monorepo-wide setup and commands.
 
 See [GLOSSARY.md](GLOSSARY.md) for the terms used here (colour scheme, variant, style prop, compound component and others); use them as defined.
