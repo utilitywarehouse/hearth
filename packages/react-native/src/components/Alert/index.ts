@@ -6,3 +6,4 @@ export { default as Alert } from './Alert';
 export { default as AlertText } from './AlertText';
 export { default as AlertIcon } from './AlertIcon';
 export { default as AlertContent } from './AlertContent';
+export type { AlertProps } from './Alert.props';

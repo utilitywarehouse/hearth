@@ -1,5 +1,5 @@
 import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
@@ -27,7 +27,11 @@ const DescriptionListItem = ({
   const hideDescendants = !!combinedLabel;
   return (
     <View
-      accessibilityRole="text"
+      // Web needs `listitem` inside the parent `list`; native keeps `text` so screen readers
+      // announce the combined label as before (`listitem` has no VoiceOver/TalkBack equivalent).
+      {...(Platform.OS === 'web'
+        ? { role: 'listitem' as const }
+        : { accessibilityRole: 'text' as const })}
       accessible={!!combinedLabel}
       accessibilityLabel={combinedLabel}
       {...props}

@@ -6,6 +6,8 @@ const AccordionContext = createContext<{
   disabled?: boolean;
   divider?: boolean;
   contentNoPadding?: boolean;
+  expandedValues?: string[];
+  toggleItem?: (value: string, disabled?: boolean) => void;
 }>({});
 
 export const useAccordionContext = () => useContext(AccordionContext);

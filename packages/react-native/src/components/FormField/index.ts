@@ -14,3 +14,4 @@ export { default as FormFieldInvalidIcon } from './FormFielInvalidIcon';
 export { default as FormFieldValid } from './FormFieldValid';
 export { default as FormFieldInvalid } from './FormFieldInvalid';
 export { useFormFieldContext } from './FormField.context';
+export type { default as FormFieldProps } from './FormField.props';

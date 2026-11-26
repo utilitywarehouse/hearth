@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
 import localeData from 'dayjs/plugin/localeData';
 import { describe, expect, it } from 'vitest';
+import { CalendarActionKind } from './enums';
 import {
   areDatesOnSameDay,
+  calendarReducer,
   formatNumber,
   getDaysInMonth,
   getFirstDayOfMonth,
@@ -240,5 +242,138 @@ describe('formatNumber', () => {
   it('formats numbers with latin numerals', () => {
     expect(formatNumber(7, 'latn')).toBe('7');
     expect(formatNumber(2025, 'latn')).toBe('2025');
+  });
+});
+
+describe('calendarReducer', () => {
+  const baseState = {
+    date: undefined,
+    startDate: undefined,
+    endDate: undefined,
+    dates: undefined,
+    calendarView: 'day' as const,
+    currentDate: dayjs('2025-03-15'),
+    currentYear: 2025,
+  };
+
+  it('SET_CALENDAR_VIEW updates only calendarView', () => {
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.SET_CALENDAR_VIEW,
+      payload: 'month',
+    });
+    expect(next).toEqual({ ...baseState, calendarView: 'month' });
+
+    const nextYear = calendarReducer(baseState, {
+      type: CalendarActionKind.SET_CALENDAR_VIEW,
+      payload: 'year',
+    });
+    expect(nextYear).toEqual({ ...baseState, calendarView: 'year' });
+  });
+
+  it('CHANGE_CURRENT_DATE updates only currentDate', () => {
+    const newDate = dayjs('2025-06-01');
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_CURRENT_DATE,
+      payload: newDate,
+    });
+    expect(next).toEqual({ ...baseState, currentDate: newDate });
+  });
+
+  it('CHANGE_CURRENT_YEAR updates only currentYear', () => {
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_CURRENT_YEAR,
+      payload: 2030,
+    });
+    expect(next).toEqual({ ...baseState, currentYear: 2030 });
+  });
+
+  it('CHANGE_SELECTED_DATE updates date and currentDate together', () => {
+    const selectedDate = dayjs('2025-03-20');
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_SELECTED_DATE,
+      payload: { date: selectedDate },
+    });
+    expect(next).toEqual({
+      ...baseState,
+      date: selectedDate,
+      currentDate: selectedDate,
+    });
+  });
+
+  it('CHANGE_SELECTED_DATE supports clearing the date', () => {
+    const next = calendarReducer(
+      { ...baseState, date: dayjs('2025-03-20') },
+      {
+        type: CalendarActionKind.CHANGE_SELECTED_DATE,
+        payload: { date: undefined },
+      }
+    );
+    expect(next.date).toBeUndefined();
+    expect(next.currentDate).toBeUndefined();
+  });
+
+  it('CHANGE_SELECTED_RANGE updates startDate and endDate together', () => {
+    const startDate = dayjs('2025-03-10');
+    const endDate = dayjs('2025-03-20');
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_SELECTED_RANGE,
+      payload: { startDate, endDate },
+    });
+    expect(next).toEqual({ ...baseState, startDate, endDate });
+  });
+
+  it('CHANGE_SELECTED_RANGE supports a start date with no end date yet', () => {
+    const startDate = dayjs('2025-03-10');
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_SELECTED_RANGE,
+      payload: { startDate, endDate: undefined },
+    });
+    expect(next).toEqual({ ...baseState, startDate, endDate: undefined });
+  });
+
+  it('CHANGE_SELECTED_MULTIPLE updates only dates', () => {
+    const dates = [dayjs('2025-03-10'), dayjs('2025-03-15')];
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.CHANGE_SELECTED_MULTIPLE,
+      payload: { dates },
+    });
+    expect(next).toEqual({ ...baseState, dates });
+  });
+
+  it('CHANGE_SELECTED_MULTIPLE supports resetting to an empty array', () => {
+    const next = calendarReducer(
+      { ...baseState, dates: [dayjs('2025-03-10')] },
+      {
+        type: CalendarActionKind.CHANGE_SELECTED_MULTIPLE,
+        payload: { dates: [] },
+      }
+    );
+    expect(next.dates).toEqual([]);
+  });
+
+  it('RESET_STATE replaces the entire state with the payload', () => {
+    const replacementState = {
+      date: dayjs('2025-01-01'),
+      startDate: undefined,
+      endDate: undefined,
+      dates: undefined,
+      calendarView: 'time' as const,
+      currentDate: dayjs('2025-01-01'),
+      currentYear: 2025,
+    };
+    const next = calendarReducer(baseState, {
+      type: CalendarActionKind.RESET_STATE,
+      payload: replacementState,
+    });
+    expect(next).toBe(replacementState);
+  });
+
+  it('returns the previous state unchanged for an unknown action type', () => {
+    const next = calendarReducer(baseState, {
+      // @ts-expect-error - deliberately testing an invalid action type
+      type: 'NOT_A_REAL_ACTION',
+      payload: undefined,
+    });
+    expect(next).toBe(baseState);
   });
 });

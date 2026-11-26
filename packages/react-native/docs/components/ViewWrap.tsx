@@ -1,5 +1,5 @@
 import { Dimensions, Platform, View, ViewProps } from 'react-native';
-import { UnistylesRuntime } from '../../src/core';
+import { UnistylesRuntime } from 'react-native-unistyles';
 
 const ViewWrap = ({ children }: { children: ViewProps['children'] }) => (
   <View

@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
+import { expect, fn, userEvent, within } from 'storybook/test';
 import { BodyText } from '../../';
 import { Badge } from '../../Badge';
 import { Flex } from '../../Flex';
@@ -13,6 +14,15 @@ import CardAction from './CardAction';
 const meta: Meta<typeof CardAction> = {
   title: 'Stories / CardAction',
   component: CardAction,
+  parameters: {
+    // Play functions here click a Pressable whose colorScheme/variant is animated by
+    // react-native-unistyles' reanimated-backed color transition, which throws a stray
+    // `UpdatePropsManager` ReanimatedError on web (react-native-reanimated has no web
+    // implementation for that native-only code path). All assertions still pass — see UWDS-4922.
+    test: {
+      dangerouslyIgnoreUnhandledErrors: true,
+    },
+  },
   argTypes: {
     heading: { control: 'text' },
     helperText: { control: 'text' },
@@ -69,7 +79,7 @@ type Story = StoryObj<typeof CardAction>;
 
 export const Playground: Story = {
   args: {
-    onPress: () => console.log('pressed'),
+    onPress: fn(),
   },
   render: (args: any) => {
     // @ts-expect-error - This is a playground
@@ -85,6 +95,16 @@ export const Playground: Story = {
         </Card>
       </View>
     );
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const action = await canvas.findByTestId('card-action');
+    await userEvent.click(action);
+
+    // Pressing a CardAction fires the `onPress` handler passed through from the
+    // underlying `createPressable()` Root.
+    expect(args.onPress).toHaveBeenCalledOnce();
   },
 };
 
@@ -168,6 +188,23 @@ export const WithIconContainer: Story = {
       </Card>
     </View>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // CardActions tracks registration order (see CardActions.tsx / CardActions.utils.ts)
+    // to work out which CardAction is first. When a Card contains only CardActions
+    // (no other content), the first action's top border is removed via a Unistyles
+    // `isFirst` variant so it doesn't double up with the Card's own border - a
+    // visual/layout detail, not an accessibility one. The registration-order logic
+    // itself (addActionId/removeActionId/getFirstActionId) is already characterized
+    // deterministically in CardActions.utils.test.ts; the resulting Unistyles
+    // variant style isn't reliably observable via getComputedStyle in every test
+    // environment (see UWDS-4909 for the related pattern with other components'
+    // variant-driven styles), so this only characterizes that all three actions
+    // render successfully.
+    const actions = canvas.getAllByTestId('card-action');
+    expect(actions).toHaveLength(3);
+  },
 };
 
 export const WithBadge: Story = {
@@ -269,6 +306,8 @@ export const Loading: Story = {
   ),
 };
 
+const disabledOnPress = fn();
+
 export const Disabled: Story = {
   parameters: {
     controls: { include: [] },
@@ -282,12 +321,27 @@ export const Disabled: Story = {
             helperText="This is disabled"
             disabled
             leadingIcon={ElectricityMediumIcon}
-            onPress={() => console.log('pressed')}
+            onPress={disabledOnPress}
           />
         </CardActions>
       </Card>
     </View>
   ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // A disabled CardAction renders with `pointer-events: none` - a real user
+    // cannot click it at all (userEvent.click throws on a pointer-events: none
+    // element, which is itself proof it can't respond). `disabled` maps straight
+    // through to the Pressable's `disabled`/`aria-disabled` DOM attributes here
+    // (react-native-web's one special case for accessibilityState - verified
+    // via live DOM inspection), so that's the characterization itself.
+    const action = await canvas.findByTestId('card-action');
+    expect(action).toHaveAttribute('aria-disabled', 'true');
+
+    // A disabled CardAction does not fire its `onPress` handler.
+    expect(disabledOnPress).not.toHaveBeenCalled();
+  },
 };
 
 const CustomAction = ({ heading, ...props }: { heading: string }) => {

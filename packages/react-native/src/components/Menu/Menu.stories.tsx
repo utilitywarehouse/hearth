@@ -9,6 +9,8 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useRef } from 'react';
 import { Platform, View } from 'react-native';
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test';
+import { BottomSheetModalProvider } from '../BottomSheet';
 import { Button } from '../Button';
 import { Menu, MenuItem, MenuTrigger } from './';
 import type { MenuMethods } from './Menu.props';
@@ -26,6 +28,13 @@ const meta: Meta<typeof Menu> = {
   args: {
     heading: 'Menu Options',
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 };
 
 export default meta;
@@ -46,7 +55,7 @@ export const Playground: Story = {
             <Button>Open Menu</Button>
           </MenuTrigger>
 
-          <Menu ref={menuRef} {...args}>
+          <Menu ref={menuRef} animationConfigs={{ duration: 0 }} {...args}>
             <MenuItem
               icon={EditSmallIcon}
               text="Edit"
@@ -71,6 +80,45 @@ export const Playground: Story = {
           </Menu>
         </ViewWrap>
       </View>
+    );
+  },
+  args: {
+    onChange: fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // The menu is closed until the trigger is pressed.
+    expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
+
+    const trigger = await canvas.findByRole('button', { name: 'Open Menu' });
+    await userEvent.click(trigger);
+
+    // Pressing the MenuTrigger opens the menu - its items become queryable.
+    await waitFor(() => {
+      expect(canvas.getByRole('button', { name: 'Edit' })).toBeInTheDocument();
+      expect(canvas.getByRole('button', { name: 'Share' })).toBeInTheDocument();
+      expect(canvas.getByRole('button', { name: 'Download' })).toBeInTheDocument();
+      expect(canvas.getByRole('button', { name: 'Delete' })).toBeInTheDocument();
+    });
+
+    // The items mount before the sheet has measured its layout and finished opening. A
+    // dismiss before then is dropped by @gorhom/bottom-sheet, so wait until the sheet
+    // reports it has settled at index 0 before pressing an item.
+    await waitFor(() =>
+      expect(args.onChange).toHaveBeenLastCalledWith(0, expect.anything(), expect.anything())
+    );
+
+    const editItem = canvas.getByRole('button', { name: 'Edit' });
+    await userEvent.click(editItem);
+
+    // Pressing a MenuItem calls its onPress and closes the menu - the items
+    // are no longer queryable once the sheet has dismissed.
+    await waitFor(
+      () => {
+        expect(canvas.queryByRole('button', { name: 'Edit' })).not.toBeInTheDocument();
+      },
+      { timeout: 8000 }
     );
   },
 };

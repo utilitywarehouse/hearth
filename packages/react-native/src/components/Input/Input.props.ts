@@ -46,7 +46,7 @@ export interface InputBaseProps {
   /** Text shown when the validation status is `invalid`. */
   invalidText?: string;
   /** Indicates the input is required.
-   * @default true */
+   * @default false */
   required?: boolean;
 }
 
@@ -84,7 +84,7 @@ interface InputWithoutChildrenBaseProps extends InputBaseProps, Omit<TextInputPr
   /** Icon displayed at the end of the input. */
   trailingIcon?: ComponentType;
   /** Indicates the input is required.
-   * @default true */
+   * @default false */
   required?: boolean;
   /** Content displayed before the input field. */
   prefix?: string | number | React.ReactNode;
@@ -167,6 +167,8 @@ export type InputContextValue = {
   readonly?: InputProps['readonly'];
   validationStatus?: InputProps['validationStatus'];
   type?: InputProps['type'];
+  required?: boolean;
+  setFocused?: (focused: boolean) => void;
 };
 
 export default InputProps;

@@ -4,6 +4,7 @@ import { Platform } from 'react-native';
 import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { TimePickerInput, View } from '..';
 import { VariantTitle, ViewWrap } from '../../../docs/components';
+import { BottomSheetModalProvider } from '../BottomSheet';
 import type { DateType } from '../DatePicker';
 import { Flex } from '../Flex';
 import { FormField } from '../FormField';
@@ -68,6 +69,13 @@ const meta = {
     placeholder: undefined,
     disableManualEntry: false,
   },
+  decorators: [
+    Story => (
+      <BottomSheetModalProvider>
+        <Story />
+      </BottomSheetModalProvider>
+    ),
+  ],
 } satisfies Meta<typeof TimePickerInput>;
 
 export default meta;

@@ -1,8 +1,15 @@
-import { Children, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { Easing, useSharedValue, withTiming } from 'react-native-reanimated';
+import { useReducedMotionEnabled } from '../../hooks/useReducedMotionEnabled';
 import { TabsContext } from './Tabs.context';
 import type TabsProps from './Tabs.props';
+import {
+  collectTabValues,
+  resolveActiveValue,
+  resolveInitialValue,
+  resolveValidValue,
+} from './Tabs.utils';
 
 /**
  * Groups Tab components into a single tab bar, managing selection state and the animated
@@ -18,29 +25,11 @@ const Tabs = ({
   children,
   ...props
 }: TabsProps) => {
+  const isReducedMotion = useReducedMotionEnabled();
   // Collect child tab values
-  const tabValues = useMemo(() => {
-    const vals: string[] = [];
-    const walk = (node: any) => {
-      Children.forEach(node, child => {
-        if (!isValidElement(child)) return;
-        const props: any = child.props;
-        const type: any = child.type;
-        if (type?.displayName === 'Tab' && typeof props?.value === 'string') {
-          vals.push(props.value);
-        }
-        if (props?.children) walk(props.children);
-      });
-    };
-    walk(children);
-    return vals;
-  }, [children]);
+  const tabValues = useMemo(() => collectTabValues(children), [children]);
 
-  const getInitial = () => {
-    if (controlledValue !== undefined) return controlledValue;
-    if (defaultValue) return defaultValue;
-    return tabValues[0];
-  };
+  const getInitial = () => resolveInitialValue({ controlledValue, defaultValue, tabValues });
 
   const [uncontrolled, setUncontrolled] = useState<string | undefined>(getInitial);
 
@@ -50,14 +39,10 @@ const Tabs = ({
 
   // Ensure value remains valid if tabs change
   useEffect(() => {
-    setUncontrolled(prev => {
-      if (!prev) return tabValues[0];
-      if (!tabValues.includes(prev)) return tabValues[0];
-      return prev;
-    });
+    setUncontrolled(prev => resolveValidValue({ prev, tabValues }));
   }, [tabValues.join('|')]);
 
-  const currentValue = controlledValue !== undefined ? controlledValue : uncontrolled;
+  const currentValue = resolveActiveValue({ controlledValue, uncontrolledValue: uncontrolled });
 
   const select = useCallback(
     (val: string) => {
@@ -125,11 +110,16 @@ const Tabs = ({
     if (prevValueRef.current === undefined || prevValueRef.current === currentValue) return;
     const layout = getTabLayout(currentValue);
     if (!layout) return;
-    const cfg = { duration: 250, easing: Easing.out(Easing.ease) } as const;
-    indicatorX.value = withTiming(layout.x, cfg);
-    indicatorSize.value = withTiming(layout.width, cfg);
+    if (isReducedMotion) {
+      indicatorX.value = layout.x;
+      indicatorSize.value = layout.width;
+    } else {
+      const cfg = { duration: 250, easing: Easing.out(Easing.ease) } as const;
+      indicatorX.value = withTiming(layout.x, cfg);
+      indicatorSize.value = withTiming(layout.width, cfg);
+    }
     prevValueRef.current = currentValue;
-  }, [currentValue, getTabLayout, indicatorX, indicatorSize, tabValues.join('|')]);
+  }, [currentValue, getTabLayout, indicatorX, indicatorSize, isReducedMotion, tabValues.join('|')]);
 
   return (
     <TabsContext.Provider value={contextValue}>

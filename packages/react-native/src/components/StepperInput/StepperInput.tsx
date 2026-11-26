@@ -1,6 +1,6 @@
 import { AddSmallIcon, MinusSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useEffect, useImperativeHandle, useRef, useState } from 'react';
-import type { TextInput, TextInputFocusEvent } from 'react-native';
+import type { BlurEvent, FocusEvent, TextInput } from 'react-native';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useFormFieldAccessibility } from '../../hooks';
@@ -142,12 +142,12 @@ const StepperInput = ({
   const incrementDisabled =
     disabled || readonly || (typeof max === 'number' && parsedValue !== null && parsedValue >= max);
 
-  const handleFocus = (event: TextInputFocusEvent) => {
+  const handleFocus = (event: FocusEvent) => {
     setIsInputFocused(true);
     onFocus?.(event);
   };
 
-  const handleBlur = (event: TextInputFocusEvent) => {
+  const handleBlur = (event: BlurEvent) => {
     setIsInputFocused(false);
     onBlur?.(event);
   };
@@ -176,15 +176,14 @@ const StepperInput = ({
         />
         <InputComponent
           validationStatus={validationStatus}
-          isInvalid={validationStatus === 'invalid'}
-          isReadOnly={readonly}
-          isDisabled={disabled}
-          isFocused={resolvedFocused}
-          isRequired={required}
+          invalid={validationStatus === 'invalid'}
+          readOnly={readonly}
+          disabled={disabled}
+          focused={resolvedFocused}
+          required={required}
           style={styles.inputRoot}
         >
           <InputField
-            // @ts-expect-error - ref forwarding issue mirrors the base Input component
             ref={inputRef}
             inputMode={inputMode}
             keyboardType={keyboardType}

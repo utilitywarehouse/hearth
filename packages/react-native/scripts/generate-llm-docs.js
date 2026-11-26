@@ -540,10 +540,9 @@ function rewriteLegacyPackageNames(content) {
   );
 }
 
-function transformContent(content, importMap, exprMap) {
-  const lines = normaliseJsxBlocks(normaliseImports(rewriteLegacyPackageNames(content))).split(
-    '\n'
-  );
+function transformContent(content, importMap, exprMap, { keepLegacyPackageNames = false } = {}) {
+  const source = keepLegacyPackageNames ? content : rewriteLegacyPackageNames(content);
+  const lines = normaliseJsxBlocks(normaliseImports(source)).split('\n');
   const output = [];
   let inCodeFence = false;
   let skipUntilCloseTag = null;
@@ -711,7 +710,10 @@ function processMdxFile(mdxAbsPath) {
   const mdxDir = path.dirname(mdxAbsPath);
 
   const { importMap, exprMap } = parseImports(content, mdxDir);
-  const transformed = transformContent(content, importMap, exprMap);
+  // The migration guide names `@utilitywarehouse/native-ui` on purpose (apps that still use it),
+  // so its package names must not be rewritten to the Hearth package.
+  const keepLegacyPackageNames = path.basename(mdxAbsPath) === 'migrating-to-v1.docs.mdx';
+  const transformed = transformContent(content, importMap, exprMap, { keepLegacyPackageNames });
   const pruned = pruneEmptySections(transformed);
   const { title, description, headings } = extractMetadata(pruned);
 

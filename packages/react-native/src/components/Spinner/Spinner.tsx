@@ -1,4 +1,3 @@
-import { createSpinner } from '@gluestack-ui/spinner';
 import { useCallback, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import Animated, {
@@ -161,10 +160,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-/**
- * Indicates that an asynchronous process is ongoing. Use it on its own or inside
- * another component, such as a `Button` or `Dialog`, while content is loading.
- */
-const Spinner = createSpinner({ Root: SpinnerRoot });
-
-export default Spinner;
+export default SpinnerRoot;

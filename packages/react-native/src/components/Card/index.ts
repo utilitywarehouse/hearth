@@ -5,3 +5,4 @@ export { default as CardActions } from './CardActions';
 export { default as CardContent } from './CardContent';
 export { default as CardPressHandler } from './CardPressHandler';
 export { useCardPressHandlerContext } from './CardPressHandler.context';
+export type { default as CardProps } from './Card.props';

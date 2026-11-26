@@ -1,25 +1,24 @@
-import { createPressable } from '@gluestack-ui/pressable';
-import { Pressable } from 'react-native';
+import { useState } from 'react';
+import { GestureResponderEvent, Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
 import { useMenuContext } from './Menu.context';
 import type MenuItemProps from './MenuItem.props';
 
-const MenuItemRoot = ({
+const MenuItem = ({
   icon,
   iconPosition = 'left',
   text,
   colorScheme = 'functional',
   disabled = false,
   onPress,
-  states = {},
   ...props
-}: MenuItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active } = states;
+}: MenuItemProps) => {
+  const [pressed, setPressed] = useState(false);
   const { close } = useMenuContext();
 
-  styles.useVariants({ colorScheme, disabled, iconPosition, active });
+  styles.useVariants({ colorScheme, disabled, iconPosition, active: pressed });
 
   const handlePress = (event: any) => {
     if (disabled) return;
@@ -27,10 +26,22 @@ const MenuItemRoot = ({
     close();
   };
 
+  const handlePressIn = (e: GestureResponderEvent) => {
+    props.onPressIn?.(e);
+    setPressed(true);
+  };
+
+  const handlePressOut = (e: GestureResponderEvent) => {
+    props.onPressOut?.(e);
+    setPressed(false);
+  };
+
   return (
     <Pressable
       {...props}
       onPress={handlePress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
       disabled={disabled}
       style={styles.container}
       accessibilityRole="button"
@@ -43,8 +54,6 @@ const MenuItemRoot = ({
     </Pressable>
   );
 };
-
-const MenuItem = createPressable({ Root: MenuItemRoot });
 
 MenuItem.displayName = 'MenuItem';
 

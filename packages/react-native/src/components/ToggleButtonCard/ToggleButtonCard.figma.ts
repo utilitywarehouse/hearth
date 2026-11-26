@@ -22,7 +22,7 @@ const contentItems = contentSlot?.connectedInstances.map(i => i.executeTemplate(
 export default {
   id: 'ToggleButtonCard',
   imports: ["import { ToggleButtonCard } from '@utilitywarehouse/hearth-react-native';"],
-  example: figma.code`// This should be wrapped in a ToggleButtonCardGroup, see docs
+  example: figma.code`// This should be wrapped in a ToggleGroup or ToggleButtonCardGroup, see docs
 <ToggleButtonCard${figma.helpers.react.renderProp('label', label)} value="someValue">
   ${contentItems.flat()}
 </ToggleButtonCard>`,

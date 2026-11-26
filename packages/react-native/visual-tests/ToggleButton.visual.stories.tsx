@@ -23,6 +23,10 @@ export const ToggleButtons: Story = {
       <VTRow label="On">
         <ToggleButton toggled text="On" />
       </VTRow>
+      <VTRow label="Disabled">
+        <ToggleButton disabled text="Off" />
+        <ToggleButton disabled toggled text="On" />
+      </VTRow>
     </VTGrid>
   ),
 };
