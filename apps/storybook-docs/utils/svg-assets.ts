@@ -93,6 +93,8 @@ import SpotBookAppointmentLight from '@utilitywarehouse/hearth-svg-assets/lib/sp
 import SpotBookAppointmentDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-dark.svg';
 import SpotMotorInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-light.svg';
 import SpotMotorInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-motor-insurance-dark.svg';
+import SpotThermometerLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-light.svg';
+import SpotThermometerDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-thermometer-dark.svg';
 import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg';
 import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg';
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg';
@@ -115,6 +117,14 @@ import MascotInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot
 import MascotInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-dark.svg';
 import MascotCashbackLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-light.svg';
 import MascotCashbackDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-dark.svg';
+import Number1EnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/number-1-energy-light.svg';
+import Number1EnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/number-1-energy-dark.svg';
+import Number2EnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/number-2-energy-light.svg';
+import Number2EnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/number-2-energy-dark.svg';
+import Number3EnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/number-3-energy-light.svg';
+import Number3EnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/number-3-energy-dark.svg';
+import Number4EnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/number-4-energy-light.svg';
+import Number4EnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/number-4-energy-dark.svg';
 import TechnicalRouterWithPowerLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-light.svg';
 import TechnicalRouterWithPowerDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-dark.svg';
 import TechnicalStandardDslConnxFullLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-light.svg';
@@ -358,6 +368,8 @@ export const svgAssets = [
     src: SpotMotorInsuranceDark,
     path: 'spot-motor-insurance-dark.svg',
   },
+  { name: 'SpotThermometerLight', src: SpotThermometerLight, path: 'spot-thermometer-light.svg' },
+  { name: 'SpotThermometerDark', src: SpotThermometerDark, path: 'spot-thermometer-dark.svg' },
   { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
   { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
   { name: 'SceneMobileLight', src: SceneMobileLight, path: 'scene-mobile-light.svg' },
@@ -380,6 +392,14 @@ export const svgAssets = [
   { name: 'MascotInsuranceDark', src: MascotInsuranceDark, path: 'mascot-insurance-dark.svg' },
   { name: 'MascotCashbackLight', src: MascotCashbackLight, path: 'mascot-cashback-light.svg' },
   { name: 'MascotCashbackDark', src: MascotCashbackDark, path: 'mascot-cashback-dark.svg' },
+  { name: 'Number1EnergyLight', src: Number1EnergyLight, path: 'number-1-energy-light.svg' },
+  { name: 'Number1EnergyDark', src: Number1EnergyDark, path: 'number-1-energy-dark.svg' },
+  { name: 'Number2EnergyLight', src: Number2EnergyLight, path: 'number-2-energy-light.svg' },
+  { name: 'Number2EnergyDark', src: Number2EnergyDark, path: 'number-2-energy-dark.svg' },
+  { name: 'Number3EnergyLight', src: Number3EnergyLight, path: 'number-3-energy-light.svg' },
+  { name: 'Number3EnergyDark', src: Number3EnergyDark, path: 'number-3-energy-dark.svg' },
+  { name: 'Number4EnergyLight', src: Number4EnergyLight, path: 'number-4-energy-light.svg' },
+  { name: 'Number4EnergyDark', src: Number4EnergyDark, path: 'number-4-energy-dark.svg' },
   {
     name: 'TechnicalRouterWithPowerLight',
     src: TechnicalRouterWithPowerLight,
