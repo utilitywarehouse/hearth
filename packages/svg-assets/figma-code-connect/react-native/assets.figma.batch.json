@@ -1256,23 +1256,6 @@
       }
     },
     {
-      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48629&m=dev",
-      "id": "technical-router-02-front-light",
-      "name": "TechnicalRouter02FrontLight",
-      "component": "TechnicalRouter02FrontLight",
-      "path": "technical-router-02-front-light.svg",
-      "source": "../../lib/technical-router-02-front-light.svg",
-      "themed": true,
-      "light": {
-        "name": "TechnicalRouter02FrontLight",
-        "path": "technical-router-02-front-light.svg"
-      },
-      "dark": {
-        "name": "TechnicalRouter02FrontDark",
-        "path": "technical-router-02-front-dark.svg"
-      }
-    },
-    {
       "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2381:48642&m=dev",
       "id": "technical-router-03-rear-light",
       "name": "TechnicalRouter03RearLight",
@@ -1848,6 +1831,737 @@
       "dark": {
         "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
         "path": "technical-top-and-bottom-key-operated-lock-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:29118&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light",
+      "component": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:29814&m=dev",
+      "id": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-light",
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light",
+      "component": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "source": "../../lib/technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light",
+        "path": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark",
+        "path": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:30576&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light",
+      "component": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:31382&m=dev",
+      "id": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light",
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light",
+      "component": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:32255&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light",
+      "component": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:32977&m=dev",
+      "id": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-light",
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light",
+      "component": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg",
+      "source": "../../lib/technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light",
+        "path": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark",
+        "path": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:33362&m=dev",
+      "id": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light",
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light",
+      "component": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:33938&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light",
+      "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light",
+      "component": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:34882&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light",
+      "component": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:35770&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light",
+      "component": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:36308&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light",
+      "component": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:36945&m=dev",
+      "id": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light",
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light",
+      "component": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:37623&m=dev",
+      "id": "technical-super-router-setup-ont-open-reach-white-type-a-1-light",
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light",
+      "component": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg",
+      "source": "../../lib/technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light",
+        "path": "technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark",
+        "path": "technical-super-router-setup-ont-open-reach-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:38126&m=dev",
+      "id": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light",
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light",
+      "component": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark",
+        "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:38590&m=dev",
+      "id": "technical-eero-set-up-ont-open-reach-white-type-a-1-light",
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light",
+      "component": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg",
+      "source": "../../lib/technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light",
+        "path": "technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark",
+        "path": "technical-eero-set-up-ont-open-reach-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:39324&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light",
+      "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light",
+      "component": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:40338&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light",
+      "component": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:41295&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light",
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light",
+      "component": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:42498&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light",
+      "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light",
+      "component": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:43621&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light",
+      "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Light",
+      "component": "TechnicalUwWiFi7ProHubSetupMicroFilter1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:44633&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light",
+      "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Light",
+      "component": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:44932&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-angled-1-light",
+      "name": "TechnicalUwWiFiHubProAngled1Light",
+      "component": "TechnicalUwWiFiHubProAngled1Light",
+      "path": "technical-uw-wi-fi-hub-pro-angled-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-angled-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProAngled1Light",
+        "path": "technical-uw-wi-fi-hub-pro-angled-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProAngled1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-angled-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45029&m=dev",
+      "id": "technical-uw-wi-fi-hub-back-flat-1-light",
+      "name": "TechnicalUwWiFiHubBackFlat1Light",
+      "component": "TechnicalUwWiFiHubBackFlat1Light",
+      "path": "technical-uw-wi-fi-hub-back-flat-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-back-flat-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubBackFlat1Light",
+        "path": "technical-uw-wi-fi-hub-back-flat-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubBackFlat1Dark",
+        "path": "technical-uw-wi-fi-hub-back-flat-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45330&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-back-light",
+      "name": "TechnicalUwWiFi7ProHubBackLight",
+      "component": "TechnicalUwWiFi7ProHubBackLight",
+      "path": "technical-uw-wi-fi-7-pro-hub-back-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-back-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubBackLight",
+        "path": "technical-uw-wi-fi-7-pro-hub-back-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubBackDark",
+        "path": "technical-uw-wi-fi-7-pro-hub-back-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45563&m=dev",
+      "id": "technical-standard-router-back-light",
+      "name": "TechnicalStandardRouterBackLight",
+      "component": "TechnicalStandardRouterBackLight",
+      "path": "technical-standard-router-back-light.svg",
+      "source": "../../lib/technical-standard-router-back-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalStandardRouterBackLight",
+        "path": "technical-standard-router-back-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalStandardRouterBackDark",
+        "path": "technical-standard-router-back-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45648&m=dev",
+      "id": "technical-super-router-back-light",
+      "name": "TechnicalSuperRouterBackLight",
+      "component": "TechnicalSuperRouterBackLight",
+      "path": "technical-super-router-back-light.svg",
+      "source": "../../lib/technical-super-router-back-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalSuperRouterBackLight",
+        "path": "technical-super-router-back-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalSuperRouterBackDark",
+        "path": "technical-super-router-back-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45725&m=dev",
+      "id": "technical-uw-wi-fi-hub-back-light",
+      "name": "TechnicalUwWiFiHubBackLight",
+      "component": "TechnicalUwWiFiHubBackLight",
+      "path": "technical-uw-wi-fi-hub-back-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-back-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubBackLight",
+        "path": "technical-uw-wi-fi-hub-back-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubBackDark",
+        "path": "technical-uw-wi-fi-hub-back-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45789&m=dev",
+      "id": "technical-uw-wi-fi-hub-pro-side-1-light",
+      "name": "TechnicalUwWiFiHubProSide1Light",
+      "component": "TechnicalUwWiFiHubProSide1Light",
+      "path": "technical-uw-wi-fi-hub-pro-side-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-pro-side-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubProSide1Light",
+        "path": "technical-uw-wi-fi-hub-pro-side-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubProSide1Dark",
+        "path": "technical-uw-wi-fi-hub-pro-side-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45832&m=dev",
+      "id": "technical-uw-wi-fi-hub-front-1-light",
+      "name": "TechnicalUwWiFiHubFront1Light",
+      "component": "TechnicalUwWiFiHubFront1Light",
+      "path": "technical-uw-wi-fi-hub-front-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-front-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubFront1Light",
+        "path": "technical-uw-wi-fi-hub-front-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubFront1Dark",
+        "path": "technical-uw-wi-fi-hub-front-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45873&m=dev",
+      "id": "technical-uw-wi-fi-7-pro-hub-front-1-light",
+      "name": "TechnicalUwWiFi7ProHubFront1Light",
+      "component": "TechnicalUwWiFi7ProHubFront1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-front-1-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-7-pro-hub-front-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFi7ProHubFront1Light",
+        "path": "technical-uw-wi-fi-7-pro-hub-front-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFi7ProHubFront1Dark",
+        "path": "technical-uw-wi-fi-7-pro-hub-front-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:45980&m=dev",
+      "id": "technical-standard-router-front-light",
+      "name": "TechnicalStandardRouterFrontLight",
+      "component": "TechnicalStandardRouterFrontLight",
+      "path": "technical-standard-router-front-light.svg",
+      "source": "../../lib/technical-standard-router-front-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalStandardRouterFrontLight",
+        "path": "technical-standard-router-front-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalStandardRouterFrontDark",
+        "path": "technical-standard-router-front-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:46068&m=dev",
+      "id": "technical-super-router-front-light",
+      "name": "TechnicalSuperRouterFrontLight",
+      "component": "TechnicalSuperRouterFrontLight",
+      "path": "technical-super-router-front-light.svg",
+      "source": "../../lib/technical-super-router-front-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalSuperRouterFrontLight",
+        "path": "technical-super-router-front-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalSuperRouterFrontDark",
+        "path": "technical-super-router-front-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:46118&m=dev",
+      "id": "technical-uw-wi-fi-hub-top-light",
+      "name": "TechnicalUwWiFiHubTopLight",
+      "component": "TechnicalUwWiFiHubTopLight",
+      "path": "technical-uw-wi-fi-hub-top-light.svg",
+      "source": "../../lib/technical-uw-wi-fi-hub-top-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalUwWiFiHubTopLight",
+        "path": "technical-uw-wi-fi-hub-top-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalUwWiFiHubTopDark",
+        "path": "technical-uw-wi-fi-hub-top-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:46192&m=dev",
+      "id": "technical-ont-city-fibre-black-type-b-1-light",
+      "name": "TechnicalOntCityFibreBlackTypeB1Light",
+      "component": "TechnicalOntCityFibreBlackTypeB1Light",
+      "path": "technical-ont-city-fibre-black-type-b-1-light.svg",
+      "source": "../../lib/technical-ont-city-fibre-black-type-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalOntCityFibreBlackTypeB1Light",
+        "path": "technical-ont-city-fibre-black-type-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalOntCityFibreBlackTypeB1Dark",
+        "path": "technical-ont-city-fibre-black-type-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:46757&m=dev",
+      "id": "technical-ont-openreach-white-type-c-1-light",
+      "name": "TechnicalOntOpenreachWhiteTypeC1Light",
+      "component": "TechnicalOntOpenreachWhiteTypeC1Light",
+      "path": "technical-ont-openreach-white-type-c-1-light.svg",
+      "source": "../../lib/technical-ont-openreach-white-type-c-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalOntOpenreachWhiteTypeC1Light",
+        "path": "technical-ont-openreach-white-type-c-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalOntOpenreachWhiteTypeC1Dark",
+        "path": "technical-ont-openreach-white-type-c-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47329&m=dev",
+      "id": "technical-ont-openreach-white-type-b-1-light",
+      "name": "TechnicalOntOpenreachWhiteTypeB1Light",
+      "component": "TechnicalOntOpenreachWhiteTypeB1Light",
+      "path": "technical-ont-openreach-white-type-b-1-light.svg",
+      "source": "../../lib/technical-ont-openreach-white-type-b-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalOntOpenreachWhiteTypeB1Light",
+        "path": "technical-ont-openreach-white-type-b-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalOntOpenreachWhiteTypeB1Dark",
+        "path": "technical-ont-openreach-white-type-b-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47454&m=dev",
+      "id": "technical-ont-city-fibre-black-type-a-1-light",
+      "name": "TechnicalOntCityFibreBlackTypeA1Light",
+      "component": "TechnicalOntCityFibreBlackTypeA1Light",
+      "path": "technical-ont-city-fibre-black-type-a-1-light.svg",
+      "source": "../../lib/technical-ont-city-fibre-black-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalOntCityFibreBlackTypeA1Light",
+        "path": "technical-ont-city-fibre-black-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalOntCityFibreBlackTypeA1Dark",
+        "path": "technical-ont-city-fibre-black-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47565&m=dev",
+      "id": "technical-ont-city-fibre-white-type-a-1-light",
+      "name": "TechnicalOntCityFibreWhiteTypeA1Light",
+      "component": "TechnicalOntCityFibreWhiteTypeA1Light",
+      "path": "technical-ont-city-fibre-white-type-a-1-light.svg",
+      "source": "../../lib/technical-ont-city-fibre-white-type-a-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalOntCityFibreWhiteTypeA1Light",
+        "path": "technical-ont-city-fibre-white-type-a-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalOntCityFibreWhiteTypeA1Dark",
+        "path": "technical-ont-city-fibre-white-type-a-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47636&m=dev",
+      "id": "technical-eero-back-1-light",
+      "name": "TechnicalEeroBack1Light",
+      "component": "TechnicalEeroBack1Light",
+      "path": "technical-eero-back-1-light.svg",
+      "source": "../../lib/technical-eero-back-1-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalEeroBack1Light",
+        "path": "technical-eero-back-1-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalEeroBack1Dark",
+        "path": "technical-eero-back-1-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47667&m=dev",
+      "id": "technical-light-status-off-light",
+      "name": "TechnicalLightStatusOffLight",
+      "component": "TechnicalLightStatusOffLight",
+      "path": "technical-light-status-off-light.svg",
+      "source": "../../lib/technical-light-status-off-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalLightStatusOffLight",
+        "path": "technical-light-status-off-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalLightStatusOffDark",
+        "path": "technical-light-status-off-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47676&m=dev",
+      "id": "technical-light-status-red-light",
+      "name": "TechnicalLightStatusRedLight",
+      "component": "TechnicalLightStatusRedLight",
+      "path": "technical-light-status-red-light.svg",
+      "source": "../../lib/technical-light-status-red-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalLightStatusRedLight",
+        "path": "technical-light-status-red-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalLightStatusRedDark",
+        "path": "technical-light-status-red-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47688&m=dev",
+      "id": "technical-light-status-green-light",
+      "name": "TechnicalLightStatusGreenLight",
+      "component": "TechnicalLightStatusGreenLight",
+      "path": "technical-light-status-green-light.svg",
+      "source": "../../lib/technical-light-status-green-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalLightStatusGreenLight",
+        "path": "technical-light-status-green-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalLightStatusGreenDark",
+        "path": "technical-light-status-green-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3389:47696&m=dev",
+      "id": "technical-light-status-orange-light",
+      "name": "TechnicalLightStatusOrangeLight",
+      "component": "TechnicalLightStatusOrangeLight",
+      "path": "technical-light-status-orange-light.svg",
+      "source": "../../lib/technical-light-status-orange-light.svg",
+      "themed": true,
+      "light": {
+        "name": "TechnicalLightStatusOrangeLight",
+        "path": "technical-light-status-orange-light.svg"
+      },
+      "dark": {
+        "name": "TechnicalLightStatusOrangeDark",
+        "path": "technical-light-status-orange-dark.svg"
       }
     }
   ]

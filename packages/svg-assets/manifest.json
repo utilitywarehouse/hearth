@@ -736,24 +736,14 @@
       "hash": "a7cbc0b6dcf8a5d34b8ad7eb10994d6627ad25059bc3833860ff5b5c25bfa4cb"
     },
     {
-      "name": "TechnicalRouter02FrontLight",
-      "path": "technical-router-02-front-light.svg",
-      "hash": "853ed744589d9eb1e2086bc224478600e74d0bd9342813c510b20a629416de8c"
-    },
-    {
-      "name": "TechnicalRouter02FrontDark",
-      "path": "technical-router-02-front-dark.svg",
-      "hash": "e819c578b3b22e1d963503b32c0070d5d72bf653e2843596c98dfda69db507f4"
-    },
-    {
       "name": "TechnicalRouter03RearLight",
       "path": "technical-router-03-rear-light.svg",
-      "hash": "fdc9acacfa526d256630940fa425d906000f105d34728468a466e19a0aecdf80"
+      "hash": "6d73c2e7b7025399d6f85efa913c82825611a2e2262c1aad4f7bb06945f9b29e"
     },
     {
       "name": "TechnicalRouter03RearDark",
       "path": "technical-router-03-rear-dark.svg",
-      "hash": "ddb23b0229c74d6638e07ebd5254597a141cabd35fcb71d47f4805874c53a1ac"
+      "hash": "a31ce4423d3978c473b0a448702bd92fe755566aa955458a14b62a3581575752"
     },
     {
       "name": "TechnicalMeter01LabelledLight",
@@ -768,42 +758,42 @@
     {
       "name": "TechnicalMeter02LabelledLight",
       "path": "technical-meter-02-labelled-light.svg",
-      "hash": "1c7c4f96948273c79cc221497b35ace482358dd462b0596010eaa75ca9d059bc"
+      "hash": "61f6dabc9da248f4acd2ac80e5f66dd9dd5cfa12cbd8075f0da345ea88c6aefb"
     },
     {
       "name": "TechnicalMeter02LabelledDark",
       "path": "technical-meter-02-labelled-dark.svg",
-      "hash": "89a61de3a3b33ed407e7ed29f4afb6eb376a03147a5fdc36374fa9a064cbb6eb"
+      "hash": "aa2c0e9542e1558e1431ca53be20a911f27af7bcdba6cd6d526672b4087973d2"
     },
     {
       "name": "TechnicalMeter02Light",
       "path": "technical-meter-02-light.svg",
-      "hash": "084e000c2833349b160362d0b7cd124ddecd0a0d7bb0dbcc75e8638ff17d9fd0"
+      "hash": "dc22596d9619299f01103cb489e031caf79f94a0cf863079b7b8b4ba7528580d"
     },
     {
       "name": "TechnicalMeter02Dark",
       "path": "technical-meter-02-dark.svg",
-      "hash": "438af3d794aa06365e31e02c3186bb42479ec9cff88acdf4cf2dab9026db3249"
+      "hash": "6d1ce9aa58d10994a0c6e5ae64f469ead546f5f57f947849f5e6747ecf7106f7"
     },
     {
       "name": "TechnicalMicrofilter01Light",
       "path": "technical-microfilter-01-light.svg",
-      "hash": "0c3fb41bf99f6bddc1cdfff1cf71c8de4bf48e25cc99aa2956a45c2dc7c00fc1"
+      "hash": "e63c73cde7e136af0d58ea01be882237e660d4a49e51b58dd2dd6e1b4c20a507"
     },
     {
       "name": "TechnicalMicrofilter01Dark",
       "path": "technical-microfilter-01-dark.svg",
-      "hash": "6f71b3705b1496758e16eb12b471d4a49708eebd40ff13c5f08eae3eac1eeec6"
+      "hash": "fcbf64c962ecfba28665adaca18b97fc3790210264534449239db446fb65e508"
     },
     {
       "name": "TechnicalMorticeDeadlock5LeversLight",
       "path": "technical-mortice-deadlock-5-levers-light.svg",
-      "hash": "33d2e0e3796da4998409a79c345e93aa36f48f33b3a1aaf44399a1d67242965b"
+      "hash": "bc1edb0d9878df5a1ce9ee5892980466dd35e13257d730e37caa2fbc42090f7a"
     },
     {
       "name": "TechnicalMorticeDeadlock5LeversDark",
       "path": "technical-mortice-deadlock-5-levers-dark.svg",
-      "hash": "2a449c459be806f635e80711ee7742492e17713b57154f2935335675f7ece7ad"
+      "hash": "3473204d264e012bc672bc6183771326d0b0b19b4911e9ae47c2066ee5dd4c5c"
     },
     {
       "name": "TechnicalMicrofilter02Light",
@@ -828,42 +818,42 @@
     {
       "name": "TechnicalOntRouterConnxLight",
       "path": "technical-ont-router-connx-light.svg",
-      "hash": "bc7766369c6d82c4c78e27dcacdc2193c6b31cdfeb52e76e55aa2bb30cc1a4f8"
+      "hash": "1ac7210b618f3210319c86f27facd69c30e4708bf48e55e4850ef32268c64856"
     },
     {
       "name": "TechnicalOntRouterConnxDark",
       "path": "technical-ont-router-connx-dark.svg",
-      "hash": "ec404d5eb2483d39c4f8b3199e0b0c14655cd904e6896b09736751d4ea71fce3"
+      "hash": "2835b8f83fbd8a9f3511126914c3e703602efbf8df563847a9e4b5e1916ab4b2"
     },
     {
       "name": "TechnicalOtherBuildingLight",
       "path": "technical-other-building-light.svg",
-      "hash": "2d3b50ee7b8568ba345692cac34f81b1c610e9bd60f48bbdd486875663682031"
+      "hash": "16253055fdf3e4d9a764ae9ca617eb221f44a3581c09714ce71339abda918e9d"
     },
     {
       "name": "TechnicalOtherBuildingDark",
       "path": "technical-other-building-dark.svg",
-      "hash": "45e7446f92446373d553e6669b27a4c70bf7ee2e28df9618d729a155430e7b9e"
+      "hash": "f01de22c348b29620d1ad5d9b369055c122ca8d4a1e008965437705befbc2f85"
     },
     {
       "name": "TechnicalOtherLockLight",
       "path": "technical-other-lock-light.svg",
-      "hash": "ce7161932d9cf9093aab77f776e6309ce00f8444b59f0b2ac64d7cbcf766a483"
+      "hash": "e4f61e7bc3007df89bd0c3e4c23403eccf89f7e92da33b917da814c611dab386"
     },
     {
       "name": "TechnicalOtherLockDark",
       "path": "technical-other-lock-dark.svg",
-      "hash": "aa936ea893d0374df894d64135aa0f808313afe7f3f832fabd3dc4336bc77434"
+      "hash": "b6eae71b7c7fd64a038eed877dc0302e50bfa372afa34ed97bb5d636b2a9e5de"
     },
     {
       "name": "TechnicalEeroLight",
       "path": "technical-eero-light.svg",
-      "hash": "4ef3176e0f3286016472136161ab770d65c1bd5a970eefef8e9a28a7a0ac7b71"
+      "hash": "227d1c8634a7edf43b5dbf10d704ce3cd88051c34538615881ac9cac88a4cca2"
     },
     {
       "name": "TechnicalEeroDark",
       "path": "technical-eero-dark.svg",
-      "hash": "6d0f54a438991bb3a5597d1dffac6c1b7b036faf0a3e178531b7b78e51f5ca80"
+      "hash": "051f363f13b550b220298b831dad50d4b5192d1193a681d512ec0ceacf224833"
     },
     {
       "name": "TechnicalEthernetCableLight",
@@ -878,22 +868,22 @@
     {
       "name": "TechnicalFlatLight",
       "path": "technical-flat-light.svg",
-      "hash": "191de3848a077caa13533cf4f8bd8c481a3555db4960ca765b2f8321e1a68fb6"
+      "hash": "35ecae0c3382a1f277390ed30014867df6904858c3ed4d9a926823a8a0319c9b"
     },
     {
       "name": "TechnicalFlatDark",
       "path": "technical-flat-dark.svg",
-      "hash": "a744038e4295035b59b34499729ae40f44e8ab3dbe20b841f4ed106e7ea4e124"
+      "hash": "6ca14ddbf38c5dd966a08ec2b993598ae5757754da2c8455baf74b6be3f35644"
     },
     {
       "name": "TechnicalFullFibreSocketLight",
       "path": "technical-full-fibre-socket-light.svg",
-      "hash": "a054bec8f969ac4b89f7dda8485cdfcd84f04210535cc6c5b9b5692b756d0d5b"
+      "hash": "54548d79cfa5a919a296557d5b874465cd976962a30fe04e53a786caeaa8b13a"
     },
     {
       "name": "TechnicalFullFibreSocketDark",
       "path": "technical-full-fibre-socket-dark.svg",
-      "hash": "be675488cc1e192c17a92de22f2036ef0c1e77e21aa21a2ea3b2aaa78aa4a511"
+      "hash": "65af7ae4f125658d313a6093a9bd4bcdc5e5fca3a024a4558d368184c41747f2"
     },
     {
       "name": "TechnicalFullfibre916MobileLight",
@@ -1084,6 +1074,436 @@
       "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
       "path": "technical-top-and-bottom-key-operated-lock-1-dark.svg",
       "hash": "f0cb9dfabc89a4e4787f90d10bd53bc4dfe812da29d63be06982dece5e447856"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "hash": "e938caa264dd2c38ef224f47cbba6bc1240fe537ab3480701580409d496b338c"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-dark.svg",
+      "hash": "0c880a0e266d7dad2a51c5f1231d81ec3721efc9dee6b409e51a50f515fd8616"
+    },
+    {
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "hash": "499d6aaceedfc15e2eeb3fe305dd8c60dfd11a14ada07d95a401d1ef09a6528d"
+    },
+    {
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-02-1-dark.svg",
+      "hash": "4bf8b1e9b4e10a409c8156bcdc4dbd02dcf2fba6a6d22528532598b10b1e7e8a"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg",
+      "hash": "de647757429f16bdb5edd745f1821714951a56cf891c4bff7267ae45714098d6"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-dark.svg",
+      "hash": "fce2dfc75347b98b3bc0b846ea16e79c6f11d27d1d623c9ba3682782d58731cf"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg",
+      "hash": "ce1f1eaba92dd606f349d7f659d01cc00f0bbf2bd9120735a25f48823ea0813a"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-dark.svg",
+      "hash": "42f30a8732b9ec3576b6b1a11a0ba9843b98ebfbe25980f5f542d6b0abe5fa1b"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg",
+      "hash": "1189d3c282cab13e402633e2ec8292af679d6cbd6de2996528ec1bd7c8569858"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-dark.svg",
+      "hash": "4bc65e3746c55fb72f9fc3365777de00608aa64899868a9f862ad05a8b126363"
+    },
+    {
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg",
+      "hash": "2a563d0b3f27453c1b14004a6f24dab6238f1fbf5d1952bcf033d1430f993da2"
+    },
+    {
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-02-1-dark.svg",
+      "hash": "3aa87ab586cf64a96eb62531526c817a236df15938b5297420c6c9788b3f4794"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg",
+      "hash": "3d84a9f04a9f43293286e83d7808e09e482f266f21a56aacaec10ddc81499211"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-dark.svg",
+      "hash": "a771835b8447f55d8677035138071e3fc9b2a5a4ba7c6de6ada69aaecb6e3d5d"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg",
+      "hash": "293a03de9b69a20341e239592a04434af04753caf2502fa57947ed499ce808ba"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-dark.svg",
+      "hash": "c56e19abd98b2dd0b929307c1d0479125494ecdfd4c7c9f34964a09f70f3e3e0"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg",
+      "hash": "a0a7888c7b2d8b298940b407c5d6acc3054d564cd5ce32cb2d2a3f6c6c2606b6"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-dark.svg",
+      "hash": "9b1546efe850fa41d7ce780624b1b649de00baba76aea5712abf3919b3650055"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg",
+      "hash": "c0d6518a22c1492af8997bf133de1363af4c58e12b6edb5964c0021cda28c437"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-dark.svg",
+      "hash": "eb0709c2d8946e43237764f7372e1cf7c947767318587d4982d9afa161178f2e"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg",
+      "hash": "2b06a086629b534a84d6dfd8e5f86642f0f5adc99ebef727ee0f299a0478636f"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-dark.svg",
+      "hash": "d77506fd568829cb3b8e1febdd6c4446e62107f367232099fd9208fab543b884"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg",
+      "hash": "9219e5b0a1db65232ad9a4e29a2fda8cf7ee6af19cf95e3a62362f27a8c89002"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-dark.svg",
+      "hash": "69f03aa09cea7c4de883048df29ad02e9b26e14ac8aa4697386822954a7826d7"
+    },
+    {
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg",
+      "hash": "d05446de3b356317ac495a75813ba02ec0f3033352e1f5053f3ec4d865e29e85"
+    },
+    {
+      "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark",
+      "path": "technical-super-router-setup-ont-open-reach-white-type-a-1-dark.svg",
+      "hash": "18afb65bf820c72c046175208c1f3422799c91ff649392d3cee6bc0e0d88e35d"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg",
+      "hash": "d55822c965de9995aa705c46f6ca9c442d77d865ab4a12c8a37984e94d0b1637"
+    },
+    {
+      "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark",
+      "path": "technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-dark.svg",
+      "hash": "3fb4ee612e495fd2c3fec0eed892798d6dfe5ce503dfe645a9a60f5633918b1e"
+    },
+    {
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg",
+      "hash": "7f46f8d13dda7f32a9cb12056783fb1d8dd698fb00978cfc636d917026856db8"
+    },
+    {
+      "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark",
+      "path": "technical-eero-set-up-ont-open-reach-white-type-a-1-dark.svg",
+      "hash": "86b68165a5439b00d34fb65e329d7052bf1d8682c8f44e0801029c890bf62222"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "hash": "8fee102b82eec420b2dfbc663932f6bda460197e82839750215484026860db8b"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-dark.svg",
+      "hash": "f6ce722135cc312a174c7f1e16367355425328fae781494440ce62888f011033"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg",
+      "hash": "84203871eed635bc5224fe1eda6f604ad526ba3c1b462256484ae48d9f57ccbb"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-dark.svg",
+      "hash": "df53f1368ae9556395d5a5d06cf49605e70bee111c921f3e13c3e197296e7838"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg",
+      "hash": "4598e1ad0a2f8aace4b128570772ea2dcd7168a27b30114a6654e38ded84a28b"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-dark.svg",
+      "hash": "e28a8836192a744b5c2c779fd10f815dda1e3cb5db408e87b1b647ab62bfdd30"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg",
+      "hash": "a419a2ae1d19d6accbd6ff6bbb834647b093029fdd198ad4bd1022606464cb38"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-dark.svg",
+      "hash": "e947b239e6e516552e176ce0943311fed7b3d0fd6105b59ff5945c28355737db"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg",
+      "hash": "73dec1464b06499cdfa4120ff024a8df879ddb98f2866a1ed24daf38626d5d71"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-dark.svg",
+      "hash": "ff05e0a1e313024433f0f60c6ce7617d73c0422fbd5980009ce6880de97648f1"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg",
+      "hash": "5ca58b8146d333b5df024b72fd2431edda2c0e339bef5050e02050a73e2df6c3"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-dark.svg",
+      "hash": "16ef1a84686e5b382f330676d2196add62144ebbcc1f15e386ed08a168c45bba"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProAngled1Light",
+      "path": "technical-uw-wi-fi-hub-pro-angled-1-light.svg",
+      "hash": "9ac662a4167cf4801f7fcf7abc42491c940455a9440662e635903eb4d2ce65dc"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProAngled1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-angled-1-dark.svg",
+      "hash": "572f61e33ee03459fa83cf08d6fccfe260131f0fee113b8a61ace5e8a6a78bec"
+    },
+    {
+      "name": "TechnicalUwWiFiHubBackFlat1Light",
+      "path": "technical-uw-wi-fi-hub-back-flat-1-light.svg",
+      "hash": "938874567e29eb178c2f685d6f8032d3b8bddd4465ec913772b35b73e19589ad"
+    },
+    {
+      "name": "TechnicalUwWiFiHubBackFlat1Dark",
+      "path": "technical-uw-wi-fi-hub-back-flat-1-dark.svg",
+      "hash": "9f1b3f76400d78beab9707cc0615bf254661ec8438e5cd836075f79cfb1c513e"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubBackLight",
+      "path": "technical-uw-wi-fi-7-pro-hub-back-light.svg",
+      "hash": "46b9badbc522417c6d4ada9dc30a8c196b9d7b16e114e0d590e5e61ffe28b1a3"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubBackDark",
+      "path": "technical-uw-wi-fi-7-pro-hub-back-dark.svg",
+      "hash": "e9e99a7e5b3bb188e658f1d11d17c6db9046adbd8d489cf77d1b708a013b72a1"
+    },
+    {
+      "name": "TechnicalStandardRouterBackLight",
+      "path": "technical-standard-router-back-light.svg",
+      "hash": "79826408fa0199f62e4a5855afffbf651b4ca9d4997edbe5f99310d51e87e66c"
+    },
+    {
+      "name": "TechnicalStandardRouterBackDark",
+      "path": "technical-standard-router-back-dark.svg",
+      "hash": "2bac1eb1109cf706cab363cbfa46d5af5b5001d5cf22c5b2fa6fe6c1a698e04b"
+    },
+    {
+      "name": "TechnicalSuperRouterBackLight",
+      "path": "technical-super-router-back-light.svg",
+      "hash": "eb286455c27e9980bbe59c2450ad533649de058295247d92c13211766daab64a"
+    },
+    {
+      "name": "TechnicalSuperRouterBackDark",
+      "path": "technical-super-router-back-dark.svg",
+      "hash": "e72cf5ad3f0108ecb9518a0684a77aeb313c0a134577fcc6244ca2e01e79cb25"
+    },
+    {
+      "name": "TechnicalUwWiFiHubBackLight",
+      "path": "technical-uw-wi-fi-hub-back-light.svg",
+      "hash": "ef596d510e43bf19b1b08bc3aee89aa15ef617324bd945c8af81f782a28d869a"
+    },
+    {
+      "name": "TechnicalUwWiFiHubBackDark",
+      "path": "technical-uw-wi-fi-hub-back-dark.svg",
+      "hash": "d25abcbb3ddd8448a993892c99e5e08b9d386824f62d5fb12e11b21a95a9d0cd"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSide1Light",
+      "path": "technical-uw-wi-fi-hub-pro-side-1-light.svg",
+      "hash": "f64fcf279ff70496fd253605a87614894e6f7560ae7ebe3bb5c8f5b44e7ff62a"
+    },
+    {
+      "name": "TechnicalUwWiFiHubProSide1Dark",
+      "path": "technical-uw-wi-fi-hub-pro-side-1-dark.svg",
+      "hash": "da0740f2d209d6ea09654ff3b437ab50db3732569a261999df11cd681d16b215"
+    },
+    {
+      "name": "TechnicalUwWiFiHubFront1Light",
+      "path": "technical-uw-wi-fi-hub-front-1-light.svg",
+      "hash": "6493297c1fa7ab021bdadee90d23946e4b80094ab6897396504435b21c8badbc"
+    },
+    {
+      "name": "TechnicalUwWiFiHubFront1Dark",
+      "path": "technical-uw-wi-fi-hub-front-1-dark.svg",
+      "hash": "596a5298fdae67cf9d86a3046badcfaa8c81b67d2aeeebc406b71536e36c0393"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubFront1Light",
+      "path": "technical-uw-wi-fi-7-pro-hub-front-1-light.svg",
+      "hash": "f4d6678e77f58814af083dc7d9ca5971784c4102e1b1b6c4d8af4f964b829c02"
+    },
+    {
+      "name": "TechnicalUwWiFi7ProHubFront1Dark",
+      "path": "technical-uw-wi-fi-7-pro-hub-front-1-dark.svg",
+      "hash": "ea47a5cc2f6ab6e79f603f78dc84d60326c33083e7e86dc70bed27ac4f3d38a3"
+    },
+    {
+      "name": "TechnicalStandardRouterFrontLight",
+      "path": "technical-standard-router-front-light.svg",
+      "hash": "eae86b1fe52a55e529691bedd19f7caa3cd38f05c647947baaff2609ec661f06"
+    },
+    {
+      "name": "TechnicalStandardRouterFrontDark",
+      "path": "technical-standard-router-front-dark.svg",
+      "hash": "61ee06a3d8eb6f6ad751f5746adcb79d55d63ba78f851f40c481b02d05926db0"
+    },
+    {
+      "name": "TechnicalSuperRouterFrontLight",
+      "path": "technical-super-router-front-light.svg",
+      "hash": "82499948dd7d473df75e6677abf17e25bfe0dd412285c32ccbc8e23485cc6fd2"
+    },
+    {
+      "name": "TechnicalSuperRouterFrontDark",
+      "path": "technical-super-router-front-dark.svg",
+      "hash": "4c681a64cc58ab4401d7295b9159d1f806e05f9a735f96d5af2a474e468e625d"
+    },
+    {
+      "name": "TechnicalUwWiFiHubTopLight",
+      "path": "technical-uw-wi-fi-hub-top-light.svg",
+      "hash": "29e1f75123c530be2bdafb282ef61eb4abde25b804e782248835679c499ca7bb"
+    },
+    {
+      "name": "TechnicalUwWiFiHubTopDark",
+      "path": "technical-uw-wi-fi-hub-top-dark.svg",
+      "hash": "43c475f70ed62fc527ea1c3e1e54be6b0919713d0ab2a15820d292c055cd6617"
+    },
+    {
+      "name": "TechnicalOntCityFibreBlackTypeB1Light",
+      "path": "technical-ont-city-fibre-black-type-b-1-light.svg",
+      "hash": "2eae09b65fba229dc7d7569e623dd07d1be1c8baa826101d5ac4b035c7dcdabf"
+    },
+    {
+      "name": "TechnicalOntCityFibreBlackTypeB1Dark",
+      "path": "technical-ont-city-fibre-black-type-b-1-dark.svg",
+      "hash": "adb47fdb762b747d3834bc9424f171a5f939cbc034118efbc55529d504677165"
+    },
+    {
+      "name": "TechnicalOntOpenreachWhiteTypeC1Light",
+      "path": "technical-ont-openreach-white-type-c-1-light.svg",
+      "hash": "9c716904049a3b7d9ef931590b479a846aaf44da3b1f84d55aa18f9d683fdb9c"
+    },
+    {
+      "name": "TechnicalOntOpenreachWhiteTypeC1Dark",
+      "path": "technical-ont-openreach-white-type-c-1-dark.svg",
+      "hash": "040b636c5d26516845c1658448203bbbe0669c7ef084ecc834909fb6423d5707"
+    },
+    {
+      "name": "TechnicalOntOpenreachWhiteTypeB1Light",
+      "path": "technical-ont-openreach-white-type-b-1-light.svg",
+      "hash": "21450acb087c354e73f3fd3a9abc0b4bb3c03db1304c7569a0d1d0f6fcbe4c4d"
+    },
+    {
+      "name": "TechnicalOntOpenreachWhiteTypeB1Dark",
+      "path": "technical-ont-openreach-white-type-b-1-dark.svg",
+      "hash": "04dbf01846a602e37768d833cb324676710773df4fa5fd2d816d8be620c9e2cf"
+    },
+    {
+      "name": "TechnicalOntCityFibreBlackTypeA1Light",
+      "path": "technical-ont-city-fibre-black-type-a-1-light.svg",
+      "hash": "fbbbc9e94d8493d0d598b2f88b092546214cf161aed98af6c5cdd9f2582d9651"
+    },
+    {
+      "name": "TechnicalOntCityFibreBlackTypeA1Dark",
+      "path": "technical-ont-city-fibre-black-type-a-1-dark.svg",
+      "hash": "dad5f4001a38f08c9e9f98f6d84aef85597f38abe3ef22f9b021cab6ddd7b597"
+    },
+    {
+      "name": "TechnicalOntCityFibreWhiteTypeA1Light",
+      "path": "technical-ont-city-fibre-white-type-a-1-light.svg",
+      "hash": "ed8dfa92ad325aa7d0d2918348f1c3af2869ed561e04c8eceb25363bd79cf456"
+    },
+    {
+      "name": "TechnicalOntCityFibreWhiteTypeA1Dark",
+      "path": "technical-ont-city-fibre-white-type-a-1-dark.svg",
+      "hash": "1d91e56ff961376dffae81b4683c52bcaa6e675165a7c02a6546823794395d13"
+    },
+    {
+      "name": "TechnicalEeroBack1Light",
+      "path": "technical-eero-back-1-light.svg",
+      "hash": "065c9a5c68088e48206971f7598c745ff68b85802e47ca89d1371363a10a7ebf"
+    },
+    {
+      "name": "TechnicalEeroBack1Dark",
+      "path": "technical-eero-back-1-dark.svg",
+      "hash": "c71860172171e8218f407a6314e53b7e8c716202ab170bc4c63d510565ac0d89"
+    },
+    {
+      "name": "TechnicalLightStatusOffLight",
+      "path": "technical-light-status-off-light.svg",
+      "hash": "39c79920c09069d5487652796336250822f5fe0b8430c75380bfbb0277b5782c"
+    },
+    {
+      "name": "TechnicalLightStatusOffDark",
+      "path": "technical-light-status-off-dark.svg",
+      "hash": "bdbd62c9466efb112306acba00bf82a9943f7eeab5949c625f9089929cbadb27"
+    },
+    {
+      "name": "TechnicalLightStatusRedLight",
+      "path": "technical-light-status-red-light.svg",
+      "hash": "c5228d93df630b5bb9a6b3be5e479bed988032f1283ce80220453f3c2d963715"
+    },
+    {
+      "name": "TechnicalLightStatusRedDark",
+      "path": "technical-light-status-red-dark.svg",
+      "hash": "5040a8ac82ae87f61a2a620fa1608ccb6f25366fde0cd6e1a0a433732aafe782"
+    },
+    {
+      "name": "TechnicalLightStatusGreenLight",
+      "path": "technical-light-status-green-light.svg",
+      "hash": "4d469dfe89eeb7a2eaa95e2e3f197683abbf06586a91acd135260656acee943c"
+    },
+    {
+      "name": "TechnicalLightStatusGreenDark",
+      "path": "technical-light-status-green-dark.svg",
+      "hash": "75d42660fd1963f145d6fddf5129178f5d6bcd88ec67f6b991648aa475cff6d0"
+    },
+    {
+      "name": "TechnicalLightStatusOrangeLight",
+      "path": "technical-light-status-orange-light.svg",
+      "hash": "c4a792352156e7324fd834fad94b0f1019f9b27914f11e5ffa544c0faffee841"
+    },
+    {
+      "name": "TechnicalLightStatusOrangeDark",
+      "path": "technical-light-status-orange-dark.svg",
+      "hash": "058b7924abcd8abba8d5c460b3738c0517bfe244483c3189b562dd608a8ed241"
     }
   ]
 }
