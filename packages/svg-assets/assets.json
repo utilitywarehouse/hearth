@@ -20,6 +20,26 @@
     "componentSetId": "1:9"
   },
   {
+    "id": "3379:53716",
+    "name": "Number1Energy",
+    "componentSetId": "3379:53716"
+  },
+  {
+    "id": "3379:53925",
+    "name": "Number2Energy",
+    "componentSetId": "3379:53925"
+  },
+  {
+    "id": "3379:54835",
+    "name": "Number3Energy",
+    "componentSetId": "3379:54835"
+  },
+  {
+    "id": "3379:54974",
+    "name": "Number4Energy",
+    "componentSetId": "3379:54974"
+  },
+  {
     "id": "2787:5299",
     "name": "BeamingFace",
     "componentSetId": "2787:5299"
@@ -465,6 +485,16 @@
     "componentSetId": "3076:37443"
   },
   {
+    "id": "3379:28795",
+    "name": "SpotThermometerLight",
+    "componentSetId": "3379:28794"
+  },
+  {
+    "id": "3379:28934",
+    "name": "SpotThermometerDark",
+    "componentSetId": "3379:28794"
+  },
+  {
     "id": "2125:10125",
     "name": "SceneEnergyLight",
     "componentSetId": "2125:10126"
@@ -573,6 +603,46 @@
     "id": "2125:27653",
     "name": "MascotCashbackDark",
     "componentSetId": "2125:27652"
+  },
+  {
+    "id": "3379:44272",
+    "name": "Number1EnergyLight",
+    "componentSetId": "3379:44271"
+  },
+  {
+    "id": "3379:44333",
+    "name": "Number1EnergyDark",
+    "componentSetId": "3379:44271"
+  },
+  {
+    "id": "3379:52285",
+    "name": "Number2EnergyLight",
+    "componentSetId": "3379:52284"
+  },
+  {
+    "id": "3379:52740",
+    "name": "Number2EnergyDark",
+    "componentSetId": "3379:52284"
+  },
+  {
+    "id": "3379:52818",
+    "name": "Number3EnergyLight",
+    "componentSetId": "3379:52817"
+  },
+  {
+    "id": "3379:53135",
+    "name": "Number3EnergyDark",
+    "componentSetId": "3379:52817"
+  },
+  {
+    "id": "3379:53234",
+    "name": "Number4EnergyLight",
+    "componentSetId": "3379:53233"
+  },
+  {
+    "id": "3379:53614",
+    "name": "Number4EnergyDark",
+    "componentSetId": "3379:53233"
   },
   {
     "id": "2381:38504",
