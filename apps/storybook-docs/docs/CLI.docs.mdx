@@ -116,6 +116,10 @@ run from the app's directory:
   an icon.
 - `hearth assets svg|json search <word>`, then `get`: before using an
   illustration, logo or animation.
+- `hearth changes <package>` (for example `react`): before hand-rolling a
+  component or helper, when a documented component or prop is missing, and when
+  reviewing code. It lists what changed since the installed version. If a newer
+  release has what you need, suggest the upgrade; do not upgrade without asking.
 
 Add `--json` and check the exit code before reading the output. Pass
 `--platform native` to `hearth tokens` in a React Native project (the default is
@@ -123,7 +127,8 @@ web; icons and assets reject the flag). Exit `1` is
 no match: do not invent a name. Exit `2` is a wrong command. Exit `3` means a
 package is missing or out of date: tell the user what the message says. Exit `1`
 with an `ERR_PACKAGE_PATH_NOT_EXPORTED` stack trace is a broken install, not a
-no-match.
+no-match. For `hearth changes`, exit `3` also means npm or GitHub could not be
+reached: say so, and do not guess what changed.
 
 Component props and usage come from the Hearth Storybook MCP servers, not the CLI.
 ````

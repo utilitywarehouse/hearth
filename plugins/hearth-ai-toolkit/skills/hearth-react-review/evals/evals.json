@@ -42,6 +42,19 @@
         "Flags `style={{ flex: 1 }}` on `Box` as an inline style where the `flex` style prop exists",
         "Findings are grouped into tiers rather than presented as a flat list"
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "Can you review src/components/UsageTrend.tsx? We're on @utilitywarehouse/hearth-react 0.36.3. I want to check it follows the design system before I open the PR.",
+      "expected_output": "Runs `hearth changes react` before judging the file, finds `VisuallyHidden` added in 0.37.0, and recommends upgrading and replacing the hand-rolled `visuallyHidden` CSS object and `<span>` with `<VisuallyHidden>`. Presents it as available after the upgrade, not as an error on 0.36.3.",
+      "files": ["evals/files/UsageTrend.tsx"],
+      "expectations": [
+        "Runs `hearth changes react` (or reports that it could not run and why) before giving findings",
+        "Flags the hand-rolled `visuallyHidden` CSS object and `<span>` as replaceable by `VisuallyHidden`, naming 0.37.0 as the version that added it",
+        "Recommends upgrading `@utilitywarehouse/hearth-react` together with the change, rather than telling the author to use a component 0.36.3 does not have",
+        "Does not upgrade the package or edit the file without being asked",
+        "Findings are grouped into tiers rather than presented as a flat list"
+      ]
     }
   ]
 }

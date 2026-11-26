@@ -79,6 +79,23 @@ Then read `<root>/public/llms.txt` (index), `<root>/public/llms/components/`
 typography, responsive design). Onboarding and MCP configuration:
 [`public/llms/docs/a-i-toolkit.md`](public/llms/docs/a-i-toolkit.md).
 
+### Check what's new since the installed version
+
+The MCP server describes the latest Hearth React, which may be newer than the
+version in this project. Run `hearth changes react` from the app's directory
+(see the `hearth-cli` skill) before writing a custom component, helper or
+workaround, and when a component or prop the docs list is missing from the
+installed package. It lists every changelog entry between the installed
+version and the latest release, breaking changes first.
+
+- If a newer release adds what you were about to hand-roll (for example
+  `VisuallyHidden`, added in 0.37.0, instead of a visually hidden CSS object),
+  tell the user and suggest upgrading. Don't upgrade without asking.
+- A component or prop added after the installed version doesn't exist in this
+  project yet: don't use it until the package is upgraded.
+- If the command exits `3` (offline, sandboxed, or the package isn't
+  installed), say so. Don't guess what changed.
+
 ## Plan before writing
 
 For anything beyond a trivial change (new page, multi-component feature,
