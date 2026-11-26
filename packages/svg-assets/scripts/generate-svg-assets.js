@@ -14,6 +14,7 @@ const APPROVED_CANVASES = [
   'Mascots - Theme',
   'Technical - Theme',
   'Emojis',
+  'Numbers',
   'Placeholder',
 ];
 

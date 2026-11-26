@@ -415,6 +415,13 @@
       "source": "../lib/OpenSmallIcon.tsx"
     },
     {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2886:38&m=dev",
+      "id": "pause-small-icon",
+      "name": "PauseSmallIcon",
+      "component": "PauseSmallIcon",
+      "source": "../lib/PauseSmallIcon.tsx"
+    },
+    {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=46:27&m=dev",
       "id": "phone-small-icon",
       "name": "PhoneSmallIcon",
@@ -1232,6 +1239,13 @@
       "name": "PanelBottomMediumIcon",
       "component": "PanelBottomMediumIcon",
       "source": "../lib/PanelBottomMediumIcon.tsx"
+    },
+    {
+      "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2886:30&m=dev",
+      "id": "pause-medium-icon",
+      "name": "PauseMediumIcon",
+      "component": "PauseMediumIcon",
+      "source": "../lib/PauseMediumIcon.tsx"
     },
     {
       "url": "https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=14:159&m=dev",

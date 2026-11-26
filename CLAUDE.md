@@ -21,6 +21,10 @@ and supporting tooling.
 | `packages/svg-assets` | `@utilitywarehouse/hearth-svg-assets` — SVG illustration assets |
 | `packages/json-assets` | `@utilitywarehouse/hearth-json-assets` — JSON (animated) assets |
 | `packages/storybook-utils` | Internal Storybook utilities |
+| `packages/codemod` | `@utilitywarehouse/hearth-codemod` — codemods for major-version migrations |
+| `packages/cli` | `@utilitywarehouse/hearth-cli` — look up Hearth tokens from installed versions |
+| `packages/manifest` | `hearth-manifest` — manifest schema (private) |
+| `plugins/hearth-ai-toolkit` | Claude Code plugin for Hearth |
 | `apps/storybook-docs` | Central Storybook documentation site |
 | `apps/storybook-rn-expo` | React Native Storybook (Expo) |
 | `apps/playground-expo` | Expo playground app |
@@ -39,28 +43,13 @@ npm run setup    # corepack enable + pnpm install
 
 ## After making changes
 
+Claude Code hooks (`.claude/settings.json`) run Prettier on each edited file and, when a turn ends, `typecheck` and `lint:ci` for each `packages/*` directory with uncommitted changes. They skip packages whose dependencies aren't installed, so they don't replace `pnpm checks`, which still covers repo-wide lint, format, tests and the skill checks.
+
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
-- `.nvmrc` pins Node 22; a non-interactive shell can default to an older Node (the agent sandbox defaults to Node 18), where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
-
-- `npx` fails in the sandbox with an npm cache `EPERM`. Call the local binary directly instead, for example `node_modules/.bin/eslint`.
-
-- `npm pack` fails in the sandbox with the same cache `EPERM`, so `pnpm check:manifests` (its `--tarball` step) can't run there. Ask the user to run it.
-
-- A workspace package such as `packages/manifest` can have no `node_modules/.bin`. Run the root binaries from the package directory, for example `../../node_modules/.bin/vitest`.
-
-- A fresh worktree has no `node_modules` or build output. Ask the user to run `nvm use && pnpm install`, then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests.
-
-- Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
+- Sandbox and fresh-worktree failures (wrong Node or a `tsc` crash, `npx`/`npm pack` `EPERM`, `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import, `pnpm install` aborting, the git `~/.gitignore` warning or blocked git writes): see [docs/agents/sandbox.md](docs/agents/sandbox.md).
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.
-
----
-
-## Skills
-
-Skills live in `.claude/skills/` (`.agents/skills` links to it); each description says when to use it. Invoke with `/skill-name`.
-
 
 ---
 

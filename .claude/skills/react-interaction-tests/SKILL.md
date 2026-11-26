@@ -9,7 +9,7 @@ argument-hint: "Component name whose stories need play functions"
 ## When to Use
 
 - Adding a `play` function to a story in `packages/react/src/components/<Component>/<Component>.stories.tsx`
-- `packages/react-native` already has this pattern; `packages/react` did not until interaction tests were first added to `Accordion` — treat that file as the reference example.
+- `packages/react-native` already has this pattern; treat `Accordion.stories.tsx` in `packages/react` as the reference example.
 
 ## Setup
 

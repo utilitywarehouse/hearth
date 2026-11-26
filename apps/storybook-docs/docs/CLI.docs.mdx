@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="CLI" />
+
+# Hearth CLI
+
+The Hearth CLI (`@utilitywarehouse/hearth-cli`, command `hearth`) looks up design
+tokens, icons, SVG assets and JSON assets from the Hearth packages installed in
+your project. Use it to check that a token, icon or asset exists, and to get its
+CSS variable, component name or import, instead of guessing a name. `hearth
+changes` shows what changed in a Hearth package between the version you have
+installed and the latest one.
+
+- [Try it](#try-it)
+- [What it covers](#what-it-covers)
+- [Answers match your installed versions](#answers-match-your-installed-versions)
+- [How it complements the Storybook MCP servers](#how-it-complements-the-storybook-mcp-servers)
+- [For AI agents](#for-ai-agents)
+- [Full reference](#full-reference)
+
+## Try it
+
+```console
+npx @utilitywarehouse/hearth-cli tokens search brand
+npx @utilitywarehouse/hearth-cli tokens get semantic.background.brand
+npx @utilitywarehouse/hearth-cli icons search bill
+npx @utilitywarehouse/hearth-cli assets svg list --category logo
+npx @utilitywarehouse/hearth-cli changes react
+```
+
+Add `--json` to any lookup for machine-readable output, which is what scripts
+and AI agents should use.
+
+## What it covers
+
+| Command              | Looks up                                                            | Reads from                                                       |
+| -------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `hearth tokens`      | Design tokens, with their CSS variable, browser and JS paths         | `@utilitywarehouse/hearth-tokens`                                |
+| `hearth icons`       | Icons, with their component and an import line for the package you have | `hearth-react-icons`, `hearth-react-native-icons` or `hearth-svg-icons` |
+| `hearth assets svg`  | SVG illustrations and logos, and the SVG file itself with `--print`  | `@utilitywarehouse/hearth-svg-assets`                            |
+| `hearth assets json` | Animated JSON assets                                                | `@utilitywarehouse/hearth-json-assets`                           |
+| `hearth changes <package>` | Changelog entries between your installed version and the latest, breaking changes first | npm and the package's `CHANGELOG.md` on GitHub |
+
+The lookup commands (`tokens`, `icons`, `assets`) have `search`, `list` and
+`get`.
+
+## Answers match your installed versions
+
+The CLI holds no data of its own. Each package the lookup commands read ships a
+`hearth-manifest.json`, and the CLI reads it from your `node_modules`. So the
+answer is always about the version you have installed, the first line of the
+output names that version, and upgrading a Hearth package changes the answers
+without a new CLI release.
+
+If a package is not installed, is too old to ship a manifest, or ships one from
+a newer schema than your CLI supports, the CLI exits with code `3` and says what
+to install or update. The one exception is a package whose `exports` hides its
+manifest, which no Hearth release does; the [README](https://github.com/utilitywarehouse/hearth/blob/main/packages/cli/README.md#how-the-data-stays-current)
+has the detail.
+
+`hearth changes` is the one command that uses the network. It takes the
+installed version from your `node_modules`, the latest version from
+`registry.npmjs.org`, and the package's `CHANGELOG.md` from
+`raw.githubusercontent.com`. Offline, rate-limited or in a sandbox, it exits
+`3` and names the host it could not reach. A package that is not installed
+needs `--from <version>`.
+
+## How it complements the Storybook MCP servers
+
+Hearth has two Storybook MCP servers, `hearth-react` and `hearth-react-native`.
+They cover **components**: props, usage docs and stories, through `docs-list`,
+`docs-show` and `docs-show-story`. See [AI Toolkit](?path=/docs/ai-toolkit--docs) for
+setting them up.
+
+The CLI covers everything else a component library is built from:
+
+| You want to know                                                | Use                                    |
+| --------------------------------------------------------------- | -------------------------------------- |
+| Which props a component takes, how to use it, example stories   | The `hearth-react` or `hearth-react-native` MCP server |
+| Whether a token exists, its CSS variable, its dark value        | `hearth tokens`                        |
+| Which icon to use, and the import for the package you installed | `hearth icons`                         |
+| Which illustration or logo exists, and where its file is        | `hearth assets svg` or `hearth assets json` |
+| What changed since your installed version, and what breaks      | `hearth changes <package>`             |
+
+The two work together: an agent can ask the MCP server how a component is used,
+then ask the CLI which semantic token to use for its colours.
+
+A few things differ in practice:
+
+- **Version.** The MCP servers are hosted, so they describe the version that is
+  deployed, which may not be the one in your project. The CLI describes the
+  version in your project.
+- **Setup.** The CLI needs no server and no configuration: it is a command, so
+  any tool that can run a shell command can use it. The lookups read files;
+  only `hearth changes` needs network access.
+- **Context cost.** There are no tool definitions to load into an agent's
+  context. It runs the command it needs and reads the output.
+
+## For AI agents
+
+The [Hearth AI Toolkit](?path=/docs/ai-toolkit--docs) plugin includes a
+`hearth-cli` skill that tells Claude when and how to call `hearth`. If you don't
+use the plugin, paste this into your project's `CLAUDE.md` or `AGENTS.md`:
+
+````md
+## Hearth lookups
+
+Never guess a Hearth token, icon or asset name. Look it up with the `hearth` CLI
+(`npx @utilitywarehouse/hearth-cli`, or `pnpm exec hearth` if it is installed),
+run from the app's directory:
+
+- `hearth tokens search <word>`, then `hearth tokens get <path>`: before using a
+  colour, spacing or other value. Prefer semantic tokens. Never hardcode a
+  colour, spacing or font value when a token exists.
+- `hearth icons search <word>`, then `hearth icons get <name>`: before importing
+  an icon.
+- `hearth assets svg|json search <word>`, then `get`: before using an
+  illustration, logo or animation.
+- `hearth changes <package>` (for example `react`): before hand-rolling a
+  component or helper, when a documented component or prop is missing, and when
+  reviewing code. It lists what changed since the installed version. If a newer
+  release has what you need, suggest the upgrade; do not upgrade without asking.
+
+Add `--json` and check the exit code before reading the output. Pass
+`--platform native` to `hearth tokens` in a React Native project (the default is
+web; icons and assets reject the flag). Exit `1` is
+no match: do not invent a name. Exit `2` is a wrong command. Exit `3` means a
+package is missing or out of date: tell the user what the message says. Exit `1`
+with an `ERR_PACKAGE_PATH_NOT_EXPORTED` stack trace is a broken install, not a
+no-match. For `hearth changes`, exit `3` also means npm or GitHub could not be
+reached: say so, and do not guess what changed.
+
+Component props and usage come from the Hearth Storybook MCP servers, not the CLI.
+````
+
+## Full reference
+
+Options, exit codes, the `--json` output of every command, and what happens when
+a package is missing are in the
+[CLI README](https://github.com/utilitywarehouse/hearth/blob/main/packages/cli/README.md).

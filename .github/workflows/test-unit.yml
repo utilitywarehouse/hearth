@@ -37,7 +37,7 @@ jobs:
       - name: Setup Node.js environment 🌐
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: '22.x'
+          node-version: '24.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
       - name: Install dependencies 📦
@@ -46,3 +46,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - name: Run unit tests ✅
         run: pnpm run test:unit
+      - name: Run the CLI against npm pack tarballs 📦
+        run: pnpm --filter @utilitywarehouse/hearth-cli exec vitest run src/__tests__/tarball.test.ts
+        env:
+          HEARTH_CLI_TARBALLS: '1'

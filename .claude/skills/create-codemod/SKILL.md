@@ -16,6 +16,9 @@ via hand-editing or an LLM. Write a codemod any time you land a breaking
 change in `hearth-react` (or, in future, `hearth-react-native`) that consumers
 need to update usages for — a prop removal, a rename, a restructured API.
 
+Pre-v1 codemods branch from and target `origin/main`, where the prop is still
+deprecated; only breaking transforms go to `v1-dev-react`.
+
 This skill was written using the `react/v1/remove-modal-loading-text` codemod
 (removing `Modal`'s deprecated `loadingText` prop) as the worked example —
 read the files under `packages/codemod/src/transforms/react/v1/` alongside
@@ -121,13 +124,13 @@ describe('<your-transform>', () => {
 });
 ```
 
-**Don't hand-guess the `.output.tsx` formatting.** jscodeshift's underlying
+**Generate each `.output.tsx` by running the transform, then review the diff.** jscodeshift's underlying
 printer (`recast`) preserves the original source layout for untouched nodes
 but reprints modified nodes with its own formatting — this does not
 necessarily match Prettier's output. Run the transform for real first (e.g.
 via the CLI's `--dry --print` flags against a scratch file, or by running the
 test once and reading the diff in the failure output) and copy the actual
-output into the fixture, rather than authoring it by hand.
+output into the fixture.
 
 `__testfixtures__/**` is excluded from both linting and formatting
 (`eslint.config.js` and `.prettierignore` at the repo root) — fixture content

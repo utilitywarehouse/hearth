@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "package": {
     "name": "@utilitywarehouse/hearth-svg-icons",
-    "version": "0.10.1"
+    "version": "0.10.2"
   },
   "type": "icons",
   "usage": {
@@ -886,6 +886,18 @@
       "size": "medium",
       "svg": "panel-left-medium-icon.svg",
       "component": "PanelLeftMediumIcon"
+    },
+    {
+      "name": "PauseMediumIcon",
+      "size": "medium",
+      "svg": "pause-medium-icon.svg",
+      "component": "PauseMediumIcon"
+    },
+    {
+      "name": "PauseSmallIcon",
+      "size": "small",
+      "svg": "pause-small-icon.svg",
+      "component": "PauseSmallIcon"
     },
     {
       "name": "PaymentMediumIcon",

@@ -1,6 +1,6 @@
 import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { validateManifest } from '@utilitywarehouse/hearth-manifest';
 
 export const TOKENS_PACKAGE = '@utilitywarehouse/hearth-tokens';
@@ -187,3 +187,68 @@ export const iconsManifestOf = (
   if (result.manifest.type !== 'icons') throw new Error('expected an icons manifest');
   return result.manifest;
 };
+
+export const SVG_ASSETS_PACKAGE = '@utilitywarehouse/hearth-svg-assets';
+
+type SvgAssetCategory = 'logo' | 'mascot' | 'spot' | 'scene' | 'technical' | 'other';
+
+/** An SVG asset entry whose file and import are derived from its name (`LogoFullPurple` -> `lib/logo-full-purple.svg`). */
+export const svgAssetEntry = (name: string, category: SvgAssetCategory = 'other') => {
+  const file = `lib/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.svg`;
+  return { name, category, file, import: `${SVG_ASSETS_PACKAGE}/${file}` };
+};
+
+export const DEFAULT_SVG_ASSETS = [
+  svgAssetEntry('LogoFullPurple', 'logo'),
+  svgAssetEntry('LogoIconWhite', 'logo'),
+  svgAssetEntry('MascotWave', 'mascot'),
+  svgAssetEntry('SpotAccount', 'spot'),
+];
+
+export const svgAssetsManifest = (
+  entries: Array<ReturnType<typeof svgAssetEntry>> = DEFAULT_SVG_ASSETS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: SVG_ASSETS_PACKAGE, version },
+  type: 'svg-assets',
+  entries,
+});
+
+/** Writes an asset file into an installed package, where `--print` reads it from. */
+export const installAssetFile = (
+  consumerDir: string,
+  packageName: string,
+  file: string,
+  content: string
+) => {
+  const path = join(consumerDir, 'node_modules', ...packageName.split('/'), file);
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, content);
+};
+
+export const JSON_ASSETS_PACKAGE = '@utilitywarehouse/hearth-json-assets';
+
+type JsonAssetCategory = 'spot' | 'logo' | 'other';
+
+/** A JSON asset entry whose file and import are derived from its name (`AnimatedSpotAccountDark` -> `lib/animated-spot-account-dark.json`). */
+export const jsonAssetEntry = (name: string, category: JsonAssetCategory = 'other') => {
+  const file = `lib/${name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()}.json`;
+  return { name, category, type: 'animated', file, import: `${JSON_ASSETS_PACKAGE}/${file}` };
+};
+
+export const DEFAULT_JSON_ASSETS = [
+  jsonAssetEntry('AnimatedSpotAccountDark', 'spot'),
+  jsonAssetEntry('AnimatedSpotAccountLight', 'spot'),
+  jsonAssetEntry('AnimatedLogoLoader', 'logo'),
+];
+
+export const jsonAssetsManifest = (
+  entries: Array<ReturnType<typeof jsonAssetEntry>> = DEFAULT_JSON_ASSETS,
+  version = '1.2.3'
+) => ({
+  schemaVersion: 2,
+  package: { name: JSON_ASSETS_PACKAGE, version },
+  type: 'json-assets',
+  entries,
+});

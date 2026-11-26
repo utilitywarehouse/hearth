@@ -1,6 +1,6 @@
 ---
 name: add-changeset
-description: Guidelines for writing effective changesets in the Hearth monorepo. Use when adding or creating changesets with pnpm changeset, documenting package changes, or reviewing changelog entries for React and React Native components.
+description: Guidelines for writing effective changesets in the Hearth monorepo. Use when adding or creating changesets with pnpm changeset, documenting package changes, or reviewing changelog entries for any published package (components, icons, tokens, fonts, assets, CSS reset).
 metadata:
   author: Utility Warehouse
   tags: changesets, changelog, semver, documentation, monorepo
@@ -66,6 +66,8 @@ Make sure the package name is correct, it should be one of the following:
 - `@utilitywarehouse/hearth-fonts`
 - `@utilitywarehouse/hearth-tokens`
 - `@utilitywarehouse/hearth-css-reset`
+- `@utilitywarehouse/hearth-codemod`
+- `@utilitywarehouse/hearth-cli`
 
 While the packages are in a pre `v1` state, we are not strictly adhering to
 semver guidelines, but we do want to be mindful of the impact of changes. Use
@@ -103,7 +105,7 @@ For minor bug fixes or simple enhancements, a brief single-line description is s
 ```
 
 ```markdown
-💅 [ENHANCEMENT]: Improve performance of List component with large datasets
+💅 [ENHANCEMENT]: `List` renders large datasets faster
 ```
 
 ```markdown
@@ -224,8 +226,8 @@ Include helpful links or context:
 
 ### Be Clear and Concise
 
-- Write in plain (British) English, this is important. Use customise instead of customize, behaviour instead of behavior.
-- Use present tense ("Add feature" not "Added feature")
+- Write in British English (customise, behaviour), matching the rest of the changelog.
+- Use present tense and state the outcome ("`Button` supports…", not "Added support for…")
 - Focus on what changed from the user's perspective
 - Prefer brevity while still providing necessary context
 
@@ -257,7 +259,8 @@ headings.
 When running `pnpm changeset`, you'll be asked which packages to include:
 
 - Select only packages that are directly affected by your changes
-- For component changes, include both the source package (e.g., `@utilitywarehouse/react-native`) and any related packages (e.g., `@utilitywarehouse/react-native-icons` if icon components changed)
+- This applies to every published package listed above, not only the component libraries. Include the source package (e.g., `@utilitywarehouse/hearth-react-native`) and any related packages (e.g., `@utilitywarehouse/hearth-react-native-icons` if icon components changed, or `@utilitywarehouse/hearth-svg-icons` when the source SVGs change)
+- Changes to `plugins/hearth-ai-toolkit` alone need no changeset: bump `version` in `plugins/hearth-ai-toolkit/.claude-plugin/plugin.json` instead (a push to `main` creates the GitHub release). A changeset is needed only where a published package changes too, e.g. the `SKILL.md` and `references/` files published in `hearth-react` and `hearth-react-native`
 - Don't include packages that only use the changed code as a dependency (changesets will handle this automatically)
 - A change to `packages/manifest` (the `hearth-manifest.json` schema) can't be selected, because the package is private. The CLI reads those manifests, so consider treating the change as CLI-affecting and releasing the CLI alongside it. See `packages/manifest/README.md`.
 

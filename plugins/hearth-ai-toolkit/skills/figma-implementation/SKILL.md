@@ -1,6 +1,6 @@
 ---
 name: figma-implementation
-description: MANDATORY prerequisite — you MUST load this skill BEFORE adapting Figma `get_design_context` reference output into a Hearth React or Hearth React Native page, screen, or component, alongside whichever of the `hearth-react` / `hearth-react-native` skills applies. Covers the Figma-to-code verification workflow — resolving an ambiguous node/URL before fetching context, per-file re-checks, never substituting local/`node_modules` inspection for `docs-show`, why Figma variable names outrank rendered pixel fallbacks, the mechanical check for mapping a Figma spacing variable to the right prop, Code Connect ownership boundaries, and decoupling component props from raw bound data shapes. Does not cover component APIs — that's what `hearth-react`/`hearth-react-native` are for. Scoped to consumer usage — implementing a design in an app that depends on Hearth. Not for adding or editing a component inside the Hearth monorepo itself — that's `react-component-addition`/`react-native-component-addition`, which require their own Code Connect template.
+description: MANDATORY before adapting Figma `get_design_context` output into a Hearth React or React Native screen or component, alongside `hearth-react`/`hearth-react-native`. Figma-to-code verification rules; not component APIs.
 ---
 
 # Figma-to-code verification workflow
@@ -13,11 +13,8 @@ Load the matching package skill alongside this one for the actual component API.
 
 This covers **consumer usage** — implementing a design in an app that depends
 on `@utilitywarehouse/hearth-react` or `-react-native`. It does not apply
-inside the Hearth monorepo itself: adding or editing a component in
-`packages/react` or `packages/react-native` is covered by
-`react-component-addition` / `react-native-component-addition`, which require
-a Code Connect template for every new component. Rule 6 below assumes the
-consumer scope and does not override that requirement.
+inside the Hearth monorepo itself: adding or editing a Hearth component there
+requires its own Code Connect template, and Rule 6 below does not override that.
 
 ## 1. Resolve ambiguous Figma references before fetching context
 
@@ -80,13 +77,8 @@ design as a Hearth **consumer** — even when `get_design_context` or
 `get_code_connect_suggestions` reports a missing or stale mapping. Report the
 gap instead (component name + Figma node) so the design systems team can
 action it. Authoring Code Connect mappings is a separate, explicitly-requested
-task (see the `figma-code-connect` skill), not something to do as a side
+task, not something to do as a side
 effect of implementing a page or screen.
-
-This does not apply to adding a new component inside the Hearth monorepo
-itself (see Scope above) — there, `react-component-addition` /
-`react-native-component-addition` **require** a Code Connect template as
-part of the component, and that requirement stands.
 
 ## 7. Decouple component props from the raw data shape bound in Figma
 

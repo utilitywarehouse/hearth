@@ -76,7 +76,7 @@ npx oversight --max-warnings 0 --expected-extractor react-docgen-typescript
 See [`figma-code-connect`](../figma-code-connect/SKILL.md) for canonical Code Connect format and structure rules (`.figma.ts` format, header comments, `nestable: true` metadata).
 
 Audit-specific gates:
-- [ ] Output previewed with `npx figma connect print` before committing
+- [ ] Output previewed with `npx figma connect preview` before committing
 - [ ] **Never publish without explicit user approval**
 
 ---
@@ -101,7 +101,7 @@ Triage findings into tiers before acting:
 3. **Fix by PR group**: one logical group per branch — skills, doc fixes, import migrations, Code Connect migrations.
 4. **Run `pnpm checks`** from the repo root before each commit. Fix any new errors before committing.
 5. **Stop at each PR boundary**: commit and wait for the user to push and confirm the PR is open before starting the next group.
-6. **Figma Code Connect**: preview with `npx figma connect print` before committing; never publish without explicit user approval.
+6. **Figma Code Connect**: preview with `npx figma connect preview` before committing; never publish without explicit user approval.
 
 ---
 
@@ -135,5 +135,5 @@ done
 npx figma connect preview --file src/components/<Name>/<Name>.figma.ts --token "$FIGMA_CODE_CONNECT_TOKEN"
 
 # Start Storybook to verify docs visually
-pnpm dev:react
+pnpm dev:storybook
 ```
