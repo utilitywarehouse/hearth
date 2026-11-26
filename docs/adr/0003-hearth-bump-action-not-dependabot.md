@@ -8,6 +8,6 @@ Consumer repos drift behind Hearth releases, and every bump so far has been made
 
 ## Considered options
 
-- **Dependabot group for `@utilitywarehouse/hearth-*`.** Rejected. Its PR body is generic release notes, so it can't say "3 minors behind, missing `VisuallyHidden`". It can't schedule fortnightly. And js-mono has turned version updates off, so we would have to ask them to turn them back on for every dependency, not just Hearth.
+- **Dependabot group for `@utilitywarehouse/hearth-*`.** Rejected. Its PR body is generic release notes, so it can't say "3 minors behind, missing `VisuallyHidden`" or put breaking changes and migration codemods first. Dependabot could otherwise do the job: an `allow` rule can limit version updates to Hearth packages, and a `cron` schedule can run on the 1st and 15th. But each consumer would still have to change its own Dependabot config, which js-mono has deliberately set to security updates only, and the PR body is the point of the nudge.
 - **Renovate.** Rejected for the same PR-body reason, and neither consumer repo uses it.
 - **Reminders only (issue, Slack).** Rejected. A ready-made PR is the most actionable nudge, because the work is already done.

@@ -21,7 +21,7 @@ _Avoid_: Pinned package (a pinned dependency has an exact version range and is s
 ### Nudging
 
 **Bump PR**:
-The single open pull request in a consumer repo that moves every Hearth dependency to its latest version and explains what the repo gains and what breaks. There is at most one per repo at a time.
+The single open pull request in a consumer repo that moves every Hearth dependency, except held-back packages, to its latest version and explains what the repo gains and what breaks. There is at most one per repo at a time.
 _Avoid_: Upgrade PR, dependency PR, Dependabot PR
 
 **Bump action**:

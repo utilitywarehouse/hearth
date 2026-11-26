@@ -8,7 +8,7 @@ GitHub doesn't trigger `pull_request` or `push` workflows for events made with a
 
 ## Considered options
 
-- **`GITHUB_TOKEN`, with the action starting CI itself through `workflow_dispatch`.** Rejected. The checks don't attach to the PR as normal PR checks, so branch protection and reviewers don't see them properly.
+- **`GITHUB_TOKEN`, with the action starting CI itself through `workflow_dispatch`.** Rejected. Dispatch runs on the bump branch would report checks on the PR's head commit, but every consumer CI workflow would need a `workflow_dispatch` trigger and could no longer rely on the `pull_request` event (PR number, base ref, changed files) that tools such as visual-review checks read. Each consumer would have to adapt its CI to the bump action, rather than the other way round.
 - **Machine-user PAT as the default.** Kept only as the fallback. It's a long-lived credential tied to a user account.
 
 ## Consequences
