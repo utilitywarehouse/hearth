@@ -47,6 +47,19 @@ Claude Code hooks (`.claude/settings.json`) run Prettier on each edited file and
 
 Run `pnpm checks`. Other commands are in the `package.json` scripts. From a package directory, `typecheck`, `test` and `lint:ci` check just that package. `pnpm lint` and `pnpm checks` run `lint:fix`, which rewrites files, including generated `packages/tokens/css`; read `git status` afterwards.
 
+- `.nvmrc` pins Node 24; a non-interactive shell can default to an older Node (the agent sandbox defaults to Node 18), where `tsc` crashes. Run `source ~/.nvm/nvm.sh && nvm use` in the same command, and check `node -v` before reporting a typecheck or test result.
+
+- `npx` fails in the sandbox with an npm cache `EPERM`. Call the local binary directly instead, for example `node_modules/.bin/eslint`.
+
+- `npm pack` fails in the sandbox with the same cache `EPERM`, so `pnpm check:manifests` (its `--tarball` step) can't run there. Ask the user to run it.
+
+- A workspace package such as `packages/manifest` can have no `node_modules/.bin`. Run the root binaries from the package directory, for example `../../node_modules/.bin/vitest`.
+
+- A fresh worktree has no `node_modules` or build output. Before the first edit, ask the user to run `nvm use && pnpm install`, so lint and typecheck can run on every change. Then build the workspace packages the touched package imports (`pnpm --filter <package> build`) before running its tests. A `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import means an unbuilt package, not a code bug.
+
+- In the sandbox every git command prints `unable to access '~/.gitignore'`, and writes to the shared `.git/config` (`git branch -m`, `--set-upstream-to`) or to `.claude/skills` (branch switches) can fail. The warning is harmless: read git stderr unfiltered. Ask the user to run the blocked write.
+
+- Adding a workspace package needs `pnpm install` to link it, and `pnpm install` aborts in the sandbox (it wants to purge `node_modules` without a TTY). Ask the user to run `nvm use && pnpm install`.
 - Sandbox and fresh-worktree failures (wrong Node or a `tsc` crash, `npx`/`npm pack` `EPERM`, `TS2307` or `ERR_MODULE_NOT_FOUND` on a `@utilitywarehouse/hearth-*` import, `pnpm install` aborting, the git `~/.gitignore` warning or blocked git writes): see [docs/agents/sandbox.md](docs/agents/sandbox.md).
 
 - After changing a component's props, run `pnpm test:storybook <component>` from `packages/react`. Play functions can depend on a prop's behaviour rather than its name, so a search for the name misses them.

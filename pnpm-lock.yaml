@@ -701,9 +701,6 @@ importers:
       '@floating-ui/dom':
         specifier: ^1.7.4
         version: 1.7.6
-      '@radix-ui/react-use-controllable-state':
-        specifier: ^1.0.1
-        version: 1.2.3(@types/react@19.2.18)(react@19.2.3)
       '@utilitywarehouse/hearth-css-reset':
         specifier: workspace:*
         version: link:../css-reset

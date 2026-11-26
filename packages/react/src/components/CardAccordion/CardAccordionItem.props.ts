@@ -1,11 +1,14 @@
-import { ComponentPropsWithRef, ReactNode } from 'react';
-import { Accordion as CardAccordionPrimitive } from 'radix-ui';
+import { ComponentPropsWithRef, CSSProperties, ReactNode } from 'react';
+import { Accordion as CardAccordionPrimitive } from '@base-ui/react/accordion';
 import { ButtonProps } from '../Button/Button.props';
 
 export interface CardAccordionItemProps extends Omit<
   ComponentPropsWithRef<typeof CardAccordionPrimitive.Item>,
-  'asChild' | 'value'
+  'render' | 'value' | 'children' | 'className' | 'style'
 > {
+  className?: string;
+  style?: CSSProperties;
+  children?: ReactNode;
   /**
    * A unique identifier for the step, used to track progress through the
    * CardAccordion.

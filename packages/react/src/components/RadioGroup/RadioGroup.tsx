@@ -3,7 +3,7 @@
 import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
-import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
+import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { RadioGroupProps } from './RadioGroup.props';
 import { Flex } from '../Flex/Flex';
@@ -37,7 +37,6 @@ export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
       validationStatus,
       required,
       disabled,
-      loop,
       defaultValue,
       value,
       onValueChange,
@@ -62,7 +61,6 @@ export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
       name,
       required,
       disabled,
-      loop,
       defaultValue,
       value,
       onValueChange,
@@ -70,13 +68,11 @@ export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
 
     return (
       <FormGroupBase ref={ref} data-testid={componentClassName} {...formGroupBaseProps}>
-        <RadioGroupPrimitive.Root
-          asChild
+        <RadioGroupPrimitive
           className={cn(componentClassName, className)}
           {...radioGroupRootProps}
-        >
-          <Flex>{children}</Flex>
-        </RadioGroupPrimitive.Root>
+          render={<Flex>{children}</Flex>}
+        />
       </FormGroupBase>
     );
   }

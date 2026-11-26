@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { Select as SelectPrimitive } from 'radix-ui';
+import { Select as SelectPrimitive } from '@base-ui/react/select';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import type { SelectItemProps } from './Select.props';
 

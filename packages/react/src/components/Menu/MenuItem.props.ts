@@ -1,9 +1,9 @@
-import type { ComponentPropsWithoutRef, ComponentPropsWithRef, ReactNode } from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { Menu as MenuPrimitive } from '@base-ui/react';
 
 export type MenuItemProps = Omit<
   ComponentPropsWithRef<typeof MenuPrimitive.Item>,
-  'className' | 'render' | 'children' | 'nativeButton' | 'style'
+  'className' | 'render' | 'children' | 'nativeButton' | 'style' | 'onSelect'
 > & {
   /** CSS class applied to the element */
   className?: string;
@@ -19,14 +19,4 @@ export type MenuItemProps = Omit<
    */
   asChild?: boolean;
   children: ReactNode;
-  /**
-   * Deprecated click handler for the menu item.
-   * @deprecated Use `onClick` instead.
-   */
-  onSelect?: ComponentPropsWithoutRef<typeof MenuPrimitive.Item>['onClick'];
-  /**
-   * Deprecated override of the text label to use when the item is matched during keyboard text navigation.
-   * @deprecated Use `label` instead.
-   */
-  textValue?: string;
 };

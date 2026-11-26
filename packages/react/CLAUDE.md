@@ -118,7 +118,7 @@ Add `play` functions via the `react-interaction-tests` skill.
 ### LLM docs
 
 - `public/llms/` is **auto-generated** by `pnpm generate:llm-docs` from stories — **do not hand-edit**.
-- Regenerate whenever a public component API (props or JSDoc) changes.
+- Regenerate whenever a public component API (props or JSDoc) changes. If the generator can't run (no `node_modules`, sandbox), ask the user to run it; leave the files as they are.
 - The generated files are published with the package and consumed by the `hearth-react` MCP server and the `packages/react/SKILL.md` consumer skill.
 
 ### Figma Code Connect

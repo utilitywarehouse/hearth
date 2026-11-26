@@ -17,7 +17,7 @@ import {
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { ComboboxItem } from './ComboboxItem';
-import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
+import { ScrollArea as ScrollAreaPrimitive } from '@base-ui/react/scroll-area';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { ComboboxEmpty } from './ComboboxEmpty';
 import { Spinner } from '../Spinner/Spinner';
@@ -171,10 +171,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                     {noOptionsFoundText}
                   </ComboboxEmpty>
                 ) : null}
-                <ScrollAreaPrimitive.Root
-                  className={withGlobalPrefix('ScrollAreaRoot')}
-                  type="auto"
-                >
+                <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')}>
                   <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
                     <ComboboxPrimitive.List className={`${componentClassName}List`}>
                       {children
