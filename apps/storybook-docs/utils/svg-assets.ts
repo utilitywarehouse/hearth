@@ -4,10 +4,6 @@ import LogoFullPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-pu
 import LogoFullWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-warm-white.svg';
 import LogoCondensedPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-purple.svg';
 import LogoCondensedWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-warm-white.svg';
-import Number1Energy from '@utilitywarehouse/hearth-svg-assets/lib/number-1-energy.svg';
-import Number2Energy from '@utilitywarehouse/hearth-svg-assets/lib/number-2-energy.svg';
-import Number3Energy from '@utilitywarehouse/hearth-svg-assets/lib/number-3-energy.svg';
-import Number4Energy from '@utilitywarehouse/hearth-svg-assets/lib/number-4-energy.svg';
 import BeamingFace from '@utilitywarehouse/hearth-svg-assets/lib/beaming-face.svg';
 import BeamingFaceGrey from '@utilitywarehouse/hearth-svg-assets/lib/beaming-face-grey.svg';
 import DissapointedFace from '@utilitywarehouse/hearth-svg-assets/lib/dissapointed-face.svg';
@@ -231,10 +227,6 @@ export const svgAssets = [
     src: LogoCondensedWarmWhite,
     path: 'logo-condensed-warm-white.svg',
   },
-  { name: 'Number1Energy', src: Number1Energy, path: 'number-1-energy.svg' },
-  { name: 'Number2Energy', src: Number2Energy, path: 'number-2-energy.svg' },
-  { name: 'Number3Energy', src: Number3Energy, path: 'number-3-energy.svg' },
-  { name: 'Number4Energy', src: Number4Energy, path: 'number-4-energy.svg' },
   { name: 'BeamingFace', src: BeamingFace, path: 'beaming-face.svg' },
   { name: 'BeamingFaceGrey', src: BeamingFaceGrey, path: 'beaming-face-grey.svg' },
   { name: 'DissapointedFace', src: DissapointedFace, path: 'dissapointed-face.svg' },

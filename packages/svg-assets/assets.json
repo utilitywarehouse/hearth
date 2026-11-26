@@ -20,26 +20,6 @@
     "componentSetId": "1:9"
   },
   {
-    "id": "3379:53716",
-    "name": "Number1Energy",
-    "componentSetId": "3379:53716"
-  },
-  {
-    "id": "3379:53925",
-    "name": "Number2Energy",
-    "componentSetId": "3379:53925"
-  },
-  {
-    "id": "3379:54835",
-    "name": "Number3Energy",
-    "componentSetId": "3379:54835"
-  },
-  {
-    "id": "3379:54974",
-    "name": "Number4Energy",
-    "componentSetId": "3379:54974"
-  },
-  {
     "id": "2787:5299",
     "name": "BeamingFace",
     "componentSetId": "2787:5299"
