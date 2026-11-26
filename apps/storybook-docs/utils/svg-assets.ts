@@ -147,8 +147,6 @@ import TechnicalRimAutomaticDeadlockLight from '@utilitywarehouse/hearth-svg-ass
 import TechnicalRimAutomaticDeadlockDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-dark.svg';
 import TechnicalRouter01Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-light.svg';
 import TechnicalRouter01Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-dark.svg';
-import TechnicalRouter02FrontLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-light.svg';
-import TechnicalRouter02FrontDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-dark.svg';
 import TechnicalRouter03RearLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-light.svg';
 import TechnicalRouter03RearDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-dark.svg';
 import TechnicalMeter01LabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-01-labelled-light.svg';
@@ -217,6 +215,92 @@ import TechnicalCentralRailKeyOperatedLock1Light from '@utilitywarehouse/hearth-
 import TechnicalCentralRailKeyOperatedLock1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-central-rail-key-operated-lock-1-dark.svg';
 import TechnicalTopAndBottomKeyOperatedLock1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-light.svg';
 import TechnicalTopAndBottomKeyOperatedLock1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-top-and-bottom-key-operated-lock-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-dark.svg';
+import TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg';
+import TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-setup-ont-open-reach-white-type-a-02-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-dark.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-dark.svg';
+import TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg';
+import TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-set-up-ont-open-reach-white-type-a-02-1-dark.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-dark.svg';
+import TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg';
+import TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-dark.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-dark.svg';
+import TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg';
+import TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-setup-ont-open-reach-white-type-a-1-dark.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg';
+import TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-dark.svg';
+import TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg';
+import TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-set-up-ont-open-reach-white-type-a-1-dark.svg';
+import TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg';
+import TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-dark.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg';
+import TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-dark.svg';
+import TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg';
+import TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-dark.svg';
+import TechnicalUwWiFi7ProHubSetupMicroFilter1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg';
+import TechnicalUwWiFi7ProHubSetupMicroFilter1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-dark.svg';
+import TechnicalUwWiFi7ProHubSetupDhpVoIp1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg';
+import TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-dark.svg';
+import TechnicalUwWiFiHubProAngled1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-angled-1-light.svg';
+import TechnicalUwWiFiHubProAngled1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-angled-1-dark.svg';
+import TechnicalUwWiFiHubBackFlat1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-back-flat-1-light.svg';
+import TechnicalUwWiFiHubBackFlat1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-back-flat-1-dark.svg';
+import TechnicalUwWiFi7ProHubBackLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-back-light.svg';
+import TechnicalUwWiFi7ProHubBackDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-back-dark.svg';
+import TechnicalStandardRouterBackLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-router-back-light.svg';
+import TechnicalStandardRouterBackDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-router-back-dark.svg';
+import TechnicalSuperRouterBackLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-back-light.svg';
+import TechnicalSuperRouterBackDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-back-dark.svg';
+import TechnicalUwWiFiHubBackLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-back-light.svg';
+import TechnicalUwWiFiHubBackDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-back-dark.svg';
+import TechnicalUwWiFiHubProSide1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-side-1-light.svg';
+import TechnicalUwWiFiHubProSide1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-pro-side-1-dark.svg';
+import TechnicalUwWiFiHubFront1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-front-1-light.svg';
+import TechnicalUwWiFiHubFront1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-front-1-dark.svg';
+import TechnicalUwWiFi7ProHubFront1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-front-1-light.svg';
+import TechnicalUwWiFi7ProHubFront1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-7-pro-hub-front-1-dark.svg';
+import TechnicalStandardRouterFrontLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-router-front-light.svg';
+import TechnicalStandardRouterFrontDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-router-front-dark.svg';
+import TechnicalSuperRouterFrontLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-front-light.svg';
+import TechnicalSuperRouterFrontDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-super-router-front-dark.svg';
+import TechnicalUwWiFiHubTopLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-top-light.svg';
+import TechnicalUwWiFiHubTopDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-uw-wi-fi-hub-top-dark.svg';
+import TechnicalOntCityFibreBlackTypeB1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-black-type-b-1-light.svg';
+import TechnicalOntCityFibreBlackTypeB1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-black-type-b-1-dark.svg';
+import TechnicalOntOpenreachWhiteTypeC1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-openreach-white-type-c-1-light.svg';
+import TechnicalOntOpenreachWhiteTypeC1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-openreach-white-type-c-1-dark.svg';
+import TechnicalOntOpenreachWhiteTypeB1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-openreach-white-type-b-1-light.svg';
+import TechnicalOntOpenreachWhiteTypeB1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-openreach-white-type-b-1-dark.svg';
+import TechnicalOntCityFibreBlackTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-black-type-a-1-light.svg';
+import TechnicalOntCityFibreBlackTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-black-type-a-1-dark.svg';
+import TechnicalOntCityFibreWhiteTypeA1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-white-type-a-1-light.svg';
+import TechnicalOntCityFibreWhiteTypeA1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-city-fibre-white-type-a-1-dark.svg';
+import TechnicalEeroBack1Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-back-1-light.svg';
+import TechnicalEeroBack1Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-back-1-dark.svg';
+import TechnicalLightStatusOffLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-off-light.svg';
+import TechnicalLightStatusOffDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-off-dark.svg';
+import TechnicalLightStatusRedLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-red-light.svg';
+import TechnicalLightStatusRedDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-red-dark.svg';
+import TechnicalLightStatusGreenLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-green-light.svg';
+import TechnicalLightStatusGreenDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-green-dark.svg';
+import TechnicalLightStatusOrangeLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-orange-light.svg';
+import TechnicalLightStatusOrangeDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-light-status-orange-dark.svg';
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
@@ -509,16 +593,6 @@ export const svgAssets = [
     name: 'TechnicalRouter01Dark',
     src: TechnicalRouter01Dark,
     path: 'technical-router-01-dark.svg',
-  },
-  {
-    name: 'TechnicalRouter02FrontLight',
-    src: TechnicalRouter02FrontLight,
-    path: 'technical-router-02-front-light.svg',
-  },
-  {
-    name: 'TechnicalRouter02FrontDark',
-    src: TechnicalRouter02FrontDark,
-    path: 'technical-router-02-front-dark.svg',
   },
   {
     name: 'TechnicalRouter03RearLight',
@@ -823,5 +897,435 @@ export const svgAssets = [
     name: 'TechnicalTopAndBottomKeyOperatedLock1Dark',
     src: TechnicalTopAndBottomKeyOperatedLock1Dark,
     path: 'technical-top-and-bottom-key-operated-lock-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light',
+    src: TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light,
+    path: 'technical-super-router-setup-ont-open-reach-white-type-a-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark',
+    src: TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark,
+    path: 'technical-super-router-setup-ont-open-reach-white-type-a-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light',
+    src: TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light,
+    path: 'technical-eero-set-up-ont-open-reach-white-type-a-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark',
+    src: TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark,
+    path: 'technical-eero-set-up-ont-open-reach-white-type-a-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light',
+    src: TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark',
+    src: TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-ont-open-reach-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark',
+    src: TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-open-reach-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-01-1-dark.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light',
+    src: TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light,
+    path: 'technical-super-router-setup-ont-open-reach-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark',
+    src: TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark,
+    path: 'technical-super-router-setup-ont-open-reach-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark',
+    src: TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark,
+    path: 'technical-uw-wi-fi-hub-setup-ont-open-reach-white-type-a-02-1-dark.svg',
+  },
+  {
+    name: 'TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light',
+    src: TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light,
+    path: 'technical-eero-set-up-ont-open-reach-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark',
+    src: TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark,
+    path: 'technical-eero-set-up-ont-open-reach-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light',
+    src: TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark',
+    src: TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-ont-city-fibre-black-type-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark',
+    src: TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-setup-ont-city-fibre-black-type-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light',
+    src: TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark',
+    src: TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-pre-filtered-master-socket-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupMicroFilter1Light',
+    src: TechnicalUwWiFi7ProHubSetupMicroFilter1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupMicroFilter1Dark',
+    src: TechnicalUwWiFi7ProHubSetupMicroFilter1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-micro-filter-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupDhpVoIp1Light',
+    src: TechnicalUwWiFi7ProHubSetupDhpVoIp1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark',
+    src: TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-setup-dhp-vo-ip-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProAngled1Light',
+    src: TechnicalUwWiFiHubProAngled1Light,
+    path: 'technical-uw-wi-fi-hub-pro-angled-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProAngled1Dark',
+    src: TechnicalUwWiFiHubProAngled1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-angled-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubBackFlat1Light',
+    src: TechnicalUwWiFiHubBackFlat1Light,
+    path: 'technical-uw-wi-fi-hub-back-flat-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubBackFlat1Dark',
+    src: TechnicalUwWiFiHubBackFlat1Dark,
+    path: 'technical-uw-wi-fi-hub-back-flat-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubBackLight',
+    src: TechnicalUwWiFi7ProHubBackLight,
+    path: 'technical-uw-wi-fi-7-pro-hub-back-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubBackDark',
+    src: TechnicalUwWiFi7ProHubBackDark,
+    path: 'technical-uw-wi-fi-7-pro-hub-back-dark.svg',
+  },
+  {
+    name: 'TechnicalStandardRouterBackLight',
+    src: TechnicalStandardRouterBackLight,
+    path: 'technical-standard-router-back-light.svg',
+  },
+  {
+    name: 'TechnicalStandardRouterBackDark',
+    src: TechnicalStandardRouterBackDark,
+    path: 'technical-standard-router-back-dark.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterBackLight',
+    src: TechnicalSuperRouterBackLight,
+    path: 'technical-super-router-back-light.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterBackDark',
+    src: TechnicalSuperRouterBackDark,
+    path: 'technical-super-router-back-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubBackLight',
+    src: TechnicalUwWiFiHubBackLight,
+    path: 'technical-uw-wi-fi-hub-back-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubBackDark',
+    src: TechnicalUwWiFiHubBackDark,
+    path: 'technical-uw-wi-fi-hub-back-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSide1Light',
+    src: TechnicalUwWiFiHubProSide1Light,
+    path: 'technical-uw-wi-fi-hub-pro-side-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubProSide1Dark',
+    src: TechnicalUwWiFiHubProSide1Dark,
+    path: 'technical-uw-wi-fi-hub-pro-side-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubFront1Light',
+    src: TechnicalUwWiFiHubFront1Light,
+    path: 'technical-uw-wi-fi-hub-front-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubFront1Dark',
+    src: TechnicalUwWiFiHubFront1Dark,
+    path: 'technical-uw-wi-fi-hub-front-1-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubFront1Light',
+    src: TechnicalUwWiFi7ProHubFront1Light,
+    path: 'technical-uw-wi-fi-7-pro-hub-front-1-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFi7ProHubFront1Dark',
+    src: TechnicalUwWiFi7ProHubFront1Dark,
+    path: 'technical-uw-wi-fi-7-pro-hub-front-1-dark.svg',
+  },
+  {
+    name: 'TechnicalStandardRouterFrontLight',
+    src: TechnicalStandardRouterFrontLight,
+    path: 'technical-standard-router-front-light.svg',
+  },
+  {
+    name: 'TechnicalStandardRouterFrontDark',
+    src: TechnicalStandardRouterFrontDark,
+    path: 'technical-standard-router-front-dark.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterFrontLight',
+    src: TechnicalSuperRouterFrontLight,
+    path: 'technical-super-router-front-light.svg',
+  },
+  {
+    name: 'TechnicalSuperRouterFrontDark',
+    src: TechnicalSuperRouterFrontDark,
+    path: 'technical-super-router-front-dark.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubTopLight',
+    src: TechnicalUwWiFiHubTopLight,
+    path: 'technical-uw-wi-fi-hub-top-light.svg',
+  },
+  {
+    name: 'TechnicalUwWiFiHubTopDark',
+    src: TechnicalUwWiFiHubTopDark,
+    path: 'technical-uw-wi-fi-hub-top-dark.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreBlackTypeB1Light',
+    src: TechnicalOntCityFibreBlackTypeB1Light,
+    path: 'technical-ont-city-fibre-black-type-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreBlackTypeB1Dark',
+    src: TechnicalOntCityFibreBlackTypeB1Dark,
+    path: 'technical-ont-city-fibre-black-type-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalOntOpenreachWhiteTypeC1Light',
+    src: TechnicalOntOpenreachWhiteTypeC1Light,
+    path: 'technical-ont-openreach-white-type-c-1-light.svg',
+  },
+  {
+    name: 'TechnicalOntOpenreachWhiteTypeC1Dark',
+    src: TechnicalOntOpenreachWhiteTypeC1Dark,
+    path: 'technical-ont-openreach-white-type-c-1-dark.svg',
+  },
+  {
+    name: 'TechnicalOntOpenreachWhiteTypeB1Light',
+    src: TechnicalOntOpenreachWhiteTypeB1Light,
+    path: 'technical-ont-openreach-white-type-b-1-light.svg',
+  },
+  {
+    name: 'TechnicalOntOpenreachWhiteTypeB1Dark',
+    src: TechnicalOntOpenreachWhiteTypeB1Dark,
+    path: 'technical-ont-openreach-white-type-b-1-dark.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreBlackTypeA1Light',
+    src: TechnicalOntCityFibreBlackTypeA1Light,
+    path: 'technical-ont-city-fibre-black-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreBlackTypeA1Dark',
+    src: TechnicalOntCityFibreBlackTypeA1Dark,
+    path: 'technical-ont-city-fibre-black-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreWhiteTypeA1Light',
+    src: TechnicalOntCityFibreWhiteTypeA1Light,
+    path: 'technical-ont-city-fibre-white-type-a-1-light.svg',
+  },
+  {
+    name: 'TechnicalOntCityFibreWhiteTypeA1Dark',
+    src: TechnicalOntCityFibreWhiteTypeA1Dark,
+    path: 'technical-ont-city-fibre-white-type-a-1-dark.svg',
+  },
+  {
+    name: 'TechnicalEeroBack1Light',
+    src: TechnicalEeroBack1Light,
+    path: 'technical-eero-back-1-light.svg',
+  },
+  {
+    name: 'TechnicalEeroBack1Dark',
+    src: TechnicalEeroBack1Dark,
+    path: 'technical-eero-back-1-dark.svg',
+  },
+  {
+    name: 'TechnicalLightStatusOffLight',
+    src: TechnicalLightStatusOffLight,
+    path: 'technical-light-status-off-light.svg',
+  },
+  {
+    name: 'TechnicalLightStatusOffDark',
+    src: TechnicalLightStatusOffDark,
+    path: 'technical-light-status-off-dark.svg',
+  },
+  {
+    name: 'TechnicalLightStatusRedLight',
+    src: TechnicalLightStatusRedLight,
+    path: 'technical-light-status-red-light.svg',
+  },
+  {
+    name: 'TechnicalLightStatusRedDark',
+    src: TechnicalLightStatusRedDark,
+    path: 'technical-light-status-red-dark.svg',
+  },
+  {
+    name: 'TechnicalLightStatusGreenLight',
+    src: TechnicalLightStatusGreenLight,
+    path: 'technical-light-status-green-light.svg',
+  },
+  {
+    name: 'TechnicalLightStatusGreenDark',
+    src: TechnicalLightStatusGreenDark,
+    path: 'technical-light-status-green-dark.svg',
+  },
+  {
+    name: 'TechnicalLightStatusOrangeLight',
+    src: TechnicalLightStatusOrangeLight,
+    path: 'technical-light-status-orange-light.svg',
+  },
+  {
+    name: 'TechnicalLightStatusOrangeDark',
+    src: TechnicalLightStatusOrangeDark,
+    path: 'technical-light-status-orange-dark.svg',
   },
 ];

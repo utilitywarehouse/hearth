@@ -735,22 +735,12 @@
     "componentSetId": "2381:48592"
   },
   {
-    "id": "2381:48628",
-    "name": "TechnicalRouter02FrontLight",
-    "componentSetId": "2381:48629"
-  },
-  {
-    "id": "2381:48630",
-    "name": "TechnicalRouter02FrontDark",
-    "componentSetId": "2381:48629"
-  },
-  {
     "id": "2381:48641",
     "name": "TechnicalRouter03RearLight",
     "componentSetId": "2381:48642"
   },
   {
-    "id": "2381:48643",
+    "id": "3389:28245",
     "name": "TechnicalRouter03RearDark",
     "componentSetId": "2381:48642"
   },
@@ -860,7 +850,7 @@
     "componentSetId": "2381:49572"
   },
   {
-    "id": "2381:49573",
+    "id": "3389:28738",
     "name": "TechnicalEeroDark",
     "componentSetId": "2381:49572"
   },
@@ -890,7 +880,7 @@
     "componentSetId": "2381:49660"
   },
   {
-    "id": "2381:49661",
+    "id": "3389:28647",
     "name": "TechnicalFullFibreSocketDark",
     "componentSetId": "2381:49660"
   },
@@ -1083,5 +1073,435 @@
     "id": "3095:11269",
     "name": "TechnicalTopAndBottomKeyOperatedLock1Dark",
     "componentSetId": "3095:11214"
+  },
+  {
+    "id": "3389:29117",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Light",
+    "componentSetId": "3389:29118"
+  },
+  {
+    "id": "3389:29119",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA021Dark",
+    "componentSetId": "3389:29118"
+  },
+  {
+    "id": "3389:29813",
+    "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Light",
+    "componentSetId": "3389:29814"
+  },
+  {
+    "id": "3389:29815",
+    "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA021Dark",
+    "componentSetId": "3389:29814"
+  },
+  {
+    "id": "3389:30575",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Light",
+    "componentSetId": "3389:30576"
+  },
+  {
+    "id": "3389:30577",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB021Dark",
+    "componentSetId": "3389:30576"
+  },
+  {
+    "id": "3389:31381",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Light",
+    "componentSetId": "3389:31382"
+  },
+  {
+    "id": "3389:31383",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA02B1Dark",
+    "componentSetId": "3389:31382"
+  },
+  {
+    "id": "3389:32254",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Light",
+    "componentSetId": "3389:32255"
+  },
+  {
+    "id": "3389:32256",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA021Dark",
+    "componentSetId": "3389:32255"
+  },
+  {
+    "id": "3389:32976",
+    "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Light",
+    "componentSetId": "3389:32977"
+  },
+  {
+    "id": "3389:32978",
+    "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA021Dark",
+    "componentSetId": "3389:32977"
+  },
+  {
+    "id": "3389:33361",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Light",
+    "componentSetId": "3389:33362"
+  },
+  {
+    "id": "3389:33363",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA01B1Dark",
+    "componentSetId": "3389:33362"
+  },
+  {
+    "id": "3389:33936",
+    "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Light",
+    "componentSetId": "3389:33938"
+  },
+  {
+    "id": "3389:33939",
+    "name": "TechnicalUwWiFi7ProHubSetupOntOpenReachWhiteTypeA1Dark",
+    "componentSetId": "3389:33938"
+  },
+  {
+    "id": "3389:34881",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Light",
+    "componentSetId": "3389:34882"
+  },
+  {
+    "id": "3389:34883",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeB1Dark",
+    "componentSetId": "3389:34882"
+  },
+  {
+    "id": "3389:35769",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Light",
+    "componentSetId": "3389:35770"
+  },
+  {
+    "id": "3389:35771",
+    "name": "TechnicalUwWiFiHubProSetupOntOpenReachWhiteTypeA1Dark",
+    "componentSetId": "3389:35770"
+  },
+  {
+    "id": "3389:36307",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Light",
+    "componentSetId": "3389:36308"
+  },
+  {
+    "id": "3389:36309",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreWhiteTypeA1Dark",
+    "componentSetId": "3389:36308"
+  },
+  {
+    "id": "3389:36944",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Light",
+    "componentSetId": "3389:36945"
+  },
+  {
+    "id": "3389:36946",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA011Dark",
+    "componentSetId": "3389:36945"
+  },
+  {
+    "id": "3389:37622",
+    "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Light",
+    "componentSetId": "3389:37623"
+  },
+  {
+    "id": "3389:37624",
+    "name": "TechnicalSuperRouterSetupOntOpenReachWhiteTypeA1Dark",
+    "componentSetId": "3389:37623"
+  },
+  {
+    "id": "3389:38125",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Light",
+    "componentSetId": "3389:38126"
+  },
+  {
+    "id": "3389:38127",
+    "name": "TechnicalUwWiFiHubSetupOntOpenReachWhiteTypeA021Dark",
+    "componentSetId": "3389:38126"
+  },
+  {
+    "id": "3389:38589",
+    "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Light",
+    "componentSetId": "3389:38590"
+  },
+  {
+    "id": "3389:38591",
+    "name": "TechnicalEeroSetUpOntOpenReachWhiteTypeA1Dark",
+    "componentSetId": "3389:38590"
+  },
+  {
+    "id": "3389:39323",
+    "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Light",
+    "componentSetId": "3389:39324"
+  },
+  {
+    "id": "3389:39325",
+    "name": "TechnicalUwWiFi7ProHubSetupOntCityFibreBlackTypeB1Dark",
+    "componentSetId": "3389:39324"
+  },
+  {
+    "id": "3389:40337",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Light",
+    "componentSetId": "3389:40338"
+  },
+  {
+    "id": "3389:40339",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeA1Dark",
+    "componentSetId": "3389:40338"
+  },
+  {
+    "id": "3389:41294",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Light",
+    "componentSetId": "3389:41295"
+  },
+  {
+    "id": "3389:41296",
+    "name": "TechnicalUwWiFiHubProSetupOntCityFibreBlackTypeB1Dark",
+    "componentSetId": "3389:41295"
+  },
+  {
+    "id": "3389:42497",
+    "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Light",
+    "componentSetId": "3389:42498"
+  },
+  {
+    "id": "3389:42499",
+    "name": "TechnicalUwWiFi7ProHubSetupPreFilteredMasterSocket1Dark",
+    "componentSetId": "3389:42498"
+  },
+  {
+    "id": "3389:43620",
+    "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Light",
+    "componentSetId": "3389:43621"
+  },
+  {
+    "id": "3389:43622",
+    "name": "TechnicalUwWiFi7ProHubSetupMicroFilter1Dark",
+    "componentSetId": "3389:43621"
+  },
+  {
+    "id": "3389:44632",
+    "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Light",
+    "componentSetId": "3389:44633"
+  },
+  {
+    "id": "3389:44634",
+    "name": "TechnicalUwWiFi7ProHubSetupDhpVoIp1Dark",
+    "componentSetId": "3389:44633"
+  },
+  {
+    "id": "3389:44931",
+    "name": "TechnicalUwWiFiHubProAngled1Light",
+    "componentSetId": "3389:44932"
+  },
+  {
+    "id": "3389:44933",
+    "name": "TechnicalUwWiFiHubProAngled1Dark",
+    "componentSetId": "3389:44932"
+  },
+  {
+    "id": "3389:45028",
+    "name": "TechnicalUwWiFiHubBackFlat1Light",
+    "componentSetId": "3389:45029"
+  },
+  {
+    "id": "3389:45030",
+    "name": "TechnicalUwWiFiHubBackFlat1Dark",
+    "componentSetId": "3389:45029"
+  },
+  {
+    "id": "3389:45329",
+    "name": "TechnicalUwWiFi7ProHubBackLight",
+    "componentSetId": "3389:45330"
+  },
+  {
+    "id": "3389:45331",
+    "name": "TechnicalUwWiFi7ProHubBackDark",
+    "componentSetId": "3389:45330"
+  },
+  {
+    "id": "3389:45562",
+    "name": "TechnicalStandardRouterBackLight",
+    "componentSetId": "3389:45563"
+  },
+  {
+    "id": "3389:45564",
+    "name": "TechnicalStandardRouterBackDark",
+    "componentSetId": "3389:45563"
+  },
+  {
+    "id": "3389:45647",
+    "name": "TechnicalSuperRouterBackLight",
+    "componentSetId": "3389:45648"
+  },
+  {
+    "id": "3389:45649",
+    "name": "TechnicalSuperRouterBackDark",
+    "componentSetId": "3389:45648"
+  },
+  {
+    "id": "3389:45724",
+    "name": "TechnicalUwWiFiHubBackLight",
+    "componentSetId": "3389:45725"
+  },
+  {
+    "id": "3389:45726",
+    "name": "TechnicalUwWiFiHubBackDark",
+    "componentSetId": "3389:45725"
+  },
+  {
+    "id": "3389:45788",
+    "name": "TechnicalUwWiFiHubProSide1Light",
+    "componentSetId": "3389:45789"
+  },
+  {
+    "id": "3389:45790",
+    "name": "TechnicalUwWiFiHubProSide1Dark",
+    "componentSetId": "3389:45789"
+  },
+  {
+    "id": "3389:45831",
+    "name": "TechnicalUwWiFiHubFront1Light",
+    "componentSetId": "3389:45832"
+  },
+  {
+    "id": "3389:45833",
+    "name": "TechnicalUwWiFiHubFront1Dark",
+    "componentSetId": "3389:45832"
+  },
+  {
+    "id": "3389:45872",
+    "name": "TechnicalUwWiFi7ProHubFront1Light",
+    "componentSetId": "3389:45873"
+  },
+  {
+    "id": "3389:45874",
+    "name": "TechnicalUwWiFi7ProHubFront1Dark",
+    "componentSetId": "3389:45873"
+  },
+  {
+    "id": "3389:45979",
+    "name": "TechnicalStandardRouterFrontLight",
+    "componentSetId": "3389:45980"
+  },
+  {
+    "id": "3389:45981",
+    "name": "TechnicalStandardRouterFrontDark",
+    "componentSetId": "3389:45980"
+  },
+  {
+    "id": "3389:46067",
+    "name": "TechnicalSuperRouterFrontLight",
+    "componentSetId": "3389:46068"
+  },
+  {
+    "id": "3389:46069",
+    "name": "TechnicalSuperRouterFrontDark",
+    "componentSetId": "3389:46068"
+  },
+  {
+    "id": "3389:46117",
+    "name": "TechnicalUwWiFiHubTopLight",
+    "componentSetId": "3389:46118"
+  },
+  {
+    "id": "3389:46119",
+    "name": "TechnicalUwWiFiHubTopDark",
+    "componentSetId": "3389:46118"
+  },
+  {
+    "id": "3389:46191",
+    "name": "TechnicalOntCityFibreBlackTypeB1Light",
+    "componentSetId": "3389:46192"
+  },
+  {
+    "id": "3389:46193",
+    "name": "TechnicalOntCityFibreBlackTypeB1Dark",
+    "componentSetId": "3389:46192"
+  },
+  {
+    "id": "3389:46756",
+    "name": "TechnicalOntOpenreachWhiteTypeC1Light",
+    "componentSetId": "3389:46757"
+  },
+  {
+    "id": "3389:46758",
+    "name": "TechnicalOntOpenreachWhiteTypeC1Dark",
+    "componentSetId": "3389:46757"
+  },
+  {
+    "id": "3389:47328",
+    "name": "TechnicalOntOpenreachWhiteTypeB1Light",
+    "componentSetId": "3389:47329"
+  },
+  {
+    "id": "3389:47330",
+    "name": "TechnicalOntOpenreachWhiteTypeB1Dark",
+    "componentSetId": "3389:47329"
+  },
+  {
+    "id": "3389:47453",
+    "name": "TechnicalOntCityFibreBlackTypeA1Light",
+    "componentSetId": "3389:47454"
+  },
+  {
+    "id": "3389:47455",
+    "name": "TechnicalOntCityFibreBlackTypeA1Dark",
+    "componentSetId": "3389:47454"
+  },
+  {
+    "id": "3389:47564",
+    "name": "TechnicalOntCityFibreWhiteTypeA1Light",
+    "componentSetId": "3389:47565"
+  },
+  {
+    "id": "3389:47566",
+    "name": "TechnicalOntCityFibreWhiteTypeA1Dark",
+    "componentSetId": "3389:47565"
+  },
+  {
+    "id": "3389:47635",
+    "name": "TechnicalEeroBack1Light",
+    "componentSetId": "3389:47636"
+  },
+  {
+    "id": "3389:47637",
+    "name": "TechnicalEeroBack1Dark",
+    "componentSetId": "3389:47636"
+  },
+  {
+    "id": "3389:47666",
+    "name": "TechnicalLightStatusOffLight",
+    "componentSetId": "3389:47667"
+  },
+  {
+    "id": "3389:47668",
+    "name": "TechnicalLightStatusOffDark",
+    "componentSetId": "3389:47667"
+  },
+  {
+    "id": "3389:47677",
+    "name": "TechnicalLightStatusRedLight",
+    "componentSetId": "3389:47676"
+  },
+  {
+    "id": "3389:47680",
+    "name": "TechnicalLightStatusRedDark",
+    "componentSetId": "3389:47676"
+  },
+  {
+    "id": "3389:47689",
+    "name": "TechnicalLightStatusGreenLight",
+    "componentSetId": "3389:47688"
+  },
+  {
+    "id": "3389:47692",
+    "name": "TechnicalLightStatusGreenDark",
+    "componentSetId": "3389:47688"
+  },
+  {
+    "id": "3389:47697",
+    "name": "TechnicalLightStatusOrangeLight",
+    "componentSetId": "3389:47696"
+  },
+  {
+    "id": "3389:47700",
+    "name": "TechnicalLightStatusOrangeDark",
+    "componentSetId": "3389:47696"
   }
 ]
