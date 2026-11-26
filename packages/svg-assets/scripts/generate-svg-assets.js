@@ -13,8 +13,8 @@ const APPROVED_CANVASES = [
   'Scenes - Theme',
   'Mascots - Theme',
   'Technical - Theme',
+  'Numbers - Theme',
   'Emojis',
-  'Numbers',
   'Placeholder',
 ];
 
