@@ -1,5 +1,49 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.7.0
+
+### Minor Changes
+
+- [#1887](https://github.com/utilitywarehouse/hearth/pull/1887) [`c3f6b4b`](https://github.com/utilitywarehouse/hearth/commit/c3f6b4bb1e8ea4bc29e85d829016bc6f8cff09f7) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+  
+  - Number1Energy
+  - Number2Energy
+  - Number3Energy
+  - Number4Energy
+  - SpotThermometerLight
+  - SpotThermometerDark
+  - Number1EnergyLight
+  - Number1EnergyDark
+  - Number2EnergyLight
+  - Number2EnergyDark
+  - Number3EnergyLight
+  - Number3EnergyDark
+  - Number4EnergyLight
+  - Number4EnergyDark
+  
+  ## CHANGED ASSETS
+  
+  No changed assets.
+  
+  ## REMOVED ASSETS
+  
+  No removed assets.
+
+- [#1890](https://github.com/utilitywarehouse/hearth/pull/1890) [`16f8fc9`](https://github.com/utilitywarehouse/hearth/commit/16f8fc952e61728dbd0e179583ac4b1674ad5df6) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+  
+  No new assets.
+  
+  ## CHANGED ASSETS
+  
+  No changed assets.
+  
+  ## REMOVED ASSETS
+  
+  - Number1Energy
+  - Number2Energy
+  - Number3Energy
+  - Number4Energy
+
 ## 0.6.8
 
 ### Patch Changes

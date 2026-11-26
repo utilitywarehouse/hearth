@@ -797,6 +797,23 @@
       }
     },
     {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:28794&m=dev",
+      "id": "spot-thermometer-light",
+      "name": "SpotThermometerLight",
+      "component": "SpotThermometerLight",
+      "path": "spot-thermometer-light.svg",
+      "source": "../../lib/spot-thermometer-light.svg",
+      "themed": true,
+      "light": {
+        "name": "SpotThermometerLight",
+        "path": "spot-thermometer-light.svg"
+      },
+      "dark": {
+        "name": "SpotThermometerDark",
+        "path": "spot-thermometer-dark.svg"
+      }
+    },
+    {
       "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=2125:10126&m=dev",
       "id": "scene-energy-light",
       "name": "SceneEnergyLight",
@@ -981,6 +998,74 @@
       "dark": {
         "name": "MascotCashbackDark",
         "path": "mascot-cashback-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:44271&m=dev",
+      "id": "number-1-energy-light",
+      "name": "Number1EnergyLight",
+      "component": "Number1EnergyLight",
+      "path": "number-1-energy-light.svg",
+      "source": "../../lib/number-1-energy-light.svg",
+      "themed": true,
+      "light": {
+        "name": "Number1EnergyLight",
+        "path": "number-1-energy-light.svg"
+      },
+      "dark": {
+        "name": "Number1EnergyDark",
+        "path": "number-1-energy-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:52284&m=dev",
+      "id": "number-2-energy-light",
+      "name": "Number2EnergyLight",
+      "component": "Number2EnergyLight",
+      "path": "number-2-energy-light.svg",
+      "source": "../../lib/number-2-energy-light.svg",
+      "themed": true,
+      "light": {
+        "name": "Number2EnergyLight",
+        "path": "number-2-energy-light.svg"
+      },
+      "dark": {
+        "name": "Number2EnergyDark",
+        "path": "number-2-energy-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:52817&m=dev",
+      "id": "number-3-energy-light",
+      "name": "Number3EnergyLight",
+      "component": "Number3EnergyLight",
+      "path": "number-3-energy-light.svg",
+      "source": "../../lib/number-3-energy-light.svg",
+      "themed": true,
+      "light": {
+        "name": "Number3EnergyLight",
+        "path": "number-3-energy-light.svg"
+      },
+      "dark": {
+        "name": "Number3EnergyDark",
+        "path": "number-3-energy-dark.svg"
+      }
+    },
+    {
+      "url": "https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=3379:53233&m=dev",
+      "id": "number-4-energy-light",
+      "name": "Number4EnergyLight",
+      "component": "Number4EnergyLight",
+      "path": "number-4-energy-light.svg",
+      "source": "../../lib/number-4-energy-light.svg",
+      "themed": true,
+      "light": {
+        "name": "Number4EnergyLight",
+        "path": "number-4-energy-light.svg"
+      },
+      "dark": {
+        "name": "Number4EnergyDark",
+        "path": "number-4-energy-dark.svg"
       }
     },
     {

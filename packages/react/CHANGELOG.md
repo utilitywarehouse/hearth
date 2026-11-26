@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-react
 
+## 0.37.3
+
+### Patch Changes
+
+- [#1882](https://github.com/utilitywarehouse/hearth/pull/1882) [`876d5ac`](https://github.com/utilitywarehouse/hearth/commit/876d5acba2a94e616b2753699171770296b85e1b) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `SKILL.md` tells agents to run `hearth changes` before hand-rolling code a newer Hearth release may already provide
+
+- [#1877](https://github.com/utilitywarehouse/hearth/pull/1877) [`113b703`](https://github.com/utilitywarehouse/hearth/commit/113b703a7680c57215ad553de3682860e726cbcb) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `init-ai` tells Claude Code to install the `hearth-ai-toolkit` plugin and invoke the `hearth-react` skill before any UI work
+  
+  `npx @utilitywarehouse/hearth-react init-ai` no longer `@`-imports the package's `SKILL.md` into `CLAUDE.md`. That import made the skill look already loaded, so agents skipped invoking it, and it added the skill's full text to every session.
+  
+  The block it writes now says the `hearth-react` skill and MCP server come from the `hearth-ai-toolkit` plugin, and tells agents to invoke the skill before any UI work, even in files that don't import Hearth yet. The command also adds `hearth-ai-toolkit@hearth-plugins` to `enabledPlugins` and the `hearth-plugins` marketplace to `extraKnownMarketplaces` in `.claude/settings.json`, creating the file if needed and keeping existing settings.
+  
+  **Developer changes**:
+  
+  Re-run `npx @utilitywarehouse/hearth-react init-ai` in apps that have the old block. It replaces the old block in place, and further runs make no changes. Install the `hearth-ai-toolkit` plugin when Claude Code prompts for it.
+
+- [#1881](https://github.com/utilitywarehouse/hearth/pull/1881) [`1e2cf66`](https://github.com/utilitywarehouse/hearth/commit/1e2cf666dbd9ce9d36196714d92157389b6ff75d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [BUG]: `init-ai` crashing on a non-object `.claude/settings.json`, overwriting a project's own plugin settings and half-migrating old `CLAUDE.md` blocks in CRLF files
+  
+  `npx @utilitywarehouse/hearth-react init-ai` now leaves a `.claude/settings.json` that isn't a JSON object, or whose `enabledPlugins` or `extraKnownMarketplaces` aren't objects, unchanged with a warning. Before, valid JSON such as `null` crashed it.
+  
+  An existing `enabledPlugins["hearth-ai-toolkit@hearth-plugins"]` value (for example `false`) and an existing `hearth-plugins` marketplace entry are kept instead of overwritten. Old `@…/SKILL.md` blocks in `CLAUDE.md` files with CRLF line endings are replaced in full, and the new block uses the file's line endings. The closing message also tells you to install the `hearth-ai-toolkit` plugin when `CLAUDE.md` is updated.
+
 ## 0.37.2
 
 ### Patch Changes
